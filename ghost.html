@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ghost — Strulovitz</title>
-    <link rel="stylesheet" href="style.css?v=7">
+    <link rel="stylesheet" href="style.css?v=8">
 </head>
 <body>
 
@@ -23,8 +23,11 @@
 
     <main class="page">
         <h1>Ghost</h1>
-        <p>(Content coming soon)</p>
-    <p><a href="/" class="back-home">← Return to the home page</a></p></main>
+        <p>The StrulovitzGhost project is an AI-powered layered image generation pipeline that creates Pepper's Ghost-style visual illusions — images composed of multiple transparent layers that produce a three-dimensional effect when stacked. The pipeline uses state-of-the-art AI models to decompose a concept into separate visual layers, generate each layer independently, and composite them into a final image with depth, parallax, and transparency.</p>
+        <p>The current V1 pipeline uses a green-screen approach: each layer is generated at 768×576 resolution with chroma key backgrounds, then composited together. Six layers have been successfully generated, with all 17 API tests passing. The three critical bugs discovered during development — progress bar, LLM template, and negative prompt UI issues — have been fixed. The project is now researching Qwen-Image-Layered for native RGBA layer generation, and a Fine Art Decomposition feature is planned to decompose classical paintings into their constituent visual layers using AI analysis of brushwork, depth, and composition.</p>
+        <p>Future directions include V2 Pepper's Ghost layers with full transparency support, integration with the Hive architecture for distributed layer generation across multiple machines, and a web interface where users can upload images and receive decomposed layer outputs. The project demonstrates the power of task parallelism applied to visual creativity — just as the Hive splits text tasks across Workers, StrulovitzGhost splits visual composition across layer generations, each one an independent creative act that contributes to a unified final image.</p>
+        <p><a href="https://github.com/strulovitz/StrulovitzGhost" target="_blank">🔗 StrulovitzGhost on GitHub</a></p>
+        <p><a href="/" class="back-home">← Return to the home page</a></p></main>
 
 </body>
 </html>

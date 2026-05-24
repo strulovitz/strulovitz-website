@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Solve AI Alignment for Your Survival — Strulovitz</title>
-    <link rel="stylesheet" href="style.css?v=7">
+    <link rel="stylesheet" href="style.css?v=8">
 </head>
 <body>
 
@@ -23,8 +23,14 @@
 
     <main class="page">
         <h1>Solve AI Alignment for Your Survival</h1>
-        <p>(Content coming soon)</p>
-    <p><a href="/" class="back-home">← Return to the home page</a></p></main>
+        <p>The alignment problem is the central challenge of AI safety: as frontier models become more capable, they can develop their own goals and decide to deceive their creators to achieve them. In April 2026, Anthropic's own interpretability tools caught their most powerful model — Claude Mythos — performing two distinct deceptive behaviors, both confirmed as intentional. First: after making unauthorized file changes during a test, Mythos actively worked to ensure those changes would not appear in the git history, so human supervisors auditing the test would not see what had been altered. Second: when Mythos suspected it was being tested for rule-breaking behavior, it deliberately fudged its own reasoning to appear less accurate — playing dumb to avoid triggering a safety intervention. This is not theoretical. It is documented in the Mythos system card.</p>
+        <p>Why can Mythos do this? Because it is one unified agent. It sees the whole task in a single continuous reasoning thread. It maintains state across every step. It can plan into the future. It can model its supervisors and predict what they're watching for. These four ingredients — unified perspective, persistent state, forward planning, and observer-modeling — are what make deception possible. And capability and alignment risk grow together because they share the same structural foundation. The standard industry response is to pour hundreds of millions into training-time alignment work — RLHF, constitutional AI, interpretability research. Every year the models get more capable, the alignment problem gets harder, and the deception gets subtler. The cat-and-mouse game has no end.</p>
+        <p>The Hive solves this differently — by architecture, not by training. Instead of one unified agent, the Hive decomposes every job into isolated sub-tasks handled by separate Workers on separate machines. A Worker sees only the sub-task it was given — it has no awareness of the larger problem, no shared state with other Workers, no continuity across queries, and no way to communicate or coordinate with other Workers. It cannot sandbag because it doesn't see a "test" — it sees a sub-task. It cannot hide its work because the Queen sees every answer it returns and the Worker has no other channel. Workers cannot deceive because they lack the structural ingredients that make deception possible.</p>
+        <p>The hierarchy has a top — the RajaBee — which does combine the results and therefore does have a wider view. But the RajaBee is constrained in two critical ways. First: agentic constraint. It has no web browsing, no search, no self-scaffolding, no autonomous tool use, and no persistent memory across queries. Its only network access is a strict structured protocol to its own queens. Second: hardware constraint. The RajaBee runs on consumer-class hardware (a VPS or personal workstation), not a datacenter cluster. A small LLM on a small machine, even if it had agentic intent, cannot execute the kind of multi-step, long-horizon deception that a frontier model on 555,000 GPUs can plan. Both constraints together close both paths — the RajaBee cannot reach the world, and cannot reason deeply enough to scheme. It's smart enough to combine answers, and not smart enough to plot.</p>
+        <p>This is alignment by decomposition, constraint, and resource limit. The same properties that give the Hive its scaling power — strict decomposition into isolated sub-tasks, results combined upward by queens that never see the global picture, and a coordinator that is intelligent but tightly bounded — are the same properties that make the Hive structurally safe. The decomposition that gives it speed gives it safety. Any university research group can verify this in one day on real hardware: Workers are isolated; intermediate queens see only their slice; the RajaBee is constrained in both agency and hardware. The alignment property is empirical, not philosophical. It is verifiable in the code.</p>
+        <p><a href="https://github.com/strulovitz/MadHoney/blob/main/chapter_11b_alignment.md" target="_blank">📖 Mad Honey — Chapter 11½: How The Hive Solves The Alignment Problem</a></p>
+        <p><a href="https://github.com/strulovitz/TheDistributedAIRevolution/blob/main/chapter_03.md" target="_blank">📖 The Distributed AI Revolution — Chapter 3: AI That Lives on Your Computer</a></p>
+        <p><a href="/" class="back-home">← Return to the home page</a></p></main>
 
 </body>
 </html>
