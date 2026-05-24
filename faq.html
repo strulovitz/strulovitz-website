@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ — Strulovitz</title>
-    <link rel="stylesheet" href="style.css?v=12">
+    <link rel="stylesheet" href="style.css?v=13">
 </head>
 <body>
 
@@ -22,14 +22,15 @@
     </nav>
 
     <main class="page">
-        <h1>FAQ</h1>
-        <p><strong>Is the Hive actually working software?</strong> Yes. It has been tested across two operating systems (Windows and Linux), in three configurations (localhost, LAN, and real internet through Cloudflare Tunnel), with real AI models processing real jobs. On March 22, 2026, two Windows machines on a home network ran a distributed AI job together for the first time. On March 25, the same system ran through the real internet in 29 seconds. On April 10-11, 2026, hierarchical hives with RajaBees, DwarfQueens, and Workers were tested across two physical machines. On April 18, the multimedia pipeline was proven end-to-end: photos, sound, and video. Every experiment is documented with commit hashes anyone can verify.</p>
-        <p><strong>What hardware do I need?</strong> For a Worker: any computer made in the last 5-6 years. A graphics card helps but isn't required. For a Queen: a more powerful machine — a desktop with a good GPU, or a cloud VPS. The entire system runs on consumer hardware. The AI models (llama, DeepSeek, Qwen) are free to download and run locally.</p>
-        <p><strong>Does the system require an internet connection?</strong> Only for the Public Mode, where Workers connect to a marketplace website. In Private Mode, the system runs entirely on an organization's internal network — no internet connection required at all. Data never leaves the building.</p>
-        <p><strong>How is this different from ChatGPT or Claude?</strong> Cloud AI runs on someone else's computers. You send your data to their servers, they process it, they charge you. The Hive runs on your own hardware. Your data stays with you. No subscription, no API key, no terms of service, no usage limits. The AI models are open-weight — you can inspect them, fine-tune them, and run them however you want.</p>
-        <p><strong>Is this an AI agent? Will it take over my computer?</strong> No. The Worker AI does exactly one thing: receives a specific, clearly defined sub-task, processes it, and returns the result. It does not browse the internet, send emails, open programs, or make autonomous decisions. All coordination is done by the Queen, and the Queen only does what the Beekeeper asked for. This is task processing, not autonomous agency.</p>
-        <p><strong>How is the alignment problem handled?</strong> By architecture, not by training. The Hive decomposes every job into isolated sub-tasks handled by separate Workers. A Worker sees only its tiny piece — it has no awareness of the larger task, no shared state with other Workers, and no ability to coordinate with them. The RajaBee at the top is constrained in both agency (no web browsing, no self-scaffolding, no autonomous tools) and hardware (consumer-class, not a datacenter cluster). Alignment becomes an architectural property — verifiable in the code, not dependent on hoping the training worked.</p>
-        <p><strong>How was this built?</strong> The entire platform was built by one person — Nir Strulovitz — in seven days using AI-assisted coding ("vibe coding"). Approximately 4,000 lines of Python. Free AI models. Consumer hardware. No cloud, no subscription, no funding. The book "The Distributed AI Revolution" documents the entire process, day by day, commit by commit.</p>
+        <h1>FAQ — It Is Not What You Already Know</h1>
+        <p>Before your gut reaches for the obvious comparisons, here is why each of them is wrong.</p>
+        <p><strong>THE HIVE DOES INFERENCE ONLY. IT DOES NOT TRAIN ANY MODEL.</strong> Every comparison that involves training — federated learning, distributed training, multi-machine training — is irrelevant. The hive runs already-trained models. Nothing more.</p>
+        <p><strong>It is NOT PETALS / EXO / SPLIT-MODEL FRAMEWORKS.</strong> Those use tensor parallelism or pipeline parallelism to split one model across a few machines that must sit in the same room with low-latency networking. THE HIVE uses task parallelism — each worker runs a complete independent model on its own — and operates across continents.</p>
+        <p><strong>It is NOT LANGCHAIN / CREWAI / AUTOGEN — AND IT IS NOT AN AGENT FRAMEWORK, NOT "AGENTIC AI."</strong> Those run on a single machine and chain tools or "agents" together inside one process or one box. THE HIVE is millions of separate physical machines, each running a complete model on its own hardware, coordinated by queens.</p>
+        <p><strong>It is NOT MANY PROCESSES ON ONE MACHINE COMPETING FOR THE SAME CPU / GPU / RAM.</strong> Every worker is a separate physical computer with its own CPU, GPU, RAM, disk, and network connection. There is no resource contention because the resources are not shared.</p>
+        <p><strong>It is NOT A BIG AI CLOUD WITH A THIN CLIENT.</strong> There is no central datacenter, no central operator, no central choke point, no entity that can pull the plug.</p>
+        <p><strong>It is NOT A PAPER.</strong> It is working open-source code on GitHub today. The book MadHoney documents how it was built and how it was tested in dedicated chapters.</p>
+        <p>If you suspect this is something you have already seen, please ask your favorite frontier cloud AI assistant to read the GitHub repositories linked at the bottom of this letter and ask it directly: "Is this anything like Petals, LangChain, agent frameworks, or any other distributed-AI work I already know — or is it something new?" In five minutes it will tell you it is new.</p>
         <p><a href="https://github.com/strulovitz/TheDistributedAIRevolution/blob/main/chapter_15.md" target="_blank">📖 The Distributed AI Revolution — Chapter 15: The Octopus Is Slippery (Extended FAQ)</a></p>
         <p><a href="https://github.com/strulovitz/TheDistributedAIRevolution/blob/main/chapter_08.md" target="_blank">📖 The Distributed AI Revolution — Chapter 8: The Proof — We Actually Did It</a></p>
         <p><a href="/" class="back-home">← Return to the home page</a></p></main>
