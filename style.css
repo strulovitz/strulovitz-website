@@ -6,11 +6,22 @@
     box-sizing: border-box;
 }
 
-body {
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    background: #0a0a0a;
-    color: #e0e0e0;
-    min-height: 100vh;
+/* ── 3x3 Grid ── */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    max-width: 1200px;
+    margin: 6px auto 0 auto;
+    padding: 0 6px;
+}
+
+.grid img {
+    display: block;
+    width: 100%;
+    height: auto;
+    touch-action: manipulation;
 }
 
 /* ── Navbar ── */
