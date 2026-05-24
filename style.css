@@ -1,0 +1,94 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #0a0a0a;
+    color: #e0e0e0;
+    min-height: 100vh;
+}
+
+/* ── Navbar ── */
+
+.navbar {
+    background: #111;
+    border-bottom: 1px solid #222;
+    padding: 0;
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+    gap: 0;
+}
+
+.nav-links li {
+    /* pipe between items */
+}
+
+.nav-links a {
+    display: block;
+    padding: 14px 18px;
+    color: #ccc;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: color 0.2s, background 0.2s;
+}
+
+.nav-links a:hover {
+    color: #fff;
+    background: #1a1a1a;
+}
+
+/* pipe separators (pure CSS, no extra markup) */
+.nav-links li:not(:last-child)::after {
+    content: "|";
+    color: #444;
+    padding-left: 0;
+    vertical-align: middle;
+    font-weight: 300;
+}
+
+/* ── Banner ── */
+
+.banner {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ── Mobile ── */
+
+@media (max-width: 600px) {
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links a {
+        padding: 12px 24px;
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-links li:not(:last-child)::after {
+        content: none;
+    }
+
+    .nav-links li {
+        border-bottom: 1px solid #1a1a1a;
+        width: 100%;
+        text-align: center;
+    }
+}
