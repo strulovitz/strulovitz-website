@@ -72,23 +72,13 @@ body {
 
 @media (max-width: 600px) {
     .nav-links {
-        flex-direction: column;
-        align-items: center;
+        /* keep horizontal, let items wrap to next line naturally */
+        justify-content: center;
+        padding: 4px 0;
     }
 
     .nav-links a {
-        padding: 12px 24px;
-        width: 100%;
-        text-align: center;
-    }
-
-    .nav-links li:not(:last-child)::after {
-        content: none;
-    }
-
-    .nav-links li {
-        border-bottom: 1px solid #1a1a1a;
-        width: 100%;
-        text-align: center;
+        padding: 10px 10px;
+        font-size: 0.85rem;
     }
 }
