@@ -49,14 +49,7 @@ body {
     background: #1a1a1a;
 }
 
-/* pipe separators (pure CSS, no extra markup) */
-.nav-links li:not(:last-child)::after {
-    content: "|";
-    color: #444;
-    padding-left: 0;
-    vertical-align: middle;
-    font-weight: 300;
-}
+
 
 /* ── Banner ── */
 
