@@ -6,22 +6,15 @@
     box-sizing: border-box;
 }
 
-/* ── 3x3 Grid ── */
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 6px;
-    max-width: 1200px;
-    margin: 6px auto 0 auto;
-    padding: 0 6px;
+html {
+    scroll-behavior: smooth;
 }
 
-.grid img {
-    display: block;
-    width: 100%;
-    height: auto;
-    touch-action: manipulation;
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #0a0a0a;
+    color: #e0e0e0;
+    min-height: 100vh;
 }
 
 /* ── Navbar ── */
@@ -41,7 +34,6 @@
 }
 
 .nav-links li {
-    /* pipe between items */
 }
 
 .nav-links a {
@@ -61,7 +53,6 @@
 }
 
 
-
 /* ── Banner ── */
 
 .banner {
@@ -72,11 +63,53 @@
     margin: 0 auto;
 }
 
+/* ── 3x3 Grid ── */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    max-width: 1200px;
+    margin: 6px auto 0 auto;
+    padding: 0 6px;
+}
+
+.grid a {
+    display: block;
+}
+
+.grid img {
+    display: block;
+    width: 100%;
+    height: auto;
+    touch-action: manipulation;
+}
+
+/* ── Text Sections ── */
+
+.text-section {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.text-section h2 {
+    font-size: 1.6rem;
+    color: #fff;
+    margin-bottom: 12px;
+    border-bottom: 2px solid #222;
+    padding-bottom: 8px;
+}
+
+.text-section p {
+    color: #999;
+    line-height: 1.6;
+}
+
 /* ── Mobile ── */
 
 @media (max-width: 600px) {
     .nav-links {
-        /* keep horizontal, let items wrap to next line naturally */
         justify-content: center;
         padding: 4px 0;
     }
