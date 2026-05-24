@@ -106,6 +106,13 @@ body {
     line-height: 1.6;
 }
 
+.page-image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 20px auto;
+}
+
 /* ── Text Sections ── */
 
 .text-section {
