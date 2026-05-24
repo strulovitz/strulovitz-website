@@ -127,6 +127,32 @@ body {
     line-height: 1.6;
 }
 
+.read-more {
+    display: inline-block;
+    margin-top: 10px;
+    color: #6af;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.read-more:hover {
+    color: #8cf;
+    text-decoration: underline;
+}
+
+.back-home {
+    display: inline-block;
+    margin-top: 30px;
+    color: #6af;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.back-home:hover {
+    color: #8cf;
+    text-decoration: underline;
+}
+
 /* ── Mobile ── */
 
 @media (max-width: 600px) {
