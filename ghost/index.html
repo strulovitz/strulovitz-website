@@ -4,27 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ghost — Strulovitz</title>
-    <link rel="stylesheet" href="style.css?v=14">
+    <link rel="stylesheet" href="../style.css?v=14">
 </head>
 <body>
 
     <nav class="navbar">
         <ul class="nav-links">
             <li><a href="/">Home</a></li>
-            <li><a href="hive.html">Hive</a></li>
-            <li><a href="ghost.html">Ghost</a></li>
-            <li><a href="faq.html">FAQ</a></li>
+            <li><a href="../hive/index.html">Hive</a></li>
+            <li><a href="index.html">Ghost</a></li>
+            <li><a href="../hive/faq.html">FAQ</a></li>
             <li><a href="downloads.html">Downloads</a></li>
-            <li><a href="demonstration.html">Demonstration</a></li>
-            <li><a href="philosophy.html">Philosophy</a></li>
-            <li><a href="about.html">About me</a></li>
+            <li><a href="../hive/demonstration.html">Demonstration</a></li>
+            <li><a href="../hive/philosophy.html">Philosophy</a></li>
+            <li><a href="../hive/about.html">About me</a></li>
         </ul>
     </nav>
 
     <main class="page">
         <h1>Ghost</h1>
         <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@strulovitz/video/7643191765771619604" data-video-id="7643191765771619604" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@strulovitz" href="https://www.tiktok.com/@strulovitz?refer=embed">@strulovitz</a> <p>Free new tech in gaming 2D --&gt; 3D --&gt; VR --&gt; Strulovitz Ghost 👻 Local AI + friends = giant leap in computer graphics and the SAME idea Lets YOU make money + save the world while sleeping https:&#47;&#47;github.com&#47;strulovitz&#47;StrulovitzGhost</p> <a target="_blank" title="♬ original sound  - strulovitz" href="https://www.tiktok.com/music/original-sound-strulovitz-7643191887020575505?refer=embed">♬ original sound  - strulovitz</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
-        <img class="page-image" src="images/peppers-ghost.png" alt="Pepper's Ghost — multi-layer 3D illusion">
+        <img class="page-image" src="../images/peppers-ghost.png" alt="Pepper's Ghost — multi-layer 3D illusion">
         <p>StrulovitzGhost is a new way to render graphics for fantasy games — creating true depth illusions using multiple semi-transparent layers, inspired by the 19th-century Pepper's Ghost stage illusion. Instead of one flat screen, the viewer looks through <strong>six half-transparent layers</strong> arranged in physical depth, each one reflecting a precisely calibrated AI-generated image off a transparent surface at 45°. The result is a holographic-like 3D diorama — not a simulation of depth on a screen, but actual physical depth from 20 centimeters to 2 meters away from the viewer's eyes. It's like a custom illustrated book page that exists in real three-dimensional space.</p>
         <p>The physical setup is beautifully simple: three gaming monitors laid flat on a table like floor tiles, and six reflective layers made from ordinary CD/DVD cases opened at 45° angles (two layers per monitor). The user sits at the head of the table and looks through all six layers. Because each layer is half-transparent, you see through it to the layers behind — creating a genuine volumetric image. The software generates six PNG images (one per layer), each with a transparent background, and displays each in its own window positioned correctly over the monitors.</p>
         <p>The system has two modes. <strong>Text To Ghost (TTG)</strong> converts a natural language scene description — like "a D&D party makes camp in a moonlit forest clearing" — into six AI-generated layers using a recursive hierarchical architecture. A Manager (Boss) splits the scene into six rough layer descriptions using a local Qwen LLM. Each Teacher further splits their layer into detailed sub-descriptions. Students (Workers) each generate one image using Qwen-Image-2512 on their own GPU. Results flow back up: Teachers combine their students' images, the Manager combines all six classroom results into the final scene. Bosses only think and write text. Workers only draw. Combining is mechanical (PIL alpha_composite), not AI. The entire pipeline is parallel — all Workers at the same level work simultaneously, independently, with no dependency on each other.</p>

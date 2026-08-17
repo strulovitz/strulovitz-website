@@ -85,6 +85,53 @@ body {
     touch-action: manipulation;
 }
 
+/* ── Project Cards ── */
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 30px auto 0 auto;
+    padding: 0 20px;
+}
+
+.project-card {
+    display: block;
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.project-card:hover {
+    border-color: #6af;
+    background: #161616;
+}
+
+.project-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.project-card-text {
+    padding: 16px 20px;
+}
+
+.project-card-text h2 {
+    color: #fff;
+    font-size: 1.4rem;
+    margin-bottom: 6px;
+}
+
+.project-card-text p {
+    color: #999;
+    line-height: 1.5;
+}
+
 /* ── Page Content ── */
 
 .page {
@@ -171,5 +218,9 @@ body {
     .nav-links a {
         padding: 10px 10px;
         font-size: 0.85rem;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
     }
 }

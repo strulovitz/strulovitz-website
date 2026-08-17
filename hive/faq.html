@@ -4,15 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FAQ — Strulovitz</title>
-    <link rel="stylesheet" href="style.css?v=14">
+    <link rel="stylesheet" href="../style.css?v=14">
 </head>
 <body>
 
     <nav class="navbar">
         <ul class="nav-links">
             <li><a href="/">Home</a></li>
-            <li><a href="hive.html">Hive</a></li>
-            <li><a href="ghost.html">Ghost</a></li>
+            <li><a href="index.html">Hive</a></li>
+            <li><a href="../ghost/index.html">Ghost</a></li>
             <li><a href="faq.html">FAQ</a></li>
             <li><a href="downloads.html">Downloads</a></li>
             <li><a href="demonstration.html">Demonstration</a></li>
@@ -23,7 +23,7 @@
 
     <main class="page">
         <h1>FAQ — It Is Not What You Already Know</h1>
-        <img class="page-image" src="images/it-is-not-like-exo-petals-crewai-langgraph.png" alt="It is not like EXO, Petals, CrewAI, LangGraph">
+        <img class="page-image" src="../images/it-is-not-like-exo-petals-crewai-langgraph.png" alt="It is not like EXO, Petals, CrewAI, LangGraph">
         <p>Before your gut reaches for the obvious comparisons, here is why each of them is wrong.</p>
         <p><strong>THE HIVE DOES INFERENCE ONLY. IT DOES NOT TRAIN ANY MODEL.</strong> Every comparison that involves training — federated learning, distributed training, multi-machine training — is irrelevant. The hive runs already-trained models. Nothing more.</p>
         <p><strong>It is NOT PETALS / EXO / SPLIT-MODEL FRAMEWORKS.</strong> Those use tensor parallelism or pipeline parallelism to split one model across a few machines that must sit in the same room with low-latency networking. THE HIVE uses task parallelism — each worker runs a complete independent model on its own — and operates across continents.</p>
