@@ -132,16 +132,36 @@ In `studio/backend/core/inference/llama_cpp.py`, change the three
 
 > This edit is inside the installed app and is reset by `unsloth studio update`.
 
+### 3e. Recognize `q_lora_rank` as MLA (DeepSeek V4 Pro) — recommended
+
+DeepSeek V4 Pro uses architecture `deepseek4` and stores its MLA signal in
+`{arch}.attention.q_lora_rank` (NOT `kv_lora_rank`, which older DeepSeek used).
+Studio's "is this an MLA model, so drop MTP under Auto" check only reads
+`kv_lora_rank`, so it misses deepseek4 and can try MTP in vain (the Q2_K_* quants
+advertise `nextn_predict_layers` but strip the actual draft tensors → llama-server
+aborts, then Studio retries without spec; see note 11). Four small edits in the
+same `llama_cpp.py`:
+
+1. metadata map — add `f"{arch}.attention.q_lora_rank": "q_lora_rank"` next to
+   the existing `kv_lora_rank` mapping.
+2. `__init__` — add `self._q_lora_rank: Optional[int] = None`.
+3. the two reset blocks — add `self._q_lora_rank = None`.
+4. `_build_speculative_flags`, the `_auto_mla_embedded_mtp` guard → append
+   `or self._q_lora_rank is not None` to the lora-rank check.
+
+> Reset by `unsloth studio update` (same as the timeout fix).
+
 ---
 
 ## 4. Summary
 
 | Piece | Before | After |
 |-------|--------|-------|
-| llama.cpp backend | Unsloth prebuilt `b10360` (no MTP) | Compiled from Unsloth fork `master` with CUDA + MTP |
-| CUDA support | prebuilt CUDA 13 | source-built for sm_120 |
-| Load timeout | 600 s | (optionally) 3600 s |
-| Location | `~/.unsloth/llama.cpp` | `~/.local/unsloth-llama-cpp` |
+| llama.cpp backend | Unsloth prebuilt `b10360` (no MTP) | Compiled from Unsloth fork `master` with CUDA + MTP (or official `b10472` prebuilt for "UD" quants, §7) |
+| CUDA support | prebuilt CUDA 13 | source-built for the GPU (sm_120 = RTX 5090; sm_89 = RTX 4070 Ti) |
+| Load timeout | 600 s | 3600 s (§3d) |
+| MLA detection | `kv_lora_rank` only | also `q_lora_rank` (§3e, for DeepSeek V4 Pro) |
+| Location | `~/.unsloth/llama.cpp` | `~/.local/unsloth-llama-cpp` (or `-b10472`) via `UNSLOTH_LLAMA_CPP_PATH` |
 
 ---
 
@@ -277,5 +297,54 @@ Linux Mint 22 machine, remember these things:
     no patchelf needed) for such models — or recompile from the b10472 *source*
     commit `7a556b8f9` if you want a custom sm_120 build. (Full detail:
     session-state file §10.)
+
+---
+
+## 7. What the full Debian 13 test taught us (18 Aug 2026)
+
+Everything below was confirmed by actually loading models on the Debian 13
+machine (RTX 5090). It applies to the Linux Mint 22 machine too.
+
+### 7a. DeepSeek V4 Pro 0813 (IQ1_M) — the one we'll run — has NO MTP
+
+`6block/DeepSeek-V4-Pro-0813-GGUF`, `IQ1_M` = a **single** 372 GB `.gguf`
+(arch `deepseek4`, fields `q_lora_rank` + `output_lora_rank`). Its header has
+**no `nextn_predict_layers` and no draft tensors** — so no MTP at all. It loads
+with `--spec-default` on the first try (no futile MTP attempt), and answers.
+This is the "YOU" model Nir means when he says DeepSeek V4 Pro 0813.
+
+### 7b. The Q2_K-XL DeepSeek *does* advertise MTP (but strips the tensors)
+
+`teamblobfish/DeepSeek-V4-Pro-GGUF` `Q2_K-XL` (13 shards, ~534 GB) has
+`deepseek4.nextn_predict_layers` in its header but NO actual draft tensors.
+Without the §3e fix, Studio emits `--spec-type draft-mtp`, llama-server aborts
+("model doesn't contain MTP layers"), and Studio retries without spec — the
+"trying in vain" wasted attempt. With §3e applied, Auto drops MTP for deepseek4
+and loads cleanly. (This is why §3e matters even if the 0813 model itself has
+no MTP.)
+
+### 7c. Frontend can freeze after the model loads (restart fixes it)
+
+On the first big-model chat, the desktop app window froze once: the message
+never reached the model (llama-server stayed idle, 0% GPU, no request in the
+logs), and the stop button did nothing. Closing and reopening Unsloth fixed it;
+the second attempt worked. Not our fix's fault — a Studio frontend stall. If the
+GUI looks stuck, check the llama-server log: if it shows nothing new, just
+restart the app (the model is still on disk, so no re-download).
+
+### 7d. Models far bigger than RAM "work but slowly" (the 11% freeze)
+
+534 GB / 372 GB models on 62 GB RAM load via `mmap` (llama-server says "model
+loaded" in ~23 s) but the desktop can freeze for tens of minutes while the OS
+pages the model in/out, and generation is slow (reads from NVMe per token).
+Prefer models that fit in RAM+VRAM for comfort. This is physics, not a bug.
+
+### 7e. The three site-packages edits to re-apply after `unsloth studio update`
+
+1. 3600 s timeout (§3d, three `_wait_for_health` call sites)
+2. `q_lora_rank` MLA fix (§3e)
+(That's it — everything else is a llama.cpp binary chosen via
+`UNSLOTH_LLAMA_CPP_PATH`, which survives updates.)
+
 
 
