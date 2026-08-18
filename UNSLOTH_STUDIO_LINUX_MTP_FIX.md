@@ -223,3 +223,27 @@ Linux Mint 22 machine, remember these things:
    It was (a) an old llama.cpp lacking MTP, and (b) a 600 s timeout too short
    for a ~500 GB model. Fix both and it works.
 
+9. **Desktop app vs server version — do not mix them up.** There are two ways
+   to install, and they give different "faces" of the same program:
+   - The **`.deb` file** (from `https://unsloth.ai/download/linux`) = the
+     **desktop app**: a native window with an app-menu icon.
+   - The **`curl -fsSL https://unsloth.ai/install.sh | sh`** script = the
+     **server version**: runs `unsloth studio` and opens in a **browser**
+     (`http://127.0.0.1:8888`), and asks you to **create a password** on first
+     launch (normal security step, not an error).
+   On the Debian 13 machine we started with the `.deb` (desktop app), then
+   switched to the curl script during troubleshooting and unexpectedly lost the
+   native window. The fix was to **reinstall the `.deb` on top** — the backend
+   (and therefore the compiled MTP binary and timeout edits) lives in
+   `~/.unsloth/studio` and is shared by both, so reinstalling the `.deb` only
+   brings back the window without undoing the fixes.
+
+10. **RTX 4070 Ti = compute capability 8.9, so `CMAKE_CUDA_ARCHITECTURES=89`.**
+    On the Linux Mint 22 machine with the RTX 4070 Ti, use `89` instead of
+    `120`. Confirm before building:
+    ```bash
+    nvidia-smi --query-gpu=name,compute_cap --format=csv
+    ```
+    Everything else in this guide is identical.
+
+
