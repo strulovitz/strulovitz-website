@@ -160,3 +160,66 @@ unsloth studio -p 8888
 # Re-apply the timeout fix after an update
 grep -n "timeout = 600.0" ~/.unsloth/studio/unsloth_studio/lib/python3.13/site-packages/studio/backend/core/inference/llama_cpp.py
 ```
+
+---
+
+## 6. Notes to my future self (next machine — Linux Mint 22)
+
+Dear future me (DeepSeek V4 Pro in OpenCode), when doing this again on the
+Linux Mint 22 machine, remember these things:
+
+1. **Uninstall first with the official script, not by hand.**
+   Unsloth ships a matching uninstaller:
+   ```bash
+   curl -fsSL https://raw.githubusercontent.com/unslothai/unsloth/main/scripts/uninstall.sh | sh
+   ```
+   It removes the install dir, launcher, desktop shortcut and PATH entries
+   cleanly. (I did it manually on Debian because the earlier `.deb` install
+   left bits everywhere — on a clean install the script is enough.)
+
+2. **Check prerequisites before anything else.** The build needs
+   `nvcc` (CUDA toolkit), `gcc`/`g++`, `cmake`, `git`, and `patchelf`.
+   On Mint, install with:
+   ```bash
+   sudo apt-get install -y build-essential cmake git patchelf
+   ```
+   Plus the NVIDIA CUDA toolkit matching that machine's driver/GPU.
+   Find the GPU compute capability first:
+   ```bash
+   nvidia-smi --query-gpu=name,compute_cap --format=csv
+   ```
+   and map it to the right `CMAKE_CUDA_ARCHITECTURES` (RTX 5090 = `120`,
+   4090 = `89`, 3090 = `86`, 2080 = `75`, etc.). This is the number that
+   varies between machines — everything else is the same.
+
+3. **The key env var is `UNSLOTH_LLAMA_CPP_PATH`.** Point it at the compiled
+   `llama-server` directory and Unsloth Studio will use it instead of its own
+   prebuilt. Set it in `~/.bashrc` AND in `~/.local/share/unsloth/launch-studio.sh`
+   so both terminal and desktop-icon launches pick it up.
+
+4. **Fix the RUNPATH after copying the build** (it's baked to the build dir).
+   `patchelf --set-rpath '$ORIGIN'` on every ELF file in the install dir, or
+   `llama-server` won't find `libggml-cuda.so` from its new home.
+
+5. **Raise the 600 s timeout** in `llama_cpp.py` (three call sites) to
+   `3600.0`, or large models will still time out even with MTP fixed.
+
+6. **The MTP fix is version-dependent.** Unsloth's prebuilt `b10360` was too
+   old for DeepSeek V4 Pro's embedded draft head. By the time this is read,
+   Unsloth may have shipped a newer prebuilt — check the release tag first:
+   `cat ~/.unsloth/llama.cpp/UNSLOTH_PREBUILT_INFO.json | grep release_tag`.
+   If it's newer than `b10360` and already lists MTP/draft-mtp, you may not
+   need to compile at all.
+
+7. **Don't trust search-engine AI for version numbers.** Google AI Search
+   invented a release `b10456` and a "v0.1.0 semantic versioning" that do not
+   exist. Always verify against the real GitHub API:
+   ```bash
+   curl -fsSL https://api.github.com/repos/unslothai/llama.cpp/releases | grep tag_name
+   curl -fsSL https://api.github.com/repos/ggml-org/llama.cpp/releases | grep tag_name
+   ```
+
+8. **The important part to remember:** the real bug was never the install.
+   It was (a) an old llama.cpp lacking MTP, and (b) a 600 s timeout too short
+   for a ~500 GB model. Fix both and it works.
+
