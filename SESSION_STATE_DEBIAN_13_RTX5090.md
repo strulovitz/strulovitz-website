@@ -243,3 +243,23 @@ compiled build lives in `~/.local/unsloth-llama-cpp` and is chosen via
 `UNSLOTH_LLAMA_CPP_PATH`, so the update is irrelevant to us. Do NOT update, and
 never copy our binary over the bundled one (that segfaults — lib 0.18.1 vs
 0.19.0); the env-var route is the only correct one.
+
+## 9. Kimi K3 (UD-Q1_0, 467 GB) — 18 Aug 2026 (download in progress)
+
+Third big model on this machine. Repo `unsloth/Kimi-K3-GGUF`, variant
+`UD-Q1_0` = **467 GB**, split into **11 shards**
+(`Kimi-K3-UD-Q1_0-00001-of-00011.gguf` …).
+
+- **Architecture is NOT MLA.** Kimi K3 is a 2.8T-parameter MoE with **Kimi Delta
+  Attention (KDA)** + **Attention Residuals (AttnRes)**, 1M context, native
+  vision. So the §8.1 `q_lora_rank` MLA fix does NOT apply here — that fix is
+  specific to DeepSeek `deepseek4`. The backend already maps
+  `{arch}.kda.head_dim` → `kda_head_dim`, so KDA is handled.
+- **What DOES apply (already in place, do NOT redo):** the compiled
+  Unsloth-fork llama-server (the Kimi K3 README itself says it needs the
+  `unslothai/llama.cpp` fork) + the 3600 s timeout (467 GB takes a long time).
+- **MTP status: TBD.** To confirm after the download finishes: read the shard-1
+  GGUF header for `nextn_predict_layers` / draft tensors (same check as §8).
+  If Kimi has no MTP, expect a clean single-attempt load like DeepSeek 0813
+  (§8); if it advertises MTP with stripped tensors, expect the futile-attempt +
+  retry pattern unless a future fix handles it.
