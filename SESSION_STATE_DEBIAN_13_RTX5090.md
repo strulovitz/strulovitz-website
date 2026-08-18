@@ -92,12 +92,18 @@ Two root causes were identified from the logs:
 - Desktop app installed: `dpkg -l | grep unsloth` → `0.1.800-beta`.
 - Desktop app binary: `/usr/bin/unsloth-studio`.
 - Backend: `~/.unsloth/studio/unsloth_studio/` (shared by desktop + server).
-- Compiled llama-server: `~/.local/unsloth-llama-cpp/llama-server`.
+- **llama-server in use: the official Unsloth b10472 prebuilt**
+  at `~/.local/unsloth-llama-cpp-b10472/llama-server` (build 10472, commit
+  `7a556b8f9`, ggml 0.20.1, compiled for sm_120). It has the **"UD" (Unsloth
+  Dynamic) quant types** + Kimi K3 vision (`libmtmd`) that Kimi K3 needs. See §10.
   Verified it reports `CUDA0: NVIDIA GeForce RTX 5090 Laptop GPU`.
-- The old prebuilt still exists at `~/.unsloth/llama.cpp/build/bin/` (b10360),
-  but the env var makes Studio prefer our compiled one. Do NOT copy our binary
-  over the old one — it caused a segfault (lib version mismatch: 0.18.1 vs 0.19.0).
-  The env-var route is correct.
+- **Fallback builds still on disk (do NOT delete):**
+  - our hand-compiled build `~/.local/unsloth-llama-cpp/llama-server` (fork
+    master commit `d32676d`, no UD quant support — that is why Kimi K3 failed
+    on it), and
+  - the bundled prebuilt `~/.unsloth/llama.cpp/build/bin/` (b10360).
+  The env var picks which one Studio uses; it currently points at b10472.
+  Do NOT copy binaries between these dirs (lib version mismatches segfault).
 - The timeout fix is applied (3600 s).
 - The `q_lora_rank` MLA fix is applied (§8.1) — makes Auto mode skip the futile
   MTP attempt for DeepSeek V4 Pro.
@@ -108,15 +114,18 @@ Two root causes were identified from the logs:
 
 ## 5. What STILL needs to be done (the remaining work)
 
-1. **Delete the old DeepSeek V4 Pro `Q2_K-XL`** (Nir does this from the GUI) —
-   frees ~574 GB of disk.
-2. **Download + load a smaller quant of DeepSeek V4 Pro 0813** and test it.
-   Watch the logs (see §6). Expect the same behaviour as §8.3.
-3. **After any `unsloth studio update`, re-apply BOTH local site-packages fixes:**
+1. **Log out / log back in** (or reboot) so the GNOME desktop app picks up the
+   UPDATED `UNSLOTH_LLAMA_CPP_PATH` (now → b10472, §10).
+2. **Load Kimi K3 and test it** (should now work with b10472). Then confirm
+   DeepSeek V4 Pro 0813 still loads too (b10472 is newer, so it should).
+3. **Delete the old DeepSeek V4 Pro `Q2_K-XL`** when done (frees ~574 GB) — Nir
+   does this from the GUI.
+4. **After any `unsloth studio update`, re-apply BOTH local site-packages fixes:**
    - the 3600 s load timeout (§3.6)
    - the `q_lora_rank` MLA fix (§8.1)
-   These are the only two edits an update wipes.
-4. Logs to watch while loading / chatting (§6):
+   These are the only two edits an update wipes (they are Python-side, so they
+   survive llama.cpp swaps).
+5. Logs to watch while loading / chatting (§6):
    - Studio server logs: `~/.unsloth/studio/logs/server/`
    - llama-server logs: `~/.unsloth/studio/logs/llama-server/`
    - backend log: `~/.unsloth/studio/tauri.log`
@@ -238,11 +247,12 @@ bigger models work via mmap but slowly.
 ### 8.4 The bundled llama.cpp "update available" prompt — safe to skip
 
 Studio offered "New llama.cpp update: unknown → b10472-mix-4b653db (219 MB)".
-That would only upgrade the BUNDLED prebuilt in `~/.unsloth/llama.cpp`; our
-compiled build lives in `~/.local/unsloth-llama-cpp` and is chosen via
-`UNSLOTH_LLAMA_CPP_PATH`, so the update is irrelevant to us. Do NOT update, and
-never copy our binary over the bundled one (that segfaults — lib 0.18.1 vs
-0.19.0); the env-var route is the only correct one.
+That would only upgrade the BUNDLED prebuilt in `~/.unsloth/llama.cpp`. At the
+time we skipped it because our compiled build (via the env var) already handled
+DeepSeek. LATER we discovered b10472 is REQUIRED for Kimi K3's "UD" quant format
+(§10) — and we installed it to a fresh dir + repointed the env var, NOT via the
+GUI button. Do NOT copy binaries between the dirs (lib version mismatches
+segfault); the env-var route is the only correct one.
 
 ## 9. Kimi K3 (UD-Q1_0, 467 GB) — 18 Aug 2026 (downloaded; header checked)
 
@@ -267,3 +277,30 @@ metadata-only** shard; the weights start in shard 2 (~49 GB each).
   DeepSeek 0813 in §8). Note it DOES carry `kv_lora_rank`, so the backend's
   existing MLA detection would already classify it — harmless here, since there
   is no MTP to drop.
+
+## 10. Kimi K3 needs the b10472 build ("UD" quant) — Option A done (18 Aug 2026)
+
+**Symptom:** loading Kimi K3 failed immediately with
+`gguf_init_from_reader: tensor 'blk.1.ffn_down_exps.weight' has invalid ggml
+type 66. should be in [0, 43)` (plus a CLIP/mmproj error). Type 66 = a new
+**"UD" (Unsloth Dynamic)** quant type that our hand-compiled fork-master build
+(commit `d32676d`) does not have. Fork master has NO UD support — it only ships
+in the **`b10472-mix` prebuilt** (release body lists PR #91 IQ1_XS/XXS/XXXS and
+PR #70 kimi-k3 vision tower).
+
+**Fix (Option A, the official-build route):**
+1. Downloaded `app-b10472-mix-4b653db-linux-x64-cuda13-newer.tar.gz` (218 MB)
+   from `github.com/unslothai/llama.cpp/releases/download/b10472-mix-4b653db/`.
+2. Extracted (flat bundle: `llama-server` + `libggml-cuda.so` etc., RUNPATH
+   `$ORIGIN`, so no patchelf needed) to `~/.local/unsloth-llama-cpp-b10472/`.
+3. Verified: `--list-devices` → RTX 5090; `--version` → build 10472, commit
+   `7a556b8f9`; `libggml-cuda.so` contains `iq1_xxxs` + `compute_120a` kernels.
+4. Repointed `UNSLOTH_LLAMA_CPP_PATH` → `$HOME/.local/unsloth-llama-cpp-b10472`
+   in `~/.bashrc`, `~/.profile`, `~/.config/environment.d/unsloth.conf`.
+5. (pending at write time) log out/in, test Kimi K3, then re-test DeepSeek.
+
+**Fallback if b10472 misbehaves:** point the env var back to
+`~/.local/unsloth-llama-cpp` (d32676d) for DeepSeek, or recompile from the
+b10472 source (`llama.cpp-source-commit-7a556b8f...tar.gz`) for sm_120 (Option B).
+The two Python fixes (timeout §3.6, q_lora_rank §8.1) live in site-packages and
+survive any llama.cpp swap.

@@ -267,4 +267,15 @@ Linux Mint 22 machine, remember these things:
     generation is slow because experts are read from NVMe per token. On this
     hardware, prefer models that fit in RAM+VRAM (~40 GB or less) for comfort.
 
+14. **"UD" (Unsloth Dynamic) quantizations need the b10472-mix prebuilt, not
+    the fork master source.** Kimi K3's `UD-Q1_0` GGUF uses a new ggml type
+    (`type 66`); a fork-master source build fails with
+    `invalid ggml type 66. should be in [0, 43)`. The UD/IQ1_XXXS types + the
+    kimi-k3 vision tower (PR #70) only ship in the `b10472-mix` prebuilt. So:
+    use the official prebuilt
+    (`app-b10472-mix-4b653db-linux-x64-cuda13-newer.tar.gz`, RUNPATH `$ORIGIN`,
+    no patchelf needed) for such models — or recompile from the b10472 *source*
+    commit `7a556b8f9` if you want a custom sm_120 build. (Full detail:
+    session-state file §10.)
+
 
