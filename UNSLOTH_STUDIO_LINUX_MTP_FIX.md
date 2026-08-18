@@ -246,4 +246,25 @@ Linux Mint 22 machine, remember these things:
     ```
     Everything else in this guide is identical.
 
+11. **DeepSeek V4 Pro ("deepseek4") advertises MTP but some quants strip the
+    actual tensors.** The GGUF metadata has `nextn_predict_layers`, but the
+    `Q2_K_*` quantizations omit the draft-head tensors, so llama-server aborts
+    with "context type MTP requested but model doesn't contain MTP layers" and
+    Studio retries without spec. That retry still works — the load is not
+    broken, it just wastes one attempt (and can look "stuck" while it retries).
+
+12. **"deepseek4" models use `q_lora_rank`, not `kv_lora_rank`.** Studio's
+    Auto-mode "drop MTP for MLA models" rule only checks `kv_lora_rank`, so it
+    misses deepseek4 and tries MTP in vain (item 11). Fix: in `llama_cpp.py`
+    add `f"{arch}.attention.q_lora_rank": "q_lora_rank"` to the metadata map,
+    init + reset `_q_lora_rank`, and extend the `_auto_mla_embedded_mtp` guard
+    to `or self._q_lora_rank is not None`. Re-apply after
+    `unsloth studio update`. (Full detail: session-state file §8.)
+
+13. **A ~500 GB model on 62 GB RAM works, but slowly.** Loading is memory-mapped
+    (`mmap`), so llama-server reports "model loaded" quickly, yet the desktop can
+    freeze for tens of minutes while the OS pages 534 GB through 62 GB RAM, and
+    generation is slow because experts are read from NVMe per token. On this
+    hardware, prefer models that fit in RAM+VRAM (~40 GB or less) for comfort.
+
 
