@@ -244,11 +244,12 @@ compiled build lives in `~/.local/unsloth-llama-cpp` and is chosen via
 never copy our binary over the bundled one (that segfaults — lib 0.18.1 vs
 0.19.0); the env-var route is the only correct one.
 
-## 9. Kimi K3 (UD-Q1_0, 467 GB) — 18 Aug 2026 (download in progress)
+## 9. Kimi K3 (UD-Q1_0, 467 GB) — 18 Aug 2026 (downloaded; header checked)
 
 Third big model on this machine. Repo `unsloth/Kimi-K3-GGUF`, variant
 `UD-Q1_0` = **467 GB**, split into **11 shards**
-(`Kimi-K3-UD-Q1_0-00001-of-00011.gguf` …).
+(`Kimi-K3-UD-Q1_0-00001-of-00011.gguf` …). Shard 1 is a tiny **6.9 MB
+metadata-only** shard; the weights start in shard 2 (~49 GB each).
 
 - **Architecture is NOT MLA.** Kimi K3 is a 2.8T-parameter MoE with **Kimi Delta
   Attention (KDA)** + **Attention Residuals (AttnRes)**, 1M context, native
@@ -258,8 +259,11 @@ Third big model on this machine. Repo `unsloth/Kimi-K3-GGUF`, variant
 - **What DOES apply (already in place, do NOT redo):** the compiled
   Unsloth-fork llama-server (the Kimi K3 README itself says it needs the
   `unslothai/llama.cpp` fork) + the 3600 s timeout (467 GB takes a long time).
-- **MTP status: TBD.** To confirm after the download finishes: read the shard-1
-  GGUF header for `nextn_predict_layers` / draft tensors (same check as §8).
-  If Kimi has no MTP, expect a clean single-attempt load like DeepSeek 0813
-  (§8); if it advertises MTP with stripped tensors, expect the futile-attempt +
-  retry pattern unless a future fix handles it.
+- **MTP status: CONFIRMED NONE (checked 18 Aug 2026).** The shard-1 header has
+  `general.architecture = kimi-k3`, `kimi-k3.kda.head_dim`,
+  `kimi-k3.attention.q_lora_rank`, `kimi-k3.attention.kv_lora_rank` — and NO
+  `nextn_predict_layers` / no draft tensors. So Kimi K3 has no MTP head → no
+  futile MTP attempt; it loads with `--spec-default` on the first try (same as
+  DeepSeek 0813 in §8). Note it DOES carry `kv_lora_rank`, so the backend's
+  existing MLA detection would already classify it — harmless here, since there
+  is no MTP to drop.
