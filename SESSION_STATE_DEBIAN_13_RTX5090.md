@@ -304,3 +304,266 @@ PR #70 kimi-k3 vision tower).
 b10472 source (`llama.cpp-source-commit-7a556b8f...tar.gz`) for sm_120 (Option B).
 The two Python fixes (timeout §3.6, q_lora_rank §8.1) live in site-packages and
 survive any llama.cpp swap.
+
+## 11. Kimi K3 loads but FREEZES THE WHOLE COMPUTER on generation (19 Aug 2026)
+
+Nir loaded Kimi K3 (UD-Q1_0) with b10472. It loads (~26 min) but when he sends
+"hello :-)" the ENTIRE computer freezes — not slow, FROZEN. This is a different
+symptom from DeepSeek, which works slowly (thinking shown ~1 word/min, alive).
+
+### 11.1 Root cause — KDA attention placed on the CPU
+
+Kimi K3 uses KDA ("Gated Delta Net") attention, a different design from
+DeepSeek's MLA. The llama-server log shows:
+
+```
+resolve_fused_ops: layer 0 is assigned to device CPU but fused Gated Delta Net (chunked) is assigned to device CUDA0 (usually due to missing support)
+resolve_fused_ops: fused Gated Delta Net (chunked) not supported, set to disabled
+```
+
+`--fit on` (auto GPU-memory mode) put the KDA layer on the CPU while the fused
+KDA op lives on CUDA0 → mismatch → fused op disabled → KDA runs on CPU → pegs
+all cores + thrashes 435 GB through 62 GB RAM → whole-computer freeze.
+
+The CUDA kernels DO exist (verified: `strings libggml-cuda.so` shows
+`ggml_cuda_op_gated_delta_net`, `ggml_cuda_op_gated_delta_net_fused_cache`,
+`ggml_cuda_op_gated_linear_attn`). So this is a PLACEMENT problem, not missing
+kernels. DeepSeek (18 Aug logs) has no such warning — it has no KDA.
+
+### 11.2 The fix to try (NOT yet applied — next step)
+
+Switch GPU memory mode from "auto" to "manual" so the KDA/attention layers go
+on the GPU and the MoE experts stay on CPU:
+
+- `gpu_memory_mode = "manual"`
+- `gpu_layers` = offload all layers (value >= model layer count)
+- `n_cpu_moe` = keep the MoE expert layers on CPU
+
+These fields live in
+`studio/backend/models/inference.py` (`gpu_memory_mode` Literal["auto","manual"],
+`gpu_layers` int >= -1, `n_cpu_moe` int >= 0) and are read in `llama_cpp.py`.
+In manual mode Studio emits `--fit off` + `-ngl <N>` (+ `--n-cpu-moe`).
+
+⚠️ NOT YET DONE. Next step: set these (UI or `/api/inference/load`), reload
+Kimi K3, test "hello :-)". Each load is ~26 min. UNVERIFIED: whether the
+"chunked" fused KDA op actually engages on sm_120 once placed on the GPU.
+
+### 11.4 RESULT of the fix attempt (19 Aug) — FAILED (OOM). It is a hardware limit.
+
+Tried `gpu_memory_mode = "manual"`, `gpu_layers = 99`, `n_cpu_moe = 92` via
+`POST /api/inference/load` (the backend emitted `--gpu-layers 99 --fit off
+--n-cpu-moe 93`). llama-server OOM'd:
+
+```
+ggml_backend_cuda_buffer_type_alloc_buffer: allocating 58133.85 MiB on device 0: cudaMalloc failed: out of memory
+```
+
+The manual settings still try to put ALL non-expert weights on the GPU, and
+Kimi K3's non-expert part does NOT fit in 24 GB VRAM. Measured by dumping the
+GGUF tensor headers across all 11 shards:
+
+- experts (UD quant type 66):  396.5 GB
+- attention (Q8_0):            31.4 GB
+- other (ssm_*/res/norms, Q8_0): 11.8 GB
+- embeddings (Q8_0):            2.5 GB
+- **non-expert total ≈ 46 GB > 24 GB VRAM**
+
+Even the KDA/SSM attention ALONE does not fit: `attn_q/k/v` + `ssm_g` are
+6.46 GB each × 4 × 69 SSM blocks ≈ **27 GB > 24 GB**.
+
+So the recurrent "Gated Delta Net"/SSM cannot stay on the GPU on a 24 GB card;
+it falls back to CPU and freezes the whole computer. DeepSeek avoids this
+because MLA attention is far more compressed (fits in VRAM).
+
+**CONCLUSION: Kimi K3 (UD-Q1_0) is a hard no on this laptop's 24 GB VRAM.**
+Not a config bug. Options: (a) use DeepSeek V4 Pro 0813 (works, slow-but-alive),
+(b) a smaller model, or (c) a machine with ≥32 GB VRAM (desktop 5090 / multi-GPU).
+
+> Note the model was left UNLOADED after the failed test (Nir saw "No model
+> loaded"). A GUI reload goes back to `--fit on` (auto) — which loads but then
+> freezes on chat, per the top of §11.
+
+### 11.5 REVISED PLAN (19 Aug) — recompile llama.cpp from b10472 source for sm_120 (Option B)
+
+The OOM in §11.4 only rules out "put ALL attention on GPU". The REAL blocker is
+the log line `fused Gated Delta Net (chunked) not supported, set to disabled`
+— the prebuilt b10472 lacks the fused KDA kernel for **sm_120** (RTX 5090), so
+the recurrent KDA runs on CPU and freezes the machine. That is a BUILD problem,
+the same class as DeepSeek's MTP (fixed by recompiling). So the fallback we
+already documented in §10 ("Option B") is now the plan:
+
+1. Download the **b10472 source**:
+   `https://github.com/unslothai/llama.cpp/releases/download/b10472-mix-4b653db/llama.cpp-source-commit-7a556b8f93d601cb277c0545e3e6166b45ebfac8.tar.gz`
+   (has BOTH the "UD" quant type 66 AND the kimi-k3 KDA/vision code).
+2. Build for sm_120, same as the earlier DeepSeek build:
+   ```bash
+   cmake -B build -DGGML_CUDA=ON -DCMAKE_CUDA_ARCHITECTURES=120 \
+     -DGGML_NATIVE=ON -DCMAKE_BUILD_TYPE=Release -DGGML_CUDA_FA_ALL_QUANTS=ON
+   cmake --build build --config Release -j 20
+   ```
+3. Install to a FRESH dir `~/.local/unsloth-llama-cpp-b10472-src`
+   (`cp -a build/bin/. <dest>/`), then
+   `patchelf --set-rpath '$ORIGIN'` on every ELF file (baked RUNPATH points at
+   the build dir).
+4. Repoint `UNSLOTH_LLAMA_CPP_PATH` → `$HOME/.local/unsloth-llama-cpp-b10472-src`
+   in `~/.bashrc`, `~/.profile`, `~/.config/environment.d/unsloth.conf`, then
+   log out/in (or reboot) so the desktop app picks it up.
+5. Verify: `--list-devices` → RTX 5090; `--help` shows UD quant; then load Kimi
+   K3 and test "hello :-)".
+
+Expected result: the fused Gated Delta Net kernel is compiled for sm_120, so the
+KDA runs on the GPU for whatever fits (and/or llama.cpp can correctly fuse it).
+Even if only part fits, the recurrent SSM should stop pegging the CPU → no more
+whole-computer freeze → Kimi K3 behaves like DeepSeek (slow but alive).
+
+Kimi K3 architecture facts (from GGUF header, for reference):
+- block_count 93, leading_dense_block_count 1, expert_count 896
+  (expert_used_count 16, expert_shared_count 2), kda.head_dim 128,
+  head_count 96, feed_forward_length 33792, expert_feed_forward_length 3072.
+- 69 blocks use SSM (Gated Delta Net: `ssm_conv1d_q/k/v`, `ssm_a`, `ssm_beta`,
+  `ssm_dt`, `ssm_f_a/f_b`, `ssm_g`, `attn_q/k/v`); 24 blocks use MLA
+  (`attn_q_a`, `attn_kv_a`, `attn_kv_a_mqa`, `attn_q_b/k_b/v_b`, `attn_gate`).
+- Tensor byte sizes (UD-Q1_0): experts 396.5 GB (UD type 66), attention 31.4 GB
+  (Q8_0), ssm/other 11.8 GB, embeddings 2.5 GB. `attn_q/k/v`+`ssm_g` = 6.46 GB
+  each across 69 SSM blocks ≈ 27 GB.
+
+The two Python fixes (timeout §3.6, q_lora_rank §8.1) are site-packages edits
+and survive any llama.cpp swap; re-apply only after `unsloth studio update`.
+
+### 11.3 Why the load takes ~26 min (and "stuck at 63 GB")
+
+- The model (435 GB) AND the whole Linux root live on an external USB SSD
+  (`/dev/sda4`, ext4, "WD_BLACK P40 Game Drive"). Measured read: 407 MB/s.
+  435 GB / 407 MB/s ≈ 18 min of pure reading → ~26 min total load.
+- The internal NVMe (`nvme0n1p3`) is the WINDOWS drive (NTFS, label
+  "Windows-SSD"). Do NOT touch it for Linux without Nir's explicit OK.
+- The progress bar "stuck at 63 GB" is an RSS-based progress (llama_cpp.py
+  `load_progress()` samples `/proc/<pid>/status` VmRSS vs shard total). RSS
+  plateaus at ~62 GB (RAM full) so the bar freezes while the disk keeps reading.
+  NOT a separate retry.
+- There is NO "give up and retry" for Kimi K3 (unlike DeepSeek's MTP retry):
+  one load, 26 min, progress jumps to 100% when llama-server becomes healthy.
+- "Model Memory" settings: `model_memory_keep_resident` → `--mlock`,
+  `model_memory_no_ram_reserve` → drops `--no-mmap`/`--mlock` (both default False).
+
+## 12. Kimi K3 freeze — the REAL answer + the plan (19 Aug, evening)
+
+### 12.1 Recompile (Option B) DONE — but it does NOT fix the freeze
+
+Built b10472 source (commit `7a556b8f`) for sm_120a (`-DGGML_CUDA=ON
+-DCMAKE_CUDA_ARCHITECTURES=120 -DGGML_NATIVE=ON -DCMAKE_BUILD_TYPE=Release
+-DGGML_CUDA_FA_ALL_QUANTS=ON`), installed to `~/.local/unsloth-llama-cpp-b10472-src`,
+patchelf `$ORIGIN`. It verifies: `--list-devices` → RTX 5090, has `gated_delta_net`
++ `iq1_xxxs` kernels. **BUT it is functionally identical to the prebuilt** (same
+source, same arch, same TODO) — recompiling did not add anything.
+
+The real blocker, confirmed by reading the source (`src/llama-context.cpp`
+`resolve_fused_ops` + `src/models/delta-net-base.cpp` `build_delta_net`):
+- `n_seq_tokens == 1` (generation) → uses `fused_gdn_ar` (AR kernel EXISTS,
+  `ggml_cuda_op_gated_delta_net_fused_cache`).
+- `n_seq_tokens  > 1` (prefill)  → uses `fused_gdn_ch` (chunked kernel = TODO,
+  line 180 `//TODO: Add chunked kernel for even faster pre-fill`) → falls back to
+  unfused `build_delta_net_chunking` on CPU.
+- The fused op is additionally disabled because `--fit` placed the SSM layer on
+  CPU (device mismatch: `layer 0 assigned to CPU but fused op on CUDA0`). Even
+  forcing everything non-expert onto the GPU OOM'd (§11.4): attention is ~38.6 GB
+  > 24 GB VRAM.
+
+So the freeze = prefill runs unfused chunked GDN on CPU, pegging all 24 threads.
+
+### 12.2 Q8_0 vs "Q1/Q2" — the sizes (measured, script `/tmp/opencode/attn_size.py`)
+
+Nir asked why "Q8" when his quants are called Q1/Q2. Answer: the variant name
+describes the EXPERT quant only; the attention is ALWAYS Q8_0 (precision-sensitive).
+Measured from the actual GGUF tensor headers:
+
+| model | attention params | attention bytes | expert type |
+|---|---|---|---|
+| DeepSeek V4 Pro 0813 (IQ1_M) | 19.38 B | 20.72 GB (Q8_0) | IQ1_M / Q2_K |
+| Kimi K3 (UD-Q1_0)            | 36.19 B | 38.63 GB (Q8_0) | IQ1_XXXS (type 66) |
+
+DeepSeek's attention fits in 24 GB VRAM; Kimi K3's does NOT (38.6 GB). That is the
+core difference — NOT whether the whole model fits, but whether the *thinking*
+part fits on the GPU. (Param counts are exact GGUF dimensions; bytes = params ×
+8.5 bits for Q8_0.)
+
+### 12.3 Internet proof (links)
+
+- `gated_delta_net.cu` line 180 `//TODO: Add chunked kernel for even faster pre-fill`
+  in EVERY version:
+  `https://github.com/unslothai/llama.cpp/blob/master/ggml/src/ggml-cuda/gated_delta_net.cu#L180`
+  and `https://github.com/ggml-org/llama.cpp/blob/master/ggml/src/ggml-cuda/gated_delta_net.cu#L180`
+- kimi-k3 in upstream is still WIP: PR `#26397` (closed, not merged), open issue
+  `#26365` "Enable split-mode row/tensor for kimi-k3". `https://github.com/ggml-org/llama.cpp/pull/26397`
+- HF model pages: `https://huggingface.co/unsloth/Kimi-K3-GGUF` (discussion #17
+  "CPU only version" shows people want "slow but works").
+
+### 12.4 GOOGLE AI RESEARCH — what is REAL vs FAKE (Nir pasted answers)
+
+Nir ran Google AI Search (Gemini). Filtered result:
+
+**REAL (verified against llama.cpp --help and Linux tools):**
+- `--threads N` / `--threads-batch N` (limit CPU threads; `-t` real, LLAMA_ARG_THREADS).
+- `-b` / `--batch-size`, `-ub` / `--ubatch-size` (real; `-ub 1` forces token-by-token).
+- `-ctk/--cache-type-k`, `-ctv/--cache-type-v` (KV cache quant; q4_0 or q8_0).
+- `-ngl 0` (pure CPU offload).
+- `nice -n 19 ionice -c 3` (real Linux: run llama-server at lowest CPU+IO priority
+  so the desktop always wins). **BONUS not yet applied.**
+- The idea "limit threads so the OS stays responsive" (core of the fix).
+
+**FAKE (do NOT use):**
+- `--mclog` (no such flag), `UNSLOTH_CPU_THREADS` (no such env var).
+- `--no-mmap` / `--mlock` → would CRASH us (435 GB into 62 GB RAM).
+- "b10448" / "b10456" versions; "needs 410–700 GB RAM".
+- `gavamedia/deltafin`, "C99 Kimi K3 Engine", `--memory-f32`, `-rtr`,
+  `--override-tensor ...=row_split`, "Unsloth PR #61".
+- "RTX 5090 has 16 GB VRAM" (ours has 24).
+- `-tg` (thread-gpu) — unverified/not in b10472 --help.
+
+### 12.5 THE PLAN (next attempt, after reboot)
+
+Run Kimi K3 PURELY on CPU, low priority, limited threads → "slow but alive",
+same as DeepSeek. Exact load request (via API; GUI does NOT expose these):
+
+```json
+{
+  "model_path": "unsloth/Kimi-K3-GGUF",
+  "gguf_variant": "UD-Q1_0",
+  "gpu_memory_mode": "manual",
+  "gpu_layers": 0,
+  "n_batch": 1,
+  "n_ubatch": 1,
+  "llama_extra_args": ["--threads","16","--threads-batch","12","--cache-type-k","q8_0","--cache-type-v","q8_0"],
+  "max_seq_length": 4096
+}
+```
+
+`llama_extra_args` is a LIST of strings (one token per entry). Managed flags are
+rejected; `--threads`/`--cache-type-*` are accepted. This emitted (verified in
+server log): `--gpu-layers 0 --fit off --batch-size 4 --ubatch-size 1
+--cache-type-k q8_0 --cache-type-v q8_0 --threads 16 --threads-batch 12`.
+(NOTE: `n_batch=1` was clamped to `--batch-size 4`; `--ubatch-size 1` is the one
+that forces the AR token-by-token path.)
+
+Still to verify after reboot:
+1. Does `-ngl 0` + `--threads 16` stop the whole-computer freeze? (Computer should
+   stay responsive, model crawls.)
+2. If not frozen but too slow, add `nice -n 19 ionice -c 3` (wrap llama-server).
+3. If it works, figure out how to make the GUI load with these flags (the main UI
+   sends `gpu_memory_mode=auto`; API monitor-only exposes the manual fields —
+   may need a backend patch like the timeout fix, reset by `unsloth studio update`).
+
+Auth to use the API: `POST /api/auth/desktop-login` with `{"secret": <contents of
+~/.unsloth/studio/auth/.desktop_secret>}` → bearer token for `/api/inference/load`,
+`/api/inference/unload`, `/api/inference/load-progress`.
+
+### 12.6 Notes carried forward
+
+- The load is ~18 min even with `-ngl 0` (llama.cpp reads the model regardless of
+  mmap); RSS-based progress plateaus at ~62 GB ("stuck at 63 GB") — normal.
+- The recompiled build `~/.local/unsloth-llama-cpp-b10472-src` is on disk and
+  equivalent to the prebuilt; env var still points at `~/.local/unsloth-llama-cpp-b10472`.
+- Do NOT copy binaries between the llama.cpp dirs (lib mismatch segfaults).
+- The chunked GDN kernel is genuinely un-implemented upstream; when it lands,
+  recompiling again may speed prefill, but the "don't freeze" fix is the CPU
+  thread-limit regardless.

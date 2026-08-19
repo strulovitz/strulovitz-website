@@ -346,5 +346,53 @@ Prefer models that fit in RAM+VRAM for comfort. This is physics, not a bug.
 (That's it — everything else is a llama.cpp binary chosen via
 `UNSLOTH_LLAMA_CPP_PATH`, which survives updates.)
 
+---
+
+## 8. Kimi K3: loads but FREEZES the WHOLE COMPUTER (KDA on CPU) — 19 Aug 2026
+
+Full detail: session-state file §11. Summary for the next machine:
+
+- Kimi K3 uses KDA ("Gated Delta Net") attention, unlike DeepSeek's MLA.
+- `--fit on` (auto GPU-memory mode) placed the KDA layer on the CPU while the
+  fused KDA op is on CUDA0 → fused op disabled → KDA runs on CPU → the whole
+  computer freezes on generation. Log line:
+  `resolve_fused_ops: layer 0 is assigned to device CPU but fused Gated Delta Net (chunked) is assigned to device CUDA0`.
+- The CUDA kernels exist in the build (`ggml_cuda_op_gated_delta_net*` in
+  `libggml-cuda.so`), so this is a PLACEMENT problem, not missing kernels.
+- Fix to try (NOT yet applied): `gpu_memory_mode = "manual"` + `gpu_layers`
+  (all layers) + `n_cpu_moe` (keep experts on CPU), so KDA lands on the GPU.
+  Emits `--fit off` + `-ngl <N>` + `--n-cpu-moe`. Verify on sm_120.
+- **UPDATE (19 Aug): that fix FAILED — OOM.** `-ngl 99 --n-cpu-moe 93` tried to
+  allocate ~58 GB on the GPU (`cudaMalloc failed`). Kimi K3's non-expert weights
+  are ~46 GB (attn 31.4 GB Q8_0 + ssm/other 11.8 GB + embd 2.5 GB), which is
+  bigger than a 24 GB VRAM card. Even the KDA/SSM attention alone is ~27 GB.
+- **REVISED PLAN (Option B, the real fix):** the true blocker is
+  `fused Gated Delta Net (chunked) not supported` — the b10472 PREBUILT lacks the
+  KDA kernel for sm_120. Recompile llama.cpp from the **b10472 SOURCE**
+  (commit `7a556b8f93d601cb277c0545e3e6166b45ebfac8`, tarball
+  `llama.cpp-source-commit-7a556b8f...tar.gz` from the `b10472-mix-4b653db`
+  release) for `CMAKE_CUDA_ARCHITECTURES=120`, install to
+  `~/.local/unsloth-llama-cpp-b10472-src`, patchelf `$ORIGIN`, repoint
+  `UNSLOTH_LLAMA_CPP_PATH`. The b10472 source has both the "UD" quant (type 66)
+  and the kimi-k3 KDA/vision code, so the gated-delta-net CUDA kernel gets built
+  for the RTX 5090. Full detail + tensor dump: session-state file §11.5.
+- **FINAL ANSWER (19 Aug, after doing Option B):** the recompile is DONE but did
+  NOT fix the freeze, because the **chunked GDN prefill kernel is a TODO in
+  llama.cpp itself** (`//TODO: Add chunked kernel for even faster pre-fill`,
+  `gated_delta_net.cu` line 180, in EVERY version: b10472, unsloth fork master,
+  ggml-org master). Kimi K3's attention is 38.6 GB (Q8_0) vs 24 GB VRAM, so the
+  recurrent KDA runs unfused on CPU and pegs all threads → whole-PC freeze.
+  (DeepSeek's attention = 20.7 GB and fits — that's the whole difference.)
+- **THE WORKING FIX (slow-but-alive, same as DeepSeek):** run Kimi K3 PURELY on
+  CPU with limited threads so the desktop stays responsive: `-ngl 0` +
+  `--threads 16 --threads-batch 12` + `-b 1 -ub 1` (token-by-token, avoids the
+  missing chunked prefill) + `--cache-type-k q8_0 --cache-type-v q8_0`, and bonus
+  `nice -n 19 ionice -c 3`. Apply via Studio API (`gpu_memory_mode=manual`,
+  `gpu_layers=0`, `n_batch/n_ubatch`, `llama_extra_args` list). The GUI doesn't
+  expose these — may need a backend patch. Full detail + load-request JSON:
+  session-state file §12.5.
+- Load is ~26 min because the model + Linux root are on a ~407 MB/s USB SSD;
+  the internal NVMe is the Windows drive (don't touch).
+
 
 
