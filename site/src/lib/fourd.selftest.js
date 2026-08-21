@@ -26,7 +26,7 @@
 import {
   PLANES, HYPER_PLANES, identity4, at, planeRotation, multiply4,
   orthonormalize4, determinant4, projectScale, View4D, slabVisibility,
-  DEFAULT_EYE_DISTANCE, W_MIN,
+  DEFAULT_EYE_DISTANCE, W_MIN, leftMultiplyMatrix, rightMultiplyMatrix,
 } from './fourd.js';
 
 let passed = 0;
@@ -350,6 +350,93 @@ check('the ghost band fades smoothly rather than popping', (() => {
 })());
 check('the slab is symmetric above and below the reader\'s position',
   near(slabVisibility(0.3, 0, 0.25), slabVisibility(-0.3, 0, 0.25)));
+
+// -----------------------------------------------------------------------------
+console.log('\n9. The two-handed twist really is a rotation of four-dimensional space');
+// -----------------------------------------------------------------------------
+
+{
+  // Quaternion multiplication, written plainly, to check the matrices against.
+  const multiplyQuaternions = (a, b) => ({
+    w: a.w * b.w - a.x * b.x - a.y * b.y - a.z * b.z,
+    x: a.w * b.x + a.x * b.w + a.y * b.z - a.z * b.y,
+    y: a.w * b.y - a.x * b.z + a.y * b.w + a.z * b.x,
+    z: a.w * b.z + a.x * b.y - a.y * b.x + a.z * b.w,
+  });
+  const normalise = (q) => {
+    const n = Math.hypot(q.w, q.x, q.y, q.z);
+    return { w: q.w / n, x: q.x / n, y: q.y / n, z: q.z / n };
+  };
+  // Our points are (x, y, z, w) and the quaternion is (w, x, y, z), so index 3
+  // of a point is the quaternion's w. These two helpers pin that convention.
+  const toQuaternion = (p) => ({ w: p[3], x: p[0], y: p[1], z: p[2] });
+  const toPoint = (q) => [q.x, q.y, q.z, q.w];
+
+  const l = normalise({ w: 0.3, x: -0.5, y: 0.7, z: 0.2 });
+  const r = normalise({ w: -0.4, x: 0.25, y: 0.15, z: 0.8 });
+  const p = [0.3, -0.7, 0.2, 0.55];
+
+  // The honest answer, straight from quaternion algebra: l * p * r.
+  const expected = toPoint(multiplyQuaternions(multiplyQuaternions(l, toQuaternion(p)), r));
+
+  // The matrices' answer.
+  const M = multiply4(leftMultiplyMatrix(l.w, l.x, l.y, l.z),
+                      rightMultiplyMatrix(r.w, r.x, r.y, r.z));
+  const got = [0, 0, 0, 0];
+  for (let row = 0; row < 4; row++) {
+    got[row] = at(M, row, 0) * p[0] + at(M, row, 1) * p[1] +
+               at(M, row, 2) * p[2] + at(M, row, 3) * p[3];
+  }
+  let worst = 0;
+  for (let i = 0; i < 4; i++) worst = Math.max(worst, Math.abs(got[i] - expected[i]));
+  check('the twist matrices agree with plain quaternion multiplication',
+    worst < 1e-12, `worst error=${worst}`);
+
+  check('a twist is a proper rotation, no mirroring and no stretching',
+    near(determinant4(M), 1, 1e-9) && near(orthonormalityError(M), 0, 1e-12),
+    `det=${determinant4(M)} ortho=${orthonormalityError(M)}`);
+
+  // And it must reach where single-plane rotations cannot: a twist should move
+  // a point in all four coordinates at once.
+  const view = new View4D();
+  const out = [0, 0, 0, 0];
+  view.twist(l, r);
+  view.rotatePoint(p, out);
+  let movedInAll = true;
+  for (let i = 0; i < 4; i++) if (Math.abs(out[i] - p[i]) < 1e-6) movedInAll = false;
+  check('one twist moves a point in all four coordinates at once', movedInAll,
+    `${p} -> ${out}`);
+
+  check('Q stays perfectly rigid after a thousand twists', (() => {
+    const v = new View4D();
+    for (let i = 0; i < 1000; i++) {
+      const tiny = normalise({ w: 1, x: 0.01 * Math.sin(i), y: 0.01 * Math.cos(i), z: 0.005 });
+      const tiny2 = normalise({ w: 1, x: 0.004, y: -0.008 * Math.sin(i * 0.3), z: 0.006 });
+      v.twist(tiny, tiny2);
+    }
+    return orthonormalityError(v.Q) < 1e-12 && Array.from(v.Q).every(Number.isFinite);
+  })());
+
+  check('undo and reset still work after a twist', (() => {
+    const v = new View4D();
+    v.pushHistory();
+    v.twist(l, r);
+    if (!v.undo()) return false;
+    const I = identity4();
+    return Array.from(v.Q).every((value, i) => near(value, I[i]));
+  })());
+
+  // The identity twist must do nothing at all, which is what makes "hold both
+  // grips still and nothing moves" true, and therefore what makes the gesture
+  // trustworthy rather than twitchy.
+  check('twisting by nothing changes nothing', (() => {
+    const v = new View4D();
+    v.rotate('xw', 0.4);
+    const before = Float64Array.from(v.Q);
+    v.twist({ w: 1, x: 0, y: 0, z: 0 }, { w: 1, x: 0, y: 0, z: 0 });
+    return Array.from(v.Q).every((value, i) => near(value, before[i], 1e-12));
+  })());
+}
 
 // -----------------------------------------------------------------------------
 console.log(`\n${passed} checks passed, ${failed} failed.\n`);

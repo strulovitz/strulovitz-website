@@ -28,6 +28,7 @@
 import * as THREE from '../../vendor/three.module.min.js';
 import { Panorama, makeTextSprite, nearestBandName } from './panorama.js';
 import { buildSyntheticScene, W_BANDS } from '../scenes/synthetic.js';
+import { WGym, hasGraduated } from '../scenes/wgym.js';
 import { HYPER_PLANES } from '../lib/fourd.js';
 
 // bible/part-05.md 5.1.4: the comfort cap, in degrees per second.
@@ -91,7 +92,10 @@ function advanceSnap(deltaMs) {
   const after = easeInOut(Math.min(1, snap.elapsed / snap.total));
   const fraction = after - before;
   panorama.view.rotate(snap.plane, snap.remaining * fraction);
-  if (snap.elapsed >= snap.total) snap = null;
+  if (snap.elapsed >= snap.total) {
+    gym.noteSnap();
+    snap = null;
+  }
 }
 
 function easeInOut(t) {
@@ -105,6 +109,9 @@ function rotateCapped(plane, requestedRadians, deltaMs) {
   if (clamped !== 0) {
     panorama.view.rotate(plane, clamped);
     panorama.noteInput();
+    if (plane === 'xw' || plane === 'yw' || plane === 'zw') {
+      gym.noteHyperRotation(plane, clamped);
+    }
   }
   return clamped;
 }
@@ -151,6 +158,7 @@ renderer.domElement.addEventListener('pointermove', (event) => {
     // SHIFT plus drag is the hyper-rotation, in whichever plane TAB selected.
     panorama.view.rotate(panorama.view.activeHyperPlane, -dy * speed);
     panorama.noteInput();
+    gym.noteHyperRotation(panorama.view.activeHyperPlane, -dy * speed);
   } else {
     // Plain drag is ordinary 3D rotation: sideways is yaw (the XZ plane),
     // up and down is pitch (the YZ plane).
@@ -188,7 +196,7 @@ window.addEventListener('keydown', (event) => {
     return;
   }
   if (key === 'e') { setStatusFlash(`Mode: ${panorama.toggleMode()}`); return; }
-  if (key === 'home') { panorama.resetView(); setStatusFlash('View reset'); return; }
+  if (key === 'home') { panorama.resetView(); gym.noteReset(); setStatusFlash('View reset'); return; }
   if (key === 'z' && (event.ctrlKey || event.metaKey)) {
     setStatusFlash(panorama.view.undo() ? 'Undid one rotation' : 'Nothing left to undo');
     return;
@@ -238,6 +246,18 @@ function updateScreenHover() {
 }
 
 renderer.domElement.addEventListener('click', () => {
+  // During a lesson the gym's own beads are what the reader is pointing at, so
+  // it gets first refusal on the click before the graph sees it.
+  if (gym.active) {
+    const ray = new THREE.Raycaster();
+    ray.setFromCamera(new THREE.Vector2(pointer.x, pointer.y), camera);
+    const scratch = new THREE.Vector3();
+    const bead = gym.beadUnderRay(ray.ray.origin, ray.ray.direction);
+    if (bead >= 0) {
+      panorama.toRoomSpace(gym.markedSet.out3, bead, scratch);
+      if (gym.notePick(scratch)) return;
+    }
+  }
   if (panorama.hoveredNode >= 0) {
     focusNode(panorama.hoveredNode);
   }
@@ -253,6 +273,119 @@ function focusNode(index) {
   panorama.view.setPivot(data.points4[b], data.points4[b + 1], data.points4[b + 2], data.points4[b + 3]);
   setStatusFlash(`Focused: ${data.labels[index]} (rotation now turns around it)`);
 }
+
+
+// =============================================================================
+// THE FOUR-DIMENSIONAL GYM (bible/part-05.md 5.7)
+// =============================================================================
+
+// Instructions on a flat screen are plain HTML. In the headset the same words go
+// on a panel over the table, because HTML does not exist inside a VR session.
+const gymPanelElement = document.getElementById('gym-panel');
+const gymTitle = document.getElementById('gym-title');
+const gymInstruction = document.getElementById('gym-instruction');
+const gymProgress = document.getElementById('gym-progress');
+const gymDots = document.getElementById('gym-dots');
+const gymOffer = document.getElementById('gym-offer');
+
+const gymCanvas = document.createElement('canvas');
+gymCanvas.width = 1024; gymCanvas.height = 320;
+const gymContext = gymCanvas.getContext('2d');
+const gymTexture = new THREE.CanvasTexture(gymCanvas);
+gymTexture.colorSpace = THREE.SRGBColorSpace;
+const gymVrPanel = new THREE.Mesh(
+  new THREE.PlaneGeometry(0.62, 0.194),
+  new THREE.MeshBasicMaterial({ map: gymTexture, transparent: true, depthWrite: false })
+);
+// Body-anchored above and behind the table, never glued to the head: head-locked
+// text fights the inner ear and reads as smearing (part-05.md 5.1.5).
+gymVrPanel.position.set(0, 1.78, -1.05);
+gymVrPanel.visible = false;
+panorama.scene.add(gymVrPanel);
+
+function drawGymVrPanel(lesson) {
+  const c = gymContext;
+  c.clearRect(0, 0, 1024, 320);
+  c.fillStyle = 'rgba(8, 12, 20, 0.93)';
+  c.fillRect(0, 0, 1024, 320);
+  c.strokeStyle = '#41567c'; c.lineWidth = 5; c.strokeRect(3, 3, 1018, 314);
+  c.textAlign = 'left';
+  c.fillStyle = '#ffd479';
+  c.font = 'bold 34px system-ui, sans-serif';
+  c.fillText(lesson.title, 34, 60);
+  c.fillStyle = '#eaf4ff';
+  c.font = '30px system-ui, sans-serif';
+  wrapText(c, lesson.headset, 34, 116, 956, 38);
+  c.fillStyle = '#8fa3c4';
+  c.font = '26px system-ui, sans-serif';
+  c.fillText(lesson.progress, 34, 268);
+  gymTexture.needsUpdate = true;
+}
+
+/** Draw text across several lines, because a canvas will not do it for you. */
+function wrapText(context, text, x, y, maxWidth, lineHeight) {
+  const words = text.split(' ');
+  let line = '';
+  let cursorY = y;
+  for (const word of words) {
+    const attempt = line ? `${line} ${word}` : word;
+    if (context.measureText(attempt).width > maxWidth && line) {
+      context.fillText(line, x, cursorY);
+      line = word;
+      cursorY += lineHeight;
+    } else {
+      line = attempt;
+    }
+  }
+  if (line) context.fillText(line, x, cursorY);
+}
+
+const gym = new WGym(panorama, {
+  onLesson: (lesson) => {
+    if (!lesson) return;
+    // A lesson is running, so the invitation to start one must be out of the
+    // way. It was covering the very toys the reader is meant to be looking at.
+    gymOffer.style.display = 'none';
+    gymPanelElement.style.display = 'block';
+    gymTitle.textContent = lesson.title;
+    gymInstruction.textContent = renderer.xr.isPresenting ? lesson.headset : lesson.screen;
+    gymProgress.textContent = lesson.progress;
+    gymDots.textContent = '\u25cf '.repeat(lesson.index) + '\u25cb '.repeat(lesson.count - lesson.index);
+    gymVrPanel.visible = renderer.xr.isPresenting;
+    drawGymVrPanel(lesson);
+  },
+  onDone: (result) => {
+    gymPanelElement.style.display = 'none';
+    gymVrPanel.visible = false;
+    if (result.graduated) {
+      tier2Enabled = true;
+      setStatusFlash('You can now follow an object through the fourth dimension. Welcome in.');
+    }
+  },
+  setFlash: (text) => setStatusFlash(text),
+});
+
+// Tier 2, the two-handed twist, is off until the gym is finished: it is the
+// reward, and Tier 1 is the product (part-05.md 5.4).
+let tier2Enabled = hasGraduated();
+
+document.getElementById('gym-start').addEventListener('click', () => {
+  gymOffer.style.display = 'none';
+  gym.start();
+});
+document.getElementById('gym-skip-all').addEventListener('click', () => {
+  gymOffer.style.display = 'none';
+  gym.quit();
+});
+document.getElementById('gym-next').addEventListener('click', () => gym.skipLesson());
+document.getElementById('gym-quit').addEventListener('click', () => gym.quit());
+document.getElementById('open-gym').addEventListener('click', () => {
+  gymOffer.style.display = 'none';
+  gym.start();
+});
+
+// First visit gets the offer, once. Everyone else is left alone.
+if (!hasGraduated()) gymOffer.style.display = 'block';
 
 
 // =============================================================================
@@ -472,6 +605,7 @@ const MENU_ITEMS = [
   { key: 'mode', label: 'Slice / Projection' },
   { key: 'home', label: 'Home slab (w = 0)' },
   { key: 'stems', label: 'Drop-stems on / off' },
+  { key: 'gym', label: 'The 4D lessons' },
 ];
 
 const menuCanvas = document.createElement('canvas');
@@ -513,8 +647,9 @@ drawMenu();
 
 function runMenuItem(key) {
   if (key === 'undo') setStatusFlash(panorama.view.undo() ? 'Undid one rotation' : 'Nothing left to undo');
-  if (key === 'reset') { panorama.resetView(); setStatusFlash('View reset'); }
+  if (key === 'reset') { panorama.resetView(); gym.noteReset(); setStatusFlash('View reset'); }
   if (key === 'mode') setStatusFlash(`Mode: ${panorama.toggleMode()}`);
+  if (key === 'gym') { gymOffer.style.display = 'none'; gym.start(); }
   if (key === 'home') { panorama.w0 = 0; setStatusFlash('Slab back to the established news'); }
   if (key === 'stems') { panorama.stemsEnabled = !panorama.stemsEnabled; }
 }
@@ -660,6 +795,21 @@ function readControllers(deltaMs) {
         if (pressed(BUTTON.TRIGGER)) runMenuItem(MENU_ITEMS[row].key);
       } else {
         if (menuHighlight !== -1) { menuHighlight = -1; drawMenu(); }
+        // A lesson's beads come before the graph's nodes.
+        if (gym.active) {
+          const bead = gym.beadUnderRay(origin, direction);
+          if (bead >= 0) {
+            const scratch = new THREE.Vector3();
+            panorama.toRoomSpace(gym.markedSet.out3, bead, scratch);
+            hand.cursor.visible = true;
+            hand.cursor.position.copy(scratch);
+            if (pressed(BUTTON.TRIGGER) && gym.notePick(scratch)) {
+              source.gamepad.hapticActuators?.[0]?.pulse?.(0.4, 40);
+            }
+            hand.previousButtons = buttons;
+            continue;
+          }
+        }
         const found = panorama.pick(origin, direction);
         panorama.hoveredNode = found;
         if (found >= 0) {
@@ -731,7 +881,7 @@ function readControllers(deltaMs) {
     hand.previousButtons = buttons;
   }
 
-  applyGrips();
+  applyGrips(deltaMs);
 }
 
 /**
@@ -741,8 +891,29 @@ function readControllers(deltaMs) {
  */
 const gripScratch = { a: new THREE.Vector3(), b: new THREE.Vector3(), previous: new THREE.Vector3() };
 
-function applyGrips() {
+function applyGrips(deltaMs) {
   const gripping = hands.filter((h) => h.grabbing);
+
+  // TIER 2, THE TWIST. With both hands squeezed and the gesture unlocked, the
+  // two controllers' turning drives a full four-dimensional rotation: your left
+  // hand and right hand together reach turns that no single plane can. It uses
+  // per-frame differences, so releasing either hand stops it dead, with no
+  // inertia (part-05.md 5.4 Tier 2, and 5.1.4).
+  if (gripping.length === 2 && tier2Enabled) {
+    const left = deltaQuaternion(hands[0]);
+    const right = deltaQuaternion(hands[1]);
+    if (left && right) {
+      panorama.view.twist(left, right);
+      panorama.noteInput();
+      const amount = Math.abs(left.x) + Math.abs(left.y) + Math.abs(left.z) +
+                     Math.abs(right.x) + Math.abs(right.y) + Math.abs(right.z);
+      gym.noteTwist(amount * 4);
+    }
+    twoHandStart = null;
+    return;
+  }
+  hands.forEach((h) => { h.previousQuaternion = null; });
+
   if (gripping.length === 2) {
     gripScratch.a.setFromMatrixPosition(hands[0].grip.matrixWorld);
     gripScratch.b.setFromMatrixPosition(hands[1].grip.matrixWorld);
@@ -769,6 +940,26 @@ function applyGrips() {
     }
   }
   for (const hand of hands) if (!hand.grabbing) hand.grabStart = null;
+}
+
+/**
+ * How much has this hand turned since the last frame, as a unit quaternion?
+ * Returns null on the first frame of a grip, because there is nothing to compare
+ * against yet and inventing a rotation there would make the object jump.
+ */
+const quaternionScratch = { current: new THREE.Quaternion(), delta: new THREE.Quaternion(), inverse: new THREE.Quaternion() };
+function deltaQuaternion(hand) {
+  hand.grip.updateWorldMatrix(true, false);
+  quaternionScratch.current.setFromRotationMatrix(hand.grip.matrixWorld);
+  if (!hand.previousQuaternion) {
+    hand.previousQuaternion = quaternionScratch.current.clone();
+    return null;
+  }
+  quaternionScratch.inverse.copy(hand.previousQuaternion).invert();
+  quaternionScratch.delta.multiplyQuaternions(quaternionScratch.current, quaternionScratch.inverse);
+  hand.previousQuaternion.copy(quaternionScratch.current);
+  const d = quaternionScratch.delta;
+  return { w: d.w, x: d.x, y: d.y, z: d.z };
 }
 
 
@@ -811,7 +1002,7 @@ function updateReadouts(status, now, deltaMs, fps) {
       `frames per second        ${fps.toFixed(1)}\n` +
       `draw calls              ${renderer.info.render.calls}\n` +
       `triangles               ${renderer.info.render.triangles}\n` +
-      `projections this frame  ${status.projectionsThisFrame}   (must be 2: graph + tesseract, never per eye)\n` +
+      `projections this frame  ${status.projectionsThisFrame} of ${panorama.expectedProjections} expected   (never per eye)\n` +
       `one-projection rule     ${panorama.projectionRuleViolated ? 'VIOLATED' : 'holding'}\n` +
       `slab thickness          ${status.epsilon.toFixed(3)}\n` +
       `undo stack              ${panorama.view.history.length}\n` +
@@ -857,13 +1048,22 @@ renderer.setAnimationLoop(() => {
   applyHeldKeys(deltaMs);
   readControllers(deltaMs);
 
+  // The gym may turn the view itself during lesson 4, so its thinking happens
+  // BEFORE the projection, and its drawing AFTER it. That order is what keeps
+  // the toys and the graph from ever disagreeing about which way is w.
+  gym.update(deltaMs);
+
   panorama.update(deltaMs);
+
+  if (gym.active) gym.draw();
 
   // THE ONE-PROJECTION ASSERT (bible/part-04.md 4.9.3). The picture is drawn
   // once, for both eyes, from one projection pass. If a future change ever
   // starts projecting per eye, this counter changes and the debug HUD says so
   // out loud instead of the mistake hiding as vague discomfort.
-  if (panorama.projectionsThisFrame !== 2) panorama.projectionRuleViolated = true;
+  if (panorama.projectionsThisFrame !== panorama.expectedProjections) {
+    panorama.projectionRuleViolated = true;
+  }
 
   updateScreenHover();
 
@@ -880,7 +1080,8 @@ renderer.setAnimationLoop(() => {
 // otherwise, and "I could not activate the thing on my arm" is exactly the kind
 // of fault that unit tests never catch and a real person finds in ten seconds.
 window.PANORAMA = {
-  panorama, renderer, camera, data,
+  panorama, renderer, camera, data, gym,
+  isTier2Enabled: () => tier2Enabled,
   vr: { panelHit, gaugeReachedFor, menuRowUnderRay, runMenuItem, MENU_ITEMS,
         gaugePanel, menuPanel, hands, leftHand, rightHand,
         isMenuOpen: () => menuPanel.visible,

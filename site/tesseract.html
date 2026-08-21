@@ -67,6 +67,28 @@
   }
   #keys .hint { margin-top: 0.5rem; color: #7f92b4; font-style: italic; }
 
+  /* THE GYM. Five lessons, gated on doing rather than on reading, so that a
+     stranger learns to see in four dimensions before being asked to read
+     anything. bible/part-05.md 5.7. */
+  #gym-offer, #gym-panel {
+    position: fixed; left: 50%; transform: translateX(-50%);
+    background: #0c1322f5; border: 1px solid #3a5280;
+    border-radius: 11px; padding: 0.85rem 1.1rem; width: min(38rem, calc(100vw - 2rem));
+  }
+  #gym-offer { top: 30%; display: none; text-align: center; }
+  #gym-offer h2 { margin: 0 0 0.3rem; font-size: 1.25rem; color: #fff; }
+  #gym-offer p { margin: 0 0 0.9rem; color: #a8bad8; }
+  #gym-offer .row { display: flex; gap: 0.6rem; justify-content: center; }
+  #gym-panel { bottom: 3.4rem; display: none; }
+  #gym-title { color: #ffd479; font-weight: 700; margin-bottom: 0.2rem; }
+  #gym-instruction { color: #eaf4ff; }
+  #gym-foot {
+    display: flex; align-items: center; gap: 0.7rem; margin-top: 0.6rem;
+    flex-wrap: wrap;
+  }
+  #gym-progress { color: #8fa3c4; font-size: 0.88rem; flex: 1; }
+  #gym-dots { color: #ffd479; letter-spacing: 0.15em; font-size: 0.8rem; }
+
   #debug-panel {
     position: fixed; left: 0.9rem; bottom: 3rem; display: none;
     padding: 0.6rem 0.8rem; background: #060a12ee; border: 1px solid #24334f;
@@ -88,6 +110,7 @@
   <a href="/ghost/index.html">Ghost</a>
   <a href="https://learnime.com/" target="_blank" rel="noopener">Learnime &#8599;</a>
   <a href="https://www.peaktogether.me/" target="_blank" rel="noopener">Peak Together &#8599;</a>
+  <button id="open-gym">4D lessons</button>
   <button id="enter-vr" disabled>Enter VR</button>
   <span id="vr-note">Checking for a headset...</span>
 </div>
@@ -104,6 +127,27 @@
   <div><span>Put it all back</span><kbd>Home</kbd></div>
   <div><span>Stems / tesseract / graph</span><span><kbd>G</kbd><kbd>T</kbd><kbd>N</kbd></span></div>
   <p class="hint">Four snaps in the same plane always come home.</p>
+</div>
+
+<div id="gym-offer">
+  <h2>Nobody has ever seen four dimensions</h2>
+  <p>Five very short lessons and you will be able to follow an object through a
+  turn that should be impossible. About a minute. You can stop at any point.</p>
+  <div class="row">
+    <button id="gym-start">Teach me</button>
+    <button id="gym-skip-all">Let me just look around</button>
+  </div>
+</div>
+
+<div id="gym-panel">
+  <div id="gym-title"></div>
+  <div id="gym-instruction"></div>
+  <div id="gym-foot">
+    <span id="gym-progress"></span>
+    <span id="gym-dots"></span>
+    <button id="gym-next">Skip this one</button>
+    <button id="gym-quit">Leave the lessons</button>
+  </div>
 </div>
 
 <div id="hover-card"></div>

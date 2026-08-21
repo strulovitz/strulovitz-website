@@ -117,7 +117,7 @@ function makeDitheredMaterial(baseMaterial) {
  * (bible/part-04.md: under one hundred draw calls) while drawing a thousand
  * COPIES of one object costs a single call.
  */
-class InstancedSet {
+export class InstancedSet {
   constructor(geometry, capacity, options = {}) {
     // A per-instance colour only reaches the picture if the material has
     // vertexColors switched on, and switching that on makes the shader read a
@@ -260,8 +260,15 @@ export class Panorama {
     this.buildRoom();
     this.buildGraphObjects();
 
-    // A counter used by the debug assert of the one-projection rule.
+    // Extra four-dimensional objects that something else owns -- the gym's
+    // toys, for instance. They are projected inside the SAME pass as everything
+    // else, in this file, so that nobody can accidentally start projecting
+    // somewhere else and break the one-projection rule (part-05.md 5.9.1).
+    this.extraSets = new Map();
+
+    // Counters used by the debug assert of the one-projection rule.
     this.projectionsThisFrame = 0;
+    this.expectedProjections = 2;
     this.projectionRuleViolated = false;
   }
 
@@ -393,6 +400,34 @@ export class Panorama {
   }
 
   // ---------------------------------------------------------------------------
+  // EXTRA FOUR-DIMENSIONAL OBJECTS
+  // ---------------------------------------------------------------------------
+
+  /**
+   * Hand a set of 4D points to the scene so they get rotated and projected with
+   * everything else. Returns the arrays that will hold the results, which the
+   * caller reads after update() has run.
+   */
+  registerPointSet(name, points4) {
+    const count = points4.length / 4;
+    const entry = {
+      points4,
+      out3: new Float32Array(count * 3),
+      outW: new Float32Array(count),
+      outScale: new Float32Array(count),
+      count,
+    };
+    this.extraSets.set(name, entry);
+    this.expectedProjections = 2 + this.extraSets.size;
+    return entry;
+  }
+
+  unregisterPointSet(name) {
+    this.extraSets.delete(name);
+    this.expectedProjections = 2 + this.extraSets.size;
+  }
+
+  // ---------------------------------------------------------------------------
   // MODES
   // ---------------------------------------------------------------------------
 
@@ -469,6 +504,9 @@ export class Panorama {
     const before = this.view.projectionCount;
     this.view.projectAll(this.data.points4, this.out3, this.outW, this.outScale);
     this.view.projectAll(this.tesseractPoints4, this.tesseractOut3, this.tesseractOutW, this.tesseractOutScale);
+    for (const set of this.extraSets.values()) {
+      this.view.projectAll(set.points4, set.out3, set.outW, set.outScale);
+    }
     this.projectionsThisFrame = this.view.projectionCount - before;
 
     // 4. Turn the numbers into the picture.
@@ -642,6 +680,20 @@ export class Panorama {
       if (score < bestScore) { bestScore = score; best = i; }
     }
     return best;
+  }
+
+  /**
+   * Turn a projected 3D position from the maths' unit box into a real position
+   * in the room, in metres. Used wherever something outside the graph group
+   * needs to know where a node actually is: stems, labels, the pointing cursor.
+   */
+  toRoomSpace(out3, index, target) {
+    const scale = this.graph.scale.x;
+    target.set(
+      this.graph.position.x + out3[index * 3] * scale,
+      this.graph.position.y + out3[index * 3 + 1] * scale,
+      this.graph.position.z + out3[index * 3 + 2] * scale);
+    return target;
   }
 
   /** Facts for the debug HUD and for the wrist gauge. */

@@ -381,3 +381,74 @@ export function slabVisibility(w, w0, epsilon) {
   // Linear fade across the ghost band, strongest nearest the slab.
   return 1 - (ghost / epsilon);
 }
+
+
+// -----------------------------------------------------------------------------
+// THE TWO-HANDED TWIST (bible/part-05.md 5.4, Tier 2)
+// -----------------------------------------------------------------------------
+
+/*
+ THE IDEA, IN PLAIN WORDS. A point in four dimensions has four numbers, and so
+ does a quaternion. So we can treat a 4D point AS a quaternion. Then, for any
+ two unit quaternions l and r, the map
+
+     p  ->  l * p * r
+
+ is a rotation of four-dimensional space, and every possible 4D rotation can be
+ written this way. That is the whole mathematical fact behind the gesture: your
+ LEFT hand supplies l, your RIGHT hand supplies r, and together your two hands
+ hold the four-dimensional object and turn it through directions that no single
+ hand can reach.
+
+ This is why the twist is Tier 2 and not the default. It is genuinely the most
+ expressive control in the project and genuinely the easiest to get lost in, so
+ a reader earns it by finishing the gym, and Undo and Reset still work exactly
+ as before, because the result is composed onto the same single matrix Q.
+
+ Quaternion order used here: (w, x, y, z) mapped onto the coordinates
+ (x, y, z, w) of our points as index 3 = quaternion w. Sticking to one
+ convention matters more than which convention it is; the self-test pins it.
+*/
+
+/** The 4x4 matrix of "multiply a quaternion on the LEFT by l". */
+export function leftMultiplyMatrix(lw, lx, ly, lz) {
+  // Rows and columns are ordered as our points are: x, y, z, w.
+  // Derived from the quaternion product l * p, written out term by term.
+  const m = new Float64Array(16);
+  const set = (r, c, v) => { m[c * 4 + r] = v; };
+  // x row
+  set(0, 0, lw); set(0, 1, -lz); set(0, 2, ly); set(0, 3, lx);
+  // y row
+  set(1, 0, lz); set(1, 1, lw); set(1, 2, -lx); set(1, 3, ly);
+  // z row
+  set(2, 0, -ly); set(2, 1, lx); set(2, 2, lw); set(2, 3, lz);
+  // w row
+  set(3, 0, -lx); set(3, 1, -ly); set(3, 2, -lz); set(3, 3, lw);
+  return m;
+}
+
+/** The 4x4 matrix of "multiply a quaternion on the RIGHT by r". */
+export function rightMultiplyMatrix(rw, rx, ry, rz) {
+  const m = new Float64Array(16);
+  const set = (r, c, v) => { m[c * 4 + r] = v; };
+  set(0, 0, rw); set(0, 1, rz); set(0, 2, -ry); set(0, 3, rx);
+  set(1, 0, -rz); set(1, 1, rw); set(1, 2, rx); set(1, 3, ry);
+  set(2, 0, ry); set(2, 1, -rx); set(2, 2, rw); set(2, 3, rz);
+  set(3, 0, -rx); set(3, 1, -ry); set(3, 2, -rz); set(3, 3, rw);
+  return m;
+}
+
+/**
+ * Compose one step of the two-handed twist onto the view.
+ *
+ * left and right are the SMALL rotations each hand has made since the last
+ * frame, given as unit quaternions {w, x, y, z}. Because they are per-frame
+ * differences, releasing either hand stops the motion instantly and there is no
+ * inertia, which the comfort law demands.
+ */
+View4D.prototype.twist = function twist(left, right) {
+  const L = leftMultiplyMatrix(left.w, left.x, left.y, left.z);
+  const R = rightMultiplyMatrix(right.w, right.x, right.y, right.z);
+  this.Q = orthonormalize4(multiply4(multiply4(L, R), this.Q));
+  return this;
+};
