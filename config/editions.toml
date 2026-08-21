@@ -1,0 +1,153 @@
+# THE EDITION ROSTER
+# ==================
+#
+# WHAT THIS FILE IS
+# The list of AI models that each produce their own edition of the magazine,
+# and the few knobs that control how they are asked. Nir chose every model here
+# by name. No agent adds, removes or substitutes a model in this file without
+# Nir saying so out loud.
+#
+# WHAT AN EDITION IS (DECISIONS.md decision 12)
+# One model does EVERY role for a story: it reads the frozen sources, pulls out
+# the facts, writes the headline, the one-line TLDR and the article itself,
+# writes the plain-English explanations of the technical terms it leans on,
+# chooses the tags, decides what links to what, and writes the prompt for the
+# illustration. There is never a division of labour between models. Model A's
+# edition is entirely model A's work, and model B's edition is entirely
+# model B's, on the identical raw material.
+#
+# WHY EIGHT GALAXIES AND NOT ONE (DECISIONS.md decision 20)
+# Because each model chooses its own tags and its own links, and those choices
+# decide where things sit in the four-dimensional world. So each edition has
+# its own map. Switching edition rearranges the sky. A model that links
+# unrelated things is telling the reader something true about itself, and that
+# is the product, not a bug.
+#
+# WHY NOTHING IS CHECKED OR CORRECTED (DECISIONS.md decision 16)
+# If a model writes nonsense, we publish the nonsense as that model's edition.
+# The reader notices, switches edition, and sees instantly which model can be
+# trusted. That comparison IS the fact-checking, and it is the whole point of
+# the site. No agent ever edits a model's output, retries because the answer
+# looked poor, or picks the best of several attempts.
+#
+# HOW TO ADD A MODEL LATER (this is meant to be easy, on purpose)
+# Add a [[model]] block below with its OpenRouter id and a short honest note
+# about why it is here, then run:
+#     python3 pipeline/run.py --fill
+# The machine notices the new model has an empty cell for every story that
+# already exists, and fills exactly those. Nothing already done is redone.
+#
+# HOW TO ADD A STORY LATER
+# Put the source links in content/inbox.txt and run the same command. The
+# machine notices the new story has an empty cell for every model and fills
+# exactly those. Same command, both directions.
+
+
+[grid]
+# The model whose edition a visitor sees when they arrive without choosing.
+# Nir: "people identify AI with GPT (those who do not know the field)."
+# Changing the face of the whole site is this one line. The folder structure is
+# perfectly symmetrical, so no model has a privileged position on disk.
+default_model = "openai/gpt-5.6-terra"
+
+# Buy everything at half price by not demanding a fast answer. OpenRouter's
+# batch service is the identical model and the identical weights, billed at
+# 50%, with a 24-hour window. Nir: "please do everything you can in batch. we
+# have time." Set this to false only to debug something interactively.
+use_batch = true
+
+# Minimum independent sources before a story may be written at all
+# (DECISIONS.md decision 13, and bible/part-00.md LAW 7). Nir, on why this is
+# not negotiable even for the best story imaginable: "if a story is only from
+# one source, even if it is the most amazing story, like new aliens came and
+# handed us AGI, i cannot publish it, because i can get sued and lose all my
+# money."
+minimum_sources = 2
+
+# A ceiling on how much a model may write in one answer. This is a guard
+# against a runaway loop printing forever, NOT a budget (DECISIONS.md decision
+# 15: there is no daily dollar ceiling; the roster is the limit).
+max_output_tokens = 32000
+
+# Language of everything published. Nir: "always English ONLY please."
+language = "en"
+
+
+# ------------------------------------------------------------------------------
+# THE ROSTER. One model per company, deliberately: the MIDDLE of the spectrum -
+# too big for anyone to run at home, but not the frontier flagships whose price
+# would make a magazine impossible. Prices below are dollars per million tokens
+# as of the price snapshot of 2026-08-21, before the 50% batch discount, and
+# they are a comment for humans: the real cost of every call is measured from
+# what OpenRouter actually charges and written into the job ledger.
+# ------------------------------------------------------------------------------
+
+[[model]]
+id = "openai/gpt-5.6-terra"
+company = "OpenAI"
+short_name = "GPT-5.6 Terra"
+price_note = "2.00 in / 12.00 out"
+why = "OpenAI's MIDDLE tier of the current 5.6 generation. Sol is the big one, Luna is the small one. This is also the site's default face."
+
+[[model]]
+id = "anthropic/claude-sonnet-5"
+company = "Anthropic"
+short_name = "Claude Sonnet 5"
+price_note = "2.00 in / 10.00 out"
+why = "Anthropic's middle model. Nir: Opus 5 and Fable are expensive."
+
+[[model]]
+id = "google/gemini-3.7-flash"
+company = "Google"
+short_name = "Gemini 3.7 Flash"
+price_note = "0.38 in / 1.88 out"
+why = "Relatively new, and by far the cheapest on the roster. Nir on Google: 'this whole company i hate them so much' - it is here for the comparison, not from affection."
+
+[[model]]
+id = "x-ai/grok-4.6"
+company = "xAI"
+short_name = "Grok 4.6"
+price_note = "2.00 in / 6.00 out"
+why = "xAI's current model at a price a magazine can carry."
+
+[[model]]
+id = "deepseek/deepseek-v4-pro-0813"
+company = "DeepSeek"
+short_name = "DeepSeek V4 Pro"
+price_note = "1.19 in / 3.56 out"
+why = "Cheap enough to include despite being their Pro line. A million tokens of context."
+
+[[model]]
+id = "z-ai/glm-5.3"
+company = "Z.ai"
+short_name = "GLM 5.3"
+price_note = "1.40 in / 4.40 out"
+why = "Chosen over GLM 5.2 because of all the post-training it received - the more interesting of the two."
+
+[[model]]
+id = "qwen/qwen3.8-max"
+company = "Alibaba"
+short_name = "Qwen 3.8 Max"
+price_note = "2.00 in / 6.00 out"
+why = "Still a reasonable price and more interesting than the smaller Qwens."
+
+[[model]]
+id = "moonshotai/kimi-k2.6"
+company = "Moonshot"
+short_name = "Kimi K2.6"
+price_note = "0.94 in / 3.96 out"
+why = "Moonshot's newest GENERAL model below frontier-priced K3. Nir first asked for K2.7, then corrected himself when it turned out the only K2.7 on sale is coding-only."
+
+
+# ------------------------------------------------------------------------------
+# DELIBERATELY NOT ON THE ROSTER, so that no future agent 'helpfully' adds them.
+# ------------------------------------------------------------------------------
+# FREE MODELS. Nir: "i do not want things that are free and later disappear."
+# ANYTHING RUNNABLE AT HOME - Mistral Small and its kind. If a local-model
+#   edition ever happens, it is its own clearly-labelled thing, not mixed in
+#   with models nobody can run in a house.
+# REJECTED BY NAME: inclusionai/ling-2.6-1t, tencent/hy3, meituan/longcat-2.0,
+#   the bytedance seed models, nvidia/nemotron ("not strong at all"),
+#   anthropic/claude-haiku-4.5 ("who use this? nobody").
+# THE FRONTIER FLAGSHIPS: Kimi K3, GPT-5.6 Sol, Opus-class models. A whole
+#   magazine cannot be run through them at a price Nir will accept.

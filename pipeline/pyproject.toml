@@ -17,6 +17,21 @@ dependencies = [
     # discipline). One door to the database, so schema changes happen in one
     # place.
     "neo4j>=6.2,<7",
+    # trafilatura: pulls the actual article out of a news page and throws away
+    # the navigation, adverts and cookie banners (bible/part-06.md 6.2.1).
+    # First use: freezing the sources a story is built from.
+    "trafilatura>=2.0,<3",
+    # yt-dlp: fetches a YouTube video's SUBTITLES and its title, channel and
+    # date, so three different YouTubers talking about the same event can be
+    # sources for one story. We take the captions rather than transcribing the
+    # audio ourselves: it is instant, free, and needs no graphics card.
+    "yt-dlp>=2025.1.1",
+    # networkx: the force layout that decides where each edition's nodes sit in
+    # its own galaxy (bible/part-03.md 3.2). Every edition gets its own layout.
+    "networkx>=3.4,<4",
+    # numpy: the arithmetic underneath the layout and the quantised positions
+    # the browser reads.
+    "numpy>=2.1,<3",
 ]
 
 [tool.uv]

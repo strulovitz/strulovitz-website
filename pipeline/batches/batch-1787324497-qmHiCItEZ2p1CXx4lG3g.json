@@ -1,0 +1,16 @@
+{
+ "batch_id": "batch-1787324497-qmHiCItEZ2p1CXx4lG3g",
+ "model_id": "google/gemini-3.7-flash",
+ "purpose": "a two-question probe proving the half-price path works end to end",
+ "actor": "claude-opus-5",
+ "question_names": [
+  "probe-1",
+  "probe-2"
+ ],
+ "submitted_at_utc": "2026-08-21T15:01:38+00:00",
+ "wanted_json": false,
+ "cache_keys": {
+  "probe-1": "7db86c62944d89621db85e0ed5e7988e420506f63c82ef6e5101b2b3e48eeb61",
+  "probe-2": "92357007a6704169eda8ccba55d75704817aa2d39ed7f938d6e8be814038e2e1"
+ }
+}
