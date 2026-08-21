@@ -194,3 +194,36 @@ STANDING INSTRUCTION TO EVERY AGENT: never invent a nickname, a codename, or a
 metaphor for a machine, a script, or a folder that Nir has to learn. Name
 things after what they plainly are. Nir does not read code and did not ask for
 poetry; he asked for a magazine.
+
+
+DECISION 8 - THE BOTS WERE REBUILT WITH PLAIN ADDRESSES
+Date: 2026-08-21
+Decided by: Nir
+Ruling: All bots created earlier that day were deleted and are being rebuilt so
+that the ADDRESS matches the plain machine name too, not only the display name.
+Decision 6's usernames are therefore history; these are the real ones.
+
+1. Desktop Linux    @NirDesktopLinux_bot     created 2026-08-21, live, its
+                                             token is in .env on desktop-linux.
+2. Laptop Linux     @NirLaptopLinux_bot      not created yet. Its token belongs
+                                             in the .env on the LAPTOP only.
+3. Desktop Windows  @NirDesktopWindows_bot   not created yet.
+4. Laptop Windows   @NirLaptopWindows_bot    not created yet.
+
+How this happened, recorded honestly because the lesson matters more than the
+tidiness: an agent explained how to delete the old bot and put the words "make
+the new one FIRST, then delete the old one" at the BOTTOM of the message. Nir
+acts immediately and in the order written, so he deleted every bot he had. See
+the communication rules at the top of SESSION-STATE-AI-PANORAMA.md, rule 4:
+the important thing goes FIRST. This decision exists partly as a monument to
+that rule.
+
+WHO MAY COMMAND THIS COMPUTER: only Nir's numeric Telegram id, and nothing
+else, ever (bible/part-07.md 7.8.1). Not a username, which can be given up and
+claimed by a stranger; not a display name, which can be copied exactly. The
+check lives in one function, is_owner() in pipeline/lib/telegram.py, and every
+future listening ear must call it. A stranger gets SILENCE, never a refusal,
+because a refusal advertises that something worth attacking is here.
+As of 2026-08-21 nothing listens for incoming messages at all, so no one can
+command the computer over Telegram - not even Nir. That ear arrives with
+OpenClaw, and the guard is already waiting for it.

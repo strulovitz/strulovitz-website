@@ -154,6 +154,42 @@ def send(text: str, *, quiet_failure: bool = True) -> bool:
         raise RuntimeError(message) from None
 
 
+def owner_id() -> int:
+    """Nir's numeric Telegram id, the only person this project ever obeys."""
+    _, owner = _credentials()
+    return int(owner)
+
+
+def is_owner(user_id: int | str | None) -> bool:
+    """
+    THE DOOR GUARD. Answer: is this message from Nir himself?
+
+    Nothing in this project may act on an incoming Telegram message without
+    calling this first and getting True (bible/part-07.md 7.8.1). As of
+    2026-08-21 nothing listens for incoming messages at all - the bot only
+    speaks - so there is no way for anyone, including Nir, to command this
+    computer over Telegram. This function exists NOW, before that ear is ever
+    added, so that whoever adds it has no excuse to invent their own check.
+
+    Why an id and not a phone number or a username: a Telegram username can be
+    given up and claimed by somebody else, and a name can be copied exactly,
+    picture and all. The numeric id is permanent and belongs to one account for
+    its whole life. So the id is what we trust, and it is the ONLY thing we
+    trust. A stranger who copies Nir's name, his photo and his username still
+    fails this check.
+
+    The correct behaviour for a stranger is SILENCE, not a refusal message: a
+    refusal tells them something is here and worth attacking. Log the attempt
+    to the job ledger as an incident and say nothing back.
+    """
+    if user_id is None:
+        return False
+    try:
+        return int(user_id) == owner_id()
+    except (TypeError, ValueError):
+        return False
+
+
 if __name__ == "__main__":
     # Running this file directly sends a test message. Useful after moving the
     # project to a new machine: it proves the .env is correct before anything
