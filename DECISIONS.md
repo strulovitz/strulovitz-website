@@ -284,3 +284,31 @@ project ever touched.
 STANDING INSTRUCTION: no agent may show Nir, or the public, a figure taken
 straight from a source's list. State what was excluded, or do not publish the
 figure.
+
+
+DECISION 10 - ADVERTISING AND AFFILIATE LINKS ARE ALLOWED
+Date: 2026-08-21
+Decided by: Nir
+Ruling: Advertising and affiliate links are allowed. Nir marks them clearly and
+points them out honestly. The footer line about licences and "no advertising,
+ever" is deleted from the site, with no replacement.
+
+Nir's reasoning: "how do you say in the next line that this is to take care of
+my girlfriend's future if you take away the main way of making money from this
+project?"
+
+This overrides part-00.md LAW 9's forbidden-income list. Two things from LAW 9
+still stand, because they are what keeps the money coming: say plainly where a
+link pays us, and never let money move a ranking or a benchmark number.
+
+Agents: never add licence text or "no advertising" boasts to a page, and do not
+add advertising either until Nir says so.
+
+
+DECISION 11 - NIGHT WATCH COMES AFTER THE MAGAZINE
+Date: 2026-08-21
+Decided by: Nir
+Ruling: The magazine itself gets built first. Night Watch comes afterwards.
+NIGHT-WATCH.md stays as the written design and is not acted on. Its menu entry
+and page stay, tagged "planned" rather than "soon", because nobody has promised
+a date. No agent proposes starting it; Nir will say when.
