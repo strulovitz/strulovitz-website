@@ -461,6 +461,38 @@ async def main():
             check("there are five lessons", state["count"] == 5, state["count"])
             check("a lesson begins in the doing state", state["state"] == "doing", state)
 
+            # SLIDING THE OBJECT ABOUT MUST NOT COUNT AS RESIZING IT. Nir: "the
+            # dragging is also affecting the resizing, the numbers of resizing
+            # advance, this should not happen at all, the moving is NOT
+            # resizing." It happened because apparent size was being measured as
+            # the camera's distance to the object, which panning also changes.
+            await page.evaluate("""(() => {
+              window.PANORAMA.resetEverything();
+              window.PANORAMA.gym.start();
+            })()""")
+            await page.drain(0.5)
+            await page.send("Input.dispatchMouseEvent", {
+                "type": "mousePressed", "x": 700, "y": 400, "button": "right",
+                "buttons": 2, "clickCount": 1})
+            for i in range(20):
+                await page.send("Input.dispatchMouseEvent", {
+                    "type": "mouseMoved", "x": 700 + i * 14, "y": 400 + i * 10,
+                    "button": "right", "buttons": 2})
+                await page.drain(0.04)
+            await page.send("Input.dispatchMouseEvent", {
+                "type": "mouseReleased", "x": 980, "y": 600, "button": "right", "buttons": 0})
+            await page.drain(0.6)
+            panned = await page.evaluate("""(() => {
+              const g = window.PANORAMA.gym;
+              return { moved: g.moved, scaled: g.scaled, progress: g.describe().progress };
+            })()""")
+            check("dragging the object about really does count as moving it",
+                  panned["moved"] > 0.12, panned)
+            check("dragging it about does NOT count as resizing it, not even a little",
+                  panned["scaled"] == 0, panned)
+            check("so the progress line still says resized 0% after only dragging",
+                  "resized 0%" in panned["progress"], panned)
+
             # LESSON 1, THE MOUSE-WHEEL FAULT. Nir dragged with the right button
             # and got "moved 100%", then rolled the wheel A LOT and still got
             # "resized 0%", because on a flat screen the wheel moves the camera
@@ -586,10 +618,14 @@ async def main():
             check("lesson 1 refuses to pass on half the task", half["passed"] is False, half)
 
             await page.drain(0.6)
-            await page.evaluate("""(() => {
-              const p = window.PANORAMA.panorama;
-              p.graph.scale.setScalar(p.graph.scale.x * 1.25);
-            })()""")
+            # Resizing is counted as a GESTURE now, so the test has to perform
+            # one rather than setting a number from JavaScript. That is the
+            # point: only the wheel and the two-handed stretch resize anything.
+            for _ in range(3):
+                await page.send("Input.dispatchMouseEvent", {
+                    "type": "mouseWheel", "x": 700, "y": 400,
+                    "deltaX": 0, "deltaY": -120, "modifiers": 0})
+                await page.drain(0.2)
             await page.drain(1.5)
             waiting = await page.evaluate("""(() => {
               const g = window.PANORAMA.gym, d = g.describe();

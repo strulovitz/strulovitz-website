@@ -103,6 +103,21 @@ function viewDistance() {
   return camera.position.distanceTo(panorama.graph.position);
 }
 
+/**
+ * How much the object's APPARENT SIZE has been changed by the reader, ever,
+ * added up as a fraction. Only two things count: rolling the wheel, and
+ * stretching the object between two hands.
+ *
+ * WHY IT IS AN ACCUMULATOR AND NOT A MEASUREMENT. The obvious way to measure
+ * apparent size is the distance from the camera to the object -- and that is
+ * wrong, because SLIDING the object sideways also changes that distance a
+ * little. Nir spotted it immediately: "the dragging is also affecting the
+ * resizing, the moving is NOT resizing". So instead of measuring a quantity
+ * that two different gestures both disturb, we count the gestures that
+ * genuinely resize, at the moment they happen.
+ */
+let apparentSizeTravel = 0;
+
 window.addEventListener('resize', () => {
   camera.aspect = window.innerWidth / window.innerHeight;
   camera.updateProjectionMatrix();
@@ -244,14 +259,19 @@ renderer.domElement.addEventListener('wheel', (event) => {
   direction.divideScalar(distance);
   const step = -Math.sign(event.deltaY) * Math.max(0.06, distance * 0.09);
   const wanted = distance - step;
+  let landed = wanted;
   if (wanted < MIN_VIEW_DISTANCE) {
+    landed = MIN_VIEW_DISTANCE;
     camera.position.copy(panorama.graph.position).addScaledVector(direction, -MIN_VIEW_DISTANCE);
     setStatusFlash('That is as close as it goes. Press Home to stand back.');
   } else if (wanted > MAX_VIEW_DISTANCE) {
+    landed = MAX_VIEW_DISTANCE;
     camera.position.copy(panorama.graph.position).addScaledVector(direction, -MAX_VIEW_DISTANCE);
   } else {
     camera.position.addScaledVector(direction, step);
   }
+  // Count how much this roll of the wheel actually changed the apparent size.
+  apparentSizeTravel += Math.abs(landed - distance) / Math.max(0.2, distance);
   panorama.noteInput();
 }, { passive: false });
 
@@ -445,10 +465,10 @@ function wrapText(context, text, x, y, maxWidth, lineHeight) {
 }
 
 const gym = new WGym(panorama, {
-  // On a flat screen the wheel moves the camera rather than scaling the object,
-  // so "make it bigger" has to be measured as a change in APPARENT size. Without
-  // this, lesson 1 sat at "resized 0%" no matter how much Nir scrolled.
-  viewDistance,
+  // The gym asks how much the reader has resized things. It gets a count of the
+  // resizing gestures actually performed, not a measurement of anything that
+  // sliding the object could disturb as well.
+  apparentSize: () => apparentSizeTravel,
   resetCamera: resetEverything,
   onLesson: (lesson) => {
     if (!lesson) return;
@@ -1079,7 +1099,11 @@ function applyGrips(deltaMs) {
       twoHandStart = { distance, scale: panorama.graph.scale.x, centre: centre.clone(), position: panorama.graph.position.clone() };
     } else {
       const ratio = THREE.MathUtils.clamp(distance / twoHandStart.distance, 0.35, 3.5);
+      const previousScale = panorama.graph.scale.x;
       panorama.graph.scale.setScalar(twoHandStart.scale * ratio);
+      // Stretching the object between two hands is the other way of resizing it.
+      apparentSizeTravel += Math.abs(panorama.graph.scale.x - previousScale) /
+                            Math.max(0.01, previousScale);
       panorama.graph.position.copy(twoHandStart.position).add(centre.clone().sub(twoHandStart.centre));
     }
     return;
@@ -1255,6 +1279,7 @@ window.PANORAMA = {
   doubleRotationAllowed, PARTNER_PLANE,
   flashState: () => ({ text: flashLine.textContent, opacity: flashLine.style.opacity }),
   resetEverything, viewDistance,
+  apparentSize: () => apparentSizeTravel,
   limits: { MIN_VIEW_DISTANCE, MAX_VIEW_DISTANCE },
   vr: { panelHit, gaugeReachedFor, menuRowUnderRay, runMenuItem, MENU_ITEMS,
         gaugePanel, menuPanel, hands, leftHand, rightHand,

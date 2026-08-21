@@ -197,31 +197,20 @@ export class WGym {
           this.moved = 0;
           this.scaled = 0;
           this.lastGraphPosition = panorama.graph.position.clone();
-          this.lastGraphScale = panorama.graph.scale.x;
-          this.lastViewDistance = this.hooks.viewDistance ? this.hooks.viewDistance() : null;
+          // Where the resizing counter stood when this lesson began.
+          this.sizeBaseline = this.hooks.apparentSize?.() ?? 0;
         },
         tick: () => {
+          // MOVING is measured here: how far the object has been slid about.
           this.moved += panorama.graph.position.distanceTo(this.lastGraphPosition);
           this.lastGraphPosition.copy(panorama.graph.position);
 
-          // "Bigger" happens two different ways, and BOTH have to count.
-          // In the headset, two hands pull the object itself larger, so the
-          // graph's own scale changes. On a flat screen the wheel moves the
-          // camera closer instead, and the object's scale never changes at all
-          // -- which is why this lesson used to be impossible to finish with a
-          // mouse. What the reader experiences in both cases is APPARENT size,
-          // so that is what gets measured, as a fraction rather than in metres.
-          const scale = panorama.graph.scale.x;
-          this.scaled += Math.abs(scale - this.lastGraphScale) / Math.max(0.01, scale);
-          this.lastGraphScale = scale;
-
-          if (this.hooks.viewDistance) {
-            const distance = this.hooks.viewDistance();
-            if (this.lastViewDistance !== null) {
-              this.scaled += Math.abs(distance - this.lastViewDistance) / Math.max(0.2, distance);
-            }
-            this.lastViewDistance = distance;
-          }
+          // RESIZING is counted by whoever owns the controls, and only the
+          // gestures that genuinely resize are counted -- the mouse wheel, and
+          // stretching the object between two hands. Sliding it about must not
+          // creep into this number. It used to, and Nir caught it: "the moving
+          // is NOT resizing".
+          this.scaled = (this.hooks.apparentSize?.() ?? 0) - this.sizeBaseline;
 
           this.cube.rotation.y += 0.004;
         },

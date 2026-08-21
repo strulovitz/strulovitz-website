@@ -499,6 +499,13 @@ WHAT MILESTONE 1 STILL NEEDS BEFORE IT CAN BE CALLED DONE (part-13.md 13.2):
        one. All four coordinates move, and the shape never repeats. This is the
        flat screen's honest equivalent of the two-handed twist, and PARTNER_PLANE
        in main.js is where it lives.
+   (i) DO NOT MEASURE A QUANTITY THAT TWO GESTURES BOTH DISTURB. Sliding the
+       object about was creeping into lesson 1's RESIZING count, because
+       apparent size was measured as the camera's distance to the object, and
+       panning changes that distance too. Resizing is now COUNTED when a
+       resizing gesture happens (apparentSizeTravel in main.js: the wheel, and
+       the two-handed stretch), so sliding contributes exactly nothing. Nir:
+       "the moving is NOT resizing".
 2. Hover cards and a reading panel in VR. On the flat screen the hover card
    exists as plain HTML; in the headset there is only a highlight and a haptic
    tap so far.
