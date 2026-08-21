@@ -1,0 +1,17 @@
+{
+ "schema_version": 1,
+ "what_this_is": "Every OpenRouter price and specification snapshot this project holds, oldest first. One entry per day taken.",
+ "snapshot_count": 1,
+ "first_snapshot": "2026-08-21",
+ "latest_snapshot": "2026-08-21",
+ "snapshots": [
+  {
+   "snapshot_date": "2026-08-21",
+   "file": "2026-08-21.json",
+   "row_count": 419,
+   "taken_at_utc": "2026-08-21T06:27:50+00:00",
+   "sha256": "a380376633aa78a8eea8217cffaaa04fed659819426da9d33a15e014614e5ab2",
+   "bytes": 452581
+  }
+ ]
+}

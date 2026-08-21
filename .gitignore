@@ -1,0 +1,52 @@
+# WHAT GIT IGNORES, AND WHY
+# Nir does not read code, so every rule here says what it is protecting.
+# Rule of thumb for this project: we back up TRUTH, not artifacts
+# (bible/part-12.md 12.2.4). Anything a machine can rebuild stays out of git.
+
+# --- SECRETS. Never, ever committed (bible/part-07.md 7.4.2). ---
+# Real API keys and passwords live in .env files on the home machines only.
+# The .env.example file IS committed, because it holds only dummy values and
+# documents what each secret is for.
+.env
+.env.*
+!.env.example
+
+# --- PYTHON WORKING FILES. Rebuilt by "uv sync" in seconds. ---
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+
+# --- NODE WORKING FILES. Rebuilt by "npm install". ---
+node_modules/
+
+# --- BUILD OUTPUTS. Reproducible from the database, so not worth storing. ---
+# The exports/ folder holds the finished website folders that Nir drags to the
+# server. They are large, they are regenerated every week, and they must never
+# be edited by hand (bible/part-00.md LAW 12). We keep the folder itself and
+# the record of which version is currently live.
+exports/*
+!exports/.gitkeep
+!exports/live-manifest.json
+site/dist/
+
+# --- THE FROZEN SOURCE CACHE. Large, and backed up by rsync instead. ---
+# Raw article text and video transcripts are kept on disk as permanent
+# evidence (bible/part-06.md 6.2.4) and copied to the laptop weekly. They are
+# far too big for git.
+pipeline/raw/
+pipeline/scratch/
+
+# --- GENERATED IMAGES. Re-renderable from the same prompt and seed. ---
+comfy/output/
+
+# --- DESKTOP AND EDITOR JUNK. Nobody needs these in a five-year archive. ---
+.DS_Store
+Thumbs.db
+desktop.ini
+*~
+*.swp
+.idea/
+.vscode/

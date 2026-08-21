@@ -1,0 +1,19 @@
+[project]
+# The AI PANORAMA pipeline. Runs on ATLAS (the desktop) only.
+# See bible/part-01.md section 1.5 for what belongs here.
+name = "ai-panorama-pipeline"
+version = "0.1.0"
+description = "AI PANORAMA content pipeline: ingest, claims, synthesis, scoring, layout, export."
+requires-python = ">=3.12"
+
+# Dependencies are added deliberately, one at a time, with a reason.
+# Versions are pinned by the uv lockfile (uv.lock), never floating.
+dependencies = [
+    # httpx: every outbound API call goes through httpx (bible/part-01.md 1.5.3).
+    # First use: the weekly OpenRouter price/spec snapshot (bible/part-09.md 9.4).
+    "httpx>=0.28,<0.29",
+]
+
+[tool.uv]
+# The virtual environment lives inside this folder, on /home (the 1.7 TB disk).
+package = false
