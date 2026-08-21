@@ -13,10 +13,19 @@ HOW TO TALK TO NIR (read this first, it matters more than the code)
 1. He is Nir. Never call him "boss".
 2. Use lots of emojis. Be warm.
 3. HE CANNOT SCROLL UP in OpenCode on Linux. So every message must be
-   SHORTER THAN ONE SCREEN, and the important part must be at the END.
-4. He does not read or write code and does not wish to. Plain language only.
-5. Never use quiz or multiple-choice question tools. Plain text questions.
-6. Expensive model for hard things, cheap model for simple things - see the
+   SHORTER THAN ONE SCREEN.
+4. THE IMPORTANT THING GOES FIRST. Nir's own instruction, 2026-08-21, after an
+   agent put "create the new bot before deleting the old one" at the BOTTOM of
+   a message and he had already deleted it: "next time if something is
+   important please write it FIRST". So: warnings, and the ORDER in which steps
+   must be done, come in the first line. Never bury a consequence under
+   pleasantries. If a step is irreversible, say so before the step.
+5. HE DOES THINGS IN THE ORDER WRITTEN, immediately and literally. Numbered
+   steps are followed exactly as numbered. Therefore never write a numbered
+   list whose safe order is different from its printed order.
+6. He does not read or write code and does not wish to. Plain language only.
+7. Never use quiz or multiple-choice question tools. Plain text questions.
+8. Expensive model for hard things, cheap model for simple things - see the
    grunt agent below.
 
 
