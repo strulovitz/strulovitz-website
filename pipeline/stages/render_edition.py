@@ -236,7 +236,114 @@ def store(slug: str, model: Model, answer: Answer) -> Path:
         (folder / "image-prompt.txt").write_text(
             str(produced.get("image_prompt", "")), encoding="utf-8"
         )
+        write_readable(folder)
     return folder
+
+
+def write_readable(folder: Path) -> Path | None:
+    """
+    Write EVERYTHING one model produced into a single file a person can read
+    top to bottom: the headline, the one-line summary, the article, the key
+    points with their sources, the encyclopedia entries, the tags, the links to
+    other stories, the illustration prompt, and what it cost.
+
+    This exists because rendering.json is machine-shaped, and judging a model's
+    work by reading JSON is miserable. Nothing here is new information - it is
+    the same answer, laid out for human eyes.
+    """
+    rendering_path = folder / "rendering.json"
+    if not rendering_path.exists():
+        return None
+    rendering = json.loads(rendering_path.read_text(encoding="utf-8"))
+    produced = rendering.get("produced")
+    if not produced:
+        return None
+
+    lines: list[str] = [
+        f"# {produced.get('headline', '(no headline)')}",
+        "",
+        f"**{rendering.get('short_name')}** ({rendering.get('company')}) — "
+        f"its own edition of *{rendering.get('story')}*",
+        "",
+        "---",
+        "",
+        "## The one line a reader sees when hovering over this story",
+        "",
+        f"> {produced.get('tldr', '')}",
+        f"> *({len(produced.get('tldr', ''))} characters)*",
+        "",
+        "---",
+        "",
+        "## The article",
+        "",
+        str(produced.get("article", "")),
+        "",
+        "---",
+        "",
+        "## What this editor judged the sources established",
+        "",
+    ]
+    for point in produced.get("key_points") or []:
+        lines.append(f"- {point.get('point', '')}")
+        lines.append(f"  — {point.get('source_url', '')}")
+    lines += ["", "---", "", "## The encyclopedia entries it chose to write", ""]
+    for concept in produced.get("concepts") or []:
+        words = len(str(concept.get("explanation", "")).split())
+        lines += [
+            f"### {concept.get('term', '')}",
+            f"`{concept.get('slug', '')}` — {words} words",
+            "",
+            str(concept.get("explanation", "")),
+            "",
+        ]
+    lines += [
+        "---",
+        "",
+        "## Tags it chose",
+        "",
+        "  ".join(f"`{tag}`" for tag in produced.get("tags") or []) or "(none)",
+        "",
+        "*These decide what sits near what in this edition's own galaxy, and nowhere else.*",
+        "",
+        "## Other stories it decided a reader should go to next",
+        "",
+    ]
+    related = produced.get("related") or []
+    lines += ([f"- `{slug}`" for slug in related] if related
+              else ["(none — it judged that no other story in the magazine relates to this one)"])
+    lines += [
+        "",
+        "*These are the edges of this edition's map. Another model will draw them differently.*",
+        "",
+        "---",
+        "",
+        "## The illustration it directed",
+        "",
+        f"> {produced.get('image_prompt', '')}",
+        "",
+        "*Rendered locally with the same image model and the same seed for every "
+        "edition, so the only difference between editions' pictures is the quality "
+        "of that paragraph.*",
+        "",
+        "---",
+        "",
+        "## What it cost, and how it was asked",
+        "",
+        f"- cost: **${rendering.get('cost_usd', 0):.4f}**"
+        f"{' (half price, bought in batch)' if rendering.get('bought_in_batch') else ' (full price, bought immediately)'}",
+        f"- it read {rendering.get('prompt_tokens', 0):,} tokens and wrote "
+        f"{rendering.get('completion_tokens', 0):,}"
+        + (f", of which {rendering.get('reasoning_tokens', 0):,} were thinking to itself"
+           if rendering.get("reasoning_tokens") else ""),
+        f"- it took {rendering.get('seconds_waited', 0):.0f} seconds",
+        f"- asked with a strict JSON shape: {rendering.get('asked_with_strict_schema')}",
+        f"- the exact model that served it: `{rendering.get('model_served')}`",
+        f"- editorial brief version: `{rendering.get('brief_version')}`",
+        "",
+    ]
+    path = folder / "EDITION.md"
+    path.write_text("\n".join(lines), encoding="utf-8")
+    return path
 
 
 # ------------------------------------------------------------------------------
