@@ -440,6 +440,122 @@ async def main():
             check("there are five lessons", state["count"] == 5, state["count"])
             check("a lesson begins in the doing state", state["state"] == "doing", state)
 
+            # LESSON 1, THE MOUSE-WHEEL FAULT. Nir dragged with the right button
+            # and got "moved 100%", then rolled the wheel A LOT and still got
+            # "resized 0%", because on a flat screen the wheel moves the camera
+            # and never touches the object's scale. So the lesson was impossible
+            # to finish with a mouse. It is measured as apparent size now, and
+            # this test rolls a real wheel to prove it.
+            wheel = await page.evaluate("""(() => {
+              window.PANORAMA.resetEverything();
+              window.PANORAMA.gym.start();
+              return { scaled: window.PANORAMA.gym.scaled, distance: window.PANORAMA.viewDistance() };
+            })()""")
+            for _ in range(6):
+                await page.send("Input.dispatchMouseEvent", {
+                    "type": "mouseWheel", "x": 700, "y": 400,
+                    "deltaX": 0, "deltaY": -120, "modifiers": 0})
+                await page.drain(0.25)
+            after_wheel = await page.evaluate("""(() => ({
+              scaled: window.PANORAMA.gym.scaled,
+              distance: window.PANORAMA.viewDistance(),
+              progress: window.PANORAMA.gym.describe().progress,
+            }))()""")
+            check("rolling the mouse wheel really does count as resizing",
+                  after_wheel["scaled"] > 0.10, after_wheel)
+            check("the wheel actually brought the camera closer",
+                  after_wheel["distance"] < wheel["distance"] - 0.3, after_wheel)
+            check("the progress line no longer says resized 0%",
+                  "resized 0%" not in after_wheel["progress"], after_wheel)
+
+            # AND IT MUST NOT BE POSSIBLE TO FLY INSIDE THE OBJECT AND GET STUCK.
+            trapped = await page.evaluate("""(() => {
+              window.PANORAMA.resetEverything();
+              return window.PANORAMA.viewDistance();
+            })()""")
+            for _ in range(40):
+                await page.send("Input.dispatchMouseEvent", {
+                    "type": "mouseWheel", "x": 700, "y": 400,
+                    "deltaX": 0, "deltaY": -120, "modifiers": 0})
+            await page.drain(1.0)
+            closest = await page.evaluate("""(() => ({
+              distance: window.PANORAMA.viewDistance(),
+              minimum: window.PANORAMA.limits.MIN_VIEW_DISTANCE,
+            }))()""")
+            check("scrolling forty times cannot push the camera inside the object",
+                  closest["distance"] >= closest["minimum"] - 0.001, closest)
+
+            for _ in range(60):
+                await page.send("Input.dispatchMouseEvent", {
+                    "type": "mouseWheel", "x": 700, "y": 400,
+                    "deltaX": 0, "deltaY": 120, "modifiers": 0})
+            await page.drain(1.0)
+            farthest = await page.evaluate("""(() => ({
+              distance: window.PANORAMA.viewDistance(),
+              maximum: window.PANORAMA.limits.MAX_VIEW_DISTANCE,
+            }))()""")
+            check("scrolling backwards cannot strand the camera in empty space",
+                  farthest["distance"] <= farthest["maximum"] + 0.001, farthest)
+
+            # And whatever mess the reader makes, Home and the gold button both
+            # put everything back -- rotation, panning, scale AND camera. Nir's
+            # complaint was that the gold button did NOT rescue him.
+            rescue = await page.evaluate("""(() => {
+              const p = window.PANORAMA;
+              p.panorama.graph.position.set(2.5, 0.2, -4.0);
+              p.panorama.graph.scale.setScalar(0.15);
+              p.panorama.view.rotate('zw', 1.1);
+              p.camera.position.set(3, 4, 5);
+              const wrecked = { distance: p.viewDistance(), scale: p.panorama.graph.scale.x };
+              document.getElementById('open-gym').click();
+              return {
+                wrecked,
+                distance: p.viewDistance(),
+                scale: p.panorama.graph.scale.x,
+                q0: p.panorama.view.Q[0],
+                cameraX: p.camera.position.x,
+                gymActive: p.gym.active,
+                lesson: p.gym.lessonIndex,
+              };
+            })()""")
+            check("the gold lessons button rescues a reader who is lost",
+                  abs(rescue["scale"] - 0.8) < 1e-6 and abs(rescue["q0"] - 1) < 1e-9
+                  and abs(rescue["cameraX"]) < 1e-6 and rescue["gymActive"] is True
+                  and rescue["lesson"] == 0, rescue)
+
+            visible_reset = await page.evaluate("""(() => {
+              const p = window.PANORAMA;
+              p.gym.quit();
+              p.camera.position.set(4, 1, 4);
+              p.panorama.graph.scale.setScalar(0.2);
+              document.getElementById('reset-all').click();
+              return { scale: p.panorama.graph.scale.x, cameraX: p.camera.position.x };
+            })()""")
+            check("there is a visible Reset view button, and it works",
+                  abs(visible_reset["scale"] - 0.8) < 1e-6
+                  and abs(visible_reset["cameraX"]) < 1e-6, visible_reset)
+
+            homed = await page.evaluate("""(() => {
+              const p = window.PANORAMA;
+              p.gym.quit();
+              p.camera.position.set(-2, 3, -6);
+              p.panorama.graph.scale.setScalar(2.2);
+              return { before: p.viewDistance() };
+            })()""")
+            await page.key("Home", "Home", key_code=36)
+            await page.drain(0.5)
+            after_home = await page.evaluate("""(() => ({
+              scale: window.PANORAMA.panorama.graph.scale.x,
+              cameraX: window.PANORAMA.camera.position.x,
+              distance: window.PANORAMA.viewDistance(),
+            }))()""")
+            check("the Home key puts back the camera and the size, not only the rotation",
+                  abs(after_home["scale"] - 0.8) < 1e-6 and abs(after_home["cameraX"]) < 1e-6,
+                  after_home)
+
+            await page.evaluate("window.PANORAMA.resetEverything(); window.PANORAMA.gym.start();")
+            await page.drain(0.5)
+
             # LESSON 1: half the task is not a pass.
             half = await page.evaluate("""(() => {
               const p = window.PANORAMA.panorama, g = window.PANORAMA.gym;

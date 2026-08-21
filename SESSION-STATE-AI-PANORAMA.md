@@ -469,6 +469,20 @@ WHAT MILESTONE 1 STILL NEEDS BEFORE IT CAN BE CALLED DONE (part-13.md 13.2):
        separation, and a test fails if any two get closer than 0.12.
    Also: every lesson but the first resets the view when it begins, because a
    stray turn made at the end of one lesson was quietly ruining the next.
+   TWO MORE FROM HIS SECOND SESSION, also enforced by tests:
+   (e) MEASURE WHAT THE PERSON EXPERIENCES, NOT WHAT THE CODE DOES. Lesson 1
+       asked him to resize the object and watched graph.scale for it, but on a
+       flat screen the wheel dollies the CAMERA and scale never changes, so it
+       read "resized 0%" however much he scrolled. It now measures APPARENT
+       size, which covers both the headset's two-handed stretch and the wheel.
+   (f) ANYTHING THAT CAN BE MOVED MUST BE RESETTABLE. Scrolling forward flew the
+       camera through the object into blank space with no way back, and the
+       lessons button did not rescue him either. The camera is now clamped
+       between MIN_VIEW_DISTANCE and MAX_VIEW_DISTANCE in main.js, resetting
+       restores camera, panning, scale AND rotation via resetEverything(), the
+       gold lessons button calls it, and there is now a visible "Reset view"
+       button beside it because the Home key is useless to somebody who does not
+       know it exists.
 2. Hover cards and a reading panel in VR. On the flat screen the hover card
    exists as plain HTML; in the headset there is only a highlight and a haptic
    tap so far.

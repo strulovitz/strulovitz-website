@@ -55,13 +55,46 @@ renderer.xr.enabled = true;
 renderer.xr.setFramerate?.(72);
 document.body.appendChild(renderer.domElement);
 
+// How close and how far the flat-screen camera may ever get. Without these,
+// scrolling forward flies THROUGH the object and out the far side, where there
+// is nothing to see and no obvious way back. Nir found exactly that, and worse,
+// nothing on the page would put it right again.
+const MIN_VIEW_DISTANCE = 1.15;
+const MAX_VIEW_DISTANCE = 5.5;
+
 const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.05, 60);
 // On a flat screen the reader needs to see the WHOLE object, so the camera
 // stands further back than a person would stand at the real table. In VR this
 // camera is ignored entirely: there, the reader's own head is the camera, and
 // the holotable is placed at the distance a real table would be.
-camera.position.set(0, 1.48, 1.75);
-camera.lookAt(0, 1.24, -1.15);
+const CAMERA_HOME = new THREE.Vector3(0, 1.48, 1.75);
+const CAMERA_LOOK_AT = new THREE.Vector3(0, 1.24, -1.15);
+camera.position.copy(CAMERA_HOME);
+camera.lookAt(CAMERA_LOOK_AT);
+
+/** Put the flat-screen camera back where it started. */
+function resetCamera() {
+  camera.position.copy(CAMERA_HOME);
+  camera.lookAt(CAMERA_LOOK_AT);
+}
+
+/**
+ * THE ONE WAY HOME. Resetting has to put back everything the reader can move,
+ * which on a flat screen includes the camera and the panning of the table, not
+ * only the rotation. Anything that can be moved must be resettable, or the
+ * promise "you can never get lost" is false.
+ */
+function resetEverything() {
+  panorama.resetView();
+  panorama.graph.position.set(0, 1.30, -1.15);
+  panorama.graph.scale.setScalar(0.8);
+  resetCamera();
+}
+
+/** How far the flat-screen camera is from the middle of the graph, in metres. */
+function viewDistance() {
+  return camera.position.distanceTo(panorama.graph.position);
+}
 
 window.addEventListener('resize', () => {
   camera.aspect = window.innerWidth / window.innerHeight;
@@ -177,11 +210,27 @@ renderer.domElement.addEventListener('wheel', (event) => {
     panorama.swim(Math.sign(event.deltaY) * -0.03);
     return;
   }
-  // Otherwise the wheel dollies the camera. This moves the READER on a flat
-  // screen, which is fine: there is no vestibular system to upset behind a
-  // monitor. In VR it never happens.
-  const direction = new THREE.Vector3(0, 0, 0).subVectors(panorama.graph.position, camera.position).normalize();
-  camera.position.addScaledVector(direction, -Math.sign(event.deltaY) * 0.08);
+  // Otherwise the wheel dollies the camera, which is what part-05.md 5.8.1
+  // asks for. Moving the READER is fine on a flat screen: there is no
+  // vestibular system to upset behind a monitor. In VR it never happens.
+  //
+  // But it is CLAMPED, in both directions. Scrolling forward used to carry the
+  // camera straight through the object and out the other side, leaving a blank
+  // screen and no obvious way back.
+  const direction = new THREE.Vector3().subVectors(panorama.graph.position, camera.position);
+  const distance = direction.length();
+  direction.divideScalar(distance);
+  const step = -Math.sign(event.deltaY) * Math.max(0.06, distance * 0.09);
+  const wanted = distance - step;
+  if (wanted < MIN_VIEW_DISTANCE) {
+    camera.position.copy(panorama.graph.position).addScaledVector(direction, -MIN_VIEW_DISTANCE);
+    setStatusFlash('That is as close as it goes. Press Home to stand back.');
+  } else if (wanted > MAX_VIEW_DISTANCE) {
+    camera.position.copy(panorama.graph.position).addScaledVector(direction, -MAX_VIEW_DISTANCE);
+  } else {
+    camera.position.addScaledVector(direction, step);
+  }
+  panorama.noteInput();
 }, { passive: false });
 
 const keysHeld = new Set();
@@ -196,7 +245,12 @@ window.addEventListener('keydown', (event) => {
     return;
   }
   if (key === 'e') { setStatusFlash(`Mode: ${panorama.toggleMode()}`); return; }
-  if (key === 'home') { panorama.resetView(); gym.noteReset(); setStatusFlash('View reset'); return; }
+  if (key === 'home') {
+    resetEverything();
+    gym.noteReset();
+    setStatusFlash('Everything back where it started');
+    return;
+  }
   if (key === 'z' && (event.ctrlKey || event.metaKey)) {
     setStatusFlash(panorama.view.undo() ? 'Undid one rotation' : 'Nothing left to undo');
     return;
@@ -207,7 +261,13 @@ window.addEventListener('keydown', (event) => {
     setStatusFlash(`Snap 90 degrees in ${panorama.view.activeHyperPlane.toUpperCase()}`);
     return;
   }
-  if (key === 'l') { gymOffer.style.display = 'none'; gym.start(); setStatusFlash('Lessons, from the beginning'); return; }
+  if (key === 'l') {
+    gymOffer.style.display = 'none';
+    resetEverything();
+    gym.start();
+    setStatusFlash('Lessons, from the beginning');
+    return;
+  }
   if (gym.active && (key === 'enter' || key === ' ')) { advanceGym(); return; }
   if (key === 'g') { panorama.stemsEnabled = !panorama.stemsEnabled; setStatusFlash(`Drop-stems ${panorama.stemsEnabled ? 'on' : 'off'}`); }
   if (key === 't') { panorama.showTesseract = !panorama.showTesseract; setStatusFlash(`Tesseract ${panorama.showTesseract ? 'shown' : 'hidden'}`); }
@@ -363,6 +423,11 @@ function wrapText(context, text, x, y, maxWidth, lineHeight) {
 }
 
 const gym = new WGym(panorama, {
+  // On a flat screen the wheel moves the camera rather than scaling the object,
+  // so "make it bigger" has to be measured as a change in APPARENT size. Without
+  // this, lesson 1 sat at "resized 0%" no matter how much Nir scrolled.
+  viewDistance,
+  resetCamera: resetEverything,
   onLesson: (lesson) => {
     if (!lesson) return;
     // A lesson is running, so the invitation to start one must be out of the
@@ -392,6 +457,7 @@ const gym = new WGym(panorama, {
   onDone: (result) => {
     gymPanelElement.style.display = 'none';
     gymVrPanel.visible = false;
+    resetEverything();
     if (result.graduated) {
       tier2Enabled = true;
       setStatusFlash('You can now follow an object through the fourth dimension. Welcome in.');
@@ -404,8 +470,15 @@ const gym = new WGym(panorama, {
 // reward, and Tier 1 is the product (part-05.md 5.4).
 let tier2Enabled = hasGraduated();
 
+document.getElementById('reset-all').addEventListener('click', () => {
+  resetEverything();
+  gym.noteReset();
+  setStatusFlash('Everything back where it started');
+});
+
 document.getElementById('gym-start').addEventListener('click', () => {
   gymOffer.style.display = 'none';
+  resetEverything();
   gym.start();
 });
 document.getElementById('gym-skip-all').addEventListener('click', () => {
@@ -423,7 +496,10 @@ function advanceGym() {
   else gym.goNext();
 }
 document.getElementById('open-gym').addEventListener('click', () => {
+  // This button is also the rescue button: whatever state the reader has got
+  // themselves into, pressing it puts the world back and starts lesson 1.
   gymOffer.style.display = 'none';
+  resetEverything();
   gym.start();
 });
 
@@ -690,9 +766,9 @@ drawMenu();
 
 function runMenuItem(key) {
   if (key === 'undo') setStatusFlash(panorama.view.undo() ? 'Undid one rotation' : 'Nothing left to undo');
-  if (key === 'reset') { panorama.resetView(); gym.noteReset(); setStatusFlash('View reset'); }
+  if (key === 'reset') { resetEverything(); gym.noteReset(); setStatusFlash('Everything back where it started'); }
   if (key === 'mode') setStatusFlash(`Mode: ${panorama.toggleMode()}`);
-  if (key === 'gym') { gymOffer.style.display = 'none'; gym.start(); }
+  if (key === 'gym') { gymOffer.style.display = 'none'; resetEverything(); gym.start(); }
   if (key === 'home') { panorama.w0 = 0; setStatusFlash('Slab back to the established news'); }
   if (key === 'stems') { panorama.stemsEnabled = !panorama.stemsEnabled; }
 }
@@ -1129,6 +1205,8 @@ renderer.setAnimationLoop(() => {
 window.PANORAMA = {
   panorama, renderer, camera, data, gym,
   isTier2Enabled: () => tier2Enabled,
+  resetEverything, viewDistance,
+  limits: { MIN_VIEW_DISTANCE, MAX_VIEW_DISTANCE },
   vr: { panelHit, gaugeReachedFor, menuRowUnderRay, runMenuItem, MENU_ITEMS,
         gaugePanel, menuPanel, hands, leftHand, rightHand,
         isMenuOpen: () => menuPanel.visible,

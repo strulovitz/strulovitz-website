@@ -185,7 +185,7 @@ export class WGym {
       {
         // ---- 1. TABLE MANNERS -------------------------------------------
         title: 'Lesson 1 of 5: it is an object on a table',
-        screen: 'Right-click and drag to slide it around. Scroll the wheel to come closer.',
+        screen: 'Right-click and drag to slide it around. Roll the mouse wheel to make it bigger and smaller.',
         headset: 'Squeeze one hand to pick it up and move it. Squeeze both hands and pull them apart to make it bigger.',
         teaches: 'You never move. The object does. That is why nobody gets sick in here.',
         done: 'You moved it and you resized it. Notice that YOU did not move at all: '
@@ -198,18 +198,36 @@ export class WGym {
           this.scaled = 0;
           this.lastGraphPosition = panorama.graph.position.clone();
           this.lastGraphScale = panorama.graph.scale.x;
+          this.lastViewDistance = this.hooks.viewDistance ? this.hooks.viewDistance() : null;
         },
         tick: () => {
-          const moved = panorama.graph.position.distanceTo(this.lastGraphPosition);
-          this.moved += moved;
-          this.scaled += Math.abs(panorama.graph.scale.x - this.lastGraphScale);
+          this.moved += panorama.graph.position.distanceTo(this.lastGraphPosition);
           this.lastGraphPosition.copy(panorama.graph.position);
-          this.lastGraphScale = panorama.graph.scale.x;
+
+          // "Bigger" happens two different ways, and BOTH have to count.
+          // In the headset, two hands pull the object itself larger, so the
+          // graph's own scale changes. On a flat screen the wheel moves the
+          // camera closer instead, and the object's scale never changes at all
+          // -- which is why this lesson used to be impossible to finish with a
+          // mouse. What the reader experiences in both cases is APPARENT size,
+          // so that is what gets measured, as a fraction rather than in metres.
+          const scale = panorama.graph.scale.x;
+          this.scaled += Math.abs(scale - this.lastGraphScale) / Math.max(0.01, scale);
+          this.lastGraphScale = scale;
+
+          if (this.hooks.viewDistance) {
+            const distance = this.hooks.viewDistance();
+            if (this.lastViewDistance !== null) {
+              this.scaled += Math.abs(distance - this.lastViewDistance) / Math.max(0.2, distance);
+            }
+            this.lastViewDistance = distance;
+          }
+
           this.cube.rotation.y += 0.004;
         },
         // Both things must have happened: moved it, and changed its size.
-        passed: () => this.moved > 0.12 && this.scaled > 0.06,
-        progress: () => `moved ${Math.min(100, Math.round(this.moved / 0.12 * 100))}%, resized ${Math.min(100, Math.round(this.scaled / 0.06 * 100))}%`,
+        passed: () => this.moved > 0.12 && this.scaled > 0.10,
+        progress: () => `moved ${Math.min(100, Math.round(this.moved / 0.12 * 100))}%, resized ${Math.min(100, Math.round(this.scaled / 0.10 * 100))}%`,
         end: () => { this.cube.visible = false; },
       },
 
@@ -387,6 +405,9 @@ export class WGym {
     // Nir hit exactly that: "maybe it is because I did another rotation by
     // mistake from the previous lesson".
     if (index > 0) this.panorama.view.reset();
+    // And put the camera back too, so that a lesson can never begin with the
+    // reader accidentally parked inside the object from the lesson before.
+    if (index > 0) this.hooks.resetCamera?.();
     this.lesson.begin();
     this.hooks.onLesson?.(this.describe());
   }
