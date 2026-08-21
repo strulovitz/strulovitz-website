@@ -163,3 +163,62 @@ To turn the whole thing off (not recommended, for the reason at the top of
 this page):
 
     systemctl --user disable --now ai-panorama-snapshot.timer
+
+
+NEW SECTION: THE WEEKLY JOB NOW ALSO LOADS THE FILE INTO THE DATABASE
+
+As of today, the weekly job does TWO things, one right after the other:
+
+1. It saves the dated file, exactly as before (pipeline/snapshots/openrouter/
+   YYYY-MM-DD.json).
+2. It then copies that file's rows into the database (Neo4j).
+
+Why both exist, in plain language:
+
+The FILE is the frozen evidence. It is plain text, it can never change once
+written, and anyone with no database and no special program could still open
+it and read it in twenty years. The DATABASE is the working copy: it is what
+makes a question like "how did this model's price move over the last two
+years" actually answerable, instead of a promise that the answer is "in there
+somewhere" across four hundred separate files.
+
+The database can always be REBUILT from the files, from nothing but the
+files, at any time. The files could never be rebuilt from the database or
+from anything else, because they are the only record of what a provider
+actually charged on a specific past day. This is why the file is always
+treated as the truth, and the database is always treated as a convenience
+built on top of that truth.
+
+How to load files into the database by hand:
+
+    cd /home/nir/strulovitz-website/pipeline
+    uv run stages/load_snapshots.py
+
+Useful extras:
+
+    uv run stages/load_snapshots.py --dry-run
+        Says what it would load, writes nothing at all. Safe to run any time,
+        for a look, with zero risk.
+
+    uv run stages/load_snapshots.py --force
+        Loads a file again even if the logbook already marked it done. Still
+        cannot create a duplicate, because the database itself refuses two
+        rows for the same model, from the same seller, on the same day.
+
+Running the loader twice, or ten times, is harmless. That is not an accident:
+the database has a rule built into it that a model, a seller, and a day
+together can only ever produce one row. Running it again simply finds nothing
+new to add.
+
+THE MOST IMPORTANT EDITORIAL RULE OF THIS WHOLE STEP:
+
+A model showing up in a price list does NOT make it a real, approved fact in
+the encyclopedia. Every new model name the loader sees goes into a waiting
+room (an "EntityProposal") and sits there marked PENDING until Nir personally
+approves it. As of today, 419 models are sitting in that waiting room.
+
+This rule exists because near-duplicate entities are exactly what has ruined
+other knowledge bases in the past: the same model quietly becoming three
+different things under three slightly different spellings, that never join
+back up again. Waiting for a real person to say "yes, this is one real thing"
+is what keeps that from happening here.

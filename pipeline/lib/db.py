@@ -184,7 +184,17 @@ def connect() -> Driver:
     error message raised from here.
     """
     uri, user, password = _settings()
-    driver = GraphDatabase.driver(uri, auth=(user, password))
+    # notifications_disabled_classifications: the database helpfully warns
+    # "that label does not exist yet" the first time any query mentions
+    # something not yet created, which is normal on a young database and
+    # produces a screenful of frightening-looking noise. Only that ONE
+    # category (UNRECOGNIZED) is silenced. Real warnings - deprecations,
+    # performance problems, wrong Cypher - still come through loudly, because
+    # hiding those is how projects rot.
+    driver = GraphDatabase.driver(
+        uri, auth=(user, password),
+        notifications_disabled_classifications=["UNRECOGNIZED"],
+    )
     try:
         driver.verify_connectivity()
     except Exception as problem:  # noqa: BLE001
@@ -221,6 +231,32 @@ SCHEMA_STATEMENTS: tuple[str, ...] = (
     "FOR (j:JobLedgerEntry) ON (j.timestamp_utc)",
     "CREATE INDEX job_action_type_index IF NOT EXISTS "
     "FOR (j:JobLedgerEntry) ON (j.action_type)",
+
+    # --- The weekly price and specification archive (bible/part-02.md 2.8,
+    # part-09.md 9.4). One row is one model's price on one day at one provider,
+    # and that combination may exist only once, forever. This constraint is
+    # what makes re-running the loader harmless: a second attempt to write the
+    # same Tuesday updates nothing and duplicates nothing.
+    "CREATE CONSTRAINT price_snapshot_key IF NOT EXISTS "
+    "FOR (p:PriceSnapshot) REQUIRE (p.snapshot_date, p.provider, "
+    "p.openrouter_model_id) IS UNIQUE",
+    # Almost every question asked of this archive is "what did things cost on
+    # this date" or "how did this one model's price move", so both get indexes.
+    "CREATE INDEX price_snapshot_date_index IF NOT EXISTS "
+    "FOR (p:PriceSnapshot) ON (p.snapshot_date)",
+    "CREATE INDEX price_snapshot_model_index IF NOT EXISTS "
+    "FOR (p:PriceSnapshot) ON (p.openrouter_model_id)",
+
+    # --- Proposed entities, which are NOT yet entities (bible/part-02.md 2.4).
+    # The Bible is emphatic: "Unresolved mentions never silently create
+    # entities; near-duplicate entities are the disease that killed many
+    # knowledge bases, and the registry is the cure." So a model noticed in a
+    # price list waits here as a PROPOSAL until Nir approves it with one tap in
+    # Telegram. This is a waiting room, not an archive: it may be updated.
+    "CREATE CONSTRAINT entity_proposal_key IF NOT EXISTS "
+    "FOR (e:EntityProposal) REQUIRE e.proposed_entity_id IS UNIQUE",
+    "CREATE INDEX entity_proposal_status_index IF NOT EXISTS "
+    "FOR (e:EntityProposal) ON (e.status)",
 )
 
 
