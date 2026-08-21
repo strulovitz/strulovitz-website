@@ -344,13 +344,18 @@ export class WGym {
 
       {
         // ---- 5. THE TWIST. Optional, and the reward. ---------------------
-        title: 'Lesson 5 of 5: the twist (optional)',
-        screen: 'Hold Shift and drag, then press Tab for another plane and drag again. Then press Home to come back.',
-        headset: 'Squeeze BOTH hands and turn them against each other. Your two hands together can reach turns one hand cannot. Then open the menu and choose Reset.',
-        teaches: 'That gesture is the whole of four-dimensional rotation in two hands. It is now unlocked for you.',
-        done: 'That is the twist, and it is now unlocked for you. Two hands together '
-            + 'reach turns that no single plane can. Reset always brings you home, so '
-            + 'there is nothing to be afraid of.',
+        title: 'Lesson 5 of 5: two turns at once (optional)',
+        screen: 'Hold Shift and drag DIAGONALLY, in circles. Up and down turns one plane; '
+              + 'left and right turns a completely separate one AT THE SAME TIME. Watch it: '
+              + 'it never comes back to the same shape. Then press Home.',
+        headset: 'Squeeze BOTH hands and turn them against each other. Your two hands together '
+               + 'reach turns that one hand cannot. Then open the menu and choose Reset.',
+        teaches: 'Two separate turns at once. Only four dimensions allow that.',
+        done: 'That is the one motion with no three-dimensional imitation at all. In three '
+            + 'dimensions any two turns share an axis, so they always add up to one ordinary '
+            + 'turn. In four dimensions those two planes share nothing, so both happen for '
+            + 'real at the same time and the shape never repeats. In the headset your two '
+            + 'hands do this together, and it is now unlocked for you.',
         optional: true,
         begin: () => {
           panorama.setMode('projection');

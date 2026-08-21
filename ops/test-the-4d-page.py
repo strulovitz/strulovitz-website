@@ -396,6 +396,27 @@ async def main():
                   menu["before"] != menu["after"], menu)
 
             print("\n7. The four-dimensional gym, all five lessons")
+            # MESSAGES MUST BE READABLE. Nir: "in every place that there is like
+            # a message box it appears for a split second and disappears
+            # immediately, I cannot read it."
+            timing = await page.evaluate("""(async () => {
+              window.PANORAMA.panorama.resetView();
+              const long = 'This is a deliberately long message of the kind the lessons show, '
+                         + 'which nobody could read in half a second.';
+              const flash = document.getElementById('flash-line');
+              flash.textContent = '';
+              document.getElementById('reset-all').click();
+              await new Promise((r) => setTimeout(r, 900));
+              const early = getComputedStyle(flash).opacity;
+              await new Promise((r) => setTimeout(r, 3200));
+              const later = getComputedStyle(flash).opacity;
+              const text = flash.textContent;
+              return { early: parseFloat(early), later: parseFloat(later), text };
+            })()""")
+            check("a message is fully visible a second after it appears",
+                  timing["early"] > 0.9, timing)
+            check("a message never vanishes completely, it only dims",
+                  timing["later"] > 0.2 and len(timing["text"]) > 5, timing)
             # Every check here exists because a real person hit a real problem.
             # The gym is gated on DOING, so the test does the doing -- but it
             # must also prove that finishing a task does NOT teleport anyone
@@ -754,19 +775,82 @@ async def main():
             await page.evaluate("window.PANORAMA.gym.goNext()")
             await page.drain(0.8)
 
-            # LESSON 5: the twist, which also requires coming home again.
+            # LESSON 5, WITH A REAL MOUSE. Nir's report: "whatever I do, whatever
+            # plane I choose, the dragging with the mouse just rotates the cube
+            # normally, like not in 4D". He was right: one plane at a time leaves
+            # two coordinates untouched and looks like an ordinary turn. A
+            # diagonal Shift-drag now turns two planes that share nothing, at
+            # once, which is the motion no 3D object can imitate.
+            check("the lesson that teaches it allows the double rotation",
+                  (await page.evaluate("window.PANORAMA.doubleRotationAllowed()")) is True)
+
+            # A single point pushed through the current view, so the test can see
+            # whether a gesture really moved all four coordinates. Defined here
+            # rather than earlier, because the page is reloaded inside this
+            # section and anything defined before that is wiped.
+            await page.evaluate("""(() => {
+              window.PANORAMA.probePoint = () => {
+                const out = [0, 0, 0, 0];
+                window.PANORAMA.panorama.view.rotatePoint([0.4, -0.3, 0.6, 0.2], out);
+                return out;
+              };
+            })()""")
+
+            start = await page.evaluate("""(() => {
+              window.PANORAMA.panorama.view.reset();
+              const g = window.PANORAMA.gym;
+              g.planesUsed = new Set();
+              return { plane: window.PANORAMA.panorama.view.activeHyperPlane,
+                       partner: window.PANORAMA.PARTNER_PLANE[window.PANORAMA.panorama.view.activeHyperPlane],
+                       point: window.PANORAMA.probePoint() };
+            })()""")
+
+            # A genuinely diagonal drag with shift held: sideways AND down.
+            await page.send("Input.dispatchKeyEvent", {
+                "type": "rawKeyDown", "key": "Shift", "code": "ShiftLeft",
+                "modifiers": 8, "windowsVirtualKeyCode": 16, "nativeVirtualKeyCode": 16})
+            await page.send("Input.dispatchMouseEvent", {
+                "type": "mousePressed", "x": 650, "y": 380, "button": "left",
+                "buttons": 1, "clickCount": 1, "modifiers": 8})
+            for i in range(12):
+                await page.send("Input.dispatchMouseEvent", {
+                    "type": "mouseMoved", "x": 650 + i * 11, "y": 380 + i * 9,
+                    "button": "left", "buttons": 1, "modifiers": 8})
+                await page.drain(0.05)
+            await page.send("Input.dispatchMouseEvent", {
+                "type": "mouseReleased", "x": 782, "y": 488, "button": "left",
+                "buttons": 0, "modifiers": 8})
+            await page.send("Input.dispatchKeyEvent", {
+                "type": "keyUp", "key": "Shift", "code": "ShiftLeft",
+                "windowsVirtualKeyCode": 16, "nativeVirtualKeyCode": 16})
+            await page.drain(0.4)
+
+            dragged = await page.evaluate("""(() => {
+              const g = window.PANORAMA.gym;
+              return { used: Array.from(g.planesUsed).sort(),
+                       point: window.PANORAMA.probePoint(),
+                       progress: g.describe().progress };
+            })()""")
+            moved = [abs(a - b) > 1e-6 for a, b in zip(start["point"], dragged["point"])]
+            check("one diagonal drag turns two planes at once, not one",
+                  len(dragged["used"]) == 2, dragged)
+            check("those two planes are a hyper-plane and its partner",
+                  sorted([start["plane"], start["partner"]]) == dragged["used"], 
+                  {"expected": sorted([start["plane"], start["partner"]]), "got": dragged["used"]})
+            # THE CHECK THAT ANSWERS NIR'S COMPLAINT DIRECTLY: an ordinary turn
+            # leaves two of the four coordinates exactly where they were. This
+            # must move all four, or it is not four-dimensional to the eye.
+            check("all four coordinates of a point actually move, so it cannot look like an ordinary turn",
+                  all(moved), {"moved": moved, "before": start["point"], "after": dragged["point"]})
+
             twist = await page.evaluate("""(() => {
               const g = window.PANORAMA.gym;
-              const before = g.lessons[4].passed();
-              g.noteTwist(1.0);
-              const afterTwist = g.lessons[4].passed();
+              const beforeReset = g.lessons[4].passed();
               g.noteReset();
-              return { before, afterTwist, afterReset: g.lessons[4].passed(),
-                       label: g.describe().nextLabel };
+              return { beforeReset, afterReset: g.lessons[4].passed() };
             })()""")
-            check("lesson 5 requires coming back home as well as twisting",
-                  twist["before"] is False and twist["afterTwist"] is False
-                  and twist["afterReset"] is True, twist)
+            check("lesson 5 still requires coming back home after the turning",
+                  twist["beforeReset"] is False and twist["afterReset"] is True, twist)
             await page.drain(1.2)
             last = await page.evaluate("window.PANORAMA.gym.describe().nextLabel")
             check("the last lesson's button says Finish, not Next lesson", last == "Finish", last)

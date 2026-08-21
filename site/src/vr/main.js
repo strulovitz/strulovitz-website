@@ -40,6 +40,13 @@ const SWIM_UNITS_PER_SECOND = 0.5;
 
 const debugRequested = new URLSearchParams(location.search).has('debug');
 
+/**
+ * The plane that shares NOTHING with each hyper-plane. Turning in a plane and
+ * in its partner at the same time is a "double rotation", the motion that only
+ * four dimensions allow. XW's partner is YZ, YW's is XZ, ZW's is XY.
+ */
+const PARTNER_PLANE = { xw: 'yz', yw: 'xz', zw: 'xy' };
+
 // -----------------------------------------------------------------------------
 // SET UP THE PICTURE
 // -----------------------------------------------------------------------------
@@ -192,6 +199,21 @@ renderer.domElement.addEventListener('pointermove', (event) => {
     panorama.view.rotate(panorama.view.activeHyperPlane, -dy * speed);
     panorama.noteInput();
     gym.noteHyperRotation(panorama.view.activeHyperPlane, -dy * speed);
+
+    // AND SIDEWAYS DRIVES THE PARTNER PLANE AT THE SAME TIME. This is the flat
+    // screen's honest version of the two-handed twist, and it is the one motion
+    // that has no three-dimensional imitation at all: turning in two
+    // completely separate planes at once. In three dimensions any two rotations
+    // share an axis, so they add up to a single ordinary turn. In four
+    // dimensions XY and ZW share nothing, so both happen genuinely at once and
+    // the object never repeats itself. Nir's complaint was that lesson 5 "just
+    // rotates the cube normally", and he was right: one plane at a time IS an
+    // ordinary turn to the eye.
+    if (doubleRotationAllowed() && Math.abs(dx) > 0) {
+      const partner = PARTNER_PLANE[panorama.view.activeHyperPlane];
+      panorama.view.rotate(partner, dx * speed);
+      gym.noteHyperRotation(partner, dx * speed);
+    }
   } else {
     // Plain drag is ordinary 3D rotation: sideways is yaw (the XZ plane),
     // up and down is pitch (the YZ plane).
@@ -470,6 +492,11 @@ const gym = new WGym(panorama, {
 // reward, and Tier 1 is the product (part-05.md 5.4).
 let tier2Enabled = hasGraduated();
 
+/** Tier 2 is unlocked, or we are inside the lesson that teaches it. */
+function doubleRotationAllowed() {
+  return tier2Enabled || (gym.active && gym.lessonIndex === 4);
+}
+
 document.getElementById('reset-all').addEventListener('click', () => {
   resetEverything();
   gym.noteReset();
@@ -485,6 +512,12 @@ document.getElementById('gym-skip-all').addEventListener('click', () => {
   gymOffer.style.display = 'none';
   gym.quit();
 });
+// Buttons give up focus after a click, or the space bar keeps pressing them
+// again afterwards and the reader gets mysterious jumps.
+for (const button of document.querySelectorAll('button')) {
+  button.addEventListener('click', () => button.blur());
+}
+
 gymNext.addEventListener('click', () => advanceGym());
 gymBack.addEventListener('click', () => gym.goBack());
 document.getElementById('gym-quit').addEventListener('click', () => gym.quit());
@@ -1096,10 +1129,23 @@ const debugPanel = document.getElementById('debug-panel');
 if (debugRequested) debugPanel.style.display = 'block';
 
 let flashUntil = 0;
+/**
+ * Show a message long enough to READ. Nir: "in every place that there is like a
+ * message box it appears for a split second and disappears immediately, I
+ * cannot read it."
+ *
+ * Two changes from the naive version. The time on screen depends on how much
+ * there is to read, because a fixed two seconds is generous for "View reset"
+ * and useless for a sentence. And when the time is up the message does not
+ * vanish: it dims and stays until something replaces it, so a reader who looks
+ * away and back has not lost it. Nothing important should ever be gone forever
+ * because somebody blinked.
+ */
 function setStatusFlash(text) {
   flashLine.textContent = text;
   flashLine.style.opacity = '1';
-  flashUntil = performance.now() + 2600;
+  const readingTime = 2200 + text.length * 55;
+  flashUntil = performance.now() + Math.min(14000, Math.max(4000, readingTime));
 }
 
 // A small message that floats over the table in VR, so a reader in a headset
@@ -1111,7 +1157,8 @@ panorama.scene.add(vrFlash);
 let vrFlashText = '';
 
 function updateReadouts(status, now, deltaMs, fps) {
-  if (now > flashUntil) flashLine.style.opacity = '0';
+  // Dimmed, not deleted.
+  if (now > flashUntil) flashLine.style.opacity = '0.42';
 
   const band = nearestBandName(status.w0);
   statusLine.textContent =
@@ -1205,6 +1252,8 @@ renderer.setAnimationLoop(() => {
 window.PANORAMA = {
   panorama, renderer, camera, data, gym,
   isTier2Enabled: () => tier2Enabled,
+  doubleRotationAllowed, PARTNER_PLANE,
+  flashState: () => ({ text: flashLine.textContent, opacity: flashLine.style.opacity }),
   resetEverything, viewDistance,
   limits: { MIN_VIEW_DISTANCE, MAX_VIEW_DISTANCE },
   vr: { panelHit, gaugeReachedFor, menuRowUnderRay, runMenuItem, MENU_ITEMS,

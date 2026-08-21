@@ -483,6 +483,22 @@ WHAT MILESTONE 1 STILL NEEDS BEFORE IT CAN BE CALLED DONE (part-13.md 13.2):
        gold lessons button calls it, and there is now a visible "Reset view"
        button beside it because the Home key is useless to somebody who does not
        know it exists.
+   TWO MORE FROM HIS THIRD SESSION:
+   (g) MESSAGES MUST BE READABLE. "In every place that there is like a message
+       box it appears for a split second and disappears immediately, I cannot
+       read it." Time on screen now depends on the length of the text, and when
+       it expires the message DIMS instead of vanishing, so looking away does
+       not lose it.
+   (h) LESSON 5 WAS HONESTLY BROKEN, and his diagnosis was exactly right: "the
+       dragging with the mouse just rotates the cube normally, like not in 4D".
+       One plane at a time leaves two of the four coordinates untouched, so it
+       IS an ordinary turn to the eye. A diagonal Shift-drag now turns a
+       hyper-plane AND its partner plane at once (xw+yz, yw+xz, zw+xy), which is
+       a DOUBLE ROTATION: the one motion with no three-dimensional imitation,
+       because in three dimensions any two turns share an axis and add up to
+       one. All four coordinates move, and the shape never repeats. This is the
+       flat screen's honest equivalent of the two-handed twist, and PARTNER_PLANE
+       in main.js is where it lives.
 2. Hover cards and a reading panel in VR. On the flat screen the hover card
    exists as plain HTML; in the headset there is only a highlight and a haptic
    tap so far.

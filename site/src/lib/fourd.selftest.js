@@ -439,5 +439,77 @@ console.log('\n9. The two-handed twist really is a rotation of four-dimensional 
 }
 
 // -----------------------------------------------------------------------------
+console.log('\n10. A double rotation is the one motion three dimensions cannot imitate');
+// -----------------------------------------------------------------------------
+
+{
+  // Turning in a plane AND in the plane that shares nothing with it, at the same
+  // time, is what four dimensions allow and three do not. In three dimensions
+  // any two rotations share an axis and therefore add up to one ordinary turn.
+  // These checks prove the pair really is independent, because that is the claim
+  // lesson 5 makes to the reader.
+  const partners = { xw: 'yz', yw: 'xz', zw: 'xy' };
+  for (const [plane, partner] of Object.entries(partners)) {
+    const sharesNothing = !plane.split('').some((letter) => partner.includes(letter));
+    check(`${plane} and ${partner} share no axis at all`, sharesNothing,
+      `${plane} vs ${partner}`);
+  }
+
+  // Two rotations in planes that share nothing must COMMUTE: doing them in
+  // either order gives the same result. That is the mathematical signature of
+  // them being genuinely simultaneous rather than one after the other.
+  for (const [plane, partner] of Object.entries(partners)) {
+    const one = new View4D();
+    one.rotate(plane, 0.7).rotate(partner, 1.1);
+    const other = new View4D();
+    other.rotate(partner, 1.1).rotate(plane, 0.7);
+    let worst = 0;
+    for (let i = 0; i < 16; i++) worst = Math.max(worst, Math.abs(one.Q[i] - other.Q[i]));
+    check(`turning in ${plane} and ${partner} gives the same result in either order`,
+      worst < 1e-12, `worst=${worst}`);
+  }
+
+  // And a double rotation must leave NOTHING standing still except the centre:
+  // every one of the four coordinates of a general point has to move. A single
+  // plane rotation always leaves two coordinates untouched, which is exactly
+  // why it looks like an ordinary turn.
+  const p = [0.4, -0.3, 0.6, 0.2];
+  const out = [0, 0, 0, 0];
+
+  const single = new View4D();
+  single.rotate('zw', 0.6);
+  single.rotatePoint(p, out);
+  let untouchedBySingle = 0;
+  for (let i = 0; i < 4; i++) if (Math.abs(out[i] - p[i]) < 1e-9) untouchedBySingle++;
+  check('one plane at a time leaves two coordinates completely alone',
+    untouchedBySingle === 2, `${untouchedBySingle} untouched`);
+
+  const doubled = new View4D();
+  doubled.rotate('zw', 0.6).rotate('xy', 0.5);
+  doubled.rotatePoint(p, out);
+  let untouchedByDouble = 0;
+  for (let i = 0; i < 4; i++) if (Math.abs(out[i] - p[i]) < 1e-9) untouchedByDouble++;
+  check('a double rotation moves all four coordinates at once',
+    untouchedByDouble === 0, `${untouchedByDouble} untouched`);
+
+  // A double rotation with two different angles does not return to the start
+  // after a quarter turn, a half turn or a full turn of either plane. This is
+  // the honest basis for telling the reader "it never comes back to the same
+  // shape".
+  check('a double rotation with unequal angles does not repeat early', (() => {
+    const v = new View4D();
+    const I = identity4();
+    for (let step = 1; step <= 8; step++) {
+      v.rotate('zw', Math.PI / 2);
+      v.rotate('xy', Math.PI / 2 * 0.37);
+      let same = true;
+      for (let i = 0; i < 16; i++) if (!near(v.Q[i], I[i], 1e-6)) { same = false; break; }
+      if (same) return false;
+    }
+    return true;
+  })());
+}
+
+// -----------------------------------------------------------------------------
 console.log(`\n${passed} checks passed, ${failed} failed.\n`);
 process.exit(failed === 0 ? 0 : 1);
