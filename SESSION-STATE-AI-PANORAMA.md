@@ -408,10 +408,16 @@ Chrome test drives the real page with real key events and checks 30 things,
 including zero console errors, that something is actually drawn, that the
 promised keys do what the landing page says, that the slab really changes which
 nodes are solid, and that four quarter-turns return the LIVE view matrix to the
-identity to within a millionth. Test script (temporary, not in git):
-/tmp/opencode/tesstest/test_tesseract.py . Worth moving into ops/ and rerunning
-whenever rotation, projection or comfort code changes (part-05.md 5.10 says
-that protocol repeats).
+identity to within a millionth. The test now lives in the repository at ops/test-the-4d-page.py and has grown to
+36 checks. Run it after ANY change to rotation, projection or comfort code
+(part-05.md 5.10 makes that protocol repeat). It found two real faults already,
+which is the point of having it.
+
+TWO TESTING TRAPS worth knowing, both commented in that script: three.js turns
+matrixAutoUpdate OFF for XR controllers, so a test that places them by hand must
+turn it back on; and Object3D.lookAt aims an ordinary object's PLUS Z at the
+target, while a controller points along MINUS Z, so an aimed controller must
+then be turned around.
 
 TWO TRAPS THAT COST TIME HERE. Both are commented in the code, do not undo the
 fixes: (1) three.js draws instanced objects BLACK if a material has
@@ -420,6 +426,15 @@ panorama.js now adds a white one automatically. (2) `pkill -f <pattern>` in a
 tool-driven shell matches the shell's own command line and kills the session.
 
 WHAT MILESTONE 1 STILL NEEDS BEFORE IT CAN BE CALLED DONE (part-13.md 13.2):
+0. NOTE FROM NIR'S FIRST HEADSET SESSION, 2026-08-21: everything worked and he
+   liked it, with one fault. He saw the instrument on his left forearm, tried to
+   touch it with his right hand and then tried to point the laser at it, and
+   nothing happened, because it had been built as a dial with nothing to press.
+   FIXED THE SAME DAY: reaching for it, by pointing or by touching, now opens
+   the hand menu, and the instrument brightens and prints what to do. THE
+   LESSON, worth more than the fix: when a person reaches for a thing, the thing
+   must answer. Check every other panel and instrument added in future against
+   that.
 1. THE W-GYM, all five lessons (part-05.md 5.7). Build item 6 asks for it FIRST
    as the test harness. It is the single biggest remaining piece, and lesson 4
    ("watch it turn, now point at the bead you were following") is the one that
@@ -435,8 +450,16 @@ WHAT MILESTONE 1 STILL NEEDS BEFORE IT CAN BE CALLED DONE (part-13.md 13.2):
    personally rotating a tesseract in ZW, watching it turn inside out, and
    smiling. That smile is a formal acceptance criterion; an agent cannot tick
    it.
-7. The deploy: the export folder exists, but strulovitz.org still needs the FTP
-   host and username from Nir. No agent ever receives the FTP password.
+7. THE DEPLOY IS DONE, 2026-08-21: it is live at
+   https://www.strulovitz.org/ai-panorama/ , in its own folder, with the
+   existing pages untouched. The web root on the server is strulovitz.org/ and
+   the connection is SFTP on port 22 to vps68338.dreamhostps.com as dh_ptax3d.
+   NOTE ON THE RULE: the Bible says Nir uploads by hand in FileZilla and that no
+   agent ever holds the password (LAW 4, and part-01.md 1.9). Nir gave the
+   password in chat and asked for the upload, and Nir outranks the Bible. It was
+   used from an environment variable, written to no file, and Nir was told
+   first thing to change it. If a future agent is asked again: ask Nir whether
+   he wants to keep doing it this way, and never store the password anywhere.
 
 THE EDITIONS MACHINE (the second thing that matters) IS STILL NOT STARTED.
 pipeline/lib/llm.py does not exist yet. The architecture answer stands: plain

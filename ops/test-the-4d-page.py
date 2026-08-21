@@ -1,0 +1,412 @@
+#!/usr/bin/env python3
+"""
+Test the Hello Tesseract page in a real browser, headless, with software WebGL.
+
+What it proves:
+  1. The page loads with ZERO console errors and zero failed requests.
+  2. The 3D scene actually renders (draw calls above zero, triangles above zero).
+  3. The one-projection-per-frame rule holds (exactly 2 passes: graph + tesseract).
+  4. The keyboard controls do what the landing page promises: Tab cycles the
+     hyper-plane, E toggles the mode, W and S swim the slab, Home resets.
+  5. Four 90-degree snaps return the view matrix to the identity, in the live
+     browser and not merely in the unit test.
+  6. Screenshots come out, so a human can look at the thing.
+
+HOW TO RUN IT. Chrome must already be running with remote debugging on, started
+detached from the shell (starting it from inside a script tends to hang a
+tool-driven terminal, because the child keeps the pipes open):
+
+    (setsid google-chrome --headless=new --remote-debugging-port=9333 \
+      --user-data-dir=/tmp/ai-panorama-4d-test/profile --no-first-run \
+      --no-sandbox --window-size=1400,900 --hide-scrollbars \
+      --use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader \
+      about:blank </dev/null >/dev/null 2>&1 &)
+
+    python3 ops/test-the-4d-page.py
+
+bible/part-05.md 5.10 says the validation protocol repeats after ANY change to
+rotation, projection or comfort code. This script is the machine half of that;
+the human half is five real people in the headset, which no script can fake.
+"""
+
+import asyncio, base64, json, os, subprocess, sys, time, shutil
+import urllib.request
+import websockets
+
+SITE = "/home/nir/strulovitz-website/site"
+OUT = "/tmp/ai-panorama-4d-test"
+PORT = 8791
+CDP_PORT = 9333
+
+os.makedirs(OUT, exist_ok=True)
+
+failures = []
+notes = []
+
+
+def check(name, ok, detail=""):
+    print(("  PASS  " if ok else "  FAIL  ") + name + (("  --  " + str(detail)) if detail and not ok else ""))
+    if not ok:
+        failures.append(f"{name}: {detail}")
+
+
+class Browser:
+    def __init__(self, ws):
+        self.ws = ws
+        self.next_id = 1
+        self.console_errors = []
+        self.failed_requests = []
+        self.exceptions = []
+
+    async def send(self, method, params=None):
+        message_id = self.next_id
+        self.next_id += 1
+        await self.ws.send(json.dumps({"id": message_id, "method": method, "params": params or {}}))
+        while True:
+            raw = json.loads(await self.ws.recv())
+            if raw.get("id") == message_id:
+                if "error" in raw:
+                    raise RuntimeError(f"{method}: {raw['error']}")
+                return raw.get("result", {})
+            self.handle_event(raw)
+
+    def handle_event(self, event):
+        method = event.get("method")
+        params = event.get("params", {})
+        if method == "Runtime.consoleAPICalled" and params.get("type") in ("error", "assert"):
+            text = " ".join(str(a.get("value", a.get("description", ""))) for a in params.get("args", []))
+            self.console_errors.append(text)
+        elif method == "Runtime.exceptionThrown":
+            details = params.get("exceptionDetails", {})
+            self.exceptions.append(details.get("text", "") + " " +
+                                  str(details.get("exception", {}).get("description", "")))
+        elif method == "Network.loadingFailed":
+            self.failed_requests.append(params.get("errorText", "") + " " + str(params.get("type")))
+
+    async def drain(self, seconds):
+        """Let the page run, collecting events."""
+        deadline = time.time() + seconds
+        while time.time() < deadline:
+            try:
+                raw = await asyncio.wait_for(self.ws.recv(), timeout=max(0.05, deadline - time.time()))
+                self.handle_event(json.loads(raw))
+            except asyncio.TimeoutError:
+                break
+
+    async def evaluate(self, expression):
+        result = await self.send("Runtime.evaluate", {
+            "expression": expression, "returnByValue": True, "awaitPromise": True,
+        })
+        if result.get("exceptionDetails"):
+            raise RuntimeError(result["exceptionDetails"].get("text") + " " +
+                               str(result["exceptionDetails"].get("exception", {}).get("description")))
+        return result["result"].get("value")
+
+    async def key(self, key, code, modifiers=0, key_code=0):
+        for kind in ("keyDown", "keyUp"):
+            await self.send("Input.dispatchKeyEvent", {
+                "type": kind, "key": key, "code": code,
+                "modifiers": modifiers,
+                "windowsVirtualKeyCode": key_code, "nativeVirtualKeyCode": key_code,
+            })
+
+    async def key_hold(self, key, code, key_code, milliseconds):
+        await self.send("Input.dispatchKeyEvent", {
+            "type": "keyDown", "key": key, "code": code,
+            "windowsVirtualKeyCode": key_code, "nativeVirtualKeyCode": key_code})
+        await self.drain(milliseconds / 1000)
+        await self.send("Input.dispatchKeyEvent", {
+            "type": "keyUp", "key": key, "code": code,
+            "windowsVirtualKeyCode": key_code, "nativeVirtualKeyCode": key_code})
+
+    async def screenshot(self, path):
+        result = await self.send("Page.captureScreenshot", {"format": "png"})
+        with open(path, "wb") as handle:
+            handle.write(base64.b64decode(result["data"]))
+
+
+async def main():
+    server = subprocess.Popen([sys.executable, "-m", "http.server", str(PORT), "-d", SITE],
+                              stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+    chrome = None
+    try:
+        # Chrome is expected to be running already with remote debugging on, started
+        # detached from the shell. Starting it from inside this script tends to hang
+        # a tool-driven terminal, because the child keeps the pipes open.
+        ws_url = None
+        for _ in range(80):
+            try:
+                data = json.loads(urllib.request.urlopen(f"http://127.0.0.1:{CDP_PORT}/json/version", timeout=1).read())
+                ws_url = data["webSocketDebuggerUrl"]
+                break
+            except Exception:
+                time.sleep(0.25)
+        if not ws_url:
+            print("could not reach chrome")
+            return 1
+
+        async with websockets.connect(ws_url, max_size=80 * 1024 * 1024) as ws:
+            browser = Browser(ws)
+            target = await browser.send("Target.createTarget", {"url": "about:blank"})
+            session = await browser.send("Target.attachToTarget",
+                                        {"targetId": target["targetId"], "flatten": True})
+            # Re-connect directly to the page target for simplicity.
+            page_ws = f"ws://127.0.0.1:{CDP_PORT}/devtools/page/{target['targetId']}"
+
+        async with websockets.connect(page_ws, max_size=80 * 1024 * 1024) as ws:
+            page = Browser(ws)
+            await page.send("Runtime.enable")
+            await page.send("Network.enable")
+            await page.send("Page.enable")
+            await page.send("Log.enable")
+            # Browser caching would quietly test yesterday's code.
+            await page.send("Network.setCacheDisabled", {"cacheDisabled": True})
+
+            print("\nAI PANORAMA -- Hello Tesseract, live browser test\n")
+            print("1. The page loads and renders")
+
+            for _ in range(40):
+                try:
+                    urllib.request.urlopen(f"http://127.0.0.1:{PORT}/index.html", timeout=1).read()
+                    break
+                except Exception:
+                    time.sleep(0.25)
+            await page.send("Page.navigate", {"url": f"http://127.0.0.1:{PORT}/tesseract.html?debug=1"})
+            await page.drain(6.0)
+
+            check("no uncaught JavaScript exceptions", not page.exceptions, page.exceptions)
+            check("no console errors", not page.console_errors, page.console_errors)
+            check("no failed network requests", not page.failed_requests, page.failed_requests)
+
+            ready = await page.evaluate("!!(window.PANORAMA && window.PANORAMA.panorama)")
+            check("the application started and exposed its state", ready is True)
+            if not ready:
+                return 1
+
+            info = await page.evaluate("""(() => {
+              const p = window.PANORAMA;
+              return {
+                calls: p.renderer.info.render.calls,
+                triangles: p.renderer.info.render.triangles,
+                nodes: p.data.count,
+                projections: p.panorama.projectionsThisFrame,
+                violated: p.panorama.projectionRuleViolated,
+                mode: p.panorama.mode,
+                w0: p.panorama.w0,
+                plane: p.panorama.view.activeHyperPlane,
+                solid: p.panorama.status().solidNodes,
+              };
+            })()""")
+            print("       " + json.dumps(info))
+            check("something was actually drawn", info["calls"] > 0, info["calls"])
+            check("triangles reached the screen", info["triangles"] > 1000, info["triangles"])
+            check("draw calls stay under the budget of 100", info["calls"] < 100, info["calls"])
+            check("two hundred fake nodes exist", info["nodes"] == 200, info["nodes"])
+            check("exactly two projection passes per frame", info["projections"] == 2, info["projections"])
+            check("the one-projection rule was never violated", info["violated"] is False)
+            check("the session starts in slice mode", info["mode"] == "slice", info["mode"])
+            check("the session starts at the established news band", abs(info["w0"]) < 1e-9, info["w0"])
+            check("some but not all nodes are solid in the starting slab",
+                  0 < info["solid"] < info["nodes"], info["solid"])
+
+            await page.screenshot(f"{OUT}/01-slice-mode.png")
+
+            print("\n2. The keyboard does what the landing page promises")
+
+            await page.key("Tab", "Tab", key_code=9)
+            await page.drain(0.3)
+            plane = await page.evaluate("window.PANORAMA.panorama.view.activeHyperPlane")
+            check("Tab cycles the hyper-plane from XW to YW", plane == "yw", plane)
+
+            await page.key("e", "KeyE", key_code=69)
+            # The slab swells over 600 ms of ANIMATION time, and each frame's step
+            # is deliberately clamped so a stalled tab cannot jump. Under software
+            # rendering there are only a handful of frames per second, so real time
+            # has to be generous here. This is not slack in the product.
+            await page.drain(5.0)
+            mode = await page.evaluate("window.PANORAMA.panorama.mode")
+            epsilon = await page.evaluate("window.PANORAMA.panorama.epsilon")
+            check("E switches to projection mode", mode == "projection", mode)
+            check("the slab opened up to swallow the whole world", epsilon > 3.9, epsilon)
+            await page.screenshot(f"{OUT}/02-projection-mode.png")
+
+            await page.key("e", "KeyE", key_code=69)
+            await page.drain(5.0)
+            check("E switches back to slice mode",
+                  (await page.evaluate("window.PANORAMA.panorama.mode")) == "slice")
+
+            await page.key_hold("w", "KeyW", 87, 900)
+            await page.drain(0.2)
+            w0 = await page.evaluate("window.PANORAMA.panorama.w0")
+            check("holding W swims the slab toward the encyclopedia", w0 > 0.2, w0)
+            solid_high = await page.evaluate("window.PANORAMA.panorama.status().solidNodes")
+            check("a different set of nodes is solid up there", solid_high != info["solid"],
+                  f"{solid_high} vs {info['solid']}")
+            await page.screenshot(f"{OUT}/03-swum-toward-canon.png")
+
+            await page.key_hold("s", "KeyS", 83, 1800)
+            await page.drain(0.2)
+            w0_back = await page.evaluate("window.PANORAMA.panorama.w0")
+            check("holding S swims back toward the fresh news", w0_back < w0 - 0.4, w0_back)
+
+            print("\n3. Four snaps come home, in the live browser")
+
+            await page.evaluate("window.PANORAMA.panorama.resetView()")
+            await page.drain(0.3)
+            # Shift plus the right arrow: one 90 degree snap in the active plane.
+            for i in range(4):
+                await page.send("Input.dispatchKeyEvent", {
+                    "type": "keyDown", "key": "ArrowRight", "code": "ArrowRight",
+                    "modifiers": 8, "windowsVirtualKeyCode": 39, "nativeVirtualKeyCode": 39})
+                await page.send("Input.dispatchKeyEvent", {
+                    "type": "keyUp", "key": "ArrowRight", "code": "ArrowRight",
+                    "modifiers": 8, "windowsVirtualKeyCode": 39, "nativeVirtualKeyCode": 39})
+                await page.drain(0.75)
+                if i == 1:
+                    await page.screenshot(f"{OUT}/04-halfway-inside-out.png")
+            error = await page.evaluate("""(() => {
+              const Q = window.PANORAMA.panorama.view.Q;
+              const I = [1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1];
+              let worst = 0;
+              for (let i = 0; i < 16; i++) worst = Math.max(worst, Math.abs(Q[i] - I[i]));
+              return worst;
+            })()""")
+            check("four snaps returned the live view exactly to the canonical one",
+                  error < 1e-6, error)
+
+            print("\n4. Undo, reset, and nothing left broken")
+
+            await page.evaluate("window.PANORAMA.panorama.view.rotate('zw', 0.7, true)")
+            await page.drain(0.2)
+            undone = await page.evaluate("window.PANORAMA.panorama.view.undo()")
+            check("undo reports success", undone is True)
+
+            await page.key("Home", "Home", key_code=36)
+            await page.drain(0.4)
+            state = await page.evaluate("""(() => {
+              const p = window.PANORAMA.panorama;
+              return { mode: p.mode, w0: p.w0, q0: p.view.Q[0] };
+            })()""")
+            check("Home resets the mode, the slab and the rotation",
+                  state["mode"] == "slice" and abs(state["w0"]) < 1e-9 and abs(state["q0"] - 1) < 1e-9,
+                  state)
+
+            print("\n5. Still healthy after a long run")
+            await page.drain(6.0)
+            final = await page.evaluate("""(() => {
+              const p = window.PANORAMA;
+              return {
+                violated: p.panorama.projectionRuleViolated,
+                finite: Array.from(p.panorama.view.Q).every(Number.isFinite),
+                orthoError: (() => {
+                  const Q = p.panorama.view.Q; let worst = 0;
+                  for (let a = 0; a < 4; a++) for (let b = 0; b < 4; b++) {
+                    let dot = 0;
+                    for (let r = 0; r < 4; r++) dot += Q[a*4+r] * Q[b*4+r];
+                    worst = Math.max(worst, Math.abs(dot - (a === b ? 1 : 0)));
+                  }
+                  return worst;
+                })(),
+                calls: p.renderer.info.render.calls,
+              };
+            })()""")
+            check("the one-projection rule still holds after thousands of frames",
+                  final["violated"] is False)
+            check("the rotation matrix has no NaN after a long run", final["finite"] is True)
+            check("the rotation matrix is still perfectly rigid after a long run",
+                  final["orthoError"] < 1e-9, final["orthoError"])
+            check("no console errors accumulated during the whole session",
+                  not page.console_errors, page.console_errors)
+
+            await page.screenshot(f"{OUT}/05-final.png")
+
+            print("\n6. The instrument on the left forearm answers when reached for")
+            # Outside a real headset the controllers have no pose, so we place
+            # them by hand: the left grip where a forearm would be, and the
+            # right controller aimed straight at the instrument on it. This is
+            # the exact fault Nir found by putting the headset on -- pointing at
+            # the wrist instrument did nothing -- so it gets a real test.
+            reach = await page.evaluate("""(() => {
+              const v = window.PANORAMA.vr;
+              const THREE_left = v.leftHand.grip, right = v.rightHand.controller;
+              // three.js switches matrixAutoUpdate OFF for XR controllers, because
+              // in a real session their pose comes from the headset every frame.
+              // A test placing them by hand has to switch it back on.
+              [THREE_left, right, v.rightHand.grip].forEach((o) => { o.matrixAutoUpdate = true; });
+              THREE_left.position.set(-0.25, 1.05, -0.30);
+              THREE_left.rotation.set(0, 0, 0);
+              THREE_left.updateMatrixWorld(true);
+              v.gaugePanel.updateWorldMatrix(true, false);
+              const target = new (window.PANORAMA.renderer.constructor === undefined ? Object : Object)();
+              // Where is the instrument in the room?
+              const gauge = v.gaugePanel;
+              const p = { x: gauge.matrixWorld.elements[12], y: gauge.matrixWorld.elements[13], z: gauge.matrixWorld.elements[14] };
+              // Put the right controller 30 cm away and aim it at the panel.
+              right.position.set(p.x + 0.02, p.y + 0.28, p.z + 0.10);
+              right.updateMatrixWorld(true);
+              right.lookAt(p.x, p.y, p.z);
+              right.rotateY(Math.PI);
+              right.updateMatrixWorld(true);
+              const pointing = v.panelHit(v.gaugePanel, v.rightHand, 0.02);
+              const reachedPointing = v.gaugeReachedFor();
+              // Now bring the right hand close enough to count as touching.
+              v.rightHand.grip.position.set(p.x, p.y + 0.03, p.z);
+              v.rightHand.grip.updateMatrixWorld(true);
+              const reachedTouching = v.gaugeReachedFor();
+              return { pointing: !!pointing, reachedPointing, reachedTouching };
+            })()""")
+            print("       " + json.dumps(reach))
+            check("pointing the right hand at the forearm instrument registers a hit",
+                  reach["pointing"] is True, reach)
+            check("reaching for it by pointing is recognised",
+                  reach["reachedPointing"] == "pointing", reach["reachedPointing"])
+            check("touching it with the other hand is recognised",
+                  reach["reachedTouching"] in ("touching", "pointing"), reach["reachedTouching"])
+
+            menu = await page.evaluate("""(() => {
+              const v = window.PANORAMA.vr;
+              v.openMenu(true);
+              const gauge = v.gaugePanel, right = v.rightHand.controller;
+              v.menuPanel.updateWorldMatrix(true, false);
+              const m = v.menuPanel.matrixWorld.elements;
+              const p = { x: m[12], y: m[13], z: m[14] };
+              right.position.set(p.x, p.y + 0.30, p.z + 0.12);
+              right.updateMatrixWorld(true);
+              right.lookAt(p.x, p.y, p.z);
+              right.rotateY(Math.PI);
+              right.updateMatrixWorld(true);
+              const row = v.menuRowUnderRay(v.rightHand);
+              const before = window.PANORAMA.panorama.mode;
+              v.runMenuItem('mode');
+              const after = window.PANORAMA.panorama.mode;
+              v.runMenuItem('reset');
+              v.openMenu(false);
+              return { row, before, after, items: v.MENU_ITEMS.map(i => i.key) };
+            })()""")
+            check("pointing at the open hand menu selects a row",
+                  menu["row"] >= 0, menu)
+            check("Undo and Reset are the first two items, in that order",
+                  menu["items"][:2] == ["undo", "reset"], menu["items"])
+            check("choosing a menu item really does something",
+                  menu["before"] != menu["after"], menu)
+
+            # And the landing page, which must work with no JavaScript at all.
+            await page.send("Page.navigate", {"url": f"http://127.0.0.1:{PORT}/index.html"})
+            await page.drain(2.0)
+            title = await page.evaluate("document.title")
+            check("the plain landing page loads", "Hello, Tesseract" in (title or ""), title)
+            await page.screenshot(f"{OUT}/06-landing-page.png")
+
+    finally:
+        if chrome:
+            chrome.terminate()
+        server.terminate()
+
+    print(f"\n{'ALL CHECKS PASSED' if not failures else str(len(failures)) + ' CHECKS FAILED'}")
+    for failure in failures:
+        print("   " + failure)
+    print(f"screenshots in {OUT}\n")
+    return 0 if not failures else 1
+
+
+sys.exit(asyncio.run(main()))

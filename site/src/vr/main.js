@@ -376,6 +376,7 @@ gaugePanel.rotation.set(-Math.PI * 0.32, 0, 0.15);
 leftHand.grip.add(gaugePanel);
 
 let gaugeClock = 0;
+let gaugeWasLit = false;
 
 function drawGauge(status) {
   const c = gaugeContext;
@@ -423,10 +424,24 @@ function drawGauge(status) {
     c.fillRect(10, yFor(w) - 2, 16, 5);
   }
 
-  c.fillStyle = '#dfe9ff';
+  c.fillStyle = gaugeLit ? '#ffd479' : '#dfe9ff';
   c.font = 'bold 22px system-ui, sans-serif';
   c.textAlign = 'center';
   c.fillText(status.mode === 'slice' ? 'SLICE' : 'PROJECTION', width / 2, 32);
+
+  // A one-line instruction, on the instrument itself, so nobody has to
+  // remember which button opens the menu.
+  c.font = '15px system-ui, sans-serif';
+  c.fillStyle = gaugeLit ? '#ffd479' : '#7f92b4';
+  c.fillText(gaugeLit ? 'pull trigger for menu' : 'touch or point here', width / 2, height - 40);
+
+  // When the reader reaches for it, the whole instrument brightens, so the
+  // answer to "is this thing alive?" arrives before any button is pressed.
+  if (gaugeLit) {
+    c.strokeStyle = '#ffd479';
+    c.lineWidth = 6;
+    c.strokeRect(4, 4, width - 8, height - 8);
+  }
 
   // The three-segment hyper-plane indicator (bible/part-05.md 5.4, Tier 1.2).
   const segmentWidth = 62;
@@ -434,10 +449,10 @@ function drawGauge(status) {
     const x = 22 + i * (segmentWidth + 8);
     const active = plane === status.hyperPlane;
     c.fillStyle = active ? '#eaf4ff' : 'rgba(120, 140, 175, 0.25)';
-    c.fillRect(x, height - 28, segmentWidth, 20);
+    c.fillRect(x, height - 30, segmentWidth, 22);
     c.fillStyle = active ? '#0a0f18' : '#93a4c4';
     c.font = 'bold 16px system-ui, sans-serif';
-    c.fillText(plane.toUpperCase(), x + segmentWidth / 2, height - 13);
+    c.fillText(plane.toUpperCase(), x + segmentWidth / 2, height - 14);
   });
 
   gaugeTexture.needsUpdate = true;
@@ -474,6 +489,7 @@ menuPanel.visible = false;
 leftHand.grip.add(menuPanel);
 
 let menuHighlight = -1;
+let gaugeLit = false;
 
 function drawMenu() {
   const c = menuContext;
@@ -513,25 +529,73 @@ const menuScratch = {
   direction: new THREE.Vector3(),
 };
 
-function menuRowUnderRay(hand) {
-  if (!menuPanel.visible) return -1;
-  menuPanel.updateWorldMatrix(true, false);
-  menuScratch.planeNormal.set(0, 0, 1).transformDirection(menuPanel.matrixWorld).normalize();
-  menuScratch.planePoint.setFromMatrixPosition(menuPanel.matrixWorld);
+/**
+ * Where does a hand's pointing ray land on a flat panel?
+ *
+ * Returns null for a miss, or { u, v } giving the position on the panel from 0
+ * to 1 across and from 0 (top) to 1 (bottom). The panel's own size is read
+ * from its geometry, so nothing has to be kept in step by hand.
+ *
+ * The tolerance is generous on purpose: a real arm holding a controller wobbles,
+ * and a small target that must be hit precisely is the difference between a
+ * control that feels alive and one that feels broken.
+ */
+function panelHit(panel, hand, tolerance = 0.012) {
+  if (!panel.visible) return null;
+  panel.updateWorldMatrix(true, false);
+  menuScratch.planeNormal.set(0, 0, 1).transformDirection(panel.matrixWorld).normalize();
+  menuScratch.planePoint.setFromMatrixPosition(panel.matrixWorld);
   menuScratch.origin.setFromMatrixPosition(hand.controller.matrixWorld);
   menuScratch.direction.set(0, 0, -1).transformDirection(hand.controller.matrixWorld).normalize();
   const denominator = menuScratch.direction.dot(menuScratch.planeNormal);
-  if (Math.abs(denominator) < 1e-5) return -1;
+  if (Math.abs(denominator) < 1e-5) return null;
   const t = menuScratch.planePoint.clone().sub(menuScratch.origin).dot(menuScratch.planeNormal) / denominator;
-  if (t < 0 || t > 2) return -1;
+  // Behind the hand, or absurdly far away, is a miss. Note that a panel on your
+  // own forearm is only ten or twenty centimetres away, so the near limit has
+  // to be tiny.
+  if (t < 0.01 || t > 2.5) return null;
   menuScratch.hit.copy(menuScratch.origin).addScaledVector(menuScratch.direction, t);
   menuScratch.local.copy(menuScratch.hit);
-  menuPanel.worldToLocal(menuScratch.local);
-  const halfWidth = 0.20 / 2, halfHeight = 0.125 / 2;
-  if (Math.abs(menuScratch.local.x) > halfWidth || Math.abs(menuScratch.local.y) > halfHeight) return -1;
-  const fraction = (halfHeight - menuScratch.local.y) / (halfHeight * 2);
-  const row = Math.floor(fraction * MENU_ITEMS.length);
+  panel.worldToLocal(menuScratch.local);
+  const parameters = panel.geometry.parameters;
+  const halfWidth = parameters.width / 2, halfHeight = parameters.height / 2;
+  if (Math.abs(menuScratch.local.x) > halfWidth + tolerance) return null;
+  if (Math.abs(menuScratch.local.y) > halfHeight + tolerance) return null;
+  return {
+    u: (menuScratch.local.x + halfWidth) / (halfWidth * 2),
+    v: (halfHeight - menuScratch.local.y) / (halfHeight * 2),
+    distance: t,
+  };
+}
+
+function menuRowUnderRay(hand) {
+  const hit = panelHit(menuPanel, hand);
+  if (!hit) return -1;
+  const row = Math.floor(hit.v * MENU_ITEMS.length);
   return Math.max(0, Math.min(MENU_ITEMS.length - 1, row));
+}
+
+/**
+ * Is the right hand pointing at, or physically near, the instrument on the left
+ * forearm? Either one opens the menu.
+ *
+ * WHY THIS EXISTS, and it is worth remembering: the instrument was designed as
+ * a DIAL, something to read, not a button. The first person to put the headset
+ * on immediately tried to touch it with his other hand, and then tried to point
+ * at it. When a person reaches for a thing, the thing should answer. So it now
+ * answers, while still being a dial: touching or pointing opens the menu that
+ * lives on the same arm.
+ */
+function gaugeReachedFor() {
+  const hit = panelHit(gaugePanel, rightHand, 0.02);
+  if (hit) return 'pointing';
+  gaugePanel.updateWorldMatrix(true, false);
+  menuScratch.planePoint.setFromMatrixPosition(gaugePanel.matrixWorld);
+  menuScratch.origin.setFromMatrixPosition(rightHand.grip.matrixWorld);
+  // Eight centimetres counts as "touching", which allows for the fact that the
+  // controller is held in a fist a few centimetres behind the fingertips.
+  if (menuScratch.origin.distanceTo(menuScratch.planePoint) < 0.08) return 'touching';
+  return null;
 }
 
 // ---- Reading the controllers once per frame ---------------------------------
@@ -573,6 +637,21 @@ function readControllers(deltaMs) {
       const origin = new THREE.Vector3().setFromMatrixPosition(hand.controller.matrixWorld);
       const direction = new THREE.Vector3(0, 0, -1).transformDirection(hand.controller.matrixWorld).normalize();
 
+      // Reaching for the wrist instrument opens the menu, whether the reader
+      // points at it or bumps into it with the other hand.
+      const reach = gaugeReachedFor();
+      if (reach && !menuPanel.visible) {
+        gaugeLit = true;
+        if (reach === 'touching' || pressed(BUTTON.TRIGGER)) {
+          menuPanel.visible = true;
+          menuHighlight = -1;
+          drawMenu();
+          source.gamepad.hapticActuators?.[0]?.pulse?.(0.35, 45);
+        }
+      } else {
+        gaugeLit = false;
+      }
+
       // The menu, if open, takes the ray before the graph does.
       const row = menuRowUnderRay(hand);
       if (row >= 0) {
@@ -604,6 +683,13 @@ function readControllers(deltaMs) {
       // A-button toggles the mode from the right hand as well, because reaching
       // across hands for a common action is a small daily annoyance.
       if (pressed(BUTTON.FACE_LOWER)) panorama.toggleMode();
+      // B on the right hand opens the menu too. Two buttons for one action is
+      // not clutter when the action is the way home.
+      if (pressed(BUTTON.FACE_UPPER)) {
+        menuPanel.visible = !menuPanel.visible;
+        menuHighlight = -1;
+        drawMenu();
+      }
     } else {
       // ---- LEFT HAND: the fourth dimension lives here ----
       if (held(BUTTON.TRIGGER)) {
@@ -783,11 +869,20 @@ renderer.setAnimationLoop(() => {
 
   gaugeClock += deltaMs;
   const status = panorama.status();
-  if (gaugeClock > 90) { drawGauge(status); gaugeClock = 0; }
+  if (gaugeClock > 90 || gaugeLit !== gaugeWasLit) { drawGauge(status); gaugeClock = 0; gaugeWasLit = gaugeLit; }
   updateReadouts(status, now, deltaMs, fps);
 
   renderer.render(panorama.scene, camera);
 });
 
-// Make a few things reachable from the browser console, for testing by hand.
-window.PANORAMA = { panorama, renderer, camera, data };
+// Make a few things reachable from the browser console, and from the automatic
+// browser test. The VR controls cannot be exercised by a headless browser
+// otherwise, and "I could not activate the thing on my arm" is exactly the kind
+// of fault that unit tests never catch and a real person finds in ten seconds.
+window.PANORAMA = {
+  panorama, renderer, camera, data,
+  vr: { panelHit, gaugeReachedFor, menuRowUnderRay, runMenuItem, MENU_ITEMS,
+        gaugePanel, menuPanel, hands, leftHand, rightHand,
+        isMenuOpen: () => menuPanel.visible,
+        openMenu: (open) => { menuPanel.visible = open; drawMenu(); } },
+};
