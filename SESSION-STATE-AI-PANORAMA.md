@@ -220,15 +220,34 @@ Milestone 0 wants approvals to work.
 STEP B. DONE - Neo4j and pipeline/lib/db.py and the job ledger, see items 9,
 10 and 11 above.
 
-STEP C. Feed the price snapshots into Neo4j as immutable rows, keeping the
-JSON files as the frozen evidence. Also add the matching schema file plus an
-example file in schemas/ (bible/part-02.md 2.8). Use already_done() from
-lib/db.py so re-running is harmless, and log_job() for every run.
+STEP C. DONE - the price archive is now in the library as well as on disk.
+Stage: pipeline/stages/load_snapshots.py . Safe to run any number of times:
+the database refuses two rows for the same model on the same day at the same
+seller, and the stage also asks the ledger whether a file was already loaded.
+Use --dry-run to look, --force to reload. Tested three ways on 2026-08-21.
+The weekly timer now does BOTH steps by itself: the snapshot service has an
+ExecStartPost line that runs the loader after the dated file is written.
+Shape files, as bible/part-02.md 2.8 demands: schemas/price-snapshot.schema.json
+and schemas/price-snapshot.example.json (three real rows chosen to teach that
+zero means free while null means nobody published the number).
+IMPORTANT EDITORIAL RULE, ALREADY ENFORCED IN CODE: a model appearing in a
+price list does NOT become an entity. It waits as an (:EntityProposal) with
+status 'pending' until Nir approves it, because bible/part-02.md 2.4 says
+"unresolved mentions never silently create entities; near-duplicate entities
+are the disease that killed many knowledge bases". 419 models were waiting as
+of 2026-08-21, and NOTHING can approve them yet: that needs the Telegram
+one-tap approval flow, which needs OpenClaw. Do not shortcut it by approving
+them in bulk without asking Nir.
 
-STEP D. Tailscale on the desktop (Linux) and the laptop (Linux), so the two
-machines can talk privately, and so the Quest 3 headset can reach a
-development server later. Needs Nir's password. When it is done, Neo4j's
-listen address may gain the Tailscale address, and nothing else, ever.
+STEP D. Tailscale. PARTLY DONE 2026-08-21: installed here and joined as
+"desktop-linux" at 100.118.103.61 . Nir's private network also holds his two
+Windows machines, which he is renaming to desktop-windows and laptop-windows,
+and an old machine called ilan that has no job here (decision 4).
+STILL TO DO: install it on the laptop's Linux and join as "laptop-linux"; and
+ask Nir to disable key expiry on each machine in the Tailscale admin console,
+otherwise Tailscale logs them out after six months and the machines stop
+talking silently. Only once the laptop is on the private network may Neo4j's
+listen address gain the Tailscale address - and nothing else, ever.
 
 STEP E. The discovery report. Inventory both machines and write it to the job
 ledger with plain-language wording Nir actually understands. The desktop
