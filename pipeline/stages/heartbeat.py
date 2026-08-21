@@ -22,10 +22,13 @@ WHAT IT CHECKS
 1. The price archive. Is the newest snapshot recent, and how many models did
    it hold? This is the one job in the project where a missed week is
    permanent damage, so it is checked first and reported first.
-2. Free space, separately for the small system disk and the big home disk.
+2. The library (Neo4j). Is it awake, and how many jobs has it written down? A
+   database that is installed but silent is a red flag, because while it is
+   silent nothing can be recorded.
+3. Free space, separately for the small system disk and the big home disk.
    Decision 3 in DECISIONS.md says everything that grows lives on /home; this
    check is what would catch an installer breaking that rule.
-3. Whether the repository has work that was never saved to GitHub.
+4. Whether the repository has work that was never saved to GitHub.
 
 WHAT IT DELIBERATELY DOES NOT DO
 It does not fix anything, it does not delete anything, and it does not touch
@@ -168,13 +171,40 @@ def check_repository() -> tuple[bool, str]:
     return True, "Repository: " + " and ".join(parts) + "."
 
 
+def check_database() -> tuple[bool, str]:
+    """
+    Is the library awake, and is it writing things down?
+
+    Kept deliberately forgiving: if the database is not installed yet at all,
+    that is not a fault, it is just a stage the project has not reached. Only a
+    database that is INSTALLED and SILENT is a problem worth waking Nir for.
+    """
+    try:
+        from lib.db import connect, health  # imported here so a missing
+        # database driver can never stop the rest of the morning message
+    except Exception:  # noqa: BLE001
+        return True, "Library: not installed yet."
+
+    try:
+        with connect() as db:
+            state = health(db)
+    except Exception:  # noqa: BLE001
+        return False, ("Library: NOT ANSWERING. The database is installed but "
+                       "silent, so nothing can be written down today.")
+
+    entries = state["ledger_entries"]
+    return True, (f"Library: awake, holding {state['nodes']} things, with "
+                  f"{entries} job(s) written in its logbook.")
+
+
 def build_message() -> tuple[bool, str]:
     """Assemble the whole morning message. Returns (all_healthy, message)."""
     archive_ok, archive_line = check_price_archive()
+    database_ok, database_line = check_database()
     disks_ok, disk_lines = check_disks()
     _, repo_line = check_repository()
 
-    all_healthy = archive_ok and disks_ok
+    all_healthy = archive_ok and database_ok and disks_ok
 
     headline = ("Good morning Nir. Atlas here. Everything is healthy."
                 if all_healthy else
@@ -184,6 +214,7 @@ def build_message() -> tuple[bool, str]:
         headline,
         "",
         archive_line,
+        database_line,
         *disk_lines,
         repo_line,
     ]

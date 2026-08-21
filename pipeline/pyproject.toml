@@ -12,6 +12,11 @@ dependencies = [
     # httpx: every outbound API call goes through httpx (bible/part-01.md 1.5.3).
     # First use: the weekly OpenRouter price/spec snapshot (bible/part-09.md 9.4).
     "httpx>=0.28,<0.29",
+    # neo4j: the official database driver. Used ONLY through pipeline/lib/db.py,
+    # never imported directly by a stage (bible/part-01.md 1.4, access
+    # discipline). One door to the database, so schema changes happen in one
+    # place.
+    "neo4j>=6.2,<7",
 ]
 
 [tool.uv]
