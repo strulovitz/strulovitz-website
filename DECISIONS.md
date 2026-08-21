@@ -129,3 +129,27 @@ Why one bot per computer rather than one shared bot: a Telegram token can only
 be listened to by one program at a time, so two machines sharing a token would
 steal each other's messages. Full explanation and the two-minute creation
 steps are in ops/TELEGRAM-BOTS.md .
+
+
+DECISION 6 - THE REAL BOT USERNAMES (correcting decision 5's placeholders)
+Date: 2026-08-21
+Decided by: reality, accepted by Nir
+Ruling: The plain usernames wanted in decision 5 were already taken by
+strangers on Telegram, because a bot username must be unique across the whole
+world. The real usernames therefore carry Nir's name in front, which also makes
+them recognisably his. The DISPLAY NAMES stay the short friendly ones.
+
+1. Atlas - Desktop Linux   display name "Atlas Desktop"   @NirAtlasDesktop_bot
+   Created 2026-08-21, token stored in .env on Atlas, description set, live.
+2. Forge - Laptop Linux    display name "Forge Laptop"    @NirForgeLaptop_bot
+   Not created yet. Its token belongs in the .env on FORGE, not on Atlas.
+3. Atlas - Desktop Windows display name "Atlas Windows"   @NirAtlasWindows_bot
+   Not created yet.
+4. Forge - Laptop Windows  display name "Forge Windows"   @NirForgeWindows_bot
+   Not created yet.
+
+Rule for whoever creates the remaining three: if a username is taken, append
+digits (for example @NirForgeLaptop26_bot) and record the real one here. The
+display name is set by the agent afterwards with the setMyName call, never by
+asking Nir to type it, because that is exactly how the first bot ended up named
+"@AtlasDesktopBot" with a stray @ sign.
