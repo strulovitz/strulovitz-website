@@ -294,3 +294,68 @@ Do not propose moving any task onto the old spare computer, and do not propose
 leaving any machine running day and night. Both were considered and ruled out
 by Nir on 2026-08-21. The weekly snapshot already survives the desktop being
 switched off, because its timer catches up on the next boot.
+
+
+================================================================================
+NIR'S COURSE CORRECTION, 2026-08-21, AND WHAT THE NEXT AGENT MUST DO FIRST
+================================================================================
+
+READ THIS BEFORE PLANNING ANYTHING. Nir stopped the session and said, correctly:
+"we were supposed to be doing the serious stuff, how to do the fucking 4D
+Virtual Reality, and also the 3D is not easy, but 4D even harder. and how to
+make the mechanism for automation so that cheap models will be able to do
+editions of the website ... it seems to me you are drowning in irrelevant shit."
+
+He is right, and the Bible agrees with him: part-13.md makes Milestone 1 "Hello,
+Tesseract" precisely because the hardest risk must die first, while it is cheap.
+An agent that keeps building comfortable plumbing instead is avoiding the real
+work. Do not do that.
+
+THE TWO THINGS THAT MATTER, IN THIS ORDER:
+
+1. FOUR-DIMENSIONAL VR (LAW 1, the crown law; part-03.md geometry, part-05.md
+   interaction, part-13.md 13.2 for the definition of done). Build "Hello,
+   Tesseract": a genuine 4D structure, rotated in real time by hand
+   controllers on a Meta Quest 3 over WebXR, on fake data, before any content
+   exists. Also its flat-screen 3D twin, because no feature ships without both.
+   Remember LAW 2: the fourth dimension is NEVER colour.
+   NOT STARTED. Nothing of this exists yet. Nir owns a Quest 3.
+
+2. THE EDITIONS MACHINE (part-10.md, part-06.md). Cheap models - Chinese
+   open-weight models and the like, through OpenRouter - take the articles and
+   YouTube links Nir supplies and produce the TLDRs, the ELI5 explanations, the
+   tags, the graphs and the images, with Nir approving by Telegram.
+   ARCHITECTURE ANSWER NIR ASKED FOR, so nobody re-litigates it: this needs
+   plain Python calling the OpenRouter API through one module
+   (pipeline/lib/llm.py, not yet written) with the model name as a parameter
+   (LAW 6), plus OpenClaw for the Telegram approvals. It does NOT need OpenCode.
+   OpenCode is the workshop the humans and agents build IN; it is not part of
+   the running machine, and nothing in production should depend on it.
+   NOT STARTED.
+
+WHAT WAS BUILT ON 2026-08-21, AND WHY IT SHOULD NOT BE REDONE OR MOURNED:
+the Telegram bot, the daily heartbeat, Neo4j on the big disk, the one database
+door with the job ledger, the weekly price archive, and the weekly usage
+archive. All of it runs by itself and costs no attention. The ONLY part of it
+that was genuinely urgent was the price and usage archive: a week not recorded
+can never be recovered. The rest was groundwork that is now done and must not
+be expanded further until the two things above exist.
+
+DO NOT, IN THE NEXT SESSION: write more runbooks, add more decisions files,
+polish the heartbeat, or refine the model filters. Those are finished. If the
+next agent finds itself writing prose instead of a rotating tesseract, it has
+made the same mistake this session made.
+
+STILL GENUINELY OUTSTANDING, BUT SMALL AND CHEAP, DO ONLY IF ASKED:
+1. Wire the usage snapshot into the weekly timer, the same way the price
+   snapshot already has an ExecStartPost line. One line of configuration.
+2. Batch 2 of the "which models are current" search prompts (Google, DeepSeek,
+   Moonshot, Z.ai, Qwen, Meta, Mistral) for Nir to paste into a web search.
+3. Three more Telegram bots, if Nir wants them.
+4. The laptop joining the private network as laptop-linux.
+5. Nir disabling key expiry on his Tailscale machines.
+
+THE STANDING LESSON FROM THIS SESSION, FOR EVERY FUTURE AGENT:
+Nir cannot read code and will not check it, so an agent is trusted to choose
+what matters. He measures the project by whether the impossible part is getting
+closer, not by how tidy the repository is. When in doubt, build the hard thing.
