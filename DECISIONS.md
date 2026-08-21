@@ -227,3 +227,60 @@ because a refusal advertises that something worth attacking is here.
 As of 2026-08-21 nothing listens for incoming messages at all, so no one can
 command the computer over Telegram - not even Nir. That ear arrives with
 OpenClaw, and the guard is already waiting for it.
+
+
+DECISION 9 - NO ARCHAEOLOGY. A PRICE LIST IS NOT A LEADERBOARD
+Date: 2026-08-21
+Decided by: Nir, after catching an agent publishing nonsense
+Ruling: The magazine never presents a raw maximum, minimum or ranking taken
+straight from a seller's catalogue. Every comparison must first be reduced to
+what a reader could sensibly use TODAY.
+
+What happened, recorded honestly because the lesson is the valuable part: an
+agent asked the fresh price archive for "the most expensive models" and "the
+biggest context windows" and repeated the answers to Nir as if they were news.
+Nir immediately spotted that they were museum pieces and asked: "are you
+building an archeology magazine for AI?" He was right. The data itself was
+genuine and current - it contained Claude Fable at 10 dollars in and 50 out,
+GPT-5.6 Sol Pro at 2.50 and 15, Grok 4.6, and Kimi K3 with a million-token
+context, all correct. The QUESTION was defective, not the archive.
+
+What the catalogue of 419 listings actually contained:
+1. Five entries that are not models at all but ROUTERS which forward a request
+   to whichever model they choose. Two of them advertise a two-million-token
+   context that belongs to nothing you can point at.
+2. Sixty-one "(batch)" entries, which are the same model at half price for
+   slow work. They are a discount, not a model, and they double-count every
+   family they appear in.
+3. Fifty-four listings first published in 2024 or earlier, still purchasable,
+   including o1-pro at 600 dollars per million words out - by far the most
+   expensive number in the file, and completely irrelevant to a reader.
+4. Superseded generations still on sale next to their successors, for example
+   Grok 4.20 sitting beside Grok 4.6 while advertising a bigger context than
+   the newer model. A date filter alone does not catch this; only knowing
+   which listing is the current member of its family does.
+
+THE RULES THAT FOLLOW, AND THEY APPLY TO EVERY COMPARISON THE SITE EVER SHOWS:
+1. Routers, aliases and "auto" entries are never ranked against models. They
+   are a separate kind of thing and get their own label.
+2. Batch and discount variants never appear as separate competitors. They may
+   appear as a second price attached to their own model.
+3. Superseded models are shown as HISTORY, in the price-history view where they
+   are genuinely interesting, and never in a "biggest" or "most expensive"
+   list.
+4. Every leaderboard states in plain words which listings it excluded and why.
+   A number without its exclusions is not honest.
+5. Nothing derived is ever written back over the archive. The archive keeps
+   every listing forever, including the museum pieces: they are needed for the
+   price-history dataset and they cost nothing to keep. The filtering happens
+   when a question is asked, not when data is stored (LAW 12).
+
+Which Bible text this reinforces: part-00.md ADVANTAGE 2, which already says
+that one-dimensional benchmark reporting "hides the truths that matter", and
+part-08.md, which separates IMPORTANCE from PROMINENCE. This decision is that
+principle applied to the seller's catalogue, which is the first real data the
+project ever touched.
+
+STANDING INSTRUCTION: no agent may show Nir, or the public, a figure taken
+straight from a source's list. State what was excluded, or do not publish the
+figure.
