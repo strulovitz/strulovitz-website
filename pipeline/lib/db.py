@@ -257,6 +257,17 @@ SCHEMA_STATEMENTS: tuple[str, ...] = (
     "FOR (e:EntityProposal) REQUIRE e.proposed_entity_id IS UNIQUE",
     "CREATE INDEX entity_proposal_status_index IF NOT EXISTS "
     "FOR (e:EntityProposal) ON (e.status)",
+
+    # --- The weekly record of what people actually USE. One row is one model's
+    # traffic on one day at one broker. Nir's insight, 2026-08-21: usage settles
+    # in one number what no amount of clever version-numbering rules could.
+    "CREATE CONSTRAINT usage_snapshot_key IF NOT EXISTS "
+    "FOR (u:UsageSnapshot) REQUIRE (u.usage_date, u.provider, "
+    "u.model_permaslug) IS UNIQUE",
+    "CREATE INDEX usage_snapshot_date_index IF NOT EXISTS "
+    "FOR (u:UsageSnapshot) ON (u.usage_date)",
+    "CREATE INDEX usage_snapshot_model_index IF NOT EXISTS "
+    "FOR (u:UsageSnapshot) ON (u.model_id_plain)",
 )
 
 

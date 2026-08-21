@@ -1,0 +1,46 @@
+SOURCE: Google AI search, asked by Nir, pasted back verbatim on 2026-08-21.
+QUESTION ASKED: for each model, is it CURRENT / SUPERSEDED BY <name> / DEPRECATED,
+what ROLE does it play, and how widely used is it (HIGH/MEDIUM/LOW).
+WHY THIS FILE EXISTS: bible/part-00.md LAW 7 - every published fact must trace to
+a source. This is the source for every "superseded" judgement made about these
+models. It is a SINGLE source, so anything built on it alone is a labelled brief,
+not a verified claim, until a second source agrees (LAW 7 point 2). The usage
+figures scraped from OpenRouter's own rankings are that second, independent
+source for the POPULARITY column.
+ANSWER, VERBATIM:
+
+GPT-5.6 Sol Pro | CURRENT | FLAGSHIP CHAT | HIGH
+GPT-5.6 Sol | CURRENT | FLAGSHIP CHAT | HIGH
+GPT-5.6 Luna Pro | CURRENT | REASONING | MEDIUM
+GPT-5.6 Luna | CURRENT | CHEAP/FAST CHAT | HIGH
+GPT-5.6 Terra Pro | CURRENT | OTHER | MEDIUM
+GPT-5.6 Terra | CURRENT | CHEAP/FAST CHAT | HIGH
+GPT-5.5 Pro | SUPERSEDED BY GPT-5.6 Sol Pro | FLAGSHIP CHAT | LOW
+GPT-5.5 | SUPERSEDED BY GPT-5.6 Sol | FLAGSHIP CHAT | LOW
+GPT-5.4 Mini | SUPERSEDED BY GPT-5.6 Luna | CHEAP/FAST CHAT | LOW
+GPT-5.4 Nano | SUPERSEDED BY GPT-5.6 Luna | CHEAP/FAST CHAT | LOW
+GPT-5.2 Chat | DEPRECATED/RETIRED | FLAGSHIP CHAT | LOW
+GPT-5.3-Codex | DEPRECATED/RETIRED | CODING | LOW
+GPT-5.1-Codex-Max | DEPRECATED/RETIRED | CODING | LOW
+GPT-5.1-Codex-Mini | DEPRECATED/RETIRED | CODING | LOW
+GPT Chat Latest | CURRENT | FLAGSHIP CHAT | HIGH
+o3 | SUPERSEDED BY GPT-5.6 Sol | REASONING | LOW
+o3 Pro | SUPERSEDED BY GPT-5.6 Sol Pro | REASONING | LOW
+o4 Mini | SUPERSEDED BY GPT-5.6 Luna | REASONING | LOW
+o4 Mini High | SUPERSEDED BY GPT-5.6 Luna Pro | REASONING | LOW
+gpt-oss-120b | CURRENT | OTHER | MEDIUM
+Claude Opus 5 | CURRENT | FLAGSHIP CHAT | HIGH
+Claude Opus 5 Fast | CURRENT | FLAGSHIP CHAT | HIGH
+Claude Fable 5 | CURRENT | REASONING | HIGH
+Claude Sonnet 5 | UNSURE | UNSURE | UNSURE
+Claude Haiku 4.5 | UNSURE | UNSURE | UNSURE
+Grok 4.6 | CURRENT | FLAGSHIP CHAT | HIGH
+Grok 4.20 Multi-Agent | UNSURE | UNSURE | UNSURE
+Grok Build 0.1 | CURRENT | CODING | HIGH
+
+NOTES FOR WHOEVER USES THIS:
+1. Three answers came back UNSURE and must NOT be guessed: Claude Sonnet 5,
+   Claude Haiku 4.5, Grok 4.20 Multi-Agent. They stay unlabelled until a source
+   answers them.
+2. "GPT Chat Latest" is a moving alias, so CURRENT is true but uninformative.
+3. This file is evidence and is never edited. A correction is a new dated file.

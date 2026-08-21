@@ -1,0 +1,28 @@
+SOURCE: Nir, the editor-in-chief, on 2026-08-21. His word settles these.
+WHY THIS FILE EXISTS: a live web search returned UNSURE for three models. The
+project does not guess, and it does not leave a hole either: it asks the editor.
+These are his rulings, recorded so that no future agent re-opens them.
+
+RULING 1 - GROK 4.20 AND ITS MULTI-AGENT VARIANT: DO NOT COVER.
+Nir's words: "Grok 4.2 is not existing anymore, there was after it Grok 4.3 and
+today Grok 4.6, i do not want to cover it in our magazine". So the whole 4.20
+line, including "Grok 4.20 Multi-Agent", is history. It stays in the price
+archive forever as evidence, and it never appears in a current comparison.
+Status: SUPERSEDED BY Grok 4.6. Coverage: EXCLUDED BY THE EDITOR.
+
+RULING 2 - CLAUDE SONNET 5: CURRENT, AND IMPORTANT.
+Nir's words: "Claude Sonnet 5 is very important". It is also directly known to
+this project rather than merely read about: Sonnet 5 is the model that does this
+project's own grunt work - the installs, the runbooks, the file moving - while
+Opus 5 does the design. So the project has first-hand daily evidence that it is
+current and heavily used.
+Status: CURRENT. Role: FLAGSHIP CHAT / general workhorse. Popularity: HIGH.
+
+RULING 3 - CLAUDE HAIKU 4.5: NOT IMPORTANT.
+Nir's words: "Claude Haiku is not important, i do not think anybody uses it".
+It is not deprecated, and it is not a lie to say it exists - it simply does not
+earn a place in a panorama of what people actually use.
+Status: CURRENT but LOW popularity. Coverage: NOT FEATURED.
+
+THE PRINCIPLE BEHIND ALL THREE, IN NIR'S SPIRIT: the magazine covers what people
+actually use, and says so honestly. Existing is not the same as mattering.

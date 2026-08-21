@@ -1,0 +1,15 @@
+{
+ "schema_version": 1,
+ "what_this_is": "Every model-usage snapshot this project holds, oldest first. One entry per day taken.",
+ "snapshot_count": 1,
+ "first_snapshot": "2026-08-21",
+ "latest_snapshot": "2026-08-21",
+ "snapshots": [
+  {
+   "snapshot_date": "2026-08-21",
+   "file": "2026-08-21.json",
+   "row_count": 20,
+   "taken_at_utc": "2026-08-21T08:54:45+00:00"
+  }
+ ]
+}
