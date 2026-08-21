@@ -562,3 +562,126 @@ THE EDITIONS MACHINE (the second thing that matters) IS STILL NOT STARTED.
 pipeline/lib/llm.py does not exist yet. The architecture answer stands: plain
 Python calling OpenRouter through that one module with the model name always a
 parameter, plus OpenClaw for the Telegram approvals. It does not need OpenCode.
+
+================================================================================
+SITUATION AT THE END OF 2026-08-21. READ THIS SECTION FIRST.
+================================================================================
+Written by Claude Opus 5 on desktop-linux, at Nir's request, so that a fresh
+agent with an empty memory can carry on without him explaining anything.
+
+WHERE THINGS STAND, IN ONE PARAGRAPH
+
+The hardest and most doubtful part of the whole project now works, and Nir has
+confirmed it with his own hands and his own eyes, on a flat screen and on his
+Quest 3: "everything works great". www.strulovitz.org IS the magazine now, at
+the root of the domain, and a visitor can turn a genuinely four-dimensional
+object, swim a slice from fresh news toward settled knowledge, and be taught to
+follow an object through a turn that has no three-dimensional equivalent. There
+is no real content yet, on purpose. Milestone 1 is substantially built; what
+remains of it is listed below, and most of it is small.
+
+WHAT IS LIVE, AND HOW IT GOT THERE
+
+1. The site is served from the root of strulovitz.org. Root files: index.html
+   (the landing page, with the menu) and night-watch.html. All the code lives in
+   a dated folder, and pointer.json names which folder is live. Currently
+   v2026-08-21-l.
+2. Deploying: `python3 ops/build-export.py` writes exports/ , then the dated
+   folder is uploaded FIRST and pointer.json LAST, which is what makes the flip
+   instant. Rollback is re-uploading an old pointer from ops/pointers/ .
+3. THE FTP SITUATION, said plainly: the Bible has Nir uploading by hand in
+   FileZilla, with no agent ever holding the password (LAW 4, part-01.md 1.9).
+   On 2026-08-21 Nir gave the SFTP password in chat and asked for the upload to
+   be done for him, and Nir outranks the Bible. It was used from an environment
+   variable, written to no file, and he was told first thing to change it.
+   HE STILL NEEDS TO CHANGE THAT PASSWORD. Connection: SFTP, port 22,
+   vps68338.dreamhostps.com, user dh_ptax3d, web root strulovitz.org/ .
+   A future agent must ASK him for it rather than assume, and store it nowhere.
+4. His previous personal home page was downloaded to ops/server-backup/ before
+   anything was overwritten, and remains in this repository at ./index.html and
+   ./style.css (stale: NOT what the domain serves). His Hive and Ghost pages on
+   the server were never touched.
+
+THE CODE, FILE BY FILE
+
+site/src/lib/fourd.js         all the four-dimensional maths and nothing else:
+                              one 4x4 matrix Q, six planes, Gram-Schmidt after
+                              every compose, the normalised projection
+                              s = (d - w_min) / (d - w), the pivot rule, the
+                              undo stack, and the two-handed twist as a pair of
+                              quaternion multiplication matrices.
+site/src/lib/fourd.selftest.js  64 checks. Run: node site/src/lib/fourd.selftest.js
+site/src/scenes/synthetic.js  the fake world: a tesseract and 200 placeholder
+                              nodes in six w bands, placed by hashing their own
+                              ids so positions never move between machines.
+site/src/scenes/wgym.js       the five lessons.
+site/src/vr/panorama.js       the holotable, the dithered slab and its ghosts,
+                              drop-stems over a fixed floor grid, labels that
+                              never change size, and registerPointSet so extra
+                              objects join the ONE projection pass.
+site/src/vr/main.js           both bodies: mouse and keyboard, and the Quest 3.
+                              Also the wrist gauge, the hand menu, the flash
+                              messages, and resetEverything().
+site/index.html               the root landing page with the menu.
+site/night-watch.html         honest that Night Watch does not exist yet.
+site/vendor/                  three.js 0.185.1, MIT, kept locally on purpose.
+ops/build-export.py           the deployment ritual.
+ops/look-at-the-site.sh       local viewing; "headset" mode serves https so a
+                              Quest on the same wi-fi can open it.
+ops/test-the-4d-page.py       113 checks driving the real page in a real
+                              browser. RUN IT AFTER ANY CHANGE to rotation,
+                              projection, comfort or the lessons: part-05.md
+                              5.10 makes that protocol repeat. It needs Chrome
+                              started detached first; the command is in the
+                              file's own header.
+
+WHAT REMAINS BEFORE MILESTONE 1 CAN BE CALLED DONE (part-13.md 13.2)
+
+1. The five human test sessions of part-05.md 5.10, with the five tasks, and
+   comfort scored 1 to 5. Nir has effectively done his own, several times over,
+   and reported comfort as fine and the experience as good. Madie counts as a
+   session; friends count. Results go in the ledger as plain text.
+2. The perftest scene and the ?perftest=1 route (part-04.md), measured on the
+   physical Quest 3 rather than on a software renderer. Nothing has been
+   measured on real hardware yet; the numbers in the debug HUD came from a
+   software renderer at 20 to 50 frames per second, which proves nothing about
+   the 72 the Quest needs.
+3. Hover cards and a reading panel in the headset. On the flat screen the hover
+   card is plain HTML; in VR there is only a highlight and a haptic tap.
+4. Ego mode, the path trail, and Back and Forward along it (part-05.md 5.6).
+5. The audio cue package (5.3.4) and the density haptics while swimming (5.3.5).
+6. Nir's formal smile. Arguably already given: "everything works great :-)".
+
+AFTER THAT, THE SECOND THING THAT MATTERS: THE EDITIONS MACHINE
+
+Still not started. pipeline/lib/llm.py does not exist. The architecture answer,
+so nobody re-litigates it: plain Python calling OpenRouter through that one
+module with the model name always a parameter (LAW 6), plus OpenClaw for the
+Telegram approvals. It does NOT need OpenCode; OpenCode is the workshop we build
+in, never part of the running machine. Nir will need to provide an OpenRouter
+API key when this starts.
+
+SMALL THINGS STILL OUTSTANDING, DO ONLY IF ASKED
+
+1. Wire the usage snapshot into the weekly timer, the way the price snapshot
+   already has an ExecStartPost line. One line of configuration.
+2. Batch 2 of the "which models are current" search prompts for Nir to paste.
+3. Three more Telegram bots, if he wants them.
+4. The laptop joining the private network as laptop-linux.
+5. Nir disabling key expiry on his Tailscale machines.
+6. The 419 model proposals waiting in Neo4j as (:EntityProposal) with status
+   'pending'. Nothing can approve them until the Telegram approval flow exists,
+   and they must NOT be bulk-approved without him.
+
+BOOT SEQUENCE FOR THE NEXT AGENT
+
+1. Read this file's last section, which is this one, and the accumulated list of
+   lessons above it. Then read DECISIONS.md and bible/part-00.md.
+2. git -C /home/nir/strulovitz-website pull
+3. node site/src/lib/fourd.selftest.js   (64 checks, takes a second)
+4. Greet Nir briefly and warmly, with emojis, and ask what he wants next rather
+   than assuming. Do not re-explain the state to him; he lived it.
+5. If he reports a fault: reproduce it, fix the CAUSE, add a check to
+   ops/test-the-4d-page.py that would have caught it, deploy, and tell him in
+   plain words what was wrong. Every single fault he reported today was real,
+   and none of them would have been found by an agent testing its own work.
