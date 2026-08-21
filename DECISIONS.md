@@ -153,3 +153,44 @@ digits (for example @NirForgeLaptop26_bot) and record the real one here. The
 display name is set by the agent afterwards with the setMyName call, never by
 asking Nir to type it, because that is exactly how the first bot ended up named
 "@AtlasDesktopBot" with a stray @ sign.
+
+
+DECISION 7 - PLAIN MACHINE NAMES. "ATLAS" AND "FORGE" ARE ABOLISHED
+Date: 2026-08-21
+Decided by: Nir
+Ruling: The machines are named after what they plainly are. The poetic names
+Atlas and Forge are dropped everywhere: in Telegram, in Tailscale, in the
+runbooks, in the code comments, and in every message written to Nir.
+
+Nir's reasoning, in his own words: "for me the atlas shit and forge shit is
+meaningless. i only understand things like desktop and laptop, linux and
+windows."
+
+THE FOUR NAMES, AND THEY ARE THE SAME IN EVERY PLACE:
+1. desktop-linux    the Linux Mint side of the desktop computer. The library
+                    and the factory: Neo4j, the pipeline, the price archive.
+2. desktop-windows  the Windows 11 side of the same desktop computer.
+3. laptop-linux     the Debian side of the laptop. The graphics card work:
+                    images through ComfyUI, speech-to-text through Whisper.
+4. laptop-windows   the Windows 11 side of the same laptop.
+
+Already applied on 2026-08-21: the Tailscale name of this computer, and the
+Telegram bot's display name, are both now "desktop-linux" / "Desktop Linux".
+
+WHAT CANNOT BE CHANGED, AND WHY IT DOES NOT MATTER: a Telegram bot's ADDRESS
+is permanent once created, so the first bot keeps the address
+@NirAtlasDesktop_bot even though it now displays as "Desktop Linux". Nir sees
+the display name in every message; the address only appears when adding the
+bot. If he ever wants the address to match too, the fix is to create a fresh
+bot (for example @NirDesktopLinux_bot), paste its token, and abandon the old
+one. His choice, not an agent's.
+
+Which Bible text this touches: bible/part-01.md section 1.2 names the machines
+ATLAS and FORGE, and later Parts use those words. The Bible text is NOT edited
+(LAW 10). Read every "Atlas" in the Bible as "desktop-linux" and every "Forge"
+as "laptop-linux".
+
+STANDING INSTRUCTION TO EVERY AGENT: never invent a nickname, a codename, or a
+metaphor for a machine, a script, or a folder that Nir has to learn. Name
+things after what they plainly are. Nir does not read code and did not ask for
+poetry; he asked for a magazine.
