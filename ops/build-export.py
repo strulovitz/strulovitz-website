@@ -42,7 +42,19 @@ POINTER_HISTORY = os.path.join(REPOSITORY, "ops", "pointers")
 
 # What actually ships. Anything not named here stays at home, so a stray note or
 # a test file cannot reach the public server by accident.
-SHIPPING = ["index.html", "tesseract.html", "src", "vendor"]
+#
+# There are two kinds of file, and the difference is the whole deployment trick:
+#
+# ROOT files sit at the top of the website and keep the address bar clean, so a
+# visitor sees www.strulovitz.org and not a folder with a date in its name.
+# They are small, hand-written pages that change rarely.
+#
+# VERSIONED files live inside a dated folder. All the code and all the data are
+# in here. A new build never touches an old folder, so uploading a new version
+# cannot break the live site halfway through: nothing points at the new folder
+# until the tiny pointer file lands last.
+SHIPPING_ROOT = ["index.html", "night-watch.html"]
+SHIPPING_VERSIONED = ["tesseract.html", "src", "vendor"]
 
 # Files that must never be uploaded even if they sit inside a shipping folder.
 NEVER_SHIP = {".env", ".DS_Store"}
@@ -59,9 +71,9 @@ def pick_version_name():
     raise RuntimeError("twenty-six builds in one day is not a build, it is a loop")
 
 
-def copy_shipping_files(destination):
+def copy_shipping_files(destination, entries):
     copied = []
-    for entry in SHIPPING:
+    for entry in entries:
         source = os.path.join(SITE, entry)
         if not os.path.exists(source):
             raise RuntimeError(f"missing from site/: {entry}")
@@ -96,45 +108,6 @@ def hash_of_files(folder, relative_paths):
                     break
                 digest.update(chunk)
     return digest.hexdigest()
-
-
-LOADER_HTML = """<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<title>AI PANORAMA</title>
-<!--
-  This tiny file is the only thing at the top of the website. It reads
-  pointer.json to find out which dated folder is currently live, and goes
-  there. That indirection is what makes deployment atomic: the dated folder is
-  uploaded first and slowly, then pointer.json is uploaded last and instantly.
-  bible/part-01.md 1.9.
--->
-<script>
-  fetch('pointer.json', { cache: 'no-store' })
-    .then((response) => response.json())
-    .then((pointer) => { location.replace(pointer.live + '/index.html'); })
-    .catch(() => { document.getElementById('fallback').style.display = 'block'; });
-</script>
-<style>
-  body { background:#07090f; color:#dbe4f4; font:16px/1.6 system-ui,sans-serif;
-         margin:0; padding:4rem 1.5rem; }
-  main { max-width:32rem; margin:0 auto; }
-  a { color:#9fd0ff; }
-  #fallback { display:none; }
-</style>
-</head>
-<body>
-<main>
-  <p>Opening AI PANORAMA...</p>
-  <div id="fallback">
-    <p>Could not read the pointer file. The site is still there:</p>
-    <p><a href="POINTER_FALLBACK/index.html">Open the current version directly</a></p>
-  </div>
-</main>
-</body>
-</html>
-"""
 
 
 HEALTH_HTML = """<!DOCTYPE html>
@@ -182,9 +155,20 @@ def main():
     destination = os.path.join(EXPORTS, version)
     os.makedirs(destination)
 
-    copied = copy_shipping_files(destination)
+    copied = copy_shipping_files(destination, SHIPPING_VERSIONED)
+    root_copied = copy_shipping_files(EXPORTS, SHIPPING_ROOT)
     content_hash = hash_of_files(destination, copied)
     built = datetime.datetime.now().replace(microsecond=0).isoformat()
+
+    # The root landing page carries the live version's name inside its links, so
+    # that the site still works for a visitor with JavaScript switched off.
+    root_index = os.path.join(EXPORTS, "index.html")
+    with open(root_index) as handle:
+        landing = handle.read()
+    if "VERSION_FALLBACK" not in landing:
+        raise RuntimeError("site/index.html lost its VERSION_FALLBACK placeholder")
+    with open(root_index, "w") as handle:
+        handle.write(landing.replace("VERSION_FALLBACK", version))
 
     with open(os.path.join(destination, "build-health.html"), "w") as handle:
         handle.write(HEALTH_HTML.format(
@@ -209,18 +193,16 @@ def main():
     with open(os.path.join(POINTER_HISTORY, f"pointer-{version}.json"), "w") as handle:
         handle.write(pointer_text)
 
-    with open(os.path.join(EXPORTS, "index.html"), "w") as handle:
-        handle.write(LOADER_HTML.replace("POINTER_FALLBACK", version))
-
     print(f"built {version}")
-    print(f"  files          {len(copied)}")
+    print(f"  files          {len(copied)} versioned, {len(root_copied)} at the root")
     print(f"  fingerprint    {content_hash[:16]}...")
     print(f"  folder         exports/{version}/")
     print("")
-    print("THE UPLOAD ORDER MATTERS. Upload the folder FIRST, the pointer LAST:")
-    print(f"  1. exports/{version}/   -> the website's folder on the server")
-    print("  2. exports/index.html    -> only needed the very first time")
-    print("  3. exports/pointer.json  -> LAST. This is the moment the site flips.")
+    print("THE UPLOAD ORDER MATTERS. Folder first, pointer last:")
+    print(f"  1. exports/{version}/       -> into the website's root")
+    for name in root_copied:
+        print(f"  2. exports/{name}      -> into the website's root")
+    print("  3. exports/pointer.json      -> LAST. This is the moment it flips.")
     return 0
 
 

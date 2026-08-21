@@ -34,6 +34,20 @@ WHAT THIS PROJECT IS
 AI PANORAMA: a free, open-source four-dimensional VR encyclopedia-magazine
 about artificial intelligence, published at https://www.strulovitz.org/ .
 
+THERE IS NO "OLD WEBSITE". Nir had to correct this twice on 2026-08-21. The
+magazine IS the site and lives at the ROOT of the domain; his other projects are
+LINKS IN ITS MENU, never the other way round. The menu, in order: AI Panorama,
+Night Watch, Hive, Ghost, Learnime, Peak Together. Full list with what each one
+is: PROJECTS-AND-MENU.md . Never put the magazine in a subfolder.
+
+TWO DOCUMENTS SIT AFTER THE BIBLE and are Nir's decisions, not law:
+PROJECTS-AND-MENU.md (the menu and every project) and NIGHT-WATCH.md (the
+design of Night Watch, his cyber-security project: Eunuch and Golden Man, and
+the magazine's do-it-yourself workshop feature whose first project it is).
+Read NIGHT-WATCH.md before writing a line of Night Watch code; the "castrated"
+limited mandate of Eunuch is the product's main feature and an agent that
+"improves" it by giving it more power has destroyed the thing.
+
 The law is the Bible: bible/part-00.md through bible/part-13.md in this
 repository, fourteen files. Part 00 outranks everything. READ THE PARTS YOUR
 TASK TOUCHES BEFORE TOUCHING ANYTHING. If an instruction conflicts with the
@@ -450,9 +464,19 @@ WHAT MILESTONE 1 STILL NEEDS BEFORE IT CAN BE CALLED DONE (part-13.md 13.2):
    personally rotating a tesseract in ZW, watching it turn inside out, and
    smiling. That smile is a formal acceptance criterion; an agent cannot tick
    it.
-7. THE DEPLOY IS DONE, 2026-08-21: it is live at
-   https://www.strulovitz.org/ai-panorama/ , in its own folder, with the
-   existing pages untouched. The web root on the server is strulovitz.org/ and
+7. THE DEPLOY IS DONE, 2026-08-21: the magazine is live at the ROOT,
+   https://www.strulovitz.org/ . The old /ai-panorama/ subfolder was my mistake
+   and is now just a one-line redirect to the root. Nir's previous home page and
+   stylesheet were downloaded to ops/server-backup/ before anything was
+   overwritten, and his originals also remain in this repository at ./index.html
+   and ./style.css (stale now: they are NOT what the domain serves).
+   HOW THE ROOT STAYS CLEAN AND STILL DEPLOYS ATOMICALLY: index.html and
+   night-watch.html sit at the root and are hand-written pages. All the code
+   lives in a dated folder. The root page reads pointer.json and aims its two
+   entry buttons at whichever dated folder is live, with the live version also
+   baked into the links so it works without JavaScript, and falling back to a
+   neighbouring tesseract.html when there is no pointer at all, which is what
+   makes ops/look-at-the-site.sh work with no build step. The web root on the server is strulovitz.org/ and
    the connection is SFTP on port 22 to vps68338.dreamhostps.com as dh_ptax3d.
    NOTE ON THE RULE: the Bible says Nir uploads by hand in FileZilla and that no
    agent ever holds the password (LAW 4, and part-01.md 1.9). Nir gave the

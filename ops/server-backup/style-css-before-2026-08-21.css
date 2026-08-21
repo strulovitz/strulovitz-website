@@ -1,0 +1,226 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #0a0a0a;
+    color: #e0e0e0;
+    min-height: 100vh;
+}
+
+/* ── Navbar ── */
+
+.navbar {
+    background: #111;
+    border-bottom: 1px solid #222;
+    padding: 0;
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style: none;
+    gap: 0;
+}
+
+.nav-links li {
+}
+
+.nav-links a {
+    display: block;
+    padding: 14px 18px;
+    color: #ccc;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+    transition: color 0.2s, background 0.2s;
+}
+
+.nav-links a:hover {
+    color: #fff;
+    background: #1a1a1a;
+}
+
+
+/* ── Banner ── */
+
+.banner {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ── 3x3 Grid ── */
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 6px;
+    max-width: 1200px;
+    margin: 6px auto 0 auto;
+    padding: 0 6px;
+}
+
+.grid a {
+    display: block;
+}
+
+.grid img {
+    display: block;
+    width: 100%;
+    height: auto;
+    touch-action: manipulation;
+}
+
+/* ── Project Cards ── */
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    max-width: 1200px;
+    margin: 30px auto 0 auto;
+    padding: 0 20px;
+}
+
+.project-card {
+    display: block;
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 8px;
+    overflow: hidden;
+    text-decoration: none;
+    transition: border-color 0.2s, background 0.2s;
+}
+
+.project-card:hover {
+    border-color: #6af;
+    background: #161616;
+}
+
+.project-card img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.project-card-text {
+    padding: 16px 20px;
+}
+
+.project-card-text h2 {
+    color: #fff;
+    font-size: 1.4rem;
+    margin-bottom: 6px;
+}
+
+.project-card-text p {
+    color: #999;
+    line-height: 1.5;
+}
+
+/* ── Page Content ── */
+
+.page {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.page h1 {
+    font-size: 2rem;
+    color: #fff;
+    border-bottom: 2px solid #222;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.page p {
+    color: #999;
+    line-height: 1.6;
+}
+
+.page-image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 20px auto;
+}
+
+/* ── Text Sections ── */
+
+.text-section {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.text-section h2 {
+    font-size: 1.6rem;
+    color: #fff;
+    margin-bottom: 12px;
+    border-bottom: 2px solid #222;
+    padding-bottom: 8px;
+}
+
+.text-section p {
+    color: #999;
+    line-height: 1.6;
+}
+
+.read-more {
+    display: inline-block;
+    margin-top: 10px;
+    color: #6af;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.read-more:hover {
+    color: #8cf;
+    text-decoration: underline;
+}
+
+.back-home {
+    display: inline-block;
+    margin-top: 30px;
+    color: #6af;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.back-home:hover {
+    color: #8cf;
+    text-decoration: underline;
+}
+
+/* ── Mobile ── */
+
+@media (max-width: 600px) {
+    .nav-links {
+        justify-content: center;
+        padding: 4px 0;
+    }
+
+    .nav-links a {
+        padding: 10px 10px;
+        font-size: 0.85rem;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+}

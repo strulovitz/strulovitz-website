@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Night Watch - a second line of defence, while you sleep</title>
+<meta name="description" content="Night Watch: cyber-security for ordinary people, in two halves. Eunuch, a watchman with almost no power on purpose, and Golden Man, which lets tomorrow's attack happen tonight inside a sandbox. Not built yet.">
+<!--
+  This page must stay HONEST that the software does not exist yet. A menu entry
+  promising a download that cannot be downloaded is the small kind of dishonesty
+  that spends trust to gain attention, and trust is the only capital this
+  project has (bible/part-00.md 0.2). The design behind this page is written up
+  in NIGHT-WATCH.md in the repository.
+-->
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:#07090f; color:#dbe4f4;
+         font:17px/1.65 system-ui,-apple-system,Segoe UI,sans-serif; }
+  a { color:#9fd0ff; }
+  nav { border-bottom:1px solid #1b2437; background:#090d16; position:sticky; top:0; z-index:5; }
+  nav ul { display:flex; flex-wrap:wrap; gap:0.2rem; margin:0 auto;
+           padding:0.55rem 1rem; max-width:62rem; list-style:none; }
+  nav a { display:block; padding:0.4rem 0.7rem; border-radius:7px;
+          color:#a8bad8; text-decoration:none; font-size:0.95rem; }
+  nav a:hover { background:#16203a; color:#eaf4ff; }
+  nav a.here { background:#1b2949; color:#fff; }
+  nav .soon { font-size:0.72rem; color:#7f92b4; }
+  nav .away::after { content:" \2197"; color:#6d7f9e; }
+  main { max-width:44rem; margin:0 auto; padding:2.6rem 1.4rem 5rem; }
+  h1 { font-size:2.1rem; line-height:1.15; margin:0 0 0.3rem; color:#fff; }
+  .tagline { color:#8fa3c4; font-size:1.1rem; margin:0 0 1.6rem; }
+  h2 { font-size:1.2rem; margin:2.5rem 0 0.5rem; color:#eaf1ff; }
+  h3 { font-size:1.02rem; margin:1.6rem 0 0.3rem; color:#ffd479; }
+  .banner { border:1px solid #5a4326; background:#1d1608; border-radius:10px;
+            padding:0.9rem 1.1rem; color:#f0d9a8; }
+  ul.plain { padding-left:1.2rem; }
+  ul.plain li { margin:0.4rem 0; }
+  .why { border-left:3px solid #33507f; padding:0.1rem 0 0.1rem 0.9rem; color:#a8bad8; }
+  footer { border-top:1px solid #1b2437; margin-top:3.5rem; padding-top:1.2rem;
+           color:#6d7f9e; font-size:0.9rem; }
+</style>
+</head>
+<body>
+
+<nav>
+  <ul>
+    <li><a href="/">AI Panorama</a></li>
+    <li><a class="here" href="/night-watch.html">Night Watch <span class="soon">soon</span></a></li>
+    <li><a href="/hive/index.html">Hive</a></li>
+    <li><a href="/ghost/index.html">Ghost</a></li>
+    <li><a class="away" href="https://learnime.com/" target="_blank" rel="noopener">Learnime</a></li>
+    <li><a class="away" href="https://www.peaktogether.me/" target="_blank" rel="noopener">Peak Together</a></li>
+  </ul>
+</nav>
+
+<main>
+
+<h1>Night Watch</h1>
+<p class="tagline">A second line of defence, working while you sleep.</p>
+
+<p class="banner"><strong>This does not exist yet.</strong> There is nothing to
+download and no date promised. This page describes what is being built, in the
+open, and it will be built in front of you: Night Watch is the first
+do-it-yourself workshop project in this magazine.</p>
+
+<p>Your antivirus is the first line of defence. Night Watch is the second one,
+and it takes the night shift. It is named after Rembrandt's painting, and it has
+two halves.</p>
+
+<h2>Eunuch &mdash; the guard who cannot betray you</h2>
+
+<p>The name is the castrated guard of a harem: someone trusted with what matters
+most precisely <em>because</em> he has been made incapable of funny business
+with it.</p>
+
+<ul class="plain">
+  <li>It runs at night on your own machine, using an AI model installed locally
+    &mdash; through Ollama, LM Studio or similar. Nothing about your hard disk
+    is sent to anybody's server.</li>
+  <li>Ordinary Python scripts do the heavy work of scanning. That is cheap,
+    fast, and something a person can actually read and check.</li>
+  <li>Only the few genuinely suspicious things the scripts surface are handed to
+    the AI, which analyses them with real tools &mdash; reverse engineering with
+    Ghidra, for instance &mdash; and compares what it finds against databases
+    of known attacker behaviour and known signatures.</li>
+</ul>
+
+<p class="why">Why this can work at all: many attackers <em>prepare</em> for
+hours or days before doing any damage. Ransomware goes looking through your
+files before it locks a single one. That waiting period is the opening, and a
+watchman who looks every single night can catch the preparation before the
+damage.</p>
+
+<h3>The part everyone gets wrong</h3>
+<p>Eunuch is deliberately almost powerless, and that is its main feature, not a
+limitation. It is allowed to do very, very little, so that it can never become a
+threat itself. The reason you would let a program read everything on your
+computer is the proof that it cannot act on what it reads.</p>
+
+<h2>Golden Man &mdash; the one who sees tomorrow</h2>
+
+<p>Named after the Philip K. Dick story about a mutant who can see into the
+future. This half finds the problem before there is a problem.</p>
+
+<ul class="plain">
+  <li>At night, on the same physical machine, your whole computer is recreated
+    inside a virtual machine &mdash; VirtualBox, VMware or similar &mdash;
+    running the same operating system. If you run Windows 11, so does the
+    copy.</li>
+  <li>Scripts copy your real situation into that copy, so from inside, it looks
+    like a real, ordinary, used computer, not a laboratory.</li>
+  <li>Then we lie to it about the time. The clock inside is set forward so that
+    it is already tomorrow morning of a working day, while in truth it is the
+    middle of the night and everything is sealed in a box. Malware that waits
+    for the right moment therefore chooses a moment of <em>our</em>
+    choosing.</li>
+  <li>We lie about the activity too: plausible fake logs, so that anything
+    watching believes this is the machine in daily use rather than a sandbox.</li>
+  <li>Then the local AI and the scripts examine what actually happened, and can
+    do it again for different situations.</li>
+</ul>
+
+<p class="why">Tomorrow's attack happens tonight, in a place where it cannot
+hurt anything, and you are told about it over breakfast.</p>
+
+<h2>Why it is in a magazine about AI</h2>
+<p>The old computer magazines &mdash; the good ones &mdash; always had a
+workshop: pages that walked you through building a real thing yourself, a piece
+at a time. This magazine has one too, and Night Watch is the first project in
+it. Every week explains a bit more of how it was actually made, because the
+honest way to teach something is to teach a thing that genuinely had to
+work.</p>
+
+<footer>
+  <p><a href="/">Back to AI Panorama</a></p>
+  <p>Free and open source, like everything else here.</p>
+</footer>
+
+</main>
+</body>
+</html>

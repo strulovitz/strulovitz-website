@@ -78,7 +78,16 @@
 <body>
 
 <div id="top-bar">
-  <a href="index.html">&larr; What is this</a>
+  <!-- The same menu as the landing page, in the same order, so the site feels
+       like one place. These are root-relative because the magazine lives at the
+       root of the domain; they will not resolve when this folder is served on
+       its own during development, which is expected. -->
+  <a href="/">&larr; AI Panorama</a>
+  <a href="/night-watch.html">Night Watch</a>
+  <a href="/hive/index.html">Hive</a>
+  <a href="/ghost/index.html">Ghost</a>
+  <a href="https://learnime.com/" target="_blank" rel="noopener">Learnime &#8599;</a>
+  <a href="https://www.peaktogether.me/" target="_blank" rel="noopener">Peak Together &#8599;</a>
   <button id="enter-vr" disabled>Enter VR</button>
   <span id="vr-note">Checking for a headset...</span>
 </div>

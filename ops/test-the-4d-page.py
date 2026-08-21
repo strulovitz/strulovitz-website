@@ -394,7 +394,28 @@ async def main():
             await page.send("Page.navigate", {"url": f"http://127.0.0.1:{PORT}/index.html"})
             await page.drain(2.0)
             title = await page.evaluate("document.title")
-            check("the plain landing page loads", "Hello, Tesseract" in (title or ""), title)
+            check("the root landing page loads", "AI PANORAMA" in (title or ""), title)
+            entry = await page.evaluate("""(() => {
+              const screenLink = document.getElementById('enter-screen');
+              const menu = Array.from(document.querySelectorAll('nav a')).map((a) => a.textContent.trim());
+              return { screen: screenLink ? screenLink.getAttribute('href') : null, menu };
+            })()""")
+            check("the entry button points at a page that exists when served locally",
+                  entry["screen"] == "tesseract.html", entry)
+            check("the menu lists every project, Night Watch included",
+                  len(entry["menu"]) == 6 and any("Night Watch" in m for m in entry["menu"]),
+                  entry["menu"])
+
+            await page.send("Page.navigate", {"url": f"http://127.0.0.1:{PORT}/night-watch.html"})
+            await page.drain(1.5)
+            night = await page.evaluate("""(() => ({
+              title: document.title,
+              honest: document.body.innerText.includes('does not exist yet'),
+              halves: ['Eunuch', 'Golden Man'].every((n) => document.body.innerText.includes(n)),
+            }))()""")
+            check("the Night Watch page loads", "Night Watch" in (night["title"] or ""), night)
+            check("it says plainly that the software does not exist yet", night["honest"] is True)
+            check("it describes both halves", night["halves"] is True)
             await page.screenshot(f"{OUT}/06-landing-page.png")
 
     finally:
