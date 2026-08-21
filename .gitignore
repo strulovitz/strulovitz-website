@@ -50,3 +50,8 @@ desktop.ini
 *.swp
 .idea/
 .vscode/
+
+# --- THE HOMEMADE CERTIFICATE for showing the site to the headset. ---
+# It contains a private key, and it is specific to this one computer, so it
+# has no business in a shared repository (bible/part-07.md 7.4).
+ops/local-certificate/

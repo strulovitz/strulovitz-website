@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hello, Tesseract - the 4D view - AI PANORAMA</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; overflow: hidden; background: #07090f; }
+  body { font: 15px/1.5 system-ui, -apple-system, Segoe UI, sans-serif; color: #dbe4f4; }
+  canvas { display: block; }
+
+  /* Everything below is flat HTML sitting over the picture. HTML text is
+     sharper than anything drawn inside the 3D canvas and costs nothing, so on
+     a flat screen we use it. In the headset the same information appears on
+     the instrument strapped to the left forearm instead. */
+
+  #top-bar {
+    position: fixed; top: 0; left: 0; right: 0; padding: 0.55rem 0.9rem;
+    display: flex; gap: 0.8rem; align-items: center; flex-wrap: wrap;
+    background: linear-gradient(#0b1120ee, #0b112000);
+    pointer-events: none;
+  }
+  #top-bar a, #top-bar button { pointer-events: auto; }
+  #top-bar a { color: #93a7c9; text-decoration: none; font-size: 0.9rem; }
+  #top-bar a:hover { color: #dbe4f4; }
+  button {
+    font: inherit; padding: 0.4rem 0.9rem; border-radius: 8px;
+    background: #1b2949; color: #eaf4ff; border: 1px solid #37548a; cursor: pointer;
+  }
+  button:disabled { opacity: 0.45; cursor: default; }
+  #vr-note { font-size: 0.85rem; color: #8698b8; }
+
+  #status-line {
+    position: fixed; bottom: 0; left: 0; right: 0; padding: 0.5rem 0.9rem;
+    background: linear-gradient(#0b112000, #0b1120ee);
+    font-size: 0.88rem; color: #a9bbd8; pointer-events: none;
+  }
+  #flash-line {
+    position: fixed; bottom: 2.4rem; left: 0; right: 0; text-align: center;
+    font-size: 1rem; color: #eaf4ff; opacity: 0; transition: opacity 0.35s;
+    pointer-events: none; text-shadow: 0 2px 10px #000;
+  }
+
+  #hover-card {
+    position: fixed; display: none; max-width: 280px; padding: 0.6rem 0.75rem;
+    background: #0d1424f2; border: 1px solid #38507d; border-radius: 9px;
+    pointer-events: none; font-size: 0.88rem; line-height: 1.45;
+  }
+  #hover-card strong { display: block; color: #fff; }
+  #hover-card span { display: block; color: #92a6c7; }
+  #hover-card .band { color: #ffd479; margin-top: 0.3rem; }
+  #hover-card .plain { font-style: italic; }
+
+  #keys {
+    position: fixed; right: 0.9rem; top: 3.2rem; width: 15.5rem;
+    padding: 0.7rem 0.85rem; background: #0b1120d9;
+    border: 1px solid #26365a; border-radius: 9px;
+    font-size: 0.83rem; color: #a4b6d4;
+  }
+  #keys h3 { margin: 0 0 0.4rem; font-size: 0.9rem; color: #eaf1ff; }
+  #keys div { display: flex; justify-content: space-between; gap: 0.5rem; }
+  #keys kbd {
+    background: #1a2440; border: 1px solid #35496f; border-radius: 4px;
+    padding: 0 0.3rem; font-family: inherit; font-size: 0.78rem; color: #cfe0fa;
+  }
+  #keys .hint { margin-top: 0.5rem; color: #7f92b4; font-style: italic; }
+
+  #debug-panel {
+    position: fixed; left: 0.9rem; bottom: 3rem; display: none;
+    padding: 0.6rem 0.8rem; background: #060a12ee; border: 1px solid #24334f;
+    border-radius: 8px; white-space: pre; font-family: ui-monospace, monospace;
+    font-size: 0.78rem; color: #9fd0ff;
+  }
+</style>
+</head>
+<body>
+
+<div id="top-bar">
+  <a href="index.html">&larr; What is this</a>
+  <button id="enter-vr" disabled>Enter VR</button>
+  <span id="vr-note">Checking for a headset...</span>
+</div>
+
+<div id="keys">
+  <h3>On this screen</h3>
+  <div><span>Turn it</span><span>drag</span></div>
+  <div><span>Choose hyper-plane</span><kbd>Tab</kbd></div>
+  <div><span>Turn through 4D</span><span><kbd>Shift</kbd>+drag</span></div>
+  <div><span>Snap a quarter turn</span><span><kbd>Shift</kbd>+<kbd>&larr;</kbd><kbd>&rarr;</kbd></span></div>
+  <div><span>Swim news&harr;canon</span><span><kbd>W</kbd><kbd>S</kbd></span></div>
+  <div><span>Slice / whole thing</span><kbd>E</kbd></div>
+  <div><span>Undo turn</span><span><kbd>Ctrl</kbd>+<kbd>Z</kbd></span></div>
+  <div><span>Put it all back</span><kbd>Home</kbd></div>
+  <div><span>Stems / tesseract / graph</span><span><kbd>G</kbd><kbd>T</kbd><kbd>N</kbd></span></div>
+  <p class="hint">Four snaps in the same plane always come home.</p>
+</div>
+
+<div id="hover-card"></div>
+<div id="flash-line"></div>
+<div id="status-line">Starting...</div>
+<div id="debug-panel"></div>
+
+<script type="module" src="src/vr/main.js"></script>
+</body>
+</html>
