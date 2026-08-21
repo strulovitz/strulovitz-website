@@ -37,14 +37,15 @@ factory. It is the machine that must be on for a weekly build.
 FORGE is the laptop. Forge makes things in fire: the graphics card, images,
 transcription. It cannot be left running day and night.
 
-Three names are proposed here for the machines the Bible does not mention:
-
-BEACON is the old spare computer. A beacon is not powerful; it is simply
-always lit. This is the machine that can be left running day and night, so it
-is the natural home for the small tasks that must never be missed.
+Two more names are used here for the Windows sides of those same two machines:
 
 ATLAS-WIN and FORGE-WIN are the Windows sides of the two gaming machines.
 Same physical box, different world, so the name says so.
+
+THE OLD SPARE COMPUTER IS NOT PART OF THIS PROJECT. Nir's ruling, 2026-08-21:
+it is very old, he expects it to stop working before long, he does not want it
+left running day and night, and nothing may be made to depend on it. It gets
+no name, no bot, and no job. See DECISIONS.md, decision 4.
 
 
 THE BOTS TO CREATE, WITH NAMES
@@ -68,23 +69,20 @@ BOT 2 - the laptop Linux machine.
     Its job:       image generation and transcription progress, and anything
                    that needs the big graphics card.
 
-BOT 3 - the old always-on computer. Create this only when it is given a job.
-    Display name:  Beacon - Always On
-    Username:      BeaconAlwaysOnBot
-    Its job:       the small tasks that must never be missed, such as the
-                   weekly price snapshot, so that they no longer depend on a
-                   gaming computer happening to be switched on.
-
-BOT 4 and BOT 5 - the two Windows sides. Create these only if and when Nir
-actually wants an agent talking to him from Windows.
+BOT 3 - the Windows side of the desktop.
     Display name:  Atlas - Desktop Windows
     Username:      AtlasWindowsBot
+    Its job:       whatever Nir asks an agent to do while he is in Windows on
+                   the desktop, for example Photoshop or Premiere work.
+
+BOT 4 - the Windows side of the laptop.
     Display name:  Forge - Laptop Windows
     Username:      ForgeWindowsBot
+    Its job:       the same, on the laptop.
 
-A NOTE ON THE ORDER. There is no need to create all five today. Bot 1 alone is
-enough to finish Milestone 0. Each extra bot is two minutes of work whenever
-it is wanted.
+A NOTE ON THE ORDER. Four bots in total, and there is no need to create them
+all today. Bot 1 alone is enough to finish Milestone 0. Each further bot is
+two minutes of work whenever it is wanted.
 
 
 THE ONE THING THAT IS NOT A BOT

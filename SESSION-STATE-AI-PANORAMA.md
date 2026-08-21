@@ -45,9 +45,18 @@ FORGE is the laptop. Debian 13, Intel Core Ultra 9 275HX, 62 GB RAM,
 NVIDIA RTX 5090 Laptop with 24 GB. Its job is the graphics card work:
 images through ComfyUI, and speech-to-text through Whisper.
 
-Nir also has Windows 11 on both machines (not used for this project), and an
-older spare computer that is on the Tailscale network. The laptop cannot be
-left running day and night. The desktop can be, but Nir prefers not to.
+Nir also has Windows 11 on both machines. Those Windows sides are NOT used for
+the magazine's machinery, but Nir does want an agent able to talk to him from
+each of them, so they get their own names and bots: ATLAS-WIN and FORGE-WIN.
+
+The laptop cannot be left running day and night. The desktop can be, but Nir
+prefers not to, so that it lasts longer.
+
+NIR HAS AN OLD SPARE COMPUTER. IT IS NOT PART OF THIS PROJECT. He expects it
+to stop working before long, he will not leave it running, and nothing may be
+built to depend on it. Do not propose using it. See DECISIONS.md, decision 4.
+This is why the weekly snapshot timer uses catch-up: it makes the archive
+survive the desktop being switched off, without needing another machine.
 
 THE DISK RULE, WHICH INSTALLERS WILL TRY TO BREAK:
 On Atlas, the system partition has about 46 GB free. /home has 1.7 TB with
@@ -183,11 +192,9 @@ THINGS NIR STILL OWES THE PROJECT (ask, do not nag)
    noted in TODO.md, to be done when he is rested.
 
 
-ONE OPEN IDEA WORTH RAISING WITH HIM LATER
+A REMINDER, NOT AN OPEN IDEA
 
-His old spare computer is already on the Tailscale network and can be left
-running day and night, unlike the two gaming machines. The weekly price
-snapshot is a twenty-second job that must never miss a week. Moving just
-that one tiny task onto the always-on old machine would make the archive
-independent of whether the desktop happens to be switched on. Nothing else
-should move there; it is not powerful.
+Do not propose moving any task onto the old spare computer, and do not propose
+leaving any machine running day and night. Both were considered and ruled out
+by Nir on 2026-08-21. The weekly snapshot already survives the desktop being
+switched off, because its timer catches up on the next boot.

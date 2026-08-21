@@ -82,3 +82,50 @@ Append a new numbered decision. Never edit or delete an existing one; if Nir
 changes his mind, add a new decision that says so and names the one it
 replaces. Same discipline as the archive itself: history is added to, never
 rewritten.
+
+
+DECISION 4 - THE OLD SPARE COMPUTER IS NOT PART OF THIS PROJECT
+Date: 2026-08-21
+Decided by: Nir
+Ruling: Nothing is to depend on the old spare computer, at all.
+
+Nir's reasoning, in his own words: it is very old, he expects it to just stop
+working soon, and he does not want to leave it on day and night. He does not
+want to rely on it for anything.
+
+An earlier suggestion to move the weekly price snapshot onto it, so that the
+archive would not depend on the desktop being switched on, is WITHDRAWN. The
+machine gets no name, no Telegram bot, and no job.
+
+Why this costs us nothing: the weekly snapshot timer on Atlas is set with
+catch-up turned on, so if the desktop was switched off on Monday the snapshot
+runs as soon as it is next switched on. No week is lost, and no second machine
+is needed to guarantee that.
+
+Standing instruction to every future agent: do not propose using that
+computer, and do not propose leaving any machine running day and night. Both
+ideas were considered and ruled out here.
+
+
+DECISION 5 - FOUR MACHINE NAMES, FOUR TELEGRAM BOTS
+Date: 2026-08-21
+Decided by: Nir
+Ruling: The names are approved. Four bots, one for each operating system Nir
+actually works in:
+
+1. Atlas - Desktop Linux    @AtlasDesktopBot   (Linux Mint 22, the magazine's
+                                                control room)
+2. Forge - Laptop Linux     @ForgeLaptopBot    (Debian 13, the graphics card)
+3. Atlas - Desktop Windows  @AtlasWindowsBot   (Windows 11 on the desktop)
+4. Forge - Laptop Windows   @ForgeWindowsBot   (Windows 11 on the laptop)
+
+Plus one separate PUBLIC read-only channel for readers, which is not a bot:
+suggested @AIPanorama .
+
+The name Beacon, proposed for the old spare computer, is dropped along with
+the machine itself. See decision 4.
+
+Why one bot per computer rather than one shared bot: a Telegram token can only
+be listened to by one program at a time, so two machines sharing a token would
+steal each other's messages. Full explanation and the two-minute creation
+steps are in ops/TELEGRAM-BOTS.md .
