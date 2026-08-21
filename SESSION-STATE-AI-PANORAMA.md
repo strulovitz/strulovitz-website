@@ -449,10 +449,26 @@ WHAT MILESTONE 1 STILL NEEDS BEFORE IT CAN BE CALLED DONE (part-13.md 13.2):
    LESSON, worth more than the fix: when a person reaches for a thing, the thing
    must answer. Check every other panel and instrument added in future against
    that.
-1. THE W-GYM, all five lessons (part-05.md 5.7). Build item 6 asks for it FIRST
-   as the test harness. It is the single biggest remaining piece, and lesson 4
-   ("watch it turn, now point at the bead you were following") is the one that
-   actually teaches a human to see in four dimensions.
+1. THE W-GYM IS BUILT, and revised once after Nir's first real session:
+   site/src/scenes/wgym.js , five lessons, replayable from the loud gold button
+   in the top bar or the key L or the hand menu.
+   FOUR LESSONS LEARNED FROM WATCHING HIM USE IT, all now enforced by tests:
+   (a) NOTHING MAY ADVANCE BY ITSELF. His words: "the lessons are going to the
+       next one without the user being aware, he just drops into a new lesson
+       because the software decided the previous lesson was through". A finished
+       lesson now says what happened and waits for Next; there is a Back button.
+   (b) SAY WHAT JUST HAPPENED. "I pressed W and it turned to more full colour
+       and I do not understand what happened." Every lesson now has a plain
+       sentence explaining its own success.
+   (c) A SINGLE LETTER NEEDS A SQUARE CANVAS. Labels were drawn on a canvas
+       eight times wider than tall, so one letter was too small to read and he
+       was asked to follow a bead F that he could not find. makeTextSprite now
+       takes { square: true }.
+   (d) MEASURE THE LAYOUT, DO NOT EYEBALL IT. Two letters were printed on top of
+       each other. Bead positions are now chosen by measuring their screen
+       separation, and a test fails if any two get closer than 0.12.
+   Also: every lesson but the first resets the view when it begins, because a
+   stray turn made at the end of one lesson was quietly ruining the next.
 2. Hover cards and a reading panel in VR. On the flat screen the hover card
    exists as plain HTML; in the headset there is only a highlight and a haptic
    tap so far.

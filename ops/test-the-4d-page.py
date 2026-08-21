@@ -396,12 +396,11 @@ async def main():
                   menu["before"] != menu["after"], menu)
 
             print("\n7. The four-dimensional gym, all five lessons")
-            # The gym is gated on DOING, so this test does the doing: it drives
-            # the real lessons through the real state machine and refuses to
-            # accept a lesson that passes without the action being performed.
+            # Every check here exists because a real person hit a real problem.
+            # The gym is gated on DOING, so the test does the doing -- but it
+            # must also prove that finishing a task does NOT teleport anyone
+            # into the next lesson, which is what Nir found most confusing.
 
-            # Whether the lessons are offered is decided when the page loads, so
-            # forget the previous run's graduation and load the page again.
             await page.evaluate("localStorage.removeItem('ai-panorama.gym.graduated.v1')")
             await page.send("Page.navigate", {"url": f"http://127.0.0.1:{PORT}/tesseract.html?debug=1"})
             await page.drain(5.0)
@@ -409,123 +408,255 @@ async def main():
                 "getComputedStyle(document.getElementById('gym-offer')).display")
             check("a first-time visitor is offered the lessons", offered == "block", offered)
 
+            replay = await page.evaluate("""(() => {
+              const b = document.getElementById('open-gym');
+              return { exists: !!b, loud: b.classList.contains('loud'), text: b.textContent.trim() };
+            })()""")
+            check("the way back into the lessons is a loud button, not a quiet link",
+                  replay["exists"] and replay["loud"] and "4D" in replay["text"], replay)
+
+            graduated_can_replay = await page.evaluate("""(() => {
+              localStorage.setItem('ai-panorama.gym.graduated.v1', 'yes');
+              const g = window.PANORAMA.gym;
+              document.getElementById('open-gym').click();
+              const started = { active: g.active, index: g.lessonIndex };
+              g.quit();
+              localStorage.removeItem('ai-panorama.gym.graduated.v1');
+              return started;
+            })()""")
+            check("somebody who already finished can start the lessons again",
+                  graduated_can_replay["active"] is True and graduated_can_replay["index"] == 0,
+                  graduated_can_replay)
+
             state = await page.evaluate("""(() => {
               const g = window.PANORAMA.gym;
               g.start();
               const d = g.describe();
-              return { active: g.active, index: d.index, count: d.count,
-                       graphHidden: window.PANORAMA.panorama.showGraph === false,
-                       title: d.title };
+              return { active: g.active, index: d.index, count: d.count, state: d.state,
+                       graphHidden: window.PANORAMA.panorama.showGraph === false };
             })()""")
             check("starting the gym hides the graph and enters lesson 1",
                   state["active"] and state["index"] == 0 and state["graphHidden"], state)
             check("there are five lessons", state["count"] == 5, state["count"])
+            check("a lesson begins in the doing state", state["state"] == "doing", state)
 
-            # LESSON 1 must not pass until the object has been both moved AND
-            # resized. Half the task is not a pass.
+            # LESSON 1: half the task is not a pass.
             half = await page.evaluate("""(() => {
               const p = window.PANORAMA.panorama, g = window.PANORAMA.gym;
-              p.graph.position.x += 0.4;      // moved, but not resized
+              p.graph.position.x += 0.4;
               return { passed: g.lessons[0].passed() };
             })()""")
             check("lesson 1 refuses to pass on half the task", half["passed"] is False, half)
-            await page.drain(0.6)
-            lesson1 = await page.evaluate("""(() => {
-              const p = window.PANORAMA.panorama, g = window.PANORAMA.gym;
-              p.graph.scale.setScalar(p.graph.scale.x * 1.25);   // now resized too
-              return { passed: g.lessons[0].passed() };
-            })()""")
-            await page.drain(1.0)
-            reached2 = await page.evaluate("window.PANORAMA.gym.lessonIndex")
-            check("lesson 1 passes once it is moved and resized, and lesson 2 begins",
-                  reached2 == 1, {"passed": lesson1, "index": reached2})
 
-            # LESSON 2: swim the slab to the lit bead. Sweeping past must not
-            # count, which is what the hold is for.
+            await page.drain(0.6)
+            await page.evaluate("""(() => {
+              const p = window.PANORAMA.panorama;
+              p.graph.scale.setScalar(p.graph.scale.x * 1.25);
+            })()""")
+            await page.drain(1.5)
+            waiting = await page.evaluate("""(() => {
+              const g = window.PANORAMA.gym, d = g.describe();
+              return { index: g.lessonIndex, state: d.state, done: d.done,
+                       nextLabel: d.nextLabel,
+                       shown: getComputedStyle(document.getElementById('gym-done')).display };
+            })()""")
+            # THE CENTRAL CHECK OF THIS WHOLE SECTION.
+            check("finishing a task does NOT drop you into the next lesson",
+                  waiting["index"] == 0 and waiting["state"] == "passed", waiting)
+            check("it explains in words what just happened",
+                  len(waiting["done"]) > 60 and waiting["shown"] == "block", waiting)
+            check("the button now says Next lesson rather than Skip",
+                  waiting["nextLabel"] == "Next lesson", waiting)
+
+            await page.evaluate("document.getElementById('gym-next').click()")
+            await page.drain(0.8)
+            check("pressing Next is what moves you on",
+                  (await page.evaluate("window.PANORAMA.gym.lessonIndex")) == 1)
+
+            # Back must work, and it must be refused only on the first lesson.
+            await page.evaluate("document.getElementById('gym-back').click()")
+            await page.drain(0.6)
+            check("Back returns to the previous lesson",
+                  (await page.evaluate("window.PANORAMA.gym.lessonIndex")) == 0)
+            check("Back is disabled on the very first lesson",
+                  (await page.evaluate("document.getElementById('gym-back').disabled")) is True)
+            await page.evaluate("window.PANORAMA.gym.goNext()")
+            await page.drain(0.6)
+
+            # LESSON 2: the slab. And a stray rotation must not follow you in.
+            fresh = await page.evaluate("""(() => {
+              const v = window.PANORAMA.panorama.view;
+              return { q0: v.Q[0], q5: v.Q[5] };
+            })()""")
+            check("each lesson starts from the canonical view, so a stray turn cannot follow you in",
+                  abs(fresh["q0"] - 1) < 1e-9 and abs(fresh["q5"] - 1) < 1e-9, fresh)
+
             swim = await page.evaluate("""(() => {
               const p = window.PANORAMA.panorama, g = window.PANORAMA.gym;
               const before = g.lessons[1].passed();
-              p.w0 = g.ladderSet.outW[g.ladderTarget];   // land exactly on it
-              return { before, after: g.lessons[1].passed(), w0: p.w0 };
+              p.w0 = g.ladderSet.outW[g.ladderTarget];
+              return { before, after: g.lessons[1].passed() };
             })()""")
             check("lesson 2 is not already passed when it starts", swim["before"] is False, swim)
             check("bringing the lit bead into the slice satisfies lesson 2",
                   swim["after"] is True, swim)
             await page.drain(1.6)
-            reached3 = await page.evaluate("window.PANORAMA.gym.lessonIndex")
-            check("lesson 2 completes and lesson 3 begins", reached3 == 2, reached3)
+            held = await page.evaluate("""(() => {
+              const g = window.PANORAMA.gym, d = g.describe();
+              return { index: g.lessonIndex, state: d.state, done: d.done };
+            })()""")
+            check("lesson 2 waits and explains that the bead went solid, instead of jumping on",
+                  held["index"] == 1 and held["state"] == "passed"
+                  and "solid" in held["done"], held)
+            await page.evaluate("window.PANORAMA.gym.goNext()")
+            await page.drain(0.8)
 
-            # LESSON 3: four snaps. Three must not be enough.
+            # LESSON 3: three snaps are not four.
             three = await page.evaluate("""(() => {
               const g = window.PANORAMA.gym;
               g.snapsDone = 3;
-              return { passed: g.lessons[2].passed(), snaps: g.snapsDone };
+              return { passed: g.lessons[2].passed() };
             })()""")
             check("three quarter turns are not four", three["passed"] is False, three)
-            await page.drain(0.4)
             await page.evaluate("window.PANORAMA.gym.noteSnap()")
             await page.drain(1.0)
-            reached4 = await page.evaluate("window.PANORAMA.gym.lessonIndex")
-            check("the fourth quarter turn completes lesson 3", reached4 == 3, reached4)
+            snapped = await page.evaluate("""(() => {
+              const g = window.PANORAMA.gym;
+              return { index: g.lessonIndex, state: g.state };
+            })()""")
+            check("the fourth quarter turn finishes lesson 3, and it waits for you",
+                  snapped["index"] == 2 and snapped["state"] == "passed", snapped)
+            await page.evaluate("window.PANORAMA.gym.goNext()")
+            await page.drain(0.8)
 
-            # LESSON 4, the real examination: the gym turns the world itself,
-            # then the reader must point at the bead they were following. A
-            # wrong answer must replay the lesson, not fail the reader out of it.
+            # LESSON 4, the examination. The letter must be READABLE: Nir was
+            # asked to follow bead F and could not find an F anywhere.
+            letters = await page.evaluate("""(() => {
+              const g = window.PANORAMA.gym;
+              g.phase = 'look';
+              g.draw();
+              const target = g.markedTarget;
+              const targetSprite = g.markedTargetLabels[target];
+              const plain = g.markedLabels.filter((l, i) => i !== target && l.visible).length;
+              return {
+                askedFor: g.markedNames[target],
+                targetVisible: targetSprite.visible,
+                targetHeight: targetSprite.scale.y,
+                targetIsSquarish: Math.abs(targetSprite.scale.x - targetSprite.scale.y) < 0.001,
+                otherLettersVisible: plain,
+              };
+            })()""")
+            check("the letter you are told to follow is actually on the screen",
+                  letters["targetVisible"] is True, letters)
+            check("that letter is drawn big, and square rather than a thin sliver",
+                  letters["targetHeight"] >= 0.09 and letters["targetIsSquarish"], letters)
+            check("the other five letters are shown too, so it is a real choice",
+                  letters["otherLettersVisible"] == 5, letters)
+
+            # MEASURED, not eyeballed: no two beads may land close enough on
+            # screen for their letters to overlap. The first version had two
+            # letters printed on top of each other, which makes the question
+            # unanswerable through no fault of the reader.
+            spread = await page.evaluate("""(() => {
+              const g = window.PANORAMA.gym, p = window.PANORAMA.panorama, cam = window.PANORAMA.camera;
+              const V = g.markedLabels[0].position.constructor;
+              const points = [];
+              for (let i = 0; i < g.markedCount; i++) {
+                const v = new V();
+                p.toRoomSpace(g.markedSet.out3, i, v);
+                points.push(v.clone().project(cam));
+              }
+              let worst = 9, pair = null;
+              for (let a = 0; a < points.length; a++) {
+                for (let b = a + 1; b < points.length; b++) {
+                  const distance = Math.hypot(points[a].x - points[b].x,
+                                              (points[a].y - points[b].y) * 0.6);
+                  if (distance < worst) { worst = distance; pair = [g.markedNames[a], g.markedNames[b]]; }
+                }
+              }
+              const off = points.filter((q) => Math.abs(q.x) > 0.92 || Math.abs(q.y) > 0.80).length;
+              return { worst, pair, off };
+            })()""")
+            check("no two beads sit close enough for their letters to collide",
+                  spread["worst"] > 0.12, spread)
+            check("every bead is inside the visible picture", spread["off"] == 0, spread)
+
             wrong = await page.evaluate("""(() => {
               const g = window.PANORAMA.gym;
               const target = g.markedTarget;
-              const wrongOne = (target + 1) % g.markedCount;
               g.phase = 'answer';
-              g.markedAnswer = wrongOne;
-              return { target, answered: wrongOne, failed: g.lessons[3].failed() };
+              g.markedAnswer = (target + 1) % g.markedCount;
+              return { failed: g.lessons[3].failed() };
             })()""")
             check("lesson 4 notices a wrong answer", wrong["failed"] is True, wrong)
-            await page.drain(1.2)
+            await page.drain(1.0)
             after_wrong = await page.evaluate("""(() => {
-              const g = window.PANORAMA.gym;
-              return { index: g.lessonIndex, attempts: g.attempts, phase: g.phase };
+              const g = window.PANORAMA.gym, d = g.describe();
+              return { index: g.lessonIndex, state: d.state, wrongText: d.wrong,
+                       button: document.getElementById('gym-next').textContent.trim() };
             })()""")
-            check("a wrong answer replays the same lesson rather than ending it",
-                  after_wrong["index"] == 3 and after_wrong["attempts"] >= 1, after_wrong)
-            check("the replay is slower than the first attempt",
-                  (await page.evaluate("window.PANORAMA.gym.tourSeconds")) > 4, None)
+            check("a wrong answer stops and says so, instead of silently restarting",
+                  after_wrong["index"] == 3 and after_wrong["state"] == "failed", after_wrong)
+            check("it tells you that getting it wrong is normal",
+                  "normal" in after_wrong["wrongText"], after_wrong)
+            check("the button offers to watch it again",
+                  "again" in after_wrong["button"].lower(), after_wrong)
 
-            # Labels must be hidden by the time the question is asked, or it is a
-            # reading test and not a tracking test.
-            labels = await page.evaluate("""(() => {
+            await page.evaluate("document.getElementById('gym-next').click()")
+            await page.drain(1.0)
+            retried = await page.evaluate("""(() => ({
+              index: window.PANORAMA.gym.lessonIndex,
+              state: window.PANORAMA.gym.state,
+              seconds: window.PANORAMA.gym.tourSeconds,
+            }))()""")
+            check("watching it again replays the same lesson, more slowly",
+                  retried["index"] == 3 and retried["state"] == "doing"
+                  and retried["seconds"] > 4, retried)
+
+            hidden = await page.evaluate("""(() => {
               const g = window.PANORAMA.gym;
               g.phase = 'answer';
               g.draw();
-              return g.markedLabels.map((l) => l.visible);
+              return g.markedLabels.concat(g.markedTargetLabels).map((l) => l.visible);
             })()""")
-            check("the letters are hidden once the turning is done",
-                  not any(labels), labels)
+            check("every letter is hidden once the turning is done, so it tests tracking",
+                  not any(hidden), hidden)
 
-            right = await page.evaluate("""(() => {
+            await page.evaluate("""(() => {
               const g = window.PANORAMA.gym;
               g.phase = 'answer';
               g.markedAnswer = g.markedTarget;
-              return { passed: g.lessons[3].passed() };
             })()""")
-            check("the correct bead passes lesson 4", right["passed"] is True, right)
             await page.drain(1.2)
-            reached5 = await page.evaluate("window.PANORAMA.gym.lessonIndex")
-            check("lesson 5 begins", reached5 == 4, reached5)
+            right = await page.evaluate("""(() => {
+              const g = window.PANORAMA.gym, d = g.describe();
+              return { index: g.lessonIndex, state: d.state, done: d.done };
+            })()""")
+            check("the correct bead passes lesson 4 and it waits, with praise",
+                  right["index"] == 3 and right["state"] == "passed"
+                  and "right bead" in right["done"], right)
+            await page.evaluate("window.PANORAMA.gym.goNext()")
+            await page.drain(0.8)
 
-            # LESSON 5: the twist, and it must also require coming home again.
+            # LESSON 5: the twist, which also requires coming home again.
             twist = await page.evaluate("""(() => {
               const g = window.PANORAMA.gym;
               const before = g.lessons[4].passed();
               g.noteTwist(1.0);
-              const afterTwist = g.lessons[4].passed();   // twisted but not reset
+              const afterTwist = g.lessons[4].passed();
               g.noteReset();
-              return { before, afterTwist, afterReset: g.lessons[4].passed() };
+              return { before, afterTwist, afterReset: g.lessons[4].passed(),
+                       label: g.describe().nextLabel };
             })()""")
             check("lesson 5 requires coming back home as well as twisting",
                   twist["before"] is False and twist["afterTwist"] is False
                   and twist["afterReset"] is True, twist)
+            await page.drain(1.2)
+            last = await page.evaluate("window.PANORAMA.gym.describe().nextLabel")
+            check("the last lesson's button says Finish, not Next lesson", last == "Finish", last)
 
-            await page.drain(1.5)
+            await page.evaluate("document.getElementById('gym-next').click()")
+            await page.drain(1.0)
             graduated = await page.evaluate("""(() => ({
               active: window.PANORAMA.gym.active,
               graphBack: window.PANORAMA.panorama.showGraph,
@@ -535,7 +666,7 @@ async def main():
               remembered: localStorage.getItem('ai-panorama.gym.graduated.v1'),
               panelHidden: getComputedStyle(document.getElementById('gym-panel')).display,
             }))()""")
-            check("graduating leaves the gym", graduated["active"] is False, graduated)
+            check("finishing leaves the gym", graduated["active"] is False, graduated)
             check("the graph comes back", graduated["graphBack"] is True, graduated)
             check("it drops you in slice mode among the established news",
                   graduated["mode"] == "slice" and abs(graduated["w0"]) < 1e-9, graduated)
@@ -544,7 +675,6 @@ async def main():
                   graduated["remembered"] == "yes", graduated)
             check("the instruction panel goes away", graduated["panelHidden"] == "none", graduated)
 
-            # Nobody may ever be trapped in a tutorial.
             escape = await page.evaluate("""(() => {
               const g = window.PANORAMA.gym;
               g.start();
@@ -553,8 +683,8 @@ async def main():
               return { inside, out: g.active, graphBack: window.PANORAMA.panorama.showGraph };
             })()""")
             check("you can walk out of the lessons at any moment",
-                  escape["inside"] is True and escape["out"] is False and escape["graphBack"] is True,
-                  escape)
+                  escape["inside"] is True and escape["out"] is False
+                  and escape["graphBack"] is True, escape)
 
             still_fine = await page.evaluate("""(() => ({
               violated: window.PANORAMA.panorama.projectionRuleViolated,
@@ -562,8 +692,8 @@ async def main():
               actual: window.PANORAMA.panorama.projectionsThisFrame,
             }))()""")
             check("the gym's toys are projected in the same single pass, not their own",
-                  still_fine["violated"] is False and still_fine["actual"] == still_fine["expected"],
-                  still_fine)
+                  still_fine["violated"] is False
+                  and still_fine["actual"] == still_fine["expected"], still_fine)
 
             # And the landing page, which must work with no JavaScript at all.
             await page.send("Page.navigate", {"url": f"http://127.0.0.1:{PORT}/index.html"})

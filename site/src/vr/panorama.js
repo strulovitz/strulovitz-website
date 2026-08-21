@@ -735,8 +735,14 @@ export function nearestBandName(w0) {
  */
 export function makeTextSprite(text, colour = 0xffffff, options = {}) {
   const scale = options.scale ?? 0.055;
+  // A single letter on a canvas eight times wider than it is tall comes out
+  // tiny, because the sprite is stretched to that shape and the letter only
+  // occupies a sliver of it. Short labels therefore get a square canvas.
+  // (This is why Nir saw no letter F on the beads. Leave the option in.)
+  const square = options.square ?? false;
   const canvas = document.createElement('canvas');
-  canvas.width = 1024; canvas.height = 128;
+  canvas.width = square ? 256 : 1024;
+  canvas.height = square ? 256 : 128;
   const context = canvas.getContext('2d');
   const texture = new THREE.CanvasTexture(canvas);
   texture.colorSpace = THREE.SRGBColorSpace;
@@ -748,20 +754,21 @@ export function makeTextSprite(text, colour = 0xffffff, options = {}) {
     depthWrite: false,
     transparent: true,
   }));
-  sprite.scale.set(scale * 8, scale, 1);
+  sprite.scale.set(square ? scale : scale * 8, scale, 1);
 
   // The sprite can be re-lettered without building a new object, so that
   // messages in VR cost no allocation per frame.
   sprite.setText = (newText) => {
     context.clearRect(0, 0, canvas.width, canvas.height);
-    context.font = 'bold 60px system-ui, sans-serif';
+    context.font = square ? 'bold 170px system-ui, sans-serif' : 'bold 60px system-ui, sans-serif';
     context.textAlign = 'center';
     context.textBaseline = 'middle';
-    const width = context.measureText(newText).width + 48;
+    const width = context.measureText(newText).width + (square ? 40 : 48);
+    const height = square ? 200 : 84;
     context.fillStyle = 'rgba(6, 8, 14, 0.78)';
-    context.fillRect((canvas.width - width) / 2, 22, width, 84);
+    context.fillRect((canvas.width - width) / 2, (canvas.height - height) / 2, width, height);
     context.fillStyle = '#' + colour.toString(16).padStart(6, '0');
-    context.fillText(newText, canvas.width / 2, 64);
+    context.fillText(newText, canvas.width / 2, canvas.height / 2);
     texture.needsUpdate = true;
   };
   sprite.setText(text);

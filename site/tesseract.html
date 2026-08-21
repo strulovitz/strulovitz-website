@@ -30,6 +30,11 @@
     background: #1b2949; color: #eaf4ff; border: 1px solid #37548a; cursor: pointer;
   }
   button:disabled { opacity: 0.45; cursor: default; }
+  button.loud {
+    background: #3a2a12; border-color: #8a6520; color: #ffd479; font-weight: 600;
+  }
+  button.loud:hover { background: #4a3616; }
+  button.primary { background: #1f4a2a; border-color: #3f8a54; color: #d8ffe2; font-weight: 600; }
   #vr-note { font-size: 0.85rem; color: #8698b8; }
 
   #status-line {
@@ -80,6 +85,13 @@
   #gym-offer p { margin: 0 0 0.9rem; color: #a8bad8; }
   #gym-offer .row { display: flex; gap: 0.6rem; justify-content: center; }
   #gym-panel { bottom: 3.4rem; display: none; }
+  #gym-panel.passed { border-color: #3f8a54; }
+  #gym-panel.failed { border-color: #8a5240; }
+  #gym-done {
+    display: none; margin-top: 0.5rem; padding: 0.55rem 0.7rem;
+    background: #12251a; border-radius: 8px; color: #b7e8c2;
+  }
+  #gym-done.wrong { background: #251614; color: #ffc3b3; }
   #gym-title { color: #ffd479; font-weight: 700; margin-bottom: 0.2rem; }
   #gym-instruction { color: #eaf4ff; }
   #gym-foot {
@@ -110,7 +122,10 @@
   <a href="/ghost/index.html">Ghost</a>
   <a href="https://learnime.com/" target="_blank" rel="noopener">Learnime &#8599;</a>
   <a href="https://www.peaktogether.me/" target="_blank" rel="noopener">Peak Together &#8599;</a>
-  <button id="open-gym">4D lessons</button>
+  <!-- Made loud on purpose. Nir could not find his way back to the lessons
+       because this looked like just another menu link. It is the one control on
+       this bar that teaches you something. -->
+  <button id="open-gym" class="loud">&#127891; Learn 4D &mdash; the 5 lessons</button>
   <button id="enter-vr" disabled>Enter VR</button>
   <span id="vr-note">Checking for a headset...</span>
 </div>
@@ -142,10 +157,12 @@
 <div id="gym-panel">
   <div id="gym-title"></div>
   <div id="gym-instruction"></div>
+  <div id="gym-done"></div>
   <div id="gym-foot">
     <span id="gym-progress"></span>
     <span id="gym-dots"></span>
-    <button id="gym-next">Skip this one</button>
+    <button id="gym-back">&larr; Back</button>
+    <button id="gym-next" class="primary">Skip this one</button>
     <button id="gym-quit">Leave the lessons</button>
   </div>
 </div>

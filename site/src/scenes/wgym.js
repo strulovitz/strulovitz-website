@@ -54,6 +54,14 @@ export class WGym {
     this.hooks = hooks;
     this.active = false;
     this.lessonIndex = -1;
+    // NOTHING ADVANCES BY ITSELF. Nir's own words after the first real session:
+    // "the lessons are going to the next one without the user being aware, he
+    // just drops into a new lesson because the software decided the previous
+    // lesson was through". So a finished lesson SAYS it is finished and then
+    // waits. The reader presses Next. Doing the task still unlocks it -- the
+    // gating is unchanged -- but leaving is always the reader's own decision.
+    // Three states: 'doing', 'passed', 'failed'.
+    this.state = 'doing';
     this.lessonTime = 0;
     this.passedTime = 0;      // how long the pass condition has held
     this.attempts = 0;
@@ -125,13 +133,18 @@ export class WGym {
     // Spread widely across the view and kept in its clear upper middle, with
     // every bead at a different depth in the fourth dimension so that a
     // hyper-rotation genuinely shuffles them.
+    // Positions chosen by MEASURING where they land on screen, not by guessing:
+    // no two beads and no two letters may sit on top of each other, or the
+    // question "which one was it?" is unanswerable through no fault of the
+    // reader. Every bead also sits at a different depth in the fourth
+    // dimension, so a hyper-rotation genuinely shuffles them.
     const places = [
-      [-0.62, 0.30, 0.10, -0.60],
-      [0.60, 0.34, -0.15, 0.15],
-      [-0.30, 0.02, 0.45, 0.62],
-      [0.34, 0.06, 0.40, -0.25],
-      [0.05, 0.52, -0.42, 0.45],
-      [-0.52, 0.44, -0.38, -0.05],
+      [-0.66, 0.10, 0.15, -0.60],
+      [0.64, 0.14, -0.15, 0.15],
+      [-0.34, -0.20, 0.50, 0.62],
+      [0.36, -0.24, 0.45, -0.25],
+      [0.10, 0.56, -0.45, 0.45],
+      [-0.60, 0.60, -0.40, -0.05],
     ];
     places.forEach((p, i) => {
       marked[i * 4] = p[0]; marked[i * 4 + 1] = p[1];
@@ -142,8 +155,17 @@ export class WGym {
     this.markedBeads = new InstancedSet(new THREE.IcosahedronGeometry(1, 2), this.markedCount);
     this.group.add(this.markedBeads.mesh);
     this.markedNames = ['A', 'B', 'C', 'D', 'E', 'F'];
+    // Two sets of letters: ordinary white ones, and a big gold one for the bead
+    // you have been asked to follow. Nir looked for an F and could not find it,
+    // which is the worst possible failure for the lesson that matters most.
     this.markedLabels = this.markedNames.map((name) => {
-      const sprite = makeTextSprite(name, 0xffffff, { scale: 0.05 });
+      const sprite = makeTextSprite(name, 0xdfe9ff, { scale: 0.055, square: true });
+      sprite.visible = false;
+      this.group.add(sprite);
+      return sprite;
+    });
+    this.markedTargetLabels = this.markedNames.map((name) => {
+      const sprite = makeTextSprite(name, 0xffd479, { scale: 0.10, square: true });
       sprite.visible = false;
       this.group.add(sprite);
       return sprite;
@@ -166,6 +188,9 @@ export class WGym {
         screen: 'Right-click and drag to slide it around. Scroll the wheel to come closer.',
         headset: 'Squeeze one hand to pick it up and move it. Squeeze both hands and pull them apart to make it bigger.',
         teaches: 'You never move. The object does. That is why nobody gets sick in here.',
+        done: 'You moved it and you resized it. Notice that YOU did not move at all: '
+            + 'the room stayed exactly where it was. Everything in here works that way, '
+            + 'and it is the reason nobody feels ill.',
         begin: () => {
           this.cube.visible = true;
           this.cube.position.set(0, 0, 0);
@@ -194,6 +219,10 @@ export class WGym {
         screen: 'Hold W or S. You are moving a slice through the fourth dimension. Bring the gold bead into it.',
         headset: 'Hold the left trigger and push the left stick forwards or back. Bring the gold bead into the slice.',
         teaches: 'Faint beads are outside your slice, not gone. Nothing here ever just disappears.',
+        done: 'The gold bead went solid. That is what just happened: it was always '
+            + 'there, but it sat at a different depth in the fourth dimension, and you '
+            + 'moved your slice onto it. The faint ones are still there too, outside '
+            + 'your slice. Nothing in here ever simply disappears.',
         begin: () => {
           panorama.setMode('slice');
           panorama.w0 = -0.9;
@@ -222,6 +251,9 @@ export class WGym {
         screen: 'Press Tab until it says XW, then hold Shift and tap the right arrow four times.',
         headset: 'Click the left stick until the arm instrument says XW, then flick the left stick sideways four times.',
         teaches: 'It turns inside out on the way. That is normal, and it is a loop, not a fall.',
+        done: 'Four quarter turns and it is exactly back where it started. On the way '
+            + 'it passed through itself and came out inside-out, and nothing was broken '
+            + 'when it did. A turn through the fourth dimension is a loop, not a fall.',
         begin: () => {
           panorama.setMode('projection');
           panorama.view.reset();
@@ -240,6 +272,11 @@ export class WGym {
         screen: 'Watch bead {NAME}. The gym will turn everything through the fourth dimension. Then click the bead that was {NAME}.',
         headset: 'Watch bead {NAME}. The gym will turn everything through the fourth dimension. Then point at the bead that was {NAME} and pull the trigger.',
         teaches: 'This is the skill. Almost nobody has it, and you now do.',
+        done: 'That was the right bead. You just followed an object through a turn in a '
+            + 'direction that does not exist in the room you are sitting in. Almost '
+            + 'nobody can do that. You can.',
+        wrong: 'Not that one. It is genuinely hard, and getting it wrong is the normal '
+            + 'first answer. Watch it again, slower this time.',
         begin: () => {
           panorama.setMode('projection');
           panorama.view.reset();
@@ -293,6 +330,9 @@ export class WGym {
         screen: 'Hold Shift and drag, then press Tab for another plane and drag again. Then press Home to come back.',
         headset: 'Squeeze BOTH hands and turn them against each other. Your two hands together can reach turns one hand cannot. Then open the menu and choose Reset.',
         teaches: 'That gesture is the whole of four-dimensional rotation in two hands. It is now unlocked for you.',
+        done: 'That is the twist, and it is now unlocked for you. Two hands together '
+            + 'reach turns that no single plane can. Reset always brings you home, so '
+            + 'there is nothing to be afraid of.',
         optional: true,
         begin: () => {
           panorama.setMode('projection');
@@ -341,6 +381,12 @@ export class WGym {
     this.lesson = this.lessons[index];
     this.lessonTime = 0;
     this.passedTime = 0;
+    this.state = 'doing';
+    // Every lesson but the first starts from the canonical view, so a stray
+    // turn made at the end of one lesson cannot quietly ruin the next one.
+    // Nir hit exactly that: "maybe it is because I did another rotation by
+    // mistake from the previous lesson".
+    if (index > 0) this.panorama.view.reset();
     this.lesson.begin();
     this.hooks.onLesson?.(this.describe());
   }
@@ -382,6 +428,7 @@ export class WGym {
   describe() {
     if (!this.lesson) return null;
     const name = this.markedNames[this.markedTarget];
+    const last = this.lessonIndex === this.lessons.length - 1;
     return {
       index: this.lessonIndex,
       count: this.lessons.length,
@@ -391,6 +438,17 @@ export class WGym {
       teaches: this.lesson.teaches,
       optional: !!this.lesson.optional,
       progress: this.lesson.progress ? this.lesson.progress() : '',
+      state: this.state,
+      // What the reader sees the moment the task is done. It must say what
+      // actually happened, because "the colour changed and I did not
+      // understand what happened" is a failure of explanation, not of the
+      // reader.
+      done: this.state === 'passed' ? (this.lesson.done ?? 'Done.') : '',
+      wrong: this.state === 'failed' ? (this.lesson.wrong ?? 'Not that one.') : '',
+      nextLabel: this.state === 'passed'
+        ? (last ? 'Finish' : 'Next lesson')
+        : 'Skip this one',
+      isLast: last,
     };
   }
 
@@ -454,29 +512,47 @@ export class WGym {
   update(deltaMs) {
     if (!this.active || !this.lesson) return;
     this.lessonTime += deltaMs;
-    this.lesson.tick?.(deltaMs);
 
-    if (this.lesson.failed?.()) {
-      this.attempts++;
-      this.hooks.setFlash?.('Not that one. Watch again, slower this time.');
-      this.enterLesson(this.lessonIndex);      // gentle replay of the same lesson
-      return;
-    }
+    // Once a verdict is in, the lesson freezes and waits for the reader. Its
+    // tick stops running too, so nothing keeps moving under their hands while
+    // they read what just happened.
+    if (this.state === 'doing') {
+      this.lesson.tick?.(deltaMs);
 
-    if (this.lesson.passed()) {
-      this.passedTime += deltaMs;
-      const needed = this.lesson.holdFor ?? 0;
-      if (this.passedTime >= needed) {
-        this.attempts = 0;
-        this.hooks.setFlash?.(this.lesson.teaches);
-        this.enterLesson(this.lessonIndex + 1);
-        return;
+      if (this.lesson.failed?.()) {
+        this.state = 'failed';
+        this.attempts++;
+      } else if (this.lesson.passed()) {
+        this.passedTime += deltaMs;
+        if (this.passedTime >= (this.lesson.holdFor ?? 0)) {
+          this.state = 'passed';
+          this.attempts = 0;
+        }
+      } else {
+        this.passedTime = 0;
       }
-    } else {
-      this.passedTime = 0;
     }
 
     this.hooks.onLesson?.(this.describe());
+  }
+
+  /** The reader pressed Next. The only way forward. */
+  goNext() {
+    if (!this.active) return;
+    this.enterLesson(this.lessonIndex + 1);
+  }
+
+  /** The reader pressed Back. Always allowed, including from the first lesson. */
+  goBack() {
+    if (!this.active) return;
+    if (this.lessonIndex <= 0) { this.enterLesson(0); return; }
+    this.enterLesson(this.lessonIndex - 1);
+  }
+
+  /** After a wrong answer: watch it again, more slowly. */
+  retry() {
+    if (!this.active) return;
+    this.enterLesson(this.lessonIndex);
   }
 
   /**
@@ -538,12 +614,14 @@ export class WGym {
         this.markedBeads.placePoint(i,
           this.markedSet.out3[i * 3], this.markedSet.out3[i * 3 + 1], this.markedSet.out3[i * 3 + 2],
           0.055 * this.markedSet.outScale[i], 1);
-        const label = this.markedLabels[i];
+        const label = isTarget ? this.markedTargetLabels[i] : this.markedLabels[i];
+        const other = isTarget ? this.markedLabels[i] : this.markedTargetLabels[i];
+        other.visible = false;
         label.visible = showLabels;
         if (showLabels) {
           label.position.set(
             this.markedSet.out3[i * 3],
-            this.markedSet.out3[i * 3 + 1] + 0.075,
+            this.markedSet.out3[i * 3 + 1] + (isTarget ? 0.11 : 0.085),
             this.markedSet.out3[i * 3 + 2]);
         }
       }
@@ -551,6 +629,7 @@ export class WGym {
     } else {
       this.markedBeads.finish(0);
       this.markedLabels.forEach((label) => { label.visible = false; });
+      this.markedTargetLabels.forEach((label) => { label.visible = false; });
     }
   }
 }

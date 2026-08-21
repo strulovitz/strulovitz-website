@@ -207,6 +207,8 @@ window.addEventListener('keydown', (event) => {
     setStatusFlash(`Snap 90 degrees in ${panorama.view.activeHyperPlane.toUpperCase()}`);
     return;
   }
+  if (key === 'l') { gymOffer.style.display = 'none'; gym.start(); setStatusFlash('Lessons, from the beginning'); return; }
+  if (gym.active && (key === 'enter' || key === ' ')) { advanceGym(); return; }
   if (key === 'g') { panorama.stemsEnabled = !panorama.stemsEnabled; setStatusFlash(`Drop-stems ${panorama.stemsEnabled ? 'on' : 'off'}`); }
   if (key === 't') { panorama.showTesseract = !panorama.showTesseract; setStatusFlash(`Tesseract ${panorama.showTesseract ? 'shown' : 'hidden'}`); }
   if (key === 'n') { panorama.showGraph = !panorama.showGraph; setStatusFlash(`Fake news graph ${panorama.showGraph ? 'shown' : 'hidden'}`); }
@@ -287,6 +289,9 @@ const gymInstruction = document.getElementById('gym-instruction');
 const gymProgress = document.getElementById('gym-progress');
 const gymDots = document.getElementById('gym-dots');
 const gymOffer = document.getElementById('gym-offer');
+const gymDone = document.getElementById('gym-done');
+const gymNext = document.getElementById('gym-next');
+const gymBack = document.getElementById('gym-back');
 
 const gymCanvas = document.createElement('canvas');
 gymCanvas.width = 1024; gymCanvas.height = 320;
@@ -316,9 +321,26 @@ function drawGymVrPanel(lesson) {
   c.fillStyle = '#eaf4ff';
   c.font = '30px system-ui, sans-serif';
   wrapText(c, lesson.headset, 34, 116, 956, 38);
-  c.fillStyle = '#8fa3c4';
-  c.font = '26px system-ui, sans-serif';
-  c.fillText(lesson.progress, 34, 268);
+  const verdict = lesson.state === 'passed' ? lesson.done
+                : lesson.state === 'failed' ? lesson.wrong : '';
+  if (verdict) {
+    // A finished lesson replaces the instruction with what actually happened,
+    // and says which button carries on. In a headset there is nothing to click.
+    c.fillStyle = 'rgba(8, 12, 20, 0.97)';
+    c.fillRect(8, 86, 1008, 190);
+    c.fillStyle = lesson.state === 'failed' ? '#ffb3a0' : '#a8e6b0';
+    c.font = '27px system-ui, sans-serif';
+    wrapText(c, verdict, 34, 122, 956, 34);
+    c.fillStyle = '#ffd479';
+    c.font = 'bold 26px system-ui, sans-serif';
+    c.fillText(lesson.state === 'failed'
+      ? 'Press A on your right hand to watch it again'
+      : `Press A on your right hand to continue (${lesson.nextLabel})`, 34, 268);
+  } else {
+    c.fillStyle = '#8fa3c4';
+    c.font = '26px system-ui, sans-serif';
+    c.fillText(lesson.progress, 34, 268);
+  }
   gymTexture.needsUpdate = true;
 }
 
@@ -350,7 +372,20 @@ const gym = new WGym(panorama, {
     gymTitle.textContent = lesson.title;
     gymInstruction.textContent = renderer.xr.isPresenting ? lesson.headset : lesson.screen;
     gymProgress.textContent = lesson.progress;
+    // A filled circle for every lesson already behind you.
     gymDots.textContent = '\u25cf '.repeat(lesson.index) + '\u25cb '.repeat(lesson.count - lesson.index);
+
+    // The verdict, in words, and only then a button. Nothing moves on its own.
+    const verdict = lesson.state === 'passed' ? lesson.done
+                  : lesson.state === 'failed' ? lesson.wrong : '';
+    gymDone.textContent = verdict;
+    gymDone.style.display = verdict ? 'block' : 'none';
+    gymDone.className = lesson.state === 'failed' ? 'wrong' : '';
+    gymPanelElement.className = lesson.state === 'passed' ? 'passed'
+                              : lesson.state === 'failed' ? 'failed' : '';
+    gymNext.textContent = lesson.state === 'failed' ? 'Watch it again' : lesson.nextLabel;
+    gymBack.disabled = lesson.index === 0;
+
     gymVrPanel.visible = renderer.xr.isPresenting;
     drawGymVrPanel(lesson);
   },
@@ -377,8 +412,16 @@ document.getElementById('gym-skip-all').addEventListener('click', () => {
   gymOffer.style.display = 'none';
   gym.quit();
 });
-document.getElementById('gym-next').addEventListener('click', () => gym.skipLesson());
+gymNext.addEventListener('click', () => advanceGym());
+gymBack.addEventListener('click', () => gym.goBack());
 document.getElementById('gym-quit').addEventListener('click', () => gym.quit());
+
+/** One place decides what "carry on" means, so the screen and the headset agree. */
+function advanceGym() {
+  if (!gym.active) return;
+  if (gym.state === 'failed') gym.retry();
+  else gym.goNext();
+}
 document.getElementById('open-gym').addEventListener('click', () => {
   gymOffer.style.display = 'none';
   gym.start();
@@ -830,9 +873,13 @@ function readControllers(deltaMs) {
         }
       }
 
-      // A-button toggles the mode from the right hand as well, because reaching
-      // across hands for a common action is a small daily annoyance.
-      if (pressed(BUTTON.FACE_LOWER)) panorama.toggleMode();
+      // A-button carries the lessons forward, since there is nothing to click
+      // inside a headset. Outside a lesson it toggles the mode, because
+      // reaching across hands for a common action is a small daily annoyance.
+      if (pressed(BUTTON.FACE_LOWER)) {
+        if (gym.active && gym.state !== 'doing') advanceGym();
+        else panorama.toggleMode();
+      }
       // B on the right hand opens the menu too. Two buttons for one action is
       // not clutter when the action is the way home.
       if (pressed(BUTTON.FACE_UPPER)) {
