@@ -457,3 +457,114 @@ WHAT REPLACES IT, AND WHY IT IS NOT NOTHING:
    backstop that survives our own bugs. Nir sets it or does not, on their site.
 4. An estimate is shown BEFORE an expensive run, so the decision is his and is
    made in advance instead of by an interruption.
+
+
+DECISION 16 - A MODEL'S MISTAKES ARE THE PRODUCT. NOTHING IS GATED, NOTHING IS HIDDEN
+Date: 2026-08-21
+Decided by: Nir
+Ruling: There is NO verification gate. Whatever an edition's model writes is
+published as that model's edition, mistakes included. We do not block it, we do
+not repair it, we do not quietly improve it, and we do not annotate it as wrong.
+
+Nir's words, which are the whole design in one paragraph: "if a model writes
+bullshit then the reader will raise his/her eyebrow and say to him/herself 'this
+doesn't sound right', let me check what is the take of another AI model about
+this article/explanation, like ANOTHER edition, which is just choosing from a
+listbox, instantly he/she see that this hallucinating model cannot be trusted.
+this is GOOD. it is NOT a failure of our website. it is the PURPOSE of our
+website."
+
+He also rejected the premise of the machinery itself: no code can judge whether
+a rephrasing carries the same meaning. "i do not know of any 'code' except
+intelligent AI that can analyze text and decide if this is the same meaning in
+different phrasing... i think summarization requires the highest intelligence."
+And he refused the idea even if it worked: "even if you had such magic code, i
+do not want it."
+
+Which Bible text this overrides:
+1. part-06.md 6.7 in its entirety, "VERIFY: THE GATE BEFORE ANYTHING IS
+   PUBLISHABLE" - all three layers, the deterministic checks, the entailment
+   checks, the hallucinated-entity sweep, and the repair loops. Deleted as a
+   gate. Nothing sends a story back to be rewritten.
+2. part-06.md 6.3.3's auto-rejection of claims whose spans do not match.
+3. part-06.md 6.10's golden set and nightly canary AS QUALITY CONTROL OF
+   CONTENT. Whether some form of "is the machinery still running" canary is
+   wanted has not been decided and is a separate question.
+
+WHAT AN AGENT MUST THEREFORE NEVER DO: never edit a model's output; never pick
+the best of several attempts; never retry because the answer looked poor; never
+add a warning label to a model's article. Retrying is allowed ONLY when no
+answer arrived at all - a network failure, a refusal, an empty response - and
+every retry is recorded in the ledger with its reason.
+
+WHAT STILL STANDS: the frozen original sources are still kept, because the
+reader must be able to click through to what the story was built from, and
+because an honest comparison needs the raw material to be identical for every
+model. Freezing sources is EVIDENCE, not verification.
+
+
+DECISION 17 - IT IS A CONTINUOUS STREAM, NOT MONTHLY ISSUES. IT IS SHAPED LIKE WIKIPEDIA
+Date: 2026-08-21
+Decided by: Nir
+Ruling: There are no issues. There is no "this month's edition". A story is
+added when Nir decides something interesting happened - "maybe 1 story, maybe a
+few stories, maybe no stories at all, depending on whether something important
+happened, and how busy i was".
+
+In what sense it is still a magazine, in his words: "this is like Wikipedia. it
+is a magazine in a sense that it tries to tell not about everything, only about
+what is the most interesting subjectively to my audience which i hope are
+similar to me in spirit, so that i can target correctly to their collective
+taste."
+
+Which Bible text this overrides: part-10.md 10.1.1's definition of an edition
+as "one model's complete editorial rendering of ONE ISSUE's story set", and the
+monthly issue cycle of part-11.md. An edition is a MODEL, standing permanently,
+and it renders every story that exists. Editions are not dated bundles.
+
+Practical consequence, and it is the point of DECISION 18's grid: because there
+are no issues, work arrives one story at a time and one model at a time, so the
+machinery must always be able to answer the question "which cells of the grid
+are still empty?" and fill exactly those.
+
+
+DECISION 18 - THE GRID, AND THE THREE SEPARATE PARTS OF THE SITE
+Date: 2026-08-21
+Decided by: Nir
+Ruling on the grid: everything is a matrix. Stories down the side, the eight
+roster models across the top. Every cell is one model's rendering of one story.
+Adding a model adds a column, and the machine fills that column for every story
+that already exists. Adding a story adds a row, and all eight models fill it.
+Both are the same command; it does only what is MISSING and is always safe to
+re-run. Nir's requirement in his own words: "tomorrow we add a new model AI, and
+we want to make with him all the stories... or tomorrow we add one more article
+and we need to ask ALL the AI models to produce the necessary things for this
+article, like ELI5 and TLDR and images etc. this needs to be easy... please plan
+everything in a modular fashion that we can always add."
+
+Ruling on the site's parts: the grid describes THE ARTICLES ONLY. It does not
+describe the combined higher-dimension benchmark graphs, which are their own
+part of the site (DECISION 14), and it has nothing to do with Night Watch,
+which is a future project (DECISION 11).
+
+Ruling on symmetry: every model's folder is identical in shape and rank. GPT
+gets no privileged position in the structure. What the home page links to is
+decided by ONE setting naming the default model, currently gpt-5.6-terra, so
+changing the site's default face is a one-word edit and not a re-organisation.
+
+
+DECISION 19 - MOONSHOT IS K2.6, AND EVERYTHING RUNS IN BATCH
+Date: 2026-08-21
+Decided by: Nir
+Ruling: the Moonshot slot in the roster is moonshotai/kimi-k2.6, the general
+model, NOT kimi-k2.7-code which is coding-only. Nir: "you were right and i were
+wrong, please use K 2.6."
+
+Ruling: every edition run uses the BATCH form of each model - the identical
+model and weights at half the price, in exchange for no promise of a fast
+answer. Nir: "please do everything you can in batch. we have time." Where a
+model has no batch form, the instant form is used and that fact is recorded.
+
+Consequence for the ledger: a batch job's cost and its waiting time are both
+recorded, so the true cost of an article across all eight models is a real
+measured number rather than an estimate.
