@@ -337,8 +337,10 @@ export class WGym {
         screen: 'Hold Shift and drag DIAGONALLY, in circles. Up and down turns one plane; '
               + 'left and right turns a completely separate one AT THE SAME TIME. Watch it: '
               + 'it never comes back to the same shape. Then press Home.',
-        headset: 'Squeeze BOTH hands and turn them against each other. Your two hands together '
-               + 'reach turns that one hand cannot. Then open the menu and choose Reset.',
+        headset: 'Squeeze BOTH grips and twist your hands against each other, like opening a '
+               + 'stiff jar. Two hands together reach turns one hand cannot. (Or: click the '
+               + 'left stick to change plane and use both sticks.) Then press Y and choose '
+               + 'Reset.',
         teaches: 'Two separate turns at once. Only four dimensions allow that.',
         done: 'That is the one motion with no three-dimensional imitation at all. In three '
             + 'dimensions any two turns share an axis, so they always add up to one ordinary '

@@ -506,6 +506,26 @@ WHAT MILESTONE 1 STILL NEEDS BEFORE IT CAN BE CALLED DONE (part-13.md 13.2):
        resizing gesture happens (apparentSizeTravel in main.js: the wheel, and
        the two-handed stretch), so sliding contributes exactly nothing. Nir:
        "the moving is NOT resizing".
+   FOUR MORE FROM HIS FIRST HEADSET SESSION, which found faults no flat-screen
+   test could see. Everything else in VR he reported as working well.
+   (j) A FEATURE MUST NOT BE LOCKED DURING THE LESSON THAT TEACHES IT. The
+       two-handed twist was gated on tier2Enabled, which is only true AFTER
+       graduating, so in lesson 5 both grips fell through to plain scaling and
+       nothing happened. Both bodies now use doubleRotationAllowed().
+   (k) DO NOT `continue` OUT OF AN INPUT LOOP. The gym's bead-picking branch
+       ended in `continue`, which skipped the rest of the right hand including
+       the A button, so carrying on from lesson 4 took several presses. Use a
+       flag and skip only the part you mean to skip.
+   (l) EVERY CONTROL ON THE SCREEN MUST EXIST IN THE HEADSET. There was no way
+       to skip, go back, or leave the lessons in VR. The hand menu is now built
+       fresh whenever it opens (buildMenu in main.js) and carries the lesson's
+       own controls while a lesson is running. The headset panel also always
+       prints "A = carry on, Y = menu: back, skip, or leave".
+   (m) IF A GESTURE LOOKS DEAD, SAY WHY. He squeezed both grips and "moved his
+       hands in all directions" with no effect, because the twist needs the
+       WRISTS to turn; two closed fists sliding through the air is a rotation of
+       nothing. Holding both grips for 1.4 seconds with no turning now prints
+       "turn your WRISTS against each other, like opening a stiff jar".
 2. Hover cards and a reading panel in VR. On the flat screen the hover card
    exists as plain HTML; in the headset there is only a highlight and a haptic
    tap so far.

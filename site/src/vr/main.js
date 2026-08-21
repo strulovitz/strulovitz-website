@@ -401,7 +401,7 @@ const gymContext = gymCanvas.getContext('2d');
 const gymTexture = new THREE.CanvasTexture(gymCanvas);
 gymTexture.colorSpace = THREE.SRGBColorSpace;
 const gymVrPanel = new THREE.Mesh(
-  new THREE.PlaneGeometry(0.62, 0.194),
+  new THREE.PlaneGeometry(0.66, 0.207),
   new THREE.MeshBasicMaterial({ map: gymTexture, transparent: true, depthWrite: false })
 );
 // Body-anchored above and behind the table, never glued to the head: head-locked
@@ -441,8 +441,12 @@ function drawGymVrPanel(lesson) {
   } else {
     c.fillStyle = '#8fa3c4';
     c.font = '26px system-ui, sans-serif';
-    c.fillText(lesson.progress, 34, 268);
+    c.fillText(lesson.progress, 34, 262);
   }
+  // Always visible, in both states: how to carry on, and how to get OUT.
+  c.fillStyle = '#7f92b4';
+  c.font = '22px system-ui, sans-serif';
+  c.fillText('A = carry on      Y = menu: back, skip, or leave the lessons', 34, 302);
   gymTexture.needsUpdate = true;
 }
 
@@ -771,7 +775,7 @@ function drawGauge(status) {
  * because a reader must never be afraid to experiment: the way home is always
  * two clicks, from anywhere, forever.
  */
-const MENU_ITEMS = [
+const BASE_MENU_ITEMS = [
   { key: 'undo', label: 'Undo rotation' },
   { key: 'reset', label: 'Reset view' },
   { key: 'mode', label: 'Slice / Projection' },
@@ -779,6 +783,30 @@ const MENU_ITEMS = [
   { key: 'stems', label: 'Drop-stems on / off' },
   { key: 'gym', label: 'The 4D lessons' },
 ];
+
+/**
+ * The menu is built fresh every time it opens, because during a lesson the
+ * reader needs the lesson's own controls -- carry on, go back, and above all a
+ * way OUT. Everything the flat screen offers has to be reachable in the headset
+ * too, or the headset is the poor relation.
+ */
+let MENU_ITEMS = BASE_MENU_ITEMS;
+
+function buildMenu() {
+  if (gym.active) {
+    const lesson = gym.describe();
+    MENU_ITEMS = [
+      { key: 'next', label: lesson ? lesson.nextLabel : 'Next lesson' },
+      { key: 'back', label: 'Back one lesson' },
+      { key: 'quit', label: 'Leave the lessons' },
+      { key: 'reset', label: 'Reset view' },
+      { key: 'undo', label: 'Undo rotation' },
+    ];
+  } else {
+    MENU_ITEMS = BASE_MENU_ITEMS;
+  }
+  drawMenu();
+}
 
 const menuCanvas = document.createElement('canvas');
 menuCanvas.width = 512; menuCanvas.height = 320;
@@ -799,25 +827,33 @@ let gaugeLit = false;
 
 function drawMenu() {
   const c = menuContext;
-  c.clearRect(0, 0, 512, 320);
+  const width = menuCanvas.width, height = menuCanvas.height;
+  c.clearRect(0, 0, width, height);
   c.fillStyle = 'rgba(9, 13, 21, 0.94)';
-  c.fillRect(0, 0, 512, 320);
-  c.strokeStyle = '#41567c'; c.lineWidth = 4; c.strokeRect(2, 2, 508, 316);
+  c.fillRect(0, 0, width, height);
+  c.strokeStyle = '#41567c'; c.lineWidth = 4; c.strokeRect(2, 2, width - 4, height - 4);
+  // Rows are sized from the panel and the number of items, so the menu can grow
+  // and shrink -- during a lesson it carries different things -- without any
+  // item ever falling off the bottom.
+  const rowHeight = (height - 24) / MENU_ITEMS.length;
   MENU_ITEMS.forEach((item, i) => {
-    const y = 18 + i * 58;
+    const y = 12 + i * rowHeight;
     const active = i === menuHighlight;
     c.fillStyle = active ? '#dceaff' : 'rgba(90, 110, 145, 0.22)';
-    c.fillRect(14, y, 484, 50);
+    c.fillRect(14, y + 2, width - 28, rowHeight - 6);
     c.fillStyle = active ? '#0a0f18' : '#cddcf5';
-    c.font = 'bold 30px system-ui, sans-serif';
+    c.font = `bold ${Math.min(30, Math.floor(rowHeight * 0.52))}px system-ui, sans-serif`;
     c.textAlign = 'left';
-    c.fillText(item.label, 30, y + 34);
+    c.fillText(item.label, 30, y + rowHeight * 0.66);
   });
   menuTexture.needsUpdate = true;
 }
 drawMenu();
 
 function runMenuItem(key) {
+  if (key === 'next') { advanceGym(); buildMenu(); return; }
+  if (key === 'back') { gym.goBack(); buildMenu(); return; }
+  if (key === 'quit') { gym.quit(); menuPanel.visible = false; return; }
   if (key === 'undo') setStatusFlash(panorama.view.undo() ? 'Undid one rotation' : 'Nothing left to undo');
   if (key === 'reset') { resetEverything(); gym.noteReset(); setStatusFlash('Everything back where it started'); }
   if (key === 'mode') setStatusFlash(`Mode: ${panorama.toggleMode()}`);
@@ -917,6 +953,13 @@ function gaugeReachedFor() {
 const BUTTON = { TRIGGER: 0, SQUEEZE: 1, STICK: 3, FACE_LOWER: 4, FACE_UPPER: 5 };
 
 let snapFlickArmed = true;
+let twistAnnounced = false;
+// How long both grips have been squeezed, and how much turning has come out of
+// it. Nir squeezed both hands and "moved them in all directions" with nothing
+// happening -- because the gesture needs the WRISTS to turn, not the arms to
+// travel. Sliding two closed fists through the air is a rotation of nothing.
+let bothGripsMilliseconds = 0;
+let twistSinceGrip = 0;
 let twoHandStart = null;
 
 function readControllers(deltaMs) {
@@ -952,7 +995,7 @@ function readControllers(deltaMs) {
         if (reach === 'touching' || pressed(BUTTON.TRIGGER)) {
           menuPanel.visible = true;
           menuHighlight = -1;
-          drawMenu();
+          buildMenu();
           source.gamepad.hapticActuators?.[0]?.pulse?.(0.35, 45);
         }
       } else {
@@ -967,10 +1010,14 @@ function readControllers(deltaMs) {
         if (pressed(BUTTON.TRIGGER)) runMenuItem(MENU_ITEMS[row].key);
       } else {
         if (menuHighlight !== -1) { menuHighlight = -1; drawMenu(); }
-        // A lesson's beads come before the graph's nodes.
+        // A lesson's beads come before the graph's nodes. Note that this does
+        // NOT skip the rest of the hand: the buttons below still have to work
+        // while the reader is pointing at something.
+        let gymTookThePoint = false;
         if (gym.active) {
           const bead = gym.beadUnderRay(origin, direction);
           if (bead >= 0) {
+            gymTookThePoint = true;
             const scratch = new THREE.Vector3();
             panorama.toRoomSpace(gym.markedSet.out3, bead, scratch);
             hand.cursor.visible = true;
@@ -978,13 +1025,11 @@ function readControllers(deltaMs) {
             if (pressed(BUTTON.TRIGGER) && gym.notePick(scratch)) {
               source.gamepad.hapticActuators?.[0]?.pulse?.(0.4, 40);
             }
-            hand.previousButtons = buttons;
-            continue;
           }
         }
-        const found = panorama.pick(origin, direction);
-        panorama.hoveredNode = found;
-        if (found >= 0) {
+        const found = gymTookThePoint ? -1 : panorama.pick(origin, direction);
+        if (!gymTookThePoint) panorama.hoveredNode = found;
+        if (found >= 0 && !gymTookThePoint) {
           const scale = panorama.graph.scale.x;
           hand.cursor.visible = true;
           hand.cursor.position.set(
@@ -997,7 +1042,7 @@ function readControllers(deltaMs) {
             // not need to look for confirmation (bible/part-05.md 5.3.5).
             source.gamepad.hapticActuators?.[0]?.pulse?.(0.4, 40);
           }
-        } else {
+        } else if (!gymTookThePoint) {
           hand.cursor.visible = false;
         }
       }
@@ -1014,7 +1059,7 @@ function readControllers(deltaMs) {
       if (pressed(BUTTON.FACE_UPPER)) {
         menuPanel.visible = !menuPanel.visible;
         menuHighlight = -1;
-        drawMenu();
+        buildMenu();
       }
     } else {
       // ---- LEFT HAND: the fourth dimension lives here ----
@@ -1048,7 +1093,7 @@ function readControllers(deltaMs) {
       if (pressed(BUTTON.FACE_UPPER)) {
         menuPanel.visible = !menuPanel.visible;
         menuHighlight = -1;
-        drawMenu();
+        buildMenu();
       }
     }
 
@@ -1075,7 +1120,7 @@ function applyGrips(deltaMs) {
   // hand and right hand together reach turns that no single plane can. It uses
   // per-frame differences, so releasing either hand stops it dead, with no
   // inertia (part-05.md 5.4 Tier 2, and 5.1.4).
-  if (gripping.length === 2 && tier2Enabled) {
+  if (gripping.length === 2 && doubleRotationAllowed()) {
     const left = deltaQuaternion(hands[0]);
     const right = deltaQuaternion(hands[1]);
     if (left && right) {
@@ -1084,11 +1129,30 @@ function applyGrips(deltaMs) {
       const amount = Math.abs(left.x) + Math.abs(left.y) + Math.abs(left.z) +
                      Math.abs(right.x) + Math.abs(right.y) + Math.abs(right.z);
       gym.noteTwist(amount * 4);
+      twistSinceGrip += amount;
+      // Say out loud that the gesture has been recognised, the first time it
+      // happens. Squeezing both hands and feeling nothing is indistinguishable
+      // from the feature being broken.
+      if (!twistAnnounced && amount > 0.004) {
+        twistAnnounced = true;
+        setStatusFlash('Both hands together: you are now turning it in two planes at once.');
+      }
+    }
+    // Squeezing hard, holding on, and nothing happening: the reader is almost
+    // certainly moving their arms instead of turning their wrists. Say so,
+    // rather than letting them conclude it is broken.
+    bothGripsMilliseconds += deltaMs;
+    if (bothGripsMilliseconds > 1400 && twistSinceGrip < 0.02) {
+      bothGripsMilliseconds = 0;
+      setStatusFlash('Turn your WRISTS against each other, like opening a stiff jar. '
+        + 'Moving your arms about will not do it.');
     }
     twoHandStart = null;
     return;
   }
   hands.forEach((h) => { h.previousQuaternion = null; });
+  bothGripsMilliseconds = 0;
+  twistSinceGrip = 0;
 
   if (gripping.length === 2) {
     gripScratch.a.setFromMatrixPosition(hands[0].grip.matrixWorld);
@@ -1281,7 +1345,9 @@ window.PANORAMA = {
   resetEverything, viewDistance,
   apparentSize: () => apparentSizeTravel,
   limits: { MIN_VIEW_DISTANCE, MAX_VIEW_DISTANCE },
-  vr: { panelHit, gaugeReachedFor, menuRowUnderRay, runMenuItem, MENU_ITEMS,
+  vr: { panelHit, gaugeReachedFor, menuRowUnderRay, runMenuItem,
+        rebuildMenu: buildMenu,
+        menuKeys: () => MENU_ITEMS.map((item) => item.key),
         gaugePanel, menuPanel, hands, leftHand, rightHand,
         isMenuOpen: () => menuPanel.visible,
         openMenu: (open) => { menuPanel.visible = open; drawMenu(); } },

@@ -386,7 +386,7 @@ async def main():
               const after = window.PANORAMA.panorama.mode;
               v.runMenuItem('reset');
               v.openMenu(false);
-              return { row, before, after, items: v.MENU_ITEMS.map(i => i.key) };
+              return { row, before, after, items: v.menuKeys() };
             })()""")
             check("pointing at the open hand menu selects a row",
                   menu["row"] >= 0, menu)
@@ -931,7 +931,101 @@ async def main():
                   still_fine["violated"] is False
                   and still_fine["actual"] == still_fine["expected"], still_fine)
 
-            # And the landing page, which must work with no JavaScript at all.
+            print("\n8. The controls that only exist in the headset")
+            # Nir's VR session found three faults that no flat-screen test could
+            # ever see. These checks exercise the same code paths by hand.
+
+            # THE TWIST WAS GATED ON HAVING ALREADY FINISHED THE GYM, so during
+            # the very lesson that teaches it, squeezing both hands fell through
+            # to plain scaling. "I tried moving my hands in all directions while
+            # squeezing both hands but in vain."
+            gate = await page.evaluate("""(() => {
+              const p = window.PANORAMA;
+              localStorage.removeItem('ai-panorama.gym.graduated.v1');
+              p.resetEverything();
+              p.gym.start();
+              p.gym.enterLesson(4);
+              return { tier2: p.isTier2Enabled(), allowed: p.doubleRotationAllowed() };
+            })()""")
+            check("the twist is allowed inside the lesson that teaches it, even before graduating",
+                  gate["allowed"] is True, gate)
+
+            # And the twist itself must move all four coordinates and satisfy
+            # the lesson, which is what the hands actually drive.
+            twisted = await page.evaluate("""(() => {
+              const p = window.PANORAMA;
+              const probe = [0.4, -0.3, 0.6, 0.2];
+              const before = [0, 0, 0, 0];
+              p.panorama.view.reset();
+              p.panorama.view.rotatePoint(probe, before);
+              // A small turn of each hand, the way a real pair of grips would
+              // report it frame by frame.
+              const left = { w: 0.9950, x: 0.0998, y: 0, z: 0 };
+              const right = { w: 0.9950, x: 0, y: 0.0998, z: 0 };
+              for (let i = 0; i < 30; i++) {
+                p.panorama.view.twist(left, right);
+                p.gym.noteTwist(0.05);
+              }
+              const after = [0, 0, 0, 0];
+              p.panorama.view.rotatePoint(probe, after);
+              return { before, after, twisted: p.gym.twisted,
+                       passedBeforeReset: p.gym.lessons[4].passed() };
+            })()""")
+            moved = [abs(a - b) > 1e-6 for a, b in zip(twisted["before"], twisted["after"])]
+            check("the two-handed twist moves all four coordinates", all(moved), twisted)
+            check("twisting alone does not finish lesson 5; you must come home too",
+                  twisted["passedBeforeReset"] is False, twisted)
+
+            # THE HAND MENU KNEW NOTHING ABOUT THE LESSONS, so in the headset
+            # there was no way to skip, go back, or leave. "Why don't I have the
+            # controls that you gave me in the normal screen version, also in VR?"
+            menu_in_lesson = await page.evaluate("""(() => {
+              const p = window.PANORAMA;
+              p.vr.openMenu(true);
+              window.PANORAMA.vr.rebuildMenu();
+              return p.vr.menuKeys();
+            })()""")
+            check("during a lesson the hand menu carries the lesson's own controls",
+                  set(["next", "back", "quit"]).issubset(set(menu_in_lesson)), menu_in_lesson)
+
+            left_via_menu = await page.evaluate("""(() => {
+              const p = window.PANORAMA;
+              p.vr.runMenuItem('quit');
+              const out = { active: p.gym.active, graphBack: p.panorama.showGraph };
+              p.vr.openMenu(true);
+              p.vr.rebuildMenu();
+              out.keysOutsideLesson = p.vr.menuKeys();
+              p.vr.openMenu(false);
+              return out;
+            })()""")
+            check("the hand menu can leave the lessons half way through",
+                  left_via_menu["active"] is False and left_via_menu["graphBack"] is True,
+                  left_via_menu)
+            check("outside a lesson the menu goes back to its ordinary items",
+                  "gym" in left_via_menu["keysOutsideLesson"]
+                  and "quit" not in left_via_menu["keysOutsideLesson"],
+                  left_via_menu["keysOutsideLesson"])
+
+            # Every menu row must be drawable inside the panel, whatever the
+            # number of items: the ordinary menu grew to six and would have run
+            # off the bottom of a panel laid out for five.
+            fits = await page.evaluate("""(() => {
+              const p = window.PANORAMA;
+              const results = [];
+              for (const active of [false, true]) {
+                if (active) { p.gym.start(); } else { p.gym.quit(); }
+                p.vr.rebuildMenu();
+                const count = p.vr.menuKeys().length;
+                const rowHeight = (320 - 24) / count;
+                results.push({ count, bottom: 12 + (count - 1) * rowHeight + rowHeight });
+              }
+              p.gym.quit();
+              return results;
+            })()""")
+            check("every menu row fits inside the panel, in both menus",
+                  all(r["bottom"] <= 320.001 for r in fits), fits)
+
+
             await page.send("Page.navigate", {"url": f"http://127.0.0.1:{PORT}/index.html"})
             await page.drain(2.0)
             title = await page.evaluate("document.title")
