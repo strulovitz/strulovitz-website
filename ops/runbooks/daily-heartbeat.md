@@ -3,7 +3,7 @@ RUNBOOK: THE DAILY MORNING HEARTBEAT
 
 WHAT THIS IS, AND WHY IT EXISTS
 
-Every morning at about 10:30, Atlas (the desktop) looks itself over and
+Every morning at about 10:30, the desktop (Linux) looks itself over and
 sends Nir one short Telegram message. It checks three things: the price
 archive, the free disk space, and whether any work is sitting unsaved on
 this computer instead of on GitHub.
@@ -152,4 +152,5 @@ be created again BY HAND, from scratch, exactly the same way the
 pre-commit secret scanner hook has to be reinstalled by hand on a new
 machine (see ops/runbooks/install-the-secret-scanner.md for that other
 example of the same limitation). The content to use is not a secret and
-can simply be copied from this runbook or from the working files on Atlas.
+can simply be copied from this runbook or from the working files on the
+desktop (Linux).

@@ -22,25 +22,30 @@ machine needs its own bot token.
 There is a happy side effect. A bot is a machine's MOUTH. When a message
 arrives, the NAME of the bot tells Nir instantly which physical computer is
 talking, before reading a single word. The Bible already relies on this idea:
-"when an agent tells you on Telegram that Forge is overheating, you instantly
-know which physical machine to look at, with zero technical vocabulary"
-(bible/part-01.md, section 1.2).
+"when an agent tells you on Telegram that the laptop is overheating, you
+instantly know which physical machine to look at, with zero technical
+vocabulary" (bible/part-01.md, section 1.2 - read every old "Forge" there as
+"laptop-linux", per DECISIONS.md decision 7).
 
 
 THE MACHINE NAMES
 
-Two names come from the Bible and are already used in every log and script:
+DECISIONS.md decision 7 abolished the old poetic codenames. The four plain
+names are used everywhere now: in Telegram, in Tailscale, in the runbooks,
+and in every message written to Nir.
 
-ATLAS is the desktop. Atlas carries the world: the database, the truth, the
-factory. It is the machine that must be on for a weekly build.
+desktop-linux is the desktop's Linux side. It carries the world: the
+database, the truth, the factory. It is the machine that must be on for a
+weekly build.
 
-FORGE is the laptop. Forge makes things in fire: the graphics card, images,
-transcription. It cannot be left running day and night.
+laptop-linux is the laptop's Linux side. It makes things in fire: the
+graphics card, images, transcription. It cannot be left running day and
+night.
 
-Two more names are used here for the Windows sides of those same two machines:
+Two more names are the Windows sides of those same two machines:
 
-ATLAS-WIN and FORGE-WIN are the Windows sides of the two gaming machines.
-Same physical box, different world, so the name says so.
+desktop-windows and laptop-windows are the Windows sides of the two gaming
+machines. Same physical box, different world, so the name says so.
 
 THE OLD SPARE COMPUTER IS NOT PART OF THIS PROJECT. Nir's ruling, 2026-08-21:
 it is very old, he expects it to stop working before long, he does not want it
@@ -55,29 +60,41 @@ and can be changed later, and a USERNAME, which must be unique across all of
 Telegram and must end in the letters "bot". If a username is already taken,
 add a short suffix such as a number or the letters "nir" and try again.
 
-BOT 1 - the desktop Linux machine. Create this one first; it is the one that
-matters for the magazine.
-    Display name:  Atlas - Desktop Linux
-    Username:      AtlasDesktopBot
+BOT 1 - the desktop Linux machine. This one exists already and is live; it
+is the one that matters for the magazine.
+    Display name:  Desktop Linux
+    Address:       t.me/NirAtlasDesktop_bot (the address still carries the
+                   old word "Atlas" because a Telegram bot's address is
+                   permanent once created - see DECISIONS.md decision 7.
+                   Nir only sees the display name, "Desktop Linux", in every
+                   message; the address only shows up when adding the bot.)
     Its job:       the AI PANORAMA control room. The daily green or red
-                   health message, approval requests, alerts, the weekly
-                   build being ready to upload.
+                    health message, approval requests, alerts, the weekly
+                    build being ready to upload.
 
-BOT 2 - the laptop Linux machine.
-    Display name:  Forge - Laptop Linux
-    Username:      ForgeLaptopBot
+BOT 2 - the laptop Linux machine. Not created yet. When it is created, the
+agent sets the display name itself with the setMyName API call - Nir only
+ever pastes a token.
+    Display name:  Laptop Linux
+    Username:      pick one ending in "bot" when creating it, for example
+                   NirForgeLaptop_bot, and record the real one used in
+                   DECISIONS.md decision 6.
     Its job:       image generation and transcription progress, and anything
                    that needs the big graphics card.
 
-BOT 3 - the Windows side of the desktop.
-    Display name:  Atlas - Desktop Windows
-    Username:      AtlasWindowsBot
+BOT 3 - the Windows side of the desktop. Not created yet. Same rule: the
+agent sets the display name with setMyName, Nir only pastes the token.
+    Display name:  Desktop Windows
+    Username:      pick one ending in "bot" when creating it, and record the
+                   real one used in DECISIONS.md decision 6.
     Its job:       whatever Nir asks an agent to do while he is in Windows on
                    the desktop, for example Photoshop or Premiere work.
 
-BOT 4 - the Windows side of the laptop.
-    Display name:  Forge - Laptop Windows
-    Username:      ForgeWindowsBot
+BOT 4 - the Windows side of the laptop. Not created yet. Same rule: the agent
+sets the display name with setMyName, Nir only pastes the token.
+    Display name:  Laptop Windows
+    Username:      pick one ending in "bot" when creating it, and record the
+                   real one used in DECISIONS.md decision 6.
     Its job:       the same, on the laptop.
 
 A NOTE ON THE ORDER. Four bots in total, and there is no need to create them
@@ -104,18 +121,25 @@ HOW TO CREATE A BOT (two minutes, inside Telegram)
 1. In Telegram, search for the user @BotFather and open a chat with it.
 2. Send: /newbot
 3. It asks for a display name. Send one of the display names above, for
-   example: Atlas - Desktop Linux
-4. It asks for a username. Send the matching username above, for example:
-   AtlasDesktopBot . If it says the name is taken, try AtlasDesktopNirBot or
-   similar until it accepts one.
+   example: Laptop Linux
+4. It asks for a username. Send a username ending in "bot", for example:
+   NirForgeLaptop_bot . If it says the name is taken, try
+   NirForgeLaptop26_bot or similar until it accepts one, and record the real
+   one used in DECISIONS.md decision 6.
 5. It replies with a long token that looks like a row of digits, then a colon,
    then a long jumble of letters. THAT is the secret. Paste it to the agent
    once, and it goes into the .env file which git never touches.
-6. Optional but nice: send /setuserpic to give the bot a picture, and
+6. Once the agent has the token, the agent (not Nir) calls the setMyName API
+   with that token to set the FINAL exact display name, for example
+   "Laptop Linux". This is not optional tidiness: it is how the first bot
+   ended up displayed as "@AtlasDesktopBot" with a stray @ sign, when Nir was
+   asked to type the name by hand into BotFather. Nir only ever pastes the
+   token; he never has to type a display name correctly himself.
+7. Optional but nice: send /setuserpic to give the bot a picture, and
    /setdescription to write one line about what it is for.
 
 THEN, ONE MORE THING, ONCE ONLY:
-7. In Telegram, search for @userinfobot and send it any message. It replies
+8. In Telegram, search for @userinfobot and send it any message. It replies
    with a number: Nir's own numeric user id. Paste that too.
    Why it is needed: each bot is locked so that it answers ONLY that number
    and stays completely silent for any stranger who finds it

@@ -1,5 +1,5 @@
-RUNBOOK: NEO4J, THE PROJECT'S LIBRARY, ON ATLAS
-================================================
+RUNBOOK: NEO4J, THE PROJECT'S LIBRARY, ON THE DESKTOP (LINUX)
+==============================================================
 
 WHAT NEO4J IS, IN PLAIN WORDS
 
@@ -11,10 +11,11 @@ in this project is allowed to talk to it directly except one file,
 pipeline/lib/db.py. Think of Neo4j as the project's filing cabinet, and
 db.py as the one clerk who is allowed to open the drawer.
 
-It was installed on Atlas (the desktop) on 2026-08-21, version 1:2026.07.1,
+It was installed on the desktop (Linux) on 2026-08-21, version 1:2026.07.1,
 Community Edition, from Neo4j's own official software source. The exact
 settings that were changed to get it running safely on this machine are
-written down in config/neo4j-atlas-settings.md, in this same repository.
+written down in config/neo4j-desktop-linux-settings.md, in this same
+repository.
 Read that file if you ever need to rebuild this from scratch.
 
 
@@ -55,7 +56,8 @@ is working.
 
 WHERE EVERY FOLDER IS, AND WHY IT IS ON THE BIG DISK
 
-Decision 3 in DECISIONS.md is the rule: on Atlas, the system disk has only
+Decision 3 in DECISIONS.md is the rule: on the desktop (Linux), the system
+disk has only
 about 46 GB free, while /home has about 1.2 TB free. Anything that grows
 must live under /home/nir/, never at a package's default location under
 /var. Neo4j's own defaults pointed at /var, so those lines were commented
@@ -131,7 +133,7 @@ it fixes itself; read what it says first.
 THE BROWSER INTERFACE (OPTIONAL, NIR NEVER NEEDS THIS)
 
 Nir can, if he is ever curious, open a normal web browser and go to
-http://localhost:7474 while sitting at the Atlas desktop. It will ask for
+http://localhost:7474 while sitting at the desktop (Linux). It will ask for
 a username and password: the username is neo4j, and the password is the
 one in the .env file. This is completely optional. Nir never needs to do
 this for the magazine to work; it exists only as a way to peek inside the

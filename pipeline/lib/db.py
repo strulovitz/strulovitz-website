@@ -71,11 +71,15 @@ ENV_FILE = REPO_ROOT / ".env"
 # (bible/part-00.md LAW 12, part-02.md schema versioning).
 LEDGER_SCHEMA_VERSION = 1
 
-# The machine this code is running on, in the project's own vocabulary
-# (bible/part-01.md 1.2). Anything unrecognised is recorded honestly as
-# "unknown" rather than guessed.
+# The machine this code is running on, named after what it plainly is
+# (DECISIONS.md decision 7: the names "Atlas" and "Forge" are abolished).
+# Anything unrecognised is recorded honestly as "unknown" rather than guessed.
+# NOTE: ledger entries written on 2026-08-21 before that decision say "atlas".
+# They are left exactly as they are, because the ledger is append-only and
+# history is never rewritten (LAW 12). "atlas" and "desktop-linux" are the
+# same computer.
 MACHINE_NAMES = {
-    "mint-desktop": "atlas",
+    "mint-desktop": "desktop-linux",
 }
 
 # Action types seen so far. This is a helpful list, not a fence: a new kind of

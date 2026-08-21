@@ -1,9 +1,9 @@
 SESSION STATE - AI PANORAMA - START HERE AFTER A RESTART
 =======================================================
 
-Written: 2026-08-21, by Claude Opus 5 in OpenCode on ATLAS (the desktop,
-Linux Mint 22). This file exists so that a fresh agent with no memory can
-carry on without Nir having to explain anything.
+Written: 2026-08-21, by Claude Opus 5 in OpenCode on the desktop (Linux Mint
+22). This file exists so that a fresh agent with no memory can carry on
+without Nir having to explain anything.
 
 Keep this file up to date at the END of every session. It is the handover.
 
@@ -35,19 +35,20 @@ DECISIONS.md in this repository. Read that together with Part 00. Do not edit
 the Bible.
 
 
-THE MACHINES
+THE MACHINES (DECISIONS.md decision 7: plain names, no codenames)
 
-ATLAS is the desktop. Linux Mint 22.2, Intel i9-13900KF, 62 GB RAM,
-NVIDIA RTX 4070 Ti with 12 GB. This is the machine you are on. Its job is
-the database and the pipeline: the library and the factory.
+desktop-linux is the desktop's Linux side. Linux Mint 22.2, Intel i9-13900KF,
+62 GB RAM, NVIDIA RTX 4070 Ti with 12 GB. This is the machine you are on. Its
+job is the database and the pipeline: the library and the factory.
 
-FORGE is the laptop. Debian 13, Intel Core Ultra 9 275HX, 62 GB RAM,
-NVIDIA RTX 5090 Laptop with 24 GB. Its job is the graphics card work:
-images through ComfyUI, and speech-to-text through Whisper.
+laptop-linux is the laptop's Linux side. Debian 13, Intel Core Ultra 9 275HX,
+62 GB RAM, NVIDIA RTX 5090 Laptop with 24 GB. Its job is the graphics card
+work: images through ComfyUI, and speech-to-text through Whisper.
 
 Nir also has Windows 11 on both machines. Those Windows sides are NOT used for
 the magazine's machinery, but Nir does want an agent able to talk to him from
-each of them, so they get their own names and bots: ATLAS-WIN and FORGE-WIN.
+each of them, so they get their own names and bots: desktop-windows and
+laptop-windows.
 
 The laptop cannot be left running day and night. The desktop can be, but Nir
 prefers not to, so that it lasts longer.
@@ -59,9 +60,9 @@ This is why the weekly snapshot timer uses catch-up: it makes the archive
 survive the desktop being switched off, without needing another machine.
 
 THE DISK RULE, WHICH INSTALLERS WILL TRY TO BREAK:
-On Atlas, the system partition has about 46 GB free. /home has 1.7 TB with
-about 1.2 TB free. Every folder that grows - the Neo4j database, frozen
-source text, images, exports, caches, model files - MUST live under
+On the desktop (Linux), the system partition has about 46 GB free. /home has
+1.7 TB with about 1.2 TB free. Every folder that grows - the Neo4j database,
+frozen source text, images, exports, caches, model files - MUST live under
 /home/nir/ . Never accept a package's default location under /var without
 checking which partition it lands on. Planned home for project data:
 /home/nir/ai-panorama-data/ .
@@ -98,7 +99,8 @@ WHAT IS ALREADY DONE AND WORKING (do not redo any of this)
    It needs no API key (the OpenRouter models endpoint is public), is safe
    to run many times a day, and refuses to overwrite an existing archive
    file unless forced.
-   Schedule: a systemd USER timer on Atlas, Mondays about 09:00, with
+   Schedule: a systemd USER timer on the desktop (Linux), Mondays about
+   09:00, with
    Persistent=true so it catches up if the machine was switched off.
    Files: /home/nir/.config/systemd/user/ai-panorama-snapshot.service
    and .timer . Check it with:
@@ -127,12 +129,16 @@ WHAT IS ALREADY DONE AND WORKING (do not redo any of this)
 6. The existing website pages were not touched: index.html, hive/, ghost/,
    images/, style.css are exactly as they were.
 
-Already installed on Atlas: Python 3.12.3, uv 0.12.0, node 24, git, ffmpeg,
-OpenJDK 21, Neo4j Community 2026.07.1.
-NOT installed on Atlas yet: Tailscale, Docker or Podman, OpenClaw.
+Already installed on the desktop (Linux): Python 3.12.3, uv 0.12.0, node 24,
+git, ffmpeg, OpenJDK 21, Neo4j Community 2026.07.1.
+NOT installed on the desktop (Linux) yet: Tailscale, Docker or Podman,
+OpenClaw.
 
 7. THE TELEGRAM CONTROL ROOM WORKS, BOTH WAYS.
-   Bot: display name "Atlas Desktop", address t.me/NirAtlasDesktop_bot .
+   Bot: display name "Desktop Linux", address t.me/NirAtlasDesktop_bot . The
+   address still carries the old word because a Telegram bot address is
+   permanent once created (DECISIONS.md decision 7); Nir only ever sees the
+   display name "Desktop Linux" when a message arrives.
    Created 2026-08-21. The token and Nir's numeric user id are in .env, which
    git is forbidden to touch. The real usernames of all four planned bots are
    recorded in DECISIONS.md decision 6, because the tidy names from decision 5
@@ -146,8 +152,9 @@ NOT installed on Atlas yet: Tailscale, Docker or Podman, OpenClaw.
 
 8. THE DAILY HEARTBEAT RUNS AT 10:30 EVERY MORNING (Nir chose the time; he is
    not an early bird). It sends ONE short Telegram message saying whether
-   Atlas is healthy: the price archive's freshness, the database's state, free
-   space on both disks, and whether anything is unsaved.
+   the desktop (Linux) is healthy: the price archive's freshness, the
+   database's state, free space on both disks, and whether anything is
+   unsaved.
    Script: pipeline/stages/heartbeat.py . Try it without sending anything:
        cd pipeline && uv run stages/heartbeat.py --dry-run
    Timer: systemd USER units ai-panorama-heartbeat.service and .timer, with
@@ -156,7 +163,8 @@ NOT installed on Atlas yet: Tailscale, Docker or Podman, OpenClaw.
    ops/runbooks/daily-heartbeat.md
    Silence therefore MEANS something: the desktop was off. That is the point.
 
-9. NEO4J IS INSTALLED AND RUNNING ON ATLAS - the project's permanent library.
+9. NEO4J IS INSTALLED AND RUNNING ON THE DESKTOP (LINUX) - the project's
+   permanent library.
    Community Edition 2026.07.1 from Neo4j's own apt repository, on OpenJDK 21.
    ALL of its growing folders are under /home/nir/ai-panorama-data/neo4j per
    DECISIONS.md decision 3; the package's /var defaults were commented out,
@@ -167,8 +175,9 @@ NOT installed on Atlas yet: Tailscale, Docker or Podman, OpenClaw.
    Permissions trick worth remembering: /home/nir is private, so instead of
    adding the neo4j service user to Nir's group, a single ACL lets it WALK
    THROUGH the folder without reading it: sudo setfacl -m u:neo4j:x /home/nir
-   Runbook: ops/runbooks/neo4j-on-atlas.md
-   Exact settings, for rebuilding from scratch: config/neo4j-atlas-settings.md
+   Runbook: ops/runbooks/neo4j-on-the-desktop.md
+   Exact settings, for rebuilding from scratch:
+   config/neo4j-desktop-linux-settings.md
    (/etc/neo4j/neo4j.conf is a system file and is NOT in git, which is why
    that record exists. On a package upgrade, KEEP the local config.)
 
@@ -191,12 +200,13 @@ NOT installed on Atlas yet: Tailscale, Docker or Podman, OpenClaw.
 WHAT TO DO NEXT, IN ORDER (the rest of Milestone 0, bible/part-13.md 13.1)
 
 STEP A. DONE - the Telegram control room and the daily heartbeat, see items 7
-and 8 above. What REMAINS of it: three more bots when Nir wants them (Forge
-Linux, and the two Windows sides), each created the same way, with the token
-for Forge's bot living in the .env on FORGE and never on Atlas. Also still
-outstanding: OpenClaw itself is not installed, so Nir can be TOLD things but
-cannot yet TALK BACK and give approvals by Telegram. That is the next piece of
-the control room, and Milestone 0 wants approvals to work.
+and 8 above. What REMAINS of it: three more bots when Nir wants them
+(laptop-linux, and the two Windows sides), each created the same way, with
+the token for the laptop-linux bot living in the .env on the laptop (Linux)
+and never on the desktop (Linux). Also still outstanding: OpenClaw itself is
+not installed, so Nir can be TOLD things but cannot yet TALK BACK and give
+approvals by Telegram. That is the next piece of the control room, and
+Milestone 0 wants approvals to work.
 
 STEP B. DONE - Neo4j and pipeline/lib/db.py and the job ledger, see items 9,
 10 and 11 above.
@@ -206,15 +216,15 @@ JSON files as the frozen evidence. Also add the matching schema file plus an
 example file in schemas/ (bible/part-02.md 2.8). Use already_done() from
 lib/db.py so re-running is harmless, and log_job() for every run.
 
-STEP D. Tailscale on Atlas and Forge, so the two machines can talk privately,
-and so the Quest 3 headset can reach a development server later. Needs Nir's
-password. When it is done, Neo4j's listen address may gain the Tailscale
-address, and nothing else, ever.
+STEP D. Tailscale on the desktop (Linux) and the laptop (Linux), so the two
+machines can talk privately, and so the Quest 3 headset can reach a
+development server later. Needs Nir's password. When it is done, Neo4j's
+listen address may gain the Tailscale address, and nothing else, ever.
 
 STEP E. The discovery report. Inventory both machines and write it to the job
-ledger with plain-language wording Nir actually understands. Atlas is already
-inventoried in this file; Forge still needs doing, and Forge is a different
-machine, so it means working there or over Tailscale.
+ledger with plain-language wording Nir actually understands. The desktop
+(Linux) is already inventoried in this file; the laptop still needs doing,
+and it is a different machine, so it means working there or over Tailscale.
 
 STEP F. Deploy a placeholder page to strulovitz.org through the full ritual:
 a versioned folder plus a tiny pointer.json uploaded LAST

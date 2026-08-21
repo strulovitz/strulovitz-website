@@ -29,7 +29,7 @@ WHEN TO USE THIS RUNBOOK
 
 BEFORE YOU START
 
-1. You need to be on ATLAS, the desktop machine.
+1. You need to be on the desktop (Linux).
 2. You need a working internet connection. Nothing else. In particular you
    do NOT need an API key, a password, or an account. The endpoint we use is
    public, on purpose: a script that must keep working for years should
@@ -73,7 +73,8 @@ the script five times in one day is completely safe.
 
 STEPS: THE AUTOMATIC WEEKLY SCHEDULE (ALREADY INSTALLED)
 
-The schedule is handled by two small files, already in place on Atlas:
+The schedule is handled by two small files, already in place on the desktop
+(Linux):
 
     /home/nir/.config/systemd/user/ai-panorama-snapshot.service
     /home/nir/.config/systemd/user/ai-panorama-snapshot.timer

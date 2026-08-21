@@ -20,7 +20,8 @@ WHERE THE DATA GOES
 pipeline/snapshots/openrouter/YYYY-MM-DD.json  (one file per snapshot day)
 pipeline/snapshots/openrouter/index.json       (a list of every snapshot taken)
 
-Later, when Neo4j exists on Atlas, a second small step will also load these
+Later, when Neo4j exists on the desktop (Linux), a second small step will
+also load these
 same files into the database as immutable rows. The files stay either way:
 they are the frozen evidence, and they are what gets published one day as a
 public dataset (bible/part-09.md 9.4.3).

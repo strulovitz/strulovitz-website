@@ -1,10 +1,11 @@
-NEO4J ON ATLAS: THE EXACT SETTINGS, AND WHY EACH ONE IS THERE
+NEO4J ON THE DESKTOP (LINUX): THE EXACT SETTINGS, AND WHY EACH ONE IS THERE
 ==============================================================
 
 WHY THIS FILE EXISTS
 
 The real settings file is /etc/neo4j/neo4j.conf, which is a system file on
-Atlas and is NOT, and must never be, tracked in git. This document is the
+the desktop (Linux) and is NOT, and must never be, tracked in git. This
+document is the
 record of exactly what was changed in that system file and why, so that this
 same machine could be rebuilt from scratch, or a second machine set up to
 match it, without anyone having to guess or rediscover it by trial and error.
@@ -55,7 +56,8 @@ WHY EACH LINE IS THERE:
 1. server.directories.data, server.directories.logs,
    server.directories.import
    Decision 3 in DECISIONS.md: everything that grows lives under
-   /home/nir/, never under /var. Atlas's system disk has only about 46 GB
+   /home/nir/, never under /var. The desktop's (Linux) system disk has only
+   about 46 GB
    free; /home has about 1.2 TB free. The package's own defaults for these
    three settings point at /var/lib/neo4j/... and /var/log/neo4j; those
    original lines were commented out near the top of the file (left
@@ -84,8 +86,9 @@ WHY EACH LINE IS THERE:
 
 4. server.memory.heap.initial_size, server.memory.heap.max_size,
    server.memory.pagecache.size
-   Atlas has 62 GB of RAM in total, but it also has to run the desktop
-   itself and, at times, the image generation software. 4 GB of working
+   The desktop (Linux) has 62 GB of RAM in total, but it also has to run the
+   desktop environment itself and, at times, the image generation software.
+   4 GB of working
    memory (the heap) plus 4 GB of page cache is far more than this
    database needs for years of the job ledger and the magazine's content,
    and it leaves the rest of the machine comfortable. Raise these numbers

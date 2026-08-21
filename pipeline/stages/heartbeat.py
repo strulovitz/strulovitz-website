@@ -4,7 +4,8 @@ THE DAILY HEARTBEAT
 ===================
 
 WHAT THIS DOES, IN ONE SENTENCE
-Every morning at 10:30 Atlas looks itself over and sends Nir one short
+Every morning at 10:30 the desktop (Linux) looks itself over and sends Nir
+one short
 Telegram message saying whether everything is healthy.
 
 WHY IT EXISTS (bible/part-12.md, operations; part-00.md LAW 11)
