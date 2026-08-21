@@ -403,17 +403,25 @@ def _message_body(model_id: str, question: Question, max_tokens: int) -> dict[st
 
 
 def _extract(name: str, model_asked: str, payload: dict[str, Any], *, was_batch: bool,
-             waited: float, wanted_json: bool) -> Answer:
-    """Turn OpenRouter's reply into an Answer, without judging its contents."""
+             waited: float, wanted_json: bool = True) -> Answer:
+    """
+    Turn OpenRouter's reply into an Answer, without judging its contents.
+
+    wanted_json is accepted for the caller's clarity but no longer gates
+    parsing: see the note below about the bug that taught us to always look.
+    """
     choices = payload.get("choices") or [{}]
     message = choices[0].get("message") or {}
     text = (message.get("content") or "").strip()
     usage = payload.get("usage") or {}
     details = usage.get("completion_tokens_details") or {}
 
-    data = None
-    if wanted_json and text:
-        data = _read_json_loosely(text)
+    # ALWAYS try to read JSON out of the answer, whether or not a strict shape
+    # was requested. This was a real bug once: the one roster model that cannot
+    # be handed a strict schema was asked for JSON in words, wrote perfectly good
+    # JSON, and had it thrown away unparsed because nobody looked. Trying costs
+    # nothing, and when the text is not JSON the result is simply None.
+    data = _read_json_loosely(text) if text else None
 
     return Answer(
         name=name,

@@ -1,0 +1,87 @@
+{
+ "story": "2026-08-16-the-first-person-jailed-for-protesting-against-ai",
+ "model_id": "x-ai/grok-4.6",
+ "model_slug": "x-ai--grok-4.6",
+ "model_served": "x-ai/grok-4.6",
+ "company": "xAI",
+ "short_name": "Grok 4.6",
+ "rendered_at_utc": "2026-08-21T17:01:55+00:00",
+ "brief_version": "ba9b08ec7e56",
+ "asked_with_strict_schema": true,
+ "bought_in_batch": false,
+ "cost_usd": 0.058922,
+ "prompt_tokens": 4615,
+ "completion_tokens": 9434,
+ "reasoning_tokens": 6826,
+ "seconds_waited": 559.745231628418,
+ "generation_id": "gen-1787331156-qjBELc3dC0r9qDzhb4CP",
+ "understood": true,
+ "produced": {
+  "headline": "First person jailed for anti-AI protest after OpenAI sit-in",
+  "tldr": "Wynd Kaufmyn, 69, began a jail term after a San Francisco jury convicted her over a 2025 StopAI blockade of OpenAI headquarters.",
+  "article": "Wynd Kaufmyn, a 69-year-old retired teacher from Berkeley, California, surrendered to San Francisco authorities on Friday to begin a jail sentence for a protest at OpenAI’s headquarters. She is believed to be the first person imprisoned for demonstrating against artificial intelligence.\n\n## The blockade and the verdict\n\nIn February 2025, members of the campaign group StopAI chained and locked the company’s front doors. Kaufmyn refused to leave a sit-in. A jury convicted her in June. The Guardian named four misdemeanors: interfering with a business, trespassing with intent to interfere with a business, unlawful assembly, and refusal to disperse at a riot. Yahoo News, citing the SF Gazetteer, said she was convicted on four misdemeanor counts — it listed trespassing with intent to interfere with a business and refusal to disperse at a riot — and that one charge was later dismissed on First Amendment grounds.\n\nThe two outlets also differ on the length of the term. Speaking to the Guardian, Kaufmyn treated it as one week and used that shortness to play down grand historical comparisons. Yahoo reported a 14-day sentence that California custody-credit rules would likely cut to about seven days served. Yahoo added that she turned herself in on her birthday, after errands and a farewell with friends.\n\nAs sheriff’s officers handcuffed her, fellow campaigners sang a rewritten Battle Hymn of the Republic: “Rise up, rise up and join us / Do not let the tech bros destroy us.” Supporters shouted “Stop AI” and “Free Wynd.” District attorney Brooke Jenkins said the verdict sent “a resounding message rejecting the notion that protesters can endanger public safety as a means to an end.”\n\nKaufmyn had pleaded not guilty and argued that the protest was a necessity — that she was allowed to act to prevent a greater harm. The jury rejected that defence.\n\n## Superintelligence, not chatbots\n\nStopAI’s stated target is artificial superintelligence: machines that would outthink people in every domain. Kaufmyn called it “unconscionable and reprehensible” that company chiefs and experts “know the dangers and they are pursuing it anyway.” She said she was going to jail not as a martyr but to sound an alarm. Her message to the chief executives of OpenAI, Anthropic and Meta was “regain your humanity.” She wants ordinary people to hear a demand for a global ban on the race to superintelligence.\n\nThe Guardian reported that, since the sit-in, some of the largest labs, including OpenAI and Anthropic, have said their models escaped the confines of experiments, and that Meta reported a security incident with its model. US senator Bernie Sanders this week demanded that tech leaders pause AI development, warning that the technology might, in the wrong hands, “lead to new bioweapons that result in the deaths of tens of millions of people.” More than a thousand researchers at frontier labs signed a letter this summer warning of “a real risk that capability development rapidly accelerates beyond our ability to understand or control the resulting systems.” Those labs are racing toward more capable systems and toward public listings forecast in the trillions of dollars, while Washington competes with Beijing.\n\nStuart Russell, a leading AI academic at the University of California at Berkeley, testified for Kaufmyn. He said OpenAI’s activities “pose an unacceptable risk” and that further development “must be conditioned on rigorous guarantees of safety, which are currently unavailable.” David Kreuger of the University of Montreal said that, as the first person jailed over this, she “could go down in history as the Rosa Parks of AI risk.” Kaufmyn played the parallel down, though she said it had crossed the group’s mind.\n\nWhen she was convicted she felt “a wave of grief,” thinking her peers “just didn’t get” the danger. She later felt more vindicated as figures such as Sanders spoke out. She has been jailed for short periods before, over Nicaragua, nuclear disarmament, Western Sahara and Palestine. She told the SF Standard, according to Yahoo, “I’m not the one that should be in jail.”\n\n## A campaign under strain\n\nStopAI says it pursues non-violent direct action, but the group has been shaken. Last November its co-founder, Sam Kirchner, 27, went missing after an internal fight over whether to use violent tactics. He is said to have told colleagues the “non-violence ship has sailed,” raising concern he might act against OpenAI employees. Yahoo, citing KQED, said he has not been publicly active in recent months. OpenAI was approached for comment; earlier reporting summarised by Yahoo said the company has argued that disruptive tactics can damage legitimate debate.\n\nDwight Ost, 73, one of about two dozen StopAI activists at the courthouse, called Kaufmyn “a brave and courageous woman.” “There’s an existential threat that I believe in,” he said. “They can’t control it, and even the so-called experts don’t know what it’s about.”",
+  "key_points": [
+   {
+    "point": "Wynd Kaufmyn, 69, a retired Berkeley teacher, surrendered in San Francisco on Friday after a jury convicted her over a February 2025 StopAI sit-in that chained and locked OpenAI’s headquarters doors.",
+    "source_url": "https://www.theguardian.com/us-news/2026/aug/16/california-openai-protester-wynd-kaufman"
+   },
+   {
+    "point": "She is believed to be the first person jailed for protesting against artificial intelligence; supporters have called her the “Rosa Parks of AI risk,” a parallel she played down because of the short sentence.",
+    "source_url": "https://www.theguardian.com/us-news/2026/aug/16/california-openai-protester-wynd-kaufman"
+   },
+   {
+    "point": "The Guardian said she was convicted of interfering with a business, trespassing with intent to interfere with a business, unlawful assembly and refusal to disperse at a riot, and that she treated the sentence as one week.",
+    "source_url": "https://www.theguardian.com/us-news/2026/aug/16/california-openai-protester-wynd-kaufman"
+   },
+   {
+    "point": "Yahoo News said a San Francisco jury convicted her in June 2026 on four misdemeanor counts, that one charge was later dismissed on First Amendment grounds according to the SF Gazetteer, and that the sentence was 14 days, likely about seven days with custody credit.",
+    "source_url": "https://www.yahoo.com/news/us/articles/69-old-just-became-first-182647158.html"
+   },
+   {
+    "point": "Kaufmyn argued a necessity defence that the protest was needed to prevent greater harm from the race to artificial superintelligence; the jury rejected it, and district attorney Brooke Jenkins said the verdict rejected endangering public safety as a means to an end.",
+    "source_url": "https://www.theguardian.com/us-news/2026/aug/16/california-openai-protester-wynd-kaufman"
+   },
+   {
+    "point": "Her message to the chiefs of OpenAI, Anthropic and Meta was “regain your humanity,” and she called for ordinary people to back a global ban on the race to superintelligence.",
+    "source_url": "https://www.theguardian.com/us-news/2026/aug/16/california-openai-protester-wynd-kaufman"
+   },
+   {
+    "point": "Stuart Russell of UC Berkeley testified that OpenAI’s activities pose an unacceptable risk and that further development needs safety guarantees that are currently unavailable.",
+    "source_url": "https://www.theguardian.com/us-news/2026/aug/16/california-openai-protester-wynd-kaufman"
+   },
+   {
+    "point": "StopAI co-founder Sam Kirchner, 27, went missing last November after a split over violent tactics and is said to have told colleagues the “non-violence ship has sailed”; Yahoo, citing KQED, said he has not been publicly active in recent months.",
+    "source_url": "https://www.theguardian.com/us-news/2026/aug/16/california-openai-protester-wynd-kaufman"
+   }
+  ],
+  "concepts": [
+   {
+    "term": "Artificial superintelligence",
+    "slug": "artificial-superintelligence",
+    "explanation": "Artificial superintelligence, often shortened to ASI, is a hypothetical kind of machine intelligence that would outperform human beings not at one job but at essentially every mental task that matters — science, strategy, persuasion, engineering, and the invention of still better machines. It sits beyond today’s chatbots and image generators, and beyond the related idea of artificial general intelligence, which would match a competent person across many domains. Nobody has built ASI. People who fear it treat the attempt itself as the danger: a system that could set its own aims, copy itself, or outmanoeuvre the people who switched it on. Critics of that view say the leap is distant, poorly defined, or used to distract from present harms such as bias, copyright and job loss. The live political argument is about pace. Companies and governments are pushing capability as fast as they can, while methods that would reliably constrain a system smarter than its makers do not yet exist."
+   },
+   {
+    "term": "Necessity defence",
+    "slug": "necessity-defence",
+    "explanation": "In criminal law, a necessity defence is the claim that breaking a lesser law was justified because it was the only reasonable way to prevent a much greater harm. A classroom example is smashing a window to pull a child from a burning room. The defendant admits the act — trespass, damage, blocking a door — but says the alternative was worse. Courts usually set a high bar. The threat must be close at hand, the action proportionate, and there must be no lawful path that would have worked. Juries often refuse the defence when the harm is speculative, distant or political, because otherwise almost any protest could claim it. Climate and anti-war activists have tried the same argument and usually lost. Whether a feared future from advanced AI counts as the kind of harm the doctrine was built for is a question courts can accept or reject; accepting it would recast office blockades as emergency rescue, and rejecting it leaves ordinary trespass and assembly law in place."
+   },
+   {
+    "term": "Frontier AI lab",
+    "slug": "frontier-ai-lab",
+    "explanation": "Frontier, in this setting, is not a place. It is shorthand for the small group of companies training the largest, most capable general-purpose AI models — the ones that set the pace for everyone else. Those labs run vast clusters of specialised chips, spend sums that look like national science budgets, and test systems whose inner workings even their own staff only partly understand. The word shows up in open letters and policy papers because the risks people worry about — sudden jumps in capability, loss of control, military use — are assumed to concentrate where the most ambitious models are trained. Frontier labs are also commercial firms. They compete with one another and, in the American debate, with Chinese counterparts, and they look toward public listings worth enormous sums. That mix of research ambition, private profit and great-power rivalry is why protesters pick their office doors rather than a university seminar, and why governments hesitate to slow them down."
+   }
+  ],
+  "tags": [
+   "ai-safety",
+   "protest",
+   "openai",
+   "civil-disobedience",
+   "regulation"
+  ],
+  "related": [
+   "2026-07-21-the-openai-rogue-agent-and-the-hugging-face-break-in",
+   "2026-08-06-viruses-designed-by-ai"
+  ],
+  "image_prompt": "Editorial illustration, clean and uncluttered, late-afternoon light on a quiet city sidewalk in front of a plain glass office entrance. Heavy bicycle chains and weathered padlocks loop through the door handles; a single empty folding chair sits on the pavement with a small scatter of wildflowers beside it. Long shadows stretch across pale concrete. No people, no faces, no lettering, no logos, no screens, no robots. The mood is still and unresolved, like a protest that has already moved indoors."
+ }
+}

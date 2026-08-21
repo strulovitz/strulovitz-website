@@ -371,6 +371,46 @@ def render_batch(slugs: list[str], model: Model, *, actor: str) -> str:
     return receipt.batch_id
 
 
+def reparse(slug: str, model: Model) -> bool:
+    """
+    Read an edition's RAW answer off disk again and rebuild its rendering.
+
+    Why this exists: the raw text a model sent is always kept in answer.txt, so
+    if our own reading of that text was ever at fault - and it was once, for the
+    one model that cannot be handed a strict JSON shape - the fix costs nothing.
+    No model is called, no money is spent, and the model's words are not altered
+    by a single character.
+
+    This is the ONLY kind of second look allowed. A poor answer is never
+    re-bought (DECISIONS.md decision 16).
+    """
+    folder = edition_folder(slug, model)
+    raw_path = folder / "answer.txt"
+    rendering_path = folder / "rendering.json"
+    if not raw_path.exists() or not rendering_path.exists():
+        return False
+
+    from lib.llm import _read_json_loosely  # the same reader the live path uses
+
+    rendering = json.loads(rendering_path.read_text(encoding="utf-8"))
+    produced = _read_json_loosely(raw_path.read_text(encoding="utf-8"))
+    if not isinstance(produced, dict):
+        return False
+    if rendering.get("understood") and rendering.get("produced"):
+        return False  # already fine, leave it alone
+
+    rendering["understood"] = True
+    rendering["produced"] = produced
+    rendering["reparsed_at_utc"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
+    rendering_path.write_text(json.dumps(rendering, ensure_ascii=False, indent=1), encoding="utf-8")
+    (folder / "article.md").write_text(
+        f"# {produced.get('headline', '')}\n\n*{produced.get('tldr', '')}*\n\n"
+        f"{produced.get('article', '')}\n", encoding="utf-8")
+    (folder / "image-prompt.txt").write_text(str(produced.get("image_prompt", "")), encoding="utf-8")
+    write_readable(folder)
+    return True
+
+
 def main(argv: list[str]) -> int:
     parser = argparse.ArgumentParser(description="Render editions of stories.")
     parser.add_argument("--story", help="one story slug")
@@ -380,8 +420,20 @@ def main(argv: list[str]) -> int:
     parser.add_argument("--batch", action="store_true", help="buy at half price, collect later")
     parser.add_argument("--again", action="store_true",
                         help="render even where a rendering already exists")
+    parser.add_argument("--reparse", action="store_true",
+                        help="re-read answers already on disk. Costs nothing, calls nobody.")
     parser.add_argument("--actor", default="claude-opus-5")
     args = parser.parse_args(argv)
+
+    if args.reparse:
+        fixed = 0
+        for model in (roster() if args.all_models or not args.model else [model_by_id(args.model)]):
+            for slug in (all_story_slugs() if args.all or not args.story else [args.story]):
+                if reparse(slug, model):
+                    print(f"  re-read {slug} / {model.short_name}")
+                    fixed += 1
+        print(f"\n{fixed} editions re-read from answers already on disk. Cost: nothing.")
+        return 0
 
     slugs = all_story_slugs() if args.all else ([args.story] if args.story else [])
     models = roster() if args.all_models else ([model_by_id(args.model)] if args.model else [])
