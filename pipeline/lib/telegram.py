@@ -158,7 +158,7 @@ if __name__ == "__main__":
     # Running this file directly sends a test message. Useful after moving the
     # project to a new machine: it proves the .env is correct before anything
     # else is built on top of it.
-    ok = send("Test message from pipeline/lib/telegram.py on Atlas. If you can "
+    ok = send("Test message from the desktop computer, Linux side. If you can "
               "read this, the control room works.")
     print("Sent." if ok else "Not sent. See the error above.")
     sys.exit(0 if ok else 1)

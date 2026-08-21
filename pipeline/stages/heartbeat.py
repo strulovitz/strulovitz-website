@@ -207,9 +207,11 @@ def build_message() -> tuple[bool, str]:
 
     all_healthy = archive_ok and database_ok and disks_ok
 
-    headline = ("Good morning Nir. Atlas here. Everything is healthy."
+    headline = ("Good morning Nir. The desktop, Linux side, reporting. "
+                "Everything is healthy."
                 if all_healthy else
-                "Good morning Nir. Atlas here. SOMETHING NEEDS YOU.")
+                "Good morning Nir. The desktop, Linux side, reporting. "
+                "SOMETHING NEEDS YOU.")
 
     body = [
         headline,
