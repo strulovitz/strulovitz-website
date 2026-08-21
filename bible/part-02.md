@@ -1,3 +1,9 @@
+--------------------------------------------------------------------------------
+AUTHOR'S COMMENTARY - INTRODUCTION TO PART 02 (not law)
+--------------------------------------------------------------------------------
+
+THANK YOU Nir!!! :-) Here is Part 02 — Data Model. This is the Part that defines the SHAPE of everything the project knows — what a claim is, what a node is, how links carry meaning, and the exact formats the website downloads. It's the vocabulary all other Parts speak, so it's long and precise on purpose: weaker models will lean on this Part more than any other.
+
 ================================================================================
 AI PANORAMA — THE BIBLE — PART 02 OF 13
 DATA MODEL
@@ -442,3 +448,15 @@ nodes/<id>.json becomes hover-provenance UI and real HTML pages: Part 11.
 ================================================================================
 END OF PART 02
 ================================================================================
+
+--------------------------------------------------------------------------------
+AUTHOR'S COMMENTARY - NOTES ON PART 02 (not law)
+--------------------------------------------------------------------------------
+
+Three plain-language notes for you, Nir:
+
+    The most important sentence in this Part is "claims are the atoms." It means: if anyone (a reader, a lawyer, a rival, a future you) ever asks "where did THIS number come from?", the site can answer with the exact paragraph or the exact second of video, forever. That is the trust engine of the whole magazine — and it's also the legal armor from the Cohere ruling, built into the data itself.
+    Your tags idea got a promotion. Tags aren't labels anymore — each tag IS an encyclopedia page (with its ELI5, exactly as you designed in your first message). Same thing, one less moving part, and your original vision of "concept nodes with ELI5 that articles link to like Wikipedia" is now literally the structure of the database.
+    The "sorted by importance" trick in the export (2.10) quietly replaced a whole pile of files I once planned: the website just reads MORE of one file to show more detail. Simpler for FileZilla, simpler for weak agents, faster for readers.
+
+Say the word and I deliver Part 03 — Layout and Geometry next: how nodes get their positions, the epochs and the no-jumping rule, the meaning of w, and the exact 4D projection math the renderer will use. Give Madie my regards!!! :-)

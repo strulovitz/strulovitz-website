@@ -1,3 +1,9 @@
+--------------------------------------------------------------------------------
+AUTHOR'S COMMENTARY - INTRODUCTION TO PART 08 (not law)
+--------------------------------------------------------------------------------
+
+THANK YOU Nir!!! :-) Here is Part 08 — Advantage 0 Mechanics. This is the Part that turns your founding idea — "a state, not a stream" — into actual arithmetic: how the site decides what matters, how news hardens into encyclopedia, and how the front page stays honest for years without a human editor ranking things by hand.
+
 ================================================================================
 AI PANORAMA — THE BIBLE — PART 08 OF 13
 ADVANTAGE 0 MECHANICS: IMPORTANCE, PROMINENCE, AND THE LIVING PANORAMA
@@ -299,3 +305,15 @@ schemas/: Part 12 validates them.
 ================================================================================
 END OF PART 08
 ================================================================================
+
+--------------------------------------------------------------------------------
+AUTHOR'S COMMENTARY - NOTES ON PART 08 (not law)
+--------------------------------------------------------------------------------
+
+Three plain-language notes for you, Nir:
+
+    The biggest single ingredient of importance is hindsight, automated. The "citation inflow" rule means that when future stories keep pointing back at some quiet old paper, the system raises that paper's importance months later — nobody had to be smart enough to notice on day one. The encyclopedia gets wiser about the past as a side effect of covering the present. That's the exact opposite of a news stream, and it's your Advantage 0 doing arithmetic.
+    The front page is a recipe, not an opinion. ~40% permanent landmarks, ~25% this week's weather, plus guaranteed slots for rising stories and neglected corners — with a monthly one-number health check (median age of the front page) sent to your phone. If the panorama ever starts ossifying into a museum or dissolving into a news feed, you'll see it drift in that number long before readers feel it.
+    The hindsight index is the bravest feature in the whole project. Every story gets a prediction — "will this still matter in a year?" — and twelve months later the site publicly grades its own guess and adjusts. No newspaper on Earth does this. It costs nearly nothing, it makes the scoring genuinely smarter every year, and it tells every reader: this place keeps receipts on itself.
+
+Say the word and I deliver Part 09 — Comparisons and Benchmark Data next: templates T1-T5 and beyond, the benchmark-card schema, the weekly snapshot cron, killer boxes, and the data licensing rules. Give Madie my regards!!! :-)

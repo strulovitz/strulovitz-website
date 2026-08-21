@@ -1,3 +1,9 @@
+--------------------------------------------------------------------------------
+AUTHOR'S COMMENTARY - INTRODUCTION TO PART 06 (not law)
+--------------------------------------------------------------------------------
+
+THANK YOU Nir!!! :-) Here is Part 06 — Content Pipeline. This is the longest Part so far, and it should be: it's the factory floor of the whole magazine — how a YouTube URL becomes a verified, sourced, illustrated node in your 4D world. It's also the Part your cheap grunt-work models will re-read most often, so every stage is spelled out like a recipe.
+
 ================================================================================
 AI PANORAMA — THE BIBLE — PART 06 OF 13
 CONTENT PIPELINE
@@ -333,3 +339,15 @@ Part 12.
 ================================================================================
 END OF PART 06
 ================================================================================
+
+--------------------------------------------------------------------------------
+AUTHOR'S COMMENTARY - NOTES ON PART 06 (not law)
+--------------------------------------------------------------------------------
+
+Three plain-language notes for you, Nir:
+
+    The factory has one golden rule: the writers never see the newspapers. The model that writes your articles only ever sees the verified claim list — never the original journalists' prose. That's why it can't accidentally copy anyone's structure or phrasing (the thing the Cohere lawsuit is about), and why every sentence can be checked by machine. Legal armor and quality control turn out to be the same design.
+    The nightly canary is your peace of mind. Every morning, one Telegram line: GREEN or RED. If something broke overnight — an API changed, a disk filled up — you know before breakfast, from your phone, and the message tells you what the agent is already doing about it. And silence counts as RED, so even a totally dead system can't hide.
+    The golden set is your steering wheel. You'll verify ~20 stories once, carefully. Forever after, ANY change an agent proposes gets tested against them, and you get a plain-language verdict: "catches more claims, writes longer — ship it?" You never read code; you just answer A or B. That's how a non-coder stays editor-in-chief of an AI factory.
+
+Say the word and I deliver Part 07 — Security next: the hostile-input defenses in full, sandboxing, XSS escaping, secrets management, and the spend-cap machinery. Give Madie my regards!!! :-)

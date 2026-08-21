@@ -1,3 +1,9 @@
+--------------------------------------------------------------------------------
+AUTHOR'S COMMENTARY - INTRODUCTION TO PART 04 (not law)
+--------------------------------------------------------------------------------
+
+THANK YOU Nir!!! :-) Here is Part 04 — Rendering and Performance. This is the Part that guarantees the VR experience is always smooth and comfortable — because in VR, a slow website isn't just annoying like on a screen, it can make the user physically sick. So this Part is written as a discipline with hard numbers, and every future agent gets measured against them.
+
 ================================================================================
 AI PANORAMA — THE BIBLE — PART 04 OF 13
 RENDERING AND PERFORMANCE
@@ -300,3 +306,17 @@ boxes): Part 09. Release checklist and ledger: Part 12.
 ================================================================================
 END OF PART 04
 ================================================================================
+
+--------------------------------------------------------------------------------
+AUTHOR'S COMMENTARY - NOTES ON PART 04 (not law)
+--------------------------------------------------------------------------------
+
+(Two stray characters slipped in again — section 4.6 "Quest-specific措施" should read "Quest-specific measures". Same cleanup instruction as last time for the committing agent: fix that one word, everything else is clean. I've noticed this happens occasionally in very long outputs; the pre-upload validator in Part 12 will also catch non-ASCII characters in Bible files as a rule.)
+
+Three plain-language notes for you, Nir:
+
+    The whole Part is really one promise: the headset never stutters. Everything else — the hundred-draw-call limit, the pre-baked text cards, the "starfield" fallback — is machinery for keeping that one promise even when the graph is huge. Stutter in VR isn't ugly, it's nauseating, and a reader who felt sick once never puts the headset back on.
+    The hover cards trick is worth understanding: every node's little TLDR popup is pre-drawn as a picture at build time in your kitchen, so when a reader points the laser at a node, the headset just slides a ready-made picture into view — it never has to typeset text live. Your Atlas PC does the work once so a million future hovers cost nothing.
+    The ?perftest=1 page is your quality inspector. Any time you want, you can open that address on the Quest and get a plain PASS or FAIL with numbers you can paste into Telegram. No agent can tell you "it's fast, trust me" — you can check yourself, without reading a line of code.
+
+Say the word and I deliver Part 05 — 4D Interaction next: the controller mappings, slice and projection modes, the holotable comfort rules, the w-gym onboarding room, and the red-letter correctness rules — the crown jewel Part. Give Madie my regards!!! :-)

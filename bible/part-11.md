@@ -1,3 +1,9 @@
+--------------------------------------------------------------------------------
+AUTHOR'S COMMENTARY - INTRODUCTION TO PART 11 (not law)
+--------------------------------------------------------------------------------
+
+THANK YOU Nir!!! :-) Here is Part 11 — Publishing and Discovery. This is the Part about the kingdom behind the crown — the plain HTML pages, feeds, and shareable artifacts that make the project findable, citable, and spreadable with zero marketing budget. The 4D atlas is what people will talk about; this Part is how they find it in the first place.
+
 ================================================================================
 AI PANORAMA — THE BIBLE — PART 11 OF 13
 PUBLISHING AND DISCOVERY
@@ -259,3 +265,17 @@ Part 07, 7.3.
 ================================================================================
 END OF PART 11
 ================================================================================
+
+--------------------------------------------------------------------------------
+AUTHOR'S COMMENTARY - NOTES ON PART 11 (not law)
+--------------------------------------------------------------------------------
+
+(One stray character again, Nir — section 11.1.6 begins "每 page" and should read "every page". Same standing instruction for the committing agent; the Part 12 validator's non-ASCII scan will make this class of typo impossible to ship.)
+
+Three plain-language notes for you, Nir:
+
+    "What did I miss?" is your killer page, and almost nobody is competing for it. Every news site answers "what happened today?" — but the person coming back from three busy weeks has no good place to go. Your changelog pages answer exactly that, at any distance — a week, a month, since any date — and that's the page people bookmark and the habit that brings them back. It's Advantage 0 wearing its work clothes.
+    The cover disc is more than a joke — it's an archive of the field. Because your site is just files (LAW 4's quiet gift), the entire magazine — atlas, VR and all — can be zipped and run offline from a folder. In five years, "the field as it stood in August 2026" downloadable and browsable will be genuinely valuable to historians of this period. And it's the one place a sponsor logo can live with zero risk to editorial trust.
+    The strategy in one line: the kingdom gets found, the crown gets remembered. Google, link previews, and AI assistants meet the plain HTML pages; humans who visit get offered the doorway into the 4D atlas. Nobody else has that second act — and your Quest 3 demo at any meetup is marketing money literally cannot buy.
+
+Say the word and I deliver Part 12 — Operations next: the job ledger, backups with tested restores, the runbooks, the validator in full, spend reports, the maintenance calendar, and vacation mode. Give Madie my regards!!! :-)

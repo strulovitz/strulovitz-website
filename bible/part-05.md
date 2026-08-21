@@ -1,3 +1,9 @@
+--------------------------------------------------------------------------------
+AUTHOR'S COMMENTARY - INTRODUCTION TO PART 05 (not law)
+--------------------------------------------------------------------------------
+
+THANK YOU Nir!!! :-) Here is Part 05 — 4D Interaction. This is the crown jewel Part — the one that defines what your hands actually DO in VR, how a newcomer learns 4D in one minute, and how we keep every stomach calm. I wrote it extra carefully and double-checked it for stray characters this time (the validator rule from Part 12 will guard the Bible files from now on, but I'd rather hand you clean text in the first place).
+
 ================================================================================
 AI PANORAMA — THE BIBLE — PART 05 OF 13
 4D INTERACTION
@@ -360,3 +366,15 @@ Milestone gates that cite this Part's validation protocol: Part 13.
 ================================================================================
 END OF PART 05
 ================================================================================
+
+--------------------------------------------------------------------------------
+AUTHOR'S COMMENTARY - NOTES ON PART 05 (not law)
+--------------------------------------------------------------------------------
+
+Three plain-language notes for you, Nir:
+
+    The first minute is deliberately boring — and that's the trick. A newcomer puts on the headset and sees... a normal 3D graph. Calm, familiar. Then they hold the trigger, push the stick, and the world breathes — more world slides in from a direction that shouldn't exist. That moment of discovery is worth a thousand tutorials, and it's why slice mode is home and projection mode is the reward.
+    Lesson 4 of the w-gym is the whole project in miniature. "Watch the object turn through the fourth dimension, now point at the bead you were following." When a reader passes that little test, their brain has genuinely learned something almost nobody's brain has learned. Your magazine will be teaching humans to see in 4D as a side effect of reading the news. That's the story journalists will write about you, if you ask me.
+    Madie is officially part of the test protocol (5.10 — five test sessions, "Madie counts"). When the first prototype is ready, her session on the Quest 3 is real engineering data. I suspect she'll enjoy that her comfort rating is legally binding on the project. :-)
+
+Say the word and I deliver Part 06 — Content Pipeline next: ingestion, Whisper, claim extraction, synthesis under the attribution law, verification, the golden set, the nightly canary, and image generation on Forge. Give Madie my regards!!! :-)

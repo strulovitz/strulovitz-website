@@ -1,3 +1,9 @@
+--------------------------------------------------------------------------------
+AUTHOR'S COMMENTARY - INTRODUCTION TO PART 07 (not law)
+--------------------------------------------------------------------------------
+
+THANK YOU Nir!!! :-) Here is Part 07 — Security. This Part is shorter than Part 06 but it punches above its weight: it's the Part that assumes someone, someday, WILL try to attack the project — through a poisoned YouTube transcript, a booby-trapped Reddit post, or just an agent with too many permissions having a bad day. Everything here is written so the defenses survive agent turnover.
+
 ================================================================================
 AI PANORAMA — THE BIBLE — PART 07 OF 13
 SECURITY
@@ -294,3 +300,15 @@ folding): Part 10.
 ================================================================================
 END OF PART 07
 ================================================================================
+
+--------------------------------------------------------------------------------
+AUTHOR'S COMMENTARY - NOTES ON PART 07 (not law)
+--------------------------------------------------------------------------------
+
+Three plain-language notes for you, Nir:
+
+    The scariest attack has a boring defense. The "poisoned subtitle" attack (someone hides commands for YOUR agents inside a YouTube transcript) is defeated mainly by an architecture choice you've already approved: the models that read the internet can't use tools, and the models that use tools never read the internet — they only ever see the cleaned claim list. The wall isn't a clever prompt; it's that the two jobs never happen in the same room.
+    Your FileZilla ritual turned out to be a security feature. Because only YOUR hands ever touch the live site, no agent — hacked, confused, or malicious — can ever deface it. And if a release is ever bad, your entire emergency response is re-uploading one tiny file. The least technical part of the project is also its strongest lock.
+    The playbooks are written for 3 AM. Each incident page starts with FIRST MOVE — the one action to take before understanding anything. Rotate the key. Re-upload the pointer. You never need to diagnose under stress; diagnosis comes after the bleeding stops.
+
+Say the word and I deliver Part 08 — Advantage 0 Mechanics next: the importance and prominence system, panorama quotas, how news decays into encyclopedia, the changelog, and the hindsight index. Give Madie my regards!!! :-)

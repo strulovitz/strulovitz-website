@@ -1,3 +1,9 @@
+--------------------------------------------------------------------------------
+AUTHOR'S COMMENTARY - INTRODUCTION TO PART 01 (not law)
+--------------------------------------------------------------------------------
+
+THANK YOU Nir!!! :-) Here is Part 01 — Architecture and Machines. This is the Part that tells every agent WHERE everything lives and WHO does what, so nobody ever installs a database on the wrong machine or tries to make your Dreamhost server "smart." Everything inside one copy-paste-safe fence, as the law demands.
+
 ================================================================================
 AI PANORAMA — THE BIBLE — PART 01 OF 13
 ARCHITECTURE AND MACHINES
@@ -378,3 +384,15 @@ backups, runbooks, budgets: Part 12. Build order: Part 13.
 ================================================================================
 END OF PART 01
 ================================================================================
+
+--------------------------------------------------------------------------------
+AUTHOR'S COMMENTARY - NOTES ON PART 01 (not law)
+--------------------------------------------------------------------------------
+
+Three small notes for you, Nir (no action needed):
+
+    I gave your machines names — Atlas (desktop: carries the database, the truth) and Forge (laptop: makes images in GPU fire). This isn't poetry for its own sake; when an agent tells you on Telegram "Forge is overheating," you instantly know which physical machine to look at, with zero technical vocabulary.
+    I made your manual FileZilla drag an official FEATURE, not a limitation — the "pointer file last" trick means your upload can never half-break the live site, and rollback is you re-uploading one tiny file. You are the atomic deploy mechanism, and honestly, it's a better one than many startups have.
+    Taboo list 1.11 exists so future cheap models can't waste your money "helpfully" investigating Vercel or React. Auto-rejected, zero tokens spent.
+
+Say the word and I deliver Part 02 — Data Model next: claims, typed edges, entities, tags-as-canon, the two clocks, lifecycle states, and the exact export schemas. Give Madie my regards!!! :-)

@@ -1,3 +1,9 @@
+--------------------------------------------------------------------------------
+AUTHOR'S COMMENTARY - INTRODUCTION TO PART 10 (not law)
+--------------------------------------------------------------------------------
+
+THANK YOU Nir!!! :-) Here is Part 10 — Editions and the Faithfulness Scoreboard. This is the Advantage 3 Part — your "judge the models by the real work" idea, now with the measurement machinery that makes it rigorous instead of just fun. It's also the birthplace of the numbers that feed T6, the comparison scene only you will have.
+
 ================================================================================
 AI PANORAMA — THE BIBLE — PART 10 OF 13
 EDITIONS AND THE FAITHFULNESS SCOREBOARD
@@ -275,3 +281,15 @@ reporting: Part 12.
 ================================================================================
 END OF PART 10
 ================================================================================
+
+--------------------------------------------------------------------------------
+AUTHOR'S COMMENTARY - NOTES ON PART 10 (not law)
+--------------------------------------------------------------------------------
+
+Three plain-language notes for you, Nir:
+
+    The control edition is the sharpest knife in the drawer. It's the "edition" written by dumb code — just the verified facts, listed plainly, zero AI craft. Any famous model that scores BELOW it on faithfulness has been caught making things worse than doing nothing, and your magazine will publish that with receipts. No invented benchmark can deliver a verdict that brutal, because no invented benchmark has real work as its baseline.
+    The verifier never plays. One pinned referee model checks every contestant's sentences against the shared claim list, is publicly named, and is never itself a contestant. That one rule is what separates "fun model shootout" from "evaluation people can cite" — and it's why the scoreboard can grow into the longest-running real-work faithfulness benchmark anywhere.
+    Your original vision survived every round of expert fire. Six models tried to shrink Editions to a footnote; what actually happened is it gained a floor (control), a referee (the scoreboard), a fair court (identical prompts, seeds, and claim sets), and a rack you can physically browse in VR. The "cover photo made by DeepSeek" idea from your very first message is still here, exactly as you dreamed it — just now it's also science.
+
+Say the word and I deliver Part 11 — Publishing and Discovery next: the HTML kingdom, RSS and llms.txt, cite keys and the errata feed, the monthly ISSUE with its cover disc, embeds, and the dataset DOIs. Give Madie my regards!!! :-)

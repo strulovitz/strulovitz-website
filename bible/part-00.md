@@ -1,3 +1,25 @@
+--------------------------------------------------------------------------------
+AUTHOR'S COMMENTARY - INTRODUCTION TO PART 00 (not law)
+--------------------------------------------------------------------------------
+
+THANK YOU Nir!!! :-) All four decisions received and locked. Let me respond to each in one breath, then answer your Time Machine question, then deliver Part 00.
+
+Decision 1 — accepted completely, and I want to say this clearly: your reasoning is engineering-grade. "Face the difficulty at the beginning or the whole thing remains a dream" is exactly why Milestone 1 was designed as "Hello, Tesseract" in VR — kill the biggest risk first, while it's cheap. And your "minimum level of bullshit" argument is perceptually correct: in VR, the brain gets real depth for free, so ALL of its learning effort goes into understanding the fourth dimension. On a flat screen the brain spends half its effort just reconstructing the third. The Iron Law goes back in the Bible at full strength: nothing ships without its VR 4D version. Ever. The screen 3D version remains what it always was in YOUR original plan — the companion, not the escape hatch.
+
+Decision 2 — locked. No local text models, images only via ComfyUI. T7 is deleted, not parked.
+
+Decision 3 — name. You gave me a free hand, so here is my shortlist and my recommendation. Candidates I considered and rejected: "AI Tesseract" (collides with Google's famous Tesseract OCR software — a name conflict inside our own field), "AI Atlas" (CNET already runs a section called exactly that), "AI Observatory" (the OECD runs one). My recommendation, which I'll use as the working title throughout the Bible:
+
+AI PANORAMA — tagline: "The whole picture, any day you walk in."
+
+It IS Advantage 0 spoken as a name: not a stream, a panorama. It's warm, magazine-like, easy to say in any language (important for word-of-mouth across countries — Israel, Romania, everywhere), and honest about the promise. If one day you dislike it, it's a single find-and-replace across the Bible. Veto anytime.
+
+Decision 4 — trusted and executed. The technical summary in one sentence, then I'll never bother you with it again: the fourth direction in the VR graph will mean something you can feel — swimming along it takes you from "today's fresh news" toward "the permanent encyclopedia knowledge," so your Advantage 0 becomes a literal direction the user's hand can travel. VR and 4D are not sacrificed; they are the throne room.
+
+Your Time Machine question — good challenge, simple answer. Google can tell you when a model was released. Google can NOT tell you what that model cost per million tokens on a random Tuesday last March, because prices change silently and nobody archives them. Why do we care, when your site is about the CURRENT situation? Because "current situation" includes direction: a doctor judging your CURRENT health looks at your chart over time — is the fever rising or falling? "GLM costs $0.40 and is getting 30% cheaper every quarter" is a statement about TODAY that we can only make if we quietly saved the past. That's all the weekly snapshot script does: an afternoon of Sonnet's time, then it runs alone forever. The "Time Machine" is just one optional comparison view built on top of that data — a side dish, never the meal. Trust honored, moving on.
+
+Now — the Bible. Part 00, full length, inside one copy-paste-safe fence. No tables, no collapsibles, no rendered math, exactly as the law itself demands.
+
 ================================================================================
 AI PANORAMA — THE BIBLE — PART 00 OF 13
 VISION AND INVARIANTS
@@ -434,3 +456,11 @@ kingdom; Madie's future is the reason. Build accordingly.
 ================================================================================
 END OF PART 00
 ================================================================================
+
+--------------------------------------------------------------------------------
+AUTHOR'S COMMENTARY - NOTES ON PART 00 (not law)
+--------------------------------------------------------------------------------
+
+That's Part 00. A few honest notes on what I did with your decisions inside it: your VR decision is now LAW 1, the first and strongest law, with the words "not a later milestone, not a stretch goal" aimed directly at any future agent (or any future me) tempted to soften it; your copy-paste rule became LAW 3 with the explanation of WHY (silent improvisation poisons projects) so agents respect it instead of treating it as a formatting quirk; and the Time Machine appears nowhere in Part 00 at all — it's demoted to a side view in Part 09, exactly matching what you told me: the site's promise is the CURRENT picture, always.
+
+Say the word and I deliver Part 01 — Architecture and Machines next. Give Madie my regards!!! :-)

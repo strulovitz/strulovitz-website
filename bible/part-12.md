@@ -1,3 +1,9 @@
+--------------------------------------------------------------------------------
+AUTHOR'S COMMENTARY - INTRODUCTION TO PART 12 (not law)
+--------------------------------------------------------------------------------
+
+THANK YOU Nir!!! :-) Here is Part 12 — Operations. This is the least glamorous Part and maybe the most important one: it's the Part that keeps the project alive in year three, when the excitement is old, the archive is big, and everything must keep running on 45 minutes of your attention per week. Empires fall to bad bookkeeping, not bad ideas.
+
 ================================================================================
 AI PANORAMA — THE BIBLE — PART 12 OF 13
 OPERATIONS
@@ -264,3 +270,15 @@ that brings all of this into existence: Part 13 — the final Part.
 ================================================================================
 END OF PART 12
 ================================================================================
+
+--------------------------------------------------------------------------------
+AUTHOR'S COMMENTARY - NOTES ON PART 12 (not law)
+--------------------------------------------------------------------------------
+
+Three plain-language notes for you, Nir:
+
+    The restore drill is the sentence that saves the project. Every quarter, an agent pretends Atlas died, rebuilds everything from backups on Forge, and reports how long it took. The difference between "we have backups" and "we have PROVEN we can come back from the dead in 74 minutes" is the difference between a hope and an insurance policy. Most companies learn this the expensive way; you get it as a calendar entry.
+    The efficiency ratchet is how the cheap Chinese models finally enter — through the front door. Remember your original plan: DeepSeek, Kimi, GLM doing the grunt work? Rule 12.5.3 is the mechanism: any cheaper model that PASSES your golden set earns the job, with evidence, and you approve with one tap. Not hype-driven, not hope-driven — gate-driven. Your costs fall over time as a matter of procedure.
+    Vacation mode is the Madie clause as engineering. The site keeps serving, history keeps recording, backups keep running, staleness is displayed honestly, and nothing piles into a guilt mountain for your return. A project that punishes you for going to Romania would betray its own founding purpose — so this one is designed to hand you your coat.
+
+Say the word and I deliver Part 13 — Roadmap, the final Part: the milestones in build order, each with a plain-language definition of DONE, starting with "Hello, Tesseract" on your Quest 3. Give Madie my regards!!! :-)

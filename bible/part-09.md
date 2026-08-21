@@ -1,3 +1,9 @@
+--------------------------------------------------------------------------------
+AUTHOR'S COMMENTARY - INTRODUCTION TO PART 09 (not law)
+--------------------------------------------------------------------------------
+
+THANK YOU Nir!!! :-) Here is Part 09 — Comparisons and Benchmark Data. This is the Advantage 2 Part — the one born from those two YouTube moments you quoted at the very beginning (the "0.7% win that was actually a chasm" and "the chart that matters"). It turns those lessons into permanent machinery.
+
 ================================================================================
 AI PANORAMA — THE BIBLE — PART 09 OF 13
 COMPARISONS AND BENCHMARK DATA
@@ -292,3 +298,15 @@ cards: Part 06.
 ================================================================================
 END OF PART 09
 ================================================================================
+
+--------------------------------------------------------------------------------
+AUTHOR'S COMMENTARY - NOTES ON PART 09 (not law)
+--------------------------------------------------------------------------------
+
+Three plain-language notes for you, Nir:
+
+    Your two YouTube stories are now permanent furniture. The "0.7% win vs 24-point chasm" lesson became the Diagonal Lens — one tap draws the "equal-on-both" plane and instantly shows which models collapse on the harder half of the job. And "the chart that matters" became the Killer Box — except now readers can drag its walls to THEIR budget and watch which models remain inside. You didn't just quote those videos; you institutionalized them.
+    The honesty rules are the differentiator. Missing data sits on a visible "no data" shelf instead of being plotted as zero; every number links to its source; conflicting measurements coexist instead of being averaged; unverified scores wear a visible ring. Benchmark charts are the most-lied-with artifacts in AI. Yours will be the ones that show their receipts — and practitioners notice that fast.
+    T6 is the quiet crown. The Faithfulness Arena plots data that only YOU have — how well each model did the actual magazine work, measured mechanically, updated every edition cycle. Everyone else compares models on other people's benchmarks; you'll compare them on yours. When Part 10 arrives next, you'll see where those numbers are born.
+
+Say the word and I deliver Part 10 — Editions and the Faithfulness Scoreboard next: the magazine rack, the control edition, the scoreboard metrics in full, and the Telegram-powered blind arena for v2. Give Madie my regards!!! :-)
