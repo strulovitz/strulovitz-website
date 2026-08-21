@@ -319,7 +319,8 @@ THE TWO THINGS THAT MATTER, IN THIS ORDER:
    controllers on a Meta Quest 3 over WebXR, on fake data, before any content
    exists. Also its flat-screen 3D twin, because no feature ships without both.
    Remember LAW 2: the fourth dimension is NEVER colour.
-   NOT STARTED. Nothing of this exists yet. Nir owns a Quest 3.
+   STARTED AND WORKING, 2026-08-21 (Claude Opus 5). See the section
+   "MILESTONE 1: WHAT NOW EXISTS" at the very bottom of this file.
 
 2. THE EDITIONS MACHINE (part-10.md, part-06.md). Cheap models - Chinese
    open-weight models and the like, through OpenRouter - take the articles and
@@ -359,3 +360,85 @@ THE STANDING LESSON FROM THIS SESSION, FOR EVERY FUTURE AGENT:
 Nir cannot read code and will not check it, so an agent is trusted to choose
 what matters. He measures the project by whether the impossible part is getting
 closer, not by how tidy the repository is. When in doubt, build the hard thing.
+
+================================================================================
+MILESTONE 1: WHAT NOW EXISTS, 2026-08-21 (Claude Opus 5, desktop-linux)
+================================================================================
+
+HOW TO SEE IT, WITHOUT ANY BUILD STEP:
+    ./ops/look-at-the-site.sh              then open http://localhost:8080/
+    ./ops/look-at-the-site.sh headset      then open the printed https address
+                                           in the Quest's own browser
+Virtual Reality refuses to start over a plain connection, which is the only
+reason the second mode exists. The homemade certificate makes the headset show
+one scary warning: Advanced, then Proceed.
+
+THE FILES, AND WHAT EACH ONE IS FOR:
+1. site/src/lib/fourd.js  --  ALL the four-dimensional mathematics. One 4x4
+   matrix Q is the only orientation state in the whole program, which is why
+   Undo is a stack pop and Reset is one line. Six planes of rotation, three of
+   them the hyper-rotations. Gram-Schmidt after every compose, so a long
+   session cannot let the map slowly shear. The projection is the Bible's
+   normalised form, s = (d - w_min) / (d - w), which cannot divide by zero.
+   Pure arithmetic: no browser, no three.js, testable by plain node.
+2. site/src/lib/fourd.selftest.js  --  49 checks. Run: node site/src/lib/
+   fourd.selftest.js . Any change to the maths must keep them all passing.
+   They test the properties that MATTER perceptually, not code coverage.
+3. site/src/scenes/synthetic.js  --  the fake world: a real tesseract, plus 200
+   placeholder nodes in the six w bands of w-definition 1. Positions come from
+   a hash of each node's id, never from a random number, so the same node lands
+   in the same place forever on every machine. NOTHING in it is real content.
+4. site/src/vr/panorama.js  --  the picture: holotable, dithered slab with
+   ghosts, drop-stems over a fixed floor grid, the tesseract, cluster labels
+   that never change size. Colour means identity and nothing else.
+5. site/src/vr/main.js  --  one state machine, two bodies: mouse and keyboard,
+   and the Quest 3 controllers. Comfort cap of 25 degrees per second, no
+   inertia anywhere, the wrist w-gauge, and the hand menu whose first two items
+   are Undo and Reset.
+6. site/index.html and site/tesseract.html  --  a plain no-JavaScript landing
+   page offering Screen or VR entry, and the application itself.
+7. site/vendor/  --  three.js 0.185.1, MIT, kept locally on purpose so the live
+   site never depends on anyone else's server (LAW 4).
+8. ops/build-export.py  --  the deployment ritual: dated folder first, tiny
+   pointer.json LAST, rollback pointers kept in ops/pointers/.
+9. ops/look-at-the-site.sh  --  local viewing, and https for the headset.
+
+HOW IT WAS PROVEN, so nobody has to take an agent's word for it: a headless
+Chrome test drives the real page with real key events and checks 30 things,
+including zero console errors, that something is actually drawn, that the
+promised keys do what the landing page says, that the slab really changes which
+nodes are solid, and that four quarter-turns return the LIVE view matrix to the
+identity to within a millionth. Test script (temporary, not in git):
+/tmp/opencode/tesstest/test_tesseract.py . Worth moving into ops/ and rerunning
+whenever rotation, projection or comfort code changes (part-05.md 5.10 says
+that protocol repeats).
+
+TWO TRAPS THAT COST TIME HERE. Both are commented in the code, do not undo the
+fixes: (1) three.js draws instanced objects BLACK if a material has
+vertexColors switched on and the geometry has no per-vertex colour attribute;
+panorama.js now adds a white one automatically. (2) `pkill -f <pattern>` in a
+tool-driven shell matches the shell's own command line and kills the session.
+
+WHAT MILESTONE 1 STILL NEEDS BEFORE IT CAN BE CALLED DONE (part-13.md 13.2):
+1. THE W-GYM, all five lessons (part-05.md 5.7). Build item 6 asks for it FIRST
+   as the test harness. It is the single biggest remaining piece, and lesson 4
+   ("watch it turn, now point at the bead you were following") is the one that
+   actually teaches a human to see in four dimensions.
+2. Hover cards and a reading panel in VR. On the flat screen the hover card
+   exists as plain HTML; in the headset there is only a highlight and a haptic
+   tap so far.
+3. Ego mode, the path trail, and Back and Forward along it (part-05.md 5.6).
+4. The audio cue package (5.3.4) and the density haptics while swimming.
+5. The perftest scene and the ?perftest=1 route (part-04.md), measured on the
+   physical Quest 3 rather than on a software renderer.
+6. Nir's five test sessions with the tasks from part-05.md 5.10, and Nir
+   personally rotating a tesseract in ZW, watching it turn inside out, and
+   smiling. That smile is a formal acceptance criterion; an agent cannot tick
+   it.
+7. The deploy: the export folder exists, but strulovitz.org still needs the FTP
+   host and username from Nir. No agent ever receives the FTP password.
+
+THE EDITIONS MACHINE (the second thing that matters) IS STILL NOT STARTED.
+pipeline/lib/llm.py does not exist yet. The architecture answer stands: plain
+Python calling OpenRouter through that one module with the model name always a
+parameter, plus OpenClaw for the Telegram approvals. It does not need OpenCode.
