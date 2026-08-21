@@ -1,0 +1,76 @@
+{
+ "story": "2026-08-06-viruses-designed-by-ai",
+ "model_id": "anthropic/claude-sonnet-5",
+ "model_slug": "anthropic--claude-sonnet-5",
+ "model_served": "anthropic/claude-sonnet-5",
+ "company": "Anthropic",
+ "short_name": "Claude Sonnet 5",
+ "rendered_at_utc": "2026-08-21T16:19:46+00:00",
+ "brief_version": "ba9b08ec7e56",
+ "asked_with_strict_schema": true,
+ "bought_in_batch": false,
+ "cost_usd": 0.054512,
+ "prompt_tokens": 7936,
+ "completion_tokens": 3864,
+ "reasoning_tokens": 588,
+ "seconds_waited": 44.811542987823486,
+ "generation_id": "gen-1787329141-pcNcle4b74NtW4SR8Gzq",
+ "understood": true,
+ "produced": {
+  "headline": "AI Designs 16 Working Viruses From Scratch, Sparking Safety Debate",
+  "tldr": "Stanford researchers used AI models called Evo to design 16 functional bacteriophages that killed drug-resistant E. coli, raising both hope and alarm.",
+  "article": "Scientists at Stanford University and the Arc Institute have used artificial intelligence to design entire viral genomes from scratch, and shown that 16 of them work: they replicate, infect bacteria, and in lab tests killed strains of E. coli that had resisted natural viruses. It is the first time a whole genome has been designed by AI and shown to function, published Thursday in the journal Science.\n\nThe viruses are bacteriophages, a type that infects only specific bacteria and poses no danger to people. Doctors already use natural phages around the world to treat stubborn infections, and the new work points toward being able to design phages on demand, tuned to beat resistance as it evolves.\n\n## How it was done\n\nThe AI models, called Evo1 and Evo2, work on a similar principle to the large language models behind chatbots like ChatGPT, except instead of predicting sequences of words, they predict sequences of genetic code. According to the BBC, they were trained on genetic material from viruses, bacteria, plants and people; the Guardian reports the phage-specific training set covered genetic data from two million bacteriophages, with genetic code for viruses that infect plants, humans or animals deliberately excluded to reduce risk.\n\nThe AI generated thousands of candidate genomes built to be hosted inside E. coli cells. Researchers picked the 302 most promising designs, synthesised them, and dropped them into bacteria to see what would happen. Only 16 turned out to be viable — a low hit rate, but a real one. Samuel King, a PhD student on the project, said the team realised their designs were working in the early hours of the morning, watching clear spots appear where the new phages ate through a dish of bacteria. When results were shared with the wider group, according to Brian Hie, an assistant professor at Stanford, \"the room spontaneously burst into applause.\"\n\nThe payoff went beyond just working: CNN reports that a mixture of the new viruses overcame antibiotic resistance in some E. coli strains that a comparable mixture of naturally occurring phages could not. One of the designed genomes even carried a feature the researchers described as \"evolutionarily distant\" — a change natural evolution might have taken millions of years to arrive at.\n\n## Why it matters, and why it worries people\n\nResearchers and outside scientists agree this is a genuine turning point. Prof Marc Güell of Pompeu Fabra University called it a \"very significant turning point\" because, for the first time, biology is being designed on a computer rather than discovered in nature. Prof Patrick Cai of the Manchester Institute of Biotechnology said it suggests genome language models are starting to learn the design principles evolution itself uses.\n\nBut the same capability that can design a helpful phage could, in principle, be turned toward something harmful. In a commentary accompanying the study, Dr Thomas Inglesby and Dr Moritz Hanke of the Johns Hopkins Center for Health Security wrote that the ability to compose viral genomes with generative AI \"now exists,\" while \"the governance to safely steer it does not.\" They singled out genomes for pathogens that infect humans, animals or plants — such as those behind malaria or certain yeast infections — as work that \"should not be pursued.\"\n\nThe Stanford team built in safeguards: they excluded genetic material for viruses that infect complex organisms from their training data, worked only on bacteria-infecting phages, and carried out the work in a secure lab. Jordi García Ojalvo of Pompeu Fabra University told the Science Media Centre the biosafety risk here is lower than with some other AI tools, since every designed genome still has to be built and tested individually, and the success rate is low — 16 viable viruses out of hundreds of thousands generated. \"It is difficult to imagine these models automatically generating viable genomes 'out-of-the-box,'\" he said.\n\nOther scientists urged perspective rather than panic. Tom Ellis of Imperial College London called the achievement impressive but pointed out that a phage genome, at roughly 5,400 genetic letters, is tiny next to the smallest living cell's 500,000 or the human genome's three billion — \"literally the smallest and easiest genome to make.\" He argued the bigger danger remains simpler: taking existing dangerous pathogens and modifying them, which is far easier than designing a genome from scratch. Dr Filippa Lentzos of King's College London said the most important point to control is where DNA gets physically manufactured, and called for layered safeguards spanning model access, research review, synthesis screening and standard lab biosafety — not regulation aimed at the AI model alone.",
+  "key_points": [
+   {
+    "point": "Stanford and Arc Institute researchers used AI models Evo1 and Evo2 to design 16 viable bacteriophage genomes from scratch, the first time a whole genome designed by generative AI has been shown to function.",
+    "source_url": "https://www.bbc.com/news/articles/c5y3j3ngevmo"
+   },
+   {
+    "point": "A mixture of the AI-designed viruses overcame antibiotic resistance in E. coli strains that a comparable mixture of naturally sourced phages could not.",
+    "source_url": "https://edition.cnn.com/2026/08/06/health/ai-viruses-bacteriophages"
+   },
+   {
+    "point": "Only 16 of about 300 lab-synthesized AI-designed genomes proved viable, out of thousands generated by the AI.",
+    "source_url": "https://www.theguardian.com/science/2026/aug/06/safety-fears-as-scientists-make-first-viruses-designed-by-ai"
+   },
+   {
+    "point": "Johns Hopkins biosecurity experts Thomas Inglesby and Moritz Hanke warned the work raises urgent biosafety and biosecurity questions and said genomes for pathogens infecting humans, animals or plants should not be pursued.",
+    "source_url": "https://www.bbc.com/news/articles/c5y3j3ngevmo"
+   },
+   {
+    "point": "The researchers excluded genetic material from viruses that infect complex organisms, including humans, from the AI's training data as a safety precaution.",
+    "source_url": "https://www.theguardian.com/science/2026/aug/06/safety-fears-as-scientists-make-first-viruses-designed-by-ai"
+   },
+   {
+    "point": "Tom Ellis of Imperial College London said the phage genome was 'literally the smallest and easiest genome to make' and argued modifying existing pathogens is a bigger practical threat than AI-designed genomes.",
+    "source_url": "https://www.theguardian.com/science/2026/aug/06/safety-fears-as-scientists-make-first-viruses-designed-by-ai"
+   }
+  ],
+  "concepts": [
+   {
+    "term": "Bacteriophage",
+    "slug": "bacteriophage",
+    "explanation": "A bacteriophage, often shortened to 'phage,' is a virus that infects and kills bacteria but cannot infect human, animal or plant cells. Phages occur naturally everywhere bacteria do, and doctors have used them for over a century, particularly in parts of Eastern Europe, as an alternative or supplement to antibiotics for treating persistent bacterial infections. Each phage typically targets only one or a few closely related bacterial species, which makes them precise but also means a phage effective against one strain may do nothing against another. As bacteria increasingly evolve resistance to antibiotics, phages have drawn renewed interest as a therapy that can be tailored to a specific infection. Historically, finding a phage that works against a particular resistant bacterial strain meant searching through natural samples, such as sewage or soil, hoping to find one that already does the job. The prospect of designing phage genomes directly, rather than discovering them, matters because it could let researchers build a phage suited to a specific resistant bacterium on demand, rather than relying on what nature happens to have already produced."
+   },
+   {
+    "term": "Genome language model",
+    "slug": "genome-language-model",
+    "explanation": "A genome language model is an AI system built on the same underlying approach as text-based language models like the ones behind chatbots, but trained on genetic sequences instead of written language. Just as a text model learns which words tend to follow other words and can generate new coherent sentences, a genome language model learns which genetic 'letters' (the DNA or RNA bases) tend to follow others in real, functioning organisms, and can then generate new genetic sequences that follow those same patterns. Trained on large collections of genetic code drawn from many organisms, such a model can be steered to generate sequences with particular properties, such as a genome that could function inside a chosen host cell. The core caveat is that predicting a plausible-looking sequence is not the same as it actually working: generated sequences still have to be synthesized in a lab and tested, and most will fail. Genome language models are one strand of a broader push to make biology programmable, sitting alongside earlier AI tools used to design new proteins, enzymes and antibiotics."
+   },
+   {
+    "term": "Synthetic biology",
+    "slug": "synthetic-biology",
+    "explanation": "placeholder"
+   }
+  ],
+  "tags": [
+   "ai-biology",
+   "biosecurity",
+   "synthetic-biology",
+   "bacteriophages",
+   "drug-resistance"
+  ],
+  "related": [],
+  "image_prompt": "A single glass petri dish sits on a plain surface, viewed from directly above; inside it, faint geometric grid lines fade into organic, thread-like tendrils that curl and branch like microscopic organisms, with a few small clear circular patches breaking through a soft field of pale color, evoking the moment a designed structure meets and dissolves a living surface, rendered in a restrained, clean editorial-illustration palette with no text, no faces, and no technological iconography."
+ }
+}

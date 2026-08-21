@@ -222,7 +222,19 @@ export class Panorama {
 
     // ---- Reader state that belongs to the interaction, not to the maths ----
     this.mode = 'slice';                  // 'slice' or 'projection'
-    this.w0 = 0;                          // where the slab sits, part-05.md 5.2
+    // WHERE THE SLAB STARTS, AND WHY IT IS NOT ALWAYS ZERO.
+    // A reader must never arrive to an empty world. In the placeholder world
+    // content was spread evenly and zero was the sensible middle; in a real
+    // young magazine almost everything is either brand-new news or an
+    // encyclopedia entry, and w = 0 is the empty gap BETWEEN them. So home is
+    // the busiest place in the fourth dimension, computed from the data itself.
+    // A SCENE DECIDES ITS OWN HOME. The placeholder world documents that a
+    // reader starts among the established news at zero (bible/part-03.md 3.5),
+    // and that is left exactly as it was. A real edition supplies its own home,
+    // which is wherever its content actually is.
+    this.bands = data.bands || W_BANDS;
+    this.homeW = (typeof data.homeW === 'number') ? data.homeW : 0;
+    this.w0 = this.homeW;                 // where the slab sits, part-05.md 5.2
     this.epsilon = DEFAULT_EPSILON;       // how thick the slab is
     this.targetEpsilon = DEFAULT_EPSILON;
     this.showTesseract = true;
@@ -391,8 +403,12 @@ export class Panorama {
     // Cluster labels. Text is the ONE thing exempt from the projection size
     // cue, because shimmering, resizing text is unreadable
     // (bible/part-05.md 5.3.6). So these sprites keep a constant angular size.
+    // The regions are named by the SCENE, not by this file. A real edition
+    // names them with the tags that model chose for itself, so the floating
+    // words over a galaxy are that editor's own vocabulary; the placeholder
+    // world supplies its eight invented categories instead.
     this.labels = [];
-    for (const cluster of CLUSTERS) {
+    for (const cluster of (this.data.clusters || CLUSTERS)) {
       const sprite = makeTextSprite(cluster.label, cluster.colour);
       this.graph.add(sprite);
       this.labels.push({ sprite, cluster });
@@ -455,7 +471,7 @@ export class Panorama {
   /** Back to the canonical view AND the home slab, as one act. */
   resetView() {
     this.view.reset();
-    this.w0 = 0;
+    this.w0 = this.homeW;
     this.setMode('slice');
     this.noteInput();
   }
@@ -711,16 +727,23 @@ export class Panorama {
       focused: this.focusedNode,
       projectionsThisFrame: this.projectionsThisFrame,
       histogram: this.histogram,
-      bandName: nearestBandName(this.w0),
+      bandName: nearestBandName(this.w0, this.bands),
     };
   }
 }
 
 
-/** Which named w band is the slab sitting in right now, in plain words. */
-export function nearestBandName(w0) {
-  let best = W_BANDS[0];
-  for (const band of W_BANDS) {
+/**
+ * Which named w band is the slab sitting in right now, in plain words.
+ *
+ * The bands can be supplied by the caller, because a real magazine of news and
+ * explanations has different landmarks along the fourth dimension than the
+ * placeholder world did. Without an argument it falls back to the placeholder
+ * bands, so old callers keep working.
+ */
+export function nearestBandName(w0, bands = W_BANDS) {
+  let best = bands[0];
+  for (const band of bands) {
     if (Math.abs(band.w - w0) < Math.abs(best.w - w0)) best = band;
   }
   return best;

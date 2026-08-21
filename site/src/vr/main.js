@@ -28,6 +28,7 @@
 import * as THREE from '../../vendor/three.module.min.js';
 import { Panorama, makeTextSprite, nearestBandName } from './panorama.js';
 import { buildSyntheticScene, W_BANDS } from '../scenes/synthetic.js';
+import { loadGalaxy, loadEditionList } from '../scenes/galaxy.js';
 import { WGym, hasGraduated } from '../scenes/wgym.js';
 import { HYPER_PLANES } from '../lib/fourd.js';
 
@@ -51,7 +52,48 @@ const PARTNER_PLANE = { xw: 'yz', yw: 'xz', zw: 'xy' };
 // SET UP THE PICTURE
 // -----------------------------------------------------------------------------
 
-const data = buildSyntheticScene(200);
+/*
+ * WHICH WORLD ARE WE FLYING THROUGH?
+ *
+ * If real editions have been built, we fly through one of them. Which one comes
+ * from ?edition=<model folder name>, defaulting to whichever edition the roster
+ * names as the site's face (config/editions.toml). If nothing has been built
+ * yet - a fresh clone, or a machine with no content - we fall back to the
+ * placeholder world, so the four-dimensional machinery can always be examined
+ * and taught even with an empty magazine.
+ *
+ * Each edition is its OWN world, because each model chose its own tags, wrote
+ * its own encyclopedia entries and decided for itself what links to what
+ * (DECISIONS.md decision 20).
+ */
+let editionList = null;
+let data = null;
+
+// ?world=placeholder forces the invented world even when real editions exist.
+// It is how the automated checks exercise the four-dimensional machinery
+// against a known fixed scene, and how the lessons can be taught on an empty
+// magazine. A reader never needs it.
+const wantsPlaceholder = new URLSearchParams(location.search).get('world') === 'placeholder';
+
+try {
+  if (wantsPlaceholder) throw new Error('the placeholder world was asked for');
+  editionList = await loadEditionList();
+  const asked = new URLSearchParams(location.search).get('edition');
+  const known = (editionList.editions || []).map((e) => e.model_slug);
+  const chosen = known.includes(asked) ? asked : editionList.default_model_slug;
+  if (chosen) data = await loadGalaxy(chosen);
+} catch (whyNot) {
+  console.info('No real editions available, using the placeholder world:', whyNot.message);
+}
+
+const usingRealContent = data !== null;
+if (!usingRealContent) data = buildSyntheticScene(200);
+
+// The named regions of the fourth dimension. A real galaxy carries its own,
+// because a magazine of news and explanations has different landmarks than the
+// six-band placeholder world did.
+const BANDS = data.bands || W_BANDS;
+
 const panorama = new Panorama(data);
 
 const renderer = new THREE.WebGLRenderer({ antialias: true, powerPreference: 'high-performance' });
@@ -336,13 +378,31 @@ function updateScreenHover() {
   const found = panorama.pick(ray.ray.origin, ray.ray.direction, 0.012);
   panorama.hoveredNode = found;
   if (found < 0) { hoverCard.style.display = 'none'; return; }
-  const band = W_BANDS[data.bandOf[found]];
+  const band = BANDS[data.bandOf[found]];
   hoverCard.style.display = 'block';
-  hoverCard.innerHTML =
-    `<strong>${data.labels[found]}</strong>` +
-    `<span>Placeholder node, not real content.</span>` +
-    `<span class="band">${band.name} &middot; w = ${data.points4[found * 4 + 3].toFixed(2)}</span>` +
-    `<span class="plain">${band.plain}</span>`;
+  if (usingRealContent) {
+    // What a reader gets on hover, and nothing more: the one-line summary and
+    // where they are in the fourth dimension. Nir asked for exactly this - the
+    // TLDR and a small picture - and not the whole article, which is what
+    // clicking is for.
+    const kind = data.kinds[found] === 'concept'
+      ? 'an explanation, written to last'
+      : 'a story that happened';
+    const tags = (data.tagsOf[found] || []).slice(0, 4)
+      .map((tag) => `<em>${escapeForHtml(tag)}</em>`).join(' ');
+    hoverCard.innerHTML =
+      `<strong>${escapeForHtml(data.labels[found])}</strong>` +
+      `<span>${escapeForHtml(data.summaries[found])}</span>` +
+      (tags ? `<span class="tags">${tags}</span>` : '') +
+      `<span class="band">${band.name} &middot; ${kind}</span>` +
+      `<span class="plain">Click to read it &middot; ${data.shortName}'s edition</span>`;
+  } else {
+    hoverCard.innerHTML =
+      `<strong>${data.labels[found]}</strong>` +
+      `<span>Placeholder node, not real content.</span>` +
+      `<span class="band">${band.name} &middot; w = ${data.points4[found * 4 + 3].toFixed(2)}</span>` +
+      `<span class="plain">${band.plain}</span>`;
+  }
   const x = ((pointer.x + 1) / 2) * window.innerWidth;
   const y = ((1 - pointer.y) / 2) * window.innerHeight;
   hoverCard.style.left = `${Math.min(window.innerWidth - 300, x + 18)}px`;
@@ -712,7 +772,7 @@ function drawGauge(status) {
   // The band names, so the fourth dimension always has words attached to it.
   c.font = '17px system-ui, sans-serif';
   c.textAlign = 'left';
-  for (const band of W_BANDS) {
+  for (const band of BANDS) {
     c.fillStyle = '#7f92b4';
     c.fillRect(28, yFor(band.w) - 1, 12, 2);
     c.fillText(band.name, 46, yFor(band.w) + 6);
@@ -858,7 +918,10 @@ function runMenuItem(key) {
   if (key === 'reset') { resetEverything(); gym.noteReset(); setStatusFlash('Everything back where it started'); }
   if (key === 'mode') setStatusFlash(`Mode: ${panorama.toggleMode()}`);
   if (key === 'gym') { gymOffer.style.display = 'none'; resetEverything(); gym.start(); }
-  if (key === 'home') { panorama.w0 = 0; setStatusFlash('Slab back to the established news'); }
+  if (key === 'home') {
+    panorama.w0 = panorama.homeW;
+    setStatusFlash('Slab back to where most of the magazine lives');
+  }
   if (key === 'stems') { panorama.stemsEnabled = !panorama.stemsEnabled; }
 }
 
@@ -1248,7 +1311,7 @@ function updateReadouts(status, now, deltaMs, fps) {
   // Dimmed, not deleted.
   if (now > flashUntil) flashLine.style.opacity = '0.42';
 
-  const band = nearestBandName(status.w0);
+  const band = nearestBandName(status.w0, BANDS);
   statusLine.textContent =
     `${status.mode === 'slice' ? 'Slice' : 'Projection'} mode` +
     `  |  slab at w = ${status.w0.toFixed(2)} (${band.name}: ${band.plain})` +
@@ -1352,3 +1415,67 @@ window.PANORAMA = {
         isMenuOpen: () => menuPanel.visible,
         openMenu: (open) => { menuPanel.visible = open; drawMenu(); } },
 };
+
+
+// -----------------------------------------------------------------------------
+// READING WHAT YOU FOUND, AND CHANGING WHOSE WORLD YOU ARE IN
+// -----------------------------------------------------------------------------
+
+/**
+ * Escaping anything that came from a model before it is put into the page.
+ *
+ * Every word in a hover card was written by an AI model that had just been
+ * reading web pages collected from strangers. It is therefore untrusted text
+ * and is escaped, always (bible/part-07.md, and LAW 8's hostile-input rule
+ * followed all the way to the last mile).
+ */
+function escapeForHtml(text) {
+  return String(text)
+    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+}
+
+/**
+ * Build the edition switcher from whatever editions exist. Nothing about any
+ * particular model is written into this page, so a model added tomorrow appears
+ * here on its own (DECISIONS.md decision 18).
+ */
+const editionPick = document.getElementById('edition-pick');
+if (editionPick) {
+  if (!usingRealContent || !editionList) {
+    editionPick.innerHTML = '<option>no editions built yet</option>';
+    editionPick.disabled = true;
+  } else {
+    for (const edition of editionList.editions) {
+      const option = document.createElement('option');
+      option.value = edition.model_slug;
+      const counts = edition.counts || {};
+      option.textContent = `${edition.short_name} - ${counts.stories || 0} stories, ${counts.concepts || 0} ideas`;
+      option.selected = edition.model_slug === data.modelSlug;
+      editionPick.appendChild(option);
+    }
+    editionPick.addEventListener('change', () => {
+      // A full page load on purpose: a different edition is a different world,
+      // with different nodes in different places, and pretending otherwise by
+      // morphing between them would teach the reader something false.
+      const url = new URL(location.href);
+      url.searchParams.set('edition', editionPick.value);
+      location.assign(url.toString());
+    });
+  }
+}
+
+/**
+ * Clicking a node opens what it says. The hover card gives the one-liner; the
+ * click gives the article. Only ever in a new tab, so a reader never loses the
+ * position they had worked to reach in the fourth dimension.
+ */
+if (usingRealContent) {
+  renderer.domElement.addEventListener('click', () => {
+    if (renderer.xr.isPresenting) return;
+    const found = panorama.hoveredNode;
+    if (found === undefined || found < 0) return;
+    const page = data.pageOf[found];
+    if (page) window.open(page, '_blank', 'noopener');
+  });
+}

@@ -107,6 +107,17 @@
     border-radius: 8px; white-space: pre; font-family: ui-monospace, monospace;
     font-size: 0.78rem; color: #9fd0ff;
   }
+
+  /* THE EDITION SWITCHER. Deliberately plain and obvious: it is the single
+     most important control on the page, because it is the whole idea of the
+     magazine - the same story, by a different editor, in a different world. */
+  #edition-label { color: #9fb2d4; font-size: 13px; margin-left: 10px; }
+  #edition-pick {
+    background: #16203a; color: #eaf2ff; border: 1px solid #33456e;
+    border-radius: 6px; padding: 5px 8px; font: inherit; font-size: 13px;
+    max-width: 210px;
+  }
+  #edition-pick:focus { outline: 2px solid #6ec6ff; }
 </style>
 </head>
 <body>
@@ -125,6 +136,14 @@
   <!-- Made loud on purpose. Nir could not find his way back to the lessons
        because this looked like just another menu link. It is the one control on
        this bar that teaches you something. -->
+  <!-- THE EDITION SWITCHER. Each AI model wrote its own edition of every story,
+       chose its own tags and decided for itself what links to what - so each
+       edition is its OWN four-dimensional world, and changing this listbox
+       rearranges the sky (DECISIONS.md decision 20). The list builds itself
+       from whichever editions exist, so adding a model tomorrow needs no edit
+       to this page. -->
+  <label id="edition-label" for="edition-pick">Edition:</label>
+  <select id="edition-pick" title="Whose edition of the magazine you are flying through"></select>
   <button id="open-gym" class="loud">&#127891; Learn 4D &mdash; the 5 lessons</button>
   <!-- A visible way out. Nir got the camera stuck inside the object and went
        looking for something to press; the Home key is no use to somebody who

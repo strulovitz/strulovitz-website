@@ -171,7 +171,7 @@ async def main():
                     break
                 except Exception:
                     time.sleep(0.25)
-            await page.send("Page.navigate", {"url": f"http://127.0.0.1:{PORT}/tesseract.html?debug=1"})
+            await page.send("Page.navigate", {"url": f"http://127.0.0.1:{PORT}/tesseract.html?debug=1&world=placeholder"})
             await page.drain(6.0)
 
             check("no uncaught JavaScript exceptions", not page.exceptions, page.exceptions)
@@ -423,7 +423,7 @@ async def main():
             # into the next lesson, which is what Nir found most confusing.
 
             await page.evaluate("localStorage.removeItem('ai-panorama.gym.graduated.v1')")
-            await page.send("Page.navigate", {"url": f"http://127.0.0.1:{PORT}/tesseract.html?debug=1"})
+            await page.send("Page.navigate", {"url": f"http://127.0.0.1:{PORT}/tesseract.html?debug=1&world=placeholder"})
             await page.drain(5.0)
             offered = await page.evaluate(
                 "getComputedStyle(document.getElementById('gym-offer')).display")
