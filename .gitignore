@@ -55,3 +55,8 @@ desktop.ini
 # It contains a private key, and it is specific to this one computer, so it
 # has no business in a shared repository (bible/part-07.md 7.4).
 ops/local-certificate/
+
+# --- BATCHES IN FLIGHT. Receipts for work paid for and not yet collected. ---
+# Working files, not truth: the truth is the ledger and content/. They are
+# machine-local because a batch belongs to the machine that submitted it.
+pipeline/batches/

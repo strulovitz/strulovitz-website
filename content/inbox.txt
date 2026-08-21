@@ -1,0 +1,47 @@
+# THE INBOX
+# =========
+#
+# WHAT THIS FILE IS
+# Where Nir puts the links for stories he wants written. This is the only place
+# a story ever comes from: the machine never decides for itself what is worth
+# covering (DECISIONS.md decision 17 - the magazine covers "what is the most
+# interesting subjectively to my audience", which is a human judgement).
+#
+# HOW TO ADD A STORY
+# Write a line starting with STORY and a short title, then the links, one per
+# line. Anything after a # is a note for humans and is ignored. Then run:
+#     cd pipeline && uv run stages/make_story.py
+# Stories already made are skipped, so this file can keep growing and the
+# command is always safe to re-run.
+#
+# THE RULE THAT CANNOT BE BROKEN
+# Two independent sources minimum, or the story is not written at all
+# (DECISIONS.md decision 13). Nir: "if a story is only from one source, even if
+# it is the most amazing story, like new aliens came and handed us AGI, i cannot
+# publish it, because i can get sued and lose all my money."
+
+
+STORY Kimi K3
+https://www.youtube.com/watch?v=JrVPIy9AdfQ      # Matthew Berman, "This model just changed everything..."
+https://www.youtube.com/watch?v=4fPLsmJNaMI      # Wes Roth, "Kimi K3 CRUSHED Fable"
+https://www.youtube.com/watch?v=V0RsocRqjIU      # AI Revolution, "Is This the Biggest AI Release of 2026?"
+
+STORY The OpenAI rogue agent and the Hugging Face break-in
+https://www.youtube.com/watch?v=9lSIHaXT1rU      # Wes Roth, "OpenAI JUST revealed the truth about its Rogue Agent"
+https://www.youtube.com/watch?v=r4H7rx5nn1A      # Matthew Berman, "It Begins: An AI Tried to Escape the Lab"
+https://www.youtube.com/watch?v=gMYR-JkmIFc      # AI Revolution, "History's Biggest Autonomous Cyberattack"
+
+STORY Grok 4.6
+https://www.youtube.com/watch?v=rdYBjpylJUQ      # Matthew Berman, "xAI actually did it..."
+https://www.youtube.com/watch?v=VB39bHByHuU      # Wes Roth, "Grok 4.6 is Fable now"
+https://www.youtube.com/watch?v=PtdI0KZRTLU      # Bijan Bowen, "Is THIS a Frontier Model?"
+
+STORY Viruses designed by AI
+https://edition.cnn.com/2026/08/06/health/ai-viruses-bacteriophages          # CNN, Deidre McPhillips
+https://www.bbc.com/news/articles/c5y3j3ngevmo                              # BBC, James Gallagher
+https://www.theguardian.com/science/2026/aug/06/safety-fears-as-scientists-make-first-viruses-designed-by-ai   # The Guardian, Ian Sample
+
+STORY The first person jailed for protesting against AI
+https://www.theguardian.com/us-news/2026/aug/16/california-openai-protester-wynd-kaufman   # The Guardian, Robert Booth
+https://www.yahoo.com/news/us/articles/69-old-just-became-first-182647158.html             # Yahoo News, Nikshep Myle
+https://cybernews.com/ai-news/anti-ai-protestor-jail/                                      # Cybernews, Egle Kristopaityte

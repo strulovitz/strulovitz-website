@@ -123,6 +123,10 @@ company = "Z.ai"
 short_name = "GLM 5.3"
 price_note = "1.40 in / 4.40 out"
 why = "Chosen over GLM 5.2 because of all the post-training it received - the more interesting of the two."
+# The only model on the roster that cannot be handed a strict JSON shape to fill
+# in. It is asked for JSON in words instead, and which way each model was asked
+# is recorded, so the record stays honest.
+structured_outputs = false
 
 [[model]]
 id = "qwen/qwen3.8-max"

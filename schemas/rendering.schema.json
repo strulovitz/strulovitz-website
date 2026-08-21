@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "One edition of one story",
+  "description": "The shape of what a single model produces for a single story. One model does every part of it: the key points, the article, the encyclopedia entries, the tags, the links and the illustration prompt (DECISIONS.md decision 12). Nothing in here is checked, scored or corrected by us (decision 16). Written so it can be handed to a model as a strict JSON schema, which is why every property is required and no extras are allowed.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["headline", "tldr", "article", "key_points", "concepts", "tags", "related", "image_prompt"],
+  "properties": {
+    "headline": {
+      "type": "string",
+      "description": "Factual and specific, under 80 characters, no clickbait."
+    },
+    "tldr": {
+      "type": "string",
+      "description": "One sentence under 140 characters. Shown when a reader hovers over this story in the four-dimensional map, so it must stand entirely alone."
+    },
+    "article": {
+      "type": "string",
+      "description": "The article itself in Markdown, 500 to 900 words. The plain explanation IS the article; there is no separate simple version."
+    },
+    "key_points": {
+      "type": "array",
+      "description": "What this editor judged the sources established, each attributed to the source it came from. Comparing these across editions shows what each model thought mattered.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["point", "source_url"],
+        "properties": {
+          "point": { "type": "string" },
+          "source_url": { "type": "string" }
+        }
+      }
+    },
+    "concepts": {
+      "type": "array",
+      "description": "The evergreen half of the magazine: technical terms this story leans on, each with a permanent explanation. These become nodes at the settled-knowledge end of the fourth dimension, while the story itself sits at the raw-news end.",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["term", "slug", "explanation"],
+        "properties": {
+          "term": { "type": "string" },
+          "slug": { "type": "string", "description": "lowercase-hyphenated" },
+          "explanation": { "type": "string", "description": "100 to 250 words, written to stay true a year from now." }
+        }
+      }
+    },
+    "tags": {
+      "type": "array",
+      "description": "Three to six lowercase topic tags. These decide what sits near what in THIS edition's galaxy, and nowhere else.",
+      "items": { "type": "string" }
+    },
+    "related": {
+      "type": "array",
+      "description": "Slugs of other stories a reader of this one should read next, chosen by this editor alone. These are the edges of this edition's map. A model that links unrelated things produces a visibly stranger galaxy, which is a result and not a fault.",
+      "items": { "type": "string" }
+    },
+    "image_prompt": {
+      "type": "string",
+      "description": "One paragraph directing an illustrator. Rendered locally with the same image model and the same seed for every edition, so the only difference between editions' pictures is the quality of this paragraph."
+    }
+  }
+}

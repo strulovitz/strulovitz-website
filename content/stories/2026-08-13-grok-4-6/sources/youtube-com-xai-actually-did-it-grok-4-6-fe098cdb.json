@@ -1,0 +1,13 @@
+{
+ "kind": "video",
+ "url": "https://www.youtube.com/watch?v=rdYBjpylJUQ",
+ "title": "xAI actually did it... (Grok 4.6)",
+ "byline": "Matthew Berman",
+ "published": "2026-08-13",
+ "fingerprint": "fe098cdbfe8f08b74ba3c6cf55e3144969d9bf86f60ea9b3577bd07c6632193a",
+ "fetched_at_utc": "2026-08-21T15:52:52+00:00",
+ "site": "youtube.com",
+ "words": 2761,
+ "note": "AUTOMATIC captions - unpunctuated, and machine-misheard words are likely",
+ "text_file": "youtube-com-xai-actually-did-it-grok-4-6-fe098cdb.txt"
+}

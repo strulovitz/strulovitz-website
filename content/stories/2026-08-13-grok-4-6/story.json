@@ -1,0 +1,50 @@
+{
+ "slug": "2026-08-13-grok-4-6",
+ "title": "Grok 4.6",
+ "created_at_utc": "2026-08-21T15:53:00+00:00",
+ "language": "en",
+ "source_count": 3,
+ "total_words": 12904,
+ "sources": [
+  {
+   "kind": "video",
+   "url": "https://www.youtube.com/watch?v=rdYBjpylJUQ",
+   "title": "xAI actually did it... (Grok 4.6)",
+   "byline": "Matthew Berman",
+   "published": "2026-08-13",
+   "fingerprint": "fe098cdbfe8f08b74ba3c6cf55e3144969d9bf86f60ea9b3577bd07c6632193a",
+   "fetched_at_utc": "2026-08-21T15:52:52+00:00",
+   "site": "youtube.com",
+   "words": 2761,
+   "note": "AUTOMATIC captions - unpunctuated, and machine-misheard words are likely",
+   "text_file": "youtube-com-xai-actually-did-it-grok-4-6-fe098cdb.txt"
+  },
+  {
+   "kind": "video",
+   "url": "https://www.youtube.com/watch?v=VB39bHByHuU",
+   "title": "Grok 4.6 is Fable now",
+   "byline": "Wes Roth",
+   "published": "2026-08-13",
+   "fingerprint": "4468ed6049c63b940a4aed902295eec798ea8bd501837a7cf9bfcf668239fa62",
+   "fetched_at_utc": "2026-08-21T15:52:56+00:00",
+   "site": "youtube.com",
+   "words": 3969,
+   "note": "AUTOMATIC captions - unpunctuated, and machine-misheard words are likely",
+   "text_file": "youtube-com-grok-4-6-is-fable-now-4468ed60.txt"
+  },
+  {
+   "kind": "video",
+   "url": "https://www.youtube.com/watch?v=PtdI0KZRTLU",
+   "title": "Grok 4.6 Is INSANE – Is THIS a Frontier Model?",
+   "byline": "Bijan Bowen",
+   "published": "2026-08-13",
+   "fingerprint": "a2951a2afbcef6ed511b09e2d54b53358baa9c22dbbe95dca69d3f24b15ea09c",
+   "fetched_at_utc": "2026-08-21T15:53:00+00:00",
+   "site": "youtube.com",
+   "words": 6174,
+   "note": "AUTOMATIC captions - unpunctuated, and machine-misheard words are likely",
+   "text_file": "youtube-com-grok-4-6-is-insane-is-this-a-frontier-model-a2951a2a.txt"
+  }
+ ],
+ "failed_links": []
+}
