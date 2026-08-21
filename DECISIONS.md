@@ -568,3 +568,44 @@ model has no batch form, the instant form is used and that fact is recorded.
 Consequence for the ledger: a batch job's cost and its waiting time are both
 recorded, so the true cost of an article across all eight models is a real
 measured number rather than an estimate.
+
+
+DECISION 20 - EIGHT EDITIONS MEANS EIGHT GALAXIES, STORED SEPARATELY
+Date: 2026-08-21
+Decided by: Nir
+Ruling: each edition has its OWN map. Not one shared map with different words
+on it - eight genuinely different four-dimensional worlds, because each model
+chooses its own tags and its own links, and those choices are what decide where
+a node sits and what it sits next to. Switching edition rearranges the sky.
+
+Nir's reasoning, which also disposes of the objection that readers must learn
+the map: "nobody is learning our map, in the same way that nobody is memorizing
+the location of wikipedia pages. people read and click on the links and get from
+one to the other. if one editor in Wikipedia is dumb, and make dumb links, then
+this is also a test of intelligence that we want."
+
+So the LINKS ARE CONTENT, exactly like the prose and the pictures. A model that
+connects unrelated things, or fails to connect obviously related things, is
+showing the reader something true about itself. That is the product (DECISION
+16).
+
+Storage requirement, in his words: "please make it in the database that it
+stores each galaxy separately, i am sure that it is possible, just like you can
+do different tables in a normal database."
+
+Which Bible text this overrides: part-10.md 10.1.2, which states that "the
+graph, the positions... are IDENTICAL across editions" and that "editions vary
+exactly one thing: the editorial craft". Dead. The graph and the positions vary
+too, because choosing what relates to what IS editorial craft.
+
+Consequences an agent must respect:
+1. Every position, every tag, every link belongs to exactly one edition and is
+   stored under it. Nothing is shared between editions except the FROZEN
+   SOURCES, which are identical for everybody by design (that is what makes the
+   comparison fair).
+2. The layout is computed once per edition, so eight layouts, each deterministic
+   under its own recorded seed.
+3. part-03.md's no-jumping rule (Procrustes alignment between epochs) still
+   applies WITHIN an edition over time, so one model's own galaxy does not
+   secretly become a different galaxy. It does NOT apply between editions:
+   they are supposed to differ.
