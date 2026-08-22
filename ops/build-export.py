@@ -54,7 +54,11 @@ POINTER_HISTORY = os.path.join(REPOSITORY, "ops", "pointers")
 # cannot break the live site halfway through: nothing points at the new folder
 # until the tiny pointer file lands last.
 SHIPPING_ROOT = ["index.html", "night-watch.html"]
-SHIPPING_VERSIONED = ["tesseract.html", "src", "vendor"]
+# "data" holds the galaxies: one four-dimensional world per edition, written by
+# pipeline/stages/layout.py. Without it the live site loads the placeholder
+# world instead of the real magazine, which is exactly the sort of quiet failure
+# that is worth a comment rather than a shrug.
+SHIPPING_VERSIONED = ["tesseract.html", "src", "vendor", "data"]
 
 # Files that must never be uploaded even if they sit inside a shipping folder.
 NEVER_SHIP = {".env", ".DS_Store"}
