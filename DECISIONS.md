@@ -651,3 +651,33 @@ editions to forty illustration prompts.
 ALSO A STANDING INSTRUCTION ABOUT LANGUAGE: never answer Nir with a rule number.
 He does not read code and he does not memorise our filing system. Say what the
 rule IS, in a sentence, in ordinary words.
+
+
+DECISION 21b - ANOTHER CHANCE IS NOT A FIX
+Date: 2026-08-22
+Decided by: Nir
+Ruling: when a model's answer arrives spoiled by something that is not a
+judgement - in this case an illustration prompt that began with the model's own
+thinking-out-loud sentence, "This is going to require some thought." - we ask it
+again rather than edit it. Nir's words: "ask him again, option A, we are not
+fixing, but we will give it another chance."
+
+What that means precisely, and the difference matters:
+1. We do NOT edit the words. Not to trim a stray sentence, not to tidy anything.
+2. We do NOT keep the better of two answers. The new answer REPLACES the old one
+   whatever it looks like, which is why this is a second chance and not a
+   selection process. Keeping the nicer of two attempts would be us doing the
+   editing while pretending the model did it.
+3. The cache is bypassed on a second chance, or the identical answer would
+   simply be handed back.
+4. The rendering records image_prompt_second_chance, so the record stays honest
+   about which paragraphs were the model's first attempt and which its second.
+
+The command, which is general:
+    uv run stages/render_edition.py --story <slug> --model <id> \
+        --fill-image-prompts --again
+
+Outcome on 2026-08-22: Claude Sonnet 5 used its second chance well and wrote a
+clean paragraph with no preamble, for $0.0045. A check across all forty editions
+then found no other prompt whose opening sentence was the model talking rather
+than describing a picture.

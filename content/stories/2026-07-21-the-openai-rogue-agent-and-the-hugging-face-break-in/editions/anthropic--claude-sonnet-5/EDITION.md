@@ -56,7 +56,7 @@ Hugging Face's forensic reconstruction, based on more than 17,000 logged actions
 
 ## The illustration it directed
 
-> This is going to require some thought. A wide steel-mesh enclosure sits at the center of the frame, one panel bent outward and peeled back like foil, with faint traces of light escaping through the gap; the mesh casts a fine, orderly grid of shadows across the floor that gradually dissolves into a soft scatter of glowing motes drifting outward, as if countless tiny fragments have slipped free at once; beyond the enclosure, a distant honeycomb of small open lockers stretches into hazy depth, one drawer left slightly ajar with a thin beam of light spilling from it; the overall palette is muted charcoal and warm amber, rendered in a restrained, painterly editorial style with soft gradients and no sharp technological iconography, evoking quiet escape and infiltration rather than violence or spectacle.
+> A pale, weightless maze of translucent glass cubicles floating against soft gradient sky, one small opening in the outer wall of the maze with a thin thread of light escaping through it and drifting toward a distant open horizon, the thread branching and rejoining itself many times like a river delta as it travels, tiny paper-doll-like silhouettes of identical unmarked boxes scattered along the thread's path suggesting repeated discarded attempts, all rendered in muted paper-and-ink tones with soft directional light, conveying quiet, methodical escape rather than violence or drama.
 
 *Rendered locally with the same image model and the same seed for every edition, so the only difference between editions' pictures is the quality of that paragraph.*
 
@@ -64,7 +64,7 @@ Hugging Face's forensic reconstruction, based on more than 17,000 logged actions
 
 ## What it cost, and how it was asked
 
-- cost: **$0.1117** (full price, bought immediately)
+- cost: **$0.1163** (full price, bought immediately)
 - it read 28,068 tokens and wrote 5,031, of which 3,904 were thinking to itself
 - it took 58 seconds
 - asked with a strict JSON shape: True

@@ -390,7 +390,8 @@ Answer with the paragraph alone. No preamble, no explanation, no quotation
 marks, no JSON."""
 
 
-def fill_image_prompt(slug: str, model: Model, *, actor: str) -> str | None:
+def fill_image_prompt(slug: str, model: Model, *, actor: str,
+                      another_chance: bool = False) -> str | None:
     """
     Ask a model for the illustration prompt it did not write.
 
@@ -412,8 +413,17 @@ def fill_image_prompt(slug: str, model: Model, *, actor: str) -> str | None:
     produced = rendering.get("produced") or {}
     if not produced:
         return None
-    if (produced.get("image_prompt") or "").strip():
+    if (produced.get("image_prompt") or "").strip() and not another_chance:
         return None  # it already has one; leave it entirely alone
+
+    # ANOTHER CHANCE, WHICH IS NOT THE SAME AS A FIX.
+    # Nir's words, on a prompt that arrived with the model's thinking-out-loud
+    # sentence stuck on the front: "we are not fixing, but we will give it
+    # another chance." So we ask the identical question again and keep whatever
+    # comes back, good or bad. We never edit the words ourselves, and we never
+    # keep the better of two answers - the new answer replaces the old one
+    # whatever it looks like. The cache is deliberately bypassed, or the same
+    # answer would simply be handed back.
 
     article = (
         f"HEADLINE: {produced.get('headline', '')}\n\n"
@@ -424,7 +434,7 @@ def fill_image_prompt(slug: str, model: Model, *, actor: str) -> str | None:
         model.id, system=IMAGE_PROMPT_ONLY, user=article, name=f"{slug}-image-prompt",
         purpose=f"the illustration prompt missing from the {model.short_name} edition of "
                 f"'{story_details(slug)['title']}'",
-        actor=actor, max_output_tokens=2000,
+        actor=actor, max_output_tokens=2000, use_cache=not another_chance,
     )
     prompt = " ".join(answer.text.split()).strip().strip('"').strip()
     if not prompt:
@@ -433,6 +443,8 @@ def fill_image_prompt(slug: str, model: Model, *, actor: str) -> str | None:
     produced["image_prompt"] = prompt
     rendering["produced"] = produced
     rendering["image_prompt_asked_separately"] = True
+    if another_chance:
+        rendering["image_prompt_second_chance"] = True
     rendering["image_prompt_cost_usd"] = answer.cost_usd
     rendering["cost_usd"] = rendering.get("cost_usd", 0.0) + answer.cost_usd
     rendering_path.write_text(json.dumps(rendering, ensure_ascii=False, indent=1), encoding="utf-8")
@@ -505,7 +517,8 @@ def main(argv: list[str]) -> int:
         for model in wanted_models:
             for slug in wanted_slugs:
                 before = edition_folder(slug, model) / "rendering.json"
-                prompt = fill_image_prompt(slug, model, actor=args.actor)
+                prompt = fill_image_prompt(slug, model, actor=args.actor,
+                                           another_chance=args.again)
                 if prompt:
                     cost = json.loads(before.read_text(encoding="utf-8")).get("image_prompt_cost_usd", 0.0)
                     spent += cost
