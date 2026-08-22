@@ -1,3 +1,8 @@
+> **SUPERSEDED.** This was written at midnight on 2026-08-21 while the work was
+> still running. The current truth is **WHERE-WE-STAND-2026-08-22.md**. Keep
+> reading this one for the reasoning behind each design choice, but take no
+> number or status from it.
+
 # THE EDITIONS MACHINE — HANDOVER, 2026-08-21 (MIDNIGHT, ISRAEL)
 
 Written by Claude Opus 5 on desktop-linux, at Nir's request, because he is going
