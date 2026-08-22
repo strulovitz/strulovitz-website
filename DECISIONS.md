@@ -609,3 +609,45 @@ Consequences an agent must respect:
    applies WITHIN an edition over time, so one model's own galaxy does not
    secretly become a different galaxy. It does NOT apply between editions:
    they are supposed to differ.
+
+
+DECISION 21 - EVERY EDITION MUST CARRY AN ILLUSTRATION PROMPT. A MISSING FIELD IS NOT AN OPINION
+Date: 2026-08-22
+Decided by: Nir
+Ruling: every model must produce a prompt for its own illustration, for every
+story, without exception. If a model leaves it out, it is asked again - handed
+back its OWN finished article and asked only for the picture. Nir's words: "i
+want each one to make a prompt for an image!!! give these models the output that
+they gave (text) and ask for an image prompt and save it."
+
+WHAT THIS CORRECTS, AND IT WAS MY MISTAKE, NOT HIS: Claude Sonnet 5 finished two
+editions without an image prompt, and I recorded that as a fact about Sonnet and
+left it, citing DECISION 16. That was wrong, and Nir was right to be angry. It
+also came wrapped in jargon - I answered him with the words "ruling 16", a
+number from a file, instead of plain English. Do not do that to him.
+
+THE DISTINCTION THAT DECISION 16 ACTUALLY DRAWS, now stated properly:
+1. A model's JUDGEMENTS are never touched. A weak article, a dull headline, a
+   silly link, a wrong number: published exactly as written, forever. That is
+   the product, and the reader comparing editions is the fact-checking.
+2. A model's ABSENCE of work is not a judgement, it is an unfinished job. A
+   required field left empty is asked for again. The pictures are half of what a
+   reader compares, so an edition without one is not an opinion about
+   illustration - it is simply missing.
+
+HOW IT IS DONE, so it stays fair: the model receives its own headline, its own
+summary and its own article, and one instruction asking for the illustration
+paragraph. It never sees another model's work, never gets a hint, and nothing it
+wrote earlier is altered by a single character. The rendering records
+image_prompt_asked_separately so the record is honest about which prompts were
+written in the second pass.
+
+THE COMMAND, which is general and not a one-off patch:
+    cd pipeline && uv run stages/render_edition.py --all --all-models --fill-image-prompts
+It touches only editions whose prompt is empty, and costs a fraction of a cent
+each. Two were filled on 2026-08-22 for $0.0091 in total, bringing all forty
+editions to forty illustration prompts.
+
+ALSO A STANDING INSTRUCTION ABOUT LANGUAGE: never answer Nir with a rule number.
+He does not read code and he does not memorise our filing system. Say what the
+rule IS, in a sentence, in ordinary words.

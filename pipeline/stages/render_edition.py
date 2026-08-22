@@ -371,6 +371,76 @@ def render_batch(slugs: list[str], model: Model, *, actor: str) -> str:
     return receipt.batch_id
 
 
+# The instruction for the missing-illustration case. It hands a model back its
+# OWN finished article and asks only for the picture, so the prompt it writes is
+# still entirely its own work and still comparable with the other seven.
+IMAGE_PROMPT_ONLY = """You wrote the article below for AI PANORAMA, an
+independent magazine about artificial intelligence. Everything about it is your
+own work. The only thing still missing is the instruction for its illustration.
+
+Write ONE paragraph describing a single illustration for this article, to be
+given to an image-generating model. Editorial-illustration style, clean and
+uncluttered. Describe the picture, not the story. NO text, letters, numbers or
+logos anywhere in the image. No real person's face. No brand imitation. No
+dials, gauges, glowing brains, robot handshakes, or blue circuit-board
+backgrounds - they are exhausted cliches. Find an image that is genuinely about
+what this story means.
+
+Answer with the paragraph alone. No preamble, no explanation, no quotation
+marks, no JSON."""
+
+
+def fill_image_prompt(slug: str, model: Model, *, actor: str) -> str | None:
+    """
+    Ask a model for the illustration prompt it did not write.
+
+    Every edition must carry an instruction for its own picture, because the
+    pictures are half of what a reader compares and an edition without one is
+    an unfinished job rather than an opinion. Nir, plainly: "i want each one to
+    make a prompt for an image".
+
+    The model is given back its OWN article and nothing else, so the paragraph
+    it writes is still entirely its own work, written from its own words, and
+    still fairly comparable with the other seven. Nothing it wrote earlier is
+    altered by a single character.
+    """
+    folder = edition_folder(slug, model)
+    rendering_path = folder / "rendering.json"
+    if not rendering_path.exists():
+        return None
+    rendering = json.loads(rendering_path.read_text(encoding="utf-8"))
+    produced = rendering.get("produced") or {}
+    if not produced:
+        return None
+    if (produced.get("image_prompt") or "").strip():
+        return None  # it already has one; leave it entirely alone
+
+    article = (
+        f"HEADLINE: {produced.get('headline', '')}\n\n"
+        f"SUMMARY: {produced.get('tldr', '')}\n\n"
+        f"{produced.get('article', '')}"
+    )
+    answer = ask_now(
+        model.id, system=IMAGE_PROMPT_ONLY, user=article, name=f"{slug}-image-prompt",
+        purpose=f"the illustration prompt missing from the {model.short_name} edition of "
+                f"'{story_details(slug)['title']}'",
+        actor=actor, max_output_tokens=2000,
+    )
+    prompt = " ".join(answer.text.split()).strip().strip('"').strip()
+    if not prompt:
+        return None
+
+    produced["image_prompt"] = prompt
+    rendering["produced"] = produced
+    rendering["image_prompt_asked_separately"] = True
+    rendering["image_prompt_cost_usd"] = answer.cost_usd
+    rendering["cost_usd"] = rendering.get("cost_usd", 0.0) + answer.cost_usd
+    rendering_path.write_text(json.dumps(rendering, ensure_ascii=False, indent=1), encoding="utf-8")
+    (folder / "image-prompt.txt").write_text(prompt, encoding="utf-8")
+    write_readable(folder)
+    return prompt
+
+
 def reparse(slug: str, model: Model) -> bool:
     """
     Read an edition's RAW answer off disk again and rebuild its rendering.
@@ -420,10 +490,43 @@ def main(argv: list[str]) -> int:
     parser.add_argument("--batch", action="store_true", help="buy at half price, collect later")
     parser.add_argument("--again", action="store_true",
                         help="render even where a rendering already exists")
+    parser.add_argument("--fill-image-prompts", action="store_true",
+                        help="ask any edition missing an illustration prompt for one, "
+                             "giving the model back its own article")
     parser.add_argument("--reparse", action="store_true",
                         help="re-read answers already on disk. Costs nothing, calls nobody.")
     parser.add_argument("--actor", default="claude-opus-5")
     args = parser.parse_args(argv)
+
+    if args.fill_image_prompts:
+        wanted_models = roster() if args.all_models or not args.model else [model_by_id(args.model)]
+        wanted_slugs = all_story_slugs() if args.all or not args.story else [args.story]
+        filled, spent = 0, 0.0
+        for model in wanted_models:
+            for slug in wanted_slugs:
+                before = edition_folder(slug, model) / "rendering.json"
+                prompt = fill_image_prompt(slug, model, actor=args.actor)
+                if prompt:
+                    cost = json.loads(before.read_text(encoding="utf-8")).get("image_prompt_cost_usd", 0.0)
+                    spent += cost
+                    filled += 1
+                    print(f"  {model.short_name} / {slug}  (${cost:.4f})")
+                    print(f"    {prompt[:150]}...")
+        print(f"\n{filled} missing illustration prompts written, ${spent:.4f} spent.")
+        if filled:
+            try:
+                with connect() as db:
+                    log_job(db, action_type="stage_run", actor=args.actor, cost_usd=spent,
+                            plain_words=(
+                                f"Asked for {filled} illustration prompts that were missing from "
+                                f"otherwise-finished editions. Each model was handed back its OWN "
+                                f"article and asked only for the picture, so the paragraph is still "
+                                f"entirely its own work and nothing it wrote earlier was altered. "
+                                f"Every edition must carry an instruction for its own illustration, "
+                                f"because the pictures are half of what a reader compares."))
+            except Exception as problem:  # noqa: BLE001
+                print(f"(could not write to the ledger: {type(problem).__name__})")
+        return 0
 
     if args.reparse:
         fixed = 0

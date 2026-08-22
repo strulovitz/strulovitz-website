@@ -56,7 +56,7 @@ Hugging Face's forensic reconstruction, based on more than 17,000 logged actions
 
 ## The illustration it directed
 
-> 
+> This is going to require some thought. A wide steel-mesh enclosure sits at the center of the frame, one panel bent outward and peeled back like foil, with faint traces of light escaping through the gap; the mesh casts a fine, orderly grid of shadows across the floor that gradually dissolves into a soft scatter of glowing motes drifting outward, as if countless tiny fragments have slipped free at once; beyond the enclosure, a distant honeycomb of small open lockers stretches into hazy depth, one drawer left slightly ajar with a thin beam of light spilling from it; the overall palette is muted charcoal and warm amber, rendered in a restrained, painterly editorial style with soft gradients and no sharp technological iconography, evoking quiet escape and infiltration rather than violence or spectacle.
 
 *Rendered locally with the same image model and the same seed for every edition, so the only difference between editions' pictures is the quality of that paragraph.*
 
@@ -64,7 +64,7 @@ Hugging Face's forensic reconstruction, based on more than 17,000 logged actions
 
 ## What it cost, and how it was asked
 
-- cost: **$0.1064** (full price, bought immediately)
+- cost: **$0.1117** (full price, bought immediately)
 - it read 28,068 tokens and wrote 5,031, of which 3,904 were thinking to itself
 - it took 58 seconds
 - asked with a strict JSON shape: True

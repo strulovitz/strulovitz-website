@@ -9,7 +9,7 @@
  "brief_version": "ba9b08ec7e56",
  "asked_with_strict_schema": true,
  "bought_in_batch": false,
- "cost_usd": 0.060224,
+ "cost_usd": 0.064048,
  "prompt_tokens": 25877,
  "completion_tokens": 847,
  "reasoning_tokens": 0,
@@ -24,6 +24,8 @@
   "concepts": [],
   "tags": [],
   "related": [],
-  "image_prompt": ""
- }
+  "image_prompt": "A minimalist split-panel composition where the left side shows an intricate network of glowing threads flowing upward like rising vines, converging into the right side where they reorganize into a taller, more refined lattice structure—suggesting one system's output becoming another's foundation—rendered in warm amber and cool slate tones against a soft neutral gradient background, with abstract geometric shapes suggesting overlapping ranking podiums faintly visible in the negative space, all in a clean vector-illustration style with soft shadows and no literal technology imagery."
+ },
+ "image_prompt_asked_separately": true,
+ "image_prompt_cost_usd": 0.003824
 }
