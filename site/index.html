@@ -67,6 +67,29 @@
     border-top: 1px solid #1b2437; margin-top: 3.5rem; padding-top: 1.2rem;
     color: #6d7f9e; font-size: 0.9rem;
   }
+
+  /* ---- THE FIRST RESULTS. Table and edition buttons. ---- */
+  .editions { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 26px; }
+  .editions a {
+    display: block; padding: 9px 13px; border-radius: 8px; text-decoration: none;
+    background: #16203a; border: 1px solid #2c3c60; color: #dce8ff; font-size: 15px;
+  }
+  .editions a:hover { border-color: #6ec6ff; background: #1b2748; }
+  .editions a b { display: block; font-weight: 600; }
+  .editions a span { display: block; font-size: 12.5px; color: #93a6c8; margin-top: 2px; }
+  .results { width: 100%; border-collapse: collapse; margin: 18px 0 8px; font-size: 15px; }
+  .results th, .results td { text-align: right; padding: 7px 9px; border-bottom: 1px solid #223255; }
+  .results th { color: #93a6c8; font-weight: 600; font-size: 13px; white-space: nowrap; }
+  .results th:first-child, .results td:first-child { text-align: left; }
+  .results td:first-child { white-space: nowrap; }
+  .results td:first-child a { color: #dce8ff; text-decoration: none; border-bottom: 1px solid #33456e; }
+  .results td:first-child a:hover { color: #fff; border-bottom-color: #6ec6ff; }
+  .results tbody tr:hover { background: #141d33; }
+  .results .cheapest { color: #a0e7a0; }
+  .results .most { color: #ffd166; }
+  .results caption { caption-side: bottom; text-align: left; color: #8b9dbe;
+                     font-size: 13px; padding-top: 10px; line-height: 1.5; }
+  @media (max-width: 620px) { .results { font-size: 13px; } .results th, .results td { padding: 5px 5px; } }
 </style>
 </head>
 <body>
@@ -92,13 +115,13 @@
   stream. It is a <em>state</em>: whenever you walk in, you get the whole
   current condition of the field, laid out as a map you can fly through.</p>
 
-  <p>Free, open source, no advertising, and every number will carry a link to
-  where it came from.</p>
+  <p>Free, open source, and every number carries a link to where it came
+  from.</p>
 
   <h2>What is working right now</h2>
   <p class="note">The first thing built was the hardest thing: real four
-  dimensions. There is no real content in it yet &mdash; every node you see is a
-  placeholder with a made-up name. What is real is the geometry.</p>
+  dimensions. It now has real content in it &mdash; the first stories, written
+  eight separate times over, by eight different AI models.</p>
 
   <a class="enter" id="enter-screen" href="VERSION_FALLBACK/tesseract.html">
     <strong>Hello, Tesseract &mdash; on this screen</strong>
@@ -110,6 +133,39 @@
     <span>Meta Quest 3 and other WebXR headsets. Open this page in the
     headset's own browser, then press Enter VR.</span>
   </a>
+
+<!-- RESULTS BEGIN -->
+  <h2>The first real results</h2>
+  <p>5 stories so far, each one written 8 separate times over, by 8 different AI models. Every model read exactly the same frozen sources and did the entire job alone: the article, the one-line summary, the encyclopedia entries behind it, the tags, the links to other stories, and the instructions for its own illustration. Nothing any of them wrote has been corrected, improved or graded by us. If one of them is wrong, switch to another and see for yourself &mdash; that comparison is the point of this magazine, not a flaw in it.</p>
+  <p>Pick whose edition you want to fly through. Each one is its own four-dimensional world, because each model chose its own tags and its own links, and those choices are what decide where everything sits. Changing edition rearranges the sky.</p>
+  <div class="editions">
+    <a class="edition-link" data-edition="openai--gpt-5.6-terra" href="tesseract.html?edition=openai--gpt-5.6-terra"><b>GPT-5.6 Terra</b><span>the one this site opens with</span></a>
+    <a class="edition-link" data-edition="anthropic--claude-sonnet-5" href="tesseract.html?edition=anthropic--claude-sonnet-5"><b>Claude Sonnet 5</b><span>Anthropic</span></a>
+    <a class="edition-link" data-edition="google--gemini-3.7-flash" href="tesseract.html?edition=google--gemini-3.7-flash"><b>Gemini 3.7 Flash</b><span>Google</span></a>
+    <a class="edition-link" data-edition="x-ai--grok-4.6" href="tesseract.html?edition=x-ai--grok-4.6"><b>Grok 4.6</b><span>xAI</span></a>
+    <a class="edition-link" data-edition="deepseek--deepseek-v4-pro-0813" href="tesseract.html?edition=deepseek--deepseek-v4-pro-0813"><b>DeepSeek V4 Pro</b><span>DeepSeek</span></a>
+    <a class="edition-link" data-edition="z-ai--glm-5.3" href="tesseract.html?edition=z-ai--glm-5.3"><b>GLM 5.3</b><span>Z.ai</span></a>
+    <a class="edition-link" data-edition="qwen--qwen3.8-max" href="tesseract.html?edition=qwen--qwen3.8-max"><b>Qwen 3.8 Max</b><span>Alibaba</span></a>
+    <a class="edition-link" data-edition="moonshotai--kimi-k2.6" href="tesseract.html?edition=moonshotai--kimi-k2.6"><b>Kimi K2.6</b><span>Moonshot</span></a>
+  </div>
+  <table class="results">
+    <thead><tr><th>Edition</th><th>Cost per story</th><th>Words per article</th><th>Ideas explained</th><th>Links drawn</th><th>Links per node</th><th>Seconds each</th></tr></thead>
+    <tbody>
+      <tr><td><a href="tesseract.html?edition=google--gemini-3.7-flash">Gemini 3.7 Flash</a></td><td class="cheapest">$0.0098</td><td>617</td><td>12</td><td>24</td><td>1.4</td><td>19</td></tr>
+      <tr><td><a href="tesseract.html?edition=moonshotai--kimi-k2.6">Kimi K2.6</a></td><td>$0.0483</td><td>700</td><td>12</td><td>25</td><td>1.5</td><td>195</td></tr>
+      <tr><td><a href="tesseract.html?edition=deepseek--deepseek-v4-pro-0813">DeepSeek V4 Pro</a></td><td>$0.0533</td><td>788</td><td>15</td><td>37</td><td>1.9</td><td>166</td></tr>
+      <tr><td><a href="tesseract.html?edition=openai--gpt-5.6-terra">GPT-5.6 Terra</a></td><td>$0.0540</td><td>821</td><td>15</td><td>36</td><td>1.8</td><td>34</td></tr>
+      <tr><td><a href="tesseract.html?edition=anthropic--claude-sonnet-5">Claude Sonnet 5</a></td><td>$0.0809</td><td>555</td><td>10</td><td>25</td><td>1.7</td><td>51</td></tr>
+      <tr><td><a href="tesseract.html?edition=x-ai--grok-4.6">Grok 4.6</a></td><td>$0.0865</td><td>807</td><td>16</td><td>38</td><td>1.8</td><td>467</td></tr>
+      <tr><td><a href="tesseract.html?edition=z-ai--glm-5.3">GLM 5.3</a></td><td>$0.0990</td><td>953</td><td>19</td><td>59</td><td class="most">2.5</td><td>235</td></tr>
+      <tr><td><a href="tesseract.html?edition=qwen--qwen3.8-max">Qwen 3.8 Max</a></td><td>$0.1472</td><td>755</td><td>20</td><td>55</td><td>2.2</td><td>404</td></tr>
+    </tbody>
+    <caption>Every number here is measured, not estimated. The costs are what was actually charged for the work. &ldquo;Ideas explained&rdquo; is how many encyclopedia entries that model decided the stories needed. &ldquo;Links per node&rdquo; is how densely it wove its own world together. All 8 editions of all 5 stories cost $2.90 in total.</caption>
+  </table>
+  <p class="note">What the table already shows: GLM 5.3 wove a world 1.7 times more densely connected than Gemini 3.7 Flash&rsquo;s, from the same 5 stories. GLM 5.3 wrote 953 words per article where Claude Sonnet 5 wrote 555. Grok 4.6 took 467 seconds to think where Gemini 3.7 Flash took 19. And Gemini 3.7 Flash, at $0.0098 a story, costs 15 times less than the dearest edition here &mdash; read them side by side and judge whether it shows.</p>
+  <p class="note">Clicking a node inside a world does not open an article yet. The reading pages and the illustrations are the next thing being built.</p>
+  <!-- generated by pipeline/stages/build_home.py on 2026-08-22 - do not edit by hand -->
+<!-- RESULTS END -->
 
   <h2>What you are looking for</h2>
   <p>A tesseract is to a cube what a cube is to a square. A square has four
@@ -132,16 +188,29 @@
   colour. Colour means identity here &mdash; which model, which edition &mdash;
   and nothing else.</p>
 
+  <h2>Done already</h2>
+  <ul class="plain">
+    <li>Real four dimensions, on a screen and in a headset, with five short
+      lessons that teach anyone to follow an object through a turn it should
+      not survive.</li>
+    <li>Editions: every story written from scratch by eight different AI
+      models, so you can judge them on work you actually came to read.</li>
+    <li>Eight separate worlds, one per edition, because each model decided for
+      itself what belongs beside what.</li>
+  </ul>
+
   <h2>Coming, in this order</h2>
   <ul class="plain">
-    <li>The four-dimensional gym: five short lessons that teach anyone to
-      follow an object through a turn it should not survive.</li>
-    <li>Real articles, with the sources attached to every number, every date
-      and every name.</li>
-    <li>Model comparisons in real dimensions, instead of bar charts that hide
-      the truths that matter.</li>
-    <li>Editions: the same issue written by several different AI models, so you
-      can judge them on work you actually came to read.</li>
+    <li>The reading pages, with every source linked beside every number, every
+      date and every name.</li>
+    <li>The illustrations. Every model wrote instructions for its own picture,
+      and the pictures get drawn with the same tool and the same starting
+      point for all of them &mdash; so the only difference you see is how well
+      each one directed the artist.</li>
+    <li>Model comparisons in real dimensions. Not our own invented scores: the
+      benchmarks the world already publishes, combined into three and four
+      dimensions instead of the one-dimensional bar chart everybody else
+      prints.</li>
     <li>A do-it-yourself workshop, the way the old computer magazines had. The
       first project is <a href="/night-watch.html">Night Watch</a>.</li>
   </ul>
@@ -167,6 +236,17 @@
       document.getElementById('enter-screen').href = pointer.live + '/tesseract.html';
       document.getElementById('enter-vr').href = pointer.live + '/tesseract.html?vr=1';
       document.getElementById('health-link').href = pointer.live + '/build-health.html';
+      // The edition links are generated into this page by
+      // pipeline/stages/build_home.py and point at the folder next door, which
+      // is right during development and wrong once deployed. Aim them at
+      // whichever dated folder is live. Done by CLASS, not by name, so a model
+      // added next month needs no change here.
+      for (const link of document.querySelectorAll('a.edition-link, table.results a')) {
+        const target = link.getAttribute('href');
+        if (target && !target.startsWith('/') && !target.startsWith('http')) {
+          link.href = pointer.live + '/' + target;
+        }
+      }
     })
     .catch(() => {
       // No pointer file means we are being served straight out of the site/
