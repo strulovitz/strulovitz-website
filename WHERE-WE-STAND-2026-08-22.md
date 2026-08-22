@@ -183,20 +183,34 @@ python3 ops/build-export.py && ./ops/deploy.sh
 
 ### Free. No model is called, not one cent.
 
-1. **THE ILLUSTRATIONS.** 38 image prompts written, none rendered. Nir cares
+1. **THE ILLUSTRATIONS.** All **40** image prompts are now written (the two
+   Claude Sonnet 5 was missing were asked for separately on 2026-08-22, and one
+   of those was given a second chance - see DECISIONS.md 21 and 21b). None are
+   rendered. Nir cares
    about the pictures more than almost anything and said so explicitly: *"this is
    very important to me the images."* His decision: **local ComfyUI on this
    desktop's RTX 4070 Ti**, free and unlimited, with **the same image model and
    the same seed for every edition**, so the only difference between editions'
    pictures is how well each model directed the artist. ComfyUI is at
    `/home/nir/ai-art/ComfyUI` with RealVisXL, Juggernaut and ZavyChroma
-   checkpoints; **the server is not running and needs starting.** Save each
-   picture beside the text it accompanies — he asked for that specifically.
+   checkpoints; **the server is not running and needs starting.**
+   **WHERE EACH PICTURE GOES (DECISIONS.md 22, and he corrected me on this
+   twice, so get it right):** there is **NO gallery page**. Each picture appears
+   in exactly two places - **full size at the very top of its own article**,
+   which is what a click opens, and **as a small thumbnail inside that node's
+   hover card** beside the one-line TLDR. Two sizes are therefore needed, the
+   thumbnail derived automatically, because a hover card must never download a
+   full-size illustration. The file lives in the same folder as the words it
+   accompanies:
+   `content/stories/<story>/editions/<company--model>/images/`.
    Stage to write: `pipeline/stages/images.py`.
 2. **THE READING PAGES.** Clicking a node opens nothing, because
-   `stories/<slug>/<model>.html` does not exist. Each page needs: headline,
-   TLDR, picture, article, key points with their source links, the encyclopedia
-   entries, tags, every source linked prominently, and the edition switcher.
+   `stories/<slug>/<model>.html` does not exist. Each page needs, in this order:
+   headline, TLDR, **the full-size illustration at the very top**, the article,
+   key points with their source links, the encyclopedia entries, tags, every
+   source linked prominently, and the edition switcher.
+   Also needed: the **thumbnail in the hover card** in `site/src/vr/main.js`,
+   degrading quietly when an edition has no picture yet.
    **Symmetrical folders — GPT gets no privileged position**; the home page
    merely links to the default model's copy. Stage to write:
    `pipeline/stages/build_pages.py`.

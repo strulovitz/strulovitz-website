@@ -681,3 +681,42 @@ Outcome on 2026-08-22: Claude Sonnet 5 used its second chance well and wrote a
 clean paragraph with no preamble, for $0.0045. A check across all forty editions
 then found no other prompt whose opening sentence was the model talking rather
 than describing a picture.
+
+
+DECISION 22 - WHERE A PICTURE APPEARS. THERE IS NO GALLERY
+Date: 2026-08-22
+Decided by: Nir
+Ruling: every illustration appears in exactly two places, and nowhere else:
+
+1. FULL SIZE, at the very beginning of its own article - the plain explanation,
+   which IS the article (there is no separate simple version) - shown when the
+   reader CLICKS the node.
+2. AS A SMALL THUMBNAIL, inside that same node's hover card, beside the one-line
+   TLDR, shown when the reader HOVERS over the node.
+
+Nir's words: "they are NOT turning into one page, they are embedded each inside
+its own article (in the beginning of the ELI5 which appear when the user clicks)
+in full size; and they are embedded each in its own TLDR (which appears when the
+user hovers) in small thumbnail."
+
+THERE IS NO GALLERY, no "the pictures" page, no grid of illustrations to browse,
+and no page comparing the eight editions' images side by side. A picture is part
+of the story it belongs to. The comparison between editions happens the way every
+other comparison on this site happens: the reader switches edition and sees a
+different picture at the top of the article, in place.
+
+WHERE THE FILE LIVES ON DISK: in the same folder as the words it accompanies,
+which Nir also asked for explicitly - "of course the picture is saved in a folder
+along with what is the texts that this picture is accompanying". So:
+    content/stories/<story>/editions/<company--model>/images/
+next to that edition's own rendering.json, article.md and image-prompt.txt.
+Nothing about a picture is stored anywhere else, so a story folder is always
+self-contained and can be read, moved or archived whole.
+
+TWO CONSEQUENCES FOR WHOEVER BUILDS THIS:
+1. The hover card in site/src/vr/main.js currently shows the headline, the TLDR
+   and the tags. It needs the thumbnail added, and it must degrade quietly when
+   an edition has no picture yet rather than showing a broken image.
+2. Two sizes of every picture are needed: the full one for the article, and a
+   small thumbnail for the hover card, derived from it automatically. A hover
+   card must never download a full-size illustration.
