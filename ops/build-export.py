@@ -53,7 +53,32 @@ POINTER_HISTORY = os.path.join(REPOSITORY, "ops", "pointers")
 # in here. A new build never touches an old folder, so uploading a new version
 # cannot break the live site halfway through: nothing points at the new folder
 # until the tiny pointer file lands last.
-SHIPPING_ROOT = ["index.html", "night-watch.html"]
+SHIPPING_ROOT = [
+    "index.html",
+    "night-watch.html",
+    "about.html",
+    "home-page-gpt-image-2.html",
+    "home-page-gemini-3-pro-image.html",
+    "home-page-grok-imagine-image-2.html",
+    "home-page-muse-image.html",
+    "home-page-flux-2-max.html",
+    "home-page-qwen-image-3-pro.html",
+    "about-page-gpt-image-2.html",
+    "about-page-gemini-3-pro-image.html",
+    "about-page-grok-imagine-image-2.html",
+    "about-page-muse-image.html",
+    "about-page-flux-2-max.html",
+    "about-page-qwen-image-3-pro.html",
+    "laser-chess.html",
+    "evil-genius.html",
+    "second-opinion.html",
+    "cheerleader.html",
+    # Nir's picture galleries and the lightbox they open with. They are root
+    # files because the pages that use them live at the root, and because they
+    # rarely change, so an upload between versions is wasted effort.
+    "lightbox.js",
+    "images",
+]
 # "data" holds the galaxies: one four-dimensional world per edition, written by
 # pipeline/stages/layout.py. Without it the live site loads the placeholder
 # world instead of the real magazine, which is exactly the sort of quiet failure
@@ -164,15 +189,28 @@ def main():
     content_hash = hash_of_files(destination, copied)
     built = datetime.datetime.now().replace(microsecond=0).isoformat()
 
-    # The root landing page carries the live version's name inside its links, so
-    # that the site still works for a visitor with JavaScript switched off.
+    # Every root page carries the live version's name inside its tesseract
+    # links, so that the site still works for a visitor with JavaScript
+    # switched off. index.html must always carry the placeholder; the other
+    # root pages are only fixed up if they happen to use it.
+    # encoding="utf-8" is MANDATORY: the pages carry emojis, and on Windows a
+    # plain open() reads them in the local codepage and silently corrupts them.
     root_index = os.path.join(EXPORTS, "index.html")
-    with open(root_index) as handle:
+    with open(root_index, encoding="utf-8") as handle:
         landing = handle.read()
     if "VERSION_FALLBACK" not in landing:
         raise RuntimeError("site/index.html lost its VERSION_FALLBACK placeholder")
-    with open(root_index, "w") as handle:
+    with open(root_index, "w", encoding="utf-8") as handle:
         handle.write(landing.replace("VERSION_FALLBACK", version))
+    for name in root_copied:
+        if not name.endswith(".html"):
+            continue
+        path = os.path.join(EXPORTS, name)
+        with open(path, encoding="utf-8") as handle:
+            page_text = handle.read()
+        if "VERSION_FALLBACK" in page_text:
+            with open(path, "w", encoding="utf-8") as handle:
+                handle.write(page_text.replace("VERSION_FALLBACK", version))
 
     with open(os.path.join(destination, "build-health.html"), "w") as handle:
         handle.write(HEALTH_HTML.format(

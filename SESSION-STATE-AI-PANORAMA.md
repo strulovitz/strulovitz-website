@@ -685,3 +685,61 @@ BOOT SEQUENCE FOR THE NEXT AGENT
    ops/test-the-4d-page.py that would have caught it, deploy, and tell him in
    plain words what was wrong. Every single fault he reported today was real,
    and none of them would have been found by an agent testing its own work.
+
+================================================================================
+NIR'S NEW HOME + ABOUT PAGES (2026-09-01, GLM 5.3 Flash in OpenCode on
+desktop-windows, the Windows 11 side). Read this before touching them.
+================================================================================
+
+WHAT WAS BUILT (all inside site/, all plain hand-editable HTML):
+
+1. SEVEN HOME PAGES. index.html is the DEFAULT (GPT Image 2 pictures) and still
+   carries the whole magazine content pushed down below Nir's new section. Six
+   dedicated editions: home-page-gpt-image-2.html, home-page-gemini-3-pro-image.html,
+   home-page-grok-imagine-image-2.html, home-page-muse-image.html,
+   home-page-flux-2-max.html, home-page-qwen-image-3-pro.html. Each shows ONLY
+   that model's pictures (from Nir's OneDrive Pictures\Strulovitz\photo-realistic,
+   copied into site/images/photo-realistic/<slug>/).
+
+2. SEVEN ABOUT PAGES, same pattern: about.html (default, GPT) + about-page-*.html,
+   pictures from site/images/stylized-art/<slug>/ (Nir's stylized-art folder).
+   Menu link "About" goes to /about.html and was added to every nav.
+
+3. FOUR "coming soon" pages for projects with no site yet: laser-chess.html,
+   evil-genius.html, second-opinion.html, cheerleader.html (honest "does not
+   exist yet" banners, in the same style as night-watch.html).
+
+4. site/lightbox.js - clicking ANY img class="thumb" opens the full-size picture
+   fitted to the screen; close by tap anywhere / X / Escape. Thumbnails are
+   NEVER links. Model switching is done by the six a.model-btn buttons, which
+   ALWAYS go to the dedicated pages, never to the default. Project links are
+   the text under each thumbnail (home: `Peak Together - "vibe-science"`;
+   about: `"vibe-science":<br>Peak Together` linked, rest plain).
+
+5. THUMBNAILS: every picture also has a small preview copy in
+   site/images/<kind>/<slug>/thumbs/<name>.jpg (480px wide, JPEG q80), generated
+   with PowerShell System.Drawing. Pages reference thumbs for display and the
+   original file for the lightbox, so pages load fast on phones.
+
+6. ops/build-export.py: SHIPPING_ROOT now also ships the new pages, lightbox.js
+   and the whole images/ folder (root files, since root pages reference them
+   relative). ALL its HTML reads/writes are now encoding="utf-8" - MANDATORY,
+   because the pages carry emojis and Windows defaults to cp1252 and silently
+   corrupts them (this actually happened and was fixed; a plain open() on these
+   files is a bug waiting to happen again).
+
+HOW THE PAGES WERE GENERATED (and how to regenerate):
+   One-off builder: C:\Users\nir_s\AppData\Local\Temp\opencode\build_nirs_pages.py
+   (temp folder - lost on reboot; recover from this session's chat if needed).
+   It edits site/index.html between "NIR SECTION BEGIN/END" markers, is safe to
+   re-run, and rebuilds all 14 model pages from shared text so they stay
+   identical. Checker: ...\check_nirs_pages.py (949 checks, all passing).
+   A verbatim copy of Nir's text lives inside the builder script.
+
+DEPLOYMENT: python ops/build-export.py, then FileZilla: dated folder first,
+root files, pointer.json LAST. The images (~300 MB) upload at the ROOT once;
+later builds only re-upload changed files. First test build: v2026-09-01-b
+(pointer saved in ops/pointers/), built on Windows, not yet uploaded.
+
+STILL OPEN (ask Nir): git commit + push (about 350 MB of pictures - the push
+will be slow the first time); Nir has not yet seen the pages in a browser.

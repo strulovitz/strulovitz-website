@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Strulovitz - home, GPT Image 2 edition</title>
+<meta name="description" content="A free, open-source encyclopedia-magazine about artificial intelligence, that you can fly through in 3D on a screen and in genuine 4D in Virtual Reality.">
+<!--
+  THIS IS THE ROOT OF www.strulovitz.org . The magazine is the main project, not
+  a section of a personal homepage. See PROJECTS-AND-MENU.md .
+
+  It is deliberately plain HTML. The only JavaScript is four lines that read
+  pointer.json to find which dated folder is currently live, and point the two
+  entry buttons at it. With JavaScript switched off, the buttons still work,
+  because the version that was live at build time is written into the links.
+  That is what makes deployment atomic without a redirect (bible/part-01.md 1.9)
+  while keeping the address bar showing plainly www.strulovitz.org .
+-->
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: #07090f; color: #dbe4f4;
+    font: 17px/1.65 system-ui, -apple-system, Segoe UI, sans-serif;
+  }
+  a { color: #9fd0ff; }
+
+  nav {
+    border-bottom: 1px solid #1b2437; background: #090d16;
+    position: sticky; top: 0; z-index: 5;
+  }
+  nav ul {
+    display: flex; flex-wrap: wrap; gap: 0.2rem;
+    margin: 0 auto; padding: 0.55rem 1rem; max-width: 62rem; list-style: none;
+  }
+  nav a {
+    display: block; padding: 0.4rem 0.7rem; border-radius: 7px;
+    color: #a8bad8; text-decoration: none; font-size: 0.95rem;
+  }
+  nav a:hover { background: #16203a; color: #eaf4ff; }
+  nav a.here { background: #1b2949; color: #fff; }
+  nav .soon { font-size: 0.72rem; color: #7f92b4; }
+  nav .away::after { content: " \2197"; color: #6d7f9e; }
+
+  main { max-width: 44rem; margin: 0 auto; padding: 2.6rem 1.4rem 5rem; }
+  h1 { font-size: 2.3rem; line-height: 1.1; margin: 0 0 0.3rem; color: #fff; }
+  .tagline { color: #8fa3c4; font-size: 1.15rem; margin: 0 0 2rem; }
+  h2 { font-size: 1.2rem; margin: 2.6rem 0 0.6rem; color: #eaf1ff; }
+
+  a.enter {
+    display: block; margin: 0.7rem 0; padding: 1rem 1.2rem;
+    background: #16203a; border: 1px solid #33507f; border-radius: 10px;
+    color: #eaf4ff; text-decoration: none;
+  }
+  a.enter:hover { background: #1d2b4c; }
+  a.enter strong { display: block; font-size: 1.1rem; }
+  a.enter span { color: #93a7c9; font-size: 0.95rem; }
+
+  ul.plain { padding-left: 1.2rem; }
+  ul.plain li { margin: 0.35rem 0; }
+  code { background: #131a2a; padding: 0.1rem 0.35rem; border-radius: 4px; }
+  .note {
+    border-left: 3px solid #33507f; padding: 0.1rem 0 0.1rem 0.9rem;
+    color: #a8bad8;
+  }
+  footer {
+    border-top: 1px solid #1b2437; margin-top: 3.5rem; padding-top: 1.2rem;
+    color: #6d7f9e; font-size: 0.9rem;
+  }
+
+  /* ---- THE FIRST RESULTS. Table and edition buttons. ---- */
+  .editions { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 26px; }
+  .editions a {
+    display: block; padding: 9px 13px; border-radius: 8px; text-decoration: none;
+    background: #16203a; border: 1px solid #2c3c60; color: #dce8ff; font-size: 15px;
+  }
+  .editions a:hover { border-color: #6ec6ff; background: #1b2748; }
+  .editions a b { display: block; font-weight: 600; }
+  .editions a span { display: block; font-size: 12.5px; color: #93a6c8; margin-top: 2px; }
+  .results { width: 100%; border-collapse: collapse; margin: 18px 0 8px; font-size: 15px; }
+  .results th, .results td { text-align: right; padding: 7px 9px; border-bottom: 1px solid #223255; }
+  .results th { color: #93a6c8; font-weight: 600; font-size: 13px; white-space: nowrap; }
+  .results th:first-child, .results td:first-child { text-align: left; }
+  .results td:first-child { white-space: nowrap; }
+  .results td:first-child a { color: #dce8ff; text-decoration: none; border-bottom: 1px solid #33456e; }
+  .results td:first-child a:hover { color: #fff; border-bottom-color: #6ec6ff; }
+  .results tbody tr:hover { background: #141d33; }
+  .results .cheapest { color: #a0e7a0; }
+  .results .most { color: #ffd166; }
+  .results caption { caption-side: bottom; text-align: left; color: #8b9dbe;
+                     font-size: 13px; padding-top: 10px; line-height: 1.5; }
+  @media (max-width: 620px) { .results { font-size: 13px; } .results th, .results td { padding: 5px 5px; } }
+
+
+
+
+
+
+/* NIR CSS BEGIN */
+  /* ---- Nir's tsunami section, model comparison and project table. ---- */
+  .tsunami { display:flex; align-items:center; gap:1.2rem; margin:0 0 0.4rem; flex-wrap:wrap; }
+  .tsunami img.logo { width:200px; height:200px; object-fit:cover; border-radius:12px;
+                      cursor:zoom-in; border:1px solid #1b2437; }
+  p.tsunami-line { margin:0; }
+  p.enjoy { color:#8fa3c4; font-size:1.08rem; margin:0.5rem 0 1.5rem; }
+  img.nir-hero { width:100%; height:auto; display:block; border-radius:12px;
+                 border:1px solid #1b2437; }
+  .compare { margin:1.5rem 0 2.6rem; }
+  #ai-panorama { scroll-margin-top: 4.5rem; }
+  .compare p.cap { color:#8fa3c4; margin:0 0 0.7rem; }
+  .compare .row { display:flex; flex-wrap:wrap; gap:8px; }
+  a.model-btn { display:inline-block; padding:6px 12px; border-radius:8px;
+                background:#16203a; border:1px solid #2c3c60; color:#dce8ff;
+                font-size:0.9rem; text-decoration:none; }
+  a.model-btn:hover { border-color:#6ec6ff; background:#1b2748; }
+  a.model-btn.here { background:#1b2949; color:#fff; border-color:#33507f; }
+  .projects { display:flex; flex-direction:column; gap:2rem; }
+  .project { display:grid; grid-template-columns:200px 1fr; gap:1.6rem 1.5rem; }
+  .projects .pic img { width:200px; height:200px; object-fit:cover; display:block;
+                       border-radius:10px; cursor:zoom-in; border:1px solid #1b2437; }
+  .projects p.label { margin:0.5rem 0 0; font-size:0.98rem; line-height:1.45; }
+  .projects p.label a { color:#dce8ff; text-decoration:none;
+                        border-bottom:1px solid #33456e; }
+  .projects p.label a:hover { color:#fff; border-bottom-color:#6ec6ff; }
+  .projects .desc { color:#b9c7e2; margin:0; }
+  blockquote { border-left:3px solid #33507f; margin:1rem 0; padding:0.2rem 0 0.2rem 1rem;
+               color:#c7d4ee; font-style:italic; }
+  @media (max-width:620px) {
+    .project { grid-template-columns:128px 1fr; gap:0.9rem; }
+    .tsunami img.logo, .projects .pic img { width:128px; height:128px; }
+  }
+  /* NIR CSS END */
+</style>
+</head>
+<body>
+
+<nav>
+  <ul>
+    <li><a class="here" href="/#ai-panorama">AI Panorama</a></li>
+    <li><a href="/night-watch.html">Night Watch <span class="soon">planned</span></a></li>
+    <li><a href="/hive/index.html">Hive</a></li>
+    <li><a href="/ghost/index.html">Ghost</a></li>
+    <li><a class="away" href="https://learnime.com/" target="_blank" rel="noopener">Learnime</a></li>
+    <li><a class="away" href="https://www.peaktogether.me/" target="_blank" rel="noopener">Peak Together</a></li>
+    <li><a href="/about.html">About</a></li>
+  </ul>
+</nav>
+
+<main>
+
+<!-- NIR SECTION BEGIN -->
+<!--
+  The GPT Image 2 edition of the home page: a copy of index.html in which
+  every picture comes from GPT Image 2. If index.html changes, ask an agent
+  to refresh this copy so all seven home pages stay identical.
+-->
+  <div class="tsunami">
+    <img class="thumb logo" src="images/photo-realistic/gpt-image-2/thumbs/logo.jpg" data-full="images/photo-realistic/gpt-image-2/logo.png" data-caption="Logo imagined by GPT Image 2" alt="Strulovitz logo imagined by GPT Image 2">
+    <p class="tsunami-line">AI is like a tsunami wave 🌊 Strulovitz let you surf it instead of drowning 🛟</p>
+  </div>
+  <p class="enjoy">enjoy my revolutionary projects, learn more in the <a href="/about.html">"about"</a> page, or scroll down for news!</p>
+  <img class="nir-hero" src="images/photo-realistic/gpt-image-2/hero.png" alt="This page imagined by GPT Image 2">
+  <div class="compare">
+    <p class="cap">"same prompt, different models" - click to compare how each AI imagine this page ✨</p>
+    <div class="row">
+        <a class="model-btn here" href="home-page-gpt-image-2.html">GPT Image 2</a>
+        <a class="model-btn" href="home-page-gemini-3-pro-image.html">Gemini 3 Pro Image</a>
+        <a class="model-btn" href="home-page-grok-imagine-image-2.html">Grok Imagine Image 2</a>
+        <a class="model-btn" href="home-page-muse-image.html">Muse Image</a>
+        <a class="model-btn" href="home-page-flux-2-max.html">Flux 2 Max</a>
+        <a class="model-btn" href="home-page-qwen-image-3-pro.html">Qwen Image 3 Pro</a>
+    </div>
+  </div>
+
+  <div class="projects">
+    <div class="project">
+      <div class="pic">
+        <img class="thumb" src="images/photo-realistic/gpt-image-2/thumbs/peak-together.jpg" data-full="images/photo-realistic/gpt-image-2/peak-together.png" data-caption="Peak Together - &quot;vibe-science&quot;" alt="Peak Together - &quot;vibe-science&quot;">
+        <p class="label"><a href="https://www.peaktogether.me/" target="_blank" rel="noopener">Peak Together - &quot;vibe-science&quot;</a></p>
+      </div>
+      <p class="desc">we take Wikipedia pages with equations and turn them into fun DOS 90&#x27;s computer games. for example a Descent game where each corridor is another proof way for the mathematical problem (and each robot enemy is a stage at the proof that the user needs to tackle) , or a Quake clone where the walls are panels showing geometrical proofs and their explanations each concept colored to match its illustration in the geometrical drawing , or a Loom game that uses sound to teach multi-variable calculus landscapes where the user listens to the soundscape, or a Homeworld clone where the user learns linear-algebra by giving commands to move his fleet of spaceships according to vectors all at once with one matrix, and so on.</p>
+    </div>
+    <div class="project">
+      <div class="pic">
+        <img class="thumb" src="images/photo-realistic/gpt-image-2/thumbs/learnime.jpg" data-full="images/photo-realistic/gpt-image-2/learnime.png" data-caption="Learnime - &quot;vibe-art&quot;" alt="Learnime - &quot;vibe-art&quot;">
+        <p class="label"><a href="https://learnime.com/" target="_blank" rel="noopener">Learnime - &quot;vibe-art&quot;</a></p>
+      </div>
+      <p class="desc">we take popular magazines about astronomy and history and turn them into anime animation and takes classical music and turn into cool soundtrack. for example a show where a group of young women explore exo-planets relatively close to Earth in a spaceship protected by water ice from interstellar radiation , and they are cloned like a generation spaceship and during the thousand of years voyage the girls are frozen ( sleeper ship ) like suspended animation cryo-sleep / hibernation , and the robots of the AI ship wake them up when they approach the next exo-planet etc. they meet cultures of actual aliens (not looking like humanoids, like everything is real hard-science-fiction) and help them. another anime show is for example hard-fantasy, where the setting is like sword and sorcery like dungeons and dragons (it&#x27;s called mazes and mages) but the puzzles in the dungeons are based on understanding simple high-school level physics or chemistry or biology etc to solve them and survive.</p>
+    </div>
+    <div class="project">
+      <div class="pic">
+        <img class="thumb" src="images/photo-realistic/gpt-image-2/thumbs/laser-chess.jpg" data-full="images/photo-realistic/gpt-image-2/laser-chess.png" data-caption="Laser Chess - &quot;vibe-strategy&quot;" alt="Laser Chess - &quot;vibe-strategy&quot;">
+        <p class="label"><a href="/laser-chess.html">Laser Chess - &quot;vibe-strategy&quot;</a></p>
+      </div>
+      <p class="desc">we take chess books and turns them into strategies for laser-chess in 2-D and then turns them into strategies for laser-chess in 3-D and improve with self-play. this is basically how outer-space battles will be done in the future with drones carrying special ceramic material mirrors. i plan to make the computers in my home each run his own engine and play against each other (and so they will improve gradually, we will analyze why the winner won, and implement that into the algorithm etc).</p>
+    </div>
+    <div class="project">
+      <div class="pic">
+        <img class="thumb" src="images/photo-realistic/gpt-image-2/thumbs/hive.jpg" data-full="images/photo-realistic/gpt-image-2/hive.png" data-caption="Hive - &quot;vibe-computing&quot;" alt="Hive - &quot;vibe-computing&quot;">
+        <p class="label"><a href="/hive/index.html">Hive - &quot;vibe-computing&quot;</a></p>
+      </div>
+      <p class="desc">we take many home computers and combine them together into one strong AI. we takes a question, split it into little questions, gives to each little PC to work in parallel and distributed way, and then collect all the small answers from all of them into one big answer. this when done in large scale is a solution to the AI takeover problem , the alignment problem , which is currently the biggest problem in AI that is not solved . this is the only real solution because this system is by architecture unable to initiate such danger, and on the other hand, by not trimming branches, it reaches all the insights of strong AI (like the famous &quot;move 37&quot; in the AlphaGo game, but in every field, not just games).</p>
+    </div>
+    <div class="project">
+      <div class="pic">
+        <img class="thumb" src="images/photo-realistic/gpt-image-2/thumbs/ghost.jpg" data-full="images/photo-realistic/gpt-image-2/ghost.png" data-caption="Ghost - &quot;vibe-graphics&quot;" alt="Ghost - &quot;vibe-graphics&quot;">
+        <p class="label"><a href="/ghost/index.html">Ghost - &quot;vibe-graphics&quot;</a></p>
+      </div>
+      <p class="desc">we take the optical illusion &quot;Pepper&#x27;s ghost&quot; and iterate it in an original multi-layered way, six ghosts each one behind the other, which are six layers of the same original image, creating when the viewer looks through all at once, real physical parallax. the system has two modes, one is taking prompt like text description of a scene like from a D&amp;D adventure, and slicing it into layers according to depth (distance from the camera); and the other is taking a normal image like a photo that the user made in family dinner and turn it into real physical 3-D by slicing it with the AI local model Qwen-Image-Layered. this is a new way to make graphics that until now did not exist, using the 3 monitors that every modern gaming computer supports, and cheap empty transparent plastic CD packages positioned in 45 degrees angle, behind each other.</p>
+    </div>
+    <div class="project">
+      <div class="pic">
+        <img class="thumb" src="images/photo-realistic/gpt-image-2/thumbs/night-watch.jpg" data-full="images/photo-realistic/gpt-image-2/night-watch.png" data-caption="Night Watch - &quot;vibe-cyber&quot;" alt="Night Watch - &quot;vibe-cyber&quot;">
+        <p class="label"><a href="/night-watch.html">Night Watch - &quot;vibe-cyber&quot;</a></p>
+      </div>
+      <p class="desc">we take a castrated agent called &quot;Eunuch&quot; named after the guard who protects the harem but cannot do whatever he wants with the ladies that he protects. it works at night and with python scripts searches for malware signatures. then the most suspected are checked but local AI and explained to the user. also we install a virtual machine that simulates the real host machine (with fake activity logs) that also runs at night and watched by the AI , and when a ransom attack (that takes hours or even days to &quot;hatch&quot;) attacks , it thinks that it is the real (host) computer in daytime, when in fact it is just attacking a guest &quot;bait&quot; virtual machine (like sandbox) and it is caught before it can do any harm.</p>
+    </div>
+    <div class="project">
+      <div class="pic">
+        <img class="thumb" src="images/photo-realistic/gpt-image-2/thumbs/ai-panorama.jpg" data-full="images/photo-realistic/gpt-image-2/ai-panorama.png" data-caption="AI Panorama - &quot;vibe-news&quot;" alt="AI Panorama - &quot;vibe-news&quot;">
+        <p class="label"><a href="/#ai-panorama">AI Panorama - &quot;vibe-news&quot;</a></p>
+      </div>
+      <p class="desc">we take the subtitles/captions of AI-news Youtubers and articles about AI from newspapers and turns them into a graph (Force-directed graph drawing) where each node is a summery on that subject. as opposed to youtube/newspaper that present what is RECENT instead of what is IMPORTANT , like if there was a meaningful event one month ago and you missed it, it is lost and buried as &quot;old news&quot;, here we make a magazine which in any moment gives the user like encyclopedia look of what is the situation in every field related to AI , the key events are saved. and another innovation: instead of one dimensional graphs, like which one has the biggest (smartest AI model) , we display multi-dimensional graphs, like one axis is this benchmark, another axis is that benchmark, and so on. like price VS speed VS intelligence VS efficiency etc, we represent REAL 4-D (four spatial dimensions) by giving the user an option to choose if he wants to use VR headset or his normal screen. like 2-D screen display 3-D graphics, we use 3-D VR to display 4-D graphs.</p>
+    </div>
+    <div class="project">
+      <div class="pic">
+        <img class="thumb" src="images/photo-realistic/gpt-image-2/thumbs/evil-genius.jpg" data-full="images/photo-realistic/gpt-image-2/evil-genius.png" data-caption="Evil Genius - &quot;vibe-education&quot;" alt="Evil Genius - &quot;vibe-education&quot;">
+        <p class="label"><a href="/evil-genius.html">Evil Genius - &quot;vibe-education&quot;</a></p>
+      </div>
+      <p class="desc">we take popular magazines of science and technology and turn the most interesting stories into uncensored manga comics, by local abliterated LLM that write stories without censorship, like dark/sexy/horror/mystery hard-science-fiction or hard-fantasy (conserving the science/technical ideas of the original but embedding them into rich exciting highly imaginative visual adventure stories, which makes them fascinating and memorable by young adults, and then making prompts for local LLM that makes the graphics like image generating AI models).</p>
+    </div>
+    <div class="project">
+      <div class="pic">
+        <img class="thumb" src="images/photo-realistic/gpt-image-2/thumbs/second-opinion.jpg" data-full="images/photo-realistic/gpt-image-2/second-opinion.png" data-caption="Second Opinion - &quot;vibe-medicine&quot;" alt="Second Opinion - &quot;vibe-medicine&quot;">
+        <p class="label"><a href="/second-opinion.html">Second Opinion - &quot;vibe-medicine&quot;</a></p>
+      </div>
+      <p class="desc">we take medical textbooks (like what students of medicine learn from) and turn them into a database of symptoms leading to diseases leading to drugs (medicines). then for each of them we search for non-western (not &quot;censored&quot; by the big-pharma) sources, like Chinese medical research papers, about dangerous side-effects of the medicine (that in the west do not get published enough) , and the viewer can see the cascade that goes backwards, which drug cause which new disease and what are the new symptoms (like a headache pill ruin the lever for example) . and we collect for the user comparison of which drug (the chemical without branding) cost much less in another country like Ozempic is very cheap in India etc. and which treatments are &quot;hidden&quot; from the user, like people from USA travel for Cancer treatments to Cuba because USA does not approve. in all these we save lives!!! especially the cascade of cross-drugs (this drug when taken at the same time with another drug , then create danger that each one alone does not create) side-effects mapping.</p>
+    </div>
+    <div class="project">
+      <div class="pic">
+        <img class="thumb" src="images/photo-realistic/gpt-image-2/thumbs/cheerleader.jpg" data-full="images/photo-realistic/gpt-image-2/cheerleader.png" data-caption="Cheerleader - &quot;vibe-buddy&quot;" alt="Cheerleader - &quot;vibe-buddy&quot;">
+        <p class="label"><a href="/cheerleader.html">Cheerleader - &quot;vibe-buddy&quot;</a></p>
+      </div>
+      <p class="desc">we take a very weak computer and make him listen to the user &quot;count&quot; aloud when the user is training, like if the user does a push-up and the user says &quot;one&quot; and  then &quot;two&quot; etc, and the agent tells him encouragement and summaries etc. because now he runs on a very old PC (that cannot use a GPU) or on a small single-board computer like Raspberry PI, he uses minimal Linux, with tiny models of STT (speech to text) and tiny LLM (to think what to answer) and tiny TTS (text to speech) and he uses a simple loop to do this. he also display from a pre-rendered &quot;stock&quot; AI generated images of a cheerleader presenting numbers (like in the boxing match where a pretty girl holds up a sign with the round number) or whatever the user finds encouraging.</p>
+    </div>
+  </div>
+<!-- NIR SECTION END -->
+
+  <h1 id="ai-panorama">AI PANORAMA</h1>
+  <p class="tagline">The whole picture, any day you walk in.</p>
+
+  <p>Every other source of AI news is a stream. Miss a week and something that
+  changed the world scrolls away below today's trivia, gone. This is not a
+  stream. It is a <em>state</em>: whenever you walk in, you get the whole
+  current condition of the field, laid out as a map you can fly through.</p>
+
+  <p>Free, open source, and every number carries a link to where it came
+  from.</p>
+
+  <h2>What is working right now</h2>
+  <p class="note">The first thing built was the hardest thing: real four
+  dimensions. It now has real content in it &mdash; the first stories, written
+  eight separate times over, by eight different AI models.</p>
+
+  <a class="enter" id="enter-screen" href="VERSION_FALLBACK/tesseract.html">
+    <strong>Hello, Tesseract &mdash; on this screen</strong>
+    <span>Mouse and keyboard. Works on any laptop or desktop.</span>
+  </a>
+
+  <a class="enter" id="enter-vr" href="VERSION_FALLBACK/tesseract.html?vr=1">
+    <strong>Hello, Tesseract &mdash; in Virtual Reality</strong>
+    <span>Meta Quest 3 and other WebXR headsets. Open this page in the
+    headset's own browser, then press Enter VR.</span>
+  </a>
+
+<!-- RESULTS BEGIN -->
+  <h2>The first real results</h2>
+  <p>5 stories so far, each one written 8 separate times over, by 8 different AI models. Every model read exactly the same frozen sources and did the entire job alone: the article, the one-line summary, the encyclopedia entries behind it, the tags, the links to other stories, and the instructions for its own illustration. Nothing any of them wrote has been corrected, improved or graded by us. If one of them is wrong, switch to another and see for yourself &mdash; that comparison is the point of this magazine, not a flaw in it.</p>
+  <p>Pick whose edition you want to fly through. Each one is its own four-dimensional world, because each model chose its own tags and its own links, and those choices are what decide where everything sits. Changing edition rearranges the sky.</p>
+  <div class="editions">
+    <a class="edition-link" data-edition="openai--gpt-5.6-terra" href="tesseract.html?edition=openai--gpt-5.6-terra"><b>GPT-5.6 Terra</b><span>the one this site opens with</span></a>
+    <a class="edition-link" data-edition="anthropic--claude-sonnet-5" href="tesseract.html?edition=anthropic--claude-sonnet-5"><b>Claude Sonnet 5</b><span>Anthropic</span></a>
+    <a class="edition-link" data-edition="google--gemini-3.7-flash" href="tesseract.html?edition=google--gemini-3.7-flash"><b>Gemini 3.7 Flash</b><span>Google</span></a>
+    <a class="edition-link" data-edition="x-ai--grok-4.6" href="tesseract.html?edition=x-ai--grok-4.6"><b>Grok 4.6</b><span>xAI</span></a>
+    <a class="edition-link" data-edition="deepseek--deepseek-v4-pro-0813" href="tesseract.html?edition=deepseek--deepseek-v4-pro-0813"><b>DeepSeek V4 Pro</b><span>DeepSeek</span></a>
+    <a class="edition-link" data-edition="z-ai--glm-5.3" href="tesseract.html?edition=z-ai--glm-5.3"><b>GLM 5.3</b><span>Z.ai</span></a>
+    <a class="edition-link" data-edition="qwen--qwen3.8-max" href="tesseract.html?edition=qwen--qwen3.8-max"><b>Qwen 3.8 Max</b><span>Alibaba</span></a>
+    <a class="edition-link" data-edition="moonshotai--kimi-k2.6" href="tesseract.html?edition=moonshotai--kimi-k2.6"><b>Kimi K2.6</b><span>Moonshot</span></a>
+  </div>
+  <table class="results">
+    <thead><tr><th>Edition</th><th>Cost per story</th><th>Words per article</th><th>Ideas explained</th><th>Links drawn</th><th>Links per node</th><th>Seconds each</th></tr></thead>
+    <tbody>
+      <tr><td><a href="tesseract.html?edition=google--gemini-3.7-flash">Gemini 3.7 Flash</a></td><td class="cheapest">$0.0098</td><td>617</td><td>12</td><td>24</td><td>1.4</td><td>19</td></tr>
+      <tr><td><a href="tesseract.html?edition=moonshotai--kimi-k2.6">Kimi K2.6</a></td><td>$0.0483</td><td>700</td><td>12</td><td>25</td><td>1.5</td><td>195</td></tr>
+      <tr><td><a href="tesseract.html?edition=deepseek--deepseek-v4-pro-0813">DeepSeek V4 Pro</a></td><td>$0.0533</td><td>788</td><td>15</td><td>37</td><td>1.9</td><td>166</td></tr>
+      <tr><td><a href="tesseract.html?edition=openai--gpt-5.6-terra">GPT-5.6 Terra</a></td><td>$0.0540</td><td>821</td><td>15</td><td>36</td><td>1.8</td><td>34</td></tr>
+      <tr><td><a href="tesseract.html?edition=anthropic--claude-sonnet-5">Claude Sonnet 5</a></td><td>$0.0809</td><td>555</td><td>10</td><td>25</td><td>1.7</td><td>51</td></tr>
+      <tr><td><a href="tesseract.html?edition=x-ai--grok-4.6">Grok 4.6</a></td><td>$0.0865</td><td>807</td><td>16</td><td>38</td><td>1.8</td><td>467</td></tr>
+      <tr><td><a href="tesseract.html?edition=z-ai--glm-5.3">GLM 5.3</a></td><td>$0.0990</td><td>953</td><td>19</td><td>59</td><td class="most">2.5</td><td>235</td></tr>
+      <tr><td><a href="tesseract.html?edition=qwen--qwen3.8-max">Qwen 3.8 Max</a></td><td>$0.1472</td><td>755</td><td>20</td><td>55</td><td>2.2</td><td>404</td></tr>
+    </tbody>
+    <caption>Every number here is measured, not estimated. The costs are what was actually charged for the work. &ldquo;Ideas explained&rdquo; is how many encyclopedia entries that model decided the stories needed. &ldquo;Links per node&rdquo; is how densely it wove its own world together. All 8 editions of all 5 stories cost $2.90 in total.</caption>
+  </table>
+  <p class="note">What the table already shows: GLM 5.3 wove a world 1.7 times more densely connected than Gemini 3.7 Flash&rsquo;s, from the same 5 stories. GLM 5.3 wrote 953 words per article where Claude Sonnet 5 wrote 555. Grok 4.6 took 467 seconds to think where Gemini 3.7 Flash took 19. And Gemini 3.7 Flash, at $0.0098 a story, costs 15 times less than the dearest edition here &mdash; read them side by side and judge whether it shows.</p>
+  <p class="note">Clicking a node inside a world does not open an article yet. The reading pages and the illustrations are the next thing being built.</p>
+  <!-- generated by pipeline/stages/build_home.py on 2026-08-22 - do not edit by hand -->
+<!-- RESULTS END -->
+
+  <h2>What you are looking for</h2>
+  <p>A tesseract is to a cube what a cube is to a square. A square has four
+  corners, a cube has eight, a tesseract has sixteen. You cannot see one
+  properly, any more than a drawing on paper can properly show a cube &mdash;
+  but you can watch one <em>turn</em>, and that part your brain can genuinely
+  learn.</p>
+  <p>Turn it in the ZW plane and watch it pass through itself and come out
+  inside-out. Turn it four times and it comes exactly home. Nothing is broken
+  when that happens; that is simply what four dimensions look like.</p>
+
+  <h2>Why four dimensions, and not just a pretty effect</h2>
+  <p>Because the fourth direction is going to <em>mean</em> something you can
+  travel along. At one end hangs this week's raw, half-confirmed news. At the
+  other end sits the settled encyclopedia. Swimming from one to the other is
+  watching news condense into knowledge, with your own hand. Nowhere else on
+  the internet can you do that, and it is the whole idea of the magazine made
+  into a direction in space.</p>
+  <p>One promise about that: the fourth dimension will never be shown as a
+  colour. Colour means identity here &mdash; which model, which edition &mdash;
+  and nothing else.</p>
+
+  <h2>Done already</h2>
+  <ul class="plain">
+    <li>Real four dimensions, on a screen and in a headset, with five short
+      lessons that teach anyone to follow an object through a turn it should
+      not survive.</li>
+    <li>Editions: every story written from scratch by eight different AI
+      models, so you can judge them on work you actually came to read.</li>
+    <li>Eight separate worlds, one per edition, because each model decided for
+      itself what belongs beside what.</li>
+  </ul>
+
+  <h2>Coming, in this order</h2>
+  <ul class="plain">
+    <li>The reading pages, with every source linked beside every number, every
+      date and every name.</li>
+    <li>The illustrations. Every model wrote instructions for its own picture,
+      and the pictures get drawn with the same tool and the same starting
+      point for all of them &mdash; so the only difference you see is how well
+      each one directed the artist.</li>
+    <li>Model comparisons in real dimensions. Not our own invented scores: the
+      benchmarks the world already publishes, combined into three and four
+      dimensions instead of the one-dimensional bar chart everybody else
+      prints.</li>
+    <li>A do-it-yourself workshop, the way the old computer magazines had. The
+      first project is <a href="/night-watch.html">Night Watch</a>.</li>
+  </ul>
+
+  <h2>Comfort, if you use the headset</h2>
+  <p>The room never moves and you are never moved. Only the object turns, and it
+  turns slowly on purpose. If anything is uncomfortable for even a moment, that
+  is a fault worth reporting, not something to push through.</p>
+
+  <footer>
+    <p>Built in Israel, for a future shared with Madie in Romania.</p>
+    <p><a id="health-link" href="VERSION_FALLBACK/build-health.html">What exactly is live right now</a></p>
+  </footer>
+
+</main>
+
+<script>
+  // Find which dated folder is live, and aim the buttons at it. If this fails
+  // for any reason, the links already in the HTML still work.
+  fetch('pointer.json', { cache: 'no-store' })
+    .then((response) => response.json())
+    .then((pointer) => {
+      document.getElementById('enter-screen').href = pointer.live + '/tesseract.html';
+      document.getElementById('enter-vr').href = pointer.live + '/tesseract.html?vr=1';
+      document.getElementById('health-link').href = pointer.live + '/build-health.html';
+      // The edition links are generated into this page by
+      // pipeline/stages/build_home.py and point at the folder next door, which
+      // is right during development and wrong once deployed. Aim them at
+      // whichever dated folder is live. Done by CLASS, not by name, so a model
+      // added next month needs no change here.
+      for (const link of document.querySelectorAll('a.edition-link, table.results a')) {
+        const target = link.getAttribute('href');
+        if (target && !target.startsWith('/') && !target.startsWith('http')) {
+          link.href = pointer.live + '/' + target;
+        }
+      }
+    })
+    .catch(() => {
+      // No pointer file means we are being served straight out of the site/
+      // folder during development, where the application sits next door rather
+      // than inside a dated folder. Aim the buttons there instead, so that
+      // ops/look-at-the-site.sh gives a working page with no build step.
+      document.getElementById('enter-screen').href = 'tesseract.html';
+      document.getElementById('enter-vr').href = 'tesseract.html?vr=1';
+      document.getElementById('health-link').style.display = 'none';
+    });
+</script>
+  <script src="/lightbox.js" defer></script>
+</body>
+</html>
