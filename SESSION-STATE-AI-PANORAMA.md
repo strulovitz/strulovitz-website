@@ -743,3 +743,32 @@ later builds only re-upload changed files. First test build: v2026-09-01-b
 
 STILL OPEN (ask Nir): git commit + push (about 350 MB of pictures - the push
 will be slow the first time); Nir has not yet seen the pages in a browser.
+
+--------------------------------------------------------------------------------
+DEPLOYED LIVE, 2026-09-01 (late evening), by GLM 5.3 Flash on desktop-windows.
+--------------------------------------------------------------------------------
+
+THE NEW SITE IS LIVE at https://www.strulovitz.org/ : Nir's tsunami section on
+top of the magazine, 7 home pages, 7 about pages, lightbox, About menu,
+coming-soon pages. Live version folder: v2026-09-01-d. Verified over HTTPS:
+home, about, a dedicated page, lightbox.js, thumbnails, full-size pictures,
+hive/ untouched, night-watch, laser-chess - all 200.
+
+HOW IT WENT: secret-scanner hook reinstalled on the Windows side first (it does
+not travel with the repo; tested it bites on a fake key). Committed 313 files
+(055ad00) and pushed to GitHub - about 350 MB of pictures, one-time slow push.
+Then uploaded to DreamHost by SFTP (vps68338.dreamhostps.com:22, user
+dh_ptax3d, web root strulovitz.org/): version folder FIRST, 308 root files
+second (~19 min), pointer.json LAST (the flip). Rollback: re-upload the old
+pointer from ops/pointers/ (previously live: v2026-08-22-b).
+
+THE PASSWORD: Nir pasted the SFTP password in chat and approved the upload,
+and Nir outranks the Bible (same as 2026-08-21). It was used from an
+environment variable, never written to any file. NIR WAS TOLD TO CHANGE IT
+AFTER THE UPLOAD - and this is the SECOND time he has been told; a pasted
+password should always be treated as burned. Ask him whether he changed it
+before ever using it again.
+
+Upload tool (temp, one-off): C:\Users\nir_s\AppData\Local\Temp\opencode\
+sftp_upload.py + build_nirs_pages.py + check_nirs_pages.py + fix_simple_pages.py
+(temp folder - lost on reboot; recoverable from this session's chat).
