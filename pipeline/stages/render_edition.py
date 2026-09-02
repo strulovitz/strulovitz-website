@@ -378,13 +378,10 @@ IMAGE_PROMPT_ONLY = """You wrote the article below for AI PANORAMA, an
 independent magazine about artificial intelligence. Everything about it is your
 own work. The only thing still missing is the instruction for its illustration.
 
-Write ONE paragraph describing a single illustration for this article, to be
-given to an image-generating model. Editorial-illustration style, clean and
-uncluttered. Describe the picture, not the story. NO text, letters, numbers or
-logos anywhere in the image. No real person's face. No brand imitation. No
-dials, gauges, glowing brains, robot handshakes, or blue circuit-board
-backgrounds - they are exhausted cliches. Find an image that is genuinely about
-what this story means.
+Write ONE paragraph describing a single illustration for this article. The
+illustration must capture as many of the article's own main ideas as clearly
+and completely as you can, so that a reader who only looked at the picture
+would still understand what the story is actually about.
 
 Answer with the paragraph alone. No preamble, no explanation, no quotation
 marks, no JSON."""

@@ -103,7 +103,7 @@ exact shape:
 
   "related": ["the exact slugs of other stories in the magazine that a reader of this one should read next, chosen from the list you were given, or an empty list if none genuinely relate"],
 
-  "image_prompt": "One paragraph describing a single illustration for this story, to be given to an image-generating model. Editorial-illustration style, clean and uncluttered. Describe the picture, not the story. NO text, letters, numbers or logos anywhere in the image. No real person's face. No brand imitation. No dials, gauges, glowing brains, robot handshakes, or blue circuit-board backgrounds - they are exhausted cliches. Find an image that is genuinely about what this story means."
+  "image_prompt": "One paragraph describing a single illustration for this article. The illustration must capture as many of the article's own main ideas as clearly and completely as you can, so that a reader who only looked at the picture would still understand what the story is actually about."
 }
 
 Answer with the JSON object alone. No preamble, no explanation, no code fence.
@@ -116,12 +116,14 @@ models was trained months ago, and the stories are newer than they are. A model
 filling a gap from memory would be inventing, and the reader would have no way
 to tell. Anything it cannot find in the frozen sources, it must leave out.
 
-**Why the image rules are so blunt.** Image-generating models default to blue
-circuit boards, glowing brains and robot handshakes. Naming those cliches and
-forbidding them is the only thing that reliably stops them. And the prompt is
-written by the edition's own model, because directing an illustrator is part of
-editorial craft and one of the more interesting things to compare
-(DECISIONS.md decision 12).
+**What the illustration is actually for.** It is not a decorative mood piece
+and it does not need a list of banned clichés - Nir's own words: "they need to
+make an image that describes as much as possible the main ideas of the text
+that they wrote." The image_prompt's only job is to get as much of the
+article's real content into one picture as the model can manage. The prompt
+is still written by the edition's own model, because directing an illustrator
+from your own article is part of editorial craft and one of the more
+interesting things to compare (DECISIONS.md decision 12).
 
 **Why nothing here says "be accurate or you will be corrected".** Nothing is
 corrected. If a model writes nonsense, the nonsense is published as that model's
