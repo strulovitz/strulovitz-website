@@ -165,33 +165,42 @@ def comfy_alive(client: httpx.Client) -> bool:
         return False
 
 
-def free_comfy_memory(client: httpx.Client) -> None:
+def vram_free_bytes(client: httpx.Client) -> int:
+    """Ask ComfyUI itself how much VRAM is actually free right now."""
+    stats = client.get(f"{COMFY_URL}/system_stats", timeout=10).json()
+    return stats["devices"][0]["vram_free"]
+
+
+def force_clean_vram(client: httpx.Client, *, min_free_gb: float = 10.5,
+                      timeout_s: float = 60.0) -> float:
     """
-    Tell ComfyUI to unload models and free VRAM before the NEXT job it runs.
+    Unload every model and WAIT UNTIL VRAM IS ACTUALLY VERIFIED FREE, before
+    every single image - not just after a failure.
 
-    DISCOVERED 2026-09-02, RUN 1: over a long batch (28 successful jobs in a
-    row), the GGUF dequantization path slowly fragments this GPU's VRAM until
-    an unlucky job cannot find one contiguous free block big enough, even
-    though the card is not actually "full" - the OOM message's own numbers
-    showed only 17.75 MiB truly free out of an 11.59 GiB device limit. The
-    failure is real but self-healing: the very next job after a failure
-    almost always succeeds anyway, because whatever triggered the
-    fragmentation has already been released by then.
+    CORRECTED 2026-09-02, RUN 2, after Nir's explicit instruction: the first
+    version of this file only cleared memory reactively, after a job had
+    already crashed with an out-of-memory error, on the reasoning that
+    reloading before every job would cost extra time. Nir's response, in his
+    own words, was that this reasoning was worthless: "of course it needs to
+    be done properly... clean each time." He is right - this is a free,
+    unlimited, background job with no deadline, so trading some speed for
+    never crashing at all is the correct trade, not a debatable one.
 
-    IMPORTANT: `/free` does NOT free memory the instant you call it - it only
-    sets a flag that ComfyUI checks before it starts its NEXT queued prompt.
-    Calling it with nothing queued and then checking `nvidia-smi` right away
-    will show no change; that is expected, not a bug. It only actually helps
-    if the very next `/prompt` submitted afterward is the one that then
-    unloads everything first.
+    This function does not trust a fixed sleep - it polls ComfyUI's own
+    `/system_stats` endpoint (real numbers straight from the GPU driver, not
+    a guess) until VRAM is genuinely back above `min_free_gb`, or gives up
+    after `timeout_s` and proceeds anyway (a job that still OOMs after this
+    will simply be reported as a real failure, never silently retried).
     """
     client.post(f"{COMFY_URL}/free",
                 json={"unload_models": True, "free_memory": True}, timeout=10)
-
-
-def is_oom(problem: Exception) -> bool:
-    text = str(problem)
-    return "OutOfMemoryError" in text or "out of memory" in text.lower()
+    started = time.monotonic()
+    while time.monotonic() - started < timeout_s:
+        free_gb = vram_free_bytes(client) / (1024 ** 3)
+        if free_gb >= min_free_gb:
+            return free_gb
+        time.sleep(1.0)
+    return vram_free_bytes(client) / (1024 ** 3)
 
 
 def generate(client: httpx.Client, prompt_text: str, filename_prefix: str, seed: int,
@@ -201,52 +210,44 @@ def generate(client: httpx.Client, prompt_text: str, filename_prefix: str, seed:
     and how many seconds it took. Raises ComfyFailed if ComfyUI reports an
     error or the job never appears in history within timeout_s.
 
-    Retries EXACTLY ONCE, and only for a genuine out-of-memory failure - this
-    is recovering from an infrastructure fault, never a second attempt
-    because a finished picture looked wrong (decision 16 still applies to
-    pictures; this function never sees or judges a successful picture at
-    all, only whether ComfyUI itself finished the job).
+    Caller (render_one, below) always calls force_clean_vram() first, so this
+    function itself never retries - a failure here is real and reported as
+    real, not silently patched over (decision 16 still applies to pictures;
+    this function never sees or judges a successful picture at all, only
+    whether ComfyUI itself finished the job).
     """
-    for attempt in (1, 2):
-        workflow = build_workflow(prompt_text, filename_prefix, seed)
-        started = time.monotonic()
-        response = client.post(f"{COMFY_URL}/prompt", json={"prompt": workflow}, timeout=30)
-        response.raise_for_status()
-        prompt_id = response.json()["prompt_id"]
+    workflow = build_workflow(prompt_text, filename_prefix, seed)
+    started = time.monotonic()
+    response = client.post(f"{COMFY_URL}/prompt", json={"prompt": workflow}, timeout=30)
+    response.raise_for_status()
+    prompt_id = response.json()["prompt_id"]
 
-        try:
-            while True:
-                elapsed = time.monotonic() - started
-                if elapsed > timeout_s:
-                    raise ComfyFailed(
-                        f"ComfyUI did not finish prompt {prompt_id} within {timeout_s:.0f}s.")
-                history = client.get(f"{COMFY_URL}/history/{prompt_id}", timeout=10).json()
-                entry = history.get(prompt_id)
-                if entry:
-                    status = entry.get("status", {})
-                    if status.get("status_str") == "error" or any(
-                        m[0] == "execution_error" for m in status.get("messages", [])
-                    ):
-                        raise ComfyFailed(f"ComfyUI reported an error for {prompt_id}: {status}")
-                    outputs = entry.get("outputs", {})
-                    images = outputs.get("9", {}).get("images", [])
-                    if images:
-                        image_info = images[0]
-                        image_response = client.get(
-                            f"{COMFY_URL}/view",
-                            params={"filename": image_info["filename"],
-                                    "subfolder": image_info.get("subfolder", ""),
-                                    "type": image_info.get("type", "output")},
-                            timeout=30,
-                        )
-                        image_response.raise_for_status()
-                        return image_response.content, time.monotonic() - started
-                time.sleep(poll_every)
-        except ComfyFailed as problem:
-            if attempt == 2 or not is_oom(problem):
-                raise
-            free_comfy_memory(client)
-            time.sleep(5.0)  # let the unload flag be picked up cleanly
+    while True:
+        elapsed = time.monotonic() - started
+        if elapsed > timeout_s:
+            raise ComfyFailed(f"ComfyUI did not finish prompt {prompt_id} within {timeout_s:.0f}s.")
+        history = client.get(f"{COMFY_URL}/history/{prompt_id}", timeout=10).json()
+        entry = history.get(prompt_id)
+        if entry:
+            status = entry.get("status", {})
+            if status.get("status_str") == "error" or any(
+                m[0] == "execution_error" for m in status.get("messages", [])
+            ):
+                raise ComfyFailed(f"ComfyUI reported an error for {prompt_id}: {status}")
+            outputs = entry.get("outputs", {})
+            images = outputs.get("9", {}).get("images", [])
+            if images:
+                image_info = images[0]
+                image_response = client.get(
+                    f"{COMFY_URL}/view",
+                    params={"filename": image_info["filename"],
+                            "subfolder": image_info.get("subfolder", ""),
+                            "type": image_info.get("type", "output")},
+                    timeout=30,
+                )
+                image_response.raise_for_status()
+                return image_response.content, time.monotonic() - started
+        time.sleep(poll_every)
 
 
 # ------------------------------------------------------------------------------
@@ -314,6 +315,7 @@ def render_one(client: httpx.Client, job: Job, *, actor: str) -> dict:
     folder.mkdir(parents=True, exist_ok=True)
     filename_prefix = f"{job.slug}--{job.model.slug}"
 
+    free_gb = force_clean_vram(client)
     png_bytes, seconds = generate(client, job.prompt_text, filename_prefix, job.seed)
 
     article_path = folder / "article.png"
@@ -334,6 +336,7 @@ def render_one(client: httpx.Client, job: Job, *, actor: str) -> dict:
         "prompt": job.prompt_text,
         "rendered_at_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
         "seconds_waited": round(seconds, 1),
+        "vram_free_gb_before_start": round(free_gb, 2),
     }
     (folder / "meta.json").write_text(
         json.dumps(meta, ensure_ascii=False, indent=1), encoding="utf-8"
@@ -380,21 +383,41 @@ def main(argv: list[str]) -> int:
         done: list[str] = []
         failed: list[str] = []
         started_all = time.monotonic()
+        start_clock = datetime.now().strftime("%H:%M:%S")
+        total = len(jobs)
 
-        for job in jobs:
+        # LIVE PROGRESS, ALWAYS, FOREVER (locked 2026-09-02, Nir's explicit
+        # instruction): every long-running process must show, continuously,
+        # what it is doing right now, how many done out of how many total,
+        # the percent complete, when it started, and an estimate of when it
+        # will finish - never rely on someone polling a silent process.
+        for index, job in enumerate(jobs, start=1):
+            elapsed_all = time.monotonic() - started_all
+            avg_so_far = elapsed_all / (index - 1) if index > 1 else None
+            remaining = (total - index + 1) * avg_so_far if avg_so_far else None
+            eta = (f", ETA ~{remaining / 60:.0f} min" if remaining else "")
+            percent = (index - 1) / total * 100
+            print(f"[{index}/{total} = {percent:4.0f}% done | started {start_clock}"
+                  f"{eta}] cleaning VRAM, then rendering {job.slug} / "
+                  f"{job.model.short_name} ...")
             label = f"{job.slug} / {job.model.short_name}"
             try:
                 meta = render_one(client, job, actor=args.actor)
-                print(f"  {label:<70} {meta['seconds_waited']:6.0f}s")
+                print(f"  [{index}/{total}] {label:<70} OK  {meta['seconds_waited']:6.0f}s "
+                      f"(VRAM free before start: {meta['vram_free_gb_before_start']:.1f} GB)")
                 done.append(f"{job.slug}/{job.model.slug}")
             except (ComfyFailed, httpx.HTTPError) as problem:
-                print(f"  {label:<70} FAILED: {type(problem).__name__}: {problem}")
+                print(f"  [{index}/{total}] {label:<70} FAILED: "
+                      f"{type(problem).__name__}: {problem}")
                 failed.append(f"{job.slug}/{job.model.slug}: {type(problem).__name__}")
 
         total_seconds = time.monotonic() - started_all
         print("\n" + "=" * 78)
-        print(f"rendered {len(done)} illustrations, {len(failed)} failed, "
-              f"{total_seconds / 60:.1f} minutes total. Cost: $0 (local).")
+        print(f"FINISHED: rendered {len(done)}/{total} illustrations "
+              f"({len(done) / total * 100:.0f}%), {len(failed)} failed, "
+              f"{total_seconds / 60:.1f} minutes total, "
+              f"started {start_clock}, finished {datetime.now().strftime('%H:%M:%S')}. "
+              f"Cost: $0 (local).")
         for note in failed:
             print(f"  failed: {note}")
 
