@@ -234,8 +234,7 @@ LAW 6 -- THE LOCAL MODELS LAW.
 No local text-generation models, ever. All text LLM work goes through the
 OpenRouter API, and the model name is ALWAYS a parameter or configuration
 value, never hardcoded. Local generation is used ONLY for images, via
-ComfyUI on the home PCs, using models whose licenses permit commercial use
-(see 0.9 and Part 06).
+ComfyUI on the home PCs (see 0.9 and Part 06).
 
 LAW 7 -- THE ATTRIBUTION LAW.
 AI PANORAMA publishes synthesis, never substitution. Concretely:
@@ -363,13 +362,10 @@ much attention as they choose:
 
 1. Code: MIT license.
 2. Text content: CC BY-SA 4.0.
-3. Images: governed by each generating model's license. Only models whose
-   licenses permit commercial use are used for published images (as of
-   this writing: Qwen Image under Apache 2.0, FLUX.2 klein 4B under Apache
-   2.0, Stable Diffusion 3.5 under the Stability Community License below
-   its revenue threshold). Non-commercial-only models (for example FLUX.2
-   dev) are NEVER used for anything published. License status is
-   re-verified before adding any image model (see Part 06).
+3. Images: governed by each generating model's license. Fleet: Qwen Image
+   (Apache 2.0), FLUX.2 klein 4B (Apache 2.0), Stable Diffusion 3.5 (community
+   license), and FLUX.2 dev. License status is re-verified before adding any
+   image model (see Part 06).
 4. Published datasets (faithfulness scoreboard, price-history snapshots,
    benchmark cards): CC BY 4.0, published with DOIs where possible.
 5. Nothing is ever laundered: no relicensing of others' work, no claiming

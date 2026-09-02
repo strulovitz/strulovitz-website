@@ -208,10 +208,10 @@ and every plotted number's hover leads to a real source in two taps.
 13.6 MILESTONE 5 — THE ILLUSTRATED MAGAZINE (imagery at scale)
 --------------------------------------------------------------------------------
 
-GOAL: every node illustrated, three image modes, zero human minutes.
+GOAL: every node illustrated, four image modes, zero human minutes.
 
-BUILD (Part 06, 6.9): ComfyUI fleet on Forge (license-verified:
-Qwen Image, FLUX.2 klein 4B, SD 3.5); style bible; prompt-from-
+BUILD (Part 06, 6.9): ComfyUI fleet on Forge (Qwen Image, FLUX.2
+klein 4B, SD 3.5, FLUX.2 dev); style bible; prompt-from-
 claims templating; fixed seeds; per-model asset trees and the
 image-mode switch; placeholder fallback; batch re-render runbook;
 card atlases rebuilt with real thumbnails.

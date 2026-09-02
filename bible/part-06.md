@@ -250,10 +250,10 @@ story per edition (feeding the faithfulness scoreboard, Part 10).
 --------------------------------------------------------------------------------
 
 1. FLEET (LAW 6: local generation is images only; licenses per Part
-   00, 0.9.3 — commercial-safe only): Qwen Image (Apache 2.0), FLUX.2
-   klein 4B (Apache 2.0), Stable Diffusion 3.5 (community license).
-   License status re-verified (against the vendor's own license text)
-   before ANY model joins the fleet; the check is a ledger entry.
+   00, 0.9.3): Qwen Image (Apache 2.0), FLUX.2 klein 4B (Apache 2.0),
+   Stable Diffusion 3.5 (community license), and FLUX.2 dev. License
+   status re-verified (against the vendor's own license text) before
+   ANY model joins the fleet; the check is a ledger entry.
 2. DISCOVERY-BEFORE-INSTALL (Part 01, 1.2): agents first inventory
    what already exists on Forge (ComfyUI may be present), then install
    only what is missing, recording versions.
