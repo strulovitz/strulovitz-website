@@ -226,7 +226,18 @@ def generate(client: httpx.Client, prompt_text: str, filename_prefix: str, seed:
         elapsed = time.monotonic() - started
         if elapsed > timeout_s:
             raise ComfyFailed(f"ComfyUI did not finish prompt {prompt_id} within {timeout_s:.0f}s.")
-        history = client.get(f"{COMFY_URL}/history/{prompt_id}", timeout=10).json()
+        try:
+            history = client.get(f"{COMFY_URL}/history/{prompt_id}", timeout=30).json()
+        except httpx.TimeoutException:
+            # DISCOVERED 2026-09-02, RUN 3: under --lowvram, ComfyUI streams
+            # weights from RAM more aggressively, and every so often a single
+            # /history poll takes longer than expected to answer even though
+            # the job itself is fine and keeps running server-side (same
+            # underlying lesson as Trap 1 - the server doesn't care whether
+            # the client is still listening). A single slow poll must never
+            # be treated as a failure; just poll again.
+            time.sleep(poll_every)
+            continue
         entry = history.get(prompt_id)
         if entry:
             status = entry.get("status", {})
