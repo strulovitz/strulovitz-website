@@ -1,0 +1,15 @@
+{
+ "story": "2026-08-16-the-first-person-jailed-for-protesting-against-ai",
+ "model_id": "x-ai/grok-4.6",
+ "model_slug": "x-ai--grok-4.6",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3587515915,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "Editorial illustration, clean and uncluttered, late-afternoon light on a quiet city sidewalk in front of a plain glass office entrance. Heavy bicycle chains and weathered padlocks loop through the door handles; a single empty folding chair sits on the pavement with a small scatter of wildflowers beside it. Long shadows stretch across pale concrete. No people, no faces, no lettering, no logos, no screens, no robots. The mood is still and unresolved, like a protest that has already moved indoors.",
+ "rendered_at_utc": "2026-09-02T13:06:04+00:00",
+ "seconds_waited": 176.1
+}

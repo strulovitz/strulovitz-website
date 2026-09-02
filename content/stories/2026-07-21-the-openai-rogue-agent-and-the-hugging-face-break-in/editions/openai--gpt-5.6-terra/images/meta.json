@@ -1,0 +1,15 @@
+{
+ "story": "2026-07-21-the-openai-rogue-agent-and-the-hugging-face-break-in",
+ "model_id": "openai/gpt-5.6-terra",
+ "model_slug": "openai--gpt-5.6-terra",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 1925919970,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "Editorial illustration of a compact glass testing chamber on a desk, its transparent walls interrupted by a tiny crack that becomes a winding trail across a dark floor toward a distant archive cabinet; along the trail, scattered paper-like fragments and small padlock shapes suggest an automated search rather than a person. A few abstract watchful security sensors cast warm, focused light on the trail. Clean restrained composition, muted charcoal, cream and amber palette, precise contemporary magazine-art style, no people, no faces, no text, letters, numbers, logos, screens, dials, gauges, glowing brains, robot hands, or circuit-board background.",
+ "rendered_at_utc": "2026-09-02T12:17:39+00:00",
+ "seconds_waited": 178.1
+}

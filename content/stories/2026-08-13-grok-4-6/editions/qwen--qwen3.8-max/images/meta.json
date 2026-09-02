@@ -1,0 +1,15 @@
+{
+ "story": "2026-08-13-grok-4-6",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2454008822,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A stylised overhead view of three runners on a track seen from above, two slightly ahead and one drawing level from behind, rendered in flat editorial illustration style with muted warm colours. The track is a simple loop on a plain background, with no spectators, no stadium, and no text or numbers anywhere. The runners are abstract geometric figures without faces, one in a darker colour catching up to the pair ahead. Clean lines, minimal detail, no logos or brand references.",
+ "rendered_at_utc": "2026-09-02T12:57:01+00:00",
+ "seconds_waited": 176.1
+}

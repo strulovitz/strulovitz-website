@@ -1,0 +1,15 @@
+{
+ "story": "2026-08-16-the-first-person-jailed-for-protesting-against-ai",
+ "model_id": "anthropic/claude-sonnet-5",
+ "model_slug": "anthropic--claude-sonnet-5",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3587515915,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A lone elderly woman's silhouette stands calmly before a pair of tall glass office doors wrapped in heavy chain, her posture upright and unhurried; through the glass, faint reflections suggest rows of server racks dissolving into fog, while beside her an empty wooden bench sits in soft dawn light, muted grays and warm ochres throughout, quiet and dignified in tone, no signage, no visible face, no logos, no text of any kind.",
+ "rendered_at_utc": "2026-09-02T13:03:01+00:00",
+ "seconds_waited": 176.1
+}

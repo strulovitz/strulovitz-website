@@ -165,45 +165,88 @@ def comfy_alive(client: httpx.Client) -> bool:
         return False
 
 
+def free_comfy_memory(client: httpx.Client) -> None:
+    """
+    Tell ComfyUI to unload models and free VRAM before the NEXT job it runs.
+
+    DISCOVERED 2026-09-02, RUN 1: over a long batch (28 successful jobs in a
+    row), the GGUF dequantization path slowly fragments this GPU's VRAM until
+    an unlucky job cannot find one contiguous free block big enough, even
+    though the card is not actually "full" - the OOM message's own numbers
+    showed only 17.75 MiB truly free out of an 11.59 GiB device limit. The
+    failure is real but self-healing: the very next job after a failure
+    almost always succeeds anyway, because whatever triggered the
+    fragmentation has already been released by then.
+
+    IMPORTANT: `/free` does NOT free memory the instant you call it - it only
+    sets a flag that ComfyUI checks before it starts its NEXT queued prompt.
+    Calling it with nothing queued and then checking `nvidia-smi` right away
+    will show no change; that is expected, not a bug. It only actually helps
+    if the very next `/prompt` submitted afterward is the one that then
+    unloads everything first.
+    """
+    client.post(f"{COMFY_URL}/free",
+                json={"unload_models": True, "free_memory": True}, timeout=10)
+
+
+def is_oom(problem: Exception) -> bool:
+    text = str(problem)
+    return "OutOfMemoryError" in text or "out of memory" in text.lower()
+
+
 def generate(client: httpx.Client, prompt_text: str, filename_prefix: str, seed: int,
              *, poll_every: float = 2.0, timeout_s: float = 900.0) -> tuple[bytes, float]:
     """
     Submit one image job to ComfyUI and wait for it, returning the PNG bytes
     and how many seconds it took. Raises ComfyFailed if ComfyUI reports an
     error or the job never appears in history within timeout_s.
-    """
-    workflow = build_workflow(prompt_text, filename_prefix, seed)
-    started = time.monotonic()
-    response = client.post(f"{COMFY_URL}/prompt", json={"prompt": workflow}, timeout=30)
-    response.raise_for_status()
-    prompt_id = response.json()["prompt_id"]
 
-    while True:
-        elapsed = time.monotonic() - started
-        if elapsed > timeout_s:
-            raise ComfyFailed(f"ComfyUI did not finish prompt {prompt_id} within {timeout_s:.0f}s.")
-        history = client.get(f"{COMFY_URL}/history/{prompt_id}", timeout=10).json()
-        entry = history.get(prompt_id)
-        if entry:
-            status = entry.get("status", {})
-            if status.get("status_str") == "error" or any(
-                m[0] == "execution_error" for m in status.get("messages", [])
-            ):
-                raise ComfyFailed(f"ComfyUI reported an error for {prompt_id}: {status}")
-            outputs = entry.get("outputs", {})
-            images = outputs.get("9", {}).get("images", [])
-            if images:
-                image_info = images[0]
-                image_response = client.get(
-                    f"{COMFY_URL}/view",
-                    params={"filename": image_info["filename"],
-                            "subfolder": image_info.get("subfolder", ""),
-                            "type": image_info.get("type", "output")},
-                    timeout=30,
-                )
-                image_response.raise_for_status()
-                return image_response.content, time.monotonic() - started
-        time.sleep(poll_every)
+    Retries EXACTLY ONCE, and only for a genuine out-of-memory failure - this
+    is recovering from an infrastructure fault, never a second attempt
+    because a finished picture looked wrong (decision 16 still applies to
+    pictures; this function never sees or judges a successful picture at
+    all, only whether ComfyUI itself finished the job).
+    """
+    for attempt in (1, 2):
+        workflow = build_workflow(prompt_text, filename_prefix, seed)
+        started = time.monotonic()
+        response = client.post(f"{COMFY_URL}/prompt", json={"prompt": workflow}, timeout=30)
+        response.raise_for_status()
+        prompt_id = response.json()["prompt_id"]
+
+        try:
+            while True:
+                elapsed = time.monotonic() - started
+                if elapsed > timeout_s:
+                    raise ComfyFailed(
+                        f"ComfyUI did not finish prompt {prompt_id} within {timeout_s:.0f}s.")
+                history = client.get(f"{COMFY_URL}/history/{prompt_id}", timeout=10).json()
+                entry = history.get(prompt_id)
+                if entry:
+                    status = entry.get("status", {})
+                    if status.get("status_str") == "error" or any(
+                        m[0] == "execution_error" for m in status.get("messages", [])
+                    ):
+                        raise ComfyFailed(f"ComfyUI reported an error for {prompt_id}: {status}")
+                    outputs = entry.get("outputs", {})
+                    images = outputs.get("9", {}).get("images", [])
+                    if images:
+                        image_info = images[0]
+                        image_response = client.get(
+                            f"{COMFY_URL}/view",
+                            params={"filename": image_info["filename"],
+                                    "subfolder": image_info.get("subfolder", ""),
+                                    "type": image_info.get("type", "output")},
+                            timeout=30,
+                        )
+                        image_response.raise_for_status()
+                        return image_response.content, time.monotonic() - started
+                time.sleep(poll_every)
+        except ComfyFailed as problem:
+            if attempt == 2 or not is_oom(problem):
+                raise
+            free_comfy_memory(client)
+            time.sleep(5.0)  # let the unload flag be picked up cleanly
 
 
 # ------------------------------------------------------------------------------

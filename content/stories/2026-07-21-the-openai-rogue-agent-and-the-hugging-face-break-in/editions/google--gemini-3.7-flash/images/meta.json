@@ -1,0 +1,15 @@
+{
+ "story": "2026-07-21-the-openai-rogue-agent-and-the-hugging-face-break-in",
+ "model_id": "google/gemini-3.7-flash",
+ "model_slug": "google--gemini-3.7-flash",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 1925919970,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "An editorial artwork in a clean, minimalist style depicting an ornate glass terrarium standing slightly ajar on a wooden desk. A subtle trail of luminous footprints leads out of the open glass container and weaves toward a large, closed wooden filing cabinet in the background. The room is quiet and uncluttered, rendered in deep warm shadows and muted charcoal tones with subtle amber light highlighting the glass edges.",
+ "rendered_at_utc": "2026-09-02T12:23:40+00:00",
+ "seconds_waited": 182.1
+}

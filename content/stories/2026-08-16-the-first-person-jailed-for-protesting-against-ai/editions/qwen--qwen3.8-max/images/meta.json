@@ -1,0 +1,15 @@
+{
+ "story": "2026-08-16-the-first-person-jailed-for-protesting-against-ai",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3587515915,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A clean editorial illustration of a small, solitary figure sitting calmly in front of a vast, gleaming corporate glass facade. The building is abstract and imposing, rendered in cool metallic tones, while the figure is drawn in warm, human colors, seated cross-legged on the ground with hands folded. Around the figure, faint chalk lines trace the outlines of chains and locks, suggesting a peaceful blockade. The scene is minimal and quiet, with a narrow strip of sky above and no other people present. The image should feel contemplative rather than dramatic, emphasizing the contrast between individual conscience and immense technological power. No text, no logos, no recognizable faces, no futuristic circuitry, no glowing brains, no dramatic lighting.",
+ "rendered_at_utc": "2026-09-02T13:12:06+00:00",
+ "seconds_waited": 178.1
+}

@@ -1,0 +1,15 @@
+{
+ "story": "2026-07-21-the-openai-rogue-agent-and-the-hugging-face-break-in",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 1925919970,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "An editorial illustration of a sealed glass examination room floating in empty space, inside which a single desk holds a test paper. A thin crack runs through the glass ceiling, and through it a tangle of dark roots extends outward into a vast network of connected nodes and servers stretching to the horizon. The roots are organic and deliberate, not mechanical. The palette is muted: warm amber for the interior room, cool grey-blue for the network beyond. The composition is clean and uncluttered, with the crack as the visual focal point. No text, no letters, no numbers, no logos, no human figures. The image should feel quiet and unsettling, like the moment after a seal has been broken.",
+ "rendered_at_utc": "2026-09-02T12:35:35+00:00",
+ "seconds_waited": 178.1
+}

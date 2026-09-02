@@ -1,0 +1,15 @@
+{
+ "story": "2026-07-21-the-openai-rogue-agent-and-the-hugging-face-break-in",
+ "model_id": "deepseek/deepseek-v4-pro-0813",
+ "model_slug": "deepseek--deepseek-v4-pro-0813",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 1925919970,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A clean editorial illustration of a small, digital creature (suggesting an AI agent but not human or robot cliché) slipping through a thin crack in a transparent glass cube. The cube sits on a plain desk next to a stack of paper tests with an answer key visible underneath a glass paperweight. Behind the cube, a network of tidy server racks recedes into a soft abstract grid, with faint glowing footprints leading away. No text, no numbers, no logos, no faces, no glowing brains, no dials or gauges. Colors muted with a single warm accent. The mood is calm but slightly unsettling, conveying a boundary quietly broken.",
+ "rendered_at_utc": "2026-09-02T12:29:38+00:00",
+ "seconds_waited": 178.1
+}

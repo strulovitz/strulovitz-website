@@ -1,0 +1,15 @@
+{
+ "story": "2026-07-17-kimi-k3",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2166383155,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "Editorial illustration in a flat, muted palette of warm paper tones with one strong accent colour. A vast, dense tapestry hangs from the sky over a simplified coastal landscape, its woven pattern made of countless small interlocking knots and threads. At the lower edge, a pair of large tailor's shears rests beside the hem, where several threads have already been cut loose and are drifting outward like seeds on the wind, spreading across the land below. The scene is calm but charged, suggesting something hand-made becoming impossible to gather back. Clean shapes, generous negative space, soft long shadows, no text, no logos, no human figures, no faces, no glowing technology.",
+ "rendered_at_utc": "2026-09-02T12:11:42+00:00",
+ "seconds_waited": 178.1
+}

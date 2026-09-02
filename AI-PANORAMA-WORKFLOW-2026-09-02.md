@@ -189,6 +189,34 @@ finishing. `POST http://127.0.0.1:8188/interrupt` can be tried but does not
 reliably free memory instantly; waiting for the number to drop is the
 trustworthy signal, not the interrupt call itself.
 
+### TRAP 3 — THE AGENT ITSELF WENT SILENT FOR 76 MINUTES, THEN 35 MORE
+
+This one has nothing to do with ComfyUI or VRAM. Running this first real
+batch, Claude Sonnet 5 told Nir "no need to babysit" after only 3 of 40
+images had finished (9 minutes into an 85-minute job), then did not check
+back for the remaining 76 minutes. The job finished with 12 of 40 FAILED and
+nobody told Nir - he had to come back and ask "did it finish?" twice before
+getting a straight answer. Then, fixing the OOM bug took real time with
+nothing running on the GPU at all - a further silent 35-minute gap between
+16:15 and 16:50 - and that idle time was also never disclosed until Nir did
+the arithmetic himself and asked what percentage of the time it was actually
+working. The full rule this produced is in `~/AGENTS.md` ("BACKGROUND JOBS
+AND HONEST STATUS RULE") and applies to every agent, on every machine, not
+just this project. The short version for whoever runs `images.py` next:
+
+- Do not tell Nir a long job is fine to leave alone after seeing a tiny
+  fraction of it succeed. 3 out of 40 proves nothing about the other 37.
+- Check on a running batch at real intervals and say so UNPROMPTED, not only
+  when asked "did it finish?" - and answer that exact question, first, in
+  the first sentence, before running anything else.
+- The MOMENT a batch stops - whether it finished, crashed, or is paused
+  while a bug gets fixed - say so immediately. Never let "GPU idle, nothing
+  running" pass in silence.
+- Every progress report on a batch like this should be built from real
+  numbers - `find ... -printf "%T+ %p\n" | sort` on the output files, or
+  `ps aux | grep images.py`, or the log itself - never from memory of "how
+  long it felt like."
+
 ### THE FIRST REAL IMAGE, AND WHAT "NOTHING IS EVER FIXED" MEANT IN PRACTICE
 
 The first successful render — Grok 4.6's own illustration paragraph for the

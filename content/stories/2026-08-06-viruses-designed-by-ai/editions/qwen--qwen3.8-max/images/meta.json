@@ -1,0 +1,15 @@
+{
+ "story": "2026-08-06-viruses-designed-by-ai",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 1335683939,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A clean, editorial-style illustration showing a petri dish viewed from above at a slight angle. The dish contains a pale bacterial lawn with several clear circular spots where the bacteria have been killed, arranged in a loose cluster. Above the dish, rendered in a soft translucent style, floats a stylised strand of DNA made of geometric letter-like shapes, suggesting code being translated into biology. The palette is muted: warm off-white for the bacterial layer, cool teal for the clear zones, and a deep indigo for the floating DNA motif. The composition is minimal and uncluttered, with generous negative space. No text, numbers, logos, human figures, dials, glowing brains, circuit boards or robotic hands appear anywhere in the image.",
+ "rendered_at_utc": "2026-09-02T12:47:44+00:00",
+ "seconds_waited": 178.1
+}

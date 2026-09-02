@@ -1,0 +1,15 @@
+{
+ "story": "2026-07-17-kimi-k3",
+ "model_id": "deepseek/deepseek-v4-pro-0813",
+ "model_slug": "deepseek--deepseek-v4-pro-0813",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2166383155,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "An editorial illustration of an enormous open gate standing alone in a plain landscape, its doors thrown wide. Through the gate, a small crowd of varied, faceless figures approaches from a distant city skyline. On the near side, a single closed briefcase sits on the ground. The palette is warm ochre and deep blue, with sharp shadows and no text, letters, numbers, logos, dials, robot hands, or glowing brains.",
+ "rendered_at_utc": "2026-09-02T12:05:46+00:00",
+ "seconds_waited": 178.1
+}
