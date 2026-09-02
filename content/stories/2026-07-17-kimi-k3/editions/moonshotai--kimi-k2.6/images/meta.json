@@ -1,0 +1,16 @@
+{
+ "story": "2026-07-17-kimi-k3",
+ "model_id": "moonshotai/kimi-k2.6",
+ "model_slug": "moonshotai--kimi-k2.6",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2166383155,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A clean editorial illustration of a massive, translucent geometric structure made of interlocking glass blocks, open and accessible in the foreground, while a distant city of solid, opaque monoliths sits behind a high wall. Warm daylight, minimal detail, no text, no numbers, no human faces, no brand logos, no circuitry patterns or glowing blue elements.",
+ "rendered_at_utc": "2026-09-02T16:24:47+00:00",
+ "seconds_waited": 519.2,
+ "vram_free_gb_before_start": 11.02
+}

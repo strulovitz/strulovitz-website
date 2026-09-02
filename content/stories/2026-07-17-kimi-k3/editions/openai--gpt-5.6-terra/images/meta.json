@@ -1,0 +1,16 @@
+{
+ "story": "2026-07-17-kimi-k3",
+ "model_id": "openai/gpt-5.6-terra",
+ "model_slug": "openai--gpt-5.6-terra",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2166383155,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A detailed editorial illustration split between a polished browser window on one side and an open server rack on the other: at center, a large glowing AI brain labeled “Kimi K3” routes a stream of prompts through a visible mixture-of-experts switchboard showing 896 small specialist nodes with only 16 lit, then into a loop of code editor, browser preview, screenshot eye and revision arrows, producing an attractive finished web interface that sits at the top of a front-end coding leaderboard; behind it, a vast faint backdrop suggests “2.8T parameters” and a million-token scroll, while the open side shows downloadable model-weight boxes flowing toward a company’s own data center packed with 64 accelerators, contrasted with a locked cloud/API tower and per-token price tags; around the edges, subtle caution symbols show a vague prompt branching into an unintended design, an uneven command-line result, a clock and token meter implying cost and time, and a safety lock cracking as copied weights spread outward, making clear that the headline achievement is powerful browser-assisted front-end coding, not proven supremacy at every task, and that openness brings both independence and harder-to-control risks.",
+ "rendered_at_utc": "2026-09-02T15:23:12+00:00",
+ "seconds_waited": 488.2,
+ "vram_free_gb_before_start": 10.69
+}

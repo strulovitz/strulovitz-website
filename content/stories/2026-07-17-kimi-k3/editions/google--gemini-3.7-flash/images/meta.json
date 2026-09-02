@@ -1,0 +1,16 @@
+{
+ "story": "2026-07-17-kimi-k3",
+ "model_id": "google/gemini-3.7-flash",
+ "model_slug": "google--gemini-3.7-flash",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2166383155,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A detailed editorial illustration depicting a towering, luminous digital architect labeled \"Kimi K3\" standing atop a glowing benchmark leaderboard podium, visibly leaping ahead of sleek, walled monoliths representing leading American proprietary models. In the foreground, an intricate \"vision in the loop\" mechanism is visualized as an active circular stream: cascading lines of code compile into vibrant, interactive web interfaces and 3D simulations, which are inspected by a scanning optical aperture that flags and auto-corrects visual flaws before routing the refined code back into the system. Supporting this figure is a colossal server infrastructure of enterprise accelerator racks, contrasted with a prominent open-access motif—an unlocked digital core emitting radiant network threads across a stylized world map originating from a Shanghai tech summit to global nodes—vividly capturing how China’s massive open-weight model is disrupting the artificial intelligence landscape by challenging closed US frontiers in software engineering and global AI governance.",
+ "rendered_at_utc": "2026-09-02T15:40:45+00:00",
+ "seconds_waited": 408.7,
+ "vram_free_gb_before_start": 10.77
+}

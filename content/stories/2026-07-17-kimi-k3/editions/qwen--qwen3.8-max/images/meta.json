@@ -1,0 +1,16 @@
+{
+ "story": "2026-07-17-kimi-k3",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2166383155,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single panoramic illustration shows a colossal moon over Shanghai opening like a public weight file, its surface revealing a vast neural network of 2.8 trillion parameters divided into 896 expert modules with only 16 glowing active paths; at the bottom, rows of enterprise AI accelerators rather than home computers download and host the open-weight model under a lower price tag than rival US systems, while a nearby leaderboard places Kimi K3 first in front-end coding above Claude Fable 5 and GPT 5.6 Soul; in the foreground, a robotic vision loop writes code, photographs a rendered interface, spots flaws, edits, and checks again, surrounded by small vignettes of a browser game, a modest chip layout, optimized GPU code, an astrophysics report, and a writing prize; in the background, a World AI Cooperation banner, 29 flags, and shadowy debates over distillation frame the scene, but the moon remains open, downloadable, and impossible to switch off.",
+ "rendered_at_utc": "2026-09-02T16:00:40+00:00",
+ "seconds_waited": 388.9,
+ "vram_free_gb_before_start": 10.76
+}

@@ -1,0 +1,16 @@
+{
+ "story": "2026-07-17-kimi-k3",
+ "model_id": "anthropic/claude-sonnet-5",
+ "model_slug": "anthropic--claude-sonnet-5",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2166383155,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A split-screen illustration: on the left, a sleek humanoid AI figure labeled \"Kimi K3\" sits at a glowing terminal, its head rendered as a network of 896 small hexagonal nodes with only 16 lit up in bright color, visually explaining the mixture-of-experts design; screens around it show a 3D open-world game, a Long March 10 rocket simulation, a Game Boy Advance emulator, and a tiny computer chip labeled \"48-hour build — student-project scale,\" while a stack of astrophysics papers and lines of code stream past it, evoking its long, unsupervised \"vision in the loop\" work. On the right, a simplified bar-and-ranking chart shows K3 edging past rival bars labeled \"Claude Fable 5\" and \"GPT 5.6 Soul\" on a coding-arena leaderboard, with a calendar icon marked \"July 27 — Full Weights\" and a price tag reading \"$3/$15 per million tokens\" beside a small server rack icon labeled \"64+ accelerators needed.\" In the background, faint red-tinted stock-ticker arrows dip downward next to small logos suggesting rattled Chinese competitors, tying the technical achievement to its market and geopolitical ripple effects.",
+ "rendered_at_utc": "2026-09-02T15:33:01+00:00",
+ "seconds_waited": 574.9,
+ "vram_free_gb_before_start": 10.71
+}

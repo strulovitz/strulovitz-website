@@ -234,7 +234,51 @@ rendered under the old wrong single-seed-forever rule before Nir corrected
 it (see "THE SEED — CORRECTED" above). It will be regenerated with the
 correct per-story seed the first time the full batch runs.
 
-## WHAT STILL NEEDS TO BE DONE
+### TRAP 4 — THE REAL CAUSE, AND THE FIX THAT ACTUALLY WORKED (RUN 2 AND 3)
+
+Trap 2's "one retry after `/free`" fix (RUN 1) was not good enough - Nir
+correctly rejected it and asked for memory to be cleaned before every single
+image, not just after a failure. That was implemented (RUN 2,
+`force_clean_vram()`, verified against ComfyUI's own `/system_stats` before
+every job) and it STILL failed on 2 of the first 8 images, with the identical
+error, even though the pre-job check reported 10.7-10.8 GB genuinely free -
+the same number seen on jobs that succeeded right next to the ones that
+failed. That proved the problem was never "leftover junk from a previous
+job" - it is PyTorch's caching allocator fragmenting the roughly 2GB of
+headroom left over once both the diffusion model and the 24B text encoder are
+loaded, so that occasionally there is no single contiguous block big enough
+for one more ~640MB allocation, even though the TOTAL free memory number
+looks fine. A total-free check can never catch fragmentation - only a real
+fix to how memory is allocated can.
+
+Two things were tried and rejected before the real fix:
+- `PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True` - started fine, but had
+  no measurable effect, because ComfyUI already selects the `cudaMallocAsync`
+  CUDA backend on this GPU, and `expandable_segments` only applies to
+  PyTorch's own native allocator.
+- Forcing `PYTORCH_CUDA_ALLOC_CONF="backend:native,expandable_segments:True"`
+  - crashed ComfyUI outright on startup: `Allocator backend parsed at
+  runtime != allocator backend parsed at load time, cudaMallocAsync !=
+  native`. The backend is fixed earlier than this environment variable can
+  reach it on this build; do not try this again.
+
+**The fix that actually worked, confirmed by re-running BOTH jobs that had
+failed and watching them succeed:** start ComfyUI with ComfyUI's own
+built-in `--lowvram` flag:
+```
+python /home/nir/ai-art/ComfyUI/main.py --listen 127.0.0.1 --port 8188 --lowvram
+```
+This tells ComfyUI to keep far less of each model resident on the GPU at
+once and stream weights from RAM more aggressively, so the peak VRAM
+footprint never gets close enough to the device limit for fragmentation to
+matter. Both previously-failing jobs succeeded immediately under `--lowvram`,
+at 244s and 519s respectively - not even slower than before, because the
+earlier `force_clean_vram()` full-reload cost was already the dominant time
+cost. **`--lowvram` must be part of the standard ComfyUI startup command for
+this pipeline from now on** - update the "HOW TO RESUME" restart command
+below accordingly, and do not go back to running it without this flag.
+
+
 
 1. **Run the full batch** — `uv run stages/images.py --all --all-models` for
    the remaining ~39 illustrations, backgrounded per Trap 1 above, checked
@@ -261,7 +305,7 @@ correct per-story seed the first time the full batch runs.
 
 1. Read this file completely, both Part 1 and Part 2.
 2. `git -C /home/nir/strulovitz-website pull`
-3. Check if ComfyUI is running: `ps aux | grep main.py`. If not: `source /home/nir/ai-art/venv/bin/activate && (setsid nohup python /home/nir/ai-art/ComfyUI/main.py --listen 127.0.0.1 --port 8188 > /tmp/opencode/comfyui.log 2>&1 < /dev/null &)`, wait ~20s, confirm with `curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:8188/` (expect 200).
+3. Check if ComfyUI is running: `ps aux | grep main.py`. If not: `source /home/nir/ai-art/venv/bin/activate && (setsid nohup python /home/nir/ai-art/ComfyUI/main.py --listen 127.0.0.1 --port 8188 --lowvram > /tmp/opencode/comfyui.log 2>&1 < /dev/null &)  # --lowvram is REQUIRED, see TRAP 4`, wait ~20s, confirm with `curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:8188/` (expect 200).
 4. Before submitting any image job, check `http://127.0.0.1:8188/queue` and
    `nvidia-smi --query-gpu=memory.used --format=csv` are both idle (Trap 2
    above) — never assume the GPU is free just because no error was printed.

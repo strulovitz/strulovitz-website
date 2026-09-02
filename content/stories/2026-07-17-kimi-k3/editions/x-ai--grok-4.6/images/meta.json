@@ -1,0 +1,16 @@
+{
+ "story": "2026-07-17-kimi-k3",
+ "model_id": "x-ai/grok-4.6",
+ "model_slug": "x-ai--grok-4.6",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2166383155,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A panoramic digital painting shows a colossal moonlit Chinese dragon whose body is a 2.8-trillion-parameter mixture-of-experts lattice of 896 specialized modules with only 16 glowing at any moment, ingesting a million-token multimodal torrent of text, images and video while autonomously looping through screens that display a 3D browser game, GPU compiler, rocket simulation and 48-hour chip design; holographic leaderboards place Kimi K3 first on Arena.ai front-end coding and level with Claude and GPT, cheap-token price tags hover beside a 64-accelerator GPU farm, open-weight files cascade unrecallably toward global users, Shanghai’s World AI Conference podium and open-source banners stand left, locked US closed-model silhouettes look on right, and rival Chinese stock tickers plunge beneath the rising moon labeled Moonshot AI.",
+ "rendered_at_utc": "2026-09-02T15:47:12+00:00",
+ "seconds_waited": 385.6,
+ "vram_free_gb_before_start": 10.77
+}
