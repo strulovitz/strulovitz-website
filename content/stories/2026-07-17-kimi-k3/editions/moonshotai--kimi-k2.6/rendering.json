@@ -9,7 +9,7 @@
  "brief_version": "ba9b08ec7e56",
  "asked_with_strict_schema": true,
  "bought_in_batch": false,
- "cost_usd": 0.06919449,
+ "cost_usd": 0.07353995892,
  "prompt_tokens": 14678,
  "completion_tokens": 17709,
  "reasoning_tokens": 15792,
@@ -36,7 +36,7 @@
    }
   ],
   "headline": "China's Moonshot AI releases 2.8-trillion-parameter open model Kimi K3",
-  "image_prompt": "A clean editorial illustration of a massive, translucent geometric structure made of interlocking glass blocks, open and accessible in the foreground, while a distant city of solid, opaque monoliths sits behind a high wall. Warm daylight, minimal detail, no text, no numbers, no human faces, no brand logos, no circuitry patterns or glowing blue elements.",
+  "image_prompt": "A towering transparent rocket emblazoned Moonshot AI — Kimi K3 — 2.8 Trillion Parameters — Open Weights launches from Chinese soil, its open cargo bay revealing 896 tiny specialist modules with only sixteen glowing and active, symbolizing the mixture-of-experts architecture. The rocket races toward a summit podium where trophies bearing the logos of OpenAI’s GPT-5.6 Soul, Anthropic’s Claude Fable 5, and Google’s Gemini 3.1 Pro sit, with K3’s nose cone nearly touching first place in coding benchmarks yet visibly a step lower in overall user experience. Wrapped around the fuselage is an endless paper ribbon holding one million tokens of code and documents, while portholes show an eye icon staring at a website or game screen and revising its own output in a continuous feedback loop. Strapped beneath the rocket, heavy server racks labeled 64+ AI Accelerators form a solid hardware wall that keeps ordinary desktop computers at bay, overshadowed by dangling price tags showing $3 and $15 rates crossed through by hidden extra token costs. Floating in the sky are miniature scenes of a 48-hour chip design, an astrophysics calculation, and optimized graphics code representing unsupervised multi-day tasks. In the background, a globe links 29 developing nations under a WAIC banner, while a shadowy Claude figure waves a paper reading Distillation Violation and stock tickers at the base flash plunging red arrows for rival Chinese AI firms.",
   "key_points": [
    {
     "point": "Moonshot AI unveiled Kimi K3 on July 17, 2026, and plans to release its full weights on July 27, 2026.",
@@ -90,5 +90,8 @@
    "ai-race"
   ],
   "tldr": "Moonshot AI's Kimi K3, a 2.8-trillion-parameter open-weight model, reached the top tier of AI coding benchmarks, challenging US leaders."
- }
+ },
+ "image_prompt_asked_separately": true,
+ "image_prompt_second_chance": true,
+ "image_prompt_cost_usd": 0.00434546892
 }

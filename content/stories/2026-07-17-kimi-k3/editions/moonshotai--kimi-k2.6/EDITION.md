@@ -111,7 +111,7 @@ Model distillation is a training technique in which a new or smaller AI model le
 
 ## The illustration it directed
 
-> A clean editorial illustration of a massive, translucent geometric structure made of interlocking glass blocks, open and accessible in the foreground, while a distant city of solid, opaque monoliths sits behind a high wall. Warm daylight, minimal detail, no text, no numbers, no human faces, no brand logos, no circuitry patterns or glowing blue elements.
+> A towering transparent rocket emblazoned Moonshot AI — Kimi K3 — 2.8 Trillion Parameters — Open Weights launches from Chinese soil, its open cargo bay revealing 896 tiny specialist modules with only sixteen glowing and active, symbolizing the mixture-of-experts architecture. The rocket races toward a summit podium where trophies bearing the logos of OpenAI’s GPT-5.6 Soul, Anthropic’s Claude Fable 5, and Google’s Gemini 3.1 Pro sit, with K3’s nose cone nearly touching first place in coding benchmarks yet visibly a step lower in overall user experience. Wrapped around the fuselage is an endless paper ribbon holding one million tokens of code and documents, while portholes show an eye icon staring at a website or game screen and revising its own output in a continuous feedback loop. Strapped beneath the rocket, heavy server racks labeled 64+ AI Accelerators form a solid hardware wall that keeps ordinary desktop computers at bay, overshadowed by dangling price tags showing $3 and $15 rates crossed through by hidden extra token costs. Floating in the sky are miniature scenes of a 48-hour chip design, an astrophysics calculation, and optimized graphics code representing unsupervised multi-day tasks. In the background, a globe links 29 developing nations under a WAIC banner, while a shadowy Claude figure waves a paper reading Distillation Violation and stock tickers at the base flash plunging red arrows for rival Chinese AI firms.
 
 *Rendered locally with the same image model and the same seed for every edition, so the only difference between editions' pictures is the quality of that paragraph.*
 
@@ -119,7 +119,7 @@ Model distillation is a training technique in which a new or smaller AI model le
 
 ## What it cost, and how it was asked
 
-- cost: **$0.0692** (full price, bought immediately)
+- cost: **$0.0735** (full price, bought immediately)
 - it read 14,678 tokens and wrote 17,709, of which 15,792 were thinking to itself
 - it took 289 seconds
 - asked with a strict JSON shape: True
