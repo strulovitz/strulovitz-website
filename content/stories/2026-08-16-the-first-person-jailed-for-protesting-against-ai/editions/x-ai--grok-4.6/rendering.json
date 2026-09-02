@@ -9,7 +9,7 @@
  "brief_version": "ba9b08ec7e56",
  "asked_with_strict_schema": true,
  "bought_in_batch": false,
- "cost_usd": 0.058922,
+ "cost_usd": 0.069802,
  "prompt_tokens": 4615,
  "completion_tokens": 9434,
  "reasoning_tokens": 6826,
@@ -82,6 +82,9 @@
    "2026-07-21-the-openai-rogue-agent-and-the-hugging-face-break-in",
    "2026-08-06-viruses-designed-by-ai"
   ],
-  "image_prompt": "Editorial illustration, clean and uncluttered, late-afternoon light on a quiet city sidewalk in front of a plain glass office entrance. Heavy bicycle chains and weathered padlocks loop through the door handles; a single empty folding chair sits on the pavement with a small scatter of wildflowers beside it. Long shadows stretch across pale concrete. No people, no faces, no lettering, no logos, no screens, no robots. The mood is still and unresolved, like a protest that has already moved indoors."
- }
+  "image_prompt": "A 69-year-old gray-haired woman in casual clothes is shown being handcuffed by sheriff’s officers beside a jail van outside a sleek glass OpenAI headquarters whose doors are chained and padlocked from a sit-in blockade, while nearby StopAI activists hold signs reading Stop Superintelligence, Regain Your Humanity and Global Ban on the ASI Race, chant Free Wynd and sing a rewritten Battle Hymn; a colossal shadowy neural-network brain representing uncontrolled artificial superintelligence looms over the building, dwarfing tiny human figures and researchers’ warning letters about loss of control, bioweapons and trillion-dollar valuations, with a courtroom gavel striking down a necessity defense and a small Rosa Parks silhouette in the background, making clear this is the first imprisonment of a protester against the existential race to machines that outthink humanity."
+ },
+ "image_prompt_asked_separately": true,
+ "image_prompt_second_chance": true,
+ "image_prompt_cost_usd": 0.01088
 }

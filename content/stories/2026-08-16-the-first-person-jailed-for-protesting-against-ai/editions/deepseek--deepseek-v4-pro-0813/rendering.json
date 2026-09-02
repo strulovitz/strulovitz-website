@@ -9,7 +9,7 @@
  "brief_version": "ba9b08ec7e56",
  "asked_with_strict_schema": true,
  "bought_in_batch": false,
- "cost_usd": 0.02155368402,
+ "cost_usd": 0.025140704820000002,
  "prompt_tokens": 3804,
  "completion_tokens": 10655,
  "reasoning_tokens": 8583,
@@ -31,7 +31,7 @@
    }
   ],
   "headline": "First anti-AI protester jailed after OpenAI blockade",
-  "image_prompt": "A clean editorial illustration of a single empty folding chair outside the glass entrance of a modern office building. A heavy chain and padlock are looped through the door handles. Soft afternoon light, muted colors, no people, no text, no letters, no numbers.",
+  "image_prompt": "The illustration depicts a gray-haired woman in handcuffs being escorted by sheriff’s deputies away from the glass entrance of a corporate tower labeled OpenAI, where chains and a heavy padlock still bind the doors and a cluster of seated protesters hold signs reading Stop AI and Ban the race to superintelligence; looming over the tower is a vast shadowy artificial brain woven from circuit threads and unblinking camera eyes, its tendrils curling toward the locked doors, while in the foreground a juror’s bench, a judge’s gavel, and a jail cell marked 14 days sit beside a news placard reading First anti-AI protester jailed, and one supporter raises a hand lettered Free Wynd, making the single image at once a record of the blockade, the courtroom conviction, and the larger warning about superintelligence escaping human control.",
   "key_points": [
    {
     "point": "Wynd Kaufmyn, 69, surrendered to San Francisco authorities on Friday to serve a jail term after being convicted for the February 2025 blockade of OpenAI’s headquarters.",
@@ -67,5 +67,8 @@
    "san-francisco"
   ],
   "tldr": "Wynd Kaufmyn, 69, has begun a short jail term for a 2025 blockade of OpenAI’s office, believed to be the first such anti-AI sentence."
- }
+ },
+ "image_prompt_asked_separately": true,
+ "image_prompt_second_chance": true,
+ "image_prompt_cost_usd": 0.0035870208
 }

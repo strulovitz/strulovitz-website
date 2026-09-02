@@ -104,7 +104,7 @@ In machine learning, distillation means training a smaller or newer model using 
 
 ## The illustration it directed
 
-> An editorial illustration of an enormous open gate standing alone in a plain landscape, its doors thrown wide. Through the gate, a small crowd of varied, faceless figures approaches from a distant city skyline. On the near side, a single closed briefcase sits on the ground. The palette is warm ochre and deep blue, with sharp shadows and no text, letters, numbers, logos, dials, robot hands, or glowing brains.
+> A single wide editorial illustration shows a colossal open mechanical brain labeled Kimi K3 with 2.8 trillion parameters and 896 interlocking expert modules, only sixteen lit, standing on a first-place podium marked Front-End Code Arena 1679 while locked black boxes labeled Claude Fable 5 and GPT-5.6 Soul sit below at 1631 and 1618. The brain's transparent casing pours a stream of downloadable weights into the hands of researchers and developers below, and a looping visual feedback ribbon runs from a monitor showing website screenshots back into the model as it adjusts code, with miniature examples of a subway shooter, ring-world game, and chip blueprint floating around. Behind it, Chinese and American flags face each other across a split sky where Xi Jinping addresses a World AI Cooperation Organization podium on one side and falling stock tickers for JIEPU and MiniMax tumble on the other, while a price tag reads three dollars per million input tokens and fifteen dollars per million output tokens but a nearby balance scale shows cost per completed task equal to GPT-5.6 Soul, and a warning label reads vague instructions may cause autonomy, capturing an open Chinese frontier model that has intensified the US-China AI race.
 
 *Rendered locally with the same image model and the same seed for every edition, so the only difference between editions' pictures is the quality of that paragraph.*
 
@@ -112,7 +112,7 @@ In machine learning, distillation means training a smaller or newer model using 
 
 ## What it cost, and how it was asked
 
-- cost: **$0.0569** (full price, bought immediately)
+- cost: **$0.0643** (full price, bought immediately)
 - it read 15,175 tokens and wrote 9,309, of which 6,927 were thinking to itself
 - it took 169 seconds
 - asked with a strict JSON shape: True

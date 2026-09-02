@@ -89,7 +89,7 @@ placeholder
 
 ## The illustration it directed
 
-> A single glass petri dish sits on a plain surface, viewed from directly above; inside it, faint geometric grid lines fade into organic, thread-like tendrils that curl and branch like microscopic organisms, with a few small clear circular patches breaking through a soft field of pale color, evoking the moment a designed structure meets and dissolves a living surface, rendered in a restrained, clean editorial-illustration palette with no text, no faces, and no technological iconography.
+> Design a split-composition image: on the left, a glowing digital neural network flows into strands of DNA, visually representing the Evo AI model translating computer code into genetic sequences, with a laptop screen showing genome letters (A, T, C, G) cascading like text predictions; in the center, this data stream materializes into a cluster of geometric, spider-like bacteriophages latching onto and puncturing a cartoonishly rendered E. coli cell, with a few phages rendered in translucent "failed" gray to suggest only 16 of hundreds worked; on the right, a stark visual tension—a petri dish with a clear halo of destroyed bacteria (symbolizing success against drug resistance) sits beside a locked vault or shield icon stamped with a caution symbol, representing the biosecurity debate, with faint ghostly outlines of excluded human, plant, and animal cells fading into the background to show what the researchers deliberately left out of the training data; the overall palette should shift from cool blue (technology, the lab) on the left to a warning amber/red tint on the right, capturing both the scientific triumph and the safety alarm at the heart of the story.
 
 *Rendered locally with the same image model and the same seed for every edition, so the only difference between editions' pictures is the quality of that paragraph.*
 
@@ -97,7 +97,7 @@ placeholder
 
 ## What it cost, and how it was asked
 
-- cost: **$0.0545** (full price, bought immediately)
+- cost: **$0.0618** (full price, bought immediately)
 - it read 7,936 tokens and wrote 3,864, of which 588 were thinking to itself
 - it took 45 seconds
 - asked with a strict JSON shape: True

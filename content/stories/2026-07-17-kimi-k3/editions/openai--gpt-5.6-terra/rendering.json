@@ -9,7 +9,7 @@
  "brief_version": "ba9b08ec7e56",
  "asked_with_strict_schema": true,
  "bought_in_batch": false,
- "cost_usd": 0.0623238,
+ "cost_usd": 0.0681913,
  "prompt_tokens": 15183,
  "completion_tokens": 2386,
  "reasoning_tokens": 159,
@@ -70,6 +70,9 @@
    "2026-07-21-the-openai-rogue-agent-and-the-hugging-face-break-in",
    "2026-08-06-viruses-designed-by-ai"
   ],
-  "image_prompt": "Editorial illustration, clean and uncluttered: a large workshop table viewed slightly from above, with a half-built miniature city made of simple pale blocks and a tiny browser-window-shaped frame acting as a mirror; within the frame, the same city appears more orderly as a small mechanical drafting arm adjusts one misplaced block outside it. Around the table sit a few separate interchangeable tool modules, suggesting a system selecting specialists and checking its own work. Warm off-white background, charcoal and muted red accents, crisp magazine illustration, no people, no text, letters, numbers, logos, dials, glowing brains, robot handshakes or circuit-board imagery."
- }
+  "image_prompt": "A detailed editorial illustration split between a polished browser window on one side and an open server rack on the other: at center, a large glowing AI brain labeled “Kimi K3” routes a stream of prompts through a visible mixture-of-experts switchboard showing 896 small specialist nodes with only 16 lit, then into a loop of code editor, browser preview, screenshot eye and revision arrows, producing an attractive finished web interface that sits at the top of a front-end coding leaderboard; behind it, a vast faint backdrop suggests “2.8T parameters” and a million-token scroll, while the open side shows downloadable model-weight boxes flowing toward a company’s own data center packed with 64 accelerators, contrasted with a locked cloud/API tower and per-token price tags; around the edges, subtle caution symbols show a vague prompt branching into an unintended design, an uneven command-line result, a clock and token meter implying cost and time, and a safety lock cracking as copied weights spread outward, making clear that the headline achievement is powerful browser-assisted front-end coding, not proven supremacy at every task, and that openness brings both independence and harder-to-control risks."
+ },
+ "image_prompt_asked_separately": true,
+ "image_prompt_second_chance": true,
+ "image_prompt_cost_usd": 0.0058675
 }

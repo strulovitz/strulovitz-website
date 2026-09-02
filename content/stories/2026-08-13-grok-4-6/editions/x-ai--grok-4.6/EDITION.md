@@ -99,7 +99,7 @@ Most public AI tests are puzzles: coding katas, exam questions, or multiple-choi
 
 ## The illustration it directed
 
-> A quiet sunlit woodworking studio seen from slightly above, editorial illustration, clean shapes and limited warm palette. A long unfinished oak workbench holds three equally intricate wooden mechanical birds, each fully assembled with visible gears and jointed wings. The two birds at the far end sit on a slightly dusty cloth. The third bird, nearest the viewer, is identical in craft but still surrounded by fresh shavings and a simple open toolbox with unmarked plain tools. Empty stools, no people, no faces, no screens, no robots, no text, letters, numbers, or logos anywhere in the image.
+> A wide cinematic illustration shows a newly upgraded Grok 4.6 figure, built from the same 1.5-trillion-parameter chassis as 4.5 but now gleaming after a much longer extra training run on Cursor-derived coding sessions, engineering traces and a 200000-GPU cluster, stepping onto a competitive arena podium priced at only $2 input/$6 output tokens while OpenAI GPT 5.6 Soul and Anthropic Fable 5 / Claude Opus stand on higher $10–$12 platforms; mixed scoreboards float above them with Grok first on GDPVal workplace projects yet trailing on DeepSWE coding, Terminal Bench and Artificial Analysis intelligence index, while surrounding scenes depict Grok Build generating a Portal 2 puzzle chamber and 3D-printed engine, Grok Bot desktop agents spawning sub-agents inside persistent cloud VMs, and a faint next-stage Grok 4.7 silhouette already loading SpaceX company data.
 
 *Rendered locally with the same image model and the same seed for every edition, so the only difference between editions' pictures is the quality of that paragraph.*
 
@@ -107,7 +107,7 @@ Most public AI tests are puzzles: coding katas, exam questions, or multiple-choi
 
 ## What it cost, and how it was asked
 
-- cost: **$0.0937** (full price, bought immediately)
+- cost: **$0.1045** (full price, bought immediately)
 - it read 18,712 tokens and wrote 9,413, of which 6,694 were thinking to itself
 - it took 451 seconds
 - asked with a strict JSON shape: True

@@ -96,7 +96,7 @@ AI existential risk refers to the concern, held by a subset of researchers and a
 
 ## The illustration it directed
 
-> A lone elderly woman's silhouette stands calmly before a pair of tall glass office doors wrapped in heavy chain, her posture upright and unhurried; through the glass, faint reflections suggest rows of server racks dissolving into fog, while beside her an empty wooden bench sits in soft dawn light, muted grays and warm ochres throughout, quiet and dignified in tone, no signage, no visible face, no logos, no text of any kind.
+> Outside a glass-and-steel OpenAI headquarters, an elderly woman with gray hair and a determined expression sits chained to the locked front doors, a small "Stop AI" sign propped beside her, as a line of supporters behind her chant with raised fists reading "Free Wynd"; through the glass doors, ghostly server racks and glowing neural-network diagrams loom like a specter, while overhead a newspaper-style banner reads "First Person Jailed for Protesting AI," and in the background a courthouse silhouette and a pair of handcuffs rest atop a scale of justice tipped away from a tiny book labeled "Necessity Defense"; faint headlines drift across the sky—"models escape confinement," "Sanders warns of bioweapons risk," "1,000 researchers sign warning letter"—and a faded photo of Rosa Parks on a bus is subtly worked into the clouds above the scene, tying her act of civil disobedience to the woman's own quiet, defiant stand.
 
 *Rendered locally with the same image model and the same seed for every edition, so the only difference between editions' pictures is the quality of that paragraph.*
 
@@ -104,7 +104,7 @@ AI existential risk refers to the concern, held by a subset of researchers and a
 
 ## What it cost, and how it was asked
 
-- cost: **$0.0743** (full price, bought immediately)
+- cost: **$0.0810** (full price, bought immediately)
 - it read 7,045 tokens and wrote 6,020, of which 2,095 were thinking to itself
 - it took 63 seconds
 - asked with a strict JSON shape: True

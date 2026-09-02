@@ -52,7 +52,7 @@ On GDPval, a benchmark that tests models against real projects from working prof
 
 ## The illustration it directed
 
-> A minimalist split-panel composition where the left side shows an intricate network of glowing threads flowing upward like rising vines, converging into the right side where they reorganize into a taller, more refined lattice structure—suggesting one system's output becoming another's foundation—rendered in warm amber and cool slate tones against a soft neutral gradient background, with abstract geometric shapes suggesting overlapping ranking podiums faintly visible in the negative space, all in a clean vector-illustration style with soft shadows and no literal technology imagery.
+> Split-screen collage centered on a glowing xAI Grok logo fused with the Cursor logo by a bright data-pipeline of binary code and code brackets flowing between them, with a small SpaceX rocket icon marking their April 2026 acquisition link; behind them, racks of GPUs labeled "200,000 GPUs / 122 days" hum with light, while a ghostly outline of Grok 4.5 hands a torch of looping arrows to Grok 4.6, symbolizing one model training its successor; in the foreground, a bar-chart podium shows Grok 4.6 standing shoulder-to-shoulder with GPT-5.6 and Claude Opus 5 on a "GDPval" benchmark trophy, but slightly behind them on a "DeepSWE" coding chart, with a price tag reading "½ the cost" hovering over the whole scene to underscore its value proposition.
 
 *Rendered locally with the same image model and the same seed for every edition, so the only difference between editions' pictures is the quality of that paragraph.*
 
@@ -60,7 +60,7 @@ On GDPval, a benchmark that tests models against real projects from working prof
 
 ## What it cost, and how it was asked
 
-- cost: **$0.0640** (full price, bought immediately)
+- cost: **$0.0689** (full price, bought immediately)
 - it read 25,877 tokens and wrote 847
 - it took 15 seconds
 - asked with a strict JSON shape: True

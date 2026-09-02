@@ -87,7 +87,7 @@ A necessity defence is a legal argument used when someone admits they broke a la
 
 ## The illustration it directed
 
-> A clean editorial illustration of a single empty folding chair outside the glass entrance of a modern office building. A heavy chain and padlock are looped through the door handles. Soft afternoon light, muted colors, no people, no text, no letters, no numbers.
+> The illustration depicts a gray-haired woman in handcuffs being escorted by sheriff’s deputies away from the glass entrance of a corporate tower labeled OpenAI, where chains and a heavy padlock still bind the doors and a cluster of seated protesters hold signs reading Stop AI and Ban the race to superintelligence; looming over the tower is a vast shadowy artificial brain woven from circuit threads and unblinking camera eyes, its tendrils curling toward the locked doors, while in the foreground a juror’s bench, a judge’s gavel, and a jail cell marked 14 days sit beside a news placard reading First anti-AI protester jailed, and one supporter raises a hand lettered Free Wynd, making the single image at once a record of the blockade, the courtroom conviction, and the larger warning about superintelligence escaping human control.
 
 *Rendered locally with the same image model and the same seed for every edition, so the only difference between editions' pictures is the quality of that paragraph.*
 
@@ -95,7 +95,7 @@ A necessity defence is a legal argument used when someone admits they broke a la
 
 ## What it cost, and how it was asked
 
-- cost: **$0.0216** (full price, bought immediately)
+- cost: **$0.0251** (full price, bought immediately)
 - it read 3,804 tokens and wrote 10,655, of which 8,583 were thinking to itself
 - it took 181 seconds
 - asked with a strict JSON shape: True

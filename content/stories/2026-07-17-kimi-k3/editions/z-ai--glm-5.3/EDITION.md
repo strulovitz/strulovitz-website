@@ -111,7 +111,7 @@ A chatbot answers a prompt and stops. An agent is given a goal instead of a ques
 
 ## The illustration it directed
 
-> Editorial illustration in a clean, flat, limited-palette style: a colossal geometric machine hovers above an open plaza, its outer panels swung wide like unlocked doors, and long strips of paper blueprints stream from its glowing core into the hands of a scattered crowd of small anonymous figures who gather them and carry them away in every direction. Far on the horizon stand two tall sealed towers with their doors shut. Warm light spills from the open machine, generous negative space, calm uncluttered composition. No text, letters, numbers or logos anywhere in the image.
+> The illustration shows a monumental open padlock, its shackle sprung wide, sitting at the summit of a winner's podium: from inside the unlocked padlock pours a glowing stream of numbered grids and weight matrices, flowing down like a downloading progress bar onto the laptop of a small figure who "owns" the model outright, while on the lower podium steps two closed, sealed American black boxes marked only with corporate logos can only be peered into through a narrow rented slot. The unlocked padlock bears the name "Kimi K3 — 2.8 trillion parameters" and wears a gold medal reading "#1 coding arena," and around it float its signature habits: a browser window it has built showing a screenshot of its own half-finished game, a magnifying lens inspecting the image to spot the flaw and try again, and a small silicon chip it designed over 48 hours with no human hand in sight. Behind the podium, two banners frame the scene: one shows the Chinese flag above the words "open-source AI: a rare and historic opportunity," while the other shows an American flag tangled in knotted rope above the debate "distillation or fair use?" — and at the bottom edge, small print warns that the giant needs 64 AI chips to serve it, reminding the viewer that open does not mean small, and that once the download completes on 27 July, copies will exist that no one can call back.
 
 *Rendered locally with the same image model and the same seed for every edition, so the only difference between editions' pictures is the quality of that paragraph.*
 
@@ -119,7 +119,7 @@ A chatbot answers a prompt and stops. An agent is given a goal instead of a ques
 
 ## What it cost, and how it was asked
 
-- cost: **$0.0965** (full price, bought immediately)
+- cost: **$0.1001** (full price, bought immediately)
 - it read 15,053 tokens and wrote 17,134, of which 13,973 were thinking to itself
 - it took 227 seconds
 - asked with a strict JSON shape: False

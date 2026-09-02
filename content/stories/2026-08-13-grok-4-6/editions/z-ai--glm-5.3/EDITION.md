@@ -111,7 +111,7 @@ An agent is software built around an AI model that does things rather than only 
 
 ## The illustration it directed
 
-> Editorial illustration in a clean, flat vector style with generous negative space: three running tracks curve up from the bottom edge of a warm cream background toward a distant horizon. Three simplified human figures, drawn as bold silhouettes without facial detail, run stride for stride where the lanes converge, their long shadows merging into a single shadow on the track; a few smaller silhouettes trail far behind on the bend. Restrained palette of ink navy, brick red and ochre. No text, letters, numbers, logos or brand references anywhere in the image.
+> A wide editorial illustration shows a three-lane race track where a new third runner — a sleek rocket-boosted figure labelled "Grok 4.6" — has just pulled up level with two established frontrunners wearing OpenAI and Anthropic jerseys, dramatizing xAI's arrival as a credible third US AI lab rather than a clear winner: above the runners floats a patchwork of torn leaderboard cards with mixed results (a first-place ribbon on one labelled "GPT Val" and "Legal", a third-place bronze on "DeepSWE"), signalling that benchmarks tell a split story. At the runner's feet, a price tag reading "$2 in / $6 out — half price" dangles from one leg while the other leg drags a small ball-and-chain marked "83¢ per task," capturing the model's paradox of cheaper tokens but costlier finished jobs; a fuel hose runs into the runner's back from two sources — a truck stamped with the Cursor logo feeding in coded data, and a mirror on the runner's shoulder showing it coaching itself, referencing the supplemental training built on Cursor's data and the model's own regenerated examples. In the background, a small army of tireless robot assistants works at glowing cloud-based laptops under a banner reading "Grok Bot," while on the horizon a bigger rocket labelled "Grok 4.7 — 3 to 4 weeks" begins to lift off, and scattered along the track are miniature scenes of the model's practical wins: a transparent portal, a spinning iPod Mini, and a holographic wedding couple.
 
 *Rendered locally with the same image model and the same seed for every edition, so the only difference between editions' pictures is the quality of that paragraph.*
 
@@ -119,7 +119,7 @@ An agent is software built around an AI model that does things rather than only 
 
 ## What it cost, and how it was asked
 
-- cost: **$0.1253** (full price, bought immediately)
+- cost: **$0.1292** (full price, bought immediately)
 - it read 18,224 tokens and wrote 23,015, of which 19,563 were thinking to itself
 - it took 286 seconds
 - asked with a strict JSON shape: False

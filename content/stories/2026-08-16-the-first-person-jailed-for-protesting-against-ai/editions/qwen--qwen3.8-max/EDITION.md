@@ -101,7 +101,7 @@ The necessity defence is a legal argument in which a defendant admits to breakin
 
 ## The illustration it directed
 
-> A clean editorial illustration of a small, solitary figure sitting calmly in front of a vast, gleaming corporate glass facade. The building is abstract and imposing, rendered in cool metallic tones, while the figure is drawn in warm, human colors, seated cross-legged on the ground with hands folded. Around the figure, faint chalk lines trace the outlines of chains and locks, suggesting a peaceful blockade. The scene is minimal and quiet, with a narrow strip of sky above and no other people present. The image should feel contemplative rather than dramatic, emphasizing the contrast between individual conscience and immense technological power. No text, no logos, no recognizable faces, no futuristic circuitry, no glowing brains, no dramatic lighting.
+> A detailed editorial illustration centers on Wynd Kaufmyn, a 69-year-old retired teacher with gray hair, seated calmly inside a jail cell whose bars are made of glowing AI circuitry and server racks, with a newspaper placard beside the cell reading First anti-AI protester jailed. Behind her, a wall panel flashes back to her chaining the front doors of OpenAI headquarters and sitting in the lobby with StopAI activists; through the cell door, a San Francisco street shows police, a courthouse, and supporters holding signs reading Stop AI and Free Wynd. Above the scene, a giant neural-network eye slips from a cracked containment box toward corporate towers marked with soaring stock charts and warning symbols, linking her blockade, trial, imprisonment, and the wider struggle over uncontrolled superintelligence.
 
 *Rendered locally with the same image model and the same seed for every edition, so the only difference between editions' pictures is the quality of that paragraph.*
 
@@ -109,7 +109,7 @@ The necessity defence is a legal argument in which a defendant admits to breakin
 
 ## What it cost, and how it was asked
 
-- cost: **$0.1205** (full price, bought immediately)
+- cost: **$0.1322** (full price, bought immediately)
 - it read 3,885 tokens and wrote 18,794, of which 16,252 were thinking to itself
 - it took 379 seconds
 - asked with a strict JSON shape: True

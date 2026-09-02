@@ -107,7 +107,7 @@ These two words describe different ways of keeping dangerous biology from causin
 
 ## The illustration it directed
 
-> Editorial illustration viewed from above: a pale circular petri dish whose surface is a fine stippled lawn of tiny dots representing bacteria, with several clean round clearings bitten out of the lawn. From the largest clearing a delicate bacteriophage rises — a faceted gem-like head on a thin stalk with spindly legs — rendered as if it is being drawn into existence, its outline dissolving at the edges into unfinished pencil-sketch construction lines, with a draftsman's pencil hovering above it out of frame. Flat, clean illustration style with a muted palette of teal, cream and coral on a plain background, generous white space, uncluttered composition. No text, letters, numbers or logos anywhere in the image.
+> A wide digital-canvas illustration shows a glowing computer screen on the left, where a stylized AI brain composed of tangled DNA strands hovers above a scrolling ribbon of genetic letters (A, T, C, G), projecting a beam of newly written viral genome code across the scene toward a laboratory bench on the right; there, a scientist in a secure lab holds a petri dish coated in a smooth lawn of E. coli, its surface punctuated by sixteen distinct clear spots where the AI-designed bacteriophages — rendered as small, spiky, otherworldly viruses unlike any natural one — have eaten holes through the bacteria, evoking the team's midnight applause; beneath the bench, subtle visual cues frame the article's tension and caution: a medical context of rising antibiotic resistance shown as fading antibiotic pills defeated by resistant bacteria, a protective shield symbolizing the researchers' excluded dangerous training data and layered safeguards such as screening of DNA-synthesis orders, and in the far background a faint, crossed-out silhouette of a human figure marked with a prohibition sign, signaling the biosecurity red line against designing pathogens that could infect people, while a small scale in the corner compares the virus's modest 5,400-letter genome to the vastly larger genomes of a bacterial cell and a human, underscoring both the milestone of designing life's smallest machines on a computer and the unresolved question of who decides which ones get made.
 
 *Rendered locally with the same image model and the same seed for every edition, so the only difference between editions' pictures is the quality of that paragraph.*
 
@@ -115,7 +115,7 @@ These two words describe different ways of keeping dangerous biology from causin
 
 ## What it cost, and how it was asked
 
-- cost: **$0.0562** (full price, bought immediately)
+- cost: **$0.0593** (full price, bought immediately)
 - it read 4,293 tokens and wrote 11,747, of which 9,100 were thinking to itself
 - it took 156 seconds
 - asked with a strict JSON shape: False

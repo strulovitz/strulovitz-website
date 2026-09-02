@@ -9,7 +9,7 @@
  "brief_version": "ba9b08ec7e56",
  "asked_with_strict_schema": true,
  "bought_in_batch": false,
- "cost_usd": 0.006696375,
+ "cost_usd": 0.010870875,
  "prompt_tokens": 4677,
  "completion_tokens": 2636,
  "reasoning_tokens": 1082,
@@ -61,6 +61,9 @@
    "2026-07-21-the-openai-rogue-agent-and-the-hugging-face-break-in",
    "2026-08-06-viruses-designed-by-ai"
   ],
-  "image_prompt": "An editorial illustration depicting a quiet, imposing glass entrance of a modern corporate high-rise blocked by a heavy metal chain and padlock wrapped around the door handles. On the pavement outside sits an empty, simple wooden folding chair cast in long early-morning shadows. The composition is clean, geometric, and restrained, using muted slate, charcoal, and warm amber tones without any text, logos, or human figures."
- }
+  "image_prompt": "The illustration depicts Wynd Kaufmyn, a resolute 69-year-old woman with gray hair, staging a defiant sit-in on the pavement directly in front of the sleek, modern glass entrance of OpenAI’s headquarters, where the tech company's logo is prominently displayed. Heavy steel chains and padlocks bind her to the building's locked double doors alongside a bold \"StopAI\" protest sign warning of artificial superintelligence risks, while uniformed police officers stand nearby preparing handcuffs for her arrest. In a compelling visual contrast, the reflective corporate glass behind her juxtaposes glowing, ominous digital circuitry and server racks with the stark silhouette of jail cell bars, instantly communicating her direct-action blockade against runaway AI development and her historic consequence as the first activist imprisoned for the cause."
+ },
+ "image_prompt_asked_separately": true,
+ "image_prompt_second_chance": true,
+ "image_prompt_cost_usd": 0.0041745
 }

@@ -98,7 +98,7 @@ In AI, an agent is a system that can perceive its environment, make decisions, a
 
 ## The illustration it directed
 
-> A small workshop with three workbenches arranged in a triangle, each lit by its own angled lamp. On each bench sits an open toolbox with distinct colors and arrangements, suggesting different craftspeople at work. In the center, a shared table holds blueprints half-unrolled, with pencil marks showing recent changes. The room has high windows letting in late-afternoon light that catches dust particles, and the walls show the layered marks of previous projects—pencil lines, taped notes, faded diagrams. The overall mood is of quiet, serious craft in productive competition.
+> The illustration depicts a three-lane racetrack where a sleek vehicle labeled Grok 4.6 pulls alongside larger competitors marked OpenAI and Anthropic, signaling the shift from a two-horse race to a three-way contest. Hovering above the track, a split-screen merges xAI’s massive 200,000-GPU server cluster on the left with Cursor’s code-editor interface on the right, joined by a linking bolt to illustrate the acquisition that fueled the leap. Streaming behind the Grok vehicle are holographic benchmark charts for GPTEval, DeepSWE, and Terminal Bench showing near-top scores, while a bright ½ PRICE banner flaps from its side. Below the track, fluffy cloud-shaped virtual machines contain tireless Grok Bot agents browsing terminals and running workflows as a nearby desktop computer sits dark, representing the always-on agent system. In the distance, a rapid assembly-line conveyor belt stamps out upcoming versions 4.7 and 5, underscoring the unusually fast release cadence.
 
 *Rendered locally with the same image model and the same seed for every edition, so the only difference between editions' pictures is the quality of that paragraph.*
 
@@ -106,7 +106,7 @@ In AI, an agent is a system that can perceive its environment, make decisions, a
 
 ## What it cost, and how it was asked
 
-- cost: **$0.0331** (full price, bought immediately)
+- cost: **$0.0373** (full price, bought immediately)
 - it read 18,515 tokens and wrote 8,745, of which 6,813 were thinking to itself
 - it took 126 seconds
 - asked with a strict JSON shape: True

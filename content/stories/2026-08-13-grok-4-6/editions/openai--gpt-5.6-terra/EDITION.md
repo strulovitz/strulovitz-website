@@ -103,7 +103,7 @@ This can make an agent more useful than a one-turn chatbot for multi-step work. 
 
 ## The illustration it directed
 
-> Editorial illustration, clean and uncluttered: a human developer at a simple desk reviews a small physical tabletop city assembled from modular blocks, while several translucent paper-like instruction sheets drift from an open laptop and become roads, tiny buildings and unfinished bridges; some pieces fit smoothly while a few are visibly misaligned, conveying rapid AI-built prototypes that still need human inspection. Warm neutral palette with one restrained coral accent, crisp shapes, soft natural shadows, no text, letters, numbers, logos, faces, robots, circuit-board patterns, dials or gauges.
+> A clean editorial illustration showing Grok 4.6 as a sleek blue-black AI coworker seated at a sprawling workstation, rapidly building code, web interfaces, a small portal-based 3D game and a printable engine model across several monitors, while a human developer stands beside it holding a clipboard and actively marking bugs—sideways-moving cars, a floating game character head and a stalled prototype—making the need for supervision clear; above the workstation, competing AI model score charts rise toward one another but turn into a cautionary testing gauge labeled by visual symbols for benchmarks versus real-world work, while a price display shows lower token-cost coins flowing from an API terminal; in the background, an autonomous cloud-based bot works inside a glass virtual-machine chamber, splitting into smaller agents to research, code and monitor a feed, with a red warning light near an accidentally sent message, conveying both the promise of delegated workplace automation and the risks of giving agents ongoing access.
 
 *Rendered locally with the same image model and the same seed for every edition, so the only difference between editions' pictures is the quality of that paragraph.*
 
@@ -111,7 +111,7 @@ This can make an agent more useful than a one-turn chatbot for multi-step work. 
 
 ## What it cost, and how it was asked
 
-- cost: **$0.0680** (full price, bought immediately)
+- cost: **$0.0734** (full price, bought immediately)
 - it read 18,261 tokens and wrote 2,214, of which 138 were thinking to itself
 - it took 38 seconds
 - asked with a strict JSON shape: True

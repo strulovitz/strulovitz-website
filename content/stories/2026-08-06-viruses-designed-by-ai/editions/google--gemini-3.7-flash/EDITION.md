@@ -88,7 +88,7 @@ A genome language model is a machine learning system trained on biological seque
 
 ## The illustration it directed
 
-> A clean, conceptual editorial illustration showing delicate geometric virus structures assembled out of clean, ribbon-like strands of biological code. In the background, soft translucent petri dishes and gentle organic patterns suggest microscopic cellular life in muted tones of sage green, warm cream, and slate blue. The composition is minimalist, airy, and balanced, focusing on the interplay between abstract architectural construction and natural biological forms, with no text, letters, human figures, glowing circuits, or digital interfaces.
+> A dynamic visual composition split between digital computation and biological reality, showing an artificial intelligence neural network on the left generating streams of glowing A-C-T-G genetic code that assemble into the intricate 3D blueprint of a synthetic bacteriophage. As this viral blueprint moves toward the right side of the frame, it materializes into physical reality inside a sterile laboratory dish, depicting fully formed, engineered phages actively latching onto and bursting an elongated, drug-resistant *E. coli* bacterial cell to represent the medical breakthrough against persistent infections. Framing this transformation, a translucent digital safety barrier featuring sequence-screening lock icons and a subtle biosecurity hazard motif surrounds the physical synthesis phase, clearly communicating the transition from AI-written genomes to viable bacteria-destroying viruses alongside the critical debate over biosecurity controls and responsible governance.
 
 *Rendered locally with the same image model and the same seed for every edition, so the only difference between editions' pictures is the quality of that paragraph.*
 
@@ -96,7 +96,7 @@ A genome language model is a machine learning system trained on biological seque
 
 ## What it cost, and how it was asked
 
-- cost: **$0.0062** (full price, bought immediately)
+- cost: **$0.0107** (full price, bought immediately)
 - it read 5,278 tokens and wrote 2,273, of which 634 were thinking to itself
 - it took 18 seconds
 - asked with a strict JSON shape: True

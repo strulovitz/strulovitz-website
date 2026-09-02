@@ -96,7 +96,7 @@ Distillation is a training method in which a smaller or newer model learns from 
 
 ## The illustration it directed
 
-> Editorial illustration, clean and uncluttered, of a vast dim warehouse of identical dark cabinets stretching into the distance, with only a small cluster of sixteen cabinets quietly lit among hundreds of unlit ones. In the foreground an open wooden crate spills matte geometric blocks onto a private server floor, as if someone has unpacked a heavy set of weights for local use. A long paper-white ribbon of unfinished work unfurls from a drafting table toward a window: one side of the window shows daylight over a miniature city and a half-built game landscape, the other side shows the same scene at night being checked and redrawn. No people, no faces, no text, letters, numbers, or logos, no circuit-board patterns, no glowing brains, no robot hands.
+> A panoramic digital painting shows a colossal moonlit Chinese dragon whose body is a 2.8-trillion-parameter mixture-of-experts lattice of 896 specialized modules with only 16 glowing at any moment, ingesting a million-token multimodal torrent of text, images and video while autonomously looping through screens that display a 3D browser game, GPU compiler, rocket simulation and 48-hour chip design; holographic leaderboards place Kimi K3 first on Arena.ai front-end coding and level with Claude and GPT, cheap-token price tags hover beside a 64-accelerator GPU farm, open-weight files cascade unrecallably toward global users, Shanghai’s World AI Conference podium and open-source banners stand left, locked US closed-model silhouettes look on right, and rival Chinese stock tickers plunge beneath the rising moon labeled Moonshot AI.
 
 *Rendered locally with the same image model and the same seed for every edition, so the only difference between editions' pictures is the quality of that paragraph.*
 
@@ -104,7 +104,7 @@ Distillation is a training method in which a smaller or newer model learns from 
 
 ## What it cost, and how it was asked
 
-- cost: **$0.0763** (full price, bought immediately)
+- cost: **$0.0866** (full price, bought immediately)
 - it read 15,610 tokens and wrote 7,542, of which 4,796 were thinking to itself
 - it took 544 seconds
 - asked with a strict JSON shape: True

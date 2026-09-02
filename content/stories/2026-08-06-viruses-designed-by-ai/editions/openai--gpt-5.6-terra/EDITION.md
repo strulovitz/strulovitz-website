@@ -103,7 +103,7 @@ It is one layer of biological security rather than a complete solution. A screen
 
 ## The illustration it directed
 
-> Editorial illustration, clean and uncluttered: a transparent petri dish seen from above holds a soft pale field of bacterial dots, interrupted by a small constellation of crisp clear circular openings; beside it, a single curling paper-like genetic strand transitions from orderly dark ink-like marks into delicate organic shapes, suggesting instructions becoming a lab-tested biological result. Use warm off-white, muted rust, charcoal and restrained green, with a quiet laboratory-table atmosphere. No people, no text, letters, numbers, logos, dials, gauges, glowing brains, robot hands, circuit-board imagery or brand references.
+> A split-scene scientific editorial illustration: in a secure, glass-walled laboratory, a researcher watches an AI “genome language model” transform streams of A, C, G and T letters into many branching bacteriophage blueprints, with 302 faint candidate designs narrowing to 16 brightly highlighted phages; these harmless, mechanical-looking phages descend into a petri dish of green E. coli, leaving clear circular dead zones in a bacterial lawn and breaking through a small cluster labeled as resistant bacteria, while a second panel-like layer shows a phage cocktail confronting antibiotic-resistant germs. Around the scene, visible safety guardrails—locked lab doors, a review checklist, restricted-access icon, protective equipment, and a DNA-synthesis company scanner stopping a dark warning-marked genetic sequence—contrast with the beneficial bacteria-targeting viruses, making clear both the promise of tailored phage therapy and the demand for governance before AI-designed genomes can be misused.
 
 *Rendered locally with the same image model and the same seed for every edition, so the only difference between editions' pictures is the quality of that paragraph.*
 
@@ -111,7 +111,7 @@ It is one layer of biological security rather than a complete solution. A screen
 
 ## What it cost, and how it was asked
 
-- cost: **$0.0368** (full price, bought immediately)
+- cost: **$0.0419** (full price, bought immediately)
 - it read 4,807 tokens and wrote 2,067, of which 127 were thinking to itself
 - it took 31 seconds
 - asked with a strict JSON shape: True

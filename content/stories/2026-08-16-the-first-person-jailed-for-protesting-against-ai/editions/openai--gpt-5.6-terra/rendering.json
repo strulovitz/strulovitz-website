@@ -9,7 +9,7 @@
  "brief_version": "ba9b08ec7e56",
  "asked_with_strict_schema": true,
  "bought_in_batch": false,
- "cost_usd": 0.0325938,
+ "cost_usd": 0.0379328,
  "prompt_tokens": 4227,
  "completion_tokens": 2191,
  "reasoning_tokens": 91,
@@ -66,6 +66,9 @@
    "2026-07-21-the-openai-rogue-agent-and-the-hugging-face-break-in",
    "2026-08-06-viruses-designed-by-ai"
   ],
-  "image_prompt": "Editorial illustration, clean and spare: a quiet civic building entrance seen straight on, its glass doors held shut by a simple linked chain lying across the threshold, while one older figure in an ordinary coat walks calmly toward a distant courthouse silhouette carrying a small overnight bag. A few blurred onlookers stand far back, leaving generous negative space. Muted sandstone, charcoal and warm rust palette; human-scale, thoughtful, non-dramatic atmosphere. No text, letters, numbers, logos, real faces, dials, gauges, glowing brains, robot handshakes or circuit-board imagery."
- }
+  "image_prompt": "A sober editorial illustration set outside a sleek, glass-fronted OpenAI headquarters in San Francisco: an older gray-haired woman in ordinary activist clothes sits peacefully on the floor before chained, padlocked entrance doors, holding a small sign reading “PAUSE AI” while police officers stand nearby and office workers are visibly unable to enter; behind the glass, glowing server racks and an abstract towering AI face suggest the feared race toward superintelligence, while in the foreground a courthouse scale balances a protest placard and a set of handcuffs, with a jail door closing in the background—visually framing the conflict between warnings about AI risk, nonviolent civil disobedience, disruption to others, and the legal consequences of a blockade."
+ },
+ "image_prompt_asked_separately": true,
+ "image_prompt_second_chance": true,
+ "image_prompt_cost_usd": 0.005339
 }

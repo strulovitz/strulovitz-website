@@ -79,7 +79,7 @@ The necessity defense is a legal principle where a defendant argues that committ
 
 ## The illustration it directed
 
-> An editorial illustration depicting a quiet, imposing glass entrance of a modern corporate high-rise blocked by a heavy metal chain and padlock wrapped around the door handles. On the pavement outside sits an empty, simple wooden folding chair cast in long early-morning shadows. The composition is clean, geometric, and restrained, using muted slate, charcoal, and warm amber tones without any text, logos, or human figures.
+> The illustration depicts Wynd Kaufmyn, a resolute 69-year-old woman with gray hair, staging a defiant sit-in on the pavement directly in front of the sleek, modern glass entrance of OpenAI’s headquarters, where the tech company's logo is prominently displayed. Heavy steel chains and padlocks bind her to the building's locked double doors alongside a bold "StopAI" protest sign warning of artificial superintelligence risks, while uniformed police officers stand nearby preparing handcuffs for her arrest. In a compelling visual contrast, the reflective corporate glass behind her juxtaposes glowing, ominous digital circuitry and server racks with the stark silhouette of jail cell bars, instantly communicating her direct-action blockade against runaway AI development and her historic consequence as the first activist imprisoned for the cause.
 
 *Rendered locally with the same image model and the same seed for every edition, so the only difference between editions' pictures is the quality of that paragraph.*
 
@@ -87,7 +87,7 @@ The necessity defense is a legal principle where a defendant argues that committ
 
 ## What it cost, and how it was asked
 
-- cost: **$0.0067** (full price, bought immediately)
+- cost: **$0.0109** (full price, bought immediately)
 - it read 4,677 tokens and wrote 2,636, of which 1,082 were thinking to itself
 - it took 18 seconds
 - asked with a strict JSON shape: True

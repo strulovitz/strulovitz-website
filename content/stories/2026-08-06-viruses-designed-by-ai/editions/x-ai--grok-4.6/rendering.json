@@ -9,7 +9,7 @@
  "brief_version": "ba9b08ec7e56",
  "asked_with_strict_schema": true,
  "bought_in_batch": false,
- "cost_usd": 0.085746,
+ "cost_usd": 0.096676,
  "prompt_tokens": 5196,
  "completion_tokens": 12591,
  "reasoning_tokens": 10020,
@@ -79,6 +79,9 @@
    "phage-therapy"
   ],
   "related": [],
-  "image_prompt": "Editorial illustration, clean and uncluttered, in soft natural daylight. A pale wooden laboratory bench holds several glass petri dishes whose milky bacterial lawns are broken by neat circular clearings, like holes punched in paper. Beside the dishes, small colored tiles are assembled into a simple geometric bacteriophage — a faceted head and a slender tail — hovering just above a plain capsule-shaped bacterium. No text, letters, numbers, logos, faces, DNA helices, circuit boards, glowing brains, or robot hands."
- }
+  "image_prompt": "A laboratory scene centered on a computer screen where an AI language-model interface generates flowing strings of A-T-C-G letters that assemble into sixteen distinct bacteriophage particles; those geometric viruses then inject and burst open antibiotic-resistant E. coli cells, producing clear plaques on nearby petri dishes while a team of scientists applauds, a hopeful medical caduceus glows on one side, and biosecurity experts, biohazard symbols, and a broken “governance” chain appear on the other to signal urgent unanswered safety questions, with a crossed-out human silhouette confirming the work stayed limited to bacteria-only phages."
+ },
+ "image_prompt_asked_separately": true,
+ "image_prompt_second_chance": true,
+ "image_prompt_cost_usd": 0.01093
 }

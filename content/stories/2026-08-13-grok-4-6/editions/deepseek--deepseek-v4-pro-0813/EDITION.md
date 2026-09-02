@@ -105,7 +105,7 @@ A frontier model is an AI system at the leading edge of capability — one of th
 
 ## The illustration it directed
 
-> An editorial illustration of three climbers on a steep rock face at dawn, all at nearly the same height on the wall, viewed from the side so no faces are visible. Each climber carries different equipment in a different color, and the third climber is reaching upward to clip into the same anchor as the other two. The scene is clean and uncluttered, with flat, muted earthy shapes and a soft gradient sky. No text, numbers, logos, or real faces.
+> The illustration is a single wide scene set on a three-lane race track at night, with three glowing humanoid figures sprinting neck-and-neck toward a finish line labeled "Frontier AI"; the figure on the left is labeled "xAI Grok 4.6" and wears a bright orange jersey stitched with the Cursor logo, while the middle figure is "OpenAI" in blue and the right figure is "Anthropic" in purple. Grok 4.6 has one foot slightly ahead on a benchmark chart drawn on the track showing "GPT Val: 1st", but behind the runners a large white scoreboard lists "DeepSWE Coding: Grok 65.9 – 3rd" with a downward red arrow next to Grok's name, and floating above Grok's head is a price tag reading "$2 in / $6 out" while the other two runners have tags reading "$2/$12" and "$2/$10", making Grok's output price visibly cheaper. In the background, a massive data center with hundreds of thousands of GPU racks glows under the xAI logo, and a small always-on cloud robot assistant labeled "Grok Bot" hovers beside Grok, operating on its own virtual machine while a laptop under the runner's arm shows lines of code streaming from a Cursor-branded pipeline into Grok's body, visually connecting the acquisition, coding focus, low price, agent product, and the new three-way race for AI supremacy.
 
 *Rendered locally with the same image model and the same seed for every edition, so the only difference between editions' pictures is the quality of that paragraph.*
 
@@ -113,7 +113,7 @@ A frontier model is an AI system at the leading edge of capability — one of th
 
 ## What it cost, and how it was asked
 
-- cost: **$0.0942** (full price, bought immediately)
+- cost: **$0.0980** (full price, bought immediately)
 - it read 18,345 tokens and wrote 17,675, of which 15,441 were thinking to itself
 - it took 279 seconds
 - asked with a strict JSON shape: True

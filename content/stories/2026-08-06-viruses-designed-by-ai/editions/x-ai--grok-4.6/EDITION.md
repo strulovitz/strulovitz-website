@@ -99,7 +99,7 @@ Phage therapy is the use of bacteriophages — viruses that infect bacteria — 
 
 ## The illustration it directed
 
-> Editorial illustration, clean and uncluttered, in soft natural daylight. A pale wooden laboratory bench holds several glass petri dishes whose milky bacterial lawns are broken by neat circular clearings, like holes punched in paper. Beside the dishes, small colored tiles are assembled into a simple geometric bacteriophage — a faceted head and a slender tail — hovering just above a plain capsule-shaped bacterium. No text, letters, numbers, logos, faces, DNA helices, circuit boards, glowing brains, or robot hands.
+> A laboratory scene centered on a computer screen where an AI language-model interface generates flowing strings of A-T-C-G letters that assemble into sixteen distinct bacteriophage particles; those geometric viruses then inject and burst open antibiotic-resistant E. coli cells, producing clear plaques on nearby petri dishes while a team of scientists applauds, a hopeful medical caduceus glows on one side, and biosecurity experts, biohazard symbols, and a broken “governance” chain appear on the other to signal urgent unanswered safety questions, with a crossed-out human silhouette confirming the work stayed limited to bacteria-only phages.
 
 *Rendered locally with the same image model and the same seed for every edition, so the only difference between editions' pictures is the quality of that paragraph.*
 
@@ -107,7 +107,7 @@ Phage therapy is the use of bacteriophages — viruses that infect bacteria — 
 
 ## What it cost, and how it was asked
 
-- cost: **$0.0857** (full price, bought immediately)
+- cost: **$0.0967** (full price, bought immediately)
 - it read 5,196 tokens and wrote 12,591, of which 10,020 were thinking to itself
 - it took 622 seconds
 - asked with a strict JSON shape: True

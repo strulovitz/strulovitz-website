@@ -86,7 +86,7 @@ Cost per task is a metric used to calculate the real-world financial expense of 
 
 ## The illustration it directed
 
-> A clean editorial illustration depicting multiple translucent geometric layers being carefully assembled into a precise architectural structure. Abstract schematic lines, warm amber and cool slate grey tones, and soft natural lighting. A single mechanical stylus precisely fits a glowing geometric module into place on a drafting table, conveying technical precision, modular assembly, and rapid engineering.
+> A dynamic digital command center showcases the prominent xAI insignia alongside a glowing "Grok 4.6" interface at its core, visually emphasizing developer power, autonomous labor, and aggressive price disruption. In the center, a luminous AI "chief of staff" coordinator orchestrates a hive of specialized digital sub-agents running inside cloud virtual machines—automating browser routines, executing terminal commands, and writing software around the clock. Surrounding holographic screens display an active Cursor coding environment generating code streams, live interactive 3D browser game wireframes, and high-ranking workplace benchmark scorecards. Prominently positioned alongside these technical feats is an illuminated financial gauge showing sharply slashed API token prices dramatically undercutting rival figures from OpenAI and Anthropic, while a high-speed development timeline in the background rapidly advances toward Grok 4.7 and Grok 5, capturing the model's coding focus, autonomous workflow capabilities, budget-friendly accessibility, and accelerating release cycle.
 
 *Rendered locally with the same image model and the same seed for every edition, so the only difference between editions' pictures is the quality of that paragraph.*
 
@@ -94,7 +94,7 @@ Cost per task is a metric used to calculate the real-world financial expense of 
 
 ## What it cost, and how it was asked
 
-- cost: **$0.0114** (full price, bought immediately)
+- cost: **$0.0165** (full price, bought immediately)
 - it read 19,625 tokens and wrote 2,181, of which 458 were thinking to itself
 - it took 16 seconds
 - asked with a strict JSON shape: True

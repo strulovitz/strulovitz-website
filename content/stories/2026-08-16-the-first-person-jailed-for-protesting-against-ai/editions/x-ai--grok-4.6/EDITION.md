@@ -100,7 +100,7 @@ Frontier, in this setting, is not a place. It is shorthand for the small group o
 
 ## The illustration it directed
 
-> Editorial illustration, clean and uncluttered, late-afternoon light on a quiet city sidewalk in front of a plain glass office entrance. Heavy bicycle chains and weathered padlocks loop through the door handles; a single empty folding chair sits on the pavement with a small scatter of wildflowers beside it. Long shadows stretch across pale concrete. No people, no faces, no lettering, no logos, no screens, no robots. The mood is still and unresolved, like a protest that has already moved indoors.
+> A 69-year-old gray-haired woman in casual clothes is shown being handcuffed by sheriff’s officers beside a jail van outside a sleek glass OpenAI headquarters whose doors are chained and padlocked from a sit-in blockade, while nearby StopAI activists hold signs reading Stop Superintelligence, Regain Your Humanity and Global Ban on the ASI Race, chant Free Wynd and sing a rewritten Battle Hymn; a colossal shadowy neural-network brain representing uncontrolled artificial superintelligence looms over the building, dwarfing tiny human figures and researchers’ warning letters about loss of control, bioweapons and trillion-dollar valuations, with a courtroom gavel striking down a necessity defense and a small Rosa Parks silhouette in the background, making clear this is the first imprisonment of a protester against the existential race to machines that outthink humanity.
 
 *Rendered locally with the same image model and the same seed for every edition, so the only difference between editions' pictures is the quality of that paragraph.*
 
@@ -108,7 +108,7 @@ Frontier, in this setting, is not a place. It is shorthand for the small group o
 
 ## What it cost, and how it was asked
 
-- cost: **$0.0589** (full price, bought immediately)
+- cost: **$0.0698** (full price, bought immediately)
 - it read 4,615 tokens and wrote 9,434, of which 6,826 were thinking to itself
 - it took 560 seconds
 - asked with a strict JSON shape: True

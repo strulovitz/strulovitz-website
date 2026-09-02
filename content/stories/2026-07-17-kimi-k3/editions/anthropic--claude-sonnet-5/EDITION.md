@@ -100,7 +100,7 @@ A context window is the amount of text, code, or other input an AI model can con
 
 ## The illustration it directed
 
-> An editorial illustration of a vast, dim hall of countless identical machine looms stretching into the distance, only a small cluster of them lit and working at any moment while the rest sit dark and still, rendered in a restrained, cool palette; in the far background, two rows of server-building silhouettes face each other, one row with wide open doors spilling warm light outward, the other row with doors shut tight, suggesting a contrast between open and closed systems without any text, screens, logos, faces, glowing brains, or circuit-board patterns.
+> A split-screen illustration: on the left, a sleek humanoid AI figure labeled "Kimi K3" sits at a glowing terminal, its head rendered as a network of 896 small hexagonal nodes with only 16 lit up in bright color, visually explaining the mixture-of-experts design; screens around it show a 3D open-world game, a Long March 10 rocket simulation, a Game Boy Advance emulator, and a tiny computer chip labeled "48-hour build — student-project scale," while a stack of astrophysics papers and lines of code stream past it, evoking its long, unsupervised "vision in the loop" work. On the right, a simplified bar-and-ranking chart shows K3 edging past rival bars labeled "Claude Fable 5" and "GPT 5.6 Soul" on a coding-arena leaderboard, with a calendar icon marked "July 27 — Full Weights" and a price tag reading "$3/$15 per million tokens" beside a small server rack icon labeled "64+ accelerators needed." In the background, faint red-tinted stock-ticker arrows dip downward next to small logos suggesting rattled Chinese competitors, tying the technical achievement to its market and geopolitical ripple effects.
 
 *Rendered locally with the same image model and the same seed for every edition, so the only difference between editions' pictures is the quality of that paragraph.*
 
@@ -108,7 +108,7 @@ A context window is the amount of text, code, or other input an AI model can con
 
 ## What it cost, and how it was asked
 
-- cost: **$0.1090** (full price, bought immediately)
+- cost: **$0.1161** (full price, bought immediately)
 - it read 22,164 tokens and wrote 6,472, of which 2,493 were thinking to itself
 - it took 74 seconds
 - asked with a strict JSON shape: True

@@ -104,7 +104,7 @@ Biosecurity refers to the policies, practices and institutions that prevent biol
 
 ## The illustration it directed
 
-> A clean, editorial-style illustration showing a petri dish viewed from above at a slight angle. The dish contains a pale bacterial lawn with several clear circular spots where the bacteria have been killed, arranged in a loose cluster. Above the dish, rendered in a soft translucent style, floats a stylised strand of DNA made of geometric letter-like shapes, suggesting code being translated into biology. The palette is muted: warm off-white for the bacterial layer, cool teal for the clear zones, and a deep indigo for the floating DNA motif. The composition is minimal and uncluttered, with generous negative space. No text, numbers, logos, human figures, dials, glowing brains, circuit boards or robotic hands appear anywhere in the image.
+> A single illustration should depict a glowing artificial-intelligence engine writing a complete viral genome as a long ribbon of DNA letters, with the digital code physically transforming into a laboratory-made bacteriophage that infects and kills a rod-shaped E. coli bacterium. Around it, many faint failed genome drafts drift into darkness while sixteen bright, functional phages form a cocktail that overcomes resistant bacteria, showing the medical promise of AI-designed viruses as a possible tool against drug-resistant infection. At the same time, the image should include clear safeguards: a DNA synthesis checkpoint, locked screens, filters, or shield-like barriers, and crossed-out symbols of human, animal, and plant viruses, indicating that the model was deliberately restricted to bacterial viruses. A subtle shadow or warning glow behind the machine should suggest biosecurity risk, making clear that the same genome-writing power that can help medicine could become dangerous if misused, and that screening, governance, and laboratory controls are essential.
 
 *Rendered locally with the same image model and the same seed for every edition, so the only difference between editions' pictures is the quality of that paragraph.*
 
@@ -112,7 +112,7 @@ Biosecurity refers to the policies, practices and institutions that prevent biol
 
 ## What it cost, and how it was asked
 
-- cost: **$0.1312** (full price, bought immediately)
+- cost: **$0.1399** (full price, bought immediately)
 - it read 4,520 tokens and wrote 20,356, of which 17,588 were thinking to itself
 - it took 399 seconds
 - asked with a strict JSON shape: True

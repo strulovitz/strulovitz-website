@@ -100,7 +100,7 @@ People concerned about superintelligence worry that a system with broad, excepti
 
 ## The illustration it directed
 
-> Editorial illustration, clean and spare: a quiet civic building entrance seen straight on, its glass doors held shut by a simple linked chain lying across the threshold, while one older figure in an ordinary coat walks calmly toward a distant courthouse silhouette carrying a small overnight bag. A few blurred onlookers stand far back, leaving generous negative space. Muted sandstone, charcoal and warm rust palette; human-scale, thoughtful, non-dramatic atmosphere. No text, letters, numbers, logos, real faces, dials, gauges, glowing brains, robot handshakes or circuit-board imagery.
+> A sober editorial illustration set outside a sleek, glass-fronted OpenAI headquarters in San Francisco: an older gray-haired woman in ordinary activist clothes sits peacefully on the floor before chained, padlocked entrance doors, holding a small sign reading “PAUSE AI” while police officers stand nearby and office workers are visibly unable to enter; behind the glass, glowing server racks and an abstract towering AI face suggest the feared race toward superintelligence, while in the foreground a courthouse scale balances a protest placard and a set of handcuffs, with a jail door closing in the background—visually framing the conflict between warnings about AI risk, nonviolent civil disobedience, disruption to others, and the legal consequences of a blockade.
 
 *Rendered locally with the same image model and the same seed for every edition, so the only difference between editions' pictures is the quality of that paragraph.*
 
@@ -108,7 +108,7 @@ People concerned about superintelligence worry that a system with broad, excepti
 
 ## What it cost, and how it was asked
 
-- cost: **$0.0326** (full price, bought immediately)
+- cost: **$0.0379** (full price, bought immediately)
 - it read 4,227 tokens and wrote 2,191, of which 91 were thinking to itself
 - it took 34 seconds
 - asked with a strict JSON shape: True

@@ -88,7 +88,7 @@ A genome language model is an artificial intelligence system trained on the sequ
 
 ## The illustration it directed
 
-> A top-down view of a glass petri dish on a laboratory bench, filled with a pale, creamy bacterial lawn. Several small, sharp-edged clear zones interrupt the lawn where bacteriophages have consumed the bacteria. Around the borders of these clear zones, faint geometric grid lines and angular draftsmanship marks fade into organic, tailed virus-like structures, suggesting a designed origin rather than natural evolution. The colour palette is warm and muted: soft agar amber, off-white, and dusty teal. No text, letters, numbers, logos, human faces, glowing circuitry, robot hands, or blue motherboard patterns appear anywhere.
+> The illustration depicts a translucent, geometric bacteriophage—visibly synthetic and assembled from glowing lines of DNA code—hovering between a computer monitor that streams AI-generated genetic sequences and a petri dish below where it dissolves a colony of antibiotic-resistant E. coli into clear plaques, signaling a medical breakthrough against superbugs. Scattered fragments of discarded digital blueprints around the workstation hint at the low efficiency and high failure rate of the process, while in the background a massive biohazard vault door stands ajar with its lock still unassembled, symbolizing the urgent biosecurity warnings that governance has not caught up with the technology. At the composition’s edge, a minuscule double helix representing 5,400 base pairs fades beside a towering human genome, visually arguing that designing complex pathogens remains vastly harder than this first proof of concept. The entire scene captures the dual nature of the milestone: generative AI has crossed into writing complete, replicating viral genomes from scratch, offering clinicians a powerful new tool while demanding immediate safeguards to prevent misuse.
 
 *Rendered locally with the same image model and the same seed for every edition, so the only difference between editions' pictures is the quality of that paragraph.*
 
@@ -96,7 +96,7 @@ A genome language model is an artificial intelligence system trained on the sequ
 
 ## What it cost, and how it was asked
 
-- cost: **$0.0518** (full price, bought immediately)
+- cost: **$0.0557** (full price, bought immediately)
 - it read 4,318 tokens and wrote 14,231, of which 12,166 were thinking to itself
 - it took 194 seconds
 - asked with a strict JSON shape: True

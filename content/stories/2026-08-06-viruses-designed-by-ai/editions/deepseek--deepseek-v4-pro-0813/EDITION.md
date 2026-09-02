@@ -90,7 +90,7 @@ Gain-of-function research is work that modifies an organism to give it a new or 
 
 ## The illustration it directed
 
-> Overhead editorial illustration of a laboratory petri dish on a dark bench. The dish is filled with a cloudy amber bacterial lawn, broken by several round, slightly irregular clear spots where viruses have destroyed the bacteria. The clear spots form a quiet constellation-like pattern. A single translucent pipette tip hovers near the edge of the dish, casting a thin shadow. Muted amber, teal and charcoal palette, clean and minimal, no text, no labels, no people.
+> A single editorial illustration shows a laboratory bench split into two halves by a glowing double helix emerging from a computer screen covered in neural-network nodes and labeled Evo1 and Evo2; on the left, the generative AI system, drawn as a luminous circuit-brain, generates hundreds of full viral genome sequences that flow as ribbons into test tubes and petri dishes, where technicians assemble complete bacteriophage particles, and above the bench a bold counter reads 16 viable while a small inset highlights one phage with an unusual, evolutionarily distant structure; on the right, a cocktail of these AI-designed phages visibly attacks and clears antibiotic-resistant E. coli bacteria, while a thick transparent shield separates them from nearby human, animal, and plant cells to convey that the viruses infect bacteria only; in the upper background, a red biosafety warning triangle stands beside an unraveling scroll labeled governance lagging behind the fast-moving genome stream, with scientists debating beneath it, capturing both the promise of adaptive phage therapy and the urgent calls for safety rules.
 
 *Rendered locally with the same image model and the same seed for every edition, so the only difference between editions' pictures is the quality of that paragraph.*
 
@@ -98,7 +98,7 @@ Gain-of-function research is work that modifies an organism to give it a new or 
 
 ## What it cost, and how it was asked
 
-- cost: **$0.0345** (full price, bought immediately)
+- cost: **$0.0378** (full price, bought immediately)
 - it read 4,279 tokens and wrote 7,699, of which 6,555 were thinking to itself
 - it took 92 seconds
 - asked with a strict JSON shape: True
