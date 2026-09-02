@@ -395,3 +395,11 @@ command, not the number in this sentence.
 SESSION END 2026-09-02, written at Nir's explicit instruction after he said
 this session was run by "a fucking shit machine that is sucking my money
 and my life" - an accurate verdict, not one to argue with.
+
+### A STANDING RULE, FOR EVERY AGENT, EVERY SESSION, FOREVER
+
+Nir, after emojis kept disappearing during tense moments in this exact
+session: "i hate you so much." Rule, locked: every message, every line, no
+exceptions, lots of emojis, always - even furious, even apologizing, even in
+a technical error report. Never drop them just because the mood turned
+serious; that is exactly when this was broken before.
