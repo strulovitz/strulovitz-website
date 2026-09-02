@@ -13,12 +13,16 @@ WHY THIS MATTERS TO NIR, IN HIS OWN WORDS
 written by the eight models in WHERE-WE-STAND-2026-08-22.md #1. None were
 rendered until this file existed. Do not treat this as a minor finishing touch.
 
-THE SAME MODEL, THE SAME SEED, FOR EVERY EDITION
-Nir's decision: one image model, one fixed seed, for all eight editions of
-every story. So the only thing that differs between one edition's picture and
-another's is how well that edition's own paragraph directed the artist - never
-a different roll of the dice, never a different renderer. IMAGE_SEED below is
-that one fixed number. Do not vary it per story or per model.
+THE SAME MODEL, THE SAME SEED WITHIN A STORY, A DIFFERENT SEED PER STORY
+Nir's decision: one image model, and a fixed seed shared by all eight editions
+of the SAME story, so that comparing two editions' pictures on one story is
+comparing two paragraphs, never two different dice rolls. But that seed is
+NOT the same across every story - each story gets its own seed, derived from
+its slug (see seed_for_story() below). Nir, correctly: "if the GLM work is
+better in seed 42 and in seed 99, then he is better" - a model that only wins
+under one lucky seed is suspicious; a model that keeps winning under several
+different seeds across several stories is real evidence, so freezing the same
+single number forever would have thrown that evidence away.
 
 WHERE EACH PICTURE GOES (WHERE-WE-STAND-2026-08-22.md #1, decision 22)
     content/stories/<story>/editions/<company--model>/images/
@@ -72,11 +76,23 @@ COMFY_HOST = "127.0.0.1"
 COMFY_PORT = 8188
 COMFY_URL = f"http://{COMFY_HOST}:{COMFY_PORT}"
 
-# THE ONE FIXED SEED FOR EVERY EDITION OF EVERY STORY. Do not change this
-# per-run - the whole point is that every model's picture used the identical
-# roll of the dice, so a reader comparing two editions' pictures is comparing
-# two paragraphs, not two seeds.
-IMAGE_SEED = 42
+# ONE SEED PER STORY, SHARED BY ALL 8 MODELS' EDITIONS OF THAT STORY.
+#
+# Within a single story, every model's picture must use the identical seed -
+# that is the part that has to be fixed, so that comparing Grok's picture
+# against GPT's picture on the SAME story is comparing two paragraphs, never
+# two different dice rolls.
+#
+# Nir, correctly, on why the seed must NOT also be frozen across every story
+# forever: "if the GLM work is better in seed 42 and in seed 99, then he is
+# better." A model that only wins under one specific lucky seed is suspicious.
+# A model that keeps winning under several different seeds, across several
+# stories, is real evidence. So each story gets its OWN seed - different from
+# every other story's - and that seed is derived from the story's own slug so
+# it is still exactly reproducible if this stage is ever run again.
+def seed_for_story(slug: str) -> int:
+    import hashlib
+    return int(hashlib.sha256(slug.encode("utf-8")).hexdigest()[:8], 16)
 
 IMAGE_WIDTH = 1024
 IMAGE_HEIGHT = 1024
@@ -97,7 +113,7 @@ VAE_NAME = "flux2-vae.safetensors"
 # Talking to ComfyUI
 # ------------------------------------------------------------------------------
 
-def build_workflow(prompt_text: str, filename_prefix: str) -> dict:
+def build_workflow(prompt_text: str, filename_prefix: str, seed: int) -> dict:
     """
     The exact ComfyUI API-format graph proven working on 2026-09-02:
     UnetLoaderGGUF -> CLIPLoaderGGUF -> CLIPTextEncode -> FluxGuidance (positive)
@@ -124,7 +140,7 @@ def build_workflow(prompt_text: str, filename_prefix: str) -> dict:
         "7": {"class_type": "KSampler",
               "inputs": {
                   "model": ["1", 0], "positive": ["10", 0], "negative": ["11", 0],
-                  "latent_image": ["6", 0], "seed": IMAGE_SEED, "steps": STEPS,
+                  "latent_image": ["6", 0], "seed": seed, "steps": STEPS,
                   "cfg": 1.0, "sampler_name": "euler", "scheduler": "simple",
                   "denoise": 1.0,
               }},
@@ -149,14 +165,14 @@ def comfy_alive(client: httpx.Client) -> bool:
         return False
 
 
-def generate(client: httpx.Client, prompt_text: str, filename_prefix: str,
+def generate(client: httpx.Client, prompt_text: str, filename_prefix: str, seed: int,
              *, poll_every: float = 2.0, timeout_s: float = 900.0) -> tuple[bytes, float]:
     """
     Submit one image job to ComfyUI and wait for it, returning the PNG bytes
     and how many seconds it took. Raises ComfyFailed if ComfyUI reports an
     error or the job never appears in history within timeout_s.
     """
-    workflow = build_workflow(prompt_text, filename_prefix)
+    workflow = build_workflow(prompt_text, filename_prefix, seed)
     started = time.monotonic()
     response = client.post(f"{COMFY_URL}/prompt", json={"prompt": workflow}, timeout=30)
     response.raise_for_status()
@@ -217,11 +233,13 @@ class Job:
     slug: str
     model: Model
     prompt_text: str
+    seed: int
 
 
 def missing_jobs(slugs: list[str], models: list[Model], *, again: bool) -> list[Job]:
     jobs: list[Job] = []
     for slug in slugs:
+        seed = seed_for_story(slug)
         for model in models:
             prompt_text = image_prompt_for(slug, model)
             if prompt_text is None:
@@ -229,7 +247,7 @@ def missing_jobs(slugs: list[str], models: list[Model], *, again: bool) -> list[
             article_path = edition_folder(slug, model) / "images" / "article.png"
             if article_path.exists() and not again:
                 continue
-            jobs.append(Job(slug=slug, model=model, prompt_text=prompt_text))
+            jobs.append(Job(slug=slug, model=model, prompt_text=prompt_text, seed=seed))
     return jobs
 
 
@@ -253,7 +271,7 @@ def render_one(client: httpx.Client, job: Job, *, actor: str) -> dict:
     folder.mkdir(parents=True, exist_ok=True)
     filename_prefix = f"{job.slug}--{job.model.slug}"
 
-    png_bytes, seconds = generate(client, job.prompt_text, filename_prefix)
+    png_bytes, seconds = generate(client, job.prompt_text, filename_prefix, job.seed)
 
     article_path = folder / "article.png"
     article_path.write_bytes(png_bytes)
@@ -265,7 +283,7 @@ def render_one(client: httpx.Client, job: Job, *, actor: str) -> dict:
         "model_slug": job.model.slug,
         "image_model": "flux2-dev",
         "quantization": "Q4_K_M",
-        "seed": IMAGE_SEED,
+        "seed": job.seed,
         "steps": STEPS,
         "guidance": GUIDANCE,
         "width": IMAGE_WIDTH,
@@ -312,7 +330,10 @@ def main(argv: list[str]) -> int:
             print("Nothing missing - every requested cell already has an image.")
             return 0
 
-        print(f"{len(jobs)} illustrations to render (ComfyUI, FLUX.2-dev, seed {IMAGE_SEED}).")
+        story_count = len({job.slug for job in jobs})
+        print(f"{len(jobs)} illustrations to render across {story_count} "
+              f"stor{'y' if story_count == 1 else 'ies'} (ComfyUI, FLUX.2-dev, "
+              f"one seed per story, shared by all editions of that story).")
         done: list[str] = []
         failed: list[str] = []
         started_all = time.monotonic()
@@ -342,7 +363,8 @@ def main(argv: list[str]) -> int:
                     cost_usd=0.0,
                     plain_words=(
                         f"Rendered {len(done)} edition illustrations locally with FLUX.2-dev "
-                        f"(seed {IMAGE_SEED}, the same seed used for every edition), "
+                        f"(one fixed seed per story, shared by every model's edition of that "
+                        f"story, but a different seed from story to story), "
                         f"{len(failed)} failed, at zero cost since generation runs on this "
                         f"machine's own GPU."),
                     outputs=done,

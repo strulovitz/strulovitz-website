@@ -81,13 +81,28 @@ content/stories/<story>/editions/<company--model>/images/
                      and how many seconds it took
 ```
 
-### THE FIXED SEED
+### THE SEED — CORRECTED after Nir caught a real flaw in the first version
 
-`IMAGE_SEED = 42`, a constant at the top of the file, used for every single
-edition of every story. This is not a placeholder to "improve later" — it is
-the deliberate point. The only thing that should ever differ between one
-edition's picture and another's is the quality of that edition's own
-paragraph, never a different roll of the dice.
+**The first version of this file said `IMAGE_SEED = 42` was one single fixed
+number used forever, for every story, and called that "the deliberate
+point." Nir corrected that the same day, and he was right, so this section
+was rewritten - read this version, not any memory of the old one.**
+
+His exact words: *"if the GLM work is better in seed 42 and in seed 99, then
+he is better."* A model that only wins under one specific lucky seed is
+suspicious. A model that keeps winning under several different seeds, across
+several different stories, is real evidence a claim like "GLM wove the
+densest world" can stand on. Freezing one number forever would have thrown
+that evidence away for no reason.
+
+**The corrected rule, now implemented in `seed_for_story()`:**
+- Within ONE story, all 8 models' editions MUST share the identical seed -
+  that part still matters, so comparing Grok's picture against GPT's picture
+  ON THAT STORY is comparing two paragraphs, never two different dice rolls.
+- Between DIFFERENT stories, the seed is DIFFERENT, derived automatically and
+  reproducibly from that story's own slug: `int(sha256(slug)[:8], 16)`. Add a
+  sixth story later and it gets its own seed the same way, with no number to
+  remember or type by hand.
 
 ### THE COMFYUI GRAPH, AND WHY IT IS SHAPED THIS WAY
 
@@ -101,7 +116,7 @@ CLIPTextEncode (the model's own paragraph)
   -> FluxGuidance (guidance=4.0)          -> positive conditioning
   -> ConditioningZeroOut                  -> negative conditioning
 EmptyLatentImage (1024x1024)
-KSampler (seed=42, steps=28, cfg=1.0, sampler=euler, scheduler=simple)
+KSampler (seed=<this story's seed>, steps=28, cfg=1.0, sampler=euler, scheduler=simple)
 VAEDecode
 SaveImage
 ```
@@ -185,8 +200,11 @@ defect anywhere the image itself is shown. This document records it here as
 an honest example of what "we never fix a model's output, or the picture
 made from it" looks like when it actually happens, not just as a rule on paper.
 
-Committed and pushed as the first proof image:
-`content/stories/2026-07-17-kimi-k3/editions/x-ai--grok-4.6/images/`.
+Committed and pushed as the first proof that the pipeline works end to end -
+but that specific file was DELETED again the same day, because it was
+rendered under the old wrong single-seed-forever rule before Nir corrected
+it (see "THE SEED — CORRECTED" above). It will be regenerated with the
+correct per-story seed the first time the full batch runs.
 
 ## WHAT STILL NEEDS TO BE DONE
 
