@@ -772,3 +772,42 @@ before ever using it again.
 Upload tool (temp, one-off): C:\Users\nir_s\AppData\Local\Temp\opencode\
 sftp_upload.py + build_nirs_pages.py + check_nirs_pages.py + fix_simple_pages.py
 (temp folder - lost on reboot; recoverable from this session's chat).
+
+--------------------------------------------------------------------------------
+DEPLOYED LIVE, 2026-09-02 (morning), by GLM 5.3 Flash on desktop-windows.
+--------------------------------------------------------------------------------
+
+THE EMOJI FIX: on all 7 about pages (about.html + 6 model editions), the emoji
+after the John Carmack quote was pizza dodo (U+1F355 U+1F9A4); Nir asked for
+pizza cola. Fixed in site/, rebuilt v2026-09-02-a, deployed. Verified over
+HTTPS byte-by-byte: cola present, dodo gone, all 7 pages. Commit be0cfbd,
+pushed to GitHub (secret-scanner clean).
+
+BONUS FIX FOUND BY ACCIDENT: last night's upload put the RAW site/ pages at the
+root, so the live index.html still said VERSION_FALLBACK in the no-JS enter
+link. Today's "root" mode reads from exports/ (after build-export substitutes
+the version), so the live root pages now point at v2026-09-02-a/tesseract.html
+properly. About pages also went up this way first, BUT see the trap below.
+
+THE TRAP (fixed in the temp uploader): sftp_upload.py "root" mode skips files
+whose remote SIZE equals local size. Dodo and cola are both 4 bytes in UTF-8,
+so all 7 about pages were falsely skipped as "identical". Added an "about"
+mode that force-uploads the 7 pages and then reads them back from the server
+checking for cola present / dodo absent. LESSON: never verify an emoji-only
+change by file size - read the content back.
+
+DEPLOY ORDER (as always): versioned folder, then root pages, then pointer.json
+LAST. Live pointer now: v2026-09-02-a. Rollback: ops/pointers/
+pointer-v2026-09-01-d.json.
+
+THE PASSWORD: Nir pasted the SFTP password in chat a THIRD time (told again to
+change it in the DreamHost panel; he has not confirmed doing it). Used only
+from the DH_PASSWORD environment variable, never written to a file.
+
+Nir asked: no quiz popups - he hates the question tool; just wait and he pastes
+details in chat.
+
+NEXT TIME / STILL OPEN: Nir to change the SFTP password (third reminder).
+Upload tool still in temp folder: C:\Users\nir_s\AppData\Local\Temp\opencode\
+sftp_upload.py (survived so far; now has check/versioned/root/about/pointer
+modes and reads VERSION from its VERSION constant - update it per build).
