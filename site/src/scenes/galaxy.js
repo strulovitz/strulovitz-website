@@ -167,14 +167,15 @@ export async function loadGalaxy(modelSlug, base = 'data/galaxies') {
     pageOf.push(node.kind === 'story'
       ? `stories/${node.slug}/${modelSlug}.html`
       : `ideas/${node.slug}/${modelSlug}.html`);
-    // The little picture on the hover card. Story nodes are illustrated by
-    // this edition's own picture of that story (each edition chose its own
-    // illustration prompt, and the local FLUX render of it sits beside the
-    // text it accompanies); encyclopedia entries have no picture, and the
-    // card simply leaves the space out rather than showing a blank box.
+    // The little picture on the hover card. Every node carries an
+    // illustration (part-00.md 0.6 rung 4): a story shows this edition's own
+    // picture of that story; an encyclopedia idea shows this edition's own
+    // take on that idea. If a picture has not been rendered yet (or failed),
+    // the card quietly leaves the space out rather than showing a broken
+    // box - the entry still reads fine without it.
     thumbsOf.push(node.kind === 'story'
       ? `data/thumbs/${modelSlug}/${node.slug}.png`
-      : null);
+      : `data/idea-thumbs/${modelSlug}/${node.slug}.png`);
 
     const base4 = i * 4;
     points4[base4] = clamp(node.x);

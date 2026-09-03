@@ -53,6 +53,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 from lib.db import (  # noqa: E402
     connect,
     log_job,
+    read_concept_image_job,
     read_editions_for_model,
     read_image_job,
 )
@@ -231,19 +232,33 @@ def story_page(db, model, edition: dict, other_editions: list[tuple]) -> str:
     )
 
 
-def idea_page(model, slug: str, term: str, takes: list[tuple[str, str]]) -> str:
+def idea_page(model, slug: str, term: str,
+               takes: list[tuple[str, str, dict | None]]) -> str:
     """
     One edition's page for one encyclopedia idea: every explanation this
     model wrote of it, across the stories that leaned on it, each linking
-    back to the story it came from.
+    back to the story it came from - and each WITH THE PICTURE this edition
+    made for it, when the picture exists (part-00.md 0.6 rung 4: every node
+    carries an illustration; Nir, 2026-09-03: "ok do it").
     """
     galaxy_link = f"../../tesseract.html?edition={esc(model.slug)}"
     sections = ""
-    for story_slug, explanation in takes:
+    for story_slug, explanation, image_job in takes:
+        picture = ""
+        if image_job:
+            picture = (
+                f'<figure><img src="images/{esc(story_slug)}.png" '
+                f'alt="Illustration for {esc(term)}">'
+                "<figcaption>Illustrated locally by "
+                f"{esc(image_job.get('image_model', 'an open image model'))}"
+                f", seed {image_job.get('seed', '?')} - from this edition's own prompt. "
+                "AI-generated image, labeled per the site's attribution rules.</figcaption></figure>"
+            )
         sections += (
             f"<h2>As explained in "
             f'<a href="../{esc(story_slug)}/{esc(model.slug)}.html">{esc(story_slug)}</a></h2>\n'
-            f"<p>{esc(explanation)}</p>\n"
+            + picture
+            + f"<p>{esc(explanation)}</p>\n"
         )
     return (
         head(f"{term} - {model.short_name}'s edition", f"What {model.short_name} wrote about {term}.")
@@ -311,8 +326,20 @@ def main() -> int:
                     slug = str(concept.get("slug") or "").strip().lower()
                     if not slug:
                         continue
+                    # The picture this edition made for THIS entry, if the
+                    # image stage has rendered it (its prompt and job live in
+                    # the database; the file is an artifact beside the edition).
+                    concept_job = read_concept_image_job(db, story_slug, model.slug, slug)
+                    if concept_job:
+                        source = (REPO_ROOT / "content" / "stories" / story_slug
+                                  / "editions" / model.slug / "images" / "concepts"
+                                  / f"{slug}.png")
+                        if source.exists():
+                            target_dir = SITE / "ideas" / slug / "images"
+                            target_dir.mkdir(parents=True, exist_ok=True)
+                            shutil.copy2(source, target_dir / f"{story_slug}.png")
                     ideas_by_slug.setdefault(slug, []).append(
-                        (story_slug, concept.get("explanation", "")))
+                        (story_slug, concept.get("explanation", ""), concept_job))
                     idea_terms[slug] = concept.get("term", slug)
 
             for slug, takes in ideas_by_slug.items():

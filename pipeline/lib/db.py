@@ -824,6 +824,60 @@ def read_editions_for_model(driver: Driver, model_slug: str) -> list[dict[str, A
     return editions
 
 
+def upsert_concept_image_prompt(driver: Driver, story_slug: str, model_slug: str,
+                               concept_slug: str, prompt: str,
+                               *, cost_usd: float, asked_at_utc: str,
+                               model_served: str = "", generation_id: str = "") -> None:
+    """
+    Store the illustration prompt one model wrote for its own encyclopedia
+    entry. The Bible's reader ladder (part-00.md 0.6, rung 4) says EVERY node
+    carries an illustration - the story pictures existed but the encyclopedia
+    was never illustrated until Nir said "ok do it" on 2026-09-03. The prompt
+    is stored on the Concept node (keyed per edition, like everything else
+    the model wrote), with what it cost and when it was asked.
+    """
+    key = f"{edition_id(story_slug, model_slug)}:{concept_slug}"
+    with driver.session() as session:
+        session.run(
+            "MERGE (c:Concept {key: $key}) "
+            "SET c.image_prompt = $prompt, c.image_prompt_cost_usd = $cost, "
+            "    c.image_prompt_asked_at_utc = $asked, c.image_prompt_model = $model, "
+            "    c.image_prompt_generation_id = $generation",
+            key=key, prompt=prompt, cost=float(cost_usd), asked=asked_at_utc,
+            model=model_served, generation=generation_id,
+        )
+
+
+def read_concepts_for_model(driver: Driver, model_slug: str) -> list[dict[str, Any]]:
+    """
+    Every encyclopedia entry one model wrote, across all its editions, with
+    its illustration prompt if it has one. Used by the image stage to render
+    the concept pictures and by the reading pages to show them.
+    """
+    with driver.session() as session:
+        rows = session.run(
+            "MATCH (e:Edition {model_slug: $model})-[:WROTE_CONCEPT]->(c:Concept) "
+            "RETURN e.story_slug AS story, c.slug AS slug, c.term AS term, "
+            "       c.explanation AS explanation, c.image_prompt AS image_prompt, "
+            "       c.image_prompt_cost_usd AS prompt_cost "
+            "ORDER BY e.story_slug, c.slug",
+            model=model_slug,
+        ).data()
+    return rows
+
+
+def read_concept_image_job(driver: Driver, story_slug: str, model_slug: str,
+                           concept_slug: str) -> dict[str, Any] | None:
+    """The illustration record for one encyclopedia entry, if it was rendered."""
+    with driver.session() as session:
+        record = session.run(
+            "MATCH (:Concept {key: $key})-[:RENDERED_IMAGE]->(i:ImageJob) "
+            "RETURN i",
+            key=f"{edition_id(story_slug, model_slug)}:{concept_slug}",
+        ).single()
+    return dict(record["i"]) if record else None
+
+
 def read_image_job(driver: Driver, story_slug: str, model_slug: str) -> dict[str, Any] | None:
     """
     The illustration record for one edition, if its picture has been rendered:

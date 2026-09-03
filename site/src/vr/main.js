@@ -965,7 +965,10 @@ function drawVrCard(node) {
   const ctx = vrCardContext;
   const W = 512, M = 24;
   const isStory = data.kinds[node] !== 'concept';
-  const thumb = (isStory && data.thumbsOf) ? data.thumbsOf[node] : null;
+  // Every node can carry a picture now (part-00.md 0.6 rung 4): stories and
+  // encyclopedia ideas alike. Missing picture = no picture section, never a
+  // broken box.
+  const thumb = data.thumbsOf ? data.thumbsOf[node] : null;
   const image = thumb ? vrCardImage(thumb, () => drawVrCard(vrHoverNode)) : null;
   const hasImage = image && image.naturalWidth > 0;
   const pictureHeight = hasImage ? 288 : 0;

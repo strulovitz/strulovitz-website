@@ -66,7 +66,7 @@ from PIL import Image
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from lib.db import connect, log_job  # noqa: E402
+from lib.db import connect, log_job, read_concepts_for_model  # noqa: E402
 from lib.llm import Model, model_by_id, roster  # noqa: E402
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -300,6 +300,8 @@ class Job:
     model: Model
     prompt_text: str
     seed: int
+    kind: str = "story"                  # "story" or "concept"
+    concept_slug: str | None = None      # for concept jobs: which encyclopedia entry
 
 
 def missing_jobs(slugs: list[str], models: list[Model], *, again: bool) -> list[Job]:
@@ -314,6 +316,26 @@ def missing_jobs(slugs: list[str], models: list[Model], *, again: bool) -> list[
             if article_path.exists() and not again:
                 continue
             jobs.append(Job(slug=slug, model=model, prompt_text=prompt_text, seed=seed))
+
+        # THE ENCYCLOPEDIA'S OWN PICTURES (Nir, 2026-09-03: "ok do it" - the
+        # Bible's reader ladder, part-00.md 0.6 rung 4, always said every node
+        # carries an illustration). The prompts come from the database, each
+        # written by the entry's own edition's model. The seed is the SAME
+        # story seed the edition's story pictures share, so comparing eight
+        # editions' takes on one idea stays a comparison of prompts, never of
+        # dice rolls.
+        with connect() as db:
+            for model in models:
+                for concept in read_concepts_for_model(db, model.slug):
+                    if concept["story"] != slug or not (concept.get("image_prompt") or "").strip():
+                        continue
+                    image_path = (edition_folder(slug, model) / "images" / "concepts"
+                                  / f"{concept['slug']}.png")
+                    if image_path.exists() and not again:
+                        continue
+                    jobs.append(Job(slug=slug, model=model,
+                                    prompt_text=concept["image_prompt"], seed=seed,
+                                    kind="concept", concept_slug=concept["slug"]))
     return jobs
 
 
@@ -335,19 +357,29 @@ def make_thumbnail(article_path: Path, thumbnail_path: Path) -> None:
 def render_one(client: httpx.Client, job: Job, *, actor: str) -> dict:
     folder = edition_folder(job.slug, job.model) / "images"
     folder.mkdir(parents=True, exist_ok=True)
-    filename_prefix = f"{job.slug}--{job.model.slug}"
+    if job.kind == "concept":
+        folder = folder / "concepts"
+        folder.mkdir(parents=True, exist_ok=True)
+        filename_prefix = f"{job.slug}--{job.model.slug}--{job.concept_slug}"
+        article_path = folder / f"{job.concept_slug}.png"
+        thumbnail_path = folder / f"{job.concept_slug}.thumbnail.png"
+    else:
+        filename_prefix = f"{job.slug}--{job.model.slug}"
+        article_path = folder / "article.png"
+        thumbnail_path = folder / "thumbnail.png"
 
     free_gb = force_clean_vram(client)
     png_bytes, seconds = generate(client, job.prompt_text, filename_prefix, job.seed)
 
-    article_path = folder / "article.png"
     article_path.write_bytes(png_bytes)
-    make_thumbnail(article_path, folder / "thumbnail.png")
+    make_thumbnail(article_path, thumbnail_path)
 
     meta = {
         "story": job.slug,
         "model_id": job.model.id,
         "model_slug": job.model.slug,
+        "kind": job.kind,
+        "concept_slug": job.concept_slug,
         "image_model": "flux2-dev",
         "quantization": "Q4_K_M",
         "seed": job.seed,
@@ -360,22 +392,39 @@ def render_one(client: httpx.Client, job: Job, *, actor: str) -> dict:
         "seconds_waited": round(seconds, 1),
         "vram_free_gb_before_start": round(free_gb, 2),
     }
-    (folder / "meta.json").write_text(
+    # The story's meta.json export; a concept's meta lives in its own file
+    # beside its picture, so the two never clobber each other.
+    meta_path = (folder / f"{job.concept_slug}.meta.json"
+                 if job.kind == "concept" else folder / "meta.json")
+    meta_path.write_text(
         json.dumps(meta, ensure_ascii=False, indent=1), encoding="utf-8"
     )
     # THE DATABASE IS THE TRUTH (Nir, 2026-09-03: "do exactly what the Bible
     # says." LAW 5 + Part 12 12.2.4: image FILES are artifacts, but the image
     # JOB - which model, which seed, how long - is knowledge, and it is
     # stored in the database the moment it happens, through the one door.
+    # A story's job hangs off the EDITION; an encyclopedia entry's job hangs
+    # off the CONCEPT it illustrates (part-00.md 0.6 rung 4: every node
+    # carries an illustration).
     with connect() as db:
         with db.session() as session:
-            session.run(
-                "MERGE (i:ImageJob {key: $key}) SET i = $meta, i.key = $key "
-                "WITH i MATCH (e:Edition {story_slug: $slug, model_slug: $model}) "
-                "MERGE (e)-[:RENDERED_IMAGE]->(i)",
-                key=f"edn-{job.slug}--{job.model.slug}", meta=meta,
-                slug=job.slug, model=job.model.slug,
-            )
+            if job.kind == "concept":
+                session.run(
+                    "MERGE (i:ImageJob {key: $key}) SET i = $meta, i.key = $key "
+                    "WITH i MATCH (c:Concept {key: $concept_key}) "
+                    "MERGE (c)-[:RENDERED_IMAGE]->(i)",
+                    key=f"edn-{job.slug}--{job.model.slug}:{job.concept_slug}",
+                    concept_key=f"edn-{job.slug}--{job.model.slug}:{job.concept_slug}",
+                    meta=meta,
+                )
+            else:
+                session.run(
+                    "MERGE (i:ImageJob {key: $key}) SET i = $meta, i.key = $key "
+                    "WITH i MATCH (e:Edition {story_slug: $slug, model_slug: $model}) "
+                    "MERGE (e)-[:RENDERED_IMAGE]->(i)",
+                    key=f"edn-{job.slug}--{job.model.slug}", meta=meta,
+                    slug=job.slug, model=job.model.slug,
+                )
     return meta
 
 

@@ -477,6 +477,38 @@ def copy_to_site() -> int:
         model_dir.mkdir(parents=True, exist_ok=True)
         shutil.copy2(source, model_dir / f"{row['story']}.png")
         copied += 1
+
+    # The encyclopedia's own little pictures (2026-09-03, every node carries
+    # an illustration). A concept can be written by one edition in several
+    # stories; the hover card wants ONE thumb per idea, so the FIRST story's
+    # take is the card's face (the idea's own page shows all the takes).
+    idea_thumbs_destination = REPO_ROOT / "site" / "data" / "idea-thumbs"
+    with connect() as db:
+        with db.session() as session:
+            rows = session.run(
+                "MATCH (c:Concept)-[:RENDERED_IMAGE]->(:ImageJob) "
+                "WHERE c.image_prompt IS NOT NULL "
+                "RETURN c.edition_id AS edition, c.slug AS slug, "
+                "       c.image_prompt AS prompt ORDER BY edition, slug"
+            ).data()
+    seen: set[str] = set()
+    for row in rows:
+        edition = str(row["edition"])
+        model = edition.split("--", 1)[1] if "--" in edition else ""
+        slug = row["slug"]
+        if not model or (model, slug) in seen:
+            continue
+        story = edition[len("edn-"):].split("--", 1)[0]
+        source = (REPO_ROOT / "content" / "stories" / story
+                  / "editions" / model / "images" / "concepts"
+                  / f"{slug}.thumbnail.png")
+        if not source.exists():
+            continue
+        seen.add((model, slug))
+        model_dir = idea_thumbs_destination / model
+        model_dir.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(source, model_dir / f"{slug}.png")
+        copied += 1
     return copied
 
 
