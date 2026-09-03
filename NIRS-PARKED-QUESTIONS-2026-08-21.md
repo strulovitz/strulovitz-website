@@ -19,11 +19,16 @@ headset` because a browser refuses to start VR over a plain connection. A real
 edition loads in the headset exactly as it does on the screen; nothing about the
 galaxy loader is screen-only.
 
-**The one honest gap**, which was already on the Milestone 1 remaining list
-before he asked: in the headset, hovering a node gives a highlight and a haptic
-tap but no readable card. On the flat screen the hover card is plain HTML. So in
-VR you can currently *find* a story but not *read* what it is. That is item 3 of
-"what remains before Milestone 1 is done" in SESSION-STATE-AI-PANORAMA.md.
+**The one honest gap, PARTLY CLOSED 2026-09-03:** the headset now has a real
+hover card of its own (headline, one-line summary, and for a story the
+PICTURE that edition made for it), drawn on a canvas, hung above the hovered
+node, billboarded, constant angular size, appearing after the same 150 ms
+dwell the screen card uses - so in VR you can now *find* a story AND read
+what it is, picture included. What still remains open from the Milestone 1
+list: the full scrollable READING panel inside the headset (reading the whole
+article in VR), and a headset session to confirm the new card feels right
+(part-05.md 5.10's validation protocol is human sessions; the machine half -
+loads with zero console errors, all 113 checks green - passed 2026-09-03).
 
 ---
 

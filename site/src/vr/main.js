@@ -894,6 +894,157 @@ leftHand.grip.add(menuPanel);
 let menuHighlight = -1;
 let gaugeLit = false;
 
+/*
+ * THE HOVER CARD IN THE HEADSET (bible/part-00.md LAW 1, part-05.md 5.5.2)
+ *
+ * The screen's hover card is plain HTML; inside a headset there is no HTML,
+ * so the SAME card - headline, one-line summary, and for a story the PICTURE
+ * this edition made for it - is drawn onto a canvas and hung in the world
+ * above the hovered node, billboarded toward the reader, at a constant
+ * ANGULAR size (bigger when far, smaller when near: Part 04 4.5.2, the rule
+ * that keeps text readable at any distance). It appears only after the ray
+ * has DWELT on the node for 150 ms, exactly like the screen card, so a sweep
+ * of the hand does not make cards flicker everywhere.
+ *
+ * Until 2026-09-03 this card did not exist, and the headset's reader could
+ * find a story but not read what it was - the one honest gap Nir's parked
+ * questions named. The card with the picture closes the finding half; the
+ * full scrollable reading panel remains the open Milestone 1 item.
+ */
+const vrCardCanvas = document.createElement('canvas');
+vrCardCanvas.width = 512; vrCardCanvas.height = 640;
+const vrCardContext = vrCardCanvas.getContext('2d');
+const vrCardTexture = new THREE.CanvasTexture(vrCardCanvas);
+vrCardTexture.colorSpace = THREE.SRGBColorSpace;
+const vrCardPanel = new THREE.Mesh(
+  new THREE.PlaneGeometry(1, 1),
+  new THREE.MeshBasicMaterial({ map: vrCardTexture, transparent: true, depthWrite: false })
+);
+vrCardPanel.renderOrder = 20;
+vrCardPanel.visible = false;
+panorama.scene.add(vrCardPanel);
+
+let vrHoverNode = -1;
+let vrHoverSince = 0;
+let vrCardDrawnFor = -1;
+const vrCardScratch = new THREE.Vector3();
+
+// Thumbnails already ship for every story (site/data/thumbs/...); loading is
+// async, so the card draws its text first and the picture joins the moment
+// it arrives. A small cache keyed by URL keeps re-hovers instant.
+const vrCardImages = new Map();
+function vrCardImage(src, onArrived) {
+  const cached = vrCardImages.get(src);
+  if (cached) return (cached === 'loading' || cached === 'missing') ? null : cached;
+  const image = new Image();
+  vrCardImages.set(src, 'loading');
+  image.onload = () => { vrCardImages.set(src, image); onArrived(); };
+  image.onerror = () => { vrCardImages.set(src, 'missing'); };
+  image.src = src;
+  return null;
+}
+
+function wrapCardText(ctx, text, maxWidth, maxLines) {
+  const lines = [];
+  let line = '';
+  for (const word of String(text || '').split(/\s+/)) {
+    const candidate = line ? `${line} ${word}` : word;
+    if (ctx.measureText(candidate).width > maxWidth && line) {
+      lines.push(line);
+      if (lines.length === maxLines) return lines;
+      line = word;
+    } else {
+      line = candidate;
+    }
+  }
+  if (line && lines.length < maxLines) lines.push(line);
+  return lines;
+}
+
+function drawVrCard(node) {
+  const ctx = vrCardContext;
+  const W = 512, M = 24;
+  const isStory = data.kinds[node] !== 'concept';
+  const thumb = (isStory && data.thumbsOf) ? data.thumbsOf[node] : null;
+  const image = thumb ? vrCardImage(thumb, () => drawVrCard(vrHoverNode)) : null;
+  const hasImage = image && image.naturalWidth > 0;
+  const pictureHeight = hasImage ? 288 : 0;
+
+  ctx.font = 'bold 26px system-ui, sans-serif';
+  const headlineLines = wrapCardText(ctx, data.labels[node], W - 2 * M, 2);
+  ctx.font = '22px system-ui, sans-serif';
+  const summaryLines = wrapCardText(ctx, data.summaries[node], W - 2 * M, 3);
+  const tags = (data.tagsOf[node] || []).slice(0, 4).join('   ');
+  const bandName = (BANDS[data.bandOf[node]] || {}).name || '';
+  const kind = isStory ? 'a story that happened' : 'an explanation, written to last';
+
+  const textHeight = M + headlineLines.length * 30 + 8 + summaryLines.length * 27
+    + (tags ? 34 : 0) + 32 + 30 + M;
+  const H = pictureHeight + textHeight;
+  if (vrCardCanvas.width !== W || vrCardCanvas.height !== H) {
+    vrCardCanvas.width = W;
+    vrCardCanvas.height = H;
+  }
+  ctx.fillStyle = '#0d1424';
+  ctx.fillRect(0, 0, W, H);
+  ctx.strokeStyle = '#38507d';
+  ctx.lineWidth = 2;
+  ctx.strokeRect(1, 1, W - 2, H - 2);
+
+  let y = 0;
+  if (hasImage) {
+    ctx.drawImage(image, 2, 2, W - 4, pictureHeight - 2);
+    y = pictureHeight;
+  }
+  y += M;
+  ctx.fillStyle = '#ffffff';
+  ctx.font = 'bold 26px system-ui, sans-serif';
+  for (const lineText of headlineLines) { ctx.fillText(lineText, M, y + 26); y += 30; }
+  y += 8;
+  ctx.fillStyle = '#92a6c7';
+  ctx.font = '22px system-ui, sans-serif';
+  for (const lineText of summaryLines) { ctx.fillText(lineText, M, y + 22); y += 27; }
+  if (tags) {
+    ctx.fillStyle = '#a8bad8';
+    ctx.font = '20px system-ui, sans-serif';
+    ctx.fillText(tags, M, y + 20); y += 34;
+  }
+  ctx.fillStyle = '#ffd479';
+  ctx.font = '20px system-ui, sans-serif';
+  ctx.fillText(`${bandName} - ${kind}`, M, y + 20); y += 32;
+  ctx.fillStyle = '#8fa3c4';
+  ctx.font = 'italic 20px system-ui, sans-serif';
+  ctx.fillText(`point at the node you want - ${data.shortName}'s edition`, M, y + 20);
+  vrCardTexture.needsUpdate = true;
+}
+
+function updateVrHoverCard() {
+  if (!renderer.xr.isPresenting) { vrCardPanel.visible = false; return; }
+  const dwelling = vrHoverNode >= 0 && usingRealContent && !gym.active
+    && (performance.now() - vrHoverSince) > 150 && !menuPanel.visible;
+  vrCardPanel.visible = dwelling;
+  if (!dwelling) { vrCardDrawnFor = -1; return; }
+  if (vrCardDrawnFor !== vrHoverNode) {
+    drawVrCard(vrHoverNode);
+    vrCardDrawnFor = vrHoverNode;
+  }
+  // Hang the card above the hovered node, facing the reader, at a constant
+  // ANGULAR size (Part 04 4.5.2): physical size grows with distance, so it
+  // reads the same at arm's length or across the room.
+  const scale = panorama.graph.scale.x;
+  vrCardScratch.set(
+    panorama.graph.position.x + panorama.out3[vrHoverNode * 3] * scale,
+    panorama.graph.position.y + panorama.out3[vrHoverNode * 3 + 1] * scale,
+    panorama.graph.position.z + panorama.out3[vrHoverNode * 3 + 2] * scale);
+  vrCardPanel.position.copy(vrCardScratch);
+  vrCardPanel.position.y += 0.10;
+  vrCardPanel.lookAt(camera.position);
+  const distance = vrCardPanel.position.distanceTo(camera.position);
+  const width = 0.30 * distance;
+  const height = width * (vrCardCanvas.height / vrCardCanvas.width);
+  vrCardPanel.scale.set(width, height, 1);
+}
+
 function drawMenu() {
   const c = menuContext;
   const width = menuCanvas.width, height = menuCanvas.height;
@@ -1079,6 +1230,8 @@ function readControllers(deltaMs) {
       if (row >= 0) {
         if (row !== menuHighlight) { menuHighlight = row; drawMenu(); }
         hand.cursor.visible = false;
+        // While the menu owns the ray, the hover card stays out of the way.
+        if (vrHoverNode !== -1) { vrHoverNode = -1; vrHoverSince = 0; }
         if (pressed(BUTTON.TRIGGER)) runMenuItem(MENU_ITEMS[row].key);
       } else {
         if (menuHighlight !== -1) { menuHighlight = -1; drawMenu(); }
@@ -1101,6 +1254,11 @@ function readControllers(deltaMs) {
         }
         const found = gymTookThePoint ? -1 : panorama.pick(origin, direction);
         if (!gymTookThePoint) panorama.hoveredNode = found;
+        // The headset's hover card (LAW 1's twin of the screen card) resets its
+        // dwell clock only when the ray MOVES to a different node, so a steady
+        // hand on one node accumulates the 150 ms of stillness the card waits
+        // for, and a sweep past many nodes shows nothing at all.
+        if (vrHoverNode !== found) { vrHoverNode = found; vrHoverSince = performance.now(); }
         if (found >= 0 && !gymTookThePoint) {
           const scale = panorama.graph.scale.x;
           hand.cursor.visible = true;
@@ -1396,6 +1554,7 @@ renderer.setAnimationLoop(() => {
   }
 
   updateScreenHover();
+  updateVrHoverCard();
 
   gaugeClock += deltaMs;
   const status = panorama.status();
