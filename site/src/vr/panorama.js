@@ -392,11 +392,14 @@ export class Panorama {
     this.scene.add(this.shadows.mesh);
 
     // The tesseract: sixteen corner beads and thirty-two edges.
+    // NIR, 2026-09-03: "half as bright as it is now" in the real pages (this
+    // file); the gym/tutorial keeps its own brighter tesseract in wgym.js.
+    // Every colour and emissive value below is exactly half of what it was.
     const t = this.data.tesseract;
-    this.tesseractNodes = new InstancedSet(new THREE.IcosahedronGeometry(1, 1), t.vertices.length, { emissive: 0x111820 });
-    for (let i = 0; i < t.vertices.length; i++) this.tesseractNodes.setColour(i, 0.95, 0.93, 0.80);
-    this.tesseractEdges = new InstancedSet(new THREE.CylinderGeometry(1, 1, 1, 6, 1, true), t.edges.length, { emissive: 0x0a1420 });
-    for (let e = 0; e < t.edges.length; e++) this.tesseractEdges.setColour(e, 0.82, 0.86, 0.62);
+    this.tesseractNodes = new InstancedSet(new THREE.IcosahedronGeometry(1, 1), t.vertices.length, { emissive: 0x080c10 });
+    for (let i = 0; i < t.vertices.length; i++) this.tesseractNodes.setColour(i, 0.48, 0.47, 0.40);
+    this.tesseractEdges = new InstancedSet(new THREE.CylinderGeometry(1, 1, 1, 6, 1, true), t.edges.length, { emissive: 0x050a10 });
+    for (let e = 0; e < t.edges.length; e++) this.tesseractEdges.setColour(e, 0.41, 0.43, 0.31);
     this.graph.add(this.tesseractNodes.mesh);
     this.graph.add(this.tesseractEdges.mesh);
 
