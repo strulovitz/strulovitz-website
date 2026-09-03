@@ -262,21 +262,46 @@ Two things were tried and rejected before the real fix:
   native`. The backend is fixed earlier than this environment variable can
   reach it on this build; do not try this again.
 
-**The fix that actually worked, confirmed by re-running BOTH jobs that had
-failed and watching them succeed:** start ComfyUI with ComfyUI's own
-built-in `--lowvram` flag:
+**CORRECTED 2026-09-02, LATER THE SAME NIGHT — `--lowvram` WAS WRONG. DO NOT
+USE IT. THE REAL FIX IS `--reserve-vram 3`.**
+
+`--lowvram` is a NO-OP on this ComfyUI install. This build (ComfyUI 0.28.0)
+has DynamicVRAM support detected and enabled by default (confirmed straight
+from the startup log: "DynamicVRAM support detected and enabled" + the
+comfy-aimdo hook lines) — on this path, `--lowvram` does nothing at all.
+`--lowvram` only forces text encoders onto the CPU in ComfyUI's OLDER,
+legacy VRAM-management path, which this install is not using. This is why
+the earlier claim in this file that `--lowvram` fixed anything was wrong: the
+two test jobs that "succeeded" under it most likely succeeded by chance
+(smaller prompts, or a temporarily emptier GPU), not because the flag did
+anything. The real cause of the OOM: ComfyUI's DynamicVRAM loader fills
+whatever VRAM is free down to a fixed small headroom (~1.2 GB), regardless
+of `--lowvram`, so a 640 MB allocation for one dequantized Mistral MLP
+matrix during `CLIPTextEncode` has nowhere to go once that headroom is used
+up.
+
+**The actual fix, diagnosed by Fable and verified working on this machine
+across 27 real images with zero failures:** start ComfyUI with
+`--reserve-vram 3` instead of `--lowvram`:
 ```
-python /home/nir/ai-art/ComfyUI/main.py --listen 127.0.0.1 --port 8188 --lowvram
+python /home/nir/ai-art/ComfyUI/main.py --listen 127.0.0.1 --port 8188 --reserve-vram 3
 ```
-This tells ComfyUI to keep far less of each model resident on the GPU at
-once and stream weights from RAM more aggressively, so the peak VRAM
-footprint never gets close enough to the device limit for fragmentation to
-matter. Both previously-failing jobs succeeded immediately under `--lowvram`,
-at 244s and 519s respectively - not even slower than before, because the
-earlier `force_clean_vram()` full-reload cost was already the dominant time
-cost. **`--lowvram` must be part of the standard ComfyUI startup command for
-this pipeline from now on** - update the "HOW TO RESUME" restart command
-below accordingly, and do not go back to running it without this flag.
+`--reserve-vram 3` tells ComfyUI's DynamicVRAM loader to keep 3 GB free at
+all times instead of its default ~1.2 GB, so there is always real headroom
+for the text encoder's on-the-fly GGUF dequantization. Confirmed by directly
+re-running the exact image that used to OOM (DeepSeek / hugging-face-break-in
+story): it passed clean at ~7.2 GB peak VRAM during `CLIPTextEncode`, versus
+the old ~11.5 GB near-limit that crashed. The subsequent full batch of 25
+remaining images ran with 0 failures out of 25 (161.7 minutes, $0 cost).
+
+Full diagnosis and the question/answer exchange with Fable that found this
+are saved verbatim in the repo root:
+`QUESTION-FOR-FABLE-FLUX-VRAM-OOM-2026-09-02.md` and
+`ANSWER-FROM-FABLE-FLUX-VRAM-OOM-2026-09-02.md`.
+
+**`--reserve-vram 3` is now the required flag for this pipeline. `--lowvram`
+must never be used again for this ComfyUI install** — update the "HOW TO
+RESUME" restart command below accordingly.
 
 
 
@@ -305,7 +330,7 @@ below accordingly, and do not go back to running it without this flag.
 
 1. Read this file completely, both Part 1 and Part 2.
 2. `git -C /home/nir/strulovitz-website pull`
-3. Check if ComfyUI is running: `ps aux | grep main.py`. If not: `source /home/nir/ai-art/venv/bin/activate && (setsid nohup python /home/nir/ai-art/ComfyUI/main.py --listen 127.0.0.1 --port 8188 --lowvram > /tmp/opencode/comfyui.log 2>&1 < /dev/null &)  # --lowvram is REQUIRED, see TRAP 4`, wait ~20s, confirm with `curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:8188/` (expect 200).
+3. Check if ComfyUI is running: `ps aux | grep main.py`. If not: `(setsid /home/nir/ai-art/venv/bin/python /home/nir/ai-art/ComfyUI/main.py --listen 127.0.0.1 --port 8188 --reserve-vram 3 > /tmp/opencode/comfyui.log 2>&1 < /dev/null &)  # --reserve-vram 3 is REQUIRED. --lowvram is a NO-OP on this install and must never be used, see the corrected VRAM section above`, wait ~20s, confirm with `curl -s -o /dev/null -w "%{http_code}" http://127.0.0.1:8188/` (expect 200).
 4. Before submitting any image job, check `http://127.0.0.1:8188/queue` and
    `nvidia-smi --query-gpu=memory.used --format=csv` are both idle (Trap 2
    above) — never assume the GPU is free just because no error was printed.
@@ -378,8 +403,10 @@ command, not the number in this sentence.
    proves the batch log alone cannot be trusted for this. There may be
    others.
 4. Render the remaining pictures with `pipeline/stages/images.py --all
-   --all-models` (ComfyUI started with `--lowvram`, always) - the script
-   already prints live progress; watch it, do not disappear.
+   --all-models` (ComfyUI started with `--reserve-vram 3`, never `--lowvram`
+   which is a no-op on this install) - the script already prints live
+   progress; watch it, do not disappear. **DONE as of 2026-09-02 night: all
+   40/40 images rendered, 0 failures on the final 25.**
 5. Ask Nir directly what he wants done about FLUX.2-dev rendering garbled
    fake text whenever a model's prompt asks for charts, labels, or price
    tags - this is unresolved and his call, not the agent's to decide.
@@ -388,9 +415,11 @@ command, not the number in this sentence.
    node opens something, and wire thumbnails into the hover cards in
    `site/src/vr/main.js`.
 7. Do not re-litigate any of the decisions already locked this session (the
-   per-story seed, the simplified image-prompt instruction, `--lowvram`
-   being required) - they were each corrected once already at real cost;
-   trust the corrected version.
+   per-story seed, the simplified image-prompt instruction) - they were
+   each corrected once already at real cost; trust the corrected version.
+   **EXCEPTION, corrected later the same night: `--lowvram` was WRONG, it is
+   a no-op on this ComfyUI install - the real required flag is
+   `--reserve-vram 3`. See the corrected VRAM section above.**
 
 SESSION END 2026-09-02, written at Nir's explicit instruction after he said
 this session was run by "a fucking shit machine that is sucking my money
