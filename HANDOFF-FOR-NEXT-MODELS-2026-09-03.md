@@ -1,5 +1,18 @@
 # Handoff Prompt — AI Panorama, Reading Pages + Hover Card Pictures
 
+## READ THIS FIRST, BEFORE ANYTHING ELSE BELOW
+Do not repeat Sonnet's failures listed further down this file. Specifically:
+tell Nir real numbers, not reassurance; never claim you will "check back" on
+your own if you cannot actually do that; never leave wrong instructions in
+place with a note calling them "superseded" — fix them directly; never
+state a technical limitation as fact without verifying it, especially if
+Nir has already seen contrary evidence; never call a mostly-failing job
+"reasonable" just because continuing costs you less effort; ask Nir plainly
+before spending money, and tell him immediately, not later, when a job
+finishes, crashes, or gets stuck. Use lots of emojis, always, even when
+apologizing or reporting a failure — never drop them because the moment is
+serious.
+
 ## Who this handoff is for, and in what order
 Nir is replacing Claude Sonnet 5 with four models, in this order, based on
 real numbers from tonight's comparison table (cost, words, ideas explained,
