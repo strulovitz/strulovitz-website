@@ -262,13 +262,18 @@ def generate(client: httpx.Client, prompt_text: str, filename_prefix: str, seed:
 
 
 # ------------------------------------------------------------------------------
-# Editions on disk
+# Editions: prompts and story lists come from THE DATABASE, not files
+# (Nir, 2026-09-03: "do exactly what the Bible says." Part 01 1.5 iron rule 3:
+# every stage reads through Neo4j. The store_knowledge stage put every
+# edition's image prompt and every story into the database; the .txt files
+# under content/stories are human-readable exports, no longer the source.)
 # ------------------------------------------------------------------------------
 
 def all_story_slugs() -> list[str]:
-    if not STORIES.exists():
-        return []
-    return sorted(p.name for p in STORIES.iterdir() if (p / "story.json").exists())
+    with connect() as db:
+        with db.session() as session:
+            rows = session.run("MATCH (s:Story) RETURN s.slug AS slug ORDER BY s.slug").data()
+    return [r["slug"] for r in rows]
 
 
 def edition_folder(slug: str, model: Model) -> Path:
@@ -276,10 +281,16 @@ def edition_folder(slug: str, model: Model) -> Path:
 
 
 def image_prompt_for(slug: str, model: Model) -> str | None:
-    path = edition_folder(slug, model) / "image-prompt.txt"
-    if not path.exists():
+    with connect() as db:
+        with db.session() as session:
+            record = session.run(
+                "MATCH (e:Edition {story_slug: $slug, model_slug: $model}) "
+                "RETURN e.image_prompt AS prompt",
+                slug=slug, model=model.slug,
+            ).single()
+    if not record:
         return None
-    text = path.read_text(encoding="utf-8").strip()
+    text = (record["prompt"] or "").strip()
     return text or None
 
 
@@ -352,6 +363,19 @@ def render_one(client: httpx.Client, job: Job, *, actor: str) -> dict:
     (folder / "meta.json").write_text(
         json.dumps(meta, ensure_ascii=False, indent=1), encoding="utf-8"
     )
+    # THE DATABASE IS THE TRUTH (Nir, 2026-09-03: "do exactly what the Bible
+    # says." LAW 5 + Part 12 12.2.4: image FILES are artifacts, but the image
+    # JOB - which model, which seed, how long - is knowledge, and it is
+    # stored in the database the moment it happens, through the one door.
+    with connect() as db:
+        with db.session() as session:
+            session.run(
+                "MERGE (i:ImageJob {key: $key}) SET i = $meta, i.key = $key "
+                "WITH i MATCH (e:Edition {story_slug: $slug, model_slug: $model}) "
+                "MERGE (e)-[:RENDERED_IMAGE]->(i)",
+                key=f"edn-{job.slug}--{job.model.slug}", meta=meta,
+                slug=job.slug, model=job.model.slug,
+            )
     return meta
 
 

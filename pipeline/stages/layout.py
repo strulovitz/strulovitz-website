@@ -59,7 +59,7 @@ import numpy as np
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from lib.db import connect, log_job  # noqa: E402
+from lib.db import connect, log_job, read_editions_for_model  # noqa: E402
 from lib.llm import Model, model_by_id, roster  # noqa: E402
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -106,28 +106,18 @@ def w_for_story(published: str, today: date | None = None) -> float:
 
 
 def read_editions(model: Model) -> list[dict]:
-    """Every rendering this model produced, in story order."""
-    out = []
-    for story_folder in sorted(STORIES.iterdir()):
-        rendering = story_folder / "editions" / model.slug / "rendering.json"
-        if not rendering.exists():
-            continue
-        data = json.loads(rendering.read_text(encoding="utf-8"))
-        if data.get("produced"):
-            story = json.loads((story_folder / "story.json").read_text(encoding="utf-8"))
-            data["story_title"] = story["title"]
-            data["story_published"] = min(
-                (s.get("published", "") for s in story["sources"] if s.get("published")),
-                default=story["created_at_utc"][:10],
-            )
-            data["story_sources"] = [
-                {"url": s["url"], "title": s["title"], "byline": s.get("byline", ""),
-                 "site": s.get("site", ""), "kind": s.get("kind", ""),
-                 "published": s.get("published", "")}
-                for s in story["sources"]
-            ]
-            out.append(data)
-    return out
+    """
+    Every rendering this model produced, in story order - READ FROM THE
+    DATABASE, not from files. Nir, 2026-09-03: "do exactly what the Bible
+    says." Part 01 1.5 iron rule 3: "Every stage reads and writes THROUGH
+    Neo4j; files on disk are caches and exports, never truth." Until today
+    this function read rendering.json files directly, which violated LAW 5
+    - the same shapes flow through db.py's reader now (the reader was built
+    to return this function's exact old output, so the switch was verified
+    by rebuilding every galaxy and comparing it to the file-fed build).
+    """
+    with connect() as db:
+        return read_editions_for_model(db, model.slug)
 
 
 def build_graph(editions: list[dict]) -> tuple[nx.Graph, dict[str, dict]]:

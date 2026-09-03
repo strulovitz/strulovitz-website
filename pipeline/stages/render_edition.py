@@ -53,7 +53,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from lib.db import connect, log_job  # noqa: E402
+from lib.db import connect, log_job, read_story, upsert_edition, upsert_story  # noqa: E402
 from lib.llm import (Answer, Model, Question, as_data, ask_now, model_by_id,  # noqa: E402
                      roster, settings, submit_batch)
 from lib.sources import read_frozen  # noqa: E402
@@ -114,16 +114,25 @@ def model_supports_schema(model_id: str) -> bool:
 # ------------------------------------------------------------------------------
 
 def story_details(slug: str) -> dict:
-    path = STORIES / slug / "story.json"
-    if not path.exists():
+    """
+    Nir, 2026-09-03: "do exactly what the Bible says." Part 01 1.5 iron rule 3:
+    every stage reads through Neo4j. The story and its frozen-source records
+    come from the database now; only the frozen source TEXT itself stays on
+    disk, exactly where the Bible wants it (Part 02 2.2.7: "raw_text_path -
+    kitchen disk cache").
+    """
+    with connect() as db:
+        story = read_story(db, slug)
+    if story is None:
         raise FileNotFoundError(f"No story called {slug!r}. Run stages/make_story.py first.")
-    return json.loads(path.read_text(encoding="utf-8"))
+    return story
 
 
 def all_story_slugs() -> list[str]:
-    if not STORIES.exists():
-        return []
-    return sorted(p.name for p in STORIES.iterdir() if (p / "story.json").exists())
+    with connect() as db:
+        with db.session() as session:
+            rows = session.run("MATCH (s:Story) RETURN s.slug AS slug ORDER BY s.slug").data()
+    return [r["slug"] for r in rows]
 
 
 def other_stories_list(this_slug: str) -> str:
@@ -237,6 +246,15 @@ def store(slug: str, model: Model, answer: Answer) -> Path:
             str(produced.get("image_prompt", "")), encoding="utf-8"
         )
         write_readable(folder)
+    # THE DATABASE IS THE TRUTH (Nir, 2026-09-03: "do exactly what the Bible
+    # says." LAW 5 + Part 01 1.5): the same instant the files are written as
+    # human-readable exports, the edition is stored in Neo4j through the one
+    # door - so the reading stages (layout, home, images) never depend on the
+    # files at all. If this write fails, the stage fails: an edition that
+    # exists only as a file would be a return to the old violation.
+    with connect() as db:
+        upsert_story(db, story_details(slug))
+        upsert_edition(db, story_details(slug), rendering)
     return folder
 
 

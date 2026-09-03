@@ -45,7 +45,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from lib.db import connect, log_job  # noqa: E402
+from lib.db import connect, log_job, upsert_story  # noqa: E402
 from lib.llm import settings  # noqa: E402
 from lib.sources import CouldNotFetch, Source, fetch, freeze, read_frozen  # noqa: E402
 
@@ -160,6 +160,12 @@ def make_story(title: str, links: list[str], *, minimum: int) -> tuple[str, list
     (folder / "story.json").write_text(
         json.dumps(details, ensure_ascii=False, indent=1), encoding="utf-8"
     )
+    # THE DATABASE IS THE TRUTH (Nir, 2026-09-03: "do exactly what the Bible
+    # says." LAW 5): a new story is born in the database the same moment its
+    # files are written as exports, so the reading stages never depend on the
+    # files. If this write fails, the stage fails.
+    with connect() as db:
+        upsert_story(db, details)
     return slug, problems
 
 

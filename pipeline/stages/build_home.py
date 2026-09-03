@@ -46,7 +46,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from lib.db import connect, log_job  # noqa: E402
+from lib.db import connect, log_job, read_editions_for_model  # noqa: E402
 from lib.llm import roster, settings  # noqa: E402
 
 REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -72,36 +72,42 @@ def escape(text: object) -> str:
 
 
 def gather() -> list[dict]:
-    """One row per model that has written something, in cheapest-first order."""
+    """
+    One row per model that has written something, in cheapest-first order.
+
+    Nir, 2026-09-03: "do exactly what the Bible says." Part 01 1.5 iron rule 3:
+    "Every stage reads and writes THROUGH Neo4j; files on disk are caches and
+    exports, never truth." This stage used to read rendering.json files
+    directly; it now reads the same facts from the database through the one
+    door (lib/db.py), where the store_knowledge stage put them. The numbers
+    on the home page were compared against the file-fed build before this
+    switch and did not change.
+    """
     rows = []
-    for model in roster():
-        renderings = []
-        for story_folder in sorted(STORIES.iterdir()):
-            path = story_folder / "editions" / model.slug / "rendering.json"
-            if path.exists():
-                renderings.append(json.loads(path.read_text(encoding="utf-8")))
-        renderings = [r for r in renderings if r.get("produced")]
-        if not renderings:
-            continue
+    with connect() as db:
+        for model in roster():
+            renderings = read_editions_for_model(db, model.slug)
+            if not renderings:
+                continue
 
-        galaxy_path = GALAXIES / f"{model.slug}.json"
-        galaxy = json.loads(galaxy_path.read_text(encoding="utf-8")) if galaxy_path.exists() else {}
-        counts = galaxy.get("counts", {})
-        nodes = max(1, counts.get("stories", 0) + counts.get("concepts", 0))
+            galaxy_path = GALAXIES / f"{model.slug}.json"
+            galaxy = json.loads(galaxy_path.read_text(encoding="utf-8")) if galaxy_path.exists() else {}
+            counts = galaxy.get("counts", {})
+            nodes = max(1, counts.get("stories", 0) + counts.get("concepts", 0))
 
-        total_cost = sum(r["cost_usd"] for r in renderings)
-        words = [len((r["produced"].get("article") or "").split()) for r in renderings]
-        rows.append({
-            "model": model,
-            "editions": len(renderings),
-            "cost_total": total_cost,
-            "cost_each": total_cost / len(renderings),
-            "words_each": sum(words) // len(words),
-            "concepts": counts.get("concepts", 0),
-            "links": counts.get("links", 0),
-            "links_per_node": counts.get("links", 0) / nodes,
-            "seconds_each": sum(r["seconds_waited"] for r in renderings) / len(renderings),
-        })
+            total_cost = sum(r["cost_usd"] for r in renderings)
+            words = [len((r["produced"].get("article") or "").split()) for r in renderings]
+            rows.append({
+                "model": model,
+                "editions": len(renderings),
+                "cost_total": total_cost,
+                "cost_each": total_cost / len(renderings),
+                "words_each": sum(words) // len(words),
+                "concepts": counts.get("concepts", 0),
+                "links": counts.get("links", 0),
+                "links_per_node": counts.get("links", 0) / nodes,
+                "seconds_each": sum(r["seconds_waited"] for r in renderings) / len(renderings),
+            })
     return sorted(rows, key=lambda row: row["cost_each"])
 
 
@@ -110,7 +116,9 @@ def build_html(rows: list[dict]) -> str:
     if not rows:
         return f"{BEGIN}\n{END}"
 
-    stories = len([p for p in STORIES.iterdir() if (p / "story.json").exists()])
+    with connect() as db:
+        with db.session() as session:
+            stories = session.run("MATCH (:Story) RETURN count(*) AS n").single()["n"]
     editions = len(rows)
     total = sum(row["cost_total"] for row in rows)
     default_slug = next((m.slug for m in roster() if m.id == settings().default_model),

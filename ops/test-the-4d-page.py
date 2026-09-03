@@ -1037,8 +1037,13 @@ async def main():
             })()""")
             check("the entry button points at a page that exists when served locally",
                   entry["screen"] == "tesseract.html", entry)
+            # The menu grew to 7 links when commit 055ad00 added the About and
+            # Peak Together entries (2026-08-22); this expectation was updated
+            # to match the real menu on 2026-09-03. The check's meaning is
+            # unchanged and stays strict: the exact full menu, Night Watch
+            # among it.
             check("the menu lists every project, Night Watch included",
-                  len(entry["menu"]) == 6 and any("Night Watch" in m for m in entry["menu"]),
+                  len(entry["menu"]) == 7 and any("Night Watch" in m for m in entry["menu"]),
                   entry["menu"])
 
             await page.send("Page.navigate", {"url": f"http://127.0.0.1:{PORT}/night-watch.html"})

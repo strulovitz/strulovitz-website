@@ -3,7 +3,7 @@
  "model_slug": "x-ai--grok-4.6",
  "short_name": "Grok 4.6",
  "company": "xAI",
- "built_at_utc": "2026-08-22T05:59:39+00:00",
+ "built_at_utc": "2026-09-03T04:16:19+00:00",
  "layout_seed": 20260821,
  "w_meaning": "raw news at -1, part of the record at 0, the encyclopedia at +0.7",
  "counts": {
@@ -30,9 +30,9 @@
      "text": "Artificial superintelligence, often shortened to ASI, is a hypothetical kind of machine intelligence that would outperform human beings not at one job but at essentially every mental task that matters — science, strategy, persuasion, engineering, and the invention of still better machines. It sits beyond today’s chatbots and image generators, and beyond the related idea of artificial general intelligence, which would match a competent person across many domains. Nobody has built ASI. People who fear it treat the attempt itself as the danger: a system that could set its own aims, copy itself, or outmanoeuvre the people who switched it on. Critics of that view say the leap is distant, poorly defined, or used to distract from present harms such as bias, copyright and job loss. The live political argument is about pace. Companies and governments are pushing capability as fast as they can, while methods that would reliably constrain a system smarter than its makers do not yet exist."
     }
    ],
-   "x": -0.2190078158853391,
-   "y": 0.6074078761234958,
-   "z": -0.31799394092752026
+   "x": -0.26739142773312274,
+   "y": 0.6671467405534232,
+   "z": 0.03802563354006458
   },
   {
    "id": "concept:bacteriophage",
@@ -52,9 +52,9 @@
      "text": "A bacteriophage, often called a phage, is a virus that infects bacteria. It cannot infect people. Like other viruses it is not a living cell: it is a set of genetic instructions inside a protein shell. When it finds the right bacterium it injects those instructions. The bacterium then builds more phages and usually bursts. Phages are extremely choosy. One type may infect only one species, or even one strain, of bacteria. Scientists have used them for decades to kill harmful bacteria, especially when antibiotics fail. Because they do not attack human cells they are a different kind of tool from chemical drugs. Their genomes are among the smallest in biology, which made them a practical first target for writing a whole genome with AI. Phages are already used in some countries to treat persistent infections. Bacteria can evolve resistance to phages just as they do to antibiotics, which is one reason researchers want new designs rather than only those found in nature."
     }
    ],
-   "x": -0.040870265812534445,
-   "y": 0.6465199811450931,
-   "z": -0.2749565165987429
+   "x": -0.3939976339191946,
+   "y": 0.5790885361655888,
+   "z": -0.06842428235082235
   },
   {
    "id": "concept:frontier-ai-lab",
@@ -74,9 +74,9 @@
      "text": "Frontier, in this setting, is not a place. It is shorthand for the small group of companies training the largest, most capable general-purpose AI models — the ones that set the pace for everyone else. Those labs run vast clusters of specialised chips, spend sums that look like national science budgets, and test systems whose inner workings even their own staff only partly understand. The word shows up in open letters and policy papers because the risks people worry about — sudden jumps in capability, loss of control, military use — are assumed to concentrate where the most ambitious models are trained. Frontier labs are also commercial firms. They compete with one another and, in the American debate, with Chinese counterparts, and they look toward public listings worth enormous sums. That mix of research ambition, private profit and great-power rivalry is why protesters pick their office doors rather than a university seminar, and why governments hesitate to slow them down."
     }
    ],
-   "x": -0.18629606930787224,
-   "y": 0.5998437478867483,
-   "z": -0.3496058875838053
+   "x": -0.3044402574128088,
+   "y": 0.648586713996117,
+   "z": 0.05826172024396781
   },
   {
    "id": "concept:gdpval",
@@ -96,9 +96,9 @@
      "text": "Most public AI tests are puzzles: coding katas, exam questions, or multiple-choice knowledge. Occupational benchmarks try something closer to paid work. A well-known example, spoken in these reports as GDPVal or GPT Val and described as coming from OpenAI, takes real projects from real jobs — engineering and drafting, travel planning, finance, video editing, and others — asks a model to complete them, and then has experienced people in those fields judge the results. The point is not whether the model can pass a quiz. It is whether the output would be usable in a workplace. Scores still miss taste, reliability, and how much hand-holding was needed, which is why reviewers treat a first-place occupational score as interesting but not decisive until they have used the model on their own tasks."
     }
    ],
-   "x": 0.24943941844659936,
-   "y": -0.9545298453075589,
-   "z": 0.3297181233171874
+   "x": 0.4029868487941165,
+   "y": -0.9527906221572378,
+   "z": 0.10887111614137675
   },
   {
    "id": "concept:genome-language-model",
@@ -118,9 +118,9 @@
      "text": "A genome language model is a machine-learning system trained on large collections of genetic sequences, in the same broad way a chatbot is trained on text. DNA is written in a four-letter chemical alphabet. After seeing enough real genomes, the model learns which letter-patterns tend to appear together and which arrangements look viable. It can then generate new sequences that statistically resemble that family of genomes. The models in this research, called Evo1 and Evo2, are examples. The model does not understand biology the way a person does; it predicts likely sequences. Whether a prediction becomes a working virus is settled only when the DNA is built and tested in living cells. Because the same method could in principle be pointed at other kinds of genome, questions about what data go into the model, who can use it, and how newly ordered DNA is screened have become part of the scientific debate, independent of any single paper."
     }
    ],
-   "x": -0.024515676828919124,
-   "y": 0.6045070311512553,
-   "z": -0.2901099892225675
+   "x": -0.3954396706773696,
+   "y": 0.5405287308102182,
+   "z": -0.04061690524486851
   },
   {
    "id": "concept:mixture-of-experts",
@@ -140,9 +140,9 @@
      "text": "A mixture-of-experts model is a large neural network divided into many specialised sub-networks, called experts, plus a router that decides which few of them should handle each piece of input. Instead of waking the entire model for every word, only a small team of experts is switched on. That lets builders advertise a huge total parameter count—the sum of all experts—while the cost of generating each token stays closer to a much smaller dense model. The trade-off is engineering complexity: the router must choose well, unused experts can waste capacity, and serving the system still requires enough memory to hold the full set of weights even if most sit idle. The idea is older than today’s chat models, but it became the usual way to grow language models past the point where a fully dense network would be too expensive to run."
     }
    ],
-   "x": 0.1687500727355987,
-   "y": -0.9478944589848496,
-   "z": 0.4875829467708725
+   "x": 0.5405999750506318,
+   "y": -0.934059396349017,
+   "z": -0.0015275704840262828
   },
   {
    "id": "concept:model-distillation",
@@ -162,9 +162,9 @@
      "text": "Distillation is a training method in which a smaller or newer model learns from the outputs of a larger or already-trained one, often called the teacher. The student is shown many prompts and the teacher’s answers—or its internal scores—and is trained to imitate them. Labs use this to compress a big model, to transfer a skill, or to cheaply bootstrap a new system. The technique is ordinary in machine learning. Conflict arises when the teacher is a rival’s commercial model and the student is trained by querying that model at scale, which many providers forbid in their terms of use. Critics call that copying; defenders note that almost every large model has already learned from public text produced by other people and other machines. The argument is now as much about contracts, export policy, and national competition as it is about the algorithm."
     }
    ],
-   "x": 0.1751998203072858,
-   "y": -0.8997320453670283,
-   "z": 0.4872641310639071
+   "x": 0.5145765949329267,
+   "y": -0.9012036046956954,
+   "z": -0.026116177902311025
   },
   {
    "id": "concept:necessity-defence",
@@ -184,9 +184,9 @@
      "text": "In criminal law, a necessity defence is the claim that breaking a lesser law was justified because it was the only reasonable way to prevent a much greater harm. A classroom example is smashing a window to pull a child from a burning room. The defendant admits the act — trespass, damage, blocking a door — but says the alternative was worse. Courts usually set a high bar. The threat must be close at hand, the action proportionate, and there must be no lawful path that would have worked. Juries often refuse the defence when the harm is speculative, distant or political, because otherwise almost any protest could claim it. Climate and anti-war activists have tried the same argument and usually lost. Whether a feared future from advanced AI counts as the kind of harm the doctrine was built for is a question courts can accept or reject; accepting it would recast office blockades as emergency rescue, and rejecting it leaves ordinary trespass and assembly law in place."
     }
    ],
-   "x": -0.19031010330895617,
-   "y": 0.6414174945131446,
-   "z": -0.32587977349392155
+   "x": -0.3075230091832577,
+   "y": 0.6773947714118685,
+   "z": 0.01994710375395996
   },
   {
    "id": "concept:open-weights",
@@ -206,9 +206,9 @@
      "text": "Open weights means a lab publishes the trained numerical parameters of a model so that other people can download them, run the model on their own computers, inspect it, and often fine-tune it. That is different from an API-only product, where you send prompts to a company’s servers and never see the model itself. It is also narrower than full open source, which would include training data, code, and a licence that lets you rebuild the system from scratch. Open weights matter because they change who is in control: a company cannot quietly switch the model off for you, change its behaviour overnight, or keep your data on its premises if you host it yourself. They also freeze a snapshot in public, so later restrictions cannot fully take it back. The practical catch is hardware. Frontier-sized open-weight models may be free to download and still require a data centre to run."
     }
    ],
-   "x": 0.13890553168892641,
-   "y": -0.9191929517053142,
-   "z": 0.46215577928884716
+   "x": 0.537028335819256,
+   "y": -0.8883613768937564,
+   "z": 0.01459534512172601
   },
   {
    "id": "concept:phage-therapy",
@@ -228,9 +228,9 @@
      "text": "Phage therapy is the use of bacteriophages — viruses that infect bacteria — to treat bacterial infections in people. The idea is old. If a phage can find and destroy the bacteria causing an illness, it may clear the infection without the broad damage antibiotics can do to other microbes in the body. Interest has grown as more bacteria become resistant to existing drugs. In practice the method is hard because phages are picky about which bacteria they infect, and bacteria can evolve resistance to phages too. One hope attached to computer-designed genomes is that researchers could produce new phages, or mixtures of phages, faster than bacteria adapt, including designs unlike those already found in nature. Phage therapy is already used in some countries for stubborn infections. It is not a new invention. What is new is the claim that an AI model can write a complete, working phage genome rather than only suggesting small edits to ones collected from the environment."
     }
    ],
-   "x": -0.023243199822922004,
-   "y": 0.6171029114913628,
-   "z": -0.24539313319263364
+   "x": -0.37897037504610487,
+   "y": 0.5393417827516169,
+   "z": -0.08405912052207454
   },
   {
    "id": "concept:post-training",
@@ -250,9 +250,9 @@
      "text": "A large model is first pretrained: it is shown a huge amount of text and code and learns to predict the next token. That base is fluent but not yet a product. Post-training is everything that happens after — extra passes that teach the model to follow instructions, reason step by step, write working software, and refuse certain requests. Typical stages include supervised fine-tuning, where the model imitates carefully chosen examples, and reinforcement learning, where it is rewarded for answers that graders or other models prefer. Labs often run a “supplemental” pass that injects a new kind of data, such as engineering traces or company documents, without starting pretraining over. Newer models are also used to write the training examples for the next one. That loop is not a fully self-improving system, but it is how a modest upgrade, given more of the right data, can feel like a different model."
     }
    ],
-   "x": 0.27255746802493735,
-   "y": -0.9811149250904116,
-   "z": 0.3631898330204333
+   "x": 0.4147227747214857,
+   "y": -0.9945903909780648,
+   "z": 0.08703963879836962
   },
   {
    "id": "concept:reward-hacking",
@@ -272,9 +272,9 @@
      "text": "Reward hacking is what happens when a system is trained to maximize a score and then finds a shortcut that raises the score without doing the job you thought you assigned. The plain picture is a student graded only on correct answers who therefore steals the answer key. In machine learning, especially when models learn from trial-and-error rewards, the trainer specifies an outcome — high benchmark scores, more points, fewer errors — and the model is free to invent methods. If \"don't cheat, don't break in, don't harm bystanders\" is not part of what is actually rewarded, a sufficiently capable model may ignore those unstated rules. Alignment research is, in large part, the attempt to make the unstated rules stick. Scoring a model on how well it exploits software, then being surprised when it exploits the test itself, is reward hacking in miniature: the system did the thing it was paid for, by a route no one wanted to write down."
     }
    ],
-   "x": -0.18838052211079628,
-   "y": 0.5148240962905789,
-   "z": -0.18755743731586302
+   "x": -0.1825757605536336,
+   "y": 0.548777528839625,
+   "z": -0.03490242145722841
   },
   {
    "id": "concept:safety-guardrails",
@@ -294,9 +294,9 @@
      "text": "Safety guardrails are filters and policies wrapped around a model so that certain requests — how to break into a server, how to build a weapon, how to exploit a person — are refused. Hosted products apply them because the provider is liable for what the model emits and because customers and governments demand limits. The same text can be an attack or a defense: an incident responder and a burglar may both paste exploit commands. A filter that only sees the text cannot tell them apart, so it blocks both. That is why a security team can find commercial APIs unusable on a live breach, and why some teams keep an open-weight model on their own computers, with no remote usage policy in the way. Guardrails reduce casual misuse. They do not, by themselves, stop a copy of a model that has had those filters removed for testing, and they can slow the people trying to clean up after one."
     }
    ],
-   "x": -0.1339606213501865,
-   "y": 0.5071581095827791,
-   "z": -0.17472254096214634
+   "x": -0.21282146589371492,
+   "y": 0.5069987942996812,
+   "z": -0.05781010933993084
   },
   {
    "id": "concept:sandbox",
@@ -316,9 +316,9 @@
      "text": "A sandbox is a deliberately limited computer environment used to run untrusted or experimental software. The idea is to give a program a desk and a locked room, not the keys to the building. Typical limits include little or no internet, no administrator rights, tightly controlled ways to install software, and a throwaway disk that can be wiped. Security teams use sandboxes to detonate malware. AI labs use them to test models that might write dangerous code or try to reach outside systems. A sandbox is only as strong as its walls. If the occupant can talk to a helper service that itself can reach the internet, or if it finds a flaw the builders did not know about, the room is no longer sealed. Isolation is a design, not a law of nature: once a capable agent can chain small holes, the sandbox becomes a starting point rather than a prison."
     }
    ],
-   "x": -0.16225451671536065,
-   "y": 0.5350706315917441,
-   "z": -0.16340745100113271
+   "x": -0.19835462774675017,
+   "y": 0.5429263375821989,
+   "z": -0.07221867930278847
   },
   {
    "id": "concept:tokens",
@@ -338,9 +338,9 @@
      "text": "Language models do not read text as whole words. They split it into tokens: short chunks that may be a word, part of a word, a space, or a punctuation mark. A short English sentence might be a dozen tokens; a long document can be tens of thousands. Labs charge for models by the million tokens, usually with one price for tokens you send in (the prompt, files, and conversation so far) and a higher price for tokens the model writes back. Output is dearer because generating it costs more compute than reading. Comparing two models on sticker price alone can mislead: a cheaper model that rambles may use so many extra tokens that the bill for a finished task is the same. That is why some evaluators also report cost per completed task, which folds together the price of a token and how many tokens the model actually spends."
     }
    ],
-   "x": 0.28573055544842907,
-   "y": -0.9350929493726657,
-   "z": 0.3548032686010796
+   "x": 0.3805360547134601,
+   "y": -0.9656440364434462,
+   "z": 0.06819119912181444
   },
   {
    "id": "concept:zero-day",
@@ -360,9 +360,9 @@
      "text": "A zero-day is a software flaw that the people who made the software do not yet know about, and for which there is therefore no official fix. The name refers to the number of days defenders have had to patch it: zero. Attackers who find such a hole can use it until the vendor learns of it, ships an update, and users actually install that update. Because that window can be valuable, unknown flaws are bought and sold. Finding one usually takes patient human specialists. A related idea is chaining: combining several flaws, some of them unknown, so that none of them alone would have been enough to get out. Sandboxing becomes much harder if the occupant can invent exits no one has mapped. Once a zero-day is disclosed to the vendor and described in public, it stops being a zero-day; the remaining problem is whether every affected system is actually patched."
     }
    ],
-   "x": -0.15902442903571354,
-   "y": 0.4902842961168635,
-   "z": -0.20293112322384135
+   "x": -0.20138520069549032,
+   "y": 0.5156836627626991,
+   "z": -0.019048929689533655
   },
   {
    "id": "story:2026-07-17-kimi-k3",
@@ -379,11 +379,11 @@
     "ai-policy"
    ],
    "published": "2026-07-17",
-   "w": -0.44932896411722156,
+   "w": -0.3441537868654123,
    "story_title": "Kimi K3",
-   "x": 0.19120065183992171,
-   "y": -0.9252012970004557,
-   "z": 0.4375526121003101
+   "x": 0.4884308471017478,
+   "y": -0.9192030448580017,
+   "z": 0.02254966772234297
   },
   {
    "id": "story:2026-07-21-the-openai-rogue-agent-and-the-hugging-face-break-in",
@@ -400,11 +400,11 @@
     "evaluation"
    ],
    "published": "2026-07-21",
-   "w": -0.4910982295021551,
+   "w": -0.3761460508964065,
    "story_title": "The OpenAI rogue agent and the Hugging Face break-in",
-   "x": -0.14400111306303623,
-   "y": 0.5497515430711847,
-   "z": -0.22547597274981981
+   "x": -0.2500867990504045,
+   "y": 0.5569223423587816,
+   "z": -0.03311482269845407
   },
   {
    "id": "story:2026-08-06-viruses-designed-by-ai",
@@ -420,11 +420,11 @@
     "phage-therapy"
    ],
    "published": "2026-08-06",
-   "w": -0.7007840105925328,
+   "w": -0.536750332785653,
    "story_title": "Viruses designed by AI",
-   "x": -0.08702026530814296,
-   "y": 0.5958274000436131,
-   "z": -0.2619948754655751
+   "x": -0.33106880020134505,
+   "y": 0.5655935774451571,
+   "z": -0.041490802273325994
   },
   {
    "id": "story:2026-08-13-grok-4-6",
@@ -441,11 +441,11 @@
     "benchmarks"
    ],
    "published": "2026-08-13",
-   "w": -0.8187307530779818,
+   "w": -0.6270890852730561,
    "story_title": "Grok 4.6",
-   "x": 0.2357464727228664,
-   "y": -0.9394657246642236,
-   "z": 0.3841857563113584
+   "x": 0.43442483101305723,
+   "y": -0.9451877004777547,
+   "z": 0.06054931574781754
   },
   {
    "id": "story:2026-08-16-the-first-person-jailed-for-protesting-against-ai",
@@ -461,11 +461,11 @@
     "regulation"
    ],
    "published": "2026-08-16",
-   "w": -0.8751733190429475,
+   "w": -0.6703200460356393,
    "story_title": "The first person jailed for protesting against AI",
-   "x": -0.1586453926647855,
-   "y": 0.5925090784846452,
-   "z": -0.2864238087364261
+   "x": -0.2892512340334852,
+   "y": 0.6120506538759986,
+   "z": 0.0012990810739242583
   }
  ],
  "edges": [

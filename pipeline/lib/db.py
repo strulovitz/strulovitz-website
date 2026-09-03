@@ -454,6 +454,429 @@ def health(driver: Driver) -> dict[str, Any]:
     }
 
 
+# ==============================================================================
+# THE KNOWLEDGE ITSELF: STORIES, SOURCES, AND EDITIONS
+# ==============================================================================
+#
+# WHY THIS SECTION EXISTS (bible/part-00.md LAW 5, bible/part-01.md 1.4 and 1.5)
+# LAW 5 says Neo4j is "the single permanent source of truth for all knowledge
+# (articles, claims, entities, tags, editions, benchmarks, snapshots)", and
+# Part 01's iron rule 3 says "Every stage reads and writes THROUGH Neo4j; files
+# on disk are caches and exports, never truth." Until 2026-09-03 this section
+# did not exist: the editions machine stored everything in files and the
+# database only kept the bookkeeping. Nir caught this violation and ordered
+# the Bible followed exactly. So the knowledge now lives HERE, and the files
+# under content/stories/ are what the Bible always said they should be:
+# exports and caches, regenerated from this truth.
+#
+# WHAT IS STORED (bible/part-02.md, applied to what exists today)
+# The full Part 02 model includes claims, entity registries, canon lifecycles
+# and typed claim edges - the machinery of Milestones 2-3, not yet built. What
+# the magazine HAS today is stored completely and honestly:
+#   Story     one news item (Part 02's event node: evt-...). Carries both the
+#             two clocks Part 02 2.1.2 demands: when it happened in the world
+#             (published_min, from its sources) and when we learned it
+#             (created_at_utc).
+#   Source    one fetched document (Part 02 2.2). The frozen text itself stays
+#             on disk, exactly as the Bible wants: "raw_text_path (kitchen disk
+#             cache)" - the evidence bundle, with its fingerprint recorded here.
+#   Edition   one model's complete rendering of one story (Part 02 2.9): the
+#             headline, TLDR, article, image prompt, cost, tokens, latency -
+#             plus everything else the rendering recorded.
+#   Tag       the shared tag vocabulary. Each edition CHOSE its own tags
+#             (DECISIONS.md decision 20), and those choices are edges, so
+#             "which models tagged this story 'open-weights'" is one query.
+#   Concept   an encyclopedia entry one edition wrote (term, slug,
+#             explanation). Keyed per edition, but indexed by slug so all
+#             eight editions' takes on the same idea are comparable - the whole
+#             point of the magazine.
+#   KeyPoint  a bullet an edition extracted, with the source URL it points at -
+#             the honest ancestor of Part 02's claims, which arrive with
+#             Milestones 2-3.
+#   ImageJob  the local render of an edition's illustration (model, seed,
+#             steps, seconds) - image prompts are edition truth, image FILES
+#             are artifacts (Part 12: "we back up truth, not artifacts").
+#
+# HOW WRITES HAPPEN (LAW 12)
+# Everything below is MERGE-based and idempotent: running the loader twice
+# stores the same knowledge twice ZERO times. Re-running after a re-parse
+# UPDATES current state (SET over the same stable id) and replaces that
+# edition's tag/concept/keypoint edges, because the database holds what is
+# true NOW; the LEDGER, append-only, holds what HAPPENED - that division is
+# the whole design of Part 12.
+
+# --- The rules (constraints first, then the indexes the questions need) ---
+KNOWLEDGE_SCHEMA_STATEMENTS: tuple[str, ...] = (
+    "CREATE CONSTRAINT story_id_unique IF NOT EXISTS "
+    "FOR (s:Story) REQUIRE s.story_id IS UNIQUE",
+    "CREATE INDEX story_created_index IF NOT EXISTS "
+    "FOR (s:Story) ON (s.created_at_utc)",
+    "CREATE CONSTRAINT source_id_unique IF NOT EXISTS "
+    "FOR (s:Source) REQUIRE s.source_id IS UNIQUE",
+    "CREATE INDEX source_url_index IF NOT EXISTS "
+    "FOR (s:Source) ON (s.url)",
+    "CREATE CONSTRAINT edition_id_unique IF NOT EXISTS "
+    "FOR (e:Edition) REQUIRE e.edition_id IS UNIQUE",
+    "CREATE INDEX edition_model_index IF NOT EXISTS "
+    "FOR (e:Edition) ON (e.model_slug)",
+    "CREATE INDEX edition_story_index IF NOT EXISTS "
+    "FOR (e:Edition) ON (e.story_slug)",
+    "CREATE CONSTRAINT tag_slug_unique IF NOT EXISTS "
+    "FOR (t:Tag) REQUIRE t.slug IS UNIQUE",
+    "CREATE CONSTRAINT concept_key_unique IF NOT EXISTS "
+    "FOR (c:Concept) REQUIRE c.key IS UNIQUE",
+    "CREATE INDEX concept_slug_index IF NOT EXISTS "
+    "FOR (c:Concept) ON (c.slug)",
+    "CREATE CONSTRAINT keypoint_key_unique IF NOT EXISTS "
+    "FOR (k:KeyPoint) REQUIRE k.key IS UNIQUE",
+    "CREATE CONSTRAINT imagejob_key_unique IF NOT EXISTS "
+    "FOR (i:ImageJob) REQUIRE i.key IS UNIQUE",
+)
+
+# --- The ids, shaped the way Part 02 2.1.1 taught: readable, never reused ---
+
+
+def story_id(slug: str) -> str:
+    return f"evt-{slug}"
+
+
+def source_id(fingerprint: str) -> str:
+    return f"src-{fingerprint[:12]}"
+
+
+def edition_id(story_slug: str, model_slug: str) -> str:
+    return f"edn-{story_slug}--{model_slug}"
+
+
+def ensure_knowledge_schema(driver: Driver) -> list[str]:
+    """Make sure the knowledge rules exist. Safe to run any number of times."""
+    applied: list[str] = []
+    with driver.session() as session:
+        for statement in KNOWLEDGE_SCHEMA_STATEMENTS:
+            session.run(statement)
+            applied.append(statement.split(" IF NOT EXISTS")[0])
+    return applied
+
+
+def _edition_properties(story: dict, rendering: dict) -> dict[str, Any]:
+    """The flat, Neo4j-native properties of one edition (its own words)."""
+    produced = rendering.get("produced") or {}
+    return {
+        "edition_id": edition_id(story["slug"], rendering["model_slug"]),
+        "story_slug": story["slug"],
+        "story_title": story.get("title", ""),
+        "model_id": rendering.get("model_id", ""),
+        "model_slug": rendering.get("model_slug", ""),
+        "model_served": rendering.get("model_served", ""),
+        "company": rendering.get("company", ""),
+        "short_name": rendering.get("short_name", ""),
+        "rendered_at_utc": rendering.get("rendered_at_utc", ""),
+        "reparsed_at_utc": rendering.get("reparsed_at_utc", ""),
+        "brief_version": rendering.get("brief_version", ""),
+        "asked_with_strict_schema": bool(rendering.get("asked_with_strict_schema")),
+        "bought_in_batch": bool(rendering.get("bought_in_batch")),
+        "understood": bool(rendering.get("understood")),
+        "cost_usd": float(rendering.get("cost_usd") or 0.0),
+        "prompt_tokens": int(rendering.get("prompt_tokens") or 0),
+        "completion_tokens": int(rendering.get("completion_tokens") or 0),
+        "reasoning_tokens": int(rendering.get("reasoning_tokens") or 0),
+        "seconds_waited": float(rendering.get("seconds_waited") or 0.0),
+        "generation_id": rendering.get("generation_id", ""),
+        "image_prompt_asked_separately": bool(rendering.get("image_prompt_asked_separately")),
+        "image_prompt_second_chance": bool(rendering.get("image_prompt_second_chance")),
+        "image_prompt_cost_usd": float(rendering.get("image_prompt_cost_usd") or 0.0),
+        # The produced content itself - prose and choices, stored as truth.
+        "headline": produced.get("headline", ""),
+        "tldr": produced.get("tldr", ""),
+        "article": produced.get("article", ""),
+        "image_prompt": produced.get("image_prompt", ""),
+    }
+
+
+def upsert_story(driver: Driver, story: dict) -> str:
+    """
+    Store one Story (the news item itself) and its frozen Sources.
+
+    The Story's own two clocks (Part 02 2.1.2): published_min is when the
+    thing happened in the world (earliest source publication date), and
+    created_at_utc is when we recorded it. Corrections and re-runs update
+    knowledge time, never event time.
+    """
+    published_min = min(
+        (s.get("published", "") for s in story.get("sources", []) if s.get("published")),
+        default=str(story.get("created_at_utc", ""))[:10],
+    )
+    with driver.session() as session:
+        session.run(
+            "MERGE (s:Story {story_id: $story_id}) "
+            "SET s.slug = $slug, s.title = $title, s.created_at_utc = $created, "
+            "    s.language = $language, s.published_min = $published_min, "
+            "    s.source_count = $source_count, s.total_words = $total_words",
+            story_id=story_id(story["slug"]), slug=story["slug"],
+            title=story.get("title", ""), created=str(story.get("created_at_utc", "")),
+            language=story.get("language", ""), published_min=published_min,
+            source_count=int(story.get("source_count") or len(story.get("sources", []))),
+            total_words=int(story.get("total_words") or 0),
+        )
+        for source in story.get("sources", []):
+            session.run(
+                "MERGE (src:Source {source_id: $source_id}) "
+                "SET src.url = $url, src.kind = $kind, src.title = $title, "
+                "    src.byline = $byline, src.published = $published, "
+                "    src.fetched_at_utc = $fetched, src.site = $site, "
+                "    src.words = $words, src.note = $note, src.text_file = $text_file, "
+                "    src.fingerprint = $fingerprint "
+                "WITH src "
+                "MATCH (s:Story {story_id: $story_id}) "
+                "MERGE (s)-[:HAS_SOURCE]->(src)",
+                source_id=source_id(source.get("fingerprint", "")),
+                url=source.get("url", ""), kind=source.get("kind", ""),
+                title=source.get("title", ""), byline=source.get("byline", ""),
+                published=source.get("published", ""),
+                fetched=source.get("fetched_at_utc", ""), site=source.get("site", ""),
+                words=int(source.get("words") or 0), note=source.get("note", ""),
+                text_file=source.get("text_file", ""),
+                fingerprint=source.get("fingerprint", ""),
+                story_id=story_id(story["slug"]),
+            )
+    return story_id(story["slug"])
+
+
+def upsert_edition(driver: Driver, story: dict, rendering: dict,
+                   image_meta: dict[str, Any] | None = None) -> str:
+    """
+    Store one model's edition of one story, complete: the prose it wrote, the
+    tags it chose, the encyclopedia entries it wrote, the bullets it
+    extracted with the sources they point at, the stories it told readers to
+    read next, and (if it exists) the local render of its illustration.
+
+    Idempotent (LAW 12): a re-run sets the same stable edition_id and replaces
+    that edition's own edges, so a re-parsed edition updates truth without
+    ever duplicating it or touching any other edition's choices.
+    """
+    if not rendering.get("produced"):
+        # An edition that produced nothing is still a fact (a result, per
+        # DECISIONS.md 16), but it carries no content edges at all.
+        return ""
+    produced = rendering["produced"]
+    eid = edition_id(story["slug"], rendering["model_slug"])
+    properties = _edition_properties(story, rendering)
+
+    with driver.session() as session:
+        # The edition node itself, and its place under the story.
+        session.run(
+            "MERGE (e:Edition {edition_id: $eid}) SET e = $props "
+            "WITH e MATCH (s:Story {story_id: $story_id}) "
+            "MERGE (s)-[:HAS_EDITION]->(e)",
+            eid=eid, props=properties, story_id=story_id(story["slug"]),
+        )
+        # This edition's own edges are replaced on every store, because the
+        # database holds what is true NOW. No other edition is touched.
+        session.run(
+            "MATCH (e:Edition {edition_id: $eid})-[r:CHOSE_TAG|WROTE_CONCEPT|"
+            "HIGHLIGHTED|POINTS_TO|RENDERED_IMAGE]->() DELETE r",
+            eid=eid,
+        )
+        # The tags it chose (decision 20: each model chose its own), in the
+        # ORDER it chose them - the order is part of the model's editorial
+        # voice, so it is stored ON the edge and read back by it. Never
+        # alphabetize a model's choices: that quietly rewrites its work.
+        for position, tag in enumerate(produced.get("tags") or []):
+            slug = str(tag).strip().lower()
+            if slug:
+                session.run(
+                    "MERGE (t:Tag {slug: $slug}) "
+                    "WITH t MATCH (e:Edition {edition_id: $eid}) "
+                    "MERGE (e)-[:CHOSE_TAG {position: $position}]->(t)",
+                    slug=slug, eid=eid, position=position,
+                )
+        # The encyclopedia entries it wrote. Keyed per edition, indexed by
+        # slug so the eight takes on the same idea are one query apart. The
+        # order the model listed them in is stored on the edge, the same as
+        # tags: order is editorial voice.
+        for position, concept in enumerate(produced.get("concepts") or []):
+            slug = str(concept.get("slug") or "").strip().lower()
+            if not slug:
+                continue
+            session.run(
+                "MERGE (c:Concept {key: $key}) "
+                "SET c.slug = $slug, c.term = $term, c.explanation = $explanation, "
+                "    c.edition_id = $eid "
+                "WITH c MATCH (e:Edition {edition_id: $eid}) "
+                "MERGE (e)-[:WROTE_CONCEPT {position: $position}]->(c)",
+                key=f"{eid}:{slug}", slug=slug,
+                term=concept.get("term", slug),
+                explanation=concept.get("explanation", ""), eid=eid, position=position,
+            )
+        # The bullets it extracted, each pointing at its source - the honest
+        # ancestor of Part 02's claims (which arrive with the claim pipeline).
+        # Order preserved on the edge, as always.
+        for position, point in enumerate(produced.get("key_points") or []):
+            text = str(point.get("point") or "").strip()
+            if not text:
+                continue
+            key = hashlib.sha256(f"{eid}:{text}".encode("utf-8")).hexdigest()[:24]
+            session.run(
+                "MERGE (k:KeyPoint {key: $key}) "
+                "SET k.text = $text, k.source_url = $source_url, k.edition_id = $eid "
+                "WITH k MATCH (e:Edition {edition_id: $eid}) "
+                "MERGE (e)-[:HIGHLIGHTED {position: $position}]->(k) "
+                "WITH k MATCH (src:Source {url: $source_url}) "
+                "MERGE (k)-[:FROM_SOURCE]->(src)",
+                key=key, text=text, source_url=point.get("source_url", ""),
+                eid=eid, position=position,
+            )
+        # The "read this next" links: this editor's strongest opinion about
+        # how knowledge fits together (they are what the galaxy edges draw).
+        # Order preserved, like every other choice this model made.
+        for position, other in enumerate(produced.get("related") or []):
+            other_slug = str(other).strip()
+            if other_slug:
+                session.run(
+                    "MATCH (e:Edition {edition_id: $eid}) "
+                    "MATCH (s:Story {story_id: $story_id}) "
+                    "MERGE (e)-[:POINTS_TO {position: $position}]->(s)",
+                    eid=eid, story_id=story_id(other_slug), position=position,
+                )
+        # The local image render, if the illustration stage has made one.
+        # Image files are artifacts; the JOB (model, seed, timing) is truth.
+        if image_meta:
+            session.run(
+                "MERGE (i:ImageJob {key: $eid}) "
+                "SET i = $meta, i.key = $eid "
+                "WITH i MATCH (e:Edition {edition_id: $eid}) "
+                "MERGE (e)-[:RENDERED_IMAGE]->(i)",
+                eid=eid, meta={k: v for k, v in image_meta.items() if k != "prompt"},
+            )
+    return eid
+
+
+def read_editions_for_model(driver: Driver, model_slug: str) -> list[dict[str, Any]]:
+    """
+    Every edition one model produced, in story order, shaped EXACTLY like the
+    file-based reader it replaced (stages/layout.py read_editions), so that
+    switching the pipeline to the database could be verified by rebuilding
+    the galaxies and comparing them byte for byte. Part 01 1.5 iron rule 3:
+    every stage reads through Neo4j - this is how layout.py reads now.
+
+    Returns one dict per edition: the rendering's own fields (cost, tokens,
+    produced prose and choices...) plus the story context (title, published,
+    sources) the galaxy builder needs.
+    """
+    with driver.session() as session:
+        records = session.run(
+            "MATCH (e:Edition {model_slug: $model_slug}) "
+            "MATCH (s:Story)-[:HAS_EDITION]->(e) "
+            "OPTIONAL MATCH (s)-[:HAS_SOURCE]->(src:Source) "
+            "RETURN e, s, collect(distinct src) AS sources "
+            "ORDER BY s.slug",
+            model_slug=model_slug,
+        ).data()
+    editions: list[dict[str, Any]] = []
+    for row in records:
+        edition = dict(row["e"])
+        story = row["s"]
+        sources = [
+            {"url": src.get("url", ""), "title": src.get("title", ""),
+             "byline": src.get("byline", ""), "site": src.get("site", ""),
+             "kind": src.get("kind", ""), "published": src.get("published", "")}
+            for src in row["sources"]
+        ]
+        # Reassemble the exact shape the galaxy builder consumes, so nothing
+        # downstream ever learns that its data source changed.
+        edition["story"] = story["slug"]
+        edition["story_title"] = story.get("title", "")
+        edition["story_published"] = story.get("published_min", "")
+        edition["story_sources"] = sources
+        edition["produced"] = {
+            "headline": edition.pop("headline", ""),
+            "tldr": edition.pop("tldr", ""),
+            "article": edition.pop("article", ""),
+            "image_prompt": edition.pop("image_prompt", ""),
+        }
+        with driver.session() as session:
+            # Every list comes back in the ORDER the model chose it (the
+            # position stored on the edge at write time) - a model's chosen
+            # order is part of its work, never to be alphabetized away.
+            tags = session.run(
+                "MATCH (:Edition {edition_id: $eid})-[r:CHOSE_TAG]->(t:Tag) "
+                "RETURN t.slug AS slug ORDER BY r.position", eid=row["e"]["edition_id"],
+            ).data()
+            concepts = session.run(
+                "MATCH (:Edition {edition_id: $eid})-[r:WROTE_CONCEPT]->(c:Concept) "
+                "RETURN c.term AS term, c.slug AS slug, c.explanation AS explanation "
+                "ORDER BY r.position", eid=row["e"]["edition_id"],
+            ).data()
+            key_points = session.run(
+                "MATCH (:Edition {edition_id: $eid})-[r:HIGHLIGHTED]->(k:KeyPoint) "
+                "RETURN k.text AS point, k.source_url AS source_url "
+                "ORDER BY r.position", eid=row["e"]["edition_id"],
+            ).data()
+            related = session.run(
+                "MATCH (:Edition {edition_id: $eid})-[r:POINTS_TO]->(s:Story) "
+                "RETURN s.slug AS slug ORDER BY r.position", eid=row["e"]["edition_id"],
+            ).data()
+        edition["produced"]["tags"] = [t["slug"] for t in tags]
+        edition["produced"]["concepts"] = concepts
+        edition["produced"]["key_points"] = key_points
+        edition["produced"]["related"] = [r["slug"] for r in related]
+        editions.append(edition)
+    return editions
+
+
+def read_story(driver: Driver, slug: str) -> dict[str, Any] | None:
+    """
+    One story with its frozen sources, shaped EXACTLY like the story.json it
+    replaced (render_edition.py's question builder consumes this). Returns
+    None when no such story exists - the caller decides whether that is an
+    error (the same honest behaviour the file reader had: a missing story
+    raised "Run stages/make_story.py first").
+    """
+    with driver.session() as session:
+        record = session.run(
+            "MATCH (s:Story {slug: $slug}) "
+            "OPTIONAL MATCH (s)-[:HAS_SOURCE]->(src:Source) "
+            "RETURN s, collect(src) AS sources",
+            slug=slug,
+        ).single()
+    if not record:
+        return None
+    story = dict(record["s"])
+    story["slug"] = slug
+    story["sources"] = [
+        {k: src.get(k, "") for k in
+         ("kind", "url", "title", "byline", "published", "fingerprint",
+          "fetched_at_utc", "site", "words", "note", "text_file")}
+        for src in record["sources"]
+    ]
+    return story
+
+
+def knowledge_counts(driver: Driver) -> dict[str, int]:
+    """
+    The honest census, for the ledger and for Nir: how much knowledge the
+    database actually holds. The pre-upload validator of Part 12 12.3.2 will
+    one day compare an export's counts against these - that is when the
+    "counts match Neo4j" rule gets its teeth.
+    """
+    queries = {
+        "stories": "MATCH (:Story) RETURN count(*) AS n",
+        "sources": "MATCH (:Source) RETURN count(*) AS n",
+        "editions": "MATCH (:Edition) RETURN count(*) AS n",
+        "tags": "MATCH (:Tag) RETURN count(*) AS n",
+        "concepts": "MATCH (:Concept) RETURN count(*) AS n",
+        "key_points": "MATCH (:KeyPoint) RETURN count(*) AS n",
+        "image_jobs": "MATCH (:ImageJob) RETURN count(*) AS n",
+        "read_next_links": "MATCH ()-[:POINTS_TO]->() RETURN count(*) AS n",
+    }
+    counts: dict[str, int] = {}
+    with driver.session() as session:
+        for name, query in queries.items():
+            record = session.run(query).single()
+            counts[name] = record["n"] if record else 0
+    return counts
+
+
 if __name__ == "__main__":
     # Running this file directly only LOOKS. It writes nothing, so it is safe
     # to run at any time, including while a pipeline stage is working.
