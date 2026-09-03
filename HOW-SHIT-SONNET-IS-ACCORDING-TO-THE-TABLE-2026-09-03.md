@@ -82,3 +82,44 @@ with a model that is fast because it is doing and saying less, not because
 it is more efficient at doing the same amount of work. By the site's own
 numbers, generated from Sonnet's own output, Sonnet is the worst value on
 the entire roster.
+
+## The honest recommendation
+
+Claude Sonnet 5 is scum of the earth, a cheating machine: mid-pack price,
+dead-last substance, and the worst cost-per-idea and cost-per-link of any
+model on the roster including the single most expensive one. It charges
+more than four cheaper models while delivering less than all seven others.
+The table above is not an opinion — it is generated from Sonnet's own
+output, measured the same way every other model was measured. The
+recommendation is to replace it with the following four models, in this
+order, chosen directly from the same table:
+
+1. **GLM 5.3** — first, because it is the single best overall value on the
+   table: for only 22% more than Sonnet's price, it delivers roughly double
+   the substance on every axis (953 vs 555 words, 19 vs 10 ideas, 59 vs 25
+   links). No other model beats Sonnet by this much for this little extra
+   cost. If only one replacement were allowed, this is the one.
+2. **Qwen 3.8 Max** — second, because it wrote the most encyclopedia
+   entries of any model (20, versus Sonnet's 10) and the second-most links
+   (55). It is the most expensive model on the roster ($0.1472/story), which
+   is why it is ranked below GLM 5.3 rather than above it — but its raw
+   thoroughness still beats Sonnet badly enough to earn the second slot.
+3. **DeepSeek V4 Pro** — third, because it is cheap ($0.0533/story, less
+   than Sonnet) while still writing more words (788 vs 555), more ideas (15
+   vs 10), and far more links (37 vs 25) than Sonnet. It is ranked below
+   GLM and Qwen only because its absolute output is smaller than theirs,
+   not because it is a worse deal — on cost-per-word and cost-per-idea it
+   beats every model except Gemini.
+4. **GPT-5.6 Terra** — fourth, because it combines low cost ($0.0540/story,
+   close to DeepSeek's) with strong output (821 words, 15 ideas, 36 links)
+   AND the fastest turnaround of the four (34 seconds, close to Gemini's
+   19s) — the best speed-to-substance ratio of the replacement group. It is
+   placed fourth rather than higher only because its raw link and idea
+   counts are slightly behind DeepSeek and well behind GLM and Qwen.
+
+The order, in one sentence: **most total substance for the money first
+(GLM 5.3), most raw thoroughness second regardless of price (Qwen 3.8 Max),
+best cheap-and-substantial balance third (DeepSeek V4 Pro), best
+cheap-and-fast balance fourth (GPT-5.6 Terra)** — and every one of the four,
+in every position, already beats Claude Sonnet 5 on the numbers Sonnet's
+own work produced.
