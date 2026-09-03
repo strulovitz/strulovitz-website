@@ -1021,6 +1021,7 @@ function drawVrCard(node) {
 function updateVrHoverCard() {
   if (!renderer.xr.isPresenting) { vrCardPanel.visible = false; return; }
   const dwelling = vrHoverNode >= 0 && usingRealContent && !gym.active
+    && !vrReading.open
     && (performance.now() - vrHoverSince) > 150 && !menuPanel.visible;
   vrCardPanel.visible = dwelling;
   if (!dwelling) { vrCardDrawnFor = -1; return; }
@@ -1043,6 +1044,224 @@ function updateVrHoverCard() {
   const width = 0.30 * distance;
   const height = width * (vrCardCanvas.height / vrCardCanvas.width);
   vrCardPanel.scale.set(width, height, 1);
+}
+
+/*
+ * THE READING PANEL IN THE HEADSET (bible/part-05.md 5.5.4, part-04.md 4.5.4)
+ *
+ * Trigger on a focused node OPENS: the node's whole reading page - headline,
+ * one-line summary, the FULL-SIZE picture, the complete article, the key
+ * points, the read-next links and the sources - laid out on a tall document
+ * canvas and shown through a scrolling window. The panel sits body-anchored
+ * in front of the reader (a slow drift, never glued to the view, per 5.1.5),
+ * scrolls with the right thumbstick while it is open, and B closes it.
+ *
+ * WHERE THE TEXT COMES FROM: the SAME reading page a screen click would open
+ * (stories/<slug>/<model>.html) - fetched, parsed, rendered onto the canvas.
+ * The headset and the screen therefore always read the same words from the
+ * same file, and this panel can never drift from the pages.
+ *
+ * The compositor-layer crispness of part-04.md 4.5.4 is the ideal; this is
+ * the Bible's own sanctioned fallback ("an in-scene quad at 1.3x texture
+ * density") - the window canvas is 1024 wide over a ~0.42 m panel.
+ */
+const vrReadingCanvas = document.createElement('canvas');
+vrReadingCanvas.width = 1024; vrReadingCanvas.height = 1024;
+const vrReadingContext = vrReadingCanvas.getContext('2d');
+const vrReadingTexture = new THREE.CanvasTexture(vrReadingCanvas);
+vrReadingTexture.colorSpace = THREE.SRGBColorSpace;
+const vrReadingPanel = new THREE.Mesh(
+  new THREE.PlaneGeometry(1, 1),
+  new THREE.MeshBasicMaterial({ map: vrReadingTexture, transparent: true, depthWrite: false })
+);
+vrReadingPanel.renderOrder = 30;
+vrReadingPanel.visible = false;
+panorama.scene.add(vrReadingPanel);
+
+const vrReading = {
+  open: false, node: -1, scroll: 0, docHeight: 0, content: null,
+  lastBlitScroll: -1,
+};
+const vrReadingDoc = document.createElement('canvas');
+const vrReadingDocContext = vrReadingDoc.getContext('2d');
+const vrReadingScratch = new THREE.Vector3();
+const vrReadingForward = new THREE.Vector3();
+// Full-size illustrations are heavy, so only the last few are kept.
+const vrReadingImages = new Map();
+function vrReadingImage(src, onArrived) {
+  const cached = vrReadingImages.get(src);
+  if (cached) return (cached === 'loading' || cached === 'missing') ? null : cached;
+  if (vrReadingImages.size > 4) vrReadingImages.delete(vrReadingImages.keys().next().value);
+  const image = new Image();
+  vrReadingImages.set(src, 'loading');
+  image.onload = () => { vrReadingImages.set(src, image); onArrived(); };
+  image.onerror = () => { vrReadingImages.set(src, 'missing'); };
+  image.src = src;
+  return null;
+}
+const vrReadingPages = new Map();   // pageUrl -> parsed content, last few only
+
+function parseReadingPage(htmlText) {
+  const doc = new DOMParser().parseFromString(htmlText, 'text/html');
+  const pick = (selector) => Array.from(doc.querySelectorAll(selector));
+  const base = doc.querySelector('.crumbs') ? '' : '';
+  return {
+    headline: (doc.querySelector('h1') || {}).textContent || '',
+    tldr: (doc.querySelector('.tldr') || {}).textContent || '',
+    imageSrc: (doc.querySelector('figure img') || {}).getAttribute?.('src') || null,
+    imageCaption: (doc.querySelector('figure figcaption') || {}).textContent || '',
+    paragraphs: pick('.article p').map((p) => p.textContent),
+    points: pick('ul.points li').map((li) => li.textContent.trim()),
+    nextLinks: pick('.next a .where').map((w) => w.textContent),
+    sources: pick('ul.sources li').map((li) => li.textContent.trim()),
+  };
+}
+
+async function openVrReading(node) {
+  focusNode(node);
+  vrReading.node = node;
+  const pageUrl = data.pageOf[node];
+  let content = vrReadingPages.get(pageUrl);
+  if (!content) {
+    try {
+      const response = await fetch(pageUrl);
+      content = parseReadingPage(await response.text());
+      if (vrReadingPages.size > 4) vrReadingPages.delete(vrReadingPages.keys().next().value);
+      vrReadingPages.set(pageUrl, content);
+    } catch (whyNot) {
+      // An honest panel beats a blank one: say what failed, in words.
+      content = { headline: 'The page did not open', tldr: whyNot.message,
+                  imageSrc: null, imageCaption: '', paragraphs: [],
+                  points: [], nextLinks: [], sources: [] };
+    }
+  }
+  vrReading.content = content;
+  vrReading.scroll = 0;
+  vrReading.open = true;
+  layoutVrReadingDocument();
+  // Appear in front of the reader at open time, then drift gently (5.1.5).
+  camera.getWorldDirection(vrReadingForward);
+  vrReadingScratch.copy(camera.position).addScaledVector(vrReadingForward, 1.15);
+  vrReadingScratch.y -= 0.05;
+  vrReadingPanel.position.copy(vrReadingScratch);
+  vrReadingPanel.visible = true;
+}
+
+function closeVrReading() {
+  vrReading.open = false;
+  vrReading.node = -1;
+  vrReadingPanel.visible = false;
+}
+
+function layoutVrReadingDocument() {
+  const content = vrReading.content;
+  if (!content) return;
+  const c = vrReadingDocContext;
+  const W = 1024, M = 44, textWidth = W - 2 * M;
+  const image = content.imageSrc
+    ? vrReadingImage(content.imageSrc, () => { layoutVrReadingDocument(); })
+    : null;
+  const hasImage = image && image.naturalWidth > 0;
+  const pictureHeight = hasImage
+    ? Math.round(textWidth * (image.naturalHeight / image.naturalWidth)) : 0;
+
+  // Build the document as a flat list of text blocks, in reading order.
+  const blocks = [];
+  const push = (kind, lines, lineHeight, color, font, bullet) =>
+    blocks.push({ kind, lines, lineHeight, color, font, bullet: !!bullet });
+  c.font = 'bold 36px system-ui, sans-serif';
+  push('headline', wrapCardText(c, content.headline, textWidth, 3), 44, '#ffffff', c.font);
+  c.font = 'italic 26px system-ui, sans-serif';
+  push('tldr', wrapCardText(c, content.tldr, textWidth, 3), 32, '#ffd479', c.font);
+  c.font = '24px system-ui, sans-serif';
+  for (const paragraph of content.paragraphs)
+    push('paragraph', wrapCardText(c, paragraph, textWidth, 14), 33, '#dbe4f4', c.font);
+  if (content.points.length) {
+    push('heading', ['The key points'], 42, '#ffffff', 'bold 28px system-ui, sans-serif');
+    for (const point of content.points)
+      push('paragraph', wrapCardText(c, point, textWidth - 28, 3), 30, '#dbe4f4', c.font, true);
+  }
+  if (content.nextLinks.length) {
+    push('heading', ['Read next, says this edition'], 42, '#ffffff', 'bold 28px system-ui, sans-serif');
+    for (const link of content.nextLinks)
+      push('paragraph', [link], 30, '#9fd0ff', c.font);
+  }
+  if (content.sources.length) {
+    push('heading', ['The frozen sources'], 42, '#ffffff', 'bold 28px system-ui, sans-serif');
+    for (const source of content.sources)
+      push('paragraph', wrapCardText(c, source, textWidth, 2), 28, '#a8bad8', c.font);
+  }
+
+  // The picture goes between the summary and the first article paragraph.
+  let pictureSlot = blocks.findIndex((b) => b.kind === 'paragraph');
+  if (pictureSlot < 0) pictureSlot = blocks.length;
+
+  // MEASURE pass: how tall the whole document is.
+  let docHeight = M;
+  blocks.forEach((block) => { docHeight += block.lines.length * block.lineHeight + 10; });
+  docHeight += pictureHeight + (hasImage ? 14 : 0) + 40 + M;
+  vrReadingDoc.width = W;
+  vrReadingDoc.height = Math.max(1024, docHeight);
+  vrReading.docHeight = vrReadingDoc.height;
+
+  // DRAW pass.
+  c.fillStyle = '#0a0f1b';
+  c.fillRect(0, 0, W, vrReadingDoc.height);
+  c.strokeStyle = '#38507d';
+  c.lineWidth = 3;
+  c.strokeRect(1, 1, W - 2, vrReadingDoc.height - 2);
+  let y = M;
+  for (let index = 0; index < blocks.length; index++) {
+    if (index === pictureSlot && hasImage) {
+      c.drawImage(image, M, y, textWidth, pictureHeight);
+      y += pictureHeight + 14;
+    }
+    const block = blocks[index];
+    c.fillStyle = block.color;
+    c.font = block.font;
+    for (let li = 0; li < block.lines.length; li++) {
+      const bulletPrefix = (block.bullet && li === 0) ? '· ' : '';
+      c.fillText(bulletPrefix + block.lines[li],
+                 M + (block.bullet ? 28 : 0), y + block.lineHeight - 8);
+      y += block.lineHeight;
+    }
+    y += 10;
+  }
+  blitVrReadingWindow();
+}
+function blitVrReadingWindow() {
+  const maxScroll = Math.max(0, vrReading.docHeight - 1024);
+  vrReading.scroll = Math.min(Math.max(0, vrReading.scroll), maxScroll);
+  const c = vrReadingContext;
+  c.fillStyle = '#000';
+  c.fillRect(0, 0, 1024, 1024);
+  c.drawImage(vrReadingDoc, 0, vrReading.scroll, 1024, 1024, 0, 0, 1024, 1024);
+  // The scroll hint rides fixed to the bottom of the window.
+  c.fillStyle = 'rgba(13, 20, 36, 0.92)';
+  c.fillRect(0, 1024 - 44, 1024, 44);
+  c.fillStyle = '#8fa3c4';
+  c.font = 'italic 22px system-ui, sans-serif';
+  c.fillText('scroll: thumbstick   close: B   ' +
+             `page ${Math.round(vrReading.scroll / 1024) + 1} of ${Math.ceil(vrReading.docHeight / 1024)}`,
+             44, 1024 - 16);
+  vrReadingTexture.needsUpdate = true;
+  vrReading.lastBlitScroll = vrReading.scroll;
+}
+
+function updateVrReading(deltaMs) {
+  if (!vrReading.open) return;
+  // Body-anchored drift (part-05.md 5.1.5): follow the head slowly, never
+  // rigidly. Rigid head-lock fights the vestibular system; a gentle drift
+  // reads as "floating beside me".
+  camera.getWorldDirection(vrReadingForward);
+  vrReadingScratch.copy(camera.position).addScaledVector(vrReadingForward, 1.15);
+  vrReadingScratch.y -= 0.05;
+  vrReadingPanel.position.lerp(vrReadingScratch, 0.02);
+  vrReadingPanel.lookAt(camera.position);
+  const distance = vrReadingPanel.position.distanceTo(camera.position);
+  const width = 0.42 * distance;
+  vrReadingPanel.scale.set(width, width, 1);
+  if (vrReading.lastBlitScroll !== vrReading.scroll) blitVrReadingWindow();
 }
 
 function drawMenu() {
@@ -1203,8 +1422,16 @@ function readControllers(deltaMs) {
 
     if (isRight) {
       // ---- RIGHT HAND: ordinary 3D rotation, and pointing ----
-      if (Math.abs(axisX) > deadZone) rotateCapped('xz', axisX * 0.9 * (deltaMs / 1000) * 3, deltaMs);
-      if (Math.abs(axisY) > deadZone) rotateCapped('yz', axisY * 0.9 * (deltaMs / 1000) * 3, deltaMs);
+      if (vrReading.open) {
+        // While the reading panel is open, the thumbstick SCROLLS the page
+        // instead of turning the world (part-05.md 5.5.4: scrollable by
+        // stick). The world keeps still while you read.
+        if (Math.abs(axisY) > deadZone)
+          vrReading.scroll += axisY * 900 * (deltaMs / 1000);
+      } else {
+        if (Math.abs(axisX) > deadZone) rotateCapped('xz', axisX * 0.9 * (deltaMs / 1000) * 3, deltaMs);
+        if (Math.abs(axisY) > deadZone) rotateCapped('yz', axisY * 0.9 * (deltaMs / 1000) * 3, deltaMs);
+      }
 
       hand.rayLine.visible = true;
       const origin = new THREE.Vector3().setFromMatrixPosition(hand.controller.matrixWorld);
@@ -1267,7 +1494,20 @@ function readControllers(deltaMs) {
             panorama.graph.position.y + panorama.out3[found * 3 + 1] * scale,
             panorama.graph.position.z + panorama.out3[found * 3 + 2] * scale);
           if (pressed(BUTTON.TRIGGER)) {
-            focusNode(found);
+            // Part 05 5.5.3-5.5.4, exactly: first trigger FOCUSES the node
+            // (it becomes the pivot); a second trigger on the ALREADY
+            // FOCUSED node OPENS its reading panel. While a panel is open,
+            // the trigger on a different node switches the panel to it.
+            if (gym.active) {
+              focusNode(found);
+            } else if (vrReading.open && found !== vrReading.node) {
+              openVrReading(found);
+            } else if (!vrReading.open && panorama.focusedNode === found
+                       && data.kinds[found] !== undefined) {
+              openVrReading(found);
+            } else {
+              focusNode(found);
+            }
             // A short haptic tap confirms the pick by feel, so the reader does
             // not need to look for confirmation (bible/part-05.md 5.3.5).
             source.gamepad.hapticActuators?.[0]?.pulse?.(0.4, 40);
@@ -1285,11 +1525,17 @@ function readControllers(deltaMs) {
         else panorama.toggleMode();
       }
       // B on the right hand opens the menu too. Two buttons for one action is
-      // not clutter when the action is the way home.
+      // not clutter when the action is the way home. But if a reading panel is
+      // open, B is first and foremost the way OUT of the panel (part-05.md
+      // 5.5.4: "Closing (B ...) returns to the graph with the node still
+      // focused").
       if (pressed(BUTTON.FACE_UPPER)) {
-        menuPanel.visible = !menuPanel.visible;
-        menuHighlight = -1;
-        buildMenu();
+        if (vrReading.open) { closeVrReading(); }
+        else {
+          menuPanel.visible = !menuPanel.visible;
+          menuHighlight = -1;
+          buildMenu();
+        }
       }
     } else {
       // ---- LEFT HAND: the fourth dimension lives here ----
@@ -1319,11 +1565,15 @@ function readControllers(deltaMs) {
 
       // X toggles slice and projection mode.
       if (pressed(BUTTON.FACE_LOWER)) panorama.toggleMode();
-      // Y opens and closes the hand menu.
+      // Y opens and closes the hand menu - or, if a reading panel is open,
+      // closes the panel first (the way home has an order, part-05.md 5.5.4).
       if (pressed(BUTTON.FACE_UPPER)) {
-        menuPanel.visible = !menuPanel.visible;
-        menuHighlight = -1;
-        buildMenu();
+        if (vrReading.open) { closeVrReading(); }
+        else {
+          menuPanel.visible = !menuPanel.visible;
+          menuHighlight = -1;
+          buildMenu();
+        }
       }
     }
 
@@ -1555,6 +1805,7 @@ renderer.setAnimationLoop(() => {
 
   updateScreenHover();
   updateVrHoverCard();
+  updateVrReading(deltaMs);
 
   gaugeClock += deltaMs;
   const status = panorama.status();

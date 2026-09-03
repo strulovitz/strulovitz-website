@@ -19,16 +19,20 @@ headset` because a browser refuses to start VR over a plain connection. A real
 edition loads in the headset exactly as it does on the screen; nothing about the
 galaxy loader is screen-only.
 
-**The one honest gap, PARTLY CLOSED 2026-09-03:** the headset now has a real
-hover card of its own (headline, one-line summary, and for a story the
-PICTURE that edition made for it), drawn on a canvas, hung above the hovered
-node, billboarded, constant angular size, appearing after the same 150 ms
-dwell the screen card uses - so in VR you can now *find* a story AND read
-what it is, picture included. What still remains open from the Milestone 1
-list: the full scrollable READING panel inside the headset (reading the whole
-article in VR), and a headset session to confirm the new card feels right
+**CLOSED IN CODE 2026-09-03, HUMAN CHECK PENDING:** the headset now has BOTH
+halves. (1) A real hover card of its own - headline, one-line summary, and for
+a story the PICTURE that edition made for it - drawn on a canvas, hung above
+the hovered node, billboarded, constant angular size, 150 ms dwell like the
+screen card. (2) The READING panel: a second trigger on a focused node opens
+the node's whole reading page - headline, summary, full-size picture, the
+complete article, key points, read-next links, sources - fetched from the
+very same page a screen click opens, on a body-anchored panel that scrolls
+with the thumbstick and closes with B (part-05.md 5.5.4, the part-04.md 4.5.4
+sanctioned in-scene-quad fallback at high texture density). What remains is
+the part no machine can do: a real headset session to confirm both feel right
 (part-05.md 5.10's validation protocol is human sessions; the machine half -
-loads with zero console errors, all 113 checks green - passed 2026-09-03).
+zero console errors, all 113 checks green, selectors verified against the
+real pages - passed 2026-09-03).
 
 ---
 
