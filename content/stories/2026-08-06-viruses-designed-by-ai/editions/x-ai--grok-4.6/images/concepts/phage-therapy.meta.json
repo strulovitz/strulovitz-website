@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-06-viruses-designed-by-ai",
+ "model_id": "x-ai/grok-4.6",
+ "model_slug": "x-ai--grok-4.6",
+ "kind": "concept",
+ "concept_slug": "phage-therapy",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 1335683939,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A richly detailed scientific illustration centers on a hospital patient receiving an injection against a stubborn infection, with a large magnified circular inset revealing lunar-lander-shaped bacteriophages precisely attaching to and bursting only the disease-causing bacteria while neighboring beneficial microbes remain unharmed, set against a dimmer background panel of antibiotics indiscriminately wiping out the entire microbiome; arrows trace bacteria rapidly mutating into resistant forms, while a glowing AI workstation in the foreground generates an entirely novel, fully functional phage genome as a complete synthetic DNA helix unlike any collected from nature, materializing into custom phages that launch to outpace adaptation, with faded historical medical manuscripts in one corner reminding that the therapy itself is old even as the computer-written complete genomes mark what is new.",
+ "rendered_at_utc": "2026-09-03T12:45:18+00:00",
+ "seconds_waited": 284.5,
+ "vram_free_gb_before_start": 10.86
+}

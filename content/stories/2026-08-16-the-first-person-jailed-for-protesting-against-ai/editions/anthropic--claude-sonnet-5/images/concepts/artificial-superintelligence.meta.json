@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-16-the-first-person-jailed-for-protesting-against-ai",
+ "model_id": "anthropic/claude-sonnet-5",
+ "model_slug": "anthropic--claude-sonnet-5",
+ "kind": "concept",
+ "concept_slug": "artificial-superintelligence",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3587515915,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "Illustration: a split composition contrasting scale. On the left, a small, dim network diagram labeled \"Today's LLMs\" shows a bounded cluster of nodes producing a simple speech bubble of text and code snippets, with a small human figure comfortably supervising it, hand resting on a switch. On the right, a vast, radiant, branching neural network towers upward and outward beyond the frame's edges, its glowing tendrils extending into every direction—symbols of science, medicine, law, engineering, and strategy embedded along its branches—while a tiny human figure below looks up at it, hand reaching uselessly toward a switch now far out of reach, cord severed. Between the two halves, a jagged crack labeled \"Alignment?\" runs down the image like a fault line, and faint protest placards reading \"STOPAI\" are visible at the bottom edge of the frame, small figures holding them and gazing up at the towering network, visually anchoring the abstract concept to real-world activism and the irreversible gap between controllable tools and an uncontrollable, all-surpassing intelligence.",
+ "rendered_at_utc": "2026-09-03T17:08:53+00:00",
+ "seconds_waited": 270.6,
+ "vram_free_gb_before_start": 10.86
+}

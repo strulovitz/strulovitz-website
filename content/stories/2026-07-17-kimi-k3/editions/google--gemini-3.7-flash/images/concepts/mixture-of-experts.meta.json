@@ -1,0 +1,18 @@
+{
+ "story": "2026-07-17-kimi-k3",
+ "model_id": "google/gemini-3.7-flash",
+ "model_slug": "google--gemini-3.7-flash",
+ "kind": "concept",
+ "concept_slug": "mixture-of-experts",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2166383155,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A clean conceptual diagram showing a stream of diverse data tokens (words) arriving at an intelligent central gating mechanism depicted as a luminous, multi-directional router. The router evaluates each incoming token and actively channels it along glowing pathways toward only two or three specific, brightly illuminated \"expert\" sub-networks nestled within a vast, semi-circular gallery of dozens of specialized modules (each subtly themed with distinct domains such as mathematics, linguistics, or code). The selected expert modules pulse with vibrant computational activity, while the vast majority of the other sub-networks remain visually dimmed and dormant in standby mode, clearly communicating how the selective routing system unlocks a massive total reservoir of specialized knowledge without the computational burden of activating the entire network at once.",
+ "rendered_at_utc": "2026-09-03T06:45:42+00:00",
+ "seconds_waited": 368.1,
+ "vram_free_gb_before_start": 10.86
+}

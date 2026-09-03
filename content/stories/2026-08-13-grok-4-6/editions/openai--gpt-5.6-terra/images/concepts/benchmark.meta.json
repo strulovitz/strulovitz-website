@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-13-grok-4-6",
+ "model_id": "openai/gpt-5.6-terra",
+ "model_slug": "openai--gpt-5.6-terra",
+ "kind": "concept",
+ "concept_slug": "benchmark",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2454008822,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A clear editorial illustration of several different AI systems lined up at the same standardized testing station, each facing identical task cards labeled “repair code,” “write analysis,” “research,” and “use terminal,” while a large scoreboard measures their scores with neat, repeatable rules; behind the station, the scene opens into a messy real workplace where a person presents an ambiguous request, scattered follow-up questions, an existing codebase, and a long chain of interconnected steps, showing that the tidy test captures only part of practical usefulness; in one corner, a model studies a familiar leaked-looking test sheet, while in another, an evaluator combines the benchmark score with independent real-task trials, conveying benchmarks as valuable but incomplete evidence rather than a final verdict.",
+ "rendered_at_utc": "2026-09-03T14:16:41+00:00",
+ "seconds_waited": 516.9,
+ "vram_free_gb_before_start": 10.86
+}

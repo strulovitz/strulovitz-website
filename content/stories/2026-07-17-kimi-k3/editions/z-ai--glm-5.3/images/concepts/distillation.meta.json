@@ -1,0 +1,18 @@
+{
+ "story": "2026-07-17-kimi-k3",
+ "model_id": "z-ai/glm-5.3",
+ "model_slug": "z-ai--glm-5.3",
+ "kind": "concept",
+ "concept_slug": "distillation",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2166383155,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A tall, ornate glass vessel shaped like a human head — labeled \"TEACHER\" and glowing with dense, intricate patterns of light inside — pours a thin luminous stream through a funnel into a much smaller, simpler vessel labeled \"STUDENT,\" whose interior is filling with the same swirling patterns but coarser and fainter, showing how a big model's ability is compressed into a small one that punches above its size; yet the stream itself is the object of dispute, for a translucent legal contract floats beside the teacher vessel, half of it stamped with a padlock and the words \"OUTPUTS — NO TRAINING\" while the other half is torn away, and in the background a mirror shows the teacher vessel itself being filled from a firehose spraying pages, books, and websites harvested from an endless public web, with no permission asked; between the two vessels, two groups of tiny silhouetted figures face each other across the flowing stream — one gesturing angrily at the lock, the other pointing back at the mirror — while beneath the whole scene a floor of shifting, half-melted tiles spells out the word \"UNRESOLVED,\" making clear that the picture's real subject is not the transfer of knowledge but the still-unsettled fight over whether one model learning from another differs at all from learning from the internet.",
+ "rendered_at_utc": "2026-09-03T07:50:48+00:00",
+ "seconds_waited": 378.6,
+ "vram_free_gb_before_start": 10.86
+}

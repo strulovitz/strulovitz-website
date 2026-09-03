@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-06-viruses-designed-by-ai",
+ "model_id": "x-ai/grok-4.6",
+ "model_slug": "x-ai--grok-4.6",
+ "kind": "concept",
+ "concept_slug": "genome-language-model",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 1335683939,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A panoramic laboratory-and-compute scene shows thousands of uncoiled DNA helices rendered as four-letter A-C-G-T text strings streaming from stacked genome libraries into a glowing neural-network “chatbot” labeled Evo1/Evo2; the model emits statistically similar but novel sequences while a thought-bubble robot merely predicts letter co-occurrence without biological insight. Those synthetic strings become physical DNA pipetted into living cells under a microscope that splits into a functional virus versus an inert molecule, proving wet-lab testing is required. Surrounding icons of other genome types, locked data vaults, access-control gates, and DNA-order screening machines sit beside arguing scientists, visually encoding the open questions of training data, users, and safeguards.",
+ "rendered_at_utc": "2026-09-03T12:39:29+00:00",
+ "seconds_waited": 309.9,
+ "vram_free_gb_before_start": 9.65
+}

@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-16-the-first-person-jailed-for-protesting-against-ai",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "kind": "concept",
+ "concept_slug": "artificial-superintelligence",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3587515915,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single illustration shows artificial superintelligence as a colossal, luminous mind unfolding above human figures and familiar AI tasks, making clear that it is not merely a faster computer but a qualitatively superior thinker. At the base, small separate icons represent narrow AI, such as a face-recognition frame and a language-translation bubble, while a human-sized figure nearby suggests general intelligence; above both, the superintelligent system branches into science flasks, social networks, strategic maps, and creative sparks, indicating dominance across scientific creativity, social reasoning, and planning. Human creators stand beneath it with control panels that no longer seem fully reliable, and they extend a golden alignment compass or thread toward the vast mind, symbolizing the effort to ensure its goals match human values. Around the scene, cautious observers, policy papers, and linked globes suggest oversight and international coordination, while the image’s speculative, horizon-like style shows that superintelligence is still theoretical but already shaping serious debate.",
+ "rendered_at_utc": "2026-09-03T18:26:48+00:00",
+ "seconds_waited": 389.1,
+ "vram_free_gb_before_start": 10.86
+}

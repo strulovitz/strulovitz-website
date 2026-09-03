@@ -1,0 +1,18 @@
+{
+ "story": "2026-07-17-kimi-k3",
+ "model_id": "openai/gpt-5.6-terra",
+ "model_slug": "openai--gpt-5.6-terra",
+ "kind": "concept",
+ "concept_slug": "open-weights",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2166383155,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A clear editorial illustration split into two connected scenes: on the left, a sealed corporate AI factory feeds a large glowing neural-network “model” through hidden pipes labelled training data, code, methods and evaluations, with only a heavy crate of tiny numbered weight blocks rolling out through an open gate; on the right, many different people—researchers, a small business developer and an independent user—copy the crate’s contents onto their own computers, alter a few numbered blocks, and run adapted models, while a large server rack and specialised accelerator chip beside them show that access still requires substantial hardware. In the centre, a hosted-cloud model hangs from a provider’s control panel with switches marked change, restrict and shut down, whereas the released weight blocks have spread as duplicate crates along many paths beyond the company’s reach; include a subtle caution symbol beside the dispersed copies to show that independence and research access also make universal post-release safeguards difficult.",
+ "rendered_at_utc": "2026-09-03T06:11:32+00:00",
+ "seconds_waited": 355.7,
+ "vram_free_gb_before_start": 10.86
+}

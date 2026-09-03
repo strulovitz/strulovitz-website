@@ -1,0 +1,18 @@
+{
+ "story": "2026-07-17-kimi-k3",
+ "model_id": "anthropic/claude-sonnet-5",
+ "model_slug": "anthropic--claude-sonnet-5",
+ "kind": "concept",
+ "concept_slug": "mixture-of-experts",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2166383155,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "Illustration: a wide horizontal diagram of a single glowing token entering from the left and passing through a routing gate depicted as a small funnel or switchboard with a spotlight beam; behind the gate, arrange a large grid of 896 uniform small server-rack or node icons labeled \"experts,\" most rendered in dim grey (idle), with only 16 of them lit up in bright color and connected by highlighted lines showing the token's path through them to an output arrow on the right; include a small caption-style annotation contrasting \"Total parameters: 896 experts (huge)\" near the full grid with \"Active per token: 16 experts (small)\" near the lit ones, visually reinforcing that only a fraction of the model's capacity is engaged for any single computation.",
+ "rendered_at_utc": "2026-09-03T06:25:13+00:00",
+ "seconds_waited": 420.7,
+ "vram_free_gb_before_start": 10.86
+}

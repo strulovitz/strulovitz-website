@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-06-viruses-designed-by-ai",
+ "model_id": "moonshotai/kimi-k2.6",
+ "model_slug": "moonshotai--kimi-k2.6",
+ "kind": "concept",
+ "concept_slug": "bacteriophage",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 1335683939,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A detailed scientific cutaway centers on a bacteriophage—depicted with its iconic hexagonal head, coiled DNA visible inside the translucent capsid, spindly tail fibers, and a retracted tail sheath driving a syringe-like tube through the wall of a rod-shaped bacterium—actively injecting its genetic material into the host, which is shown swelling with assembled viral progeny before bursting open to illustrate the replication and destruction cycle. Swarms of identical phages fill the surrounding liquid environment, conveying their status as the most abundant biological entities on Earth, while nearby human and animal cells remain whole and undisturbed to emphasize that phages are harmless to them. In the background, other bacterial strains lie untouched by the phages, visually explaining the precise specificity of targeting. Beneath the main scene, a divided medical tableaux shows aged amber vials and vintage Eastern European laboratory equipment on the left, representing nearly a century of phage therapy use in that region, while on the right a modern Western clinician carefully holds a purified phage preparation before a patient as crumbling antibiotic pills scatter into dust at her feet, symbolizing both the global resurgence of interest driven by antibiotic resistance and the ongoing challenge of meticulously matching the correct phage to its corresponding infection.",
+ "rendered_at_utc": "2026-09-03T13:55:07+00:00",
+ "seconds_waited": 379.8,
+ "vram_free_gb_before_start": 10.86
+}

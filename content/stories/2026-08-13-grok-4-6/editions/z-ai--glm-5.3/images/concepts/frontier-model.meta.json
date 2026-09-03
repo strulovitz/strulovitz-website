@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-13-grok-4-6",
+ "model_id": "z-ai/glm-5.3",
+ "model_slug": "z-ai--glm-5.3",
+ "kind": "concept",
+ "concept_slug": "frontier-model",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2454008822,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A wide, tilted mountain ridge shaped like a jagged line graph rises across the composition, its shifting summit never settled: three or four small flags planted by rival expedition camps crowd the peak, each camp tugging a rope that briefly hoists its own flag above the others before another camp's climbers overtake it, while older, faded flags litter the slopes below to show that leadership constantly changes hands. The mountain itself dissolves at the top into a hazy, unmeasured region with no marked summit or official boundary line — the last surveyor's marker sits well below where the camps actually stand, and a banner of question marks drifts where a defined threshold should be. Around the base, an entire economy gravitates upward: coins, price tags, and arrows of investment flow toward whoever currently holds the peak, and silhouetted engineers climb toward the camps. In the foreground, two figures assess the mountain differently — one studies an official leaderboard scroll with ranked bars, the other tests a rope by hand, and each figure's judgment disagrees with the other's, one scroll showing a camp near the top that the hands-on tester finds flimsy, while a humbler camp she has tested proves surprisingly solid.",
+ "rendered_at_utc": "2026-09-03T15:39:09+00:00",
+ "seconds_waited": 323.0,
+ "vram_free_gb_before_start": 9.65
+}

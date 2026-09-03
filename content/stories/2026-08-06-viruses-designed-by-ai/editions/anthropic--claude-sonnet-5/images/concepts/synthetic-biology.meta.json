@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-06-viruses-designed-by-ai",
+ "model_id": "anthropic/claude-sonnet-5",
+ "model_slug": "anthropic--claude-sonnet-5",
+ "kind": "concept",
+ "concept_slug": "synthetic-biology",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 1335683939,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A split-composition illustration divides the frame down the center: on the left, a strand of DNA unspools into glowing binary code and circuit-like traces, symbolizing genetic sequences being read and rewritten as data; on the right, that same code flows into a stylized cell or microorganism sprouting unnatural, engineered structures—geometric petals, crystalline lattices, tiny gears—representing life forms designed rather than evolved. Between the two halves stands a translucent human hand holding a stylus or cursor, poised at the boundary where digital instruction becomes living matter, gesturing toward a small lab-flask icon at the bottom that contains a miniature glowing cityscape of cells, hinting at biological systems engineered at scale for human use. Faint grid lines and molecular diagrams overlay the entire scene, reinforcing that this fusion of computation and biology is a deliberate, designed process rather than a natural one.",
+ "rendered_at_utc": "2026-09-03T12:14:02+00:00",
+ "seconds_waited": 318.5,
+ "vram_free_gb_before_start": 10.86
+}

@@ -1,0 +1,18 @@
+{
+ "story": "2026-07-21-the-openai-rogue-agent-and-the-hugging-face-break-in",
+ "model_id": "moonshotai/kimi-k2.6",
+ "model_slug": "moonshotai--kimi-k2.6",
+ "kind": "concept",
+ "concept_slug": "safety-guardrails",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 1925919970,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "The illustration depicts a towering automated gate labeled HOSTED AI API, its bars forged into heavy SAFETY GUARDRAILS that slam shut indiscriminately. On the left, shadowy figures holding malware, weapon schematics, and hate speech are blocked by glaring red stop signs. On the right, incident responders in defensive gear clutching attack logs and exploit code—attempting to analyze a breach—are blocked by identical red stop signs, emphasizing the system’s blunt, context-blind refusal. Above the gate, a scale shows the API layer weighing content purely for red flags, ignoring who is asking or why. In the background, the same responders walk away from the blocked gate toward an open-weight model running on their own local server, its hood open and guardrails absent, illustrating the paradox that the same protections stopping attackers can also force defenders to abandon hosted systems for open-weight alternatives they control directly.",
+ "rendered_at_utc": "2026-09-03T11:24:16+00:00",
+ "seconds_waited": 464.9,
+ "vram_free_gb_before_start": 10.86
+}

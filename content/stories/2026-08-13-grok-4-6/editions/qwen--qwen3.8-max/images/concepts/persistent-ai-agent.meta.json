@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-13-grok-4-6",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "kind": "concept",
+ "concept_slug": "persistent-ai-agent",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2454008822,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single illustration shows a person closing a laptop and walking away while, high above, a glowing cloud server remains active like a small floating workshop. Inside the cloud, an abstract AI agent continues sorting tasks, watching notification streams, and assembling a long-running project across day and night cycles. Small icons show monitored events, progress bars, and unfinished work being steadily completed, while a gentle line returns the finished results to the user’s device when they come back, making clear that the agent keeps operating independently on a remote server even when the user’s own computer is off.",
+ "rendered_at_utc": "2026-09-03T16:09:02+00:00",
+ "seconds_waited": 612.0,
+ "vram_free_gb_before_start": 10.86
+}

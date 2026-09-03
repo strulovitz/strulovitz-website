@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-13-grok-4-6",
+ "model_id": "deepseek/deepseek-v4-pro-0813",
+ "model_slug": "deepseek--deepseek-v4-pro-0813",
+ "kind": "concept",
+ "concept_slug": "agent",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2454008822,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single illustration depicts a split scene: on the left, a user sits at a laptop with the lid closed, handing a written task card to a central humanoid robot labeled “Lead Agent (Chief of Staff),” who stands at a large desk; from this robot’s back and shoulders extend multiple articulated arms, each reaching to a different floating icon—a web browser window, a code editor with lines of text, a magnifying glass over a search bar, a gear-shaped software control panel, and two smaller robot figures labeled “Sub-agents.” The desk also holds a clock face and a progress bar partially filled, indicating work continuing over time. In the background, a glowing server rack labeled “Always-on Virtual Machine” pulses with light, connected by a dotted line to the lead agent. On the far right, a small, simple chatbot—just a speech bubble with a single reply—is shown inside a crossed-out circle, visually contrasting passive answering with active, tool-using, delegated, ongoing task execution.",
+ "rendered_at_utc": "2026-09-03T15:00:05+00:00",
+ "seconds_waited": 369.9,
+ "vram_free_gb_before_start": 10.86
+}

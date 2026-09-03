@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-16-the-first-person-jailed-for-protesting-against-ai",
+ "model_id": "moonshotai/kimi-k2.6",
+ "model_slug": "moonshotai--kimi-k2.6",
+ "kind": "concept",
+ "concept_slug": "necessity-defence",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3587515915,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A split tableau set inside a courtroom shows the tension of the necessity defence. On the left, a firefighter breaks down a flaming door to rescue a trapped victim, representing the classic lesser of two evils accepted by courts. On the right, a protester chains herself across the entrance of a glass skyscraper marked with an artificial-intelligence sigil, while inside, a towering, half-formed mechanical mind casts a long shadow over the city, embodying the uncontrolled superintelligence she seeks to stop. Between them hangs the scales of justice, but they are frozen at an angle: the pan holding the protester's broken lock and trespass notice is pushed upward by an unseen judicial hand, while the pan holding the swelling, dark machine brain crashes downward, illustrating the greater harm. At the protester's feet, faded ghostly images of petitions, ballot boxes, and open courtroom doors trail away into fog, representing the lawful channels judges insist remain open; beneath the scales, a jury box turns its back on the chained defendant, referencing Kaufmyn's failed argument at OpenAI's headquarters.",
+ "rendered_at_utc": "2026-09-03T19:02:23+00:00",
+ "seconds_waited": 542.9,
+ "vram_free_gb_before_start": 10.86
+}

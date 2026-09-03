@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-06-viruses-designed-by-ai",
+ "model_id": "moonshotai/kimi-k2.6",
+ "model_slug": "moonshotai--kimi-k2.6",
+ "kind": "concept",
+ "concept_slug": "genome-language-model",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 1335683939,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "The illustration centers on a massive artificial neural network, its nodes and pathways glowing with activity, positioned between two flowing streams of input data: on one side, pages of human text and chat bubbles dissolve into the model to signal its linguistic origins, while on the other side, countless spiraling DNA double helices—composed of the four chemical letters A, C, G, and T—flood into the same architecture, representing training on millions of natural genomes; from the opposite edge of the network, a newly synthesized strand of genetic code, marked by a subtle otherworldly luminescence to show it has never existed in nature, extends outward and coils into a functional viral genome that is being incorporated into a living cell, thus visualizing how the system learns the grammar of genetic sequences to predict, generate, and write biologically viable DNA.",
+ "rendered_at_utc": "2026-09-03T14:01:51+00:00",
+ "seconds_waited": 341.8,
+ "vram_free_gb_before_start": 10.07
+}

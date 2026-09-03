@@ -247,7 +247,7 @@ def idea_page(model, slug: str, term: str,
         picture = ""
         if image_job:
             picture = (
-                f'<figure><img src="images/{esc(story_slug)}.png" '
+                f'<figure><img src="images/{esc(story_slug)}--{esc(model.slug)}.png" '
                 f'alt="Illustration for {esc(term)}">'
                 "<figcaption>Illustrated locally by "
                 f"{esc(image_job.get('image_model', 'an open image model'))}"
@@ -337,7 +337,10 @@ def main() -> int:
                         if source.exists():
                             target_dir = SITE / "ideas" / slug / "images"
                             target_dir.mkdir(parents=True, exist_ok=True)
-                            shutil.copy2(source, target_dir / f"{story_slug}.png")
+                            # Named by story AND model: eight editions' takes
+                            # on the same idea must never overwrite each other,
+                            # or one model's page could show another's picture.
+                            shutil.copy2(source, target_dir / f"{story_slug}--{model.slug}.png")
                     ideas_by_slug.setdefault(slug, []).append(
                         (story_slug, concept.get("explanation", ""), concept_job))
                     idea_terms[slug] = concept.get("term", slug)

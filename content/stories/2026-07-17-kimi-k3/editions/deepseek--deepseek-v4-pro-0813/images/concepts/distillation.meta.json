@@ -1,0 +1,18 @@
+{
+ "story": "2026-07-17-kimi-k3",
+ "model_id": "deepseek/deepseek-v4-pro-0813",
+ "model_slug": "deepseek--deepseek-v4-pro-0813",
+ "kind": "concept",
+ "concept_slug": "distillation",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2166383155,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "An illustration of a large, ornate, glowing brain-shaped sculpture labeled \"Teacher Model\" on the left, projecting a stream of bright colored light—made of tiny data points, probability bars, and soft answer clouds—into a small, simple, unlit clay pot on the right labeled \"Student Model\"; the pot is absorbing the light and reshaping itself into a miniature version of the brain, while in the background a faint shadow of a legal contract with a red \"X\" over the words \"Terms of Use\" looms behind the stream, and tiny figures of researchers on both sides point accusingly at the act of transfer, one holding a sign that reads \"Copying,\" the other \"Learning,\" to capture both the technical distillation process and the heated dispute over whether the student is stealing capability or legitimately learning from public behavior.",
+ "rendered_at_utc": "2026-09-03T07:24:33+00:00",
+ "seconds_waited": 376.6,
+ "vram_free_gb_before_start": 10.86
+}

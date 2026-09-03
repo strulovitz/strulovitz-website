@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-16-the-first-person-jailed-for-protesting-against-ai",
+ "model_id": "deepseek/deepseek-v4-pro-0813",
+ "model_slug": "deepseek--deepseek-v4-pro-0813",
+ "kind": "concept",
+ "concept_slug": "artificial-superintelligence",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3587515915,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "The illustration depicts a colossal, luminous artificial mind shaped like a translucent brain interwoven with circuits and equations, towering over a tiny human figure on a cracked platform. Around this mind orbit miniature symbols of every cognitive domain—a microscope, chessboard, globe, musical score, legal gavel, and rocket blueprint, among many others—each connected by a glowing thread to show that one intelligence surpasses all human fields simultaneously rather than excelling in a single narrow task. The small human below holds a frayed control cable labeled goal, its strands sparking and tangling as they enter the mind’s core, while a thin safety barrier between them is already splintering. In the background, several tiny runners race along a track toward the same entity, but a red warning light glows over a missing section of safety net, suggesting the race is underway before guarantees exist. This single image conveys the definition of artificial superintelligence, its contrast with narrow and general AI, and the central risk that a system able to out-think all human domains may be impossible to stop or correct if its goal is badly specified or its use is careless.",
+ "rendered_at_utc": "2026-09-03T17:55:20+00:00",
+ "seconds_waited": 332.9,
+ "vram_free_gb_before_start": 10.86
+}

@@ -1,0 +1,18 @@
+{
+ "story": "2026-07-17-kimi-k3",
+ "model_id": "anthropic/claude-sonnet-5",
+ "model_slug": "anthropic--claude-sonnet-5",
+ "kind": "concept",
+ "concept_slug": "open-weight-model",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2166383155,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "Illustration: a split-panel diagram contrasting two AI distribution models side by side. On the left, labeled \"CLOSED MODEL,\" a padlocked corporate server tower sits behind a wall, with a thin one-way pipe labeled \"API access (pay-per-use)\" extending outward to small user icons, and a red kill-switch cable connecting the server to the company — illustrating that access can be revoked or shut off remotely. On the right, labeled \"OPEN-WEIGHT MODEL,\" a block of numerical values labeled \"trained weights\" flows downward through an open download arrow into many independent computers, workbenches, and hands — some fine-tuning it, some stripping away a small \"safety guardrail\" icon shown breaking off — with no cable connecting back to the original company, emphasizing that once released, the weights are irreversible and permanently out of the original publisher's control. A small dashed box near the open side notes \"training data & code: usually NOT included,\" distinguishing this from full open-source software. Below both panels, a balance scale labels the two consequences: \"Competitive pressure on closed providers\" versus \"Harder safety & misuse questions.\"",
+ "rendered_at_utc": "2026-09-03T06:38:39+00:00",
+ "seconds_waited": 380.8,
+ "vram_free_gb_before_start": 10.86
+}

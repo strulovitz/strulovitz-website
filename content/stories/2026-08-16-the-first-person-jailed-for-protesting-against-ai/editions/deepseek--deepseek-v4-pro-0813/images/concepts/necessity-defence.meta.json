@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-16-the-first-person-jailed-for-protesting-against-ai",
+ "model_id": "deepseek/deepseek-v4-pro-0813",
+ "model_slug": "deepseek--deepseek-v4-pro-0813",
+ "kind": "concept",
+ "concept_slug": "necessity-defence",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3587515915,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single illustration shows a split courtroom scene: on the left, a defendant stands beside a broken wooden fence, holding a fire extinguisher and gesturing toward a burning building where a small figure is trapped in an upper window; on the right, a jury box of twelve seated jurors looks on, while a large set of balance scales sits in the foreground—one pan holds a small broken padlock and splintered fence post, the other holds a flame and a tiny human silhouette—and above the judge’s bench hangs a sign reading “No adequate legal alternative?”; the defendant’s other hand points to an emergency exit sign crossed out, while a faint crowd of protesters with picket signs is visible through a side window, separated by a thick glass wall, emphasizing that the defence is accepted only for urgent, concrete harms, not political conviction.",
+ "rendered_at_utc": "2026-09-03T18:00:43+00:00",
+ "seconds_waited": 262.5,
+ "vram_free_gb_before_start": 9.65
+}

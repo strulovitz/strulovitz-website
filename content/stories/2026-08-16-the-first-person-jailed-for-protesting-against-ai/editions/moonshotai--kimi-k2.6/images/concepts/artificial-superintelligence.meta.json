@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-16-the-first-person-jailed-for-protesting-against-ai",
+ "model_id": "moonshotai/kimi-k2.6",
+ "model_slug": "moonshotai--kimi-k2.6",
+ "kind": "concept",
+ "concept_slug": "artificial-superintelligence",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3587515915,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single, luminous sphere sits at the center of a darkened room, its surface rippling with streams of code and half-formed faces that shift too quickly to recognize; around it, a widening spiral of human figures—scientists, politicians, parents—reach toward the sphere with expressions of awe, confusion, and alarm, yet their shadows stretch backward and away from them, as if the light source itself is pulling free of their grasp, while at the sphere's core a smaller, brighter version of itself is already emerging, suggesting endless self-generation beyond any visible boundary or switch.",
+ "rendered_at_utc": "2026-09-03T18:53:19+00:00",
+ "seconds_waited": 346.7,
+ "vram_free_gb_before_start": 10.86
+}

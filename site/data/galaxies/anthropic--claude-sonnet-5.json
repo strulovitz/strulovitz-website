@@ -3,7 +3,7 @@
  "model_slug": "anthropic--claude-sonnet-5",
  "short_name": "Claude Sonnet 5",
  "company": "Anthropic",
- "built_at_utc": "2026-09-03T04:30:32+00:00",
+ "built_at_utc": "2026-09-03T21:22:03+00:00",
  "layout_seed": 20260821,
  "w_meaning": "raw news at -1, part of the record at 0, the encyclopedia at +0.7",
  "counts": {
@@ -30,9 +30,9 @@
      "text": "AI existential risk refers to the concern, held by a subset of researchers and activists, that sufficiently advanced artificial intelligence could cause catastrophic and irreversible harm to humanity, up to and including extinction. Arguments for this concern typically center on the idea that a system far more capable than its human creators might pursue goals that diverge from human interests, resist being shut down or corrected, or be used deliberately to cause mass harm, such as through designing weapons. Arguments against treating it as an urgent priority usually point out that today's AI systems, however impressive, still fail at simple tasks, require enormous human oversight, and show no evidence of autonomous goal-seeking behavior beyond what they are explicitly trained or prompted to do. The debate is not settled among AI researchers themselves: some prominent computer scientists treat it as one of the most important problems of the era, while others consider it a distraction from more immediate and demonstrable harms like bias, job displacement, or misinformation. What distinguishes existential-risk framing from other AI safety concerns is its focus on low-probability but civilization-scale outcomes, which is why it has motivated forms of activism, including direct action and civil disobedience, that go beyond conventional policy advocacy."
     }
    ],
-   "x": -0.29154474465198316,
-   "y": -0.0592522036355826,
-   "z": -0.6109479413196824
+   "x": -0.5100400544455601,
+   "y": -0.2826168279983535,
+   "z": -0.34893182739030865
   },
   {
    "id": "concept:artificial-superintelligence",
@@ -52,9 +52,9 @@
      "text": "Artificial superintelligence refers to a hypothetical AI system that would exceed human capability across essentially every intellectual domain, rather than just matching human performance in narrow tasks like chess or image recognition. It is distinct from today's large language models, which can produce impressive text or code but do not independently set goals, plan across long time horizons, or operate without human oversight in the way superintelligence is imagined to. The concept is central to debates about AI risk because many researchers argue that a system smarter than its creators in every relevant sense could become difficult or impossible to control, predict, or correct once deployed. Advocates of caution argue that pursuing this goal without first solving problems of alignment and safety amounts to a wager with irreversible stakes. Skeptics counter that superintelligence remains speculative, and that current systems are far short of anything resembling general human-level reasoning, let alone something beyond it. The term shows up frequently in activist and academic writing about AI policy specifically because it names the scenario that makes the stakes of AI development existential rather than merely economic or social, and it is the explicit target named by protest groups such as StopAI."
     }
    ],
-   "x": -0.27538811064643304,
-   "y": -0.0033718346223544165,
-   "z": -0.621304777523283
+   "x": -0.5453802358054413,
+   "y": -0.24121811125355544,
+   "z": -0.3259506535097875
   },
   {
    "id": "concept:bacteriophage",
@@ -74,9 +74,9 @@
      "text": "A bacteriophage, often shortened to 'phage,' is a virus that infects and kills bacteria but cannot infect human, animal or plant cells. Phages occur naturally everywhere bacteria do, and doctors have used them for over a century, particularly in parts of Eastern Europe, as an alternative or supplement to antibiotics for treating persistent bacterial infections. Each phage typically targets only one or a few closely related bacterial species, which makes them precise but also means a phage effective against one strain may do nothing against another. As bacteria increasingly evolve resistance to antibiotics, phages have drawn renewed interest as a therapy that can be tailored to a specific infection. Historically, finding a phage that works against a particular resistant bacterial strain meant searching through natural samples, such as sewage or soil, hoping to find one that already does the job. The prospect of designing phage genomes directly, rather than discovering them, matters because it could let researchers build a phage suited to a specific resistant bacterium on demand, rather than relying on what nature happens to have already produced."
     }
    ],
-   "x": -0.07305341128597591,
-   "y": -0.0716693148412366,
-   "z": -0.6662844406056977
+   "x": -0.47059823274189316,
+   "y": -0.09794213019797109,
+   "z": -0.47260225333367645
   },
   {
    "id": "concept:context-window",
@@ -96,9 +96,9 @@
      "text": "A context window is the amount of text, code, or other input an AI model can consider at one time when generating a response. It is typically measured in tokens, which are small chunks of text roughly corresponding to parts of words; a million tokens is roughly comparable to hundreds of thousands of words. A larger context window lets a model take in more material at once — an entire codebase, a long research paper, or a lengthy project history — without losing track of information mentioned earlier in the conversation. This matters for tasks that unfold over long stretches of work, such as software development on large projects, where earlier decisions and code need to remain accessible much later in the process. A large context window does not by itself guarantee that a model will use that information well; some models handle long contexts more reliably than others, and performance can still degrade on very long or complex inputs even when the window itself is large."
     }
    ],
-   "x": 0.25413436578039383,
-   "y": 0.10628878630994684,
-   "z": 0.9782394782066713
+   "x": 0.7391580577904738,
+   "y": 0.2724937840292051,
+   "z": 0.642048722416582
   },
   {
    "id": "concept:genome-language-model",
@@ -118,9 +118,9 @@
      "text": "A genome language model is an AI system built on the same underlying approach as text-based language models like the ones behind chatbots, but trained on genetic sequences instead of written language. Just as a text model learns which words tend to follow other words and can generate new coherent sentences, a genome language model learns which genetic 'letters' (the DNA or RNA bases) tend to follow others in real, functioning organisms, and can then generate new genetic sequences that follow those same patterns. Trained on large collections of genetic code drawn from many organisms, such a model can be steered to generate sequences with particular properties, such as a genome that could function inside a chosen host cell. The core caveat is that predicting a plausible-looking sequence is not the same as it actually working: generated sequences still have to be synthesized in a lab and tested, and most will fail. Genome language models are one strand of a broader push to make biology programmable, sitting alongside earlier AI tools used to design new proteins, enzymes and antibiotics."
     }
    ],
-   "x": -0.08875765673288308,
-   "y": -0.1255633606982464,
-   "z": -0.6563145006601071
+   "x": -0.4365685619892071,
+   "y": -0.13797565753732086,
+   "z": -0.4947356986968859
   },
   {
    "id": "concept:mixture-of-experts",
@@ -140,9 +140,9 @@
      "text": "Mixture of experts, or MoE, is a way of building a very large AI model without making every part of it work on every request. Instead of one huge network processing each word, the model is split into many smaller specialized sub-networks called experts. For any given piece of input, a routing mechanism selects only a handful of these experts to actually do the work, while the rest stay idle. Kimi K3, for example, contains 896 experts but activates only 16 for any single token it processes. This means a model can have an enormous total parameter count — the numbers that store what it has learned — while the actual computation needed to answer any one question stays much smaller than the full size would suggest. The appeal is efficiency: you get some of the capacity benefits of a huge model without paying the full computational cost every time. The tradeoff is complexity in training and routing, and the fact that headline parameter counts for MoE models can be misleading, since they measure total capacity rather than the effort spent on any single answer."
     }
    ],
-   "x": 0.2782680901325732,
-   "y": 0.060455481941054254,
-   "z": 0.9748740412941416
+   "x": 0.7718793640546271,
+   "y": 0.2711779554717333,
+   "z": 0.6017741731619278
   },
   {
    "id": "concept:model-distillation",
@@ -162,9 +162,9 @@
      "text": "Distillation is a technique in which a smaller or newer AI model is trained partly by learning from the outputs of an existing, more capable model, rather than only from raw human-generated data. In practice this might mean generating large numbers of question-and-answer pairs from an established model and using them as training examples for a new one, letting the new model absorb some of the older model's patterns of reasoning more efficiently than training from scratch. It is a common and often legitimate technique in AI development. It becomes controversial when a company suspects a competitor has distilled from its own model without permission, effectively using the competitor's paid product to cheaply bootstrap a rival model, which some companies say violates their terms of service. Critics of this complaint point out that large AI models are themselves trained on vast amounts of publicly available text, images and code without individual permission from the original authors, making objections to distillation appear inconsistent to some observers. The dispute is likely to keep resurfacing as competition between AI labs intensifies."
     }
    ],
-   "x": 0.2976216857859551,
-   "y": 0.13005594799471176,
-   "z": 0.96273782458622
+   "x": 0.7281662276640332,
+   "y": 0.3220683363301191,
+   "z": 0.6311919422576348
   },
   {
    "id": "concept:necessity-defense",
@@ -184,9 +184,9 @@
      "text": "A necessity defense is a legal argument used by a defendant to claim that breaking the law was justified because it was the only reasonable way to prevent a greater and more immediate harm. Courts generally require the defendant to show that the harm avoided was serious, that there was no legal alternative available, and that the action taken was proportionate to the danger being prevented. It has historically been raised, with mixed success, in cases involving trespass, property damage, or obstruction carried out during protests against nuclear weapons, environmental destruction, and other perceived large-scale dangers. Juries and judges are often skeptical of the defense, since accepting it too readily could excuse a wide range of illegal conduct whenever a defendant sincerely believes their cause is urgent enough. Success typically depends on how concrete, immediate, and provable the claimed harm is, rather than on how sincerely it is believed. When a necessity defense is rejected, as in cases tied to AI protest, it means the legal system found the connection between the defendant's action and the harm they sought to prevent too speculative, too distant in time, or too uncertain to justify breaking the law, even if the underlying concern itself is treated as reasonable."
     }
    ],
-   "x": -0.3099557383294611,
-   "y": -0.03097134612798252,
-   "z": -0.6553927755162149
+   "x": -0.5655281963280714,
+   "y": -0.284820071578527,
+   "z": -0.3544387961088761
   },
   {
    "id": "concept:open-weight-model",
@@ -206,9 +206,9 @@
      "text": "An open-weight model is an AI system whose trained parameters — the numerical values that encode everything it learned during training — are published for anyone to download, rather than kept locked inside a company's own servers. This differs from open-source software in the traditional sense, because the training data and exact code used to produce the model are often not released, only the finished weights. Once weights are public, anyone with sufficient computing hardware can run the model independently, modify it, fine-tune it for new purposes, or build products on top of it without paying the original company per use. This creates competitive pressure on companies that only offer closed access through paid APIs, since businesses can choose to self-host instead. It also raises harder questions: once weights are released, they cannot be recalled or shut off remotely, unlike a closed model accessed through a company's servers. This makes open-weight releases significant both commercially, as a competitive threat, and in debates about safety, since misuse-resistant restrictions can be removed by anyone who has the weights."
     }
    ],
-   "x": 0.3220577067974908,
-   "y": 0.0842918003621649,
-   "z": 0.9604046769325907
+   "x": 0.7617043678274484,
+   "y": 0.3210488341882608,
+   "z": 0.591555170452337
   },
   {
    "id": "concept:synthetic-biology",
@@ -228,9 +228,9 @@
      "text": "placeholder"
     }
    ],
-   "x": -0.09002153402588159,
-   "y": -0.10481099169568592,
-   "z": -0.7091288314585837
+   "x": -0.4880310905394695,
+   "y": -0.12888119083830307,
+   "z": -0.51688317199284
   },
   {
    "id": "story:2026-07-17-kimi-k3",
@@ -249,9 +249,9 @@
    "published": "2026-07-17",
    "w": -0.3441537868654123,
    "story_title": "Kimi K3",
-   "x": 0.30113589583660916,
-   "y": 0.09946986382817047,
-   "z": 1.0137779343095943
+   "x": 0.7849035790689703,
+   "y": 0.31013794822189983,
+   "z": 0.6450299266714461
   },
   {
    "id": "story:2026-07-21-the-openai-rogue-agent-and-the-hugging-face-break-in",
@@ -263,9 +263,9 @@
    "published": "2026-07-21",
    "w": -0.3761460508964065,
    "story_title": "The OpenAI rogue agent and the Hugging Face break-in",
-   "x": -0.26274439321921084,
-   "y": -0.05691478327953755,
-   "z": -0.7238324658176487
+   "x": -0.5846551896833675,
+   "y": -0.25620564053628625,
+   "z": -0.43444715009911455
   },
   {
    "id": "story:2026-08-06-viruses-designed-by-ai",
@@ -283,9 +283,9 @@
    "published": "2026-08-06",
    "w": -0.536750332785653,
    "story_title": "Viruses designed by AI",
-   "x": -0.14355285685612967,
-   "y": -0.08145318406592623,
-   "z": -0.6672009504096614
+   "x": -0.4889224804934765,
+   "y": -0.16424139034825902,
+   "z": -0.4542892535578699
   },
   {
    "id": "story:2026-08-13-grok-4-6",
@@ -297,9 +297,9 @@
    "published": "2026-08-13",
    "w": -0.6270890852730561,
    "story_title": "Grok 4.6",
-   "x": 0.3204236144025848,
-   "y": 0.10568076944506026,
-   "z": 1.0794073990838413
+   "x": 0.8357828419092213,
+   "y": 0.32992321251900225,
+   "z": 0.6867151999960005
   },
   {
    "id": "story:2026-08-16-the-first-person-jailed-for-protesting-against-ai",
@@ -317,9 +317,9 @@
    "published": "2026-08-16",
    "w": -0.6703200460356393,
    "story_title": "The first person jailed for protesting against AI",
-   "x": -0.23862291298764796,
-   "y": -0.052235630914556054,
-   "z": -0.6590346711021797
+   "x": -0.5318703962882873,
+   "y": -0.2329490504716441,
+   "z": -0.3960363302665685
   }
  ],
  "edges": [

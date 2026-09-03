@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-13-grok-4-6",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "kind": "concept",
+ "concept_slug": "supplemental-training-run",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2454008822,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single illustration shows a large translucent language-model form, already built from countless faint lines of general text, being refined rather than rebuilt as a bright stream of specialized coding data flows into it from a Cursor-style editor pointer and code window. The coding stream is drawn longer and more intense than a shorter, dimmer supplemental stream behind it, suggesting Grok 4.6’s extended additional training compared with its predecessor. Inside the model, the new data lights up selected pathways, turning loose prose threads into precise circuits, tools, and technical patterns, while the broad foundation remains intact, visually conveying supplemental training as a focused, later course that sharpens particular abilities on top of earlier general learning.",
+ "rendered_at_utc": "2026-09-03T16:21:25+00:00",
+ "seconds_waited": 394.8,
+ "vram_free_gb_before_start": 10.86
+}

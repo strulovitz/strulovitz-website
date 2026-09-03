@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-06-viruses-designed-by-ai",
+ "model_id": "openai/gpt-5.6-terra",
+ "model_slug": "openai--gpt-5.6-terra",
+ "kind": "concept",
+ "concept_slug": "dna-synthesis-screening",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 1335683939,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A clear editorial illustration of a DNA synthesis company as a controlled gateway between a glowing computer screen showing an AI-generated genetic sequence and a secure laboratory where physical DNA strands are being manufactured: the incoming order passes through a large transparent screening scanner that compares it with a database of hazard symbols and organism silhouettes, highlighting suspicious matching segments in red while allowing ordinary sequences through in green; nearby, a human reviewer examines a customer identity card, stated research purpose and a flagged order, while a split sequence arriving as separate fragments is visibly reassembled by the scanner, emphasizing that screening catches potentially harmful DNA at the point where digital instructions become physical biological material, alongside—not instead of—AI access controls, project review and lab safety.",
+ "rendered_at_utc": "2026-09-03T11:49:33+00:00",
+ "seconds_waited": 224.1,
+ "vram_free_gb_before_start": 10.86
+}

@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-06-viruses-designed-by-ai",
+ "model_id": "z-ai/glm-5.3",
+ "model_slug": "z-ai--glm-5.3",
+ "kind": "concept",
+ "concept_slug": "genome-language-model",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 1335683939,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "An illustration showing a long ribbon of DNA unspooling across the page, its familiar double helix dissolving at one end into a stream of the four letters A, T, C, and G, as if the genome were a manuscript being typed. Where the letter stream breaks off mid-sequence, a glowing mechanical pen hovers, with a faint constellation of candidate letters branching from its nib—the model predicting what should come next, some letters bold and others ghosted out. Beside it, a small contrast: a hand with scissors patching a passage of existing text (old-style editing), versus the pen writing a fresh, never-before-seen page. The freshly written sequences fall from the page into a row of tiny laboratory flasks, most of which sit dark and failed, only one or two glowing with life. In the background, a small, simple virus particle is rendered crisp and complete, while a much larger, sprawling cell is sketchy and unfinished, showing the scale of what remains out of reach.",
+ "rendered_at_utc": "2026-09-03T13:23:58+00:00",
+ "seconds_waited": 281.2,
+ "vram_free_gb_before_start": 9.65
+}

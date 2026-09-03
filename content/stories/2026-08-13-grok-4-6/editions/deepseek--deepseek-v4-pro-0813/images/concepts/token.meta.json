@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-13-grok-4-6",
+ "model_id": "deepseek/deepseek-v4-pro-0813",
+ "model_slug": "deepseek--deepseek-v4-pro-0813",
+ "kind": "concept",
+ "concept_slug": "token",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2454008822,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single illustration split vertically by a glowing model icon in the center: on the left, an incoming prompt is shown as a stream of text being sliced into small colored blocks, each block labeled as a whole short word, a fragment of a longer word, or a punctuation mark, with a caption reading “input tokens” and a price tag of “$2 per million” under a pile of modest coins; on the right, the model emits a similar stream of one-piece-at-a-time blocks forming a reply, but these output token blocks are visibly larger and tagged “$6 per million,” with correspondingly bigger dollar signs or a taller stack of coins, visually conveying that tokens are the basic units read and written, and that output tokens cost more than input tokens.",
+ "rendered_at_utc": "2026-09-03T15:19:54+00:00",
+ "seconds_waited": 393.0,
+ "vram_free_gb_before_start": 10.86
+}

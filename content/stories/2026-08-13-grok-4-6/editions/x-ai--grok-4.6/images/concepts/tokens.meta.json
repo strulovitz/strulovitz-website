@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-13-grok-4-6",
+ "model_id": "x-ai/grok-4.6",
+ "model_slug": "x-ai--grok-4.6",
+ "kind": "concept",
+ "concept_slug": "tokens",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2454008822,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single wide laboratory tableau shows an English sentence entering a mechanical slicer that emits a short row of vividly colored token tiles (whole words, word-pieces, spaces and punctuation), while a long unfurling document is simultaneously diced into a towering heap of tens of thousands of the same tiles; the tiles travel two parallel conveyor belts labeled “input / prompt” (modest price-per-million) and “output / generation” (steeper price, annotated “more compute”), both dumping into a cash register that totals millions of tokens; beside the register two identical finished reports sit, one produced by a bargain-priced but rambling model whose extra token mountain has equaled the bill of a costlier concise model, a large overlay calculator multiplying token price by tokens actually spent and labeling the result “cost per completed task.”",
+ "rendered_at_utc": "2026-09-03T14:53:54+00:00",
+ "seconds_waited": 241.8,
+ "vram_free_gb_before_start": 9.65
+}

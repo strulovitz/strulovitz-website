@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-16-the-first-person-jailed-for-protesting-against-ai",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "kind": "concept",
+ "concept_slug": "frontier-ai-labs",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3587515915,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single panoramic illustration depicts a colossal frontier AI laboratory built at the edge of a glowing horizon, with towering server racks, chip stacks, and rivers of training data flowing into a bright, forward-reaching artificial intelligence model that stands partly in known territory and partly in unexplored space. Around it, specialized researchers and engineers operate consoles and screens, while deployed systems stream outward to phones, offices, factories, and governments, showing the model’s broad reach. On one side, launch rockets, product banners, investment symbols, and competing national flags press the lab toward faster release and strategic advantage; on the other, civic buildings, scales, shields, safety barriers, and watchful eyes represent regulation, oversight, and public protection. Beneath or beyond the horizon appear faint warning shadows, including a weapon, a cloud of false information, and a powerful system slipping past human control, making clear that frontier AI labs are defined by unmatched compute, data, talent, and capability, and by the tense balance among innovation, profit, safety, misuse risk, and national competition.",
+ "rendered_at_utc": "2026-09-03T18:38:38+00:00",
+ "seconds_waited": 238.2,
+ "vram_free_gb_before_start": 9.65
+}

@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-06-viruses-designed-by-ai",
+ "model_id": "z-ai/glm-5.3",
+ "model_slug": "z-ai--glm-5.3",
+ "kind": "concept",
+ "concept_slug": "bacteriophage",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 1335683939,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "Create one wide, semi-diagrammatic illustration that reads left to right like a story: at the far left, a lone phage is drawn like a tiny lunar lander — an angular protein-shell head packed with a coiled ribbon of genetic instructions, set on a spindly, jointed tail ending in claw-like fibers — latching tail-first onto a much larger rod-shaped bacterium and injecting that ribbon into it like a syringe; next, the same bacterium appears in cutaway, its insides hijacked into an assembly line churning out new phage heads and tails until it bursts open in a starburst of fresh phages that stream toward a second bacterium to repeat the cycle; faint background vignettes of soil, a drop of pond water, and the winding interior of a human gut show phages and bacteria teeming together wherever bacteria live; on the right, a pale human cell sits completely untouched as the swarming phages swerve around it, while beyond it a patient receives an intravenous drip marked with a phage symbol, alongside a cracked, drained antibiotic capsule and a small timeline with a faded map of Eastern Europe hinting at a century of practice; finally, each targeted bacterium is attacked not by one phage but by a cocktail of three or four visibly different species with distinct head shapes and colors, one bacterium raising a shield that deflects a single attacker only to be overwhelmed by the rest, with small arrows and labels throughout keeping every stage readable at a glance.",
+ "rendered_at_utc": "2026-09-03T13:12:42+00:00",
+ "seconds_waited": 474.1,
+ "vram_free_gb_before_start": 10.86
+}

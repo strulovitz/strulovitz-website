@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-06-viruses-designed-by-ai",
+ "model_id": "anthropic/claude-sonnet-5",
+ "model_slug": "anthropic--claude-sonnet-5",
+ "kind": "concept",
+ "concept_slug": "genome-language-model",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 1335683939,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "Split the illustration into two mirrored halves joined by a shared spine of glowing, sequential symbols. On the left, show a classic text-based language model: a stream of words flowing into a neural-network diagram, with the network predicting and lighting up the next word in a sentence, evoking a chatbot interface. On the right, mirror the same neural-network diagram, but now it is fed by a flowing double helix of DNA/RNA bases (A, T, C, G, U), with the network predicting and highlighting the next base in the strand, which then extends outward into a newly generated genetic sequence. This generated strand on the right should visibly continue into a small lab beaker or petri dish labeled 'synthesize & test,' with a fork in the path showing most attempts fading into an X (failure) and only a few glowing sequences successfully forming a simple cell membrane or viral capsid (success), representing the gap between predicted and functional sequences. In the background, small labeled icons (a protein fold, an enzyme, an antibiotic molecule) sit alongside the genome model, visually grouping it as one tool among several in a broader 'programmable biology' toolkit.",
+ "rendered_at_utc": "2026-09-03T12:08:42+00:00",
+ "seconds_waited": 407.7,
+ "vram_free_gb_before_start": 10.86
+}

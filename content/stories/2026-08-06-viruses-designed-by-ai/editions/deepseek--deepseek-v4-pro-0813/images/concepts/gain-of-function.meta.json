@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-06-viruses-designed-by-ai",
+ "model_id": "deepseek/deepseek-v4-pro-0813",
+ "model_slug": "deepseek--deepseek-v4-pro-0813",
+ "kind": "concept",
+ "concept_slug": "gain-of-function",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 1335683939,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "The illustration should depict a laboratory bench in cross-section, with a researcher’s gloved hand using a pipette to inject a glowing liquid labeled “new function” into a spiky virus particle resting in a petri dish, while behind the bench an AI interface on a computer screen shows a DNA sequence being edited, and a robotic arm places the same modified virus into a DNA synthesizer; to the right, the enhanced virus is shown escaping from a cracked biohazard container, its spikes now longer and more numerous, with small labels indicating “more transmissible” and “new host”; in the background, a flowchart of regulatory steps—AI design, DNA synthesis, testing—has a red warning sign at each stage, and a dashed line marks where current oversight stops, suggesting the gap that gain-of-function debates address. The overall image uses cool blue for the scientific process and harsh red for the added dangerous capabilities, making clear that the entry is about deliberately enhancing an existing pathogen and the resulting regulatory challenge.",
+ "rendered_at_utc": "2026-09-03T12:59:33+00:00",
+ "seconds_waited": 410.1,
+ "vram_free_gb_before_start": 9.65
+}

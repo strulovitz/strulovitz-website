@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-16-the-first-person-jailed-for-protesting-against-ai",
+ "model_id": "google/gemini-3.7-flash",
+ "model_slug": "google--gemini-3.7-flash",
+ "kind": "concept",
+ "concept_slug": "artificial-superintelligence",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3587515915,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "The illustration depicts a vast, radiant, and multi-faceted intellectual entity looming above a small assembly of human scientists and institutional leaders, visually contrasting the scale of ordinary human cognition with an all-encompassing machine mind. This central superintelligence is rendered as an intricate, self-evolving lattice of light and geometric forms that seamlessly integrates diverse fields of human endeavor—visible as interwoven streams of advanced mathematical proofs, complex strategic networks, vibrant artistic creations, and subtle maps of social and emotional dynamics—illustrating an intellect that transcends narrow task-based machines to master every human discipline. Below, the human observers stand in a modern research amphitheater, looking upward with a mix of awe and apprehension while attempting to measure and analyze the luminous construct with comparatively primitive charts and monitoring screens, visualising humanity's central debate over whether our institutions can ever truly comprehend, predict, or control a fully autonomous intellect far greater than our own.",
+ "rendered_at_utc": "2026-09-03T17:22:51+00:00",
+ "seconds_waited": 452.9,
+ "vram_free_gb_before_start": 10.86
+}

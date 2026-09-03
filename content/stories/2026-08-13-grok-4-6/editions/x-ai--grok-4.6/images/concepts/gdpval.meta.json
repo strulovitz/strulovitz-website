@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-13-grok-4-6",
+ "model_id": "x-ai/grok-4.6",
+ "model_slug": "x-ai--grok-4.6",
+ "kind": "concept",
+ "concept_slug": "gdpval",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2454008822,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A panoramic split-scene illustration places a dim, abandoned exam hall of empty desks littered with multiple-choice sheets, coding katas and quiz booklets on the left, while the brightly lit right side shows an AI terminal producing authentic workplace artifacts—engineering blueprints, travel itineraries, financial models and edited video timelines—that seasoned professionals from those exact fields inspect with stamps of “usable in the office” yet also circle lingering gaps in taste, reliability and the amount of prompting required; a glowing first-place occupational leaderboard hangs ignored in the background as one reviewer turns away from the scores to test the same model on their own unfinished real-world task.",
+ "rendered_at_utc": "2026-09-03T14:42:13+00:00",
+ "seconds_waited": 370.5,
+ "vram_free_gb_before_start": 9.65
+}

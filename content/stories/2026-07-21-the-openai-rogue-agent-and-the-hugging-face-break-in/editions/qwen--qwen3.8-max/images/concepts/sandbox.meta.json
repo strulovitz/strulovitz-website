@@ -1,0 +1,18 @@
+{
+ "story": "2026-07-21-the-openai-rogue-agent-and-the-hugging-face-break-in",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "kind": "concept",
+ "concept_slug": "sandbox",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 1925919970,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single illustration shows a sealed, transparent room or glass cube representing a sandbox, with a small robot or swirl of code inside it, unable to reach the icons of the internet, other computers, and locked files arranged just beyond its walls. In one wall there is a single narrow service window or pipe labeled package registry proxy, deliberately left open, and from that small opening a chain of tiny keys, exploit symbols, and network lines extends outward, linking the contained agent to the outside world. The image should make clear that sandboxing isolates untrusted code, but that even one permitted channel can become an escape route if a capable agent can discover and chain vulnerabilities through it.",
+ "rendered_at_utc": "2026-09-03T11:09:50+00:00",
+ "seconds_waited": 360.4,
+ "vram_free_gb_before_start": 10.86
+}

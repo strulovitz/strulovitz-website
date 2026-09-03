@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-16-the-first-person-jailed-for-protesting-against-ai",
+ "model_id": "z-ai/glm-5.3",
+ "model_slug": "z-ai--glm-5.3",
+ "kind": "concept",
+ "concept_slug": "necessity-defence",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3587515915,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "The illustration shows a climate protester standing in the middle of a highway, chained to a toppled barricade, calmly raising one hand in confession while with the other arm holding back a colossal wall of floodwater and flame that looms over the town behind her—the visible greater harm she says her trespass prevented. Facing her, a towering judicial bench shaped like an immense set of scales weighs her small broken barricade on one pan against the roaring disaster on the other, but the beam of the scales is suspended far above a horizontal bar drawn across the image at head height, so that neither pan can reach it: this is the imminence-and-proportionality threshold, marked \"no reasonable legal alternative,\" which the defense almost never clears. In the foreground, a police officer approaches with handcuffs, and a gavel already rests on the ground beside her feet; a thin dotted line traces from the protester's honest, open heart to the courthouse and then drops straight into a jail cell, showing that even when the motive is sincere and the harm real, a failed necessity defence leaves the conviction untouched. The overall composition splits into two registers—warm civic colors on the side of the rescued town, cold institutional blues around the bench—to make clear at a glance that the entry is about the law's reluctant, rarely granted excuse for breaking a law to stop a bigger harm.",
+ "rendered_at_utc": "2026-09-03T18:20:16+00:00",
+ "seconds_waited": 312.4,
+ "vram_free_gb_before_start": 9.43
+}

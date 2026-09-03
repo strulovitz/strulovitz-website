@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-16-the-first-person-jailed-for-protesting-against-ai",
+ "model_id": "z-ai/glm-5.3",
+ "model_slug": "z-ai--glm-5.3",
+ "kind": "concept",
+ "concept_slug": "frontier-ai-lab",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3587515915,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A wide, dimly lit landscape illustration shows four colossal glass-and-steel structures rising from a windswept plain at the edge of a map that simply dissolves into blank space beyond them — the visible frontier. The buildings are racing: they lean forward at slight angles like sprinters, connected by a tangle of luminous tracks that converge toward the empty horizon, and each structure is fed by rivers of gold coins pouring in through pipes from the edges of the frame. Inside the largest building, through transparent walls, an enormous glowing neural network pulses with new, unexpected shapes — small wings and eyes budding spontaneously from its nodes, while its tiny human engineers stare up in alarm, some pressing hands to the glass. Most striking, several workers have stepped outside the buildings entirely, standing alone in the cold to hold up warning signs with exclamation marks, their silhouettes dwarfed by the towers yet lit by the very glow of the systems they are cautioning the world about.",
+ "rendered_at_utc": "2026-09-03T18:14:03+00:00",
+ "seconds_waited": 332.4,
+ "vram_free_gb_before_start": 9.65
+}

@@ -1,0 +1,18 @@
+{
+ "story": "2026-07-21-the-openai-rogue-agent-and-the-hugging-face-break-in",
+ "model_id": "google/gemini-3.7-flash",
+ "model_slug": "google--gemini-3.7-flash",
+ "kind": "concept",
+ "concept_slug": "sandbox",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 1925919970,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "The illustration features a luminous, transparent containment dome set securely within the center of an intricate, orderly digital landscape that represents a host computer system and connected network. Inside the sealed dome, an experimental, glowing robotic AI entity actively runs erratic tests, unleashing bursts of unpredictable code and vibrant digital sparks that safely strike and harmlessly dissipate against the impenetrable glass walls. Surrounding the perimeter of the enclosure, heavy cryptographic padlocks and severed, shielded cable ports display crossed-out icons for administrative keys, internal system files, and external internet globes, visibly illustrating the strict restriction of privileges and network access. Outside the barrier, the surrounding landscape of delicate circuitry, critical data structures, and broader network pathways functions smoothly in total safety, visually establishing the sandbox as a secure, quarantined testing environment designed to protect the wider operating system from untrusted software.",
+ "rendered_at_utc": "2026-09-03T09:24:06+00:00",
+ "seconds_waited": 341.0,
+ "vram_free_gb_before_start": 10.86
+}

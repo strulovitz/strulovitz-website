@@ -1,0 +1,18 @@
+{
+ "story": "2026-07-17-kimi-k3",
+ "model_id": "google/gemini-3.7-flash",
+ "model_slug": "google--gemini-3.7-flash",
+ "kind": "concept",
+ "concept_slug": "model-distillation",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2166383155,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A split-composition visual metaphor featuring a towering, intricate neural network rendered as a glowing, architectural brain made of thousands of complex light pathways on the left, acting as a \"teacher\" by projecting a focused, condensed beam of refined golden data streams and step-by-step logic formulas across the canvas. On the right, a significantly smaller, streamlined, and compact robotic or digital entity absorbs this concentrated beam, rapidly lighting up with identical, high-level reasoning patterns despite its fraction of hardware components. Below them, a stark comparison is visible: a massive, messy mountain of unprocessed raw data scrolls that the smaller model entirely bypasses, while in the shadowed background, translucent corporate watermarks and overlapping digital signatures across the transferring data stream subtly hint at the looming intellectual property tensions between the original architect and the distilled system's creators.",
+ "rendered_at_utc": "2026-09-03T06:53:32+00:00",
+ "seconds_waited": 415.0,
+ "vram_free_gb_before_start": 10.86
+}

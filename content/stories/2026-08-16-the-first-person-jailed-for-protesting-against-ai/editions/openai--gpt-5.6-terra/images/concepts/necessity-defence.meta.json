@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-16-the-first-person-jailed-for-protesting-against-ai",
+ "model_id": "openai/gpt-5.6-terra",
+ "model_slug": "openai--gpt-5.6-terra",
+ "kind": "concept",
+ "concept_slug": "necessity-defence",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3587515915,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A clear editorial courtroom illustration split between an urgent emergency and a political protest: in the foreground, a defendant stands beside a broken locked gate, having opened it to pull a child away from an oncoming flood or fire, while balanced scales above show the small damage to the gate weighed against the immediate danger avoided; behind them, through a contrasting panel or courtroom window, a climate protester blocks a road beneath distant smokestacks and a globe marked by heat waves, with a judge examining a checklist labelled “imminent?”, “would it prevent harm?”, “lawful alternatives?”, and “greater harm?”, emphasizing that a grave concern can be real while the legal necessity defence still fails because the threat is remote, the act is not directly effective, or alternatives remain.",
+ "rendered_at_utc": "2026-09-03T16:55:43+00:00",
+ "seconds_waited": 391.1,
+ "vram_free_gb_before_start": 10.86
+}

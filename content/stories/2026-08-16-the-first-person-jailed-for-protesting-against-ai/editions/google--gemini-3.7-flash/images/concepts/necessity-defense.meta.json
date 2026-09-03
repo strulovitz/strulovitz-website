@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-16-the-first-person-jailed-for-protesting-against-ai",
+ "model_id": "google/gemini-3.7-flash",
+ "model_slug": "google--gemini-3.7-flash",
+ "kind": "concept",
+ "concept_slug": "necessity-defense",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3587515915,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A split-composition legal illustration centered around a glowing, monumental set of justice scales inside a solemn courtroom, visually demonstrating the balance between a minor unlawful act and an imminent catastrophe. On one weighing pan sits a small, broken padlock and a clipped chain-link fence labeled as a minor trespass, while on the opposite, dramatically heavier pan rests a massive, looming disaster—a volatile, overheating technological reactor threatening immediate destruction. In the foreground, a defendant in activist attire gestures toward the catastrophic threat to justify their breach of the perimeter, presenting evidence of the averted crisis to an attentive jury. Above the scene, a stern judge wields a gavel alongside a glowing hourglass symbolizing the strict legal threshold of immediate versus distant harm, clearly conveying the principle of breaking a minor law as a last resort to prevent an overwhelming, urgent peril.",
+ "rendered_at_utc": "2026-09-03T17:28:15+00:00",
+ "seconds_waited": 262.5,
+ "vram_free_gb_before_start": 9.65
+}

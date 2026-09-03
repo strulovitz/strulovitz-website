@@ -1,0 +1,18 @@
+{
+ "story": "2026-07-17-kimi-k3",
+ "model_id": "moonshotai/kimi-k2.6",
+ "model_slug": "moonshotai--kimi-k2.6",
+ "kind": "concept",
+ "concept_slug": "model-distillation",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2166383155,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "The illustration centers on a massive, luminous teacher machine in the background projecting a focused stream of detailed answer scrolls and logic diagrams into a smaller student model in the foreground, while a vast, murky ocean of raw human-written text looms behind them unaccessed. A sharp boundary splits the scene into two mirrored halves: on one side, a signed contract and an open gateway frame the knowledge transfer as transparent and permitted, yielding a coherent, steady-glowing student; on the other side, a competitor siphons the identical stream through a cracked fence plastered with terms-of-service warnings, with stylized corporate emblems suggesting an accuser and an accused facing off across a fractured table. Beneath both students, a shared caption made of ghostly text asks whether learning from publicly visible outputs is meaningfully different from training on the open internet, capturing the technique's core mechanism alongside its legal and ethical fracture lines.",
+ "rendered_at_utc": "2026-09-03T08:41:31+00:00",
+ "seconds_waited": 416.3,
+ "vram_free_gb_before_start": 10.86
+}

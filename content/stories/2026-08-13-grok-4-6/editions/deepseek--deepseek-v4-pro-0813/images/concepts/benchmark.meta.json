@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-13-grok-4-6",
+ "model_id": "deepseek/deepseek-v4-pro-0813",
+ "model_slug": "deepseek--deepseek-v4-pro-0813",
+ "kind": "concept",
+ "concept_slug": "benchmark",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2454008822,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "The illustration shows a large, multi-panel scoreboard at the center of a bright testing hall, where several stylized AI models—each drawn as a distinct robot with a nameplate like “Model A,” “Model B,” or “Grok 4.6”—sit at separate desks labeled Coding, Mathematics, Legal Reasoning, General Knowledge, and Real-World Knowledge Work. Each robot is filling in a standardized answer sheet, but the scoreboard above them displays contradictory rankings: one robot glows with the top coding score while another holds the lead in legal reasoning, and the overall order flickers and changes as if the numbers cannot agree. Meanwhile, in a corner labeled “Ordinary Use,” the highest-scoring coding robot is shown tripping over a simple physical task—like failing to pour a cup of coffee or misreading a handwritten note—while a different robot is caught with a small cheat sheet marked “Trained on Test Data” hidden under its answer sheet. In the foreground, a human observer holds a clipboard with a checklist reading “Hands-On Testing” and a calculator displaying “Cost per Task,” frowning at the scoreboard and pointing to the conflicting results, making clear that benchmark numbers alone do not settle which model is truly better.",
+ "rendered_at_utc": "2026-09-03T15:07:15+00:00",
+ "seconds_waited": 414.3,
+ "vram_free_gb_before_start": 10.7
+}

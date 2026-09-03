@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-13-grok-4-6",
+ "model_id": "openai/gpt-5.6-terra",
+ "model_slug": "openai--gpt-5.6-terra",
+ "kind": "concept",
+ "concept_slug": "ai-agent",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2454008822,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A clear editorial-style illustration of an AI agent as a small central control desk with a glowing language-model “brain” interpreting a task checklist, then directing visible tool arms toward separate panels: a web browser search, a folder of company files, a code terminal, a document editor, a calendar, and an email inbox; arrows form a loop from plan to action to observed result and back to the plan, showing multi-step decision-making. Around the desk, permissions appear as locked gates and limited-access badges, while high-consequence actions such as sending an email or changing an online account pause at a prominent human confirmation button. A transparent activity log records each step beside a large red stop switch and an undo/correction control, making the contrast between useful autonomy and carefully bounded, accountable action immediately legible.",
+ "rendered_at_utc": "2026-09-03T14:08:03+00:00",
+ "seconds_waited": 309.4,
+ "vram_free_gb_before_start": 9.65
+}

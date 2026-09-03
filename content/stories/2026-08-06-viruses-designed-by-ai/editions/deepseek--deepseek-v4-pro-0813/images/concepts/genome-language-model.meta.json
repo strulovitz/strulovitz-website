@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-06-viruses-designed-by-ai",
+ "model_id": "deepseek/deepseek-v4-pro-0813",
+ "model_slug": "deepseek--deepseek-v4-pro-0813",
+ "kind": "concept",
+ "concept_slug": "genome-language-model",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 1335683939,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "The illustration should be a single composite image with a top-to-bottom flow: at the top, a stylized neural network reads a long DNA double helix whose bases are marked as letters, and small floating probability charts show the model learning which bases tend to follow one another; in the middle, the same network outputs a glowing synthetic DNA sequence shaped into a complete bacteriophage, clearly labeled as a new genome that has never existed before; at the bottom, the scene shifts to a laboratory bench, where these AI-proposed genomes are inserted into petri dishes and test tubes containing bacterial cultures, but only one or two of many identical sequences glow bright green as viable, while the rest are dim or crossed out, visually emphasizing that the generated genomes are unproven hypotheses and only a small fraction actually work in living cells.",
+ "rendered_at_utc": "2026-09-03T13:04:46+00:00",
+ "seconds_waited": 250.4,
+ "vram_free_gb_before_start": 9.65
+}

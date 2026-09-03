@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-06-viruses-designed-by-ai",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "kind": "concept",
+ "concept_slug": "genome-language-model",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 1335683939,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single illustration shows a glowing DNA strand composed of the letters A, C, G, and T flowing like a sentence through a large neural network, which studies the sequence patterns the way a language model reads text; from the model emerges a newly generated DNA sequence, half digital and half chemical, leading to a laboratory scene where the synthetic strand is manufactured and inserted into a living cell, causing the cell to produce biological structures, with visual motifs of medicine, biotechnology, and a subtle biohazard warning to convey both promise and risk.",
+ "rendered_at_utc": "2026-09-03T13:43:50+00:00",
+ "seconds_waited": 418.1,
+ "vram_free_gb_before_start": 10.86
+}

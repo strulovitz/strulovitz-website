@@ -1,0 +1,18 @@
+{
+ "story": "2026-07-17-kimi-k3",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "kind": "concept",
+ "concept_slug": "agentic-loop",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2166383155,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single illustration shows a circular assembly-line loop in which an AI agent repeatedly improves its work: on one side, a model writes code; next, a small renderer displays the resulting webpage or game screen; then a magnifying eye or inspection lens examines the visual output and marks a visible error; after that, a tool-equipped hand edits the code; and the cycle returns to rendering again, with several faint repeated versions arranged around the loop like drafts. A person is present only as a distant supervisor, emphasizing long autonomous revision. Around the loop, the scaffolding, screens, connectors, and tools are drawn as prominently as the central model, showing that the surrounding harness is essential; the overall image should read as iterative drafting and checking rather than a single question-and-answer exchange.",
+ "rendered_at_utc": "2026-09-03T08:09:44+00:00",
+ "seconds_waited": 370.2,
+ "vram_free_gb_before_start": 10.86
+}

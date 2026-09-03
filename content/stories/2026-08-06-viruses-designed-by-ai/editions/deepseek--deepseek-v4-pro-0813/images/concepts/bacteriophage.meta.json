@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-06-viruses-designed-by-ai",
+ "model_id": "deepseek/deepseek-v4-pro-0813",
+ "model_slug": "deepseek--deepseek-v4-pro-0813",
+ "kind": "concept",
+ "concept_slug": "bacteriophage",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 1335683939,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "The illustration is a detailed, cutaway scene centered on a T4 bacteriophage—its icosahedral head and spider-like tail fibers—attached to the surface of a rod-shaped bacterium, with a glowing strand of viral DNA visibly traveling down the tail into the bacterial cytoplasm. Inside the bacterium, the injected DNA has hijacked the cell's machinery: ribosomes are shown producing phage proteins, and new phage particles are assembling in a cluster, while the bacterial cell wall begins to rupture, releasing a burst of completed phages. Surrounding this central infection, the same phage type is shown selectively attacking only pathogenic bacteria (labeled with red or dangerous shapes), while nearby human cells and harmless bacteria are clearly ignored—some even have a small \"protected\" or \"no entry\" symbol—illustrating phage specificity and therapeutic potential against antibiotic-resistant infections, and the background is filled with countless similar phages, hinting at their immense natural abundance. In the background, a translucent computer screen displays a DNA double helix with a neural network overlay and a robotic arm or cursor editing the sequence, while a subtle syringe filled with phages points toward an infected wound, connecting the scene to both AI-driven genome design and phage therapy. The overall composition places the molecular drama in the foreground, with the AI and medical elements as contextual layers, ensuring that a viewer grasps the full story: a virus that eats bacteria, can be tailored to target only harmful strains, and is being refined with artificial intelligence.",
+ "rendered_at_utc": "2026-09-03T12:51:42+00:00",
+ "seconds_waited": 382.9,
+ "vram_free_gb_before_start": 10.86
+}

@@ -1,0 +1,18 @@
+{
+ "story": "2026-07-17-kimi-k3",
+ "model_id": "z-ai/glm-5.3",
+ "model_slug": "z-ai--glm-5.3",
+ "kind": "concept",
+ "concept_slug": "open-weights",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2166383155,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A wide, split-panel illustration showing a colossal, translucent cube made of countless tiny glowing numbers hovering in the center, like a three-dimensional spreadsheet. From the left, a tall corporate tower with locked doors and a toll booth extends a tethered cable toward the cube, with users lining up to access it through a guarded terminal. From the right, the cube's numerical contents pour downward like a waterfall of digits into an open shipping crate beside an ordinary person's home workstation, where the same cube — an identical copy — floats above a personal computer, complete and unbound. Inside the home scene, small details carry the entry's tensions: a robust-looking GPU rack hinting at the hardware needed to run the copy; a hand reaching into the cube to pluck out and rearrange digits, showing it can be modified; a padlock icon visibly detaching from the copied cube, signaling that built-in safeguards can be stripped away; and behind everything, a stylized one-way turnstile door through which the numbers have passed and can never return, rendered in bold red as the image's focal warning. A caption-like banner across the bottom distinguishes the two halves: on the tower side, \"closed: rules and prices\"; on the home side, \"open weights: download, run, change — no going back.\"",
+ "rendered_at_utc": "2026-09-03T08:03:31+00:00",
+ "seconds_waited": 384.3,
+ "vram_free_gb_before_start": 10.78
+}

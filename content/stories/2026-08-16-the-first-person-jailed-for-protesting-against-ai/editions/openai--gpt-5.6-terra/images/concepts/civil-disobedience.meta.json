@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-16-the-first-person-jailed-for-protesting-against-ai",
+ "model_id": "openai/gpt-5.6-terra",
+ "model_slug": "openai--gpt-5.6-terra",
+ "kind": "concept",
+ "concept_slug": "civil-disobedience",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3587515915,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A clear editorial illustration of a peaceful protester sitting calmly across a painted boundary line between two contrasting spaces: on one side, an orderly courthouse with a judge’s bench, police officer and open handcuffs representing the law and likely punishment; on the other, a shadowed scene of the larger injustice being protested, such as a factory pipe darkening a neighborhood’s air or an unequal barrier excluding people. The protester holds a sign reading “A LAW CAN SERVE A WRONG,” faces the public and cameras rather than hiding, and offers their wrists for arrest without resistance, while nearby commuters, an ambulance route and workers delayed by the action show that the disruption also affects uninvolved people. The composition should make the central tension unmistakable: a visible, nonviolent lawbreaking act that claims moral necessity but does not erase legal consequences or costs to others.",
+ "rendered_at_utc": "2026-09-03T16:49:10+00:00",
+ "seconds_waited": 309.8,
+ "vram_free_gb_before_start": 8.99
+}

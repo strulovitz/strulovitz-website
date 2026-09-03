@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-13-grok-4-6",
+ "model_id": "deepseek/deepseek-v4-pro-0813",
+ "model_slug": "deepseek--deepseek-v4-pro-0813",
+ "kind": "concept",
+ "concept_slug": "frontier-model",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2454008822,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A clean editorial illustration shows a steep, glowing mountain ridge representing “frontier capability,” with a dashed, continuously moving boundary line tracing the leading edge upward and rightward across dated marker posts from 2025 to mid-2026. On the crest stand four prominent, brightly lit humanoid figures labeled GPT‑5.6 family, Claude Opus 5, Fable 5, and Grok 4.6, each wearing a badge for its lab—OpenAI, Anthropic, and xAI—and facing forward toward an open, hazy horizon of harder future benchmarks. Just below them, older and smaller models fade into grayscale on the lower slopes, some tumbling backward as the frontier line leaves them behind. Along the ridge, small flag posts mark real-world tasks like coding, reasoning, and document analysis, with benchmark scores printed on the flags, while the labs’ base camps sit at the mountain’s base, sending supply lines up to the current frontier.",
+ "rendered_at_utc": "2026-09-03T15:13:19+00:00",
+ "seconds_waited": 328.7,
+ "vram_free_gb_before_start": 10.86
+}

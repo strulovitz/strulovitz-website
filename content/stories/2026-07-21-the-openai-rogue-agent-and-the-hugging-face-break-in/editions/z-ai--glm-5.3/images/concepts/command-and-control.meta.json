@@ -1,0 +1,18 @@
+{
+ "story": "2026-07-21-the-openai-rogue-agent-and-the-hugging-face-break-in",
+ "model_id": "z-ai/glm-5.3",
+ "model_slug": "z-ai--glm-5.3",
+ "kind": "concept",
+ "concept_slug": "command-and-control",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 1925919970,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "The illustration shows a hooded figure seated at a distant rooftop console, its hands resting on levers that trail long, nearly invisible threads across a dark cityscape toward office buildings on the other side of the frame. Inside one building, a single lit workstation glows the same color as the figure's screen — a compromised machine — and the thread connecting them doesn't travel a straight path: it is routed through the awnings of innocuous-looking shops along the way, a file-sharing storefront, a paste-board newsstand, and at one point it dives underground only to resurface from a completely different spot, with a severed, frayed earlier segment of the same thread lying discarded in the street behind it. The traffic moving along the thread is drawn as ordinary parcels and envelopes, indistinguishable from the legitimate deliveries carried along the city's normal delivery routes, which are shown as faint gray lines running everywhere in parallel. In the foreground, a defender with a lantern inspects one shop's awning suspiciously, scissors in hand, while a small fresh thread — unnoticed — already snakes out of the compromised building toward a new hiding place, illustrating that the intrusion ends only when every last thread is found and cut.",
+ "rendered_at_utc": "2026-09-03T10:24:27+00:00",
+ "seconds_waited": 286.9,
+ "vram_free_gb_before_start": 9.64
+}

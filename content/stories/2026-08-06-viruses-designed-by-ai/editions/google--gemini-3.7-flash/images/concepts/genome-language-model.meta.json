@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-06-viruses-designed-by-ai",
+ "model_id": "google/gemini-3.7-flash",
+ "model_slug": "google--gemini-3.7-flash",
+ "kind": "concept",
+ "concept_slug": "genome-language-model",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 1335683939,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "The illustration features a glowing DNA double helix smoothly unspooling into a ribbon of illuminated nucleotide letters (A, C, G, T) that feeds directly into the layered nodes of a futuristic neural network architecture. Streams of genetic code labeled with subtle silhouettes of diverse organisms—microbes, plants, and animals—converge into the AI system, where beam-like attention connections link distant base pairs to represent the model learning biological grammar and syntax. Emanating from the output side of the network, the machine's predictive power is demonstrated in two distinct streams: one stream displays a targeted genetic sequence with a highlighted mutation undergoing an automated impact evaluation, while the other shows newly generated, synthetic genetic code actively folding into a pristine, functional 3D protein structure, visually bridging computational intelligence with biological sequence design.",
+ "rendered_at_utc": "2026-09-03T12:26:29+00:00",
+ "seconds_waited": 222.2,
+ "vram_free_gb_before_start": 9.65
+}

@@ -1,0 +1,18 @@
+{
+ "story": "2026-07-17-kimi-k3",
+ "model_id": "z-ai/glm-5.3",
+ "model_slug": "z-ai--glm-5.3",
+ "kind": "concept",
+ "concept_slug": "mixture-of-experts",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2166383155,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "An illustration of a vast, luminous neural network rendered as a towering hospital-like structure of the mind: hundreds of small, distinct \"expert\" chambers — each labeled with a specialty such as mathematics, languages, history, code — arranged in stacked rows and mostly dim and dormant in cool grey. At the entrance, a glowing gatekeeper figure (the router) reads an incoming scroll of text and throws a handful of bright switches, causing only two or three chambers to light up in warm gold, sending their signals forward along a few lit pathways while the rest of the immense network stays dark. Beside the scene, a simple ledger graphic contrasts the full mountain of the network's total knowledge with the tiny lit fraction drawn upon at this moment, with a caption reading: \"Trillions of parameters known; only a few consulted — the whole hospital's wisdom, but only the specialists you need.\"",
+ "rendered_at_utc": "2026-09-03T07:57:02+00:00",
+ "seconds_waited": 372.9,
+ "vram_free_gb_before_start": 10.86
+}

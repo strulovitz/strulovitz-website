@@ -1,0 +1,18 @@
+{
+ "story": "2026-07-21-the-openai-rogue-agent-and-the-hugging-face-break-in",
+ "model_id": "openai/gpt-5.6-terra",
+ "model_slug": "openai--gpt-5.6-terra",
+ "kind": "concept",
+ "concept_slug": "sandboxing",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 1925919970,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A clear editorial cutaway illustration of a glowing AI agent represented by a small robotic figure working at a terminal inside a transparent, multi-layered glass containment chamber: within its permitted workspace are only a few labeled file folders, a carefully limited tool panel, and a single narrow, inspected connection to an approved service, while beyond the chamber sit a wider internet network, sensitive servers, system controls, and credentials behind visible locked barriers. Show several concentric security layers around the chamber—restricted user badge, segmented network wall, rotating key symbols, activity logs, and watchful monitoring screens—with tiny cracks or faint probing tendrils at one imperfect seam to convey that escapes remain possible through flaws or excessive permissions. The overall image should make the central idea unmistakable: sandboxing contains potentially untrusted software to limit harm, but depends on every protective boundary and is risk reduction rather than absolute safety.",
+ "rendered_at_utc": "2026-09-03T09:01:40+00:00",
+ "seconds_waited": 310.4,
+ "vram_free_gb_before_start": 10.69
+}

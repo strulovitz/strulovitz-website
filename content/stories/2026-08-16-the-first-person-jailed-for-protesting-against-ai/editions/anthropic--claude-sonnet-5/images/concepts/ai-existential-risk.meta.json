@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-16-the-first-person-jailed-for-protesting-against-ai",
+ "model_id": "anthropic/claude-sonnet-5",
+ "model_slug": "anthropic--claude-sonnet-5",
+ "kind": "concept",
+ "concept_slug": "ai-existential-risk",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3587515915,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "Split the illustration down the middle into two contrasting panels joined by a single thin thread that represents \"artificial intelligence\" running through both. On the left panel, render a small, ordinary desktop or phone displaying a glitchy, mundane AI chat interface fumbling a simple task, surrounded by tiny icons of human hands adjusting, correcting, and overseeing it—labeled subtly as \"today.\" On the right panel, show a vast, looming abstract silhouette of a machine intelligence, its form dissolving into circuitry that stretches over a barely visible Earth below, with faint cracks or storm clouds suggesting irreversible catastrophe—labeled \"hypothetical future.\" Between the two panels, place a narrow gap filled with scattered figures: a few tiny human protestors holding signs and chaining themselves to a fence on one side, and a cluster of debating scientists with speech bubbles containing question marks and exclamation points on the other, visually capturing the unresolved dispute among researchers and the resulting activism. The overall palette should shift from calm, muted tones on the left to darker, more ominous tones on the right, visually encoding the leap from mundane present-day limitations to speculative, civilization-scale stakes without asserting which side is correct.",
+ "rendered_at_utc": "2026-09-03T17:03:55+00:00",
+ "seconds_waited": 486.9,
+ "vram_free_gb_before_start": 10.86
+}

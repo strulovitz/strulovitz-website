@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-06-viruses-designed-by-ai",
+ "model_id": "google/gemini-3.7-flash",
+ "model_slug": "google--gemini-3.7-flash",
+ "kind": "concept",
+ "concept_slug": "bacteriophage",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 1335683939,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "The illustration should be a detailed, full-color scientific visualization centered on a classic lunar-lander-shaped bacteriophage, showing its geometric protein capsid filled with coiled genetic material and its tail fibers anchored firmly to the outer membrane of a rod-shaped bacterium as it injects its DNA inside. In the surrounding microenvironment, multiple phages are depicted actively attacking and bursting a cluster of harmful pathogenic bacteria, while adjacent human tissue cells and diverse beneficial microbes remain completely undisturbed and intact, visually communicating the phage's precise structural anatomy, its exclusive bacterial infection mechanism, and its therapeutic value in eliminating dangerous infections without harming the human body.",
+ "rendered_at_utc": "2026-09-03T12:21:46+00:00",
+ "seconds_waited": 462.1,
+ "vram_free_gb_before_start": 10.86
+}

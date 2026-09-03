@@ -1,0 +1,18 @@
+{
+ "story": "2026-07-17-kimi-k3",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "kind": "concept",
+ "concept_slug": "model-distillation",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2166383155,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single illustration should show a large, luminous teacher model as a towering workshop or machine releasing a flowing stream of finished answer tokens, diagrams, and polished texts toward a smaller student model that is carefully copying and reshaping those outputs into its own form; between them, a tense border or courtroom-like dividing line suggests a dispute over permission, with one side gesturing accusingly at the other for taking the teacher’s outputs, while beneath both models a vast ocean of human-written pages, books, and public text supports the whole scene, making clear that distillation is both a normal learning method and a politically charged argument about who may learn from whose outputs.",
+ "rendered_at_utc": "2026-09-03T08:22:10+00:00",
+ "seconds_waited": 372.5,
+ "vram_free_gb_before_start": 10.86
+}

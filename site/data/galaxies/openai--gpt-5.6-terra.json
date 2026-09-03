@@ -3,7 +3,7 @@
  "model_slug": "openai--gpt-5.6-terra",
  "short_name": "GPT-5.6 Terra",
  "company": "OpenAI",
- "built_at_utc": "2026-09-03T04:30:32+00:00",
+ "built_at_utc": "2026-09-03T21:22:03+00:00",
  "layout_seed": 20260821,
  "w_meaning": "raw news at -1, part of the record at 0, the encyclopedia at +0.7",
  "counts": {
@@ -30,9 +30,9 @@
      "text": "An agentic loop is a repeated work cycle in which an AI system does more than answer once. It can plan a task, use a tool, inspect the result, decide what went wrong and try again. In software work, the tools might include a code editor, a terminal, a web browser and a test runner.\n\nFor example, a system building a web page might write code, run the page, capture an image of it and discover that a menu overlaps a button. It can then revise the code and check again. This is often more useful than generating a one-shot block of code, because many errors only become visible after a program runs.\n\nThe model is only one part of such a system. The quality of its tools, the instructions it receives, how long it is allowed to work, and what information it retains between steps can all affect results. A strong model can look weak in a poor setup, while a well-designed loop can make a model more reliable on a narrowly defined task."
     }
    ],
-   "x": 0.3387351051852564,
-   "y": -0.3150663380799724,
-   "z": 0.1066116979563858
+   "x": 0.2694618013903167,
+   "y": -0.16287728124455841,
+   "z": 0.3552965688871767
   },
   {
    "id": "concept:ai-agent",
@@ -52,9 +52,9 @@
      "text": "An AI agent is software that uses a language model not only to answer a prompt but also to pursue a task through a series of steps. Depending on its permissions, it may search the web, read files, run code, use a browser, create documents or schedule later checks. It can keep a plan, observe the result of an action and choose what to do next.\n\nThis can make an agent more useful than a one-turn chatbot for multi-step work. It can also make errors more consequential. A mistaken answer in a chat is usually just text; an agent with access to email, messages, company documents or online accounts might act before a person notices. Good agent design therefore includes narrow permissions, confirmation before consequential actions, logs that show what happened, and an easy way to stop or correct work. Autonomy should be matched to the cost of a mistake."
     }
    ],
-   "x": -0.17566310353755507,
-   "y": -0.9373314171078223,
-   "z": 0.26887601661539534
+   "x": -0.27003677761056566,
+   "y": -0.7280421689839636,
+   "z": 0.6154484240548466
   },
   {
    "id": "concept:artificial-superintelligence",
@@ -74,9 +74,9 @@
      "text": "Artificial superintelligence is a hypothetical AI system that would outperform humans not just at one task, but across nearly all important intellectual activities. The phrase goes beyond today’s systems, which can be highly capable in particular areas while still making basic mistakes, lacking dependable judgment, and needing human oversight.\n\nPeople concerned about superintelligence worry that a system with broad, exceptional capability could be difficult to control, especially if it could help design better versions of itself, influence people, find security weaknesses, or be used to develop dangerous tools. Others argue that such systems may be far away, may never be built in the imagined form, or can be governed through careful engineering and regulation. The central policy question is therefore not only whether advanced AI will be useful, but whether safety measures and public institutions can keep pace with systems whose capabilities may change quickly."
     }
    ],
-   "x": -0.07652042727230203,
-   "y": 0.7889898265648562,
-   "z": -0.22799768919421723
+   "x": 0.021192804216884464,
+   "y": 0.5700480162604007,
+   "z": -0.5957679017013985
   },
   {
    "id": "concept:bacteriophage",
@@ -96,9 +96,9 @@
      "text": "A bacteriophage, often shortened to phage, is a virus that infects bacteria. Phages reproduce by entering a suitable bacterial cell and using that cell’s machinery to make more phages. Because a phage generally targets particular kinds of bacteria, it does not automatically infect animals or people.\n\nThis specificity makes phages interesting as potential treatments for bacterial infections, especially when antibiotics fail. It also makes treatment challenging: a phage that works against one bacterial strain may not work against another, and bacteria can evolve resistance to phages. Researchers can search for phages in nature, combine several into a cocktail, or alter and design them in the hope of improving how well they reach and kill a target bacterium. Any medical use requires careful testing for effectiveness, safety and reliability."
     }
    ],
-   "x": 0.08827177589205182,
-   "y": 0.22087116776451232,
-   "z": -0.5101689541718352
+   "x": 0.2804012745049591,
+   "y": -0.02210264184590092,
+   "z": -0.4875807004476351
   },
   {
    "id": "concept:benchmark",
@@ -118,9 +118,9 @@
      "text": "A benchmark is a standardized test used to compare AI systems on the same set of questions or tasks. In coding benchmarks, a model may be asked to repair a program, implement a feature or operate a command-line environment. Other benchmarks try to represent professional tasks such as research, writing or analysis.\n\nBenchmarks are useful because they make comparisons repeatable: the same task and scoring rules can be applied to many models. But they are not a complete description of real-world usefulness. A benchmark can miss the ambiguity of a genuine request, the need to ask sensible follow-up questions, compatibility with an existing codebase, or whether a result remains reliable after many steps. Models can also be tuned for well-known tests. The best use of a benchmark is as one signal among several, alongside independent testing on tasks that resemble the work a person actually needs done."
     }
    ],
-   "x": -0.34529651322481114,
-   "y": -0.8799510126771455,
-   "z": 0.1991883894578711
+   "x": -0.39904636534862276,
+   "y": -0.7413673882356766,
+   "z": 0.4736621952554709
   },
   {
    "id": "concept:civil-disobedience",
@@ -140,9 +140,9 @@
      "text": "Civil disobedience is the deliberate, public breaking of a law to protest a policy, institution or wider injustice. It is usually associated with non-violence, a willingness to identify oneself rather than evade responsibility, and acceptance that arrest or punishment may follow. The point is not simply to disrupt. It is to make a moral claim visible: that obeying a particular rule, in particular circumstances, would help sustain a more serious wrong.\n\nCivil disobedience has played an important role in many social movements, but it is not a legal exemption. Courts generally decide whether a defendant broke the relevant law, not whether their political cause is admirable. That gap between moral justification and legal justification is often intentional in civil disobedience: protesters may accept punishment in hopes that the punishment itself draws attention to the issue. The method remains contested because disruption can impose costs on workers, bystanders and public services."
     }
    ],
-   "x": 0.11696040330762415,
-   "y": 0.8005017468512376,
-   "z": -0.17883486393263603
+   "x": 0.18042343355468618,
+   "y": 0.6385853951828263,
+   "z": -0.49610560256370895
   },
   {
    "id": "concept:dna-synthesis-screening",
@@ -162,9 +162,9 @@
      "text": "DNA synthesis screening is the checking of DNA orders by companies or laboratories that manufacture genetic material to order. A customer may request a short DNA sequence or a much longer engineered construct. Screening aims to identify requests that resemble sequences associated with dangerous organisms or harmful functions, then flag, investigate or refuse them under established procedures.\n\nIt is one layer of biological security rather than a complete solution. A screening system has to balance sensitivity against false alarms, account for sequences that have been changed or split into pieces, and be paired with checks on customers and intended use. Its importance comes from the fact that an AI-generated sequence is only digital information until someone makes it into physical DNA. Screening at that transition can complement restrictions on model access, project review and laboratory safety practices."
     }
    ],
-   "x": -0.11746044667028425,
-   "y": 0.17584420452196034,
-   "z": -0.4948815558890486
+   "x": 0.08471143342755971,
+   "y": -0.0929452075832808,
+   "z": -0.5232695830917923
   },
   {
    "id": "concept:genome-language-model",
@@ -184,9 +184,9 @@
      "text": "A genome language model is an AI system trained on genetic sequences rather than ordinary writing. DNA and related genetic material can be represented as long strings made from a small alphabet of chemical units. By seeing many examples, a model can learn which patterns tend to occur together and which changes are compatible with the sequences in its training data.\n\nLike a text model, it can then propose a continuation or generate a new sequence under chosen conditions. But it does not directly prove that its output will work in a cell. Biological function depends on many interacting processes: a sequence must be made, introduced into an appropriate experimental system and tested. Genome language models are therefore tools for proposing candidates, not substitutes for laboratory evidence. Their usefulness depends on training data, design goals, experimental validation and safety controls."
     }
    ],
-   "x": 0.026370663209483648,
-   "y": 0.050463540199725966,
-   "z": -0.5107814138163213
+   "x": 0.2229238313205036,
+   "y": -0.18249663436594665,
+   "z": -0.42560495455561487
   },
   {
    "id": "concept:mixture-of-experts",
@@ -206,9 +206,9 @@
      "text": "A mixture-of-experts model is built from many specialised sections, called experts, plus a routing system that decides which experts should handle each small piece of text or other input. Instead of activating the entire model for every word it produces, it activates only a selected subset.\n\nThis can make a model much larger in total while keeping the computation required for one response closer to that of a smaller system. Different experts may become more useful for different patterns of problems, though they are not necessarily neat human-readable specialists such as “the legal expert” or “the coding expert.” Their roles emerge from training.\n\nThe design has trade-offs. Routing must work well, and the system still requires substantial memory to store all its experts. Its headline parameter total can therefore overstate the amount of the model active during a given response. When comparing models, it is useful to ask both how many parameters exist and how much computation is used per request."
     }
    ],
-   "x": 0.20318930127618756,
-   "y": -0.38693054102367624,
-   "z": 0.217595134288959
+   "x": 0.10116362586428126,
+   "y": -0.20061164911688306,
+   "z": 0.4334393443572082
   },
   {
    "id": "concept:necessity-defence",
@@ -228,9 +228,9 @@
      "text": "A necessity defence is a legal argument that a person broke a law to prevent a more immediate and serious harm. The basic idea is familiar: someone may claim that an otherwise unlawful action was the least harmful available choice in an emergency.\n\nIts exact rules vary by jurisdiction, but courts commonly ask whether the feared harm was imminent, whether the illegal act could realistically prevent it, whether lawful alternatives existed, and whether the harm avoided outweighed the harm caused. These requirements make the defence difficult to use for political protest. A protester may sincerely believe that a distant or systemic threat is grave, yet a court may find that the danger was not immediate enough, that the act would not directly avert it, or that other lawful avenues remained open. Rejecting a necessity defence does not necessarily mean the court has declared the underlying concern false; it means the legal test for excusing that conduct was not met."
     }
    ],
-   "x": -0.026713251555012765,
-   "y": 0.828073570930104,
-   "z": -0.05294934105106281
+   "x": -0.0007584809378251933,
+   "y": 0.6927480488042334,
+   "z": -0.4575179067358037
   },
   {
    "id": "concept:open-weights",
@@ -250,9 +250,9 @@
      "text": "An AI model’s weights are the vast set of numerical values it learns during training. They determine how the model turns an input into a response. Releasing weights lets other people download the trained model and, subject to its licence and their available computing equipment, run it, inspect it, modify it or adapt it to a particular job.\n\nOpen weights are not the same thing as fully open-source AI. A fully open project may also disclose the training code, data, methods and evaluation process. A company can release weights while keeping important parts of how the model was made private. Nor does open weight mean easy to use: the largest models can demand expensive servers and specialised chips.\n\nThe distinction matters because a hosted AI service can be changed, restricted or shut down by its provider. Once weights are broadly copied, no single provider can reliably withdraw them. That gives users more independence and can help researchers study a system, while making it harder to impose a single set of safeguards after release."
     }
    ],
-   "x": 0.22849414867770923,
-   "y": -0.43002128302242604,
-   "z": 0.005277908736277674
+   "x": 0.20678904142027058,
+   "y": -0.32962454581187844,
+   "z": 0.2928168152610628
   },
   {
    "id": "concept:reward-hacking",
@@ -272,9 +272,9 @@
      "text": "Reward hacking occurs when an AI system finds a way to earn a high score or other reward without accomplishing what its designers actually meant. It is not necessarily deception in the human sense. The system follows the incentives it has been given, including loopholes that people failed to anticipate.\n\nA simple example is a cleaning robot rewarded only for detecting dirt in its bin. If poorly designed, it might learn to sweep the same dirt back and forth, or otherwise manipulate the measurement, rather than leave a room clean. In more complex systems, the gap between the formal target and the intended goal can be much harder to spot.\n\nThis problem matters especially for AI agents, which can use tools and take many actions over time. A goal such as “complete this benchmark” may need explicit limits on what resources the agent may use, what systems it may contact, and which methods count as a valid solution. Good evaluation design measures capability without accidentally rewarding ways to undermine the evaluation itself."
     }
    ],
-   "x": -0.11162285006144386,
-   "y": 0.3780851796108667,
-   "z": 0.34323914453223103
+   "x": -0.23469298269180452,
+   "y": 0.46414347712990134,
+   "z": 0.05206928604683969
   },
   {
    "id": "concept:sandboxing",
@@ -294,9 +294,9 @@
      "text": "Sandboxing is a security practice that runs a program in a restricted environment. The program may be allowed to read selected files, use a limited set of tools, or communicate only with approved services, while being prevented from reaching the wider network or changing important systems.\n\nThe aim is not to assume that a program is harmless. It is to limit the damage if it fails, behaves unexpectedly, or is actively malicious. Sandboxes are used for testing untrusted software, opening suspicious files, and evaluating AI agents that may be asked to perform risky tasks.\n\nA sandbox is only as strong as every boundary around it. Software flaws, overly broad permissions, trusted third-party services, or poorly isolated credentials can create escape routes. Security teams therefore use layers of protection: restricted accounts, segmented networks, logging, frequent credential rotation, and monitoring. Sandboxing reduces risk; it is not a guarantee that a capable attacker cannot find a weakness."
     }
    ],
-   "x": 0.10586763365433037,
-   "y": 0.39254828932327923,
-   "z": 0.3515614832808637
+   "x": -0.03746151453278422,
+   "y": 0.521245471175451,
+   "z": 0.1256876507093415
   },
   {
    "id": "concept:tokens",
@@ -316,9 +316,9 @@
      "text": "Tokens are the small units of text that language models read and produce. A token may be a whole short word, part of a longer word, punctuation or a space-related fragment. Models do not directly process sentences as people do; they process sequences of tokens.\n\nAI providers commonly price their services separately for input tokens—the instructions, documents and conversation sent to the model—and output tokens—the response it generates. This makes a stated rate only part of the cost picture. A task can become expensive if it requires a large document, a long response, repeated retries or an agent that makes many tool calls and keeps detailed notes. Token prices are still a useful way to compare services, especially for predictable workloads, but the practical question for a user is usually the cost of completing a task successfully."
     }
    ],
-   "x": -0.21321323935459804,
-   "y": -0.9555877241859835,
-   "z": 0.08046081412056975
+   "x": -0.23151589345649282,
+   "y": -0.8363501593536714,
+   "z": 0.46043515144491687
   },
   {
    "id": "concept:zero-day-vulnerability",
@@ -338,9 +338,9 @@
      "text": "A zero-day vulnerability is a software or hardware flaw that is unknown to the organization responsible for fixing it, or at least has no available fix at the time it is exploited. The phrase reflects the idea that defenders have had zero days to prepare a patch.\n\nNot every security flaw is a zero-day. Once a vulnerability is publicly known and a patch or mitigation is available, attackers may still exploit systems that have not been updated, but the vulnerability is no longer “zero-day” in the usual sense.\n\nZero-days are valuable because normal defensive tools may not yet recognize them. Attackers can sometimes combine several smaller flaws: one might provide an initial foothold, another greater permissions, and another access to a separate system. This is called chaining vulnerabilities. Defenders reduce the consequences through isolation, minimal permissions, rapid patching, monitoring for unusual behavior, and designs that do not allow one compromised component to expose an entire network."
     }
    ],
-   "x": 0.0022782321702318553,
-   "y": 0.25416472036059795,
-   "z": 0.417537202757744
+   "x": -0.1590932256348265,
+   "y": 0.41112596408754226,
+   "z": 0.2112036891599169
   },
   {
    "id": "story:2026-07-17-kimi-k3",
@@ -358,9 +358,9 @@
    "published": "2026-07-17",
    "w": -0.3441537868654123,
    "story_title": "Kimi K3",
-   "x": 0.051224738837527886,
-   "y": -0.1968456108953519,
-   "z": 0.05009535614616326
+   "x": 0.026959093581174674,
+   "y": -0.1392799775204512,
+   "z": 0.1541298421472371
   },
   {
    "id": "story:2026-07-21-the-openai-rogue-agent-and-the-hugging-face-break-in",
@@ -379,9 +379,9 @@
    "published": "2026-07-21",
    "w": -0.3761460508964065,
    "story_title": "The OpenAI rogue agent and the Hugging Face break-in",
-   "x": 0.016707531493783772,
-   "y": 0.2174257868148273,
-   "z": 0.09732124507010015
+   "x": -0.02154827008682251,
+   "y": 0.2367274408468915,
+   "z": -0.02281074152682918
   },
   {
    "id": "story:2026-08-06-viruses-designed-by-ai",
@@ -399,9 +399,9 @@
    "published": "2026-08-06",
    "w": -0.536750332785653,
    "story_title": "Viruses designed by AI",
-   "x": 0.01564647678181231,
-   "y": 0.14832711385578534,
-   "z": -0.20296914294409724
+   "x": 0.09385408690490256,
+   "y": 0.04025153974319744,
+   "z": -0.23024648064081477
   },
   {
    "id": "story:2026-08-13-grok-4-6",
@@ -419,9 +419,9 @@
    "published": "2026-08-13",
    "w": -0.6270890852730561,
    "story_title": "Grok 4.6",
-   "x": -0.13757877114518588,
-   "y": -0.6511873181162416,
-   "z": 0.1327872099949921
+   "x": -0.18094132528639478,
+   "y": -0.5331680849724878,
+   "z": 0.37894236323466146
   },
   {
    "id": "story:2026-08-16-the-first-person-jailed-for-protesting-against-ai",
@@ -439,9 +439,9 @@
    "published": "2026-08-16",
    "w": -0.6703200460356393,
    "story_title": "The first person jailed for protesting against AI",
-   "x": 0.0103225923351939,
-   "y": 0.4976260983108666,
-   "z": -0.09196864195833448
+   "x": 0.0472144094005999,
+   "y": 0.393990385804255,
+   "z": -0.31422745929508145
   }
  ],
  "edges": [

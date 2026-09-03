@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-13-grok-4-6",
+ "model_id": "z-ai/glm-5.3",
+ "model_slug": "z-ai--glm-5.3",
+ "kind": "concept",
+ "concept_slug": "tokens-and-pricing",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2454008822,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "The illustration depicts two AI models at workstations, each receiving the same small task card from a conveyor belt of rectangular tiles, where every tile carries just a few letters of a word, showing that text is chopped into tiny metered chunks called tokens. Beside each model stands a taximeter-style gauge posting the going rate, with incoming token tiles priced low and outgoing tiles several times higher, tallied per million, because writing text costs more computation than reading it. The model advertised as cheap sprays an enormous cascade of tiles, most of them drifting semi-transparently through a thought bubble labeled private reasoning before reaching a short final answer, so its bill runs high; next to it, the expensive model emits only a brief, tidy answer with a tiny thought bubble, and its bill comes out lower, while a banner over both stations reads price times how much it writes equals cost per task. In the foreground, a consumer chat app keeps its meter hidden behind a flat monthly price tag, while a developer beside it studies an invoice itemizing millions of tokens in and out, the whole arithmetic laid bare on paper.",
+ "rendered_at_utc": "2026-09-03T15:53:37+00:00",
+ "seconds_waited": 446.2,
+ "vram_free_gb_before_start": 10.86
+}

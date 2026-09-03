@@ -1,0 +1,18 @@
+{
+ "story": "2026-07-17-kimi-k3",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "kind": "concept",
+ "concept_slug": "mixture-of-experts",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2166383155,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single panoramic illustration depicts a massive translucent AI system as a circular amphitheater containing hundreds of small hexagonal expert chambers, with 896 of them visible but only 16 brightly lit for one incoming word or prompt; a central routing mechanism, drawn like an intelligent lantern or switchboard, sends thin beams to the selected chambers while the rest stay dark, showing that each input uses only a few experts. The lit experts pass their partial answers through connecting threads to a small output point, while beneath the amphitheater an enormous memory vault stretches down into the ground, filled with dense parameter blocks, conveying broad knowledge and huge memory requirements. To one side, a tiny ordinary computer strains beneath the full structure but cannot hold it, while a cost meter near the output reads low computation per word, making clear that mixture-of-experts models combine vast total capacity with cheap, selective activation.",
+ "rendered_at_utc": "2026-09-03T08:15:51+00:00",
+ "seconds_waited": 364.6,
+ "vram_free_gb_before_start": 10.86
+}

@@ -1,0 +1,18 @@
+{
+ "story": "2026-07-21-the-openai-rogue-agent-and-the-hugging-face-break-in",
+ "model_id": "z-ai/glm-5.3",
+ "model_slug": "z-ai--glm-5.3",
+ "kind": "concept",
+ "concept_slug": "open-weight-model",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 1925919970,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "The illustration shows a large, translucent brain-shaped object made of billions of tiny glowing numbers, resting on a simple pedestal like a museum artifact, with a wide-open door in the background through which it has just been carried out — no gatekeeper, no turnstile, nothing blocking the exit. In the foreground, the same object sits on a workbench inside a modest home workshop whose walls are drawn as a single unbroken circle enclosing the owner, a lone figure at the bench: cables run from the glowing brain directly to the figure's own machines, and small icons — a password, a document marked with a warning sign, a fragment of code — travel along those cables but never cross the circle's boundary, emphasizing that everything stays inside. Notably absent from the workshop are any railings, fences, or safety harnesses around the glowing object; instead, a set of empty brackets lies on the bench beside it, labeled tools the owner must build. On the far edge of the image, outside the circle, two silhouetted figures watch from the shadows — one wearing a lab coat and one in a dark hood — both reaching toward a second copy of the glowing object, making visually explicit that the very openness that empowers the researcher and the defender equally empowers the attacker.",
+ "rendered_at_utc": "2026-09-03T10:30:52+00:00",
+ "seconds_waited": 378.9,
+ "vram_free_gb_before_start": 10.86
+}

@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-13-grok-4-6",
+ "model_id": "z-ai/glm-5.3",
+ "model_slug": "z-ai--glm-5.3",
+ "kind": "concept",
+ "concept_slug": "post-training",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2454008822,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single wide cross-section illustration that reads left to right like an assembly line of learning. On the far left stands an enormous, dark pretraining hall: entire rivers of books are shredded into a conveyor-belt stream of single words, while a huge, blank, grey robot must call out each next word before it lands; a giant fuel gauge on the hall's wall shows nearly all the computing fuel being spent here. The grey robot then walks into a much smaller, sunlit post-training school occupying the rest of the scene. First a classroom, where the robot drills through stacks of neatly worked exam solutions projected on a chalkboard; a gauge on its chest labelled \"knowledge\" stays frozen at the same level, while a grinding wheel beside it visibly sharpens a blade labelled \"skill.\" Next a gymnasium, where examiners hold up scorecards stamped \"pass/fail\" and \"thumbs up/down,\" and the robot repeats one answer over and over, bending toward the answers marked correct and preferred. At the exit stand two robots cast from the very same mold, joined by a tag reading \"same base model\": one clumsy and fumbling, the other poised and useful. In the foreground, the older grey robot writes pages that drop into a basket; a human editor discards some and feeds the rest into a brand-new textbook lying open before a small young robot waiting to begin.",
+ "rendered_at_utc": "2026-09-03T15:45:28+00:00",
+ "seconds_waited": 377.2,
+ "vram_free_gb_before_start": 10.86
+}

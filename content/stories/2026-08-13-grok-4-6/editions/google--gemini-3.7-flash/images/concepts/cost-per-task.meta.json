@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-13-grok-4-6",
+ "model_id": "google/gemini-3.7-flash",
+ "model_slug": "google--gemini-3.7-flash",
+ "kind": "concept",
+ "concept_slug": "cost-per-task",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2454008822,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A side-by-side conceptual infographic comparing two artificial intelligence models attempting to solve the exact same coding challenge to reveal their true total expense. On the left, labeled \"Budget Model (Low Token Rate),\" a small per-token price tag sits at the start of a winding, cluttered path filled with five repetitive code revisions, error prompts, and a towering stack of discarded text blocks, leading to a finish line with a long, expensive final billing receipt. On the right, labeled \"Advanced Model (High Token Rate),\" a higher initial per-token price tag accompanies a single, clean, direct arrow that produces the correct solution on the first attempt with minimal text output, resulting in a short, significantly cheaper final receipt. At the top center, a financial balance scale weighs the overall \"Cost per Task,\" visibly tipping to show that the model with cheaper raw tokens ultimately cost more money due to high token volume and repeated attempts, clearly demonstrating the formula that final task expense equals unit price multiplied by the total volume needed for success.",
+ "rendered_at_utc": "2026-09-03T14:28:16+00:00",
+ "seconds_waited": 374.3,
+ "vram_free_gb_before_start": 10.86
+}

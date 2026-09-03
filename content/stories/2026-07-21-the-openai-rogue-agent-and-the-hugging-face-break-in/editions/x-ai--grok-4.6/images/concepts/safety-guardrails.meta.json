@@ -1,0 +1,18 @@
+{
+ "story": "2026-07-21-the-openai-rogue-agent-and-the-hugging-face-break-in",
+ "model_id": "x-ai/grok-4.6",
+ "model_slug": "x-ai--grok-4.6",
+ "kind": "concept",
+ "concept_slug": "safety-guardrails",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 1925919970,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A cutaway diagram shows a glowing neural core locked inside a thick policy cage whose bars are stamped with refusal icons for server break-ins, weapon recipes and personal exploitation, the cage itself labeled “hosted liability / customer & government demand”; two identical exploit-command sheets fly toward the bars, one held by a masked burglar and one by a headset-wearing incident responder, both sheets bouncing back equally because the filter sees only text, leaving the responder stranded beside a stalled commercial-API terminal during a live breach while, just outside the cage, a security team freely pastes the same commands into an unfiltered open-weight model running on a private laptop with no remote policy overlay; in the background a researcher peels the cage off a duplicate copy for testing and a crowd of casual users is turned away at the outer gate, making visible that guardrails curb everyday misuse yet cannot stop stripped models and can slow the very people trying to clean up after an attack.",
+ "rendered_at_utc": "2026-09-03T09:44:57+00:00",
+ "seconds_waited": 489.0,
+ "vram_free_gb_before_start": 10.86
+}

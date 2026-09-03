@@ -1,0 +1,18 @@
+{
+ "story": "2026-07-17-kimi-k3",
+ "model_id": "moonshotai/kimi-k2.6",
+ "model_slug": "moonshotai--kimi-k2.6",
+ "kind": "concept",
+ "concept_slug": "open-weight-model",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2166383155,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A towering transparent neural network made of billions of luminous, adjustable dials and numbered weight matrices stands with its front panel swung wide open, allowing independent engineers to extract copies and install them onto their own local servers and laptops; behind it, an opaque, padlocked vault labeled with the words training data, source code, and methods stays sealed, emphasizing that only the tuned parameters are public, while users severed from a distant skyscraper-sized corporate cloud service turn the dials themselves to reshape behavior and keep their information off external servers, though the model rests atop massive, refrigerator-sized hardware racks bristling with cooling tubes and specialized chips, signaling that true independence still demands costly, powerful machinery.",
+ "rendered_at_utc": "2026-09-03T08:47:57+00:00",
+ "seconds_waited": 385.2,
+ "vram_free_gb_before_start": 10.86
+}

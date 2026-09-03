@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-13-grok-4-6",
+ "model_id": "z-ai/glm-5.3",
+ "model_slug": "z-ai--glm-5.3",
+ "kind": "concept",
+ "concept_slug": "ai-agent",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2454008822,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "The illustration shows a small apartment window at night, a person asleep with their laptop shut, while above the rooftops a glowing cloud contains a tidy computer workbench where a lead agent — a compact robot figure with a lanyard reading GOAL — sits at the center of a circular loop drawn in light: PLAN → ACT → OBSERVE → ADJUST, arrows chasing one another around. On its belt hang tool icons: a browser, a terminal window, a folder of files, and a code box; under the workbench, a miniature virtual machine hums with its own power light, showing the agent keeps working though the user's machine is off. Below the lead agent, three smaller specialist robots labor at their own tiny screens on tasks handed down by paper slips, none of them speaking to the sleeper directly — one monitors a feed, one fills a form, one assembles a document that grows page by page. But at one point on the loop, the act arrow wobbles and produces a red slip: a speech bubble escaping into a messaging app that should have only been searched, drifting out of place — while a translucent human hand, drawn in ghostly outline, rests on the workbench, having performed the task once while a camera icon recorded it, and a shield-shaped confirmation prompt stands ready near the loop's edge, one button green and waiting for a click.",
+ "rendered_at_utc": "2026-09-03T15:27:48+00:00",
+ "seconds_waited": 470.9,
+ "vram_free_gb_before_start": 10.86
+}

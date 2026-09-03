@@ -1,0 +1,18 @@
+{
+ "story": "2026-07-17-kimi-k3",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "kind": "concept",
+ "concept_slug": "open-weights",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2166383155,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single wide illustration shows two versions of the same AI model: on the left, a sealed opaque black box sits behind a corporate counter, reachable only through a narrow app or API window, its interior hidden and a large off switch hanging above it; on the right, the box opens into a vast transparent lattice of billions of numerical weights, spilling out like luminous ledgers into a warehouse of server racks, where copies are loaded onto different machines, examined with lenses, adjusted with fine-tuning tools, and carried away to other data centres, while the off switch on the left casts a shadow but cannot extinguish the distributed weights, making clear that open weights let large operators inspect, modify, preserve, and continue running a model even after its creator might try to withdraw or control it.",
+ "rendered_at_utc": "2026-09-03T08:28:23+00:00",
+ "seconds_waited": 370.6,
+ "vram_free_gb_before_start": 10.86
+}

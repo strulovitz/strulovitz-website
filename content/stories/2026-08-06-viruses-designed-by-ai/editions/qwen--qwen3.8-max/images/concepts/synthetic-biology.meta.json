@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-06-viruses-designed-by-ai",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "kind": "concept",
+ "concept_slug": "synthetic-biology",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 1335683939,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single wide illustration shows synthetic biology as a design process: a glowing DNA double helix is laid out like programmable code or blueprint tape above a laboratory bench, where genetic parts are being arranged into new circuits. On one side, a simple edit is shown as a single gene being inserted into an existing microbe; on the other side, a more ambitious synthetic genome is assembled from modular DNA segments and placed into an empty cell. Below, engineered organisms carry out clear tasks: one microbe produces medicine capsules, another lights up as a toxin sensor, and a third targets a harmful bacterium. Around the whole scene, transparent checkpoints mark governance and safety: a badge or key controls access to the design tools, a screening interface checks DNA orders before they are synthesized, and a sealed laboratory container holds the resulting organisms. A subtle split in the pathway shows the same technology leading either toward beneficial uses, such as health and manufacturing, or toward dangerous misuse, making the illustration about synthetic biology as the programmable construction of new life, together with its promises and risks.",
+ "rendered_at_utc": "2026-09-03T13:48:46+00:00",
+ "seconds_waited": 232.6,
+ "vram_free_gb_before_start": 9.65
+}

@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-16-the-first-person-jailed-for-protesting-against-ai",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "kind": "concept",
+ "concept_slug": "civil-disobedience",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3587515915,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A detailed, public street scene shows a nonviolent protester seated across the entrance of a gleaming AI company headquarters, deliberately blocking the doorway while an officer calmly arrests them; the protester’s face is steady, showing willingness to accept punishment rather than escape. The glass doors reveal server racks and neural-network diagrams inside, making the target clear. On the pavement, a simple placard reads Prevent greater harm, evoking the necessity defence, while the building’s reflective surface shows faint superimposed images of past civil-disobedience movements: a lunch-counter sit-in, anti-nuclear marchers, climate activists, and labour picketers. Nearby, phones and laptops displaying angry online comments lie discarded on the ground, emphasizing the shift from digital criticism to physical, risky confrontation. The overall image should communicate moral seriousness, public lawbreaking, and accountability, not chaos or violence.",
+ "rendered_at_utc": "2026-09-03T18:33:39+00:00",
+ "seconds_waited": 373.8,
+ "vram_free_gb_before_start": 10.86
+}

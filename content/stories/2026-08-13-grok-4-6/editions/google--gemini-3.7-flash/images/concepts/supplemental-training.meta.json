@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-13-grok-4-6",
+ "model_id": "google/gemini-3.7-flash",
+ "model_slug": "google--gemini-3.7-flash",
+ "kind": "concept",
+ "concept_slug": "supplemental-training",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2454008822,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A detailed conceptual illustration depicts a massive, fully constructed glowing crystalline monolith representing a completed foundation model, standing securely in a futuristic laboratory while the vast, inactive scaffolding and thousands of cooling supercomputer racks from its initial build fade into the background. In the foreground, robotic precision arms and engineers channel concentrated, high-density beams of energy directly into specific modular facets of the monolith rather than rebuilding it, with each beam visually carrying distinct, specialized content: one stream flows with intricate mathematical formulas, another with structured programming code, and a third with detailed corporate documents and blueprints. Where these targeted streams integrate into the monolith, its crystalline network illuminates with refined, intricate circuit patterns, clearly showing how an existing, pre-built system is efficiently upgraded and sharpened in specific disciplines without repeating the colossal effort and expense of full-scale construction.",
+ "rendered_at_utc": "2026-09-03T14:35:00+00:00",
+ "seconds_waited": 402.2,
+ "vram_free_gb_before_start": 10.86
+}

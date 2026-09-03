@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-13-grok-4-6",
+ "model_id": "moonshotai/kimi-k2.6",
+ "model_slug": "moonshotai--kimi-k2.6",
+ "kind": "concept",
+ "concept_slug": "supplemental-training-run",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2454008822,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "The illustration depicts a massive, fully formed stone colossus in cool gray tones, its broad foundational body solid and largely untouched, representing the pretrained base model. Hovering at its shoulder, a compact precision rig emits focused beams of golden light into specific areas of the colossus’s head and hands, etching fine new circuitry and response patterns into those targeted regions while the vast majority of the statue remains unchanged. In the rig’s feeder hopper sit three distinct artifacts—rolled engineering blueprints, spools of glowing reasoning-chain text, and a multifaceted crystal optimizer—while a faint ghostly outline of an identical predecessor stands directly behind the main figure, showing both versions share the same giant underlying structure. At the bottom of the scene, a small, rapid clockwork engine that signifies low cost and fast iteration powers the rig, set in direct contrast to a distant, shadowy quarry where towering cranes slowly hoist raw bedrock to build an identical colossus from nothing, capturing the entry’s central claim that supplemental training refines an existing foundation far more quickly and cheaply than starting over.",
+ "rendered_at_utc": "2026-09-03T16:34:52+00:00",
+ "seconds_waited": 386.8,
+ "vram_free_gb_before_start": 10.86
+}

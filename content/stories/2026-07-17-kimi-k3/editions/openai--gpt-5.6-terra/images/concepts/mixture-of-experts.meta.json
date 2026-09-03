@@ -1,0 +1,18 @@
+{
+ "story": "2026-07-17-kimi-k3",
+ "model_id": "openai/gpt-5.6-terra",
+ "model_slug": "openai--gpt-5.6-terra",
+ "kind": "concept",
+ "concept_slug": "mixture-of-experts",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2166383155,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A clear cutaway diagram of a large AI model shown as a library-sized hall filled with dozens of distinct expert modules—varied glowing machinery cabinets with abstract pattern symbols rather than human job labels—surrounding a central router shaped like a fast-moving switchboard; a stream of input tokens enters from the left, each token is examined by the router and sent along only a few brightly lit paths to selected experts while most cabinets remain dim but visibly present, then the selected outputs recombine into a response on the right. Include a prominent comparison meter beneath: “total parameters” represented by the entire vast hall and “active computation per request” represented by only the few illuminated experts, alongside a small memory-storage indicator showing that all cabinets must still be kept available; use restrained editorial infographic styling, emphasizing efficient sparse activation alongside routing complexity and the difference between total size and active work.",
+ "rendered_at_utc": "2026-09-03T06:05:33+00:00",
+ "seconds_waited": 550.7,
+ "vram_free_gb_before_start": 10.07
+}

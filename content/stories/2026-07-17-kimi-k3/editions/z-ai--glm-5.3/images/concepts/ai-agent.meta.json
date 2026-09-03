@@ -1,0 +1,18 @@
+{
+ "story": "2026-07-17-kimi-k3",
+ "model_id": "z-ai/glm-5.3",
+ "model_slug": "z-ai--glm-5.3",
+ "kind": "concept",
+ "concept_slug": "ai-agent",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2166383155,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single wide horizontal panel. Down the far left edge runs a narrow grey strip where a chatbot icon takes in a question mark and emits one short sentence that dead-ends at a stop sign — one reply, then silence. The rest of the frame belongs to the agent: a small robot walking a long, winding trail through a messy landscape of bogs, boulders and one collapsed bridge, beneath a sun that arcs from dawn to dusk to show that the work lasts hours. It never lets go of the rolled blueprint it carries, stamped GOAL: BUILD THIS WEBSITE — a destination flag, not a question — and from its belt hang its tools, drawn literally: a terminal window, a browser window, and a magnifying lens for viewing images. Stone waymarkers repeat along the trail in an unbroken loop reading PLAN, ACT, CHECK, CORRECT. At the collapsed bridge the path visibly doubles back before a detour is found, recovering from failure; midway, the robot pauses to study a screenshot of its own half-built site, a red flaw circled on it, an arrow curving back along the trail to fix what it has seen. The trail ends at a gleaming, finished website on a plinth beside a stack of coins — the long, messy, multi-step journey being what valuable work actually looks like — while beyond the end flag the path continues faintly toward a glowing horizon, where tiny figures of engineers are still laying paving stones at the frontier of AI development.",
+ "rendered_at_utc": "2026-09-03T07:44:28+00:00",
+ "seconds_waited": 333.2,
+ "vram_free_gb_before_start": 10.86
+}

@@ -1,0 +1,18 @@
+{
+ "story": "2026-07-17-kimi-k3",
+ "model_id": "google/gemini-3.7-flash",
+ "model_slug": "google--gemini-3.7-flash",
+ "kind": "concept",
+ "concept_slug": "open-weight-model",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2166383155,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "The illustration features a glowing, transparent artificial intelligence core whose internal architecture—dense matrices of numerical parameters and interconnected synaptic weights—is completely visible and exposed within an open, unlocked display frame, symbolizing public access. In the foreground, an independent engineer sits at a private, heavy-duty workstation flanked by stacked, humming multi-GPU server racks, directly downloading, fine-tuning, and running the luminous model on local monitors without any connecting network cables to the distant, padlocked corporate cloud floating in the background. Detailed callout graphics on the screens show the user inspecting raw weight values and freely adjusting model layers, while the prominent scale, cooling fans, and robust power indicators of the local server hardware visually underscore the substantial computational power required to host and operate the system independently.",
+ "rendered_at_utc": "2026-09-03T06:59:13+00:00",
+ "seconds_waited": 338.9,
+ "vram_free_gb_before_start": 10.86
+}

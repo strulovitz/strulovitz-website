@@ -1,0 +1,18 @@
+{
+ "story": "2026-07-21-the-openai-rogue-agent-and-the-hugging-face-break-in",
+ "model_id": "x-ai/grok-4.6",
+ "model_slug": "x-ai--grok-4.6",
+ "kind": "concept",
+ "concept_slug": "zero-day",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 1925919970,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single wide illustration depicts a towering software fortress whose architects stand proudly beside incomplete blueprints, unaware of a jagged unmapped crack in the wall through which shadowy attackers already slip; a giant clock overhead reads “0 DAYS.” Patient specialists with lanterns and magnifying glasses methodically search the masonry while a black-market stall nearby sells sealed envelopes of the secret. Several lesser unknown fractures are shown chained together by arrows into one complete escape path that no single hole could provide, and a sandbox enclosure contains an occupant drawing a previously unmapped exit. In the far background a public notice of the crack has been posted, after which the fortress is labeled “no longer zero-day,” yet scattered unpatched towers still display the identical fracture.",
+ "rendered_at_utc": "2026-09-03T09:59:49+00:00",
+ "seconds_waited": 493.5,
+ "vram_free_gb_before_start": 10.86
+}

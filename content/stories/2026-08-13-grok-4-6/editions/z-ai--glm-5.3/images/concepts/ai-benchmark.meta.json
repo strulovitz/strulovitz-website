@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-13-grok-4-6",
+ "model_id": "z-ai/glm-5.3",
+ "model_slug": "z-ai--glm-5.3",
+ "kind": "concept",
+ "concept_slug": "ai-benchmark",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2454008822,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A wide editorial illustration shows a group of diverse robot students sitting at identical desks in an examination hall, each working through the same printed test paper under the same harsh light — the essence of a benchmark as a shared exam. Along one wall, two grading stations make the entry's distinction visible: on the left, an automated machine stamps pages PASS or FAIL with mechanical arms (automatic scoring), while on the right, a human examiner with reading glasses thoughtfully assesses a real-world project, like a cluttered desk or a working machine (human judgment). At the center rear, a large glowing leaderboard board averages results into single ranked numbers for an audience of buyers holding shopping lists. But the scene carries deliberate warnings: one robot secretly glances at a crib sheet labeled \"training data\" peeking from under its desk, hinting that answers leaked into practice; a salesman by the door displays a cherry-picked chart showing only the flattering bar; and one robot with a top score sits helplessly tangled in an everyday task like tying a shoelace, showing scores don't guarantee real capability. In the foreground, a wise reviewer examines the leaderboard through a magnifying glass while also rolling up her sleeve to test a robot hands-on — capturing the entry's final point: benchmarks are evidence to be weighed, not verdicts.",
+ "rendered_at_utc": "2026-09-03T15:32:45+00:00",
+ "seconds_waited": 236.8,
+ "vram_free_gb_before_start": 9.65
+}

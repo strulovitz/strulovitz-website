@@ -1,0 +1,18 @@
+{
+ "story": "2026-07-17-kimi-k3",
+ "model_id": "x-ai/grok-4.6",
+ "model_slug": "x-ai--grok-4.6",
+ "kind": "concept",
+ "concept_slug": "open-weights",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2166383155,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A panoramic scene shows a laboratory releasing a transparent crate of glowing numerical matrices that people download onto their own laptops and servers to inspect, run and fine-tune locally, while a sealed corporate cloud on one side accepts only remote prompts and never reveals its hidden model; the crate sits as an ice-frozen public snapshot that later padlocks cannot fully retract, a towering data-centre rack dwarfs a struggling personal computer to show the hardware barrier, and unused stacks of training data and source-code volumes remain in shadow to mark the gap from full open source.",
+ "rendered_at_utc": "2026-09-03T07:18:10+00:00",
+ "seconds_waited": 374.8,
+ "vram_free_gb_before_start": 10.86
+}

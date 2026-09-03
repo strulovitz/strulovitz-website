@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-13-grok-4-6",
+ "model_id": "openai/gpt-5.6-terra",
+ "model_slug": "openai--gpt-5.6-terra",
+ "kind": "concept",
+ "concept_slug": "tokens",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2454008822,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A clear editorial infographic shows a large sentence entering a stylized language model as a stream of individually separated pieces—whole short words, broken word fragments, punctuation marks, and small space symbols—each rendered as numbered tiles; inside the model, the tiles become a sequential ribbon, then emerge as a newly generated ribbon of output tiles forming a response. Beneath, a simple cost meter splits into two labeled columns, “input tokens” for the prompt, document, conversation history, agent notes, and tool-call loops flowing in, and “output tokens” for the generated answer flowing out, with both feeding a single larger gauge labeled “cost to complete the task”; visual callouts show how a huge document, long answer, retries, and repeated agent-tool cycles make the gauge rise, while a small comparison chart of per-token rates sits in the background as useful but secondary information.",
+ "rendered_at_utc": "2026-09-03T14:21:40+00:00",
+ "seconds_waited": 236.3,
+ "vram_free_gb_before_start": 9.65
+}

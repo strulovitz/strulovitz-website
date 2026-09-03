@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-06-viruses-designed-by-ai",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "kind": "concept",
+ "concept_slug": "bacteriophage",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 1335683939,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "The illustration should show a single, detailed scientific scene centered on a bacterium being infected by bacteriophages: one large phage is shown in cross-section with its geometric protein shell and packed genetic material, attached by tail fibers to the bacterial surface while injecting its DNA like a tiny syringe. Inside the bacterium, the injected genetic material hijacks the cell, producing many new phages until the bacterial wall bursts and progeny phages scatter outward. Around this central event, several slightly different phage shapes suggest vast abundance and diversity, while nearby human cells remain intact and unaffected to show that phages target bacteria specifically. At one side, include a simple medical motif, such as a patient, clinic symbol, or pill bottle being replaced by phages, to convey phage therapy as an alternative to antibiotics. Also show a resistant bacterium whose altered surface blocks one phage, being overcome by a mixture of several matching phages, making the whole image read as a precise, ongoing arms race between viruses and bacteria.",
+ "rendered_at_utc": "2026-09-03T13:29:49+00:00",
+ "seconds_waited": 321.7,
+ "vram_free_gb_before_start": 10.86
+}

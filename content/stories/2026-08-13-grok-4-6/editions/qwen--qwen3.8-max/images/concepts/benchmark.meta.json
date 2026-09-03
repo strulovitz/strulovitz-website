@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-13-grok-4-6",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "kind": "concept",
+ "concept_slug": "benchmark",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2454008822,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single illustration shows several different AI robots or abstract model icons seated at identical desks in an examination hall, each working on the same test paper under the same clock and lighting, while a large scoreboard displays their results for coding, reasoning, knowledge work, and legal analysis. To one side, a magnifying glass reveals that one robot has merely memorised the exam answers rather than truly understanding them, and beyond the exam room a messy, real-world workplace scene shows that high scores do not automatically mean better practical performance, prompting a human reviewer to compare the benchmark chart with hands-on trials before deciding which model is best.",
+ "rendered_at_utc": "2026-09-03T15:58:48+00:00",
+ "seconds_waited": 240.4,
+ "vram_free_gb_before_start": 10.07
+}

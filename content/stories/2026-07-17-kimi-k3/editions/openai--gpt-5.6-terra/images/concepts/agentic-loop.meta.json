@@ -1,0 +1,18 @@
+{
+ "story": "2026-07-17-kimi-k3",
+ "model_id": "openai/gpt-5.6-terra",
+ "model_slug": "openai--gpt-5.6-terra",
+ "kind": "concept",
+ "concept_slug": "agentic-loop",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2166383155,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A clear editorial-style illustration of an AI software agent at a desk moving through a visible circular workflow: a central model represented by a glowing neural-network screen first studies a task brief and makes a plan, then reaches via connected tool panels to a code editor, terminal, web browser and test runner; on a large monitor it builds a web page, takes a screenshot, notices a red-highlighted menu overlapping a button, revises the code, reruns the test and sees a clean corrected page, with arrows looping from observation and error diagnosis back to planning and action. Around the loop, subtle labeled visual cues show the surrounding system factors that shape performance—clear instructions, a time budget/hourglass, retained memory notes, and reliable versus broken tools—emphasizing that the model is one component within a feedback-driven system rather than a one-shot answer machine.",
+ "rendered_at_utc": "2026-09-03T05:55:19+00:00",
+ "seconds_waited": 655.3,
+ "vram_free_gb_before_start": 9.35
+}

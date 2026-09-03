@@ -1,0 +1,18 @@
+{
+ "story": "2026-07-17-kimi-k3",
+ "model_id": "x-ai/grok-4.6",
+ "model_slug": "x-ai--grok-4.6",
+ "kind": "concept",
+ "concept_slug": "model-distillation",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2166383155,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single panoramic illustration shows a towering commercial teacher model, rendered as a gleaming branded supercomputer with neural pathways pulsing like stained-glass windows, reciting answers and softmax scores to a swarm of incoming prompts while a compact student model hunches beside it, absorbing the streams into its own smaller architecture until the knowledge visibly compresses and transfers. Around both figures swirl rivers of public books, websites, and earlier machine-generated text that have already trained every large model in existence, emphasizing that imitation of others’ outputs is ordinary. In the foreground, torn “terms of use” contracts and “no large-scale querying” clauses lie trampled as the student siphons data at industrial volume, with critics in courtroom robes shouting “copying” and defenders in lab coats pointing back at the public-text rivers. The entire scene is framed by national flags, export-control barriers, and rival superpower silhouettes racing to bootstrap the next generation, turning the laboratory into a geopolitical contest over contracts and policy rather than mere algorithm.",
+ "rendered_at_utc": "2026-09-03T07:11:53+00:00",
+ "seconds_waited": 370.5,
+ "vram_free_gb_before_start": 10.86
+}

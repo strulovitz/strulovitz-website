@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-06-viruses-designed-by-ai",
+ "model_id": "z-ai/glm-5.3",
+ "model_slug": "z-ai--glm-5.3",
+ "kind": "concept",
+ "concept_slug": "biosafety-and-biosecurity",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 1335683939,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single wide illustration in three connected zones. On the left, inside a transparent-walled containment room, a researcher in a full protective suit carefully handles a glowing sample vial, with small accidental spill droplets hovering mid-air — this half is labeled with a shield marked \"BIOSAFETY: accidents.\" On the right, a heavy steel cabinet with a padlock holds rows of catalogued pathogen vials, while a masked figure in shadow reaches toward it — labeled with a shield marked \"BIOSECURITY: theft and misuse.\" Between and above them sits the visual twist: a computer screen displaying an AI model generating the image of a brand-new virus — a shape that matches nothing in the locked cabinet — its sequence flowing downward as a luminous stream through four successive gates drawn as checkpoints along the chain: a filter over the model's training data, a review committee examining a proposed experiment sheet, a DNA-synthesis company screening an order form, and finally a gloved human hand receiving the sample inside sealed laboratory containment. The composition makes the message legible: the two shields guard against different threats, the novel virus evades the old locked catalogue, and the safeguarded pipeline shows that no designed organism can cause harm without first passing through human hands.",
+ "rendered_at_utc": "2026-09-03T13:18:15+00:00",
+ "seconds_waited": 297.2,
+ "vram_free_gb_before_start": 10.86
+}

@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-06-viruses-designed-by-ai",
+ "model_id": "openai/gpt-5.6-terra",
+ "model_slug": "openai--gpt-5.6-terra",
+ "kind": "concept",
+ "concept_slug": "bacteriophage",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 1335683939,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A clear scientific cutaway illustration showing several classic bacteriophages—icosahedral heads, tails and leg-like fibers—landing only on matching receptor shapes on the surface of a single target bacterium, while nearby human cells and differently shaped bacteria remain untouched; one phage injects genetic material into the bacterium, and a sequence within the translucent cell shows its machinery producing many new phages until the cell bursts and releases them. Alongside this main scene, depict a small clinical-research workflow: a Petri dish of mixed bacteria, a “phage cocktail” vial containing several differently colored phages aimed at a resistant bacterial population, and a researcher’s design screen subtly modifying a phage, with visual cues for bacterial resistance and careful testing through labeled-but-wordless safety, efficacy, and reliability checkpoints.",
+ "rendered_at_utc": "2026-09-03T11:44:47+00:00",
+ "seconds_waited": 488.7,
+ "vram_free_gb_before_start": 10.86
+}

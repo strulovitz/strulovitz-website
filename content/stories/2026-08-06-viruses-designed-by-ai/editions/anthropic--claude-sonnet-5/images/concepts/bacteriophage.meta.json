@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-06-viruses-designed-by-ai",
+ "model_id": "anthropic/claude-sonnet-5",
+ "model_slug": "anthropic--claude-sonnet-5",
+ "kind": "concept",
+ "concept_slug": "bacteriophage",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 1335683939,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A split-panel illustration contrasting two eras of phage discovery: on the left, a scientist in muted sepia tones sifts through jars of murky sewage and soil samples under a magnifying lens, searching among scattered natural viral particles for one lucky match to a rod-shaped bacterium, with a small inset showing spiky-headed phages latching onto and bursting a bacterial cell while nearby human, animal, and plant cells remain untouched; on the right, in brighter, sharper tones, a researcher at a computer screen displays a rotating 3D genome blueprint of a phage being actively assembled strand by strand, with a robotic arm or synthesis device constructing a custom phage engineered to match the exact molecular profile of a specific antibiotic-resistant bacterial strain shown beside it, visually emphasizing the shift from hopeful natural discovery to deliberate, on-demand genetic design.",
+ "rendered_at_utc": "2026-09-03T12:01:53+00:00",
+ "seconds_waited": 240.6,
+ "vram_free_gb_before_start": 9.65
+}

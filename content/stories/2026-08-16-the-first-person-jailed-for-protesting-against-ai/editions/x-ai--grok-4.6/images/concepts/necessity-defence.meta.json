@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-16-the-first-person-jailed-for-protesting-against-ai",
+ "model_id": "x-ai/grok-4.6",
+ "model_slug": "x-ai--grok-4.6",
+ "kind": "concept",
+ "concept_slug": "necessity-defence",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3587515915,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A split courtroom scene places a defendant at the center scales of justice: on the left an imminent blaze with a child trapped inside as a bystander smashes the window and pulls the child free, the jury nodding because the threat is immediate, the damage proportionate and no legal alternative existed; on the right climate, anti-war and AI-safety activists chain themselves across an office doorway while gesturing toward a far, hazy horizon of melting ice, distant bombs and a speculative glowing superintelligence, the same jury turning away because those harms remain remote and political, so the blockade stays ordinary trespass rather than recast emergency rescue.",
+ "rendered_at_utc": "2026-09-03T17:49:20+00:00",
+ "seconds_waited": 489.8,
+ "vram_free_gb_before_start": 10.86
+}

@@ -1,0 +1,18 @@
+{
+ "story": "2026-07-17-kimi-k3",
+ "model_id": "x-ai/grok-4.6",
+ "model_slug": "x-ai--grok-4.6",
+ "kind": "concept",
+ "concept_slug": "mixture-of-experts",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2166383155,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A vast dim warehouse of specialised workshop stalls—each a distinct expert with its own tools and signage—stands mostly shuttered and gathering dust, while a central router like a railway switchman inspects an incoming word-token and throws only a few levers so that a tiny glowing team of stalls lights up and processes it; a towering billboard boasts the sum of every stall’s parameters as a colossal total, yet a modest energy meter beside the active stalls shows the per-token cost of a far smaller dense network, unused stalls visibly wasting floor space, and the entire unused inventory still occupying a cavernous memory vault in the background, with a faded archival plaque noting that this sparse-routing idea predates today’s chat models and became the standard way to scale language networks past the expense of keeping every neuron awake.",
+ "rendered_at_utc": "2026-09-03T07:05:37+00:00",
+ "seconds_waited": 382.8,
+ "vram_free_gb_before_start": 10.86
+}

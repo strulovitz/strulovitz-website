@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-13-grok-4-6",
+ "model_id": "x-ai/grok-4.6",
+ "model_slug": "x-ai--grok-4.6",
+ "kind": "concept",
+ "concept_slug": "post-training",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2454008822,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single panoramic diagram shows a vast pretrained model as a swirling gray fog of text and code tokens, fed by rivers of books and repositories, outputting only fluent next-token predictions that remain an unfinished base. Sequential chambers then transform it: a supervised-fine-tuning workshop where the model copies curated example cards of instructions, reasoning traces and working software; a reinforcement-learning arena whose scoreboards, staffed by human graders and other models, award points for preferred answers while adding refusal shields; and a side hatch that injects supplemental engineering traces and company documents without restarting pretraining. A looping arrow from the finished model back to generating fresh training examples for the next version is labeled “not fully self-improving,” yet the modest, data-driven upgrade emerges on the far right as a sleek, product-ready assistant that follows instructions, reasons step by step, writes code and refuses certain requests, looking like an entirely different model.",
+ "rendered_at_utc": "2026-09-03T14:48:49+00:00",
+ "seconds_waited": 332.3,
+ "vram_free_gb_before_start": 9.65
+}

@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-13-grok-4-6",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "kind": "concept",
+ "concept_slug": "recursive-model-training",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2454008822,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single illustration shows a bright workshop-like assembly line where an older AI model, depicted as a helpful machine or glowing figure, generates answers, corrections, and step-by-step reasoning notes that flow onward as training data for a newer model; human designers stand beside the line carefully guiding, inspecting, and curating those materials, while a sequence of increasingly refined models or nested generations suggests successive releases improving over time, making clear that this is human-directed recursive training rather than autonomous self-improvement.",
+ "rendered_at_utc": "2026-09-03T16:14:48+00:00",
+ "seconds_waited": 343.2,
+ "vram_free_gb_before_start": 10.86
+}

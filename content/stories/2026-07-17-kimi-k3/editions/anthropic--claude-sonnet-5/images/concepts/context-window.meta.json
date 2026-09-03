@@ -1,0 +1,18 @@
+{
+ "story": "2026-07-17-kimi-k3",
+ "model_id": "anthropic/claude-sonnet-5",
+ "model_slug": "anthropic--claude-sonnet-5",
+ "kind": "concept",
+ "concept_slug": "context-window",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2166383155,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "Illustrate a horizontal glass \"window\" or frame stretching across the image, subdivided into a long sequence of small uniform tiles (tokens), with the leftmost tiles depicting the start of a project — architectural blueprints or foundational code — and the tiles progressing rightward through a timeline of related material: snippets of code, chat bubbles, a research paper's pages, project notes — all visibly present and connected within the frame. On one side, label the frame's total span \"1,000,000 tokens ≈ hundreds of thousands of words\" to show scale. Inside the frame, at a point near the right edge, place a small AI model icon (a simple chip or head silhouette) with faint dotted lines reaching backward to a few of the earliest tiles, showing it \"seeing\" and referencing that early material while working on the newest tile. To convey the caveat, show a couple of tiles far in the past rendered slightly faded or blurred, with one dotted line breaking before it reaches them — indicating that even within a large window, some earlier information can be lost or handled unreliably.",
+ "rendered_at_utc": "2026-09-03T06:18:09+00:00",
+ "seconds_waited": 391.8,
+ "vram_free_gb_before_start": 10.86
+}

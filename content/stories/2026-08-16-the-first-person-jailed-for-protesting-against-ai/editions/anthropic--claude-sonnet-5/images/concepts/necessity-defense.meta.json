@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-16-the-first-person-jailed-for-protesting-against-ai",
+ "model_id": "anthropic/claude-sonnet-5",
+ "model_slug": "anthropic--claude-sonnet-5",
+ "kind": "concept",
+ "concept_slug": "necessity-defense",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3587515915,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A courtroom scene rendered as a diagram: on one side of the judge's bench sits a defendant gesturing toward a large, glowing hourglass-like scale labeled \"Harm Avoided\" versus \"Law Broken,\" with the sand inside the hourglass depicted as tangled, uncertain wisps rather than solid grains—symbolizing speculative or distant harm—while a parallel courtroom sketch shows the same hourglass filled with solid, falling sand labeled \"concrete/immediate,\" tipping the scale toward acquittal; in the speculative version, faint ghostly outlines of server racks and AI chip symbols drift in the background behind the defendant, representing an AI-protest case, while a judge's gavel hovers uncertainly above a checklist reading \"Serious harm? No legal alternative? Proportionate?\"—with the AI-related boxes shown unchecked or crossed, visually explaining why such necessity defenses are typically rejected as too uncertain, even when the underlying concern is acknowledged as reasonable.",
+ "rendered_at_utc": "2026-09-03T17:15:16+00:00",
+ "seconds_waited": 340.5,
+ "vram_free_gb_before_start": 10.7
+}

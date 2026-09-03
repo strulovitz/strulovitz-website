@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-06-viruses-designed-by-ai",
+ "model_id": "x-ai/grok-4.6",
+ "model_slug": "x-ai--grok-4.6",
+ "kind": "concept",
+ "concept_slug": "bacteriophage",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 1335683939,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single panoramic scientific illustration centers on a geometric bacteriophage, its icosahedral protein head packed with a tiny coiled genome, landing like a lunar module on one specific rod-shaped bacterium while ignoring neighboring bacterial species of different shapes and colors; the phage’s tail injects its genetic instructions as a glowing stream, after which the bacterium swells and ruptures, releasing a swarm of identical new phages. Human cells and tissues in the same frame remain completely untouched and healthy, emphasizing that the virus never infects people. In the surrounding laboratory-and-clinic setting, a computer screen displays an AI system assembling and rewriting those same minuscule genomes into novel sequences, while a physician administers the resulting custom phages to a patient whose infection has already shrugged off conventional antibiotic pills; a few surviving bacteria display mutated surface proteins that confer resistance, visually arguing why researchers must keep designing fresh phages rather than relying solely on those found in nature, and a discreet world map in the corner marks the countries already using this therapy.",
+ "rendered_at_utc": "2026-09-03T12:33:17+00:00",
+ "seconds_waited": 404.4,
+ "vram_free_gb_before_start": 10.86
+}

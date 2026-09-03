@@ -1,0 +1,18 @@
+{
+ "story": "2026-07-17-kimi-k3",
+ "model_id": "moonshotai/kimi-k2.6",
+ "model_slug": "moonshotai--kimi-k2.6",
+ "kind": "concept",
+ "concept_slug": "mixture-of-experts",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2166383155,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "The illustration depicts a sprawling field of nearly nine hundred small, identical modular nodes arranged in a vast grid, with the overwhelming majority rendered in muted gray to show that they are inactive. At the center, a bright routing hub receives an incoming query and sends out a few luminous pathways that selectively illuminate only sixteen of the nodes, which glow vividly and connect to a single outgoing arrow, while the rest of the grid remains dark. This sharp contrast between the massive total architecture and the tiny activated subset makes visible the idea that the model can possess trillions of parameters overall yet expend energy and computing power for only a fraction of them to answer any one question.",
+ "rendered_at_utc": "2026-09-03T08:34:32+00:00",
+ "seconds_waited": 366.6,
+ "vram_free_gb_before_start": 10.86
+}

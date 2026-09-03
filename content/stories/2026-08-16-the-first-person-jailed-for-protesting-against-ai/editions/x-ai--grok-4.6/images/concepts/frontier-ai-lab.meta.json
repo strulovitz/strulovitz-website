@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-16-the-first-person-jailed-for-protesting-against-ai",
+ "model_id": "x-ai/grok-4.6",
+ "model_slug": "x-ai--grok-4.6",
+ "kind": "concept",
+ "concept_slug": "frontier-ai-lab",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3587515915,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A panoramic illustration shows a tight cluster of four gleaming corporate campuses—not a geographic frontier but the handful of firms racing to train the largest general-purpose models—each rising above cavernous halls of specialised chips whose glowing racks consume energy on the scale of a national science budget; inside, researchers stare half-comprehending at a vast, swirling black-box system whose capabilities erupt in sudden luminous leaps, while money and soaring stock tickers pour in and competing American and Chinese flags streak across the sky; protesters cluster at the glass office doors waving signs about loss of control and military use, a distant university seminar hall stands empty, and government figures linger at the edges, hands raised yet motionless, embodying the fusion of research ambition, private profit and great-power rivalry that keeps them from slowing the pace-setters.",
+ "rendered_at_utc": "2026-09-03T17:41:05+00:00",
+ "seconds_waited": 332.4,
+ "vram_free_gb_before_start": 10.86
+}

@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-16-the-first-person-jailed-for-protesting-against-ai",
+ "model_id": "openai/gpt-5.6-terra",
+ "model_slug": "openai--gpt-5.6-terra",
+ "kind": "concept",
+ "concept_slug": "artificial-superintelligence",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3587515915,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A sober editorial illustration of a vast, luminous AI intelligence at the center of a control-room-like world map, represented not as a robot but as a dense network of glowing circuits and branching thought-lines, visibly outperforming human experts around it: a scientist, engineer, doctor, policymaker, and programmer each work at separate desks while the AI’s connections rapidly solve equations, design machinery, analyze medicine, write code, and model society; some lines lead toward a smaller self-improving version of the same network, a cybersecurity lock with cracks being probed, persuasive media screens influencing a crowd, and a sealed hazardous laboratory, while in the foreground elected officials, safety researchers, and public institutions struggle to build guardrails, emergency brakes, laws, and oversight mechanisms around the expanding system, conveying both immense possible benefit and the urgent uncertainty of whether human control can keep pace.",
+ "rendered_at_utc": "2026-09-03T16:42:45+00:00",
+ "seconds_waited": 471.3,
+ "vram_free_gb_before_start": 10.86
+}

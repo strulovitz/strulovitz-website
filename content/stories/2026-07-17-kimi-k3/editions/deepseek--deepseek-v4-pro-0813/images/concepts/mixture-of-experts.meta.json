@@ -1,0 +1,18 @@
+{
+ "story": "2026-07-17-kimi-k3",
+ "model_id": "deepseek/deepseek-v4-pro-0813",
+ "model_slug": "deepseek--deepseek-v4-pro-0813",
+ "kind": "concept",
+ "concept_slug": "mixture-of-experts",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2166383155,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A colossal brain composed of countless interlocking neural pathways, partitioned into a grid of small, specialized chambers, each containing a unique expert symbol like a molecule, a law book, a paintbrush, or a telescope. A central router at the base, glowing with organic wires, directs a stream of input words upward, sending them only to a handful of chambers along illuminated paths, while the rest remain dim and dormant. The image visualizes both the immense scale—hundreds of chambers receding into darkness—and the selective activation, with the sparse light trails emphasizing that only a few experts are needed for any single question, conserving energy in a vast but efficient cognitive engine.",
+ "rendered_at_utc": "2026-09-03T07:30:40+00:00",
+ "seconds_waited": 364.5,
+ "vram_free_gb_before_start": 10.86
+}

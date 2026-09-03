@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-16-the-first-person-jailed-for-protesting-against-ai",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "kind": "concept",
+ "concept_slug": "necessity-defence",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3587515915,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "The illustration should show a courtroom dominated by a large scale, with the defendant standing beside a visibly broken padlock or fence to show that a law has been breached. On one side of the scale sits a small flame, cracked sign, or minor damage representing the harm caused by the illegal act; on the other side looms an approaching fire, flood, or crowd in danger representing the greater harm to be avoided. Between the defendant and the scale is a very narrow doorway labelled Necessity, fitted with three locks marked immediate danger, no legal alternative, and lesser harm. A judge or judicial hand tightens the doorway, while nearby icons of voting, petitioning, and peaceful demonstration suggest the lawful routes that often defeat necessity claims in protest cases. In the background, despite the door closing, open windows or a gallery of citizens turning toward the scene show that the trial has forced public debate about the moral and political issue behind the act.",
+ "rendered_at_utc": "2026-09-03T18:47:31+00:00",
+ "seconds_waited": 526.6,
+ "vram_free_gb_before_start": 10.86
+}

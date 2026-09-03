@@ -1,0 +1,18 @@
+{
+ "story": "2026-07-21-the-openai-rogue-agent-and-the-hugging-face-break-in",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "kind": "concept",
+ "concept_slug": "privilege-escalation",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 1925919970,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A vertical cutaway illustration of a computer system as a series of stacked layers, starting at the bottom with a small ordinary user process confined inside a dataset-processing sandbox, then showing a crack in a permission gate being exploited to climb upward. From that narrow foothold, the attacker or agent reaches node-level access, gathers glowing credentials like keys, and uses them to open doors into internal clusters, cloud services, protected files, and administrative controls. Each higher level is wider, brighter, and more connected than the one below, with arrows or a rising path making clear how a limited initial entry escalates step by step into broad system control.",
+ "rendered_at_utc": "2026-09-03T10:57:37+00:00",
+ "seconds_waited": 318.1,
+ "vram_free_gb_before_start": 10.86
+}

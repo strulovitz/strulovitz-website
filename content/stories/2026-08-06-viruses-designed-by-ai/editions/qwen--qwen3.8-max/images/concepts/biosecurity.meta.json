@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-06-viruses-designed-by-ai",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "kind": "concept",
+ "concept_slug": "biosecurity",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 1335683939,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single conceptual illustration should show biological knowledge as a glowing digital genome file travelling from a computer screen across a simplified world map toward a laboratory, while several translucent protective layers stand between the design and its possible misuse: a locked gate restricting access to a powerful AI system, a checkpoint screening orders for synthetic DNA, a small review panel examining sensitive research documents, and a sealed biosafety cabinet with gloved hands inside a secure laboratory. A faint secondary halo around the laboratory can suggest biosafety by containing accidental spills or leaks, while the stronger outer barriers represent biosecurity against deliberate harm. The image should make clear that no single wall is enough, with arrows or cracks showing how a design could move globally, and with the layered defences working together to slow, detect, and stop misuse at different stages.",
+ "rendered_at_utc": "2026-09-03T13:36:50+00:00",
+ "seconds_waited": 411.2,
+ "vram_free_gb_before_start": 10.86
+}

@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-06-viruses-designed-by-ai",
+ "model_id": "openai/gpt-5.6-terra",
+ "model_slug": "openai--gpt-5.6-terra",
+ "kind": "concept",
+ "concept_slug": "genome-language-model",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 1335683939,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A clear scientific editorial illustration split into a left-to-right workflow: on the left, vast ribbons of DNA made of the four-letter alphabet A, C, G and T stream into a stylized neural-network model, with recurring motifs and highlighted sequence patterns showing the AI learning statistical relationships; in the center, the model emits several newly proposed DNA strands with small branching “candidate” labels rather than a single definitive answer; on the right, those candidates pass into a real laboratory scene with a researcher, pipette, culture dish and cell icons, where only some sequences receive a visible tested/validated mark while others remain uncertain, and a safety-control checkpoint sits before the lab—visually emphasizing that genome language models generate hypotheses from training data, while biological function requires experimental validation and safeguards.",
+ "rendered_at_utc": "2026-09-03T11:56:52+00:00",
+ "seconds_waited": 404.8,
+ "vram_free_gb_before_start": 10.86
+}
