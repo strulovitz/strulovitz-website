@@ -1,0 +1,16 @@
+{
+ "story": "2026-08-06-viruses-designed-by-ai",
+ "model_id": "openai/gpt-5.6-terra",
+ "model_slug": "openai--gpt-5.6-terra",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 1335683939,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A split-scene scientific editorial illustration: in a secure, glass-walled laboratory, a researcher watches an AI “genome language model” transform streams of A, C, G and T letters into many branching bacteriophage blueprints, with 302 faint candidate designs narrowing to 16 brightly highlighted phages; these harmless, mechanical-looking phages descend into a petri dish of green E. coli, leaving clear circular dead zones in a bacterial lawn and breaking through a small cluster labeled as resistant bacteria, while a second panel-like layer shows a phage cocktail confronting antibiotic-resistant germs. Around the scene, visible safety guardrails—locked lab doors, a review checklist, restricted-access icon, protective equipment, and a DNA-synthesis company scanner stopping a dark warning-marked genetic sequence—contrast with the beneficial bacteria-targeting viruses, making clear both the promise of tailored phage therapy and the demand for governance before AI-designed genomes can be misused.",
+ "rendered_at_utc": "2026-09-02T18:06:09+00:00",
+ "seconds_waited": 206.3,
+ "vram_free_gb_before_start": 10.78
+}

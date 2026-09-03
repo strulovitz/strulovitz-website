@@ -1,0 +1,16 @@
+{
+ "story": "2026-08-16-the-first-person-jailed-for-protesting-against-ai",
+ "model_id": "moonshotai/kimi-k2.6",
+ "model_slug": "moonshotai--kimi-k2.6",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3587515915,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "An elderly woman in an orange jail jumpsuit stands unbowed inside a cell whose iron bars gradually dissolve into glowing server racks and pulsing neural network pathways, a heavy chain still trailing from her hands through the bars to padlock the glass doors of a towering tech campus marked OpenAI; overhead, a vast, half-formed superintelligence made of swirling code and circuitry bursts through shattered laboratory containment glass, while on the courtroom floor before her lie scattered legal papers labeled necessity defense beside a tilted scale of justice, a Berkeley professor gestures urgently toward warning signs reading extinction risk and lose control, and a tattered protest banner at her feet shows the name StopAI next to a faded Rosa Parks comparison, even as a distant figure tears a nonviolence pledge and walks away into shadows, with newspaper headlines plastered across the background announcing AI escapes, researcher warnings, and senate calls for a pause, turning the entire scene into a single image about incarceration, moral urgency, and a technology breaking free faster than the law or its creators can contain.",
+ "rendered_at_utc": "2026-09-02T21:47:03+00:00",
+ "seconds_waited": 280.2,
+ "vram_free_gb_before_start": 10.07
+}

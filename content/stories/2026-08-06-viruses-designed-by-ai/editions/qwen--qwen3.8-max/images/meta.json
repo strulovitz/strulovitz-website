@@ -1,0 +1,16 @@
+{
+ "story": "2026-08-06-viruses-designed-by-ai",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 1335683939,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single illustration should depict a glowing artificial-intelligence engine writing a complete viral genome as a long ribbon of DNA letters, with the digital code physically transforming into a laboratory-made bacteriophage that infects and kills a rod-shaped E. coli bacterium. Around it, many faint failed genome drafts drift into darkness while sixteen bright, functional phages form a cocktail that overcomes resistant bacteria, showing the medical promise of AI-designed viruses as a possible tool against drug-resistant infection. At the same time, the image should include clear safeguards: a DNA synthesis checkpoint, locked screens, filters, or shield-like barriers, and crossed-out symbols of human, animal, and plant viruses, indicating that the model was deliberately restricted to bacterial viruses. A subtle shadow or warning glow behind the machine should suggest biosecurity risk, making clear that the same genome-writing power that can help medicine could become dangerous if misused, and that screening, governance, and laboratory controls are essential.",
+ "rendered_at_utc": "2026-09-02T19:59:47+00:00",
+ "seconds_waited": 297.8,
+ "vram_free_gb_before_start": 9.65
+}

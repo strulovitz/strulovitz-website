@@ -1,0 +1,16 @@
+{
+ "story": "2026-08-13-grok-4-6",
+ "model_id": "x-ai/grok-4.6",
+ "model_slug": "x-ai--grok-4.6",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2454008822,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A wide cinematic illustration shows a newly upgraded Grok 4.6 figure, built from the same 1.5-trillion-parameter chassis as 4.5 but now gleaming after a much longer extra training run on Cursor-derived coding sessions, engineering traces and a 200000-GPU cluster, stepping onto a competitive arena podium priced at only $2 input/$6 output tokens while OpenAI GPT 5.6 Soul and Anthropic Fable 5 / Claude Opus stand on higher $10–$12 platforms; mixed scoreboards float above them with Grok first on GDPVal workplace projects yet trailing on DeepSWE coding, Terminal Bench and Artificial Analysis intelligence index, while surrounding scenes depict Grok Build generating a Portal 2 puzzle chamber and 3D-printed engine, Grok Bot desktop agents spawning sub-agents inside persistent cloud VMs, and a faint next-stage Grok 4.7 silhouette already loading SpaceX company data.",
+ "rendered_at_utc": "2026-09-02T20:32:56+00:00",
+ "seconds_waited": 483.4,
+ "vram_free_gb_before_start": 10.86
+}

@@ -1,0 +1,16 @@
+{
+ "story": "2026-08-13-grok-4-6",
+ "model_id": "openai/gpt-5.6-terra",
+ "model_slug": "openai--gpt-5.6-terra",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2454008822,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A clean editorial illustration showing Grok 4.6 as a sleek blue-black AI coworker seated at a sprawling workstation, rapidly building code, web interfaces, a small portal-based 3D game and a printable engine model across several monitors, while a human developer stands beside it holding a clipboard and actively marking bugs—sideways-moving cars, a floating game character head and a stalled prototype—making the need for supervision clear; above the workstation, competing AI model score charts rise toward one another but turn into a cautionary testing gauge labeled by visual symbols for benchmarks versus real-world work, while a price display shows lower token-cost coins flowing from an API terminal; in the background, an autonomous cloud-based bot works inside a glass virtual-machine chamber, splitting into smaller agents to research, code and monitor a feed, with a red warning light near an accidentally sent message, conveying both the promise of delegated workplace automation and the risks of giving agents ongoing access.",
+ "rendered_at_utc": "2026-09-02T20:12:00+00:00",
+ "seconds_waited": 374.3,
+ "vram_free_gb_before_start": 10.86
+}

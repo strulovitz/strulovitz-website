@@ -1,0 +1,16 @@
+{
+ "story": "2026-08-13-grok-4-6",
+ "model_id": "google/gemini-3.7-flash",
+ "model_slug": "google--gemini-3.7-flash",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2454008822,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A dynamic digital command center showcases the prominent xAI insignia alongside a glowing \"Grok 4.6\" interface at its core, visually emphasizing developer power, autonomous labor, and aggressive price disruption. In the center, a luminous AI \"chief of staff\" coordinator orchestrates a hive of specialized digital sub-agents running inside cloud virtual machines—automating browser routines, executing terminal commands, and writing software around the clock. Surrounding holographic screens display an active Cursor coding environment generating code streams, live interactive 3D browser game wireframes, and high-ranking workplace benchmark scorecards. Prominently positioned alongside these technical feats is an illuminated financial gauge showing sharply slashed API token prices dramatically undercutting rival figures from OpenAI and Anthropic, while a high-speed development timeline in the background rapidly advances toward Grok 4.7 and Grok 5, capturing the model's coding focus, autonomous workflow capabilities, budget-friendly accessibility, and accelerating release cycle.",
+ "rendered_at_utc": "2026-09-02T20:24:51+00:00",
+ "seconds_waited": 314.9,
+ "vram_free_gb_before_start": 10.86
+}

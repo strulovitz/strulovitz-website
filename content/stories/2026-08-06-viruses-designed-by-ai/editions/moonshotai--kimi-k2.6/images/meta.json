@@ -1,0 +1,16 @@
+{
+ "story": "2026-08-06-viruses-designed-by-ai",
+ "model_id": "moonshotai/kimi-k2.6",
+ "model_slug": "moonshotai--kimi-k2.6",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 1335683939,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "The illustration depicts a translucent, geometric bacteriophage—visibly synthetic and assembled from glowing lines of DNA code—hovering between a computer monitor that streams AI-generated genetic sequences and a petri dish below where it dissolves a colony of antibiotic-resistant E. coli into clear plaques, signaling a medical breakthrough against superbugs. Scattered fragments of discarded digital blueprints around the workstation hint at the low efficiency and high failure rate of the process, while in the background a massive biohazard vault door stands ajar with its lock still unassembled, symbolizing the urgent biosecurity warnings that governance has not caught up with the technology. At the composition’s edge, a minuscule double helix representing 5,400 base pairs fades beside a towering human genome, visually arguing that designing complex pathogens remains vastly harder than this first proof of concept. The entire scene captures the dual nature of the milestone: generative AI has crossed into writing complete, replicating viral genomes from scratch, offering clinicians a powerful new tool while demanding immediate safeguards to prevent misuse.",
+ "rendered_at_utc": "2026-09-02T20:05:44+00:00",
+ "seconds_waited": 354.6,
+ "vram_free_gb_before_start": 10.86
+}

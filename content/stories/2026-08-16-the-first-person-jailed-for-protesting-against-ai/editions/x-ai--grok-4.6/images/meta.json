@@ -1,0 +1,16 @@
+{
+ "story": "2026-08-16-the-first-person-jailed-for-protesting-against-ai",
+ "model_id": "x-ai/grok-4.6",
+ "model_slug": "x-ai--grok-4.6",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3587515915,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A 69-year-old gray-haired woman in casual clothes is shown being handcuffed by sheriff’s officers beside a jail van outside a sleek glass OpenAI headquarters whose doors are chained and padlocked from a sit-in blockade, while nearby StopAI activists hold signs reading Stop Superintelligence, Regain Your Humanity and Global Ban on the ASI Race, chant Free Wynd and sing a rewritten Battle Hymn; a colossal shadowy neural-network brain representing uncontrolled artificial superintelligence looms over the building, dwarfing tiny human figures and researchers’ warning letters about loss of control, bioweapons and trillion-dollar valuations, with a courtroom gavel striking down a necessity defense and a small Rosa Parks silhouette in the background, making clear this is the first imprisonment of a protester against the existential race to machines that outthink humanity.",
+ "rendered_at_utc": "2026-09-02T21:21:30+00:00",
+ "seconds_waited": 290.7,
+ "vram_free_gb_before_start": 9.65
+}

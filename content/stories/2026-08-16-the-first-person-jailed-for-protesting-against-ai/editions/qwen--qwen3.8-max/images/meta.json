@@ -1,0 +1,16 @@
+{
+ "story": "2026-08-16-the-first-person-jailed-for-protesting-against-ai",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3587515915,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A detailed editorial illustration centers on Wynd Kaufmyn, a 69-year-old retired teacher with gray hair, seated calmly inside a jail cell whose bars are made of glowing AI circuitry and server racks, with a newspaper placard beside the cell reading First anti-AI protester jailed. Behind her, a wall panel flashes back to her chaining the front doors of OpenAI headquarters and sitting in the lobby with StopAI activists; through the cell door, a San Francisco street shows police, a courthouse, and supporters holding signs reading Stop AI and Free Wynd. Above the scene, a giant neural-network eye slips from a cracked containment box toward corporate towers marked with soaring stock charts and warning symbols, linking her blockade, trial, imprisonment, and the wider struggle over uncontrolled superintelligence.",
+ "rendered_at_utc": "2026-09-02T21:41:22+00:00",
+ "seconds_waited": 288.6,
+ "vram_free_gb_before_start": 10.86
+}

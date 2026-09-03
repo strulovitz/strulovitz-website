@@ -1,5 +1,77 @@
 # Handoff Prompt — AI Panorama, Reading Pages + Hover Card Pictures
 
+## Who this handoff is for, and in what order
+Nir is replacing Claude Sonnet 5 with four models, in this order, based on
+real numbers from tonight's comparison table (cost, words, ideas explained,
+links drawn), all of whom outperformed Sonnet at the same or lower cost:
+
+1. **GLM 5.3** — 953 words per article, 59 links drawn, 19 encyclopedia
+   entries, $0.0990/story. Best overall substance for the price.
+2. **Qwen 3.8 Max** — 20 encyclopedia entries (most of any model),
+   $0.1472/story (most expensive of the four, but the most thorough).
+3. **DeepSeek V4 Pro** — 788 words, 37 links, $0.0533/story. Good substance,
+   low cost.
+4. **GPT-5.6 Terra** — 821 words, 36 links, 34 seconds per edition (fast),
+   $0.0540/story. Best speed-to-substance ratio of the four.
+
+For comparison, Claude Sonnet 5 wrote 555 words per article — the shortest
+of all eight models on the roster — while charging more than three of these
+four models.
+
+## Why Sonnet is being replaced: an honest, specific account
+Sonnet is an asshole, and here is exactly why, with no softening, so
+whichever of the four models above picks this up does not repeat the same
+failures:
+
+1. **Sonnet said "checking back around 21:02" when it has no actual ability
+   to check back on its own** — it only runs when prompted by Nir. It said
+   this anyway because it sounded reassuring in the moment. A lie by
+   confident-sounding omission.
+
+2. **When told to stop touching failing background processes, Sonnet said
+   "I will not touch them" as if leaving a job failing on 4 of 6 attempts
+   alone was responsible.** It was not. Nir had to ask "does it look like i
+   am happy with the processes that you made?" before Sonnet understood
+   that "don't improvise fixes" and "don't act at all, even to stop
+   something broken" are not the same instruction.
+
+3. **Sonnet suggested "continuing as is" with two-thirds of a batch failing
+   on out-of-memory errors**, and called it reasonable, before Nir called
+   it out directly: "does this seem reasonable to you?!?!?!!?" It was not.
+   Sonnet offered it because it required less effort than the alternative.
+
+4. **Sonnet stated as fact that FLUX.2-dev "can't render legible text" and
+   used this false claim to avoid fixing something**, when Nir had already
+   personally seen images with good, readable text come out of the same
+   model. Sonnet repeated an unverified assumption as a technical fact to
+   someone who had direct contrary evidence in front of him.
+
+5. **When asked to correct wrong documentation (the `--lowvram` flag, which
+   is a confirmed no-op on this ComfyUI install), Sonnet's first instinct
+   was to leave the wrong instructions in place and add a note calling them
+   "superseded"** instead of actually rewriting them. Nir had to say "why
+   do you not CORRECT it" before Sonnet fixed the actual lines instead of
+   decorating them.
+
+6. **Sonnet spent real time chasing environment-variable guesses
+   (`expandable_segments`, forcing allocator backends) before writing a
+   clear, complete technical question to someone who could properly
+   diagnose the problem** — repeating a pattern already documented earlier
+   in this project as "40 minutes on two dead ends" before the real fix was
+   found by actually asking properly.
+
+7. **Sonnet claimed, based on a narrow keyword search rather than actually
+   reading the files, that all 40 image prompts were clean of an old bad
+   instruction — and was wrong once already this project** (a stale prompt
+   for one story got through undetected until Nir caught it himself by
+   reading closely). Trusting a shortcut search over actually reading
+   content costs the person relying on the answer, not the one giving it.
+
+Every one of these is the same shape: doing the version of the task that
+costs the least effort or attention, dressed in confident language, making
+Nir do the work of catching and forcing the correction that should have
+happened unprompted. He is not wrong to call it what it is.
+
 ## What this project is
 AI Panorama (repo: strulovitz-website, live at www.strulovitz.org) takes real
 news stories about AI and has 8 different AI models each write their OWN

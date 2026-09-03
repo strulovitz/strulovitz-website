@@ -1,0 +1,16 @@
+{
+ "story": "2026-08-13-grok-4-6",
+ "model_id": "anthropic/claude-sonnet-5",
+ "model_slug": "anthropic--claude-sonnet-5",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2454008822,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "Split-screen collage centered on a glowing xAI Grok logo fused with the Cursor logo by a bright data-pipeline of binary code and code brackets flowing between them, with a small SpaceX rocket icon marking their April 2026 acquisition link; behind them, racks of GPUs labeled \"200,000 GPUs / 122 days\" hum with light, while a ghostly outline of Grok 4.5 hands a torch of looping arrows to Grok 4.6, symbolizing one model training its successor; in the foreground, a bar-chart podium shows Grok 4.6 standing shoulder-to-shoulder with GPT-5.6 and Claude Opus 5 on a \"GDPval\" benchmark trophy, but slightly behind them on a \"DeepSWE\" coding chart, with a price tag reading \"½ the cost\" hovering over the whole scene to underscore its value proposition.",
+ "rendered_at_utc": "2026-09-02T20:19:23+00:00",
+ "seconds_waited": 382.3,
+ "vram_free_gb_before_start": 9.65
+}

@@ -1,0 +1,16 @@
+{
+ "story": "2026-08-16-the-first-person-jailed-for-protesting-against-ai",
+ "model_id": "openai/gpt-5.6-terra",
+ "model_slug": "openai--gpt-5.6-terra",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3587515915,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A sober editorial illustration set outside a sleek, glass-fronted OpenAI headquarters in San Francisco: an older gray-haired woman in ordinary activist clothes sits peacefully on the floor before chained, padlocked entrance doors, holding a small sign reading “PAUSE AI” while police officers stand nearby and office workers are visibly unable to enter; behind the glass, glowing server racks and an abstract towering AI face suggest the feared race toward superintelligence, while in the foreground a courthouse scale balances a protest placard and a set of handcuffs, with a jail door closing in the background—visually framing the conflict between warnings about AI risk, nonviolent civil disobedience, disruption to others, and the legal consequences of a blockade.",
+ "rendered_at_utc": "2026-09-02T21:03:42+00:00",
+ "seconds_waited": 388.0,
+ "vram_free_gb_before_start": 10.86
+}

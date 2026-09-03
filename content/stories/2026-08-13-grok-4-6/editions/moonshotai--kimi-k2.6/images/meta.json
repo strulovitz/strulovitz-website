@@ -1,0 +1,16 @@
+{
+ "story": "2026-08-13-grok-4-6",
+ "model_id": "moonshotai/kimi-k2.6",
+ "model_slug": "moonshotai--kimi-k2.6",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2454008822,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "The illustration depicts a three-lane racetrack where a sleek vehicle labeled Grok 4.6 pulls alongside larger competitors marked OpenAI and Anthropic, signaling the shift from a two-horse race to a three-way contest. Hovering above the track, a split-screen merges xAI’s massive 200,000-GPU server cluster on the left with Cursor’s code-editor interface on the right, joined by a linking bolt to illustrate the acquisition that fueled the leap. Streaming behind the Grok vehicle are holographic benchmark charts for GPTEval, DeepSWE, and Terminal Bench showing near-top scores, while a bright ½ PRICE banner flaps from its side. Below the track, fluffy cloud-shaped virtual machines contain tireless Grok Bot agents browsing terminals and running workflows as a nearby desktop computer sits dark, representing the always-on agent system. In the distance, a rapid assembly-line conveyor belt stamps out upcoming versions 4.7 and 5, underscoring the unusually fast release cadence.",
+ "rendered_at_utc": "2026-09-02T20:56:40+00:00",
+ "seconds_waited": 366.5,
+ "vram_free_gb_before_start": 10.86
+}

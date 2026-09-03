@@ -1,0 +1,16 @@
+{
+ "story": "2026-08-06-viruses-designed-by-ai",
+ "model_id": "x-ai/grok-4.6",
+ "model_slug": "x-ai--grok-4.6",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 1335683939,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A laboratory scene centered on a computer screen where an AI language-model interface generates flowing strings of A-T-C-G letters that assemble into sixteen distinct bacteriophage particles; those geometric viruses then inject and burst open antibiotic-resistant E. coli cells, producing clear plaques on nearby petri dishes while a team of scientists applauds, a hopeful medical caduceus glows on one side, and biosecurity experts, biohazard symbols, and a broken “governance” chain appear on the other to signal urgent unanswered safety questions, with a crossed-out human silhouette confirming the work stayed limited to bacteria-only phages.",
+ "rendered_at_utc": "2026-09-02T19:39:40+00:00",
+ "seconds_waited": 376.6,
+ "vram_free_gb_before_start": 10.86
+}

@@ -1,0 +1,16 @@
+{
+ "story": "2026-08-16-the-first-person-jailed-for-protesting-against-ai",
+ "model_id": "google/gemini-3.7-flash",
+ "model_slug": "google--gemini-3.7-flash",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3587515915,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "The illustration depicts Wynd Kaufmyn, a resolute 69-year-old woman with gray hair, staging a defiant sit-in on the pavement directly in front of the sleek, modern glass entrance of OpenAI’s headquarters, where the tech company's logo is prominently displayed. Heavy steel chains and padlocks bind her to the building's locked double doors alongside a bold \"StopAI\" protest sign warning of artificial superintelligence risks, while uniformed police officers stand nearby preparing handcuffs for her arrest. In a compelling visual contrast, the reflective corporate glass behind her juxtaposes glowing, ominous digital circuitry and server racks with the stark silhouette of jail cell bars, instantly communicating her direct-action blockade against runaway AI development and her historic consequence as the first activist imprisoned for the cause.",
+ "rendered_at_utc": "2026-09-02T21:15:39+00:00",
+ "seconds_waited": 406.7,
+ "vram_free_gb_before_start": 10.86
+}
