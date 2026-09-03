@@ -438,12 +438,19 @@ def write_index() -> Path:
 
 def copy_to_site() -> int:
     """
-    Copy the galaxies to where the website can fetch them.
+    Copy the galaxies, and the little pictures the hover cards show, to where
+    the website can fetch them.
 
     content/galaxies is the TRUTH; site/data/galaxies is a build artifact that
     the browser reads (bible/part-01.md 1.9: files on disk are caches and
     exports, never truth). Copied whole rather than edited, so the two can
     never drift apart in some partial way.
+
+    WHICH pictures exist comes from the database (the ImageJob records that
+    store_knowledge.py put there); the picture FILES themselves are artifacts
+    living beside the editions they illustrate. A model that has rendered no
+    picture for a story simply has none copied - the hover card quietly drops
+    the image box rather than showing a broken one.
     """
     import shutil
 
@@ -452,6 +459,23 @@ def copy_to_site() -> int:
     copied = 0
     for path in GALAXIES.glob("*.json"):
         shutil.copy2(path, destination / path.name)
+        copied += 1
+
+    thumbs_destination = REPO_ROOT / "site" / "data" / "thumbs"
+    with connect() as db:
+        with db.session() as session:
+            rows = session.run(
+                "MATCH (e:Edition)-[:RENDERED_IMAGE]->(:ImageJob) "
+                "RETURN DISTINCT e.story_slug AS story, e.model_slug AS model"
+            ).data()
+    for row in rows:
+        source = (REPO_ROOT / "content" / "stories" / row["story"]
+                  / "editions" / row["model"] / "images" / "thumbnail.png")
+        if not source.exists():
+            continue
+        model_dir = thumbs_destination / row["model"]
+        model_dir.mkdir(parents=True, exist_ok=True)
+        shutil.copy2(source, model_dir / f"{row['story']}.png")
         copied += 1
     return copied
 

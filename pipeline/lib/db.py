@@ -824,6 +824,23 @@ def read_editions_for_model(driver: Driver, model_slug: str) -> list[dict[str, A
     return editions
 
 
+def read_image_job(driver: Driver, story_slug: str, model_slug: str) -> dict[str, Any] | None:
+    """
+    The illustration record for one edition, if its picture has been rendered:
+    which local image model drew it, from which seed, in how many steps. Used
+    by the reading pages to label every picture with its maker, the way LAW 7
+    demands of everything the magazine publishes.
+    """
+    with driver.session() as session:
+        record = session.run(
+            "MATCH (:Edition {story_slug: $story, model_slug: $model})"
+            "-[:RENDERED_IMAGE]->(i:ImageJob) "
+            "RETURN i",
+            story=story_slug, model=model_slug,
+        ).single()
+    return dict(record["i"]) if record else None
+
+
 def read_story(driver: Driver, slug: str) -> dict[str, Any] | None:
     """
     One story with its frozen sources, shaped EXACTLY like the story.json it

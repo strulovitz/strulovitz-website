@@ -83,7 +83,12 @@ SHIPPING_ROOT = [
 # pipeline/stages/layout.py. Without it the live site loads the placeholder
 # world instead of the real magazine, which is exactly the sort of quiet failure
 # that is worth a comment rather than a shrug.
-SHIPPING_VERSIONED = ["tesseract.html", "src", "vendor", "data"]
+# "stories" and "ideas" hold the READING PAGES (2026-09-03): one page per story
+# per edition and one per encyclopedia idea per edition, written by
+# pipeline/stages/build_pages.py from the database. Clicking a node in the
+# galaxy opens exactly these files, so forgetting to ship them would leave the
+# magazine's clicks landing on 404s - the same quiet-failure class as above.
+SHIPPING_VERSIONED = ["tesseract.html", "src", "vendor", "data", "stories", "ideas"]
 
 # Files that must never be uploaded even if they sit inside a shipping folder.
 NEVER_SHIP = {".env", ".DS_Store"}

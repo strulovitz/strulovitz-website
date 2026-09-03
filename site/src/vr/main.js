@@ -381,8 +381,9 @@ function updateScreenHover() {
   const band = BANDS[data.bandOf[found]];
   hoverCard.style.display = 'block';
   if (usingRealContent) {
-    // What a reader gets on hover, and nothing more: the one-line summary and
-    // where they are in the fourth dimension. Nir asked for exactly this - the
+    // What a reader gets on hover, and nothing more: the one-line summary,
+    // where they are in the fourth dimension, and - for a story - the small
+    // picture this edition made for it. Nir asked for exactly this - the
     // TLDR and a small picture - and not the whole article, which is what
     // clicking is for.
     const kind = data.kinds[found] === 'concept'
@@ -390,12 +391,20 @@ function updateScreenHover() {
       : 'a story that happened';
     const tags = (data.tagsOf[found] || []).slice(0, 4)
       .map((tag) => `<em>${escapeForHtml(tag)}</em>`).join(' ');
+    const thumb = data.thumbsOf ? data.thumbsOf[found] : null;
     hoverCard.innerHTML =
+      (thumb ? `<img class="pic" src="${thumb}" alt="">` : '') +
       `<strong>${escapeForHtml(data.labels[found])}</strong>` +
       `<span>${escapeForHtml(data.summaries[found])}</span>` +
       (tags ? `<span class="tags">${tags}</span>` : '') +
       `<span class="band">${band.name} &middot; ${kind}</span>` +
       `<span class="plain">Click to read it &middot; ${data.shortName}'s edition</span>`;
+    // A picture that fails to load quietly leaves the card rather than
+    // showing a broken-image box (an edition that rendered no picture for a
+    // story simply has none shipped). Attached as a listener here, because
+    // inline event handlers are forbidden on this site (bible/part-07.md 7.3).
+    const pic = hoverCard.querySelector('img.pic');
+    if (pic) pic.addEventListener('error', () => pic.remove());
   } else {
     hoverCard.innerHTML =
       `<strong>${data.labels[found]}</strong>` +
