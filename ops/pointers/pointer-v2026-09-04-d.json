@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "live": "v2026-09-04-d",
+  "built": "2026-09-04T09:57:12",
+  "content_hash": "db9d9c7d39f651ebefca36d5335fedc280d77f09628d2e8691bb6b689c8ac967",
+  "milestone": "1 - Hello, Tesseract",
+  "plain_words": "The live version of the site is the folder named above. To go back to the previous one, upload the previous pointer.json from ops/pointers/."
+}

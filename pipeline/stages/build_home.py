@@ -25,13 +25,18 @@ variant is picked up by itself):
 and touches nothing else on the page. The styling lives in the page's own
 stylesheet, not here: a machine generates DATA, never appearance.
 
-WHY THE TESSERACT LINKS SAY VERSION_FALLBACK
-The home pages sit at the ROOT of the site, but the galaxy (tesseract.html and
-all its data) lives inside the dated version folder. So a root page pointing at
-"tesseract.html" with a relative link is a guaranteed 404. Every tesseract link
-generated here therefore carries the VERSION_FALLBACK placeholder, which
-ops/build-export.py replaces with the real version name in every root page at
-export time - the same trick the "Enter" buttons already use.
+WHY THE GENERATED LINKS ARE PLAIN AND RELATIVE (2026-09-04, Nir's ruling)
+The edition links this stage generates are PLAIN relative links
+("tesseract.html?edition=..."). They work from every home page copy as
+shipped: from the site/ folder during development (the galaxy sits next
+door), and from the copy inside the live version folder (the galaxy sits
+in the SAME folder). On the ROOT home page, the page's own little script
+aims them at the live version folder by prepending its name - and it skips
+any link that already carries it, so nothing is ever doubled. Nothing is
+hard-coded and nothing is absolute: if the site moves or is renamed, every
+relative link still points at its own neighbour (Nir: "even a person who
+never built a website knows" a hard-wired address breaks the day the site
+moves).
 
 WHERE THE NUMBERS COME FROM
 Every one is measured, never estimated: the costs are what OpenRouter actually
@@ -184,7 +189,7 @@ def build_html(rows: list[dict]) -> str:
         note = "the one this site opens with" if model.slug == default_slug else escape(model.company)
         out.append(
             f'    <a class="edition-link" data-edition="{escape(model.slug)}" '
-            f'href="VERSION_FALLBACK/tesseract.html?edition={escape(model.slug)}">'
+            f'href="tesseract.html?edition={escape(model.slug)}">'
             f'<b>{escape(model.short_name)}</b><span>{note}</span></a>'
         )
     out.append('  </div>')
@@ -207,7 +212,7 @@ def build_html(rows: list[dict]) -> str:
         dense = ' class="most"' if row is densest else ''
         out.append(
             f'      <tr>'
-            f'<td><a href="VERSION_FALLBACK/tesseract.html?edition={escape(model.slug)}">'
+            f'<td><a href="tesseract.html?edition={escape(model.slug)}">'
             f'{escape(model.short_name)}</a></td>'
             f'<td{cheap}>${row["cost_each"]:.4f}</td>'
             f'<td>{row["words_each"]}</td>'
