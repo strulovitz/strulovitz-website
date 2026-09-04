@@ -392,14 +392,19 @@ export class Panorama {
     this.scene.add(this.shadows.mesh);
 
     // The tesseract: sixteen corner beads and thirty-two edges.
-    // NIR, 2026-09-03: "half as bright as it is now" in the real pages (this
-    // file); the gym/tutorial keeps its own brighter tesseract in wgym.js.
-    // Every colour and emissive value below is exactly half of what it was.
+    // NIR'S RULING, 2026-09-04: "the lines now are white (or light grey) and
+    // they need to be dark grey. and the balls also make them dark grey. they
+    // should not be looking like the white nodes balls." The 2026-09-03
+    // half-brightness greys (0.48/0.47/0.40 beads, 0.41/0.43/0.31 edges) were
+    // still light enough to read as CONTENT and compete with the real nodes.
+    // Both are now true dark grey, clearly background furniture: the frame is
+    // there when you look for it, and it never masquerades as a node. (The
+    // gym/tutorial keeps its own brighter tesseract in wgym.js.)
     const t = this.data.tesseract;
     this.tesseractNodes = new InstancedSet(new THREE.IcosahedronGeometry(1, 1), t.vertices.length, { emissive: 0x080c10 });
-    for (let i = 0; i < t.vertices.length; i++) this.tesseractNodes.setColour(i, 0.48, 0.47, 0.40);
+    for (let i = 0; i < t.vertices.length; i++) this.tesseractNodes.setColour(i, 0.25, 0.25, 0.25);
     this.tesseractEdges = new InstancedSet(new THREE.CylinderGeometry(1, 1, 1, 6, 1, true), t.edges.length, { emissive: 0x050a10 });
-    for (let e = 0; e < t.edges.length; e++) this.tesseractEdges.setColour(e, 0.41, 0.43, 0.31);
+    for (let e = 0; e < t.edges.length; e++) this.tesseractEdges.setColour(e, 0.22, 0.22, 0.22);
     this.graph.add(this.tesseractNodes.mesh);
     this.graph.add(this.tesseractEdges.mesh);
 
