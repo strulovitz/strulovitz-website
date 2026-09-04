@@ -199,6 +199,13 @@ export async function loadGalaxy(modelSlug, base = 'data/galaxies') {
       : (regionIndexOf.get((node.tags || [])[0]) ?? ENCYCLOPEDIA_REGION);
   }
 
+  // Which nodes are the ARTICLES. The magazine opens in their band (Nir,
+  // 2026-09-04) - see homeBandOfArticles below.
+  const storyIndices = [];
+  for (let i = 0; i < count; i++) {
+    if (kinds[i] === 'story') storyIndices.push(i);
+  }
+
   const edgePairs = [];
   const edgeWhy = [];
   for (const edge of galaxy.edges || []) {
@@ -211,7 +218,7 @@ export async function loadGalaxy(modelSlug, base = 'data/galaxies') {
 
   return {
     count,
-    homeW: busiestW(points4, count),
+    homeW: homeBandOfArticles(points4, storyIndices),
     points4,
     colours,
     radii,
@@ -257,14 +264,25 @@ function clamp(value) {
  * two. Deliberately simple counting, no cleverness: slide a window the width of
  * the default slab across the axis and keep the fullest spot.
  */
-function busiestW(points4, count, window = 0.25) {
-  if (!count) return 0;
+/**
+ * The band the magazine OPENS in - Nir's ruling, 2026-09-04, his words:
+ * "the articles need to be closest to the user, not the concepts, when the
+ * magazine opens." The old rule opened at the BUSIEST band, and because a
+ * model writes far more encyclopedia entries than there are articles, the
+ * busiest band was always the encyclopedia - so the reader landed among
+ * the concepts and, in Nir's words, "never dreamed that the articles are
+ * there." The home band is therefore the articles' own band, found among
+ * the STORY nodes only (the encyclopedia then hangs in view as fog, and
+ * never disappears - see slabVisibility's fog floor).
+ */
+function homeBandOfArticles(points4, storyIndices, window = 0.25) {
+  if (!storyIndices.length) return 0;
   let bestW = 0;
   let bestCount = -1;
   for (let step = 0; step <= 40; step++) {
     const w = -1 + (step / 40) * 2;
     let here = 0;
-    for (let i = 0; i < count; i++) {
+    for (const i of storyIndices) {
       if (Math.abs(points4[i * 4 + 3] - w) <= window / 2) here++;
     }
     if (here > bestCount) { bestCount = here; bestW = w; }

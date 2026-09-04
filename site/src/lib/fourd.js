@@ -361,25 +361,32 @@ export class View4D {
  * How visible a node is, given its rotated w and the slab the reader is
  * currently looking at (bible/part-05.md 5.2, mode 1).
  *
- * Returns a number from 0 to 1:
+ * Returns a number from FOG_FLOOR to 1:
  *   1.0        the node is inside the slab, fully solid
- *   0 to 1     the node is in the ghost band just outside the slab, and the
- *              renderer draws it as a faint wireframe ghost
- *   0.0        the node is beyond the ghost band
+ *   in between the node is in the ghost band just outside the slab, fading
+ *   FOG_FLOOR the node is far from the slab: drawn as fog, but NEVER invisible
  *
- * The ghost band exists because of a red-letter rule: NOTHING VANISHES WITHOUT
- * A TRACE (part-05.md 5.9.4). A reader must always be able to see that more
- * world exists in the direction they have not swum yet. "My article
- * disappeared" is a design failure, not a user error.
+ * Nir's ruling, 2026-09-04, in his own words: "the articles need to be still
+ * very visible, just a little bit foggy, otherwise the user will never dream
+ * that they exist there... if the user swims, the articles become a little
+ * less visible, A LITTLE, again, not disappearing!!!" A node beyond the ghost
+ * band therefore settles at FOG_FLOOR instead of 0. The reader sees BOTH the
+ * articles and the concepts at once - whichever band they are swimming in,
+ * the other one hangs there as fog so they always know it exists. The old
+ * behaviour (fade all the way to invisible) is what made Nir "never dream
+ * that the articles are there" - it is a design failure, not a user error.
  */
+export const FOG_FLOOR = 0.45;
+
 export function slabVisibility(w, w0, epsilon) {
   const distance = Math.abs(w - w0);
   const half = epsilon * 0.5;
   if (distance <= half) return 1;
   const ghost = distance - half;
-  if (ghost >= epsilon) return 0;
-  // Linear fade across the ghost band, strongest nearest the slab.
-  return 1 - (ghost / epsilon);
+  if (ghost >= epsilon) return FOG_FLOOR;
+  // Linear fade across the ghost band, strongest nearest the slab, but the
+  // fade STOPS at the fog floor: nothing ever disappears.
+  return Math.max(FOG_FLOOR, 1 - (ghost / epsilon));
 }
 
 

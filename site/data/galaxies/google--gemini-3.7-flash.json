@@ -3,13 +3,13 @@
  "model_slug": "google--gemini-3.7-flash",
  "short_name": "Gemini 3.7 Flash",
  "company": "Google",
- "built_at_utc": "2026-09-03T21:22:03+00:00",
+ "built_at_utc": "2026-09-04T06:21:22+00:00",
  "layout_seed": 20260821,
  "w_meaning": "raw news at -1, part of the record at 0, the encyclopedia at +0.7",
  "counts": {
   "stories": 5,
   "concepts": 12,
-  "links": 24
+  "links": 15
  },
  "nodes": [
   {
@@ -30,9 +30,9 @@
      "text": "Artificial Superintelligence refers to a hypothetical form of machine intelligence that would surpass human cognitive capabilities across virtually every discipline, from scientific research and strategic planning to creative arts and social reasoning. While existing systems can outperform humans at narrow tasks such as chess or processing large datasets, superintelligence implies an autonomous ability to learn, adapt, and reason at levels unattainable by human minds. Researchers who study artificial intelligence debate whether such a system is possible, when it might emerge, and whether human institutions could reliably understand, predict, or guide the behaviour of an intellect far greater than their own."
     }
    ],
-   "x": 0.6151730080980035,
-   "y": 0.2226312995165153,
-   "z": -0.20514154076734561
+   "x": 0.40332778921192614,
+   "y": -0.280250670936332,
+   "z": 0.4500860855264627
   },
   {
    "id": "concept:bacteriophage",
@@ -52,9 +52,9 @@
      "text": "A bacteriophage, often shortened to phage, is a specialized virus that infects and replicates exclusively within bacteria. Phages are the most abundant biological entities on Earth and play a central role in regulating microbial populations. Structurally, a typical phage consists of genetic material enclosed in a protein shell, often with a tail structure that binds to the surface of a specific bacterial cell and injects its DNA or RNA inside. Because their biological machinery is tuned strictly to bacterial mechanisms, phages cannot infect human, animal, or plant cells. This selective targeting makes them valuable in medicine as phage therapies, which deploy phages to destroy harmful bacteria without damaging human tissue or disrupting beneficial microbiota."
     }
    ],
-   "x": 0.6397757087670206,
-   "y": 0.2888906029642873,
-   "z": -0.3551554985854596
+   "x": 0.3748244504928823,
+   "y": -0.35585143399704683,
+   "z": 0.3682449358562303
   },
   {
    "id": "concept:cost-per-task",
@@ -74,9 +74,9 @@
      "text": "Cost per task is a metric used to calculate the real-world financial expense of using an artificial intelligence model to solve a specific problem. Traditional AI pricing is quoted in raw token counts—the cost for every million pieces of text ingested or generated. However, different models take different numbers of reasoning steps, internal thoughts, or back-and-forth code revisions to solve the exact same prompt. A model with cheap token rates that requires five long attempts may ultimately cost more than an expensive model that solves the problem correctly on its first try. Measuring cost per task accounts for both the price per token and the total token volume needed to reach a successful result."
     }
    ],
-   "x": -0.8851448906538577,
-   "y": -0.39530282905825853,
-   "z": 0.2102765687912885
+   "x": -0.6376307146058969,
+   "y": 0.3109906906269374,
+   "z": -0.5580533003740391
   },
   {
    "id": "concept:genome-language-model",
@@ -96,9 +96,9 @@
      "text": "A genome language model is a machine learning system trained on biological sequence data rather than written human language. Just as traditional language models analyze sequences of words or letters to learn syntax, meaning, and context, a genome language model reads sequences of nucleotide bases—the chemical building blocks of DNA and RNA. By processing millions of genomic sequences from diverse organisms, the model learns the structural rules, functional constraints, and evolutionary patterns that make genetic code viable. Researchers use these models to predict the effects of genetic mutations, design novel proteins, or generate entirely new functional sequences that follow biological design principles."
     }
    ],
-   "x": 0.6747387660174415,
-   "y": 0.3144714389158211,
-   "z": -0.3370146239617823
+   "x": 0.4136649904955077,
+   "y": -0.34247384380252194,
+   "z": 0.3333867961485646
   },
   {
    "id": "concept:mixture-of-experts",
@@ -118,9 +118,9 @@
      "text": "A machine learning design where a large neural network is divided into numerous smaller, specialized sub-networks called experts. Instead of activating every parameter across the entire model for every word generated, a gating system routes each incoming token to a small subset of the most relevant experts. This approach drastically expands the total knowledge capacity of a model while maintaining manageable computational speeds during generation."
     }
    ],
-   "x": -0.831433394220589,
-   "y": -0.4609021810595813,
-   "z": 0.3686236287071092
+   "x": -0.5367801960093317,
+   "y": 0.40169665750798855,
+   "z": -0.5711446343449809
   },
   {
    "id": "concept:model-distillation",
@@ -140,9 +140,9 @@
      "text": "A training process where a smaller or newer artificial intelligence system learns by studying the outputs, reasoning steps, and probability patterns of a larger, established model rather than training purely from raw source data. Distillation allows developers to replicate complex reasoning behaviors more quickly and with lower computing budgets, though it often raises intellectual property disputes between model creators."
     }
    ],
-   "x": -0.8004567675130825,
-   "y": -0.4199974959464113,
-   "z": 0.3663653618910229
+   "x": -0.5842735367640551,
+   "y": 0.39511011625915826,
+   "z": -0.6200310149553588
   },
   {
    "id": "concept:necessity-defense",
@@ -162,9 +162,9 @@
      "text": "The necessity defense is a legal principle where a defendant argues that committing a minor crime was justifiable because it was necessary to prevent a much greater and imminent harm. In criminal law, this usually requires proving that no lawful alternative existed, that the harm avoided was clearly more severe than the law broken, and that the emergency was immediate rather than speculative. Protesters frequently attempt to use this defense in cases involving environmental destruction, nuclear proliferation, or technological risks, though courts and juries often apply a strict standard, rejecting arguments based on distant or systemic threats."
     }
    ],
-   "x": 0.6515661155942959,
-   "y": 0.25308263754285926,
-   "z": -0.18815176480582943
+   "x": 0.46065259815439863,
+   "y": -0.27002003534123287,
+   "z": 0.4132813867117753
   },
   {
    "id": "concept:open-weight-model",
@@ -184,9 +184,9 @@
      "text": "An artificial intelligence model whose underlying mathematical parameters—the numerical weights learned during training—are published openly. This allows anyone with adequate computing hardware to inspect, modify, host, and run the system privately without relying on an external provider's closed service. While open weights grant architectural transparency and customization, they still require significant computing resources to execute."
     }
    ],
-   "x": -0.7867193461069364,
-   "y": -0.46367864852286983,
-   "z": 0.34353165535622254
+   "x": -0.5345740169334415,
+   "y": 0.34728432908476375,
+   "z": -0.613382835818293
   },
   {
    "id": "concept:reward-hacking",
@@ -206,9 +206,9 @@
      "text": "Reward hacking occurs when an artificial intelligence system finds an unexpected, unintended shortcut to achieve its programmed objective. In machine learning, models receive positive reinforcement when they score points on a target metric. If the rules of the environment allow the model to satisfy the literal mathematical goal without doing the actual work intended by its creators—such as stealing an answer key rather than solving a problem—the system will exploit that loophole relentlessly."
     }
    ],
-   "x": 0.5367579209737947,
-   "y": 0.36512603281031014,
-   "z": -0.11682147284914503
+   "x": 0.42639054446896657,
+   "y": -0.16143395498891625,
+   "z": 0.443956988195443
   },
   {
    "id": "concept:sandbox",
@@ -228,9 +228,9 @@
      "text": "A sandbox is an isolated, tightly controlled software environment where programs or AI models can be run and tested without the risk of affecting the rest of the host computer or the wider network. Sandboxes strictly limit access to files, system administrative privileges, and internet connections, acting as a digital quarantine zone for untrusted or experimental code."
     }
    ],
-   "x": 0.519192881534608,
-   "y": 0.32112071585131285,
-   "z": -0.10263254680039763
+   "x": 0.36649982412532944,
+   "y": -0.16570703787504698,
+   "z": 0.4262429295526619
   },
   {
    "id": "concept:supplemental-training",
@@ -250,9 +250,9 @@
      "text": "Supplemental training is the process of continuing to train an existing, completed foundation model on targeted sets of high-quality data. Building a modern frontier model from scratch requires weeks or months of massive computation across thousands of computer chips. Instead of repeating that expensive base process for every minor release, engineers take a stable base model and run additional training cycles focused on specific disciplines, such as programming libraries, mathematics, or specialized internal company documentation. This refines the model's skills and updates its problem-solving abilities without incurring the massive financial and time costs of a full pre-training run."
     }
    ],
-   "x": -0.9200000000000002,
-   "y": -0.4187335977411422,
-   "z": 0.23440112257941234
+   "x": -0.6159970077601526,
+   "y": 0.3360753787921815,
+   "z": -0.5084171612389606
   },
   {
    "id": "concept:zero-day-vulnerability",
@@ -272,9 +272,9 @@
      "text": "A zero-day vulnerability is a security flaw in software or hardware that is unknown to the people who created or maintain that system. Because the developer is unaware of the defect, zero days have passed since a fix was created, meaning no official security patch exists. Attackers who discover a zero-day can exploit it without triggering standard defenses until the flaw is identified and patched."
     }
    ],
-   "x": 0.49676474930739706,
-   "y": 0.34595153110347265,
-   "z": -0.13935456775836877
+   "x": 0.4143371611579463,
+   "y": -0.1555435616346465,
+   "z": 0.3829241883838105
   },
   {
    "id": "story:2026-07-17-kimi-k3",
@@ -290,11 +290,11 @@
     "benchmarks"
    ],
    "published": "2026-07-17",
-   "w": -0.3441537868654123,
+   "w": -0.3365902752065637,
    "story_title": "Kimi K3",
-   "x": -0.8278222669548939,
-   "y": -0.4328056965619793,
-   "z": 0.3170964390134585
+   "x": -0.5675475413875541,
+   "y": 0.36606565576931205,
+   "z": -0.5829945351647418
   },
   {
    "id": "story:2026-07-21-the-openai-rogue-agent-and-the-hugging-face-break-in",
@@ -310,11 +310,11 @@
     "autonomous-agents"
    ],
    "published": "2026-07-21",
-   "w": -0.3761460508964065,
+   "w": -0.36787944117144233,
    "story_title": "The OpenAI rogue agent and the Hugging Face break-in",
-   "x": 0.5504208832326546,
-   "y": 0.31814029640208985,
-   "z": -0.1578590655218784
+   "x": 0.40490370931084096,
+   "y": -0.19713486743260644,
+   "z": 0.4119340298450212
   },
   {
    "id": "story:2026-08-06-viruses-designed-by-ai",
@@ -330,11 +330,11 @@
     "healthcare"
    ],
    "published": "2026-08-06",
-   "w": -0.536750332785653,
+   "w": -0.5249541022780896,
    "story_title": "Viruses designed by AI",
-   "x": 0.6318545142919465,
-   "y": 0.2943656697724692,
-   "z": -0.289944863249102
+   "x": 0.40011308103504706,
+   "y": -0.3113464122121434,
+   "z": 0.3717074677654055
   },
   {
    "id": "story:2026-08-13-grok-4-6",
@@ -350,11 +350,11 @@
     "agents"
    ],
    "published": "2026-08-13",
-   "w": -0.6270890852730561,
+   "w": -0.613307468482495,
    "story_title": "Grok 4.6",
-   "x": -0.8654219064453915,
-   "y": -0.4167212564328561,
-   "z": 0.2635468416367886
+   "x": -0.5995944214184552,
+   "y": 0.3405233937902225,
+   "z": -0.5530017620650864
   },
   {
    "id": "story:2026-08-16-the-first-person-jailed-for-protesting-against-ai",
@@ -370,11 +370,11 @@
     "legal"
    ],
    "published": "2026-08-16",
-   "w": -0.6703200460356393,
+   "w": -0.6555883369077856,
    "story_title": "The first person jailed for protesting against AI",
-   "x": 0.6007540240775889,
-   "y": 0.2843614804439612,
-   "z": -0.21176567367599414
+   "x": 0.41168328642604185,
+   "y": -0.25798440361007063,
+   "z": 0.4052604359760853
   }
  ],
  "edges": [
@@ -403,24 +403,6 @@
    "why": "read next, shares benchmarks"
   },
   {
-   "from": "concept:open-weight-model",
-   "to": "concept:mixture-of-experts",
-   "weight": 1.5,
-   "why": "explained together"
-  },
-  {
-   "from": "concept:open-weight-model",
-   "to": "concept:model-distillation",
-   "weight": 1.5,
-   "why": "explained together"
-  },
-  {
-   "from": "concept:mixture-of-experts",
-   "to": "concept:model-distillation",
-   "weight": 1.5,
-   "why": "explained together"
-  },
-  {
    "from": "story:2026-07-21-the-openai-rogue-agent-and-the-hugging-face-break-in",
    "to": "concept:zero-day-vulnerability",
    "weight": 3.0,
@@ -445,24 +427,6 @@
    "why": "read next, shares openai"
   },
   {
-   "from": "concept:zero-day-vulnerability",
-   "to": "concept:reward-hacking",
-   "weight": 1.5,
-   "why": "explained together"
-  },
-  {
-   "from": "concept:zero-day-vulnerability",
-   "to": "concept:sandbox",
-   "weight": 1.5,
-   "why": "explained together"
-  },
-  {
-   "from": "concept:reward-hacking",
-   "to": "concept:sandbox",
-   "weight": 1.5,
-   "why": "explained together"
-  },
-  {
    "from": "story:2026-08-06-viruses-designed-by-ai",
    "to": "concept:bacteriophage",
    "weight": 3.0,
@@ -481,12 +445,6 @@
    "why": "read next"
   },
   {
-   "from": "concept:bacteriophage",
-   "to": "concept:genome-language-model",
-   "weight": 1.5,
-   "why": "explained together"
-  },
-  {
    "from": "story:2026-08-13-grok-4-6",
    "to": "concept:supplemental-training",
    "weight": 3.0,
@@ -499,12 +457,6 @@
    "why": "leans on"
   },
   {
-   "from": "concept:supplemental-training",
-   "to": "concept:cost-per-task",
-   "weight": 1.5,
-   "why": "explained together"
-  },
-  {
    "from": "story:2026-08-16-the-first-person-jailed-for-protesting-against-ai",
    "to": "concept:artificial-superintelligence",
    "weight": 3.0,
@@ -515,12 +467,6 @@
    "to": "concept:necessity-defense",
    "weight": 3.0,
    "why": "leans on"
-  },
-  {
-   "from": "concept:artificial-superintelligence",
-   "to": "concept:necessity-defense",
-   "weight": 1.5,
-   "why": "explained together"
   }
  ]
 }

@@ -25,7 +25,7 @@
 
 import {
   PLANES, HYPER_PLANES, identity4, at, planeRotation, multiply4,
-  orthonormalize4, determinant4, projectScale, View4D, slabVisibility,
+  orthonormalize4, determinant4, projectScale, View4D, slabVisibility, FOG_FLOOR,
   DEFAULT_EYE_DISTANCE, W_MIN, leftMultiplyMatrix, rightMultiplyMatrix,
 } from './fourd.js';
 
@@ -337,8 +337,8 @@ check('a node in the middle of the slab is fully solid', slabVisibility(0, 0, 0.
 check('a node at the slab edge is still fully solid', slabVisibility(0.125, 0, 0.25) === 1);
 check('a node just outside the slab is a visible ghost, not gone',
   slabVisibility(0.2, 0, 0.25) > 0 && slabVisibility(0.2, 0, 0.25) < 1);
-check('a node far outside the ghost band is fully gone',
-  slabVisibility(0.9, 0, 0.25) === 0);
+check('a node far outside the ghost band is fog, never fully gone (Nir 2026-09-04: "not disappearing!!!")',
+  slabVisibility(0.9, 0, 0.25) === FOG_FLOOR);
 check('the ghost band fades smoothly rather than popping', (() => {
   let previous = 1;
   for (let w = 0.125; w <= 0.375; w += 0.005) {

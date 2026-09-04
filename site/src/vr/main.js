@@ -1302,7 +1302,7 @@ function runMenuItem(key) {
   if (key === 'gym') { gymOffer.style.display = 'none'; resetEverything(); gym.start(); }
   if (key === 'home') {
     panorama.w0 = panorama.homeW;
-    setStatusFlash('Slab back to where most of the magazine lives');
+    setStatusFlash('Slab back among the articles');
   }
   if (key === 'stems') { panorama.stemsEnabled = !panorama.stemsEnabled; }
 }

@@ -132,7 +132,11 @@ def build_graph(editions: list[dict]) -> tuple[nx.Graph, dict[str, dict]]:
       story  -> concept   this article leans on that idea (the strongest bond)
       story  -> story     this editor said read that one next
       story  -> story     they share tags (weaker, one edge per shared tag)
-      concept-> concept   two ideas explained by the same article
+
+    There are deliberately NO concept-to-concept edges (Nir, 2026-09-04): the
+    only thing that really connects two ideas is the article that explains
+    them both, so every concept hangs from its story by a stem and from
+    nothing else.
     """
     graph = nx.Graph()
     nodes: dict[str, dict] = {}
@@ -199,15 +203,15 @@ def build_graph(editions: list[dict]) -> tuple[nx.Graph, dict[str, dict]]:
                 else:
                     graph.add_edge(a, b, weight=weight, why=f"shares {'/'.join(sorted(shared))}")
 
-    # Two ideas explained by the same article belong near each other.
-    for edition in editions:
-        concept_ids = [f"concept:{str(c.get('slug','')).strip().lower()}"
-                       for c in edition["produced"].get("concepts") or []]
-        concept_ids = [c for c in concept_ids if c in nodes]
-        for index, first in enumerate(concept_ids):
-            for second in concept_ids[index + 1:]:
-                if not graph.has_edge(first, second):
-                    graph.add_edge(first, second, weight=1.5, why="explained together")
+    # NO CONCEPT-TO-CONCEPT EDGES. Nir's ruling, 2026-09-04, his words: "each
+    # article needs to be connected to its concepts... the only thing that
+    # really connects them in real life is that they are all connected to one
+    # article." This stage used to also tie every two ideas explained by the
+    # same article to each other ("explained together"), which drew little
+    # concept-to-concept clusters with no article in sight. Those edges are
+    # gone. The story -> concept stem above is the ONLY edge a concept gets:
+    # every idea hangs from the article that explains it, like leaves on one
+    # branch, and two ideas meet only by meeting AT their article.
 
     return graph, nodes
 
