@@ -360,12 +360,17 @@ export class Panorama {
     // neither story nor concept (the placeholder world's fake nodes, and any
     // future kind) keeps the round bead.
     //
-    // Every base geometry is built with a circumradius of one, so the one
-    // scale number in placePoint means the same visual size for every shape:
-    // BoxGeometry's circumradius is half its diagonal times its edge, so the
-    // cube uses edge 1.155 to sit exactly on the unit sphere. Low detail on
-    // purpose: at this size nobody counts facets, and the triangle budget is
-    // precious in a headset.
+    // Every base geometry except the cube is built with a circumradius of one,
+    // so the one scale number in placePoint means the same visual size for
+    // every shape. THE CUBE IS THE EXCEPTION, and here is why (Nir,
+    // 2026-09-04: "you did not change the size of the cubes. make the cubes
+    // also big"): a cube inscribed in the ball's sphere hides most of its
+    // bulk deep inside - its faces sit at 58% of the ball's radius - so a
+    // "same-size" cube reads as far SMALLER than the ball. The cube's EDGE
+    // therefore equals the ball's DIAMETER (base edge 2.0), which makes it
+    // read as truly big, the way a cube the same bigness as a ball looks.
+    // Low detail on purpose: at this size nobody counts facets, and the
+    // triangle budget is precious in a headset.
     const kinds = this.data.kinds || [];
     const shapeCounts = { story: 0, concept: 0, other: 0 };
     for (let i = 0; i < n; i++) {
@@ -375,7 +380,7 @@ export class Panorama {
     }
     this.shapeCounts = shapeCounts;
     this.storyNodes = new InstancedSet(
-      new THREE.BoxGeometry(1.155, 1.155, 1.155), Math.max(1, shapeCounts.story), { emissive: 0x000000 });
+      new THREE.BoxGeometry(2.0, 2.0, 2.0), Math.max(1, shapeCounts.story), { emissive: 0x000000 });
     this.conceptNodes = new InstancedSet(
       new THREE.TetrahedronGeometry(1), Math.max(1, shapeCounts.concept), { emissive: 0x000000 });
     this.nodes = new InstancedSet(
