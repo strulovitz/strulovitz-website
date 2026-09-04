@@ -351,12 +351,52 @@ export class Panorama {
 
     const n = this.data.count;
 
-    // Nodes. Low-detail spheres: at the size these appear, nobody will ever
-    // count the facets, and the triangle budget is precious in a headset.
-    this.nodes = new InstancedSet(new THREE.IcosahedronGeometry(1, 1), n, { emissive: 0x000000 });
+    // Nodes, told apart by SHAPE, never by size (Nir's ruling, 2026-09-04):
+    // an ARTICLE is a big cube, a CONCEPT is a big tetrahedron, both the size
+    // of the old big balls; the tesseract's corner beads stay the round beads
+    // the user is used to (hovering them does nothing, and that is familiar).
+    // The user must never wonder "is this an article, an idea, or part of the
+    // frame?" - the shape answers before the hover does. Anything that is
+    // neither story nor concept (the placeholder world's fake nodes, and any
+    // future kind) keeps the round bead.
+    //
+    // Every base geometry is built with a circumradius of one, so the one
+    // scale number in placePoint means the same visual size for every shape:
+    // BoxGeometry's circumradius is half its diagonal times its edge, so the
+    // cube uses edge 1.155 to sit exactly on the unit sphere. Low detail on
+    // purpose: at this size nobody counts facets, and the triangle budget is
+    // precious in a headset.
+    const kinds = this.data.kinds || [];
+    const shapeCounts = { story: 0, concept: 0, other: 0 };
     for (let i = 0; i < n; i++) {
-      this.nodes.setColour(i, this.data.colours[i * 3], this.data.colours[i * 3 + 1], this.data.colours[i * 3 + 2]);
+      if (kinds[i] === 'story') shapeCounts.story++;
+      else if (kinds[i] === 'concept') shapeCounts.concept++;
+      else shapeCounts.other++;
     }
+    this.shapeCounts = shapeCounts;
+    this.storyNodes = new InstancedSet(
+      new THREE.BoxGeometry(1.155, 1.155, 1.155), Math.max(1, shapeCounts.story), { emissive: 0x000000 });
+    this.conceptNodes = new InstancedSet(
+      new THREE.TetrahedronGeometry(1), Math.max(1, shapeCounts.concept), { emissive: 0x000000 });
+    this.nodes = new InstancedSet(
+      new THREE.IcosahedronGeometry(1, 1), Math.max(1, shapeCounts.other), { emissive: 0x000000 });
+    // Which set each node lives in, and its index inside that set.
+    this.setOf = new Array(n);
+    this.setIndex = new Int32Array(n);
+    {
+      let story = 0, concept = 0, other = 0;
+      for (let i = 0; i < n; i++) {
+        if (kinds[i] === 'story') { this.setOf[i] = this.storyNodes; this.setIndex[i] = story++; }
+        else if (kinds[i] === 'concept') { this.setOf[i] = this.conceptNodes; this.setIndex[i] = concept++; }
+        else { this.setOf[i] = this.nodes; this.setIndex[i] = other++; }
+      }
+    }
+    for (let i = 0; i < n; i++) {
+      this.setOf[i].setColour(this.setIndex[i],
+        this.data.colours[i * 3], this.data.colours[i * 3 + 1], this.data.colours[i * 3 + 2]);
+    }
+    this.graph.add(this.storyNodes.mesh);
+    this.graph.add(this.conceptNodes.mesh);
     this.graph.add(this.nodes.mesh);
 
     // Edges as thin ROUND RIBBONS, never one-pixel lines: a one-pixel line in
@@ -543,25 +583,32 @@ export class Panorama {
 
   updateNodes() {
     const n = this.data.count;
-    if (!this.showGraph) { this.nodes.finish(0); return; }
+    if (!this.showGraph) {
+      this.nodes.finish(0); this.storyNodes.finish(0); this.conceptNodes.finish(0);
+      return;
+    }
     for (let i = 0; i < n; i++) {
       const visible = slabVisibility(this.outW[i], this.w0, this.epsilon);
       this.nodeVisibility[i] = visible;
-      if (visible <= 0) { this.nodes.hide(i); continue; }
-      // RADIUS = BASE RADIUS TIMES THE PROJECTION SCALE, AND NOTHING ELSE.
+      const set = this.setOf[i];
+      const local = this.setIndex[i];
+      if (visible <= 0) { set.hide(local); continue; }
+      // SIZE = BASE SIZE TIMES THE PROJECTION SCALE, AND NOTHING ELSE.
       let size = this.data.radii[i] * this.outScale[i];
       // The hovered and focused nodes are marked by BRIGHTNESS, not by size,
       // so that size never lies about the fourth dimension.
       const highlighted = (i === this.hoveredNode || i === this.focusedNode);
-      this.nodes.placePoint(i, this.out3[i * 3], this.out3[i * 3 + 1], this.out3[i * 3 + 2],
+      set.placePoint(local, this.out3[i * 3], this.out3[i * 3 + 1], this.out3[i * 3 + 2],
         size, visible);
       const boost = highlighted ? 2.2 : 1;
-      this.nodes.setColour(i,
+      set.setColour(local,
         Math.min(1, this.data.colours[i * 3] * boost),
         Math.min(1, this.data.colours[i * 3 + 1] * boost),
         Math.min(1, this.data.colours[i * 3 + 2] * boost));
     }
-    this.nodes.finish(n);
+    this.nodes.finish(this.shapeCounts.other);
+    this.storyNodes.finish(this.shapeCounts.story);
+    this.conceptNodes.finish(this.shapeCounts.concept);
   }
 
   updateEdges() {

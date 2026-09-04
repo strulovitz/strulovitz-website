@@ -188,10 +188,12 @@ export async function loadGalaxy(modelSlug, base = 'data/galaxies') {
     colours[i * 3 + 1] = ((colour >> 8) & 255) / 255;
     colours[i * 3 + 2] = (colour & 255) / 255;
 
-    // The encyclopedia is drawn slightly larger, because a permanent
-    // explanation is a landmark and news is weather. Size never means
-    // importance-within-a-kind (bible/part-03.md 3.7.5).
-    radii[i] = node.kind === 'concept' ? 0.017 : 0.013;
+    // ARTICLES AND CONCEPTS ARE BOTH BIG - the size of the old big balls
+    // (0.017) - and they are told apart by SHAPE, never by size (Nir's
+    // ruling, 2026-09-04: articles are big cubes, concepts are big
+    // tetrahedrons, the tesseract's round corner beads stay as they are).
+    // Size never means importance-within-a-kind (bible/part-03.md 3.7.5).
+    radii[i] = 0.017;
 
     bandOf[i] = bandIndexFor(points4[base4 + 3]);
     clusterOf[i] = node.kind === 'concept'
