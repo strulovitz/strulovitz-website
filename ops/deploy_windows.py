@@ -87,33 +87,45 @@ def upload_dir(sftp, local_root, remote_root):
     return count, total
 
 
-def find_previous_version(current):
-    """The newest version folder in exports/ other than the one being shipped."""
-    names = [n for n in os.listdir(EXPORTS)
-             if n.startswith("v") and os.path.isdir(os.path.join(EXPORTS, n))
-             and n != current]
-    return max(names) if names else None
-
-
-def files_differing(previous, current):
-    """Relative paths of files that changed or are new, by real content hash.
-
-    This is the whole trick DECISION 23 asks for: compare the new build with
-    the previous one file by file, so the upload carries only the difference.
-    """
+def files_differing_remote(sftp, root, previous, current):
+    """The exact set of files to upload, computed without moving the big
+    bytes: the server's live folder is listed (names and sizes only), the new
+    local build is hashed, and every file that is missing, bigger/smaller, or
+    a text file whose size happens to match but whose content differs is
+    marked for upload. Binary files with identical sizes are treated as
+    identical - for pictures that is certain for all practical purposes.
+    This is DECISION 23 in code: only the difference crosses the wire."""
     import hashlib
-    def manifest(folder):
-        result = {}
-        for base, _dirs, files in os.walk(folder):
-            for name in files:
-                path = os.path.join(base, name)
-                rel = os.path.relpath(path, folder).replace(os.sep, "/")
-                with open(path, "rb") as handle:
-                    result[rel] = hashlib.sha256(handle.read()).hexdigest()
-        return result
-    old = manifest(os.path.join(EXPORTS, previous))
-    new = manifest(os.path.join(EXPORTS, current))
-    return sorted(rel for rel, digest in new.items() if old.get(rel) != digest)
+    import stat as statmod
+    text_suffixes = (".html", ".json", ".js", ".css", ".txt", ".svg", ".md", ".xml")
+    remote_sizes = {}
+    def walk(path, prefix):
+        for entry in sftp.listdir_attr(path):
+            remote_path = f"{path}/{entry.filename}"
+            rel = f"{prefix}{entry.filename}" if prefix == "" else f"{prefix}/{entry.filename}"
+            if statmod.S_ISDIR(entry.st_mode):
+                walk(remote_path, rel)
+            else:
+                remote_sizes[rel] = entry.st_size
+    walk(f"{root}/{previous}", "")
+
+    delta = []
+    for base, _dirs, files in os.walk(os.path.join(EXPORTS, current)):
+        for name in files:
+            local_path = os.path.join(base, name)
+            rel = os.path.relpath(local_path, os.path.join(EXPORTS, current)).replace(os.sep, "/")
+            local_size = os.path.getsize(local_path)
+            if rel not in remote_sizes:
+                delta.append(rel)
+            elif remote_sizes[rel] != local_size:
+                delta.append(rel)
+            elif rel.lower().endswith(text_suffixes):
+                remote_hash = hashlib.sha256(sftp.open(f"{root}/{previous}/{rel}").read()).hexdigest()
+                with open(local_path, "rb") as handle:
+                    local_hash = hashlib.sha256(handle.read()).hexdigest()
+                if remote_hash != local_hash:
+                    delta.append(rel)
+    return sorted(delta)
 
 
 def server_side_copy(client, root, previous, version):
@@ -163,22 +175,31 @@ def upload(env):
 
     print(f"STEP 1 of 3  preparing the folder {version} ...", flush=True)
     started = time.time()
-    previous = find_previous_version(version)
-    if previous is None:
-        print("  no previous version folder found locally - full upload", flush=True)
+    # DECISION 23: the delta is computed against the folder the SERVER is
+    # actually serving right now (its live pointer), not against whichever
+    # local build happens to be newest. A build can exist locally and never
+    # have been uploaded - that is exactly what happened with v2026-09-04-h.
+    # And because the old local exports folders get cleaned up over time, the
+    # comparison reads the server's own listing instead of trusting a local
+    # copy: missing, resized, and hash-differing text files go up; everything
+    # else stays where it is.
+    remote_live = json.loads(
+        sftp.open(f"{root}/pointer.json").read().decode().strip())["live"]
+    if remote_live == version:
+        print(f"  the server is already live on {version} - uploading it in full to be safe", flush=True)
         count, total = upload_dir(sftp, os.path.join(EXPORTS, version), f"{root}/{version}")
         print(f"  done: {count} files, {total / (1 << 20):.0f} MB in {time.time() - started:.0f}s", flush=True)
+        return
+    changed = files_differing_remote(sftp, root, remote_live, version)
+    print(f"  server is live on {remote_live}; exact delta to upload: {len(changed)} file(s)", flush=True)
+    if server_side_copy(client, root, remote_live, version):
+        print("  server-side copy done - the unchanged files never cross the wire", flush=True)
+        count, total = upload_changed(changed, version, sftp, root)
+        print(f"  then {count} changed file(s), {total / (1 << 20):.2f} MB in {time.time() - started:.0f}s", flush=True)
     else:
-        changed = files_differing(previous, version)
-        print(f"  local diff vs {previous}: {len(changed)} file(s) differ or are new", flush=True)
-        if server_side_copy(client, root, previous, version):
-            print("  server-side copy done - the unchanged files never cross the wire", flush=True)
-            count, total = upload_changed(changed, version, sftp, root)
-            print(f"  then {count} changed file(s), {total / (1 << 20):.2f} MB in {time.time() - started:.0f}s", flush=True)
-        else:
-            print("  server-side copy not possible - uploading the full folder (correctness first)", flush=True)
-            count, total = upload_dir(sftp, os.path.join(EXPORTS, version), f"{root}/{version}")
-            print(f"  done: {count} files, {total / (1 << 20):.0f} MB in {time.time() - started:.0f}s", flush=True)
+        print("  server-side copy not possible - uploading the full folder (correctness first)", flush=True)
+        count, total = upload_dir(sftp, os.path.join(EXPORTS, version), f"{root}/{version}")
+        print(f"  done: {count} files, {total / (1 << 20):.0f} MB in {time.time() - started:.0f}s", flush=True)
 
     print("STEP 2 of 3  uploading the root pages ...", flush=True)
     # DECISION 23: upload every root page and the lightbox - they are small and
@@ -202,6 +223,37 @@ def upload(env):
     client.close()
 
 
+def upload_root(env):
+    """Upload ONLY the small root pages and the lightbox.
+
+    This is the deploy for milestones that change the pages but not the
+    magazine application itself (menu changes, new pages, new text). No
+    version folder, no pointer upload: the tesseract app keeps running from
+    whichever folder the server's pointer already names, so nothing that is
+    already on the server crosses the wire. DECISION 23 in its plainest form.
+    """
+    client = connect(env)
+    sftp = client.open_sftp()
+    root = env["FTP_REMOTE_WEB_ROOT"]
+    live = json.loads(sftp.open(f"{root}/pointer.json").read().decode().strip())["live"]
+    print(f"the server's magazine application stays on {live} - untouched", flush=True)
+    root_files = sorted(
+        name for name in os.listdir(EXPORTS)
+        if os.path.isfile(os.path.join(EXPORTS, name))
+        and name != "pointer.json"
+        and (name.endswith(".html") or name.endswith(".js")))
+    total = 0
+    for name in root_files:
+        local = os.path.join(EXPORTS, name)
+        sftp.put(local, f"{root}/{name}")
+        total += os.path.getsize(local)
+        print(f"  {name}  ({os.path.getsize(local) / 1024:.0f} KB)", flush=True)
+    print(f"PUBLISHED {len(root_files)} root files, {total / (1 << 10):.0f} KB total. "
+          f"Version folders and pointer: NOT touched.", flush=True)
+    sftp.close()
+    client.close()
+
+
 def main():
     env = load_env()
     action = sys.argv[1] if len(sys.argv) > 1 else "check"
@@ -209,8 +261,10 @@ def main():
         check(env)
     elif action == "upload":
         upload(env)
+    elif action == "upload_root":
+        upload_root(env)
     else:
-        raise SystemExit("usage: python ops/deploy_windows.py check|upload")
+        raise SystemExit("usage: python ops/deploy_windows.py check|upload|upload_root")
 
 
 if __name__ == "__main__":
