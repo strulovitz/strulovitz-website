@@ -720,3 +720,21 @@ TWO CONSEQUENCES FOR WHOEVER BUILDS THIS:
 2. Two sizes of every picture are needed: the full one for the article, and a
    small thumbnail for the hover card, derived from it automatically. A hover
    card must never download a full-size illustration.
+
+DECISION 23 - DEPLOY UPLOADS THE MINIMUM. NEVER THE WHOLE FOLDER AGAIN
+Date: 2026-09-06
+Decided by: Nir, after stopping an agent whose upload plan would have
+re-sent all 311 MB / 296 image files to the server for a change of about
+21 small HTML files. Nir's words: "why do you upload all the images?!?!"
+
+Ruling: before ANY upload to the live server, the agent compares what the
+server already has against what actually changed, and uploads ONLY the
+difference: the new version folder, the changed root pages, and
+pointer.json last. The images folder, and every other big folder that is
+already on the server and unchanged, never gets uploaded again by anyone.
+"not because the script says so" is not a reason. Check first, upload the
+minimum, always.
+
+This order also lives in AGENTS.md at the repository root, which is loaded
+automatically into every agent session, so no agent can claim it did not
+know.

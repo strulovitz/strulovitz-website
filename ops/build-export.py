@@ -73,6 +73,7 @@ SHIPPING_ROOT = [
     "evil-genius.html",
     "second-opinion.html",
     "cheerleader.html",
+    "vibe-invention.html",
     # Nir's picture galleries and the lightbox they open with. They are root
     # files because the pages that use them live at the root, and because they
     # rarely change, so an upload between versions is wasted effort.

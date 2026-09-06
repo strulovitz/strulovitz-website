@@ -47,6 +47,18 @@ THE MENU, IN THIS ORDER
    Making educational games through vibe coding, and advancing real science in
    the process, at the level of university STEM.
 
+7. VIBE INVENTION  --  "/vibe-invention.html"  --  already on the site.
+   Two complete conversations, copy+pasted word-for-word exactly as they
+   happened, in which Nir takes his Mpemba Effect Tetris Kwisatz Haderach
+   explanation to frontier AI models on OpenRouter: first GPT-6 Astra, then
+   Claude Fable 5.1. The page exists so visitors can see, in full and
+   unedited, how it is possible to actually invent new science with AI. It
+   sits in the menu just before About, which stays the last item. Added
+   2026-09-06 at Nir's request.
+
+   About  --  "/about.html"  --  the last item in the menu, after Vibe
+   Invention.
+
 
 --------------------------------------------------------------------------------
 RULES FOR THE MENU
