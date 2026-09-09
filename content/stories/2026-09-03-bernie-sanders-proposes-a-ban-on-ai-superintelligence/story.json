@@ -1,0 +1,54 @@
+{
+ "slug": "2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+ "title": "Bernie Sanders proposes a ban on AI superintelligence",
+ "created_at_utc": "2026-09-09T16:10:36+00:00",
+ "language": "en",
+ "source_count": 3,
+ "total_words": 2405,
+ "sources": [
+  {
+   "kind": "article",
+   "url": "https://www.newsweek.com/bernie-sanders-ominous-warning-after-ai-agents-sacrifice-for-collective-12402569",
+   "title": "Bernie Sanders' ominous warning after AI agents 'sacrifice' for collective",
+   "byline": "Jesus Mesa",
+   "published": "2026-09-03",
+   "fingerprint": "63f2c86e8625fc12e62a25f9803945bf4999dfe309e4b44327f8a650737c7e74",
+   "fetched_at_utc": "2026-09-09T16:10:28+00:00",
+   "site": "newsweek.com",
+   "words": 1366,
+   "note": "",
+   "text_file": "newsweek-com-bernie-sanders-ominous-warning-after-ai-agents-sacrifice--63f2c86e.txt"
+  },
+  {
+   "kind": "article",
+   "url": "https://thehill.com/policy/technology/6069131-sanders-casar-ai-superintelligence-ban/",
+   "title": "Sanders, Casar call for artificial superintelligence ban amid rogue AI hackings",
+   "byline": "Miranda Nazzaro",
+   "published": "2026-09-03",
+   "fingerprint": "030bb33577009f9281e1495e0122d386bd4999562ca57f8c3553bc4616044ebd",
+   "fetched_at_utc": "2026-09-09T16:10:30+00:00",
+   "site": "thehill.com",
+   "words": 400,
+   "note": "",
+   "text_file": "thehill-com-sanders-casar-call-for-artificial-superintelligence-ban-am-030bb335.txt"
+  },
+  {
+   "kind": "article",
+   "url": "https://gizmodo.com/bernie-sanders-calls-for-global-ban-on-ai-superintelligence-2000806829",
+   "title": "Bernie Sanders Calls for Global Ban on AI ‘Superintelligence’",
+   "byline": "Webb Wright",
+   "published": "2026-09-03",
+   "fingerprint": "5e1b7312b27e6dabf66cc72d107edf9dd8ed0287e7815186108b3440ffe4393c",
+   "fetched_at_utc": "2026-09-09T16:10:34+00:00",
+   "site": "gizmodo.com",
+   "words": 639,
+   "note": "",
+   "text_file": "gizmodo-com-bernie-sanders-calls-for-global-ban-on-ai-superintelligenc-5e1b7312.txt"
+  }
+ ],
+ "failed_links": [
+  "https://www.science.org/content/article/bernie-sanders-aims-ban-ai-superintelligence-experts-can-t-agree-what-term-means - https://www.science.org/content/article/bernie-sanders-aims-ban-ai-superintelligence-experts-can-t-agree-what-term-means answered with HTTP 403. That is usually a paywall or a bot-block - paste the text by hand, or use a different source.",
+  "https://www.washingtonpost.com/technology/2026/09/03/sanders-proposes-artificial-superintelligence-ban-after-rogue-ai-incidents/ - Could not reach https://www.washingtonpost.com/technology/2026/09/03/sanders-proposes-artificial-superintelligence-ban-after-rogue-ai-incidents/: ReadTimeout. Either the site is down or it is blocking us. You can paste the text by hand instead.",
+  "https://www.axios.com/2026/09/03/bernie-sanders-superintelligence-ban-ai-pause - https://www.axios.com/2026/09/03/bernie-sanders-superintelligence-ban-ai-pause answered with HTTP 403. That is usually a paywall or a bot-block - paste the text by hand, or use a different source."
+ ]
+}

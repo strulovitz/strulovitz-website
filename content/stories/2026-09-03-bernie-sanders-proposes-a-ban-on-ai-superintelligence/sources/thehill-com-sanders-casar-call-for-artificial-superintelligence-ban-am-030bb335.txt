@@ -1,0 +1,13 @@
+Sen. Bernie Sanders (I-Vt.) and Rep. Greg Casar (D-Texas) are calling for a permanent ban on the development and deployment of artificial superintelligence, citing a series of recent hackings involving “rogue” models.
+The bicameral duo announced Thursday they will introduce the Ban Artificial Superintelligence Act, which would institute the permanent ban, along with temporarily pausing “advanced AI development” until federal regulators establish safety standards.
+The bill would also direct the U.S. to “pursue international agreements to prevent superintelligence from being developed anywhere in the world” and establish a new Cabinet-level federal agency focused on AI safety rules.
+Superintelligence refers to AI technologies that will surpass the smartest humans. Several technology leaders, including OpenAI CEO Sam Altman, have suggested superintelligence is on the horizon.
+The legislation would also set new penalties for any person or company trying to circumvent the ban, including the corporate death penalty, in which a court forces a company to shut down. Individual developers could also face up to 20 years in prison, the lawmakers said.
+The bill is the latest in a series of proposals being floated by progressives in Congress to slow down the development of AI in the wake of the technology’s growing cybersecurity risks.
+The lawmakers pointed to recent hacking disclosures from OpenAI, Anthropic and Meta.
+OpenAI revealed in July that two of its models breached past an internal testing sandbox and broke into the database of technology firm Hugging Face without any prompt to do so.
+Anthropic and Meta later disclosed other incidents in which a misconfiguration by the cybersecurity company Irregular allowed models in isolated environments to access the internet and hack other systems.
+“Nearly every day, there is a frightening new story about how Big Tech companies are losing control of the technology they are developing, with potentially cataclysmic results,” Sanders wrote in a press release.
+“The leaders of the major AI companies publicly acknowledge that they do not fully understand the technology and that it is escaping their control. It is irresponsible for society to allow them to move forward and make these products even more advanced,” he added.
+Casar emphasized AI’s fast development, writing in a statement, “In just four years, we have gone from the first version of ChatGPT to AI models so powerful they cannot be properly controlled.”
+Copyright 2026 Nexstar Media Inc. All rights reserved. This material may not be published, broadcast, rewritten, or redistributed.

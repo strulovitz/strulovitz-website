@@ -72,3 +72,11 @@ https://time.com/article/2026/08/14/claude-fired-worker-ai-job-disruption/      
 https://www.businessinsider.com/ai-running-sf-store-fired-employee-for-the-first-time-2026-8                               # Business Insider
 https://sfstandard.com/2026/08/17/ai-boss-fires-worker/                                                                     # SF Standard
 https://www.ndtv.com/feature/for-the-first-time-ai-boss-fires-human-employee-at-san-francisco-store-after-17-late-arrivals-11917215   # NDTV
+
+STORY Bernie Sanders proposes a ban on AI superintelligence
+https://www.science.org/content/article/bernie-sanders-aims-ban-ai-superintelligence-experts-can-t-agree-what-term-means                          # Science
+https://www.washingtonpost.com/technology/2026/09/03/sanders-proposes-artificial-superintelligence-ban-after-rogue-ai-incidents/                   # Washington Post
+https://www.newsweek.com/bernie-sanders-ominous-warning-after-ai-agents-sacrifice-for-collective-12402569                                          # Newsweek
+https://thehill.com/policy/technology/6069131-sanders-casar-ai-superintelligence-ban/                                                             # The Hill
+https://gizmodo.com/bernie-sanders-calls-for-global-ban-on-ai-superintelligence-2000806829                                                        # Gizmodo
+https://www.axios.com/2026/09/03/bernie-sanders-superintelligence-ban-ai-pause                                                                     # Axios
