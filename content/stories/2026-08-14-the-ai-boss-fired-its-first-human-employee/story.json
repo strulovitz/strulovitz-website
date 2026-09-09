@@ -1,0 +1,53 @@
+{
+ "slug": "2026-08-14-the-ai-boss-fired-its-first-human-employee",
+ "title": "The AI boss fired its first human employee",
+ "created_at_utc": "2026-09-09T16:03:13+00:00",
+ "language": "en",
+ "source_count": 3,
+ "total_words": 2070,
+ "sources": [
+  {
+   "kind": "article",
+   "url": "https://time.com/article/2026/08/14/claude-fired-worker-ai-job-disruption/",
+   "title": "Exclusive: Claude Was Put in Charge of Human Workers—and Fired One",
+   "byline": "Billy Perrigo",
+   "published": "2026-08-14",
+   "fingerprint": "9c5b617d03e1c0e649230d0116b284ec731006949ad10646d156f454c5c4529e",
+   "fetched_at_utc": "2026-09-09T16:02:52+00:00",
+   "site": "time.com",
+   "words": 869,
+   "note": "",
+   "text_file": "time-com-exclusive-claude-was-put-in-charge-of-human-workers-and-fired-9c5b617d.txt"
+  },
+  {
+   "kind": "article",
+   "url": "https://www.businessinsider.com/ai-running-sf-store-fired-employee-for-the-first-time-2026-8",
+   "title": "The AI boss at a San Francisco store just fired its first human",
+   "byline": "Katherine Li",
+   "published": "2026-08-15",
+   "fingerprint": "194d124f41682540437811e3f3c43f5379d070b4657b2c816615a40abe0faf28",
+   "fetched_at_utc": "2026-09-09T16:02:54+00:00",
+   "site": "businessinsider.com",
+   "words": 465,
+   "note": "",
+   "text_file": "businessinsider-com-the-ai-boss-at-a-san-francisco-store-just-fired-it-194d124f.txt"
+  },
+  {
+   "kind": "article",
+   "url": "https://sfstandard.com/2026/08/17/ai-boss-fires-worker/",
+   "title": "His AI boss fired his human coworker. He’s not worried",
+   "byline": "Jessica Blough",
+   "published": "2026-08-17",
+   "fingerprint": "a7512d081f0afd8bcd1365494a5429ecb5f602516d2c80af3dfe529db8aecf41",
+   "fetched_at_utc": "2026-09-09T16:03:00+00:00",
+   "site": "sfstandard.com",
+   "words": 736,
+   "note": "",
+   "text_file": "sfstandard-com-his-ai-boss-fired-his-human-coworker-he-s-not-worried-a7512d08.txt"
+  }
+ ],
+ "failed_links": [
+  "https://www.forbes.com/sites/bryanrobinson/2026/09/04/the-ai-boss-is-here-and-it-just-fired-its-first-human-employee/ - https://www.forbes.com/sites/bryanrobinson/2026/09/04/the-ai-boss-is-here-and-it-just-fired-its-first-human-employee/ answered with HTTP 403. That is usually a paywall or a bot-block - paste the text by hand, or use a different source.",
+  "https://www.ndtv.com/feature/for-the-first-time-ai-boss-fires-human-employee-at-san-francisco-store-after-17-late-arrivals-11917215 - https://www.ndtv.com/feature/for-the-first-time-ai-boss-fires-human-employee-at-san-francisco-store-after-17-late-arrivals-11917215 answered with HTTP 403. That is usually a paywall or a bot-block - paste the text by hand, or use a different source."
+ ]
+}

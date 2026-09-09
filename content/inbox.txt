@@ -65,3 +65,10 @@ https://www.theguardian.com/science/2026/sep/08/openai-claims-to-have-solved-mat
 https://www.bbc.com/news/articles/cy7zygy3rl2o                                                                                  # BBC
 https://www.nytimes.com/2026/09/08/science/openai-proof-millennium-problem.html                                                # The New York Times
 https://techcrunch.com/2026/09/08/openai-fought-dirty-on-career-making-math-problem-says-nyu-mathematician/                    # TechCrunch
+
+STORY The AI boss fired its first human employee
+https://www.forbes.com/sites/bryanrobinson/2026/09/04/the-ai-boss-is-here-and-it-just-fired-its-first-human-employee/      # Forbes
+https://time.com/article/2026/08/14/claude-fired-worker-ai-job-disruption/                                                  # TIME
+https://www.businessinsider.com/ai-running-sf-store-fired-employee-for-the-first-time-2026-8                               # Business Insider
+https://sfstandard.com/2026/08/17/ai-boss-fires-worker/                                                                     # SF Standard
+https://www.ndtv.com/feature/for-the-first-time-ai-boss-fires-human-employee-at-san-francisco-store-after-17-late-arrivals-11917215   # NDTV
