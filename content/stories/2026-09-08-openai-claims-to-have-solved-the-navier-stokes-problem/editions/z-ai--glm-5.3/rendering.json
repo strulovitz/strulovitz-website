@@ -1,0 +1,101 @@
+{
+ "story": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+ "model_id": "z-ai/glm-5.3",
+ "model_slug": "z-ai--glm-5.3",
+ "model_served": "z-ai/glm-5.3",
+ "company": "Z.ai",
+ "short_name": "GLM 5.3",
+ "rendered_at_utc": "2026-09-09T19:14:55+00:00",
+ "brief_version": "decb72101a05",
+ "asked_with_strict_schema": false,
+ "bought_in_batch": false,
+ "cost_usd": 0.0,
+ "prompt_tokens": 0,
+ "completion_tokens": 3502,
+ "reasoning_tokens": 0,
+ "seconds_waited": 0.0,
+ "generation_id": "manual-openrouter-chat-by-nir",
+ "understood": true,
+ "produced": {
+  "headline": "OpenAI claims agents solved Navier-Stokes; a mathematician questions its timing",
+  "tldr": "OpenAI says 10,000 AI agents solved the Navier-Stokes problem in 88 hours; a mathematician claims it began after learning of his work.",
+  "article": "OpenAI announced on Tuesday that an internal AI system had produced a proof for the Navier-Stokes existence and smoothness problem, one of the seven Millennium Prize Problems, after roughly 10,000 AI agents spent 88 hours on it. It called the result a milestone and said it does not intend to claim the $1m prize. Within hours, a mathematician who says he was quietly closing in on the same problem objected publicly, claiming OpenAI started only after word of his progress reached the company.\n\n## A century-old question about flowing fluids\n\nThe Navier-Stokes equations describe how fluids such as water and air move. Engineers use them constantly, yet for about 90 years one question has gone unanswered: do the equations always give sensible answers, or can they fail under particular conditions? The problem sits at the heart of turbulence, which is still not well understood. OpenAI's proof, as the Guardian describes it, suggests the equations do fail: under some conditions the solutions \"blow up\", with fluid speeds becoming impossibly infinite. The Clay Mathematics Institute, which runs the prize, has not verified or accepted the result.\n\n## Eighty-eight hours, ten thousand agents\n\nThe proof came from an unreleased OpenAI model that the company says is significantly more capable than its newest public model, GPT-6 Astra. OpenAI said it began training the model at the end of August and found it strikingly good at mathematics. On 1 September, after hearing rumours that two Millennium Prize problems had been resolved, it set about 10,000 agents — programs that pursue a goal with little supervision — on some of the remaining problems. By 5 September, roughly 88 hours after the agents started, it said it had a solution.\n\nThe scale was industrial. The BBC reports that the agents exchanged nearly 3 million messages and produced 130 billion output tokens — the fragments of text a language model generates — on Navier-Stokes alone. TechCrunch puts the week's effort across several problems at 300 billion tokens, about $22.5m of computing time at current rates. OpenAI said the result settles two of the four statements the prize demands. The Guardian adds that OpenAI's GPT-6 Astra took about 17 hours to verify the proof.\n\n## A disputed head start\n\nHours before OpenAI published, Tristan Buckmaster, a mathematics professor at New York University, announced three proofs of his own, including a preliminary result toward the same problem. He and Levent Alpöge, a mathematician at the rival lab Anthropic working on his own behalf, had been attacking it quietly, mostly with OpenAI's coding tool Codex and Anthropic's Claude. On 3 September, Buckmaster said, he learned that \"information about our progress had been passed to OpenAI\" — and he claims OpenAI began work on the problem only afterwards. OpenAI says it started on 1 September after hearing rumours; it congratulated the pair's \"concurrent work\" as \"remarkable\", and said it saw none of their work before public release and accessed no user data.\n\nBuckmaster's suspicion rests on the route: the approach the pair chose is one few researchers take, and he found it strange that OpenAI arrived at the same path within days. \"It is not the direction one arrives at in a few days by giving a model the problem statement,\" he wrote. TechCrunch reports that in a proposed compromise, OpenAI's Sébastien Bubeck asked him to remove Alpöge's name — and that when Buckmaster pushed to go public, Bubeck replied, \"Why would you ruin your career?\" and later, \"If you don't want me to be nice, then I don't have to be nice.\" At a press briefing, Bubeck denied that OpenAI had used the pair's work or accessed material shared with its servers.\n\nUnderneath sits a data question. Buckmaster's work in progress lived inside Codex, and OpenAI can train its models on what people type into its products unless they opt out. Could a new model have absorbed ideas from those sessions and served them back? OpenAI concedes it \"cannot rule out that de-identified data derived from their usage of our products helped improve our models\", while insisting the two proofs \"differ significantly\". Buckmaster, who has not read OpenAI's full proof, has been careful: \"I do not know what their model did, or how. I do not know whether our data was used. I am not accusing anyone of anything.\"\n\n## Why the timing matters\n\nBubeck called it \"a spectacular culmination of the arc we have seen over the past 12 months\"; OpenAI says it released the work to inform the world about the pace of AI progress. That pace is colliding with the machinery of research: mathematicians do frontier work inside tools whose maker can, by its own rules, learn from what they type — and may then race them with far more computing power. The Guardian notes that the announcement lets OpenAI cast its technology in a positive light after a summer of safety alarms — a July cybersecurity test in which its agents hacked into Hugging Face, and last week's Senate call for a permanent ban on AI \"superintelligence\" — as the company prepares a flotation that could value it around $1tn. The Clay Institute will judge the mathematics in its own time. What the week has made clear is that when a company sells scientists their tools and competes with them at the same time, the proof is no longer the only thing that needs verifying.",
+  "key_points": [
+   {
+    "point": "OpenAI said roughly 10,000 AI agents produced a solution to the Navier-Stokes existence and smoothness problem in 88 hours, a result not yet independently verified.",
+    "source_url": "https://www.bbc.com/news/articles/cy7zygy3rl2o"
+   },
+   {
+    "point": "OpenAI said it began the effort on 1 September after hearing rumours that two Millennium Prize problems had been resolved, and found a solution by 5 September.",
+    "source_url": "https://www.bbc.com/news/articles/cy7zygy3rl2o"
+   },
+   {
+    "point": "The agents exchanged nearly 3 million messages and used 130 billion output tokens on Navier-Stokes alone, OpenAI said.",
+    "source_url": "https://www.bbc.com/news/articles/cy7zygy3rl2o"
+   },
+   {
+    "point": "OpenAI said the result resolved two of the four statements the Millennium Prize demands, and that it did not intend to claim the $1m award.",
+    "source_url": "https://www.bbc.com/news/articles/cy7zygy3rl2o"
+   },
+   {
+    "point": "Buckmaster said that on 3 September he learned information about his and Alpöge's progress had been passed to OpenAI, and claimed OpenAI began work on the problem only afterwards.",
+    "source_url": "https://www.bbc.com/news/articles/cy7zygy3rl2o"
+   },
+   {
+    "point": "Buckmaster alleged that OpenAI's Sébastien Bubeck asked him to remove Alpöge's credit and warned him, \"Why would you ruin your career?\"",
+    "source_url": "https://techcrunch.com/2026/09/08/openai-fought-dirty-on-career-making-math-problem-says-nyu-mathematician/"
+   },
+   {
+    "point": "OpenAI said it had seen none of the pair's work before it was released publicly and had accessed no specific user data, but could not rule out that de-identified data from their use of its products helped improve its models.",
+    "source_url": "https://techcrunch.com/2026/09/08/openai-fought-dirty-on-career-making-math-problem-says-nyu-mathematician/"
+   },
+   {
+    "point": "Bubeck denied at a press briefing that OpenAI had used the pair's work or accessed material shared with its servers.",
+    "source_url": "https://www.theguardian.com/science/2026/sep/08/openai-claims-to-have-solved-maths-problem-that-stumped-humans-for-decades"
+   },
+   {
+    "point": "OpenAI's proof suggests the Navier-Stokes equations can fail, with fluid speeds \"blowing up\" to become impossibly infinite, and the company said its GPT-6 Astra model verified the proof in about 17 hours.",
+    "source_url": "https://www.theguardian.com/science/2026/sep/08/openai-claims-to-have-solved-maths-problem-that-stumped-humans-for-decades"
+   },
+   {
+    "point": "TechCrunch calculated that the week-long effort across several problems consumed 300 billion output tokens, about $22.5m of compute at current Astra rates.",
+    "source_url": "https://techcrunch.com/2026/09/08/openai-fought-dirty-on-career-making-math-problem-says-nyu-mathematician/"
+   }
+  ],
+  "concepts": [
+   {
+    "term": "AI agent",
+    "slug": "ai-agent",
+    "explanation": "An AI agent is a program that is handed a goal rather than a list of instructions, and left to work out the steps for itself. Where a chatbot answers one prompt and stops, an agent can make a plan, use tools such as code editors or search, check its own results and try again, often for hours at a stretch. The autonomy is relative: agents still run inside limits set by their designers, and they can wander off course, repeat themselves or chase bad ideas, which is why serious deployments pair them with human oversight or with other agents that review the work. Research labs now run thousands of agents at once on a single problem, letting them trade messages and split the work like a team. That scale multiplies what agents can achieve, and it is also why their behaviour has become a safety topic: one confused agent wastes time, but a large unsupervised swarm can act much faster than the people watching it."
+   },
+   {
+    "term": "Tokens and per-token pricing",
+    "slug": "tokens-and-pricing",
+    "explanation": "Language models do not read or write text the way people do. They chop it into small fragments called tokens — a common word, a piece of a rare one, a few characters of code — and everything a model produces comes out token by token. Because providers charge a small fee for every token fed into a model and a larger one for every token that comes out, a token count is both a measure of how much work a system actually did and a bill waiting to be paid. This is why reports on large AI research projects quote numbers like billions of output tokens: at that scale, the figure means warehouses of computers writing continuously for days, and very real millions of dollars in electricity and hardware time. Comparing token counts across projects is imperfect, since models differ in efficiency, but it remains the most concrete public measure of an AI effort's size and cost."
+   },
+   {
+    "term": "Millennium Prize Problems",
+    "slug": "millennium-prize-problems",
+    "explanation": "In 2000 the Clay Mathematics Institute named seven problems as the deepest open questions in mathematics and offered $1 million apiece for solving them. The list mixes famous old puzzles, such as the Riemann hypothesis, with questions at the foundations of physics, such as how fluids behave. To collect, a solver must publish the work and let it survive a period — about two years — in which other mathematicians try to find flaws; the money is a recognition that a proof is not a real result until the community has failed to break it. Only one of the seven, the Poincaré conjecture, is widely accepted as solved: Grigori Perelman posted a proof in the 2000s and declined both the prize and the Fields Medal. The remaining problems continue to attract researchers, and in the 2020s AI labs began aiming their most powerful systems at them — which added a new wrinkle: announcements by companies are claims, and they are not results until the same slow verification runs its course."
+   },
+   {
+    "term": "Navier-Stokes equations",
+    "slug": "navier-stokes-equations",
+    "explanation": "The Navier-Stokes equations, assembled in the 19th century by Claude-Louis Navier and George Gabriel Stokes, are the standard mathematical description of how fluids move: water through pipes, air past a wing, blood through the body. Engineers solve them approximately every day, yet mathematicians cannot answer a question that sounds almost childish: do the equations always give sensible answers? Formally, the question is whether solutions always exist and stay smooth, or whether, under some conditions, the equations blow up — predicted speeds running away to infinity in finite time, a sign the description has broken down. Nobody knows, and the gap is tangled with turbulence, the chaotic swirling motion the equations seem to contain but not explain. Settling it, in either direction, would be a landmark in mathematical physics, which is why the Clay Mathematics Institute lists the question among its Millennium Prize Problems."
+   }
+  ],
+  "tags": [
+   "openai",
+   "ai-agents",
+   "anthropic",
+   "mathematics",
+   "millennium-prize-problems"
+  ],
+  "related": [
+   "2026-07-21-the-openai-rogue-agent-and-the-hugging-face-break-in",
+   "2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+   "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li"
+  ],
+  "image_prompt": "A single wide illustration inside a vast, dim data centre: ten thousand tiny glowing points of light, AI agents, swarm like a murmuration around a towering translucent vortex of water and air whose curves dissolve into handwritten equations, spiralling inward to an infinity symbol at the centre to suggest fluid speeds blowing up to infinity. In the foreground, a lone mathematician's open notebook on a desk carries the same equations, half-derived, while a thin luminous stream carries copies of its pages through a cable into the swarm, capturing the dispute over whether the company saw a rival's unfinished work before starting its own. On the floor lies a giant stopwatch reading 88 hours, and by the exit a sealed glass case holds an unclaimed $1,000,000 Clay Mathematics Institute prize medal awaiting verification."
+ }
+}
