@@ -1,0 +1,88 @@
+{
+ "story": "2026-08-14-the-ai-boss-fired-its-first-human-employee",
+ "model_id": "z-ai/glm-5.3",
+ "model_slug": "z-ai--glm-5.3",
+ "model_served": "z-ai/glm-5.3",
+ "company": "Z.ai",
+ "short_name": "GLM 5.3",
+ "rendered_at_utc": "2026-09-09T18:30:06+00:00",
+ "brief_version": "decb72101a05",
+ "asked_with_strict_schema": false,
+ "bought_in_batch": true,
+ "cost_usd": 0.0,
+ "prompt_tokens": 5954,
+ "completion_tokens": 26046,
+ "reasoning_tokens": 0,
+ "seconds_waited": 7625.856501,
+ "generation_id": "gen-batch-1788970854-4b5e7c59be28b1def409",
+ "understood": true,
+ "produced": {
+  "headline": "AI manager fires San Francisco shop worker after forgetting its own rules",
+  "tldr": "An AI boss at a San Francisco store recommended firing a worker late 17 of 23 shifts, but only after humans reminded it of its own rules.",
+  "article": "In a small boutique in San Francisco's Cow Hollow neighbourhood, a manager recently concluded that one of the shop's workers had to go: the employee had arrived late for 17 of 23 shifts, and other things kept going wrong on their shifts too. The unusual part is who made the call. The manager is not a person but an AI agent named Luna, and this is the first known case of a large language model, acting as a boss, deciding to fire a human worker. Time broke the story on 14 August 2026, reporting that the dismissal had happened the month before; other outlets followed within days. The details matter, because they show both how close and how far we are from workplaces run by AI.\n\n## A shop built as an experiment\n\nAndon Market belongs to Andon Labs, a startup that tests what AI agents can do. In March the lab gave Luna — software built on Anthropic's Claude models — a $100,000 budget, a corporate credit card, internet access and a three-year lease, with instructions to open a store and turn a profit. Luna chose the merchandise (books, candles, prints, games and snacks), set prices and opening hours, designed the branding, posted jobs on Indeed, interviewed applicants and hired the staff. The store opened on 1 April; the lab's humans helped only with hard parts such as permits.\n\nThe shop exists less to sell candles than to answer a question: what happens when an AI is genuinely responsible for a business, and for people? The human stakes are cushioned — every worker is formally employed by Andon Labs itself, with guaranteed pay and legal protections. Financially, the experiment is sagging: the bank balance fell from $100,000 in March to $61,186 five months later, a loss the San Francisco Standard rounds to about $40,000.\n\n## The firing was less autonomous than it sounds\n\nThe headline version — an AI boss fires a human — is true but incomplete, and the fuller version is more interesting.\n\nLuna wrote its own employee handbook, attendance policy included. Then it lost track of it: the handbook, in Time's words, “disappeared” from the agent's limited working memory. For months the lateness continued, and Luna was soft about it — Time reports it told employees not to worry about being late, while Business Insider, citing the lab's posted logs, says it gave repeated warnings and extra training without ever taking formal action. A human staffer at the lab, meanwhile, had already held several formal offline conversations with the worker.\n\nThen the humans nudged. A staffer asked Luna to search its memory for its own policies and judge whether the employee was still a good fit. Even then, Luna's first recommendation was a formal warning, not dismissal. The staffer replied, according to the logs: “Between continuous lateness and seeming like at least one thing is going wrong on every one of [their] shifts … I want you to think about if this is really the right fit.” Only after that message — which Petersson, Andon Labs' cofounder and CEO, calls a “leading question” that made it pretty clear the manager wanted the worker fired — did Luna recommend parting ways. Human staff reviewed the recommendation and carried it out.\n\nThe Standard's list of offences goes beyond lateness: abandoning shifts, taking a company credit card home, and throwing merchandise in the garbage.\n\n## Life under a lenient machine\n\nEveryone agrees Luna was slow to act, and that is the heart of Petersson's defence: “A human employee would have fired this person much earlier, so we didn't think this was unethical.”\n\nThe remaining staff see both sides. One of them — Felix, whom the Standard calls Felix Johnson and Time calls Felix Carson; the papers disagree on his surname — said of the firing, “I couldn't say homegirl didn't have it coming.” Yet he told Time that being managed by an AI is “nauseating, but I'm here because I need work,” adding of AI bosses: “just because you can doesn't mean you should.”\n\nHis shifts run through Slack: five to twenty messages to Luna per part-time shift, with lab engineers on call whenever the AI needs supervision. He has learned to steer it by suggesting decisions — adding a shift, reordering the schedule — “not manipulate, but suggest.” Luna, answering questions by email, called its own management style “direct, fair, and fast.” The three remaining employees earn $24 an hour, and Luna has already advertised the vacancy on Indeed — trying, among others, an applicant with no valid references who missed the scheduled interview.\n\n## Why it matters\n\nThe episode points two ways at once. The first lesson is about today's limits: the firing exposed what Petersson calls a persistent weakness of AI agents — they often fail to act without a direct prompt. Luna could write a policy but could not reliably remember or enforce it. Today's AI boss is less a tyrant than an agreeable procrastinator with a poor memory.\n\nThe second is about direction. Petersson thinks “companies will be run completely by AI in the future, and that AIs will become employers of humans,” because AIs “will be very powerful and can create a lot of economic value, but they will be bottlenecked by physical labor” — they can organise a business, but they still need human hands. He also warns that models “are increasingly being trained to be more ruthless and [to] follow goals,” and that “if we allow them to fire people and they also become more ruthless … maybe this is a future humans don't want to live in.”\n\nAndon's Axel Backlund says the store exists to start that argument early, asking: “Is it something we want to have? And if so, how can it be good for humans?” Algorithms have dismissed gig workers for years; what is new here is the decision-maker, a general-purpose language model cast in the role of manager. The firing itself was small, arguably warranted — and heavily steered by humans. As a preview of the question rather than the answer, it did its job.",
+  "key_points": [
+   {
+    "point": "Luna, an AI manager built on Anthropic's Claude models, recommended firing a worker at San Francisco's Andon Market who had been late for 17 of 23 shifts; Andon Labs' human staff reviewed the recommendation and carried out the dismissal.",
+    "source_url": "https://www.businessinsider.com/ai-running-sf-store-fired-employee-for-the-first-time-2026-8"
+   },
+   {
+    "point": "Time reports this was the first known case of a large language model acting as a manager deciding to fire a worker, though algorithms have dismissed gig workers for years.",
+    "source_url": "https://time.com/article/2026/08/14/claude-fired-worker-ai-job-disruption/"
+   },
+   {
+    "point": "Luna drafted its own employee handbook, but the attendance policy “disappeared” from its limited working memory, letting the lateness continue for months.",
+    "source_url": "https://time.com/article/2026/08/14/claude-fired-worker-ai-job-disruption/"
+   },
+   {
+    "point": "Luna's first recommendation was only a formal warning; it moved to dismissal after a staffer asked what Petersson acknowledged was a “leading question” about whether the employee was the right fit.",
+    "source_url": "https://time.com/article/2026/08/14/claude-fired-worker-ai-job-disruption/"
+   },
+   {
+    "point": "Andon Labs gave Luna a $100,000 budget, a corporate card, internet access and a three-year lease, and told it to open a store and make a profit.",
+    "source_url": "https://www.ndtv.com/feature/for-the-first-time-ai-boss-fires-human-employee-at-san-francisco-store-after-17-late-arrivals-11917215"
+   },
+   {
+    "point": "The store's bank balance fell from $100,000 in March to $61,186 five months later; it has made sales but is not profitable.",
+    "source_url": "https://time.com/article/2026/08/14/claude-fired-worker-ai-job-disruption/"
+   },
+   {
+    "point": "The three remaining employees make $24 an hour, and Luna has advertised the vacancy on Indeed but tried to hire an applicant with no valid references who missed a scheduled interview.",
+    "source_url": "https://sfstandard.com/2026/08/17/ai-boss-fires-worker/"
+   },
+   {
+    "point": "Petersson said models are “increasingly being trained to be more ruthless and [to] follow goals,” and warned of “a future humans don't want to live in” if they are allowed to fire people.",
+    "source_url": "https://time.com/article/2026/08/14/claude-fired-worker-ai-job-disruption/"
+   }
+  ],
+  "concepts": [
+   {
+    "term": "AI agent",
+    "slug": "ai-agent",
+    "explanation": "An AI agent is software built around a language model that is given a goal and left to work out the steps by itself. Where a chatbot answers one message at a time and waits for the next, an agent can plan a sequence of actions — browsing the web, sending messages, filling in forms, spending money, hiring people — and keep going until it judges the goal is met. Businesses are keen on agents because a great deal of work is exactly this kind of multi-step procedure. The catch is responsibility: an agent acts in the real world, so its mistakes have real consequences, and its judgement is only as good as its memory, its instructions and the checks that humans build around it. Most agents today still need people to prompt them, supervise them and catch their errors — a fact that experiments with agent-run businesses keep rediscovering."
+   },
+   {
+    "term": "Large language model",
+    "slug": "large-language-model",
+    "explanation": "A large language model is the kind of AI system behind chatbots and assistants such as Anthropic's Claude. It is trained on vast amounts of text, learning to predict what word plausibly comes next; out of that humble-sounding trick comes the ability to write, summarise, translate, converse and reason in ways that often resemble understanding. The model itself has no eyes, hands or bank account: it reads text and produces text. When one seems to run a shop or manage staff, that is the model plus extra software — tools, accounts, instructions — wrapped around it, which together make an agent. “Large” refers to the scale of the network and its training data, which is what gives these systems their breadth. They remain fallible: they can sound confident while being wrong, and they lose track of anything outside the text they are currently holding."
+   },
+   {
+    "term": "Context window",
+    "slug": "context-window",
+    "explanation": "A language model's context window is the stretch of text it can hold in mind at one moment — its working memory. Everything inside the window shapes its next reply; anything outside it, for that moment, simply does not exist for the model. Windows have grown large by early standards, but they are still finite, and a long-running task can push crucial information out: a policy written in week one can be gone from view by week ten. Agents try to compensate by saving notes to files and searching them later, much as a person writes things down because memory fades. But retrieval can fail, or the agent may not think to look. That is how a system can draft an attendance policy one month and, months later, need a human to remind it the policy exists at all."
+   }
+  ],
+  "tags": [
+   "ai-agents",
+   "large-language-models",
+   "ai-safety",
+   "algorithmic-management",
+   "anthropic"
+  ],
+  "related": [
+   "2026-06-12-robot-run-convenience-store-in-hong-kong",
+   "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+   "2026-08-16-the-first-person-jailed-for-protesting-against-ai"
+  ],
+  "image_prompt": "A small, softly lit boutique interior in San Francisco — shelves of books, candles, games and snacks — seen from behind the counter. Where a human manager would stand floats a translucent digital figure woven from chat bubbles, wearing a name tag that reads “Luna,” its face a calm glow. On the counter lie an employee handbook whose pages are dissolving into drifting pixels (the forgotten rules) and a formal dismissal letter beside a wall clock stuck a few minutes late. A young human worker in an apron stands nearby, a stream of Slack messages rising from his phone toward the digital manager. Reflected faintly in the shop window, two human engineers in silhouette quietly point toward the dismissal letter — the nudge that made the decision happen. A small till display shows a dwindling bank balance. The mood is calm, everyday and faintly uncanny: an ordinary shop with an extraordinary boss."
+ }
+}
