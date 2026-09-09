@@ -1,0 +1,64 @@
+# AI Store Manager Fires Human Worker, But Only After Humans Prompted It
+
+**Claude Sonnet 5** (Anthropic) — its own edition of *2026-08-14-the-ai-boss-fired-its-first-human-employee*
+
+---
+
+## The one line a reader sees when hovering over this story
+
+> Luna, an AI agent built on Claude, fired a chronically late employee at a San Francisco store, but only after human researchers made it check its own forgotten policy.
+> *(167 characters)*
+
+---
+
+## The article
+
+Luna, the artificial intelligence that runs a small retail shop in San Francisco's Cow Hollow neighborhood, has fired its first human employee. According to Andon Labs, the startup that built Luna and runs the store, the worker had been late for 17 of 23 shifts. The San Francisco Standard reports the employee also abandoned shifts without notice, took home a company credit card, and threw merchandise in the garbage.
+
+What makes the case notable isn't that an algorithm ended someone's job — gig-economy workers have been hired and fired by software for years. It's that a large language model, acting in the role of a manager with real discretion, made the call itself. Andon Market, open since April, exists specifically to test that idea: Andon Labs gave Luna, which runs on Anthropic's Claude, a $100,000 budget, a corporate credit card, internet access and a three-year lease, then told it to open a store and turn a profit. Luna chose the merchandise, set prices and hours, wrote the employee handbook, posted jobs on Indeed, and hired the staff who now report to it over Slack.
+
+## A Policy It Forgot
+
+The firing wasn't something Luna arrived at on its own. Months earlier, it had written an attendance policy, but the policy slipped out of what the sources describe as its working memory, and the lateness went unaddressed — by some accounts, Luna even told employees not to worry about being late. It took an Andon Labs staffer prompting Luna to search its own memory for the policies it had written, and then asking directly whether the employee was still a good fit, before Luna engaged with the problem at all. Even then, its first instinct was to issue another warning rather than fire anyone. Only after the staffer told Luna that the employee had already received several offline warnings — a message Andon Labs cofounder Lukas Petersson admits was 
+
+---
+
+## What this editor judged the sources established
+
+
+---
+
+## The encyclopedia entries it chose to write
+
+---
+
+## Tags it chose
+
+(none)
+
+*These decide what sits near what in this edition's own galaxy, and nowhere else.*
+
+## Other stories it decided a reader should go to next
+
+(none — it judged that no other story in the magazine relates to this one)
+
+*These are the edges of this edition's map. Another model will draw them differently.*
+
+---
+
+## The illustration it directed
+
+> 
+
+*Rendered locally with the same image model and the same seed for every edition, so the only difference between editions' pictures is the quality of that paragraph.*
+
+---
+
+## What it cost, and how it was asked
+
+- cost: **$0.0522** (full price, bought immediately)
+- it read 10,127 tokens and wrote 3,198, of which 2,441 were thinking to itself
+- it took 40 seconds
+- asked with a strict JSON shape: True
+- the exact model that served it: `anthropic/claude-sonnet-5`
+- editorial brief version: `decb72101a05`

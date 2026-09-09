@@ -1,0 +1,20 @@
+{
+ "story": "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "model_served": "qwen/qwen3.8-max-0902",
+ "company": "Alibaba",
+ "short_name": "Qwen 3.8 Max",
+ "rendered_at_utc": "2026-09-09T17:43:28+00:00",
+ "brief_version": "decb72101a05",
+ "asked_with_strict_schema": true,
+ "bought_in_batch": false,
+ "cost_usd": 0.39114,
+ "prompt_tokens": 4472,
+ "completion_tokens": 63998,
+ "reasoning_tokens": 15217,
+ "seconds_waited": 1323.9551236629486,
+ "generation_id": "gen-1788974484-8LxKCGyvcnVBJrAXG0Uz",
+ "understood": false,
+ "produced": null
+}

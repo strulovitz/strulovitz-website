@@ -1,0 +1,20 @@
+{
+ "story": "2026-08-12-nvidia-chip-in-russian-missile",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "model_served": "qwen/qwen3.8-max-0902",
+ "company": "Alibaba",
+ "short_name": "Qwen 3.8 Max",
+ "rendered_at_utc": "2026-09-09T16:51:53+00:00",
+ "brief_version": "decb72101a05",
+ "asked_with_strict_schema": true,
+ "bought_in_batch": false,
+ "cost_usd": 0.204206,
+ "prompt_tokens": 7005,
+ "completion_tokens": 31998,
+ "reasoning_tokens": 16177,
+ "seconds_waited": 744.187305688858,
+ "generation_id": "gen-1788971969-APo9mLn91v9eSsE8qUqm",
+ "understood": false,
+ "produced": null
+}

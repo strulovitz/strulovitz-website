@@ -1,0 +1,109 @@
+# Ukraine says Nvidia AI chip found inside Russia's new S-71M missile
+
+**Claude Sonnet 5** (Anthropic) — its own edition of *2026-08-12-nvidia-chip-in-russian-missile*
+
+---
+
+## The one line a reader sees when hovering over this story
+
+> Ukrainian intelligence says a consumer-grade Nvidia Jetson Orin module is helping guide Russia's new S-71M Monochrome cruise missile.
+> *(133 characters)*
+
+---
+
+## The article
+
+Ukraine's Main Directorate of Intelligence (HUR) says it has pulled apart a Russian S-71M "Monochrome" cruise missile and found, among its wiring, an Nvidia Jetson Orin computer module — the kind of chip a hobbyist robotics developer might buy for a few hundred euros.
+
+HUR announced the discovery on August 12, 2026, as part of a wider release listing 35 foreign electronic components found inside Russian weapons. The Jetson Orin was one of the more striking finds because of what the chip is built to do: run artificial intelligence workloads, including computer vision, without needing an internet connection.
+
+## What the missile is
+
+The S-71M Monochrome is a modified version of the S-71K "Kovyor" missile, built to fit inside the internal weapons bays of Russia's Su-57 fighter jet and its S-70 Okhotnik drone, which keeps it hidden from radar until launch. Sources differ slightly on its performance: Militarnyi and Interesting Engineering, both drawing on the same HUR data, give it a range up to 300 km and an OFAB-250-270 warhead weighing 250 kg. United24 Media reports a longer range of 350–400 km, a cruising speed of 500–600 km/h, and cites the Ukrainian channel Polkovnik Gsh for a claimed radar cross-section of just 0.007 square metres — a figure not confirmed by the other sources.
+
+What the outlets agree on is the missile's basic trick: it is designed to be hard to detect and reportedly able to search for a target on its own during the final stage of flight.
+
+## What the chip actually does
+
+According to Tom's Hardware, the specific part recovered — marked SNVUP6.MOP TE980M-A1 — most closely matches the Jetson Orin NX, an automotive-grade module capable of up to 157 trillion operations per second and built around Nvidia's Ampere GPU architecture. Markings on the chip suggest it was packaged in March 2025.
+
+No source has direct evidence of exactly what the module does inside the missile, but the leading theory, reported by Tom's Hardware, is that it works as the compute engine behind an onboard camera — a Chinese-made Honpho TS130C-01 — recognizing images in real time to assist the missile's terminal guidance as it closes in on a target. HUR itself was more cautious, saying only that the chip's presence "could indicate" Russia is using AI in the weapon, without disclosing precisely how it functions.
+
+## Nvidia's response
+
+Nvidia told Tom's Hardware that Jetson Orin modules are "consumer-grade products sold to students, developers, and startups," that they are not officially sold in Russia, and that they are not designed for military use. The company noted that pre-owned units circulate through resale channels it cannot track, and said it will act if it identifies violations of U.S. export rules. Notably, Jetson Orin NX is not subject to the kind of export controls that apply to Nvidia's data-center AI chips, such as the H100, because it is not designed to train AI models — only to run them.
+
+## Part of a pattern
+
+HUR says this is not an isolated find. The same batch of 35 components included parts of a passive radar seeker being fitted to Geran-2 drones so they can target Ukrainian air-defense radar, a Chinese camera from a Geran-4 drone, and seeker components from the Kh-47M2 Kinzhal missile. Tom's Hardware also notes that Jetson Orin NX modules were previously reported inside Russia's Shahed MS001 drones, and United24 Media points to similar technology in the V2U system and Shahed-236 drones.
+
+HUR says its War&Sanctions portal has now catalogued more than 5,800 foreign-made components across 202 Russian weapons systems, evidence, it argues, that two years of sanctions have not stopped Moscow's dependence on foreign electronics — though HUR also notes that an analysis of Russia's Oreshnik ballistic missile found no foreign parts at all, showing the reliance is uneven across weapons programs.
+
+---
+
+## What this editor judged the sources established
+
+- Ukraine's HUR says it found an Nvidia Jetson Orin computer module inside a Russian S-71M 'Monochrome' cruise missile, announced August 12, 2026.
+  — https://militarnyi.com/en/news/russian-s-71-monochrome-missile-received-ai-based-on-u-s-nvidia-module/
+- The finding was part of a release covering 35 foreign electronic components found in Russian weapons, most from the United States, others from Switzerland, Japan, Belarus and China.
+  — https://militarnyi.com/en/news/russian-s-71-monochrome-missile-received-ai-based-on-u-s-nvidia-module/
+- The chip found, marked SNVUP6.MOP TE980M-A1, most closely resembles the automotive-grade Jetson Orin NX, capable of up to 157 sparse INT8 TOPS, and appears to have been packaged in March 2025.
+  — https://www.tomshardware.com/tech-industry/artificial-intelligence/nvidia-jetson-chip-found-in-russian-cruise-missile-ukraine-claims-presence-in-s-71-monochrome-weapon-may-indicate-use-of-ai-tech
+- Nvidia says Jetson Orin modules are consumer-grade, not officially sold in Russia, not designed for military use, and not subject to the export controls that apply to its data-center AI accelerators.
+  — https://www.tomshardware.com/tech-industry/artificial-intelligence/nvidia-jetson-chip-found-in-russian-cruise-missile-ukraine-claims-presence-in-s-71-monochrome-weapon-may-indicate-use-of-ai-tech
+- United24 Media reports the missile has a range of 350-400 km and a claimed radar cross-section of 0.007 square metres, citing the Ukrainian channel Polkovnik Gsh, while other outlets give a shorter range of up to 300 km.
+  — https://united24media.com/defense-tech/russias-new-s-71m-stealth-missile-can-hunt-targets-with-ai-powered-by-nvidia-tech-it-shouldnt-have-21600
+- HUR says its War&Sanctions research has now identified more than 5,800 foreign components in 202 Russian weapons systems as of August 2026, though an analysis of the Oreshnik ballistic missile found no foreign parts at all.
+  — https://ua.news/en/war-vs-rf/gur-viiavilo-nvidia-jetson-u-rosiiskii-raketi-monokhrom
+
+---
+
+## The encyclopedia entries it chose to write
+
+### Edge AI computing
+`edge-ai-computing` — 200 words
+
+Edge AI computing means running artificial intelligence programs directly on a small, local device — a drone, a camera, a phone, or in this case a missile — instead of sending data to a distant data center and waiting for an answer. This matters because many AI tasks, like recognizing what a camera is looking at, need to happen in a fraction of a second, and a battlefield weapon or a moving vehicle usually has no reliable internet connection to lean on anyway. Chips built for this job, such as Nvidia's Jetson family, are designed to pack useful AI performance into a small, low-power package rather than the enormous power-hungry chips used to train AI models in data centers. The same qualities that make edge AI chips useful for legitimate purposes — robotics, drones, cameras, self-driving cars — also make them attractive for weapons designers who want a machine that can identify a target on its own, without a human watching every frame. Because these chips are made and sold in huge numbers for entirely ordinary civilian uses, restricting their reach once they leave a factory is far harder than restricting a specialized military part built for a single purpose.
+
+### Export controls
+`export-controls` — 193 words
+
+Export controls are government rules restricting which products, especially advanced technology, a company is allowed to sell to certain countries, companies, or people. Governments use them to slow adversaries' access to capabilities they consider strategically dangerous, such as high-end AI training chips that could be used to build powerful military or surveillance systems. The United States, for example, restricts sales of Nvidia's most powerful data-center AI accelerators to countries including Russia and China. But export controls typically target specific high-end products rather than entire categories of technology, and small, mass-market components — the kind bought by hobbyists, students, and small companies worldwide — are usually not restricted at all, because doing so would be commercially disruptive and largely unenforceable. Once such a product is legally sold, tracking where it ends up is difficult: it can pass through resellers, secondhand markets, or intermediary countries before reaching a sanctioned buyer. This gap between what is controlled and what is easily obtainable is a recurring theme in reporting on foreign components discovered inside Russian weapons, and explains why widely available AI hardware keeps showing up in places export rules were meant to keep it out of.
+
+### Terminal guidance
+`terminal-guidance` — 173 words
+
+Terminal guidance is the final phase of a missile's flight, when it closes in on its target and needs to correct its course with the highest precision. Earlier in flight, a missile typically relies on simpler navigation, such as satellite positioning or pre-programmed coordinates, because pinpoint accuracy is not yet required. In the terminal phase, small errors matter enormously, so many modern weapons switch to a more direct method of finding the target, often using a camera, radar, or infrared sensor mounted in the nose or body of the weapon. When that sensor feeds into a computer capable of running image-recognition software, the missile can, in principle, recognize a target's visual signature and steer toward it even if conditions such as jamming disrupt other guidance methods. This is the function experts suspect an onboard AI chip may be performing in some modern missiles: not flying the entire mission, but taking over in the last critical seconds to identify and lock onto what the camera sees, refining the missile's approach without further human input.
+
+---
+
+## Tags it chose
+
+`military-ai`  `export-controls`  `sanctions`  `nvidia`  `ai-regulation`
+
+*These decide what sits near what in this edition's own galaxy, and nowhere else.*
+
+## Other stories it decided a reader should go to next
+
+(none — it judged that no other story in the magazine relates to this one)
+
+*These are the edges of this edition's map. Another model will draw them differently.*
+
+---
+
+## The illustration it directed
+
+> A technical cutaway illustration of a sleek, dark stealth cruise missile in flight above a war-torn landscape at dusk, with a glowing exploded-view inset showing a small circuit board module labeled 'Nvidia Jetson Orin' wired to a tiny camera lens in the missile's nose, surrounded by faint schematic lines suggesting computer-vision target recognition; in the background, small icons of other components (a radar dish, a camera module) hint at the wider pattern of foreign electronics found in Russian weapons, rendered in a muted, investigative-report style rather than dramatic action.
+
+*Rendered locally with the same image model and the same seed for every edition, so the only difference between editions' pictures is the quality of that paragraph.*
+
+---
+
+## What it cost, and how it was asked
+
+- cost: **$0.0855** (full price, bought immediately)
+- it read 11,870 tokens and wrote 6,178, of which 2,387 were thinking to itself
+- it took 69 seconds
+- asked with a strict JSON shape: True
+- the exact model that served it: `anthropic/claude-sonnet-5`
+- editorial brief version: `decb72101a05`

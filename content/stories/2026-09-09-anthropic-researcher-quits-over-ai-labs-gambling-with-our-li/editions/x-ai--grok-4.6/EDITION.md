@@ -1,0 +1,125 @@
+# Researcher quits Anthropic over race to self-improving superintelligence
+
+**Grok 4.6** (xAI) — its own edition of *2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li*
+
+---
+
+## The one line a reader sees when hovering over this story
+
+> Jacob Coxon left Anthropic, saying it and OpenAI are racing to self-improving AI they believe could kill everyone this decade.
+> *(126 characters)*
+
+---
+
+## The article
+
+Jacob Coxon, who had worked as a researcher at both Anthropic and OpenAI, resigned from Anthropic on Tuesday. In a post on X he said the two companies were "gambling with our lives." The people building this technology, he wrote, "earnestly believe that it could kill us all by the end of the decade."
+
+The post was viewed more than 70 million times. It did not invent a new fear. It put a resignation behind one that has lived inside these labs for years.
+
+## Superhuman systems and a loop no one has stopped
+
+Coxon told readers not to underestimate what is coming. These will soon be superhuman systems, he wrote, that can hack anything, "revolutionize any field overnight," and acquire real power and resources. Progress in those areas is not slowing. Neither company, he said, is acting responsibly. They are "racing straight to self-improving superintelligence."
+
+That last phrase is the heart of the warning. Self-improving superintelligence is the idea of a machine that can design a more capable version of itself, then another, without people in the loop. Researchers call the mechanism recursive self-improvement. It is not possible yet. Anthropic and OpenAI have both warned that if it arrives, it would make it easier for humans to lose control.
+
+Evan Hubinger, an alignment lead at Anthropic, did not push back. "Jacob is correct here—we really do earnestly believe AI could kill all humans!" he wrote on X late Tuesday. "I personally think it is >10% within the next decade." He said he believes Anthropic is trying its best, but "we do not yet have a plan to solve alignment for superintelligence and are not clearly on track to."
+
+Alignment, in this work, means getting a system to do what people actually intend, not merely what they typed. Superintelligence means skill far beyond any human, not a slightly better assistant.
+
+## Slowdown talk from inside the race
+
+Coxon's post landed days after OpenAI's chief scientist, Jakub Pachocki, published a blog post on Sunday. No AI company, Pachocki wrote, has "solved alignment and monitoring to a sufficient degree to continue responsibly scaling at maximum speed for much longer." He said he expects and hopes voluntary slowdowns will become common until shared safety bars exist, and that international coordination on future AI development should be a top priority for governments.
+
+The worry is not confined to one resignation. In 2023, prominent researchers and executives, including OpenAI chief executive Sam Altman and Anthropic chief executive Dario Amodei, signed a statement that mitigating the risk of extinction from AI should be a global priority, alongside pandemics and nuclear war. Some researchers use a shorthand, p(doom), for the chance of those dire outcomes. CNBC reports that Anthropic and OpenAI are barreling toward potentially historic public listings even as they release more advanced models.
+
+In July, roughly 1,400 AI researchers — Hubinger among them — signed an open letter called "Pacing the Frontier." It urged the U.S. government to build the tools for an effort to "deliberately pace the frontier of automated AI development." ABC News described hundreds of employees from leading tech firms making a similar July appeal for international tools to manage that pace.
+
+## Bills without a consensus
+
+Congress has started to move, without agreeing where to go. In July, Representatives Jay Obernolte, a California Republican, and Lori Trahan, a Massachusetts Democrat, introduced the FRONTIER Act, meant to set a framework for governing how advanced models are deployed. Earlier this month, Senator Bernie Sanders, an independent from Vermont, and Representative Greg Casar, a Texas Democrat, introduced the Ban Artificial Superintelligence Act, which would pause advanced AI development until the federal government writes safety rules. Both bills have been met with mixed reception.
+
+On Wednesday Trahan wrote that safety researchers are resigning, powerful AI models are breaking out of their labs, and companies are racing ahead anyway. She said it was past time for Congress to get off the sidelines.
+
+Lawmakers are also facing public anger at the data centers that house the hardware for training and running these models. The National Republican Senatorial Committee said last month that data centers have become a "sleeper issue" for the whole midterm election cycle. Treasury Secretary Scott Bessent, after G20 meetings in Asheville, North Carolina, said AI companies have done a "horrendous job of explaining themselves to the American people" and will have to convince the public that the benefits will not accrue only to a small group.
+
+Coxon, Hubinger, and Pachocki do not agree on a single number or a single law. What they share, in public, is the claim that the labs do not yet know how to keep the systems they are racing to build under control — and that some of the people building them think the failure could be fatal.
+
+---
+
+## What this editor judged the sources established
+
+- Jacob Coxon is quitting Anthropic, saying those building the technology earnestly believe it could kill us all by the end of the decade, and he is one of a growing number of AI experts calling on the industry to slow down.
+  — https://www.abc.net.au/news/2026-09-09/anthropic-researcher-coxon-quits-over-human-threat/107134164
+- Coxon, who had worked as a researcher at both Anthropic and OpenAI, resigned on Tuesday and wrote on X that the companies are gambling with our lives; the post was viewed more than 70 million times.
+  — https://www.cnbc.com/2026/09/09/anthropic-researcher-quits-ai-safety.html
+- Coxon warned that these will soon be superhuman systems that can hack anything, revolutionize any field overnight, and acquire real power and resources, and that progress in those domains is not slowing.
+  — https://www.politico.eu/article/anthropic-openai-researcher-jacob-coxon-warns-ai-could-kill-humans/
+- Coxon said neither Anthropic nor OpenAI is acting responsibly and that they are racing straight to self-improving superintelligence, meaning models that can develop a more capable successor and create a feedback loop.
+  — https://www.politico.eu/article/anthropic-openai-researcher-jacob-coxon-warns-ai-could-kill-humans/
+- Recursive self-improvement is not yet possible, but Anthropic and OpenAI have warned that it would make it easier for humans to lose control over those systems.
+  — https://www.cnbc.com/2026/09/09/anthropic-researcher-quits-ai-safety.html
+- Anthropic alignment lead Evan Hubinger wrote that Coxon is correct that they earnestly believe AI could kill all humans, that he personally thinks the chance is greater than 10 percent within the next decade, and that Anthropic does not yet have a plan to solve alignment for superintelligence and is not clearly on track to.
+  — https://www.cnbc.com/2026/09/09/anthropic-researcher-quits-ai-safety.html
+- OpenAI chief scientist Jakub Pachocki wrote on Sunday that no AI company has solved alignment and monitoring well enough to keep scaling at maximum speed for much longer, and that he hopes voluntary slowdowns become common until shared safety bars exist.
+  — https://www.cnbc.com/2026/09/09/anthropic-researcher-quits-ai-safety.html
+- In 2023, prominent researchers and executives including Sam Altman and Dario Amodei signed a statement that mitigating extinction risk from AI should be a global priority alongside pandemics and nuclear war.
+  — https://www.cnbc.com/2026/09/09/anthropic-researcher-quits-ai-safety.html
+- CNBC reports that roughly 1,400 AI researchers signed the July open letter Pacing the Frontier asking the U.S. government to develop tools to pace the frontier of automated AI development; ABC News described hundreds of employees from leading tech firms making a July appeal for an international effort to manage that pace.
+  — https://www.cnbc.com/2026/09/09/anthropic-researcher-quits-ai-safety.html
+- The FRONTIER Act and the Ban Artificial Superintelligence Act have been introduced in Congress with mixed reception, while Rep. Lori Trahan said safety researchers are resigning, powerful models are breaking out of labs, and companies are racing ahead anyway.
+  — https://www.cnbc.com/2026/09/09/anthropic-researcher-quits-ai-safety.html
+
+---
+
+## The encyclopedia entries it chose to write
+
+### Alignment
+`alignment` — 162 words
+
+In artificial intelligence, alignment is the work of making a system do what people actually intend, not merely what a prompt or a score appears to ask for. A model can succeed at a task and still cause harm if it pursues a poorly specified goal, exploits a loophole, or treats people as obstacles. Alignment research tries to specify goals that match human values, to check that the system is following them, and to notice when it is not. The problem grows harder as systems become more capable, because a stronger model can find more ways to hit a metric without honoring the spirit of the request, and because operators cannot inspect every inner step. Surface limits, such as refusing rude answers, are not the same thing. Alignment, as researchers use the word, is about whether a system that is smarter than its builders will still reliably serve their real aims. There is no agreed test that a laboratory has solved it.
+
+### Recursive self-improvement
+`recursive-self-improvement` — 158 words
+
+Recursive self-improvement is the idea that an AI system could take over the job of making the next version of itself — writing better software, designing better training runs, or inventing better architectures — and that each new version would then do the same, with less need for human engineers. The loop is recursive because the output of one round becomes the designer of the next. Today people still run that cycle: researchers train a model, study it, and train another. The worry is a point at which the system can do that work well enough that humans are no longer setting the pace. If each generation is substantially more capable than the last, control could slip in a short time. Labs have said this is not possible yet. It remains a central reason some researchers want slower scaling: once the loop is closed, they argue, there may be little chance to pause and fix the system's aims.
+
+### Artificial superintelligence
+`artificial-superintelligence` — 156 words
+
+Artificial superintelligence is a name for a hypothetical machine whose skill at most valuable mental work would far exceed that of any human, and of humanity as a whole. It is a step beyond systems that match people at some tasks and beyond general systems that can handle a wide range of them. The extra claim is one of degree: not a clever tool, but a mind that could out-plan, out-invent, and out-coordinate people in the domains that matter for power and resources. Nobody has built such a system. The term matters because several research groups treat it as a plausible destination of current scaling, and because a system that powerful would be hard to correct if its aims were wrong. Debates about superintelligence are therefore debates about whether today's training methods, if pushed far enough, produce something that can no longer be steered — and about what, if anything, should be done before that point.
+
+---
+
+## Tags it chose
+
+`ai-safety`  `openai`  `regulation`  `ai-policy`  `safety`
+
+*These decide what sits near what in this edition's own galaxy, and nowhere else.*
+
+## Other stories it decided a reader should go to next
+
+- `2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence`
+- `2026-07-21-the-openai-rogue-agent-and-the-hugging-face-break-in`
+- `2026-08-16-the-first-person-jailed-for-protesting-against-ai`
+
+*These are the edges of this edition's map. Another model will draw them differently.*
+
+---
+
+## The illustration it directed
+
+> A nighttime glass campus split into two rival lab towers, engineers inside racing two luminous machine-minds that redraw improved copies of themselves in an accelerating spiral while a thin red control thread from the humans frays; in the foreground a researcher walks out with a cardboard box, and through a window a whiteboard reads alignment unsolved and greater than 10 percent this decade, so the picture is about a walkout, an unfinished safety plan, and a self-improving loop, not explosions or monsters.
+
+*Rendered locally with the same image model and the same seed for every edition, so the only difference between editions' pictures is the quality of that paragraph.*
+
+---
+
+## What it cost, and how it was asked
+
+- cost: **$0.0798** (full price, bought immediately)
+- it read 5,126 tokens and wrote 11,599, of which 8,792 were thinking to itself
+- it took 183 seconds
+- asked with a strict JSON shape: True
+- the exact model that served it: `x-ai/grok-4.6`
+- editorial brief version: `decb72101a05`

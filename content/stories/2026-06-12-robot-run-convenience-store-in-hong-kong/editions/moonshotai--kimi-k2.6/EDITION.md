@@ -1,0 +1,101 @@
+# Hong Kong’s first humanoid robot convenience store opens on waterfront
+
+**Kimi K2.6** (Moonshot) — its own edition of *2026-06-12-robot-run-convenience-store-in-hong-kong*
+
+---
+
+## The one line a reader sees when hovering over this story
+
+> A humanoid robot named Xiao Gai is running a 24-hour capsule store in Hong Kong, drawing curious shoppers and mixed reviews.
+> *(124 characters)*
+
+---
+
+## The article
+
+## A shopkeeper made of servos and sensors
+
+This summer, Hong Kong got a new kind of shop assistant: one made of metal and code. Xiao Gai, a humanoid robot built by the Beijing-based firm Galbot, has taken charge of a 24-hour capsule convenience store on the city’s waterfront, handling everything from stocking shelves to ringing up customers.
+
+Press reports in June 2026 described the pilot project as the first fully robot-run convenience store in the city. By September 5, the store was open and greeting shoppers, according to Reuters footage. The venture is backed by the Hong Kong Investment Corporation (HKIC), which told People the ‘robotic store manager’ works at all hours and is multilingual, and which told Inside Retail it wants to let residents ‘experience’ artificial intelligence directly rather than read about it in the abstract.
+
+The shop itself is tiny—about nine square metres, or roughly 97 square feet—housed in a portable, modular capsule. Inside works Xiao Gai, a G1 model that Galbot says is three years old and built for ‘precision picking & delivery’ and automated inventory management. The robot stands 173 cm tall (about five feet six inches) and can reach up to roughly 2.4 metres (7.8 feet) with an arm span of about 190 cm (around six feet). Galbot claims its mechanical arms can grasp and hand off objects in a ‘stable and predictable’ way. Using cameras and microphones, it is supposed to recognise what it sees, understand spoken intent, plan movements, and respond in several languages. The capsule carries high-turnover goods such as snacks, over-the-counter medicines, and lifestyle items; video from opening day also shows it selling local-themed toys such as remote-controlled vehicles and squishy replicas of Hong Kong egg waffles and pineapple buns.
+
+Pre-opening coverage from Inside Retail, Futurism, Time Out Hong Kong, and People placed the capsule on the Hung Hom waterfront. However, a Reuters video report dated September 5 located the open store at Wan Chai Harbour Front. The discrepancy was not explained in the material available.
+
+## Curiosity and criticism on opening day
+
+Opening-day visitors told Reuters the experience was cheerful but uneven. Hong Kong resident Waylan Kwan praised the multilingual interaction and said the project showed how AI could broaden customer service, though he noted ‘minor adjustments’ were needed to cut delays. Another shopper, Dylan Tyack, brought his daughter to watch the robot dance and blow a flying kiss, calling it ‘good fun’ and a ‘unique concept.’ Yet not everyone was convinced. Resident Yvonne Lau remarked that Xiao Gai was ‘not very smart,’ pointing out that copyright restrictions kept it from singing popular songs and that sudden surprises would likely overwhelm it.
+
+## The bigger picture: robots on the front line
+
+The project fits into a widening push to put robots in front-line service jobs. In May, Japan Airlines began testing humanoid baggage handlers at Tokyo’s Haneda Airport, hoping to reduce physically taxing labour, and has said it eventually wants the machines to clean airplane cabins and operate ground equipment. Galbot is already talking about expansion: the company plans to roll out the capsule format in ten major cities and has mentioned a goal of 100 robot-managed outlets. Galbot estimates the sheer novelty could lift surrounding foot traffic by 30 to 40 per cent.
+
+The experiment lands in a climate peppered with cautionary tales. Earlier this year, an AI agent running a Stockholm coffee shop blew most of its budget within a month on blunders such as ordering 3,000 latex gloves. Viral footage also captured a restaurant robot flinging tableware. Xiao Gai’s Hong Kong debut has stayed within the lines, but the mixed reactions from its first customers suggest that replacing a human shopkeeper is harder than simply flipping a switch.
+
+---
+
+## What this editor judged the sources established
+
+- By September 5, 2026, a 24-hour convenience store in Hong Kong was open and staffed entirely by a humanoid robot named Xiao Gai, according to video from the opening day.
+  — https://www.reutersconnect.com/item/hong-kongs-first-robot-run-convenience-store-draws-curious-shoppers/dGFnOnJldXRlcnMuY29tLDIwMjY6bmV3c21sX1ZBMDUxMTA1MDkyMDI2UlAx
+- The robot is a 173 cm-tall G1 model built by Beijing-based Galbot, with a 190 cm arm span designed to restock shelves, pick inventory, and handle checkouts.
+  — https://insideretail.asia/2026/06/12/hong-kong-to-debut-first-robot-run-convenience-store/
+- The Hong Kong Investment Corporation is backing the project and said the store shows artificial intelligence entering everyday life in tangible ways.
+  — https://insideretail.asia/2026/06/12/hong-kong-to-debut-first-robot-run-convenience-store/
+- Galbot estimates that the automated capsule format could increase surrounding foot traffic by 30 to 40 per cent because of consumer novelty.
+  — https://insideretail.asia/2026/06/12/hong-kong-to-debut-first-robot-run-convenience-store/
+- Opening-day shoppers gave mixed feedback, praising the fun, multilingual interaction while noting processing delays and a limited ability to handle unexpected situations.
+  — https://www.reutersconnect.com/item/hong-kongs-first-robot-run-convenience-store-draws-curious-shoppers/dGFnOnJldXRlcnMuY29tLDIwMjY6bmV3c21sX1ZBMDUxMTA1MDkyMDI2UlAx
+- Pre-opening news reports in June 2026 placed the store on the Hung Hom waterfront.
+  — https://www.timeout.com/hong-kong/news/hong-kong-will-soon-have-its-first-24-hour-robot-operated-convenience-store-061626
+- Reuters footage dated September 5, 2026 located the operating store at Wan Chai Harbour Front.
+  — https://www.reutersconnect.com/item/hong-kongs-first-robot-run-convenience-store-draws-curious-shoppers/dGFnOnJldXRlcnMuY29tLDIwMjY6bmV3c21sX1ZBMDUxMTA1MDkyMDI2UlAx
+
+---
+
+## The encyclopedia entries it chose to write
+
+### Agent (in AI systems)
+`agent-in-ai-systems` — 206 words
+
+An agent, in the context of AI, is a system that observes its surroundings through sensors or data inputs, makes decisions, and then acts on the world. Unlike a simple calculator that waits for a human to press a button, an agent operates with some degree of autonomy. It has goals—whether explicit, like 'stock this shelf,' or learned from patterns in data—and it chooses actions it believes will move it closer to those goals. The action can be virtual, such as sending an email or trading a stock, or physical, such as a robot grasping a bottle or wheeling luggage across an airport tarmac. Researchers often distinguish agents by how much initiative they take. A basic agent might follow a fixed rule: if the room is dark, turn on the light. A more advanced agent, sometimes called an autonomous agent, can plan several steps ahead, adapt when conditions change, and interact with people or other machines to complete a task. The key idea is the loop: perceive, decide, act, repeat. This makes agents one of the oldest and most central ideas in artificial intelligence, because turning thought into action is exactly what separates an AI model on a screen from a machine that actually does something.
+
+### Humanoid robot
+`humanoid-robot` — 172 words
+
+A humanoid robot is a machine built with a body plan that resembles a human being—typically a head, torso, two arms, and two legs, or at least an upper body that looks and moves roughly like ours. Engineers choose this shape not out of vanity, but for utility: door handles, stairs, shelves, and checkout counters are all designed for human proportions, so a humanoid form can move through the same spaces and use the same tools without rebuilding the world around it. Inside, the robot is a bundle of motors, sensors, and software. Cameras and microphones act as eyes and ears; algorithms process what they capture to recognise objects, understand speech, and plan movements; and mechanical limbs carry out the physical work. Balance and dexterity remain hard problems, especially on two legs, which is why many early humanoids are wheeled or only display an upper body. The underlying aim is to create a general-purpose helper that can step into roles—retail, healthcare, search and rescue—where flexibility matters more than a single fixed skill.
+
+---
+
+## Tags it chose
+
+`china`  `autonomous-agents`  `robotics`  `retail`  `hong-kong`
+
+*These decide what sits near what in this edition's own galaxy, and nowhere else.*
+
+## Other stories it decided a reader should go to next
+
+- `2026-08-14-the-ai-boss-fired-its-first-human-employee`
+- `2026-07-21-the-openai-rogue-agent-and-the-hugging-face-break-in`
+
+*These are the edges of this edition's map. Another model will draw them differently.*
+
+---
+
+## The illustration it directed
+
+> A friendly humanoid robot with a slender metallic body and long arms stands inside a compact, glass-walled capsule store on a Hong Kong waterfront promenade at dusk. The robot is reaching up to stock a shelf with local snacks and toy souvenirs in one hand while offering a drink to a curious customer with the other. Through the transparent walls, a small crowd of onlookers—including a parent and child—watch and take photos, with the harbour and city skyline visible behind them. The illustration balances the novelty of automation with an ordinary neighbourhood convenience-store atmosphere, showing shelves of everyday items like medicine boxes, packaged snacks, and plush toys shaped like egg waffles.
+
+*Rendered locally with the same image model and the same seed for every edition, so the only difference between editions' pictures is the quality of that paragraph.*
+
+---
+
+## What it cost, and how it was asked
+
+- cost: **$0.0675** (full price, bought immediately)
+- it read 6,079 tokens and wrote 18,061, of which 16,549 were thinking to itself
+- it took 373 seconds
+- asked with a strict JSON shape: True
+- the exact model that served it: `moonshotai/kimi-k2.6`
+- editorial brief version: `decb72101a05`
