@@ -59,3 +59,9 @@ https://people.com/hong-kong-convenience-store-to-be-staffed-solely-by-a-humanoi
 https://www.reutersconnect.com/item/hong-kongs-first-robot-run-convenience-store-draws-curious-shoppers/dGFnOnJldXRlcnMuY29tLDIwMjY6bmV3c21sX1ZBMDUxMTA1MDkyMDI2UlAx      # Reuters Connect
 https://futurism.com/robots-and-machines/hong-store-no-employees-robot                                                              # Futurism
 https://insideretail.asia/2026/06/12/hong-kong-to-debut-first-robot-run-convenience-store/                                          # Inside Retail Asia
+
+STORY OpenAI claims to have solved the Navier-Stokes problem
+https://www.theguardian.com/science/2026/sep/08/openai-claims-to-have-solved-maths-problem-that-stumped-humans-for-decades    # The Guardian
+https://www.bbc.com/news/articles/cy7zygy3rl2o                                                                                  # BBC
+https://www.nytimes.com/2026/09/08/science/openai-proof-millennium-problem.html                                                # The New York Times
+https://techcrunch.com/2026/09/08/openai-fought-dirty-on-career-making-math-problem-says-nyu-mathematician/                    # TechCrunch

@@ -1,0 +1,52 @@
+{
+ "slug": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+ "title": "OpenAI claims to have solved the Navier-Stokes problem",
+ "created_at_utc": "2026-09-09T15:13:58+00:00",
+ "language": "en",
+ "source_count": 3,
+ "total_words": 2233,
+ "sources": [
+  {
+   "kind": "article",
+   "url": "https://www.theguardian.com/science/2026/sep/08/openai-claims-to-have-solved-maths-problem-that-stumped-humans-for-decades",
+   "title": "OpenAI claims to have solved maths problem that stumped humans for decades",
+   "byline": "Ian Sample; Dan Milmo",
+   "published": "2026-09-08",
+   "fingerprint": "1231108167c40e69ca4804e9c850aaae28a6003611eb14bc393a105fa5d4e04c",
+   "fetched_at_utc": "2026-09-09T15:13:52+00:00",
+   "site": "theguardian.com",
+   "words": 617,
+   "note": "",
+   "text_file": "theguardian-com-openai-claims-to-have-solved-maths-problem-that-stumpe-12311081.txt"
+  },
+  {
+   "kind": "article",
+   "url": "https://www.bbc.com/news/articles/cy7zygy3rl2o",
+   "title": "OpenAI says it cracked 90-year-old maths problem in 88 hours",
+   "byline": "Kali Hays",
+   "published": "2026-09-08",
+   "fingerprint": "4f742731d30e2da5b6157c79ab2cc4a754d082c8c945f705abc6b1d112abb52c",
+   "fetched_at_utc": "2026-09-09T15:13:54+00:00",
+   "site": "bbc.com",
+   "words": 714,
+   "note": "",
+   "text_file": "bbc-com-openai-says-it-cracked-90-year-old-maths-problem-in-88-hours-4f742731.txt"
+  },
+  {
+   "kind": "article",
+   "url": "https://techcrunch.com/2026/09/08/openai-fought-dirty-on-career-making-math-problem-says-nyu-mathematician/",
+   "title": "OpenAI fought dirty on career-making math problem, says NYU mathematician | TechCrunch",
+   "byline": "Russell Brandom",
+   "published": "2026-09-08",
+   "fingerprint": "9b7fee5cc60c01d8ddd19ff89ddb80503ec650a4fa2b359156f20bf7d11bc7a6",
+   "fetched_at_utc": "2026-09-09T15:13:58+00:00",
+   "site": "techcrunch.com",
+   "words": 902,
+   "note": "",
+   "text_file": "techcrunch-com-openai-fought-dirty-on-career-making-math-problem-says--9b7fee5c.txt"
+  }
+ ],
+ "failed_links": [
+  "https://www.nytimes.com/2026/09/08/science/openai-proof-millennium-problem.html - https://www.nytimes.com/2026/09/08/science/openai-proof-millennium-problem.html answered with HTTP 403. That is usually a paywall or a bot-block - paste the text by hand, or use a different source."
+ ]
+}
