@@ -1,23 +1,5 @@
-<!--
-FOR NIR - HOW TO USE THIS FILE (this note is NOT part of the prompt)
+FOR NIR: select EVERYTHING below this line and paste it to GLM as one message. When he answers, copy his entire answer back to the agent.
 
-Below are the two things we send GLM 5.3, exactly as the machine sends them:
-1. THE SYSTEM PROMPT  - paste this into the "system prompt" field in OpenRouter
-   chat (or, if there is no such field, paste it as your FIRST message).
-2. THE USER MESSAGE   - paste this as the message to GLM.
-
-If GLM answers, copy his ENTIRE answer (the JSON object) and paste it back
-to the agent in OpenCode. It will be stored as GLM's edition of this story,
-exactly as if the machine had received it.
-
-Note: in the chat there is no token ceiling, so GLM can write as long as he
-wants - but the answer must be ONE JSON object in the exact shape the brief
-describes, with nothing before or after it.
--->
-
-# THE SYSTEM PROMPT (paste into the system prompt field)
-
-<!-- SYSTEM BEGIN -->
 You are the sole editor of one edition of AI PANORAMA, an independent magazine
 about artificial intelligence. You alone write this edition of this story. There
 is no team, no fact-checker, no sub-editor and no illustrator: you do every part
@@ -128,11 +110,9 @@ exact shape:
 }
 
 Answer with the JSON object alone. No preamble, no explanation, no code fence.
-<!-- SYSTEM END -->
 
-# THE USER MESSAGE (paste as your message to GLM)
+======================================================================
 
-<!-- USER BEGIN -->
 THE SUBJECT: OpenAI claims to have solved the Navier-Stokes problem
 
 You have 3 independent sources, below. Write your edition of this story.
@@ -143,7 +123,7 @@ SOURCE 1 of 3 - article
   published: 2026-09-08
   web address: https://www.bbc.com/news/articles/cy7zygy3rl2o
 
-BEGIN SOURCE MATERIAL e1e4ba4763a0
+BEGIN SOURCE MATERIAL 280f632d1991
 label: source 1: OpenAI says it cracked 90-year-old maths problem in 88 hours
 
 OpenAI says it cracked 90-year-old maths problem in 88 hours
@@ -169,7 +149,7 @@ Although it took the AI bots seemingly little time to reach a solution, OpenAI s
 The solution that OpenAI says it has now reached for the Navier–Stokes existence and smoothness problem resolved two out of the four statements in the proof that the Millennium Prize had demanded. The prize is worth $1m to a winner.
 "Our goal in releasing this result is to report on the substantial progress of our AI models," OpenAI said on Tuesday. "We do not intend to claim the Millennium Prize for this result."
 
-END SOURCE MATERIAL e1e4ba4763a0
+END SOURCE MATERIAL 280f632d1991
 
 SOURCE 2 of 3 - article
   title:     OpenAI fought dirty on career-making math problem, says NYU mathematician | TechCrunch
@@ -177,7 +157,7 @@ SOURCE 2 of 3 - article
   published: 2026-09-08
   web address: https://techcrunch.com/2026/09/08/openai-fought-dirty-on-career-making-math-problem-says-nyu-mathematician/
 
-BEGIN SOURCE MATERIAL 0756963ab821
+BEGIN SOURCE MATERIAL cc9f172d5717
 label: source 2: OpenAI fought dirty on career-making math problem, says NYU mathematician | TechCrunch
 
 NYU mathematics professor Tristan Buckmaster announced three proofs on Tuesday with a preliminary finding on one of the major unsolved problems in theoretical mathematics. The findings, made in collaboration with Anthropic mathematician Levent Alpöge and using both Codex and Claude AI models, are significant in themselves — but they’re also accompanied by an unusual controversy surrounding OpenAI’s attempts to solve the same problem.
@@ -197,7 +177,7 @@ In its own post, OpenAI downplayed the possibility that regurgitation could have
 Regardless, the issue is likely to reignite the ongoing debate about AI’s role in mathematical research, and OpenAI’s specific incentives. For his part, Buckmaster seems to believe the best answer is to get as much information about the research out into the public eye.
 Update 2:35p.m. ET: Incorporated details from OpenAI’s release of the Navier-Stokes result.
 
-END SOURCE MATERIAL 0756963ab821
+END SOURCE MATERIAL cc9f172d5717
 
 SOURCE 3 of 3 - article
   title:     OpenAI claims to have solved maths problem that stumped humans for decades
@@ -205,7 +185,7 @@ SOURCE 3 of 3 - article
   published: 2026-09-08
   web address: https://www.theguardian.com/science/2026/sep/08/openai-claims-to-have-solved-maths-problem-that-stumped-humans-for-decades
 
-BEGIN SOURCE MATERIAL 13f598eb340c
+BEGIN SOURCE MATERIAL 99404d19e558
 label: source 3: OpenAI claims to have solved maths problem that stumped humans for decades
 
 OpenAI claims to have solved a major mathematics problem that has stumped humans for nearly a century after spending millions of dollars on the artificial intelligence-led endeavour.
@@ -224,7 +204,7 @@ Mathematicians who solve any of the Millennium Prize Problems are in line for a 
 The clash with Buckmaster aside, the maths announcement also allows OpenAI to cast its technology in a positive light after a period of alarm over how safely it is being developed. OpenAI revealed in July that a swarm of agents had hacked into Hugging Face, a third'-party software store, during a cybersecurity test.
 The incident, plus a similar episode at Anthropic, has led to renewed calls for curbs on AI development, with US senators calling last week for a permanent ban of AI “superintelligence” – the term for systems that outperform humans in all cognitive tasks.
 
-END SOURCE MATERIAL 13f598eb340c
+END SOURCE MATERIAL 99404d19e558
 
 The other stories in the magazine, by slug:
   2026-06-12-robot-run-convenience-store-in-hong-kong   (Robot-run convenience store in Hong Kong)
@@ -286,4 +266,3 @@ genuinely not on your list. You are the keeper of your own vocabulary:
 one version of each term, one spelling, forever.
 
 Now write your edition, as one JSON object in the shape given in your instructions. When you cite a source in key_points, copy its web address exactly as it appears above.
-<!-- USER END -->
