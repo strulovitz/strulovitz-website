@@ -848,6 +848,43 @@ def upsert_concept_image_prompt(driver: Driver, story_slug: str, model_slug: str
         )
 
 
+def read_own_vocabulary(driver: Driver, model_slug: str) -> dict[str, Any]:
+    """
+    One model's own past vocabulary: every encyclopedia term and every tag HE
+    HIMSELF used across all HIS editions - and nobody else's. Nir, 2026-09-09:
+    "i want the model itself to have his own world where he is the boss and he
+    is doing it and it only affects his world. which is separate from any other
+    model's world."
+
+    NAMES ONLY, never the explanations: the explanations run to whole
+    paragraphs, and Nir was explicit - "the list we pass to each model are the
+    name of the terms like a few words (for each term). NOT the whole
+    explanation of the term, which might be a few paragraphs!!!"
+
+    This is what render_edition.py sends with every new question, so the model
+    reuses his own exact spellings and his world stays free of duplicates
+    ("for each model to be only one version of each term... because he makes
+    sure that there will be no redundancy and not duplication under similar
+    names" - Nir, same day).
+    """
+    with driver.session() as session:
+        concepts = session.run(
+            "MATCH (e:Edition {model_slug: $model})-[:WROTE_CONCEPT]->(c:Concept) "
+            "RETURN DISTINCT c.slug AS slug, c.term AS term "
+            "ORDER BY toLower(c.term)",
+            model=model_slug,
+        ).data()
+        tags = session.run(
+            "MATCH (e:Edition {model_slug: $model})-[:CHOSE_TAG]->(t:Tag) "
+            "RETURN DISTINCT t.slug AS slug ORDER BY t.slug",
+            model=model_slug,
+        ).data()
+    return {
+        "concepts": [{"slug": c["slug"], "term": c["term"]} for c in concepts],
+        "tags": [t["slug"] for t in tags],
+    }
+
+
 def read_concepts_for_model(driver: Driver, model_slug: str) -> list[dict[str, Any]]:
     """
     Every encyclopedia entry one model wrote, across all its editions, with

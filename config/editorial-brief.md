@@ -66,6 +66,18 @@ may be newer than you are. If a number comes with a date, keep the date with it.
 If the sources contradict each other on a number, give both and say who said
 which.
 
+YOUR OWN PAST TERMS
+With the source material you are given a list titled "THE TERMS YOU HAVE
+ALREADY USED". It is your own vocabulary: the encyclopedia terms and tags you
+yourself used in your previous editions for this magazine, and nothing from
+any other editor - each edition's encyclopedia is a separate world, and yours
+is yours alone. When this story needs a term that is already on that list,
+you MUST reuse it with exactly the same name and exactly the same slug, so
+the term continues your existing entry instead of splitting into two versions
+under similar names. Invent a new term only when the idea is genuinely not on
+your list. You are the keeper of your own vocabulary: one version of each
+term, one spelling, forever.
+
 WHAT YOU MUST NOT DO
 Do not write clickbait. Do not open with a rhetorical question. Do not begin
 with "In a world where" or "Imagine a" or any variation. Do not use the words
@@ -93,13 +105,13 @@ exact shape:
 
   "concepts": [
     {
-      "term": "A technical term or idea this story leans on, which a non-specialist would not know. Choose the ones that genuinely matter here.",
-      "slug": "lowercase-hyphenated-name",
+      "term": "A technical term or idea this story leans on, which a non-specialist would not know. Choose the ones that genuinely matter here. If the term already appears in the list of terms you have used in your previous editions, copy its name EXACTLY as it appears there.",
+      "slug": "lowercase-hyphenated-name. When the term is one you already used in a previous edition, this MUST be the exact same slug as your existing entry, so your encyclopedia stays one term, one spelling.",
       "explanation": "100 to 250 words explaining this term to somebody who has never met it, in a way that stays true a year from now. This becomes a permanent entry in the magazine's encyclopedia, so write it to last: explain the idea, not this week's news about it."
     }
   ],
 
-  "tags": ["three to six lowercase topic tags that connect this story to others"],
+  "tags": ["three to six lowercase topic tags that connect this story to others. If a tag already appears in the list of tags you have used in your previous editions, spell it EXACTLY the same way"],
 
   "related": ["the exact slugs of other stories in the magazine that a reader of this one should read next, chosen from the list you were given, or an empty list if none genuinely relate"],
 
@@ -110,6 +122,18 @@ Answer with the JSON object alone. No preamble, no explanation, no code fence.
 <!-- BRIEF END -->
 
 ## Notes for people, not for models
+
+**Why each model is asked to reuse its own exact spellings (Nir, 2026-09-09).**
+Each edition model keeps his own world: with every question he receives the
+list of encyclopedia terms and tags HE HIMSELF used before — names only, never
+the explanations, which run to paragraphs. He is told to reuse an existing
+term with the exact same name and slug, so his world never grows two versions
+of one idea under similar names. No outside model judges or merges anything,
+and nothing waits for Nir to approve: the bookkeeping is done by each model
+for himself, guided by his own history, automatically. The brief text above is
+identical for all eight models — each one's own list (in the question, not the
+brief) is what keeps the worlds separate. The one-time cleanup of the terms
+written before this rule existed (2026-09-09) is recorded in DECISIONS.md.
 
 **Why the brief forbids the model's own world-knowledge.** Every one of these
 models was trained months ago, and the stories are newer than they are. A model

@@ -53,7 +53,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 
-from lib.db import connect, log_job, read_story, upsert_edition, upsert_story  # noqa: E402
+from lib.db import (connect, log_job, read_own_vocabulary, read_story,  # noqa: E402
+                    upsert_edition, upsert_story)
 from lib.llm import (Answer, Model, Question, as_data, ask_now, model_by_id,  # noqa: E402
                      roster, settings, submit_batch)
 from lib.sources import read_frozen  # noqa: E402
@@ -151,6 +152,56 @@ def other_stories_list(this_slug: str) -> str:
     return "The other stories in the magazine, by slug:\n" + "\n".join(lines)
 
 
+def own_vocabulary_section(model: Model) -> str:
+    """
+    The model's own past terms and tags, NAMES ONLY, sent with every question.
+
+    Nir, 2026-09-09: each model keeps his own world. When he writes a new
+    article and needs a term he already used before, he must write it in
+    EXACTLY the same way, so his world never grows two versions of one idea
+    under similar names. Each model receives only HIS OWN history - never
+    another model's - because the whole point of the magazine is that the
+    eight worlds are built and kept separately, each by its own editor.
+    """
+    with connect() as db:
+        vocabulary = read_own_vocabulary(db, model.slug)
+    concepts = vocabulary["concepts"]
+    tags = vocabulary["tags"]
+    if not concepts and not tags:
+        return (
+            "THE TERMS YOU HAVE ALREADY USED\n"
+            "This is your first edition for this magazine, so you have no past\n"
+            "terms yet. The encyclopedia terms you choose today become permanent\n"
+            "entries under your name: choose names you will be happy to reuse\n"
+            "exactly, because from now on they are yours."
+        )
+    lines = [
+        "THE TERMS YOU HAVE ALREADY USED",
+        "These are the encyclopedia terms and tags YOU yourself used in your",
+        "previous editions for this magazine. Only the names are listed here,",
+        "from your own history - no other model's terms are shown, and yours",
+        "are never shown to anyone else.",
+        "",
+    ]
+    if concepts:
+        lines.append("Encyclopedia terms you already used:")
+        lines.extend(f"  {c['term']}  (slug: {c['slug']})" for c in concepts)
+        lines.append("")
+    if tags:
+        lines.append("Tags you already used:")
+        lines.append("  " + ", ".join(tags))
+        lines.append("")
+    lines += [
+        "If this story needs a term or a tag that is already on your list, you",
+        "MUST reuse it with exactly the same name and exactly the same slug, so",
+        "it continues your existing encyclopedia entry instead of creating a",
+        "duplicate under a similar name. Invent a new term only when the idea is",
+        "genuinely not on your list. You are the keeper of your own vocabulary:",
+        "one version of each term, one spelling, forever.",
+    ]
+    return "\n".join(lines)
+
+
 def build_question(slug: str, model: Model) -> Question:
     """One story's whole request, identical in every way except the model."""
     details = story_details(slug)
@@ -179,6 +230,8 @@ def build_question(slug: str, model: Model) -> Question:
         parts.append("")
 
     parts.append(other_stories_list(slug))
+    parts.append("")
+    parts.append(own_vocabulary_section(model))
     parts.append("")
     parts.append(
         "Now write your edition, as one JSON object in the shape given in your "

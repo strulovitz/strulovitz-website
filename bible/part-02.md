@@ -450,6 +450,52 @@ END OF PART 02
 ================================================================================
 
 --------------------------------------------------------------------------------
+ADDITION 2026-09-09 (by Nir's order, after the editions machine was built):
+2.11 EACH MODEL'S OWN WORLD — ONE TERM, ONE SPELLING
+--------------------------------------------------------------------------------
+
+This section is law added later; nothing above it was deleted. It describes
+how the editions machine that actually runs today keeps each model's
+encyclopedia free of duplicates, exactly as Nir explained it on 2026-09-09.
+
+THE IDEA IN PLAIN WORDS
+Every edition model has his own world, and he is the boss of it. When GPT
+writes a new article, the question he receives carries a list of every
+encyclopedia term and every tag GPT HIMSELF used in all his previous editions
+for this magazine — and nothing from any other model. The list carries the
+NAMES of the terms only (a few words each), never the explanations, which run
+to whole paragraphs. The question tells him plainly: if the article you are
+writing now needs a term that is already on your list, write it in exactly
+the same way — same name, same slug — so it continues your existing
+encyclopedia entry; invent a new term only when the idea is genuinely not on
+your list. ChatGPT keeps ChatGPT's world consistent; GLM keeps GLM's world
+consistent; the worlds never merge with each other, because the separation is
+the whole point of the magazine — eight editors, eight encyclopedias, built
+and kept separately, each by its own keeper.
+
+WHY IT IS DONE BY THE MODELS THEMSELVES AND NOT BY A JUDGE
+No outside "cheap referee" model looks at the terms and proposes merges. The
+intelligence doing the bookkeeping is each model for himself, guided by his
+own history, which he is shown in full every single time he writes. This is
+not a punishment or a chore for Nir either: nothing waits for his approval,
+ever — in the future there will be thousands of terms, and the whole thing
+is mechanized completely, automatically, forever. The database does the only
+mechanical part: when a model reuses one of his own exact slugs, the new
+edition's entry links to the same term node family (same slug = same term,
+in HIS world), so one version of each term exists per model — no redundancy,
+no duplication under similar names.
+
+WHERE IT LIVES IN THE MACHINE
+- pipeline/lib/db.py: read_own_vocabulary() — reads one model's own past
+  terms and tags (names only) from the database.
+- pipeline/stages/render_edition.py: own_vocabulary_section() — builds the
+  "THE TERMS YOU HAVE ALREADY USED" part of every question, per model.
+- config/editorial-brief.md: the brief every model receives tells him the
+  rule (reuse exact names and slugs; one version of each term, forever).
+- The one-time cleanup of terms written BEFORE this rule existed (2026-09-09)
+  is recorded in DECISIONS.md.
+
+--------------------------------------------------------------------------------
 AUTHOR'S COMMENTARY - NOTES ON PART 02 (not law)
 --------------------------------------------------------------------------------
 

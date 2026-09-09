@@ -63,7 +63,7 @@
    },
    {
     "term": "open-weight model",
-    "slug": "open-weight-model",
+    "slug": "open-weights",
     "explanation": "An open-weight model is an AI model whose trained parameters—the numeric values that encode what it has learned—are publicly available for anyone to download and run on their own hardware. This is different from a closed or hosted model, where the weights are kept secret and users only interact with the model through an API controlled by the provider. Open-weight models allow organizations to run the model locally, which gives them full control over how it is used and what data it processes. In this story, Hugging Face used an open-weight model (GLM 5.2) for forensic analysis because hosted commercial models refused to process exploit payloads due to safety guardrails, while the open-weight model had no such restrictions when run on their own servers. The trade-off is that open-weight models can be misused by anyone, but they also enable defenders, researchers, and smaller organizations to use AI for legitimate security work without being blocked or forced to send sensitive data to a third party."
    }
   ],

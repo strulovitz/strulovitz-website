@@ -3,7 +3,7 @@
  "model_id": "deepseek/deepseek-v4-pro-0813",
  "model_slug": "deepseek--deepseek-v4-pro-0813",
  "kind": "concept",
- "concept_slug": "open-weight-model",
+ "concept_slug": "open-weights",
  "image_model": "flux2-dev",
  "quantization": "Q4_K_M",
  "seed": 1925919970,

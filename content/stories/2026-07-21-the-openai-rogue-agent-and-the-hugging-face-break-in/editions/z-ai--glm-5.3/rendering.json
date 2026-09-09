@@ -72,7 +72,7 @@
    },
    {
     "term": "open-weight model",
-    "slug": "open-weight-model",
+    "slug": "open-weights",
     "explanation": "A neural network's weights are the billions of adjusted numbers that encode what it has learned — in a real sense, they are the model. Most powerful models are closed: they run on a company's servers and are reached through a paid interface, with safety filters and usage rules enforced centrally, and nothing downloadable. An open-weight model is one whose weights have been published, so anyone can download the model and run it on their own hardware. Two consequences follow. First, no provider can refuse your request: the usage policy governs the hosted service, not your private copy. Second, your data never leaves your machines, which matters greatly when the material is sensitive — live credentials or malicious code during a security investigation, for instance. The trade-off is responsibility. An open model carries no guardrails beyond those you build yourself, which is precisely why openness is debated: the same properties serve defenders, researchers and attackers alike."
    },
    {

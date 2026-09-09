@@ -738,3 +738,47 @@ minimum, always.
 This order also lives in AGENTS.md at the repository root, which is loaded
 automatically into every agent session, so no agent can claim it did not
 know.
+
+DECISION 24 - EACH MODEL KEEPS HIS OWN VOCABULARY. ONE TERM, ONE SPELLING
+Date: 2026-09-09
+Decided by: Nir, after rejecting a proposed "cheap unifier model" that would
+have compared tags and concepts across editions and proposed merges for him
+to approve. Nir's words: "i want the model itself to have his own world
+where he is the boss and he is doing it and it only affects his world. which
+is separate from any other model's world."
+
+Ruling: with every question, each edition model receives the list of the
+encyclopedia terms and tags HE HIMSELF used in his previous editions - names
+only, never the explanations ("the list we pass to each model are the name of
+the terms like a few words (for each term). NOT the whole explanation of the
+term, which might be a few paragraphs!!!"). He is instructed to reuse an
+existing term with exactly the same name and slug, so his world never grows
+two versions of one idea under similar names. No judge model, no merge
+proposals, no approvals from Nir ("in the future there will be thousands of
+terms, i want this done automatically... this should be mechanized
+completely"). The eight worlds stay separate forever; each model is the
+keeper of his own vocabulary. The law is written into the Bible as an
+addition to Part 02 (2.11).
+
+DECISION 25 - THE ONE-TIME CLEANUP OF TERMS WRITTEN BEFORE DECISION 24
+Date: 2026-09-09
+Decided by: Nir: "about the old terms i want you to go over all of them and
+for each model you will see that there is no duplicity please. not in the
+future, just this time for the past. to tidy up the existing terms, please."
+
+What was found (all 120 concepts, checked per model inside his own world):
+six of the eight models were already clean. Two had each written the same
+idea twice under similar names: DeepSeek V4 Pro and GLM 5.3 both used
+"open-weights" in their Kimi K3 edition (2026-07-17) and then
+"open-weight-model" in their rogue-agent edition (2026-07-21). GLM's
+double use of "ai-agent" was NOT a duplicate - same exact slug twice is the
+system working: the term continues across stories, which is the point.
+
+What was done: in those two editions only, the later copy "open-weight-model"
+was renamed to the first-used name "open-weights" - in the database (term
+node, image job, edges), in the edition's files on disk (image, thumbnail,
+metadata, concept prompt export, rendering.json), and the reading pages were
+rebuilt from the database. The models' own words - the explanations, the
+articles, the raw answers in answer.txt - were not touched. From now on
+Decision 24 keeps every world clean automatically; this cleanup never needs
+repeating.

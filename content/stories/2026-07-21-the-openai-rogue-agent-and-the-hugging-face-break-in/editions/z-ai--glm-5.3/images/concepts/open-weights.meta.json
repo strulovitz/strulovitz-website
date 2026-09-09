@@ -3,7 +3,7 @@
  "model_id": "z-ai/glm-5.3",
  "model_slug": "z-ai--glm-5.3",
  "kind": "concept",
- "concept_slug": "open-weight-model",
+ "concept_slug": "open-weights",
  "image_model": "flux2-dev",
  "quantization": "Q4_K_M",
  "seed": 1925919970,
