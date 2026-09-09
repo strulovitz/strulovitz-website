@@ -80,3 +80,9 @@ https://www.newsweek.com/bernie-sanders-ominous-warning-after-ai-agents-sacrific
 https://thehill.com/policy/technology/6069131-sanders-casar-ai-superintelligence-ban/                                                             # The Hill
 https://gizmodo.com/bernie-sanders-calls-for-global-ban-on-ai-superintelligence-2000806829                                                        # Gizmodo
 https://www.axios.com/2026/09/03/bernie-sanders-superintelligence-ban-ai-pause                                                                     # Axios
+
+STORY Anthropic researcher quits over AI labs gambling with our lives
+https://www.ft.com/content/20c07191-8da6-440f-b04b-8ea0ebdd9153                                                              # Financial Times
+https://www.cnbc.com/2026/09/09/anthropic-researcher-quits-ai-safety.html                                                   # CNBC
+https://www.politico.eu/article/anthropic-openai-researcher-jacob-coxon-warns-ai-could-kill-humans/                         # Politico Europe
+https://www.abc.net.au/news/2026-09-09/anthropic-researcher-coxon-quits-over-human-threat/107134164                        # ABC Australia

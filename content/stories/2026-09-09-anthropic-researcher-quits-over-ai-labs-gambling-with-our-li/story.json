@@ -1,0 +1,52 @@
+{
+ "slug": "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+ "title": "Anthropic researcher quits over AI labs gambling with our lives",
+ "created_at_utc": "2026-09-09T16:15:49+00:00",
+ "language": "en",
+ "source_count": 3,
+ "total_words": 1042,
+ "sources": [
+  {
+   "kind": "article",
+   "url": "https://www.cnbc.com/2026/09/09/anthropic-researcher-quits-ai-safety.html",
+   "title": "Experts weigh in as researcher says AI has more than 10% chance of 'killing all humans'",
+   "byline": "Ashley Capoot; Arjun Kharpal",
+   "published": "2026-09-09",
+   "fingerprint": "01640a3e7a15fc241384e3a011a7e78665ebc631b2fa0a8b743843c9ca409f7a",
+   "fetched_at_utc": "2026-09-09T16:15:43+00:00",
+   "site": "cnbc.com",
+   "words": 833,
+   "note": "",
+   "text_file": "cnbc-com-experts-weigh-in-as-researcher-says-ai-has-more-than-10-chanc-01640a3e.txt"
+  },
+  {
+   "kind": "article",
+   "url": "https://www.politico.eu/article/anthropic-openai-researcher-jacob-coxon-warns-ai-could-kill-humans/",
+   "title": "‘Gambling with our lives’: AI researcher quits Anthropic with dire warning about safety",
+   "byline": "Pieter Haeck",
+   "published": "2026-09-09",
+   "fingerprint": "f1577817cfd6eee565ed22363b735d8178bb61397b79e1e4341d1e410ecad646",
+   "fetched_at_utc": "2026-09-09T16:15:46+00:00",
+   "site": "politico.eu",
+   "words": 118,
+   "note": "",
+   "text_file": "politico-eu-gambling-with-our-lives-ai-researcher-quits-anthropic-with-f1577817.txt"
+  },
+  {
+   "kind": "article",
+   "url": "https://www.abc.net.au/news/2026-09-09/anthropic-researcher-coxon-quits-over-human-threat/107134164",
+   "title": "Anthropic researcher says some developers believe AI 'could kill us all'",
+   "byline": "Rudi Maxwell",
+   "published": "2026-09-09",
+   "fingerprint": "cd18e1b1df24b367dca9aa3cdbb584a9fc68e5b5db14abc69fad1618b6f2d55a",
+   "fetched_at_utc": "2026-09-09T16:15:49+00:00",
+   "site": "abc.net.au",
+   "words": 91,
+   "note": "",
+   "text_file": "abc-net-au-anthropic-researcher-says-some-developers-believe-ai-could--cd18e1b1.txt"
+  }
+ ],
+ "failed_links": [
+  "https://www.ft.com/content/20c07191-8da6-440f-b04b-8ea0ebdd9153 - https://www.ft.com/content/20c07191-8da6-440f-b04b-8ea0ebdd9153 answered with HTTP 403. That is usually a paywall or a bot-block - paste the text by hand, or use a different source."
+ ]
+}
