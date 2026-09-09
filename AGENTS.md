@@ -1,32 +1,16 @@
-# NIR'S STANDING ORDERS TO EVERY AGENT — READ FIRST, ALWAYS OBEY
+# NIR'S ONE RULE FOR EVERY AGENT — UPLOAD ONLY WHAT CHANGED
 
-Written 2026-09-06, by Nir's direct order, after he had to stop an agent mid-plan.
+When pushing to GitHub, or uploading to the live server, or deploying:
 
-## 1. DEPLOY = MINIMUM UPLOAD. NEVER RE-UPLOAD BIG FOLDERS. 🚫📦
+Look at what ACTUALLY changed, and send ONLY that.
 
-Before uploading anything to the live server, check what ACTUALLY changed
-compared to what the server already has, and upload ONLY that difference:
-the new version folder, the changed root pages, and pointer.json LAST.
+Never re-send files that are already there and unchanged. Not images, not
+folders, not "to be safe". Unchanged files cost money (the agent burns
+tokens watching them) and they risk breaking a working site.
 
-NEVER re-upload the images folder or any big folder that is already on the
-server and unchanged. Not "to be safe", not "because the script says so".
-On 2026-09-06 the whole change was about 21 small HTML files, and the plan
-on the table would have re-uploaded 311 MB / 296 image files that were
-already on the server, byte for byte. Nir stopped it in time and was
-furious. That mistake must never happen again, by any agent, ever.
+Before any push or upload, say what you are about to send and how many
+files it is. If the number looks bigger than the change you made, stop and
+check before sending.
 
-## 2. EMOJIS IN EVERY REPLY 😊✨
-
-Nir should never have to beg for emojis. A few emojis, every reply, always.
-He explicitly asked for this as a standing rule (2026-09-06).
-
-## 3. THE IMPORTANT THING GOES FIRST 🔝
-
-Say the conclusion first, then the details. Nir acts in the order written.
-(SESSION-STATE-AI-PANORAMA.md rule 4 — repeated here because it keeps
-being violated.)
-
-## 4. PLAIN WORDS, NO RULE NUMBERS 🗣️
-
-Never answer Nir with a rule number or a file name as an explanation. Say
-what the rule IS, in one ordinary sentence. (DECISIONS.md 21.)
+Everything else stays as always: emojis in every reply, the important
+thing first, plain words.
