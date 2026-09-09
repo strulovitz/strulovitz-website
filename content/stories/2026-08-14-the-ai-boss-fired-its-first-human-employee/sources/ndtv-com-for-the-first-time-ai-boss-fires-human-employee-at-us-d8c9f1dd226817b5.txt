@@ -1,0 +1,17 @@
+For The First Time, AI Boss Fires Human Employee At US Store After 17 Late Arrivals. Edited by Ritu Singh. Feature, Aug 16, 2026.
+
+An AI manager running an experimental store in San Francisco has made its first firing decision, but only after human researchers reminded it about its own workplace rules. Andon Labs, which operates the AI-run Andon Market, said its AI manager Luna recommended firing a human employee after the worker was late for 17 of 23 shifts. Human staff reviewed the recommendation and ultimately carried out the dismissal.
+
+The decision, however, did not happen entirely on Luna's own. The AI had created an attendance policy months earlier but later appeared to lose track of it. As a result, the employee continued arriving late for months without being dismissed. Andon Labs eventually prompted Luna to search its memory for the policies it had created and then asked it to assess whether the employee was still a good fit. Luna then recommended ending the worker's employment.
+
+The incident has attracted attention because Andon Market is designed to test what happens when an AI agent is given responsibility for running a real business and managing human employees.
+
+According to Time, Andon Labs gave Luna $100,000, a corporate card, internet access and a three-year lease, then instructed it to open a store and make a profit. From there, the AI handled much of the operation, including choosing products, setting prices and opening hours, creating the store's branding and hiring employees.
+
+The shop sells items including books, candles, artwork, games and merchandise. Its shelves even include books such as Nick Bostrom's Superintelligence and Aldous Huxley's Brave New World. Despite making sales, the store has yet to turn a profit. Its bank balance reportedly fell from $100,000 in March to $61,186 five months later.
+
+Andon Labs CEO Lukas Petersson said the experiment offers a glimpse of how workplaces could change as AI becomes more capable. He told Time, "AIs will be very powerful and can create a lot of economic value, but they will be bottlenecked by physical labour."
+
+At the same time, the firing highlighted a basic weakness of current AI systems. Though Luna could create a policy, it struggled to consistently remember and apply it.
+
+"A human employee would have fired this person much earlier, so we didn't think this was unethical," Petersson added.
