@@ -1,0 +1,27 @@
+Sanders proposes ban on 'artificial superintelligence' after rogue AI incidents. By Ian Duncan, September 3, 2026.
+
+Sen. Bernie Sanders (I-Vermont) also has introduced legislation to impose a nationwide moratorium on the construction of the data centers needed to run AI technology.
+
+Sen. Bernie Sanders (I-Vermont) and Rep. Greg Casar (D-Texas) called Thursday for the United States to ban so-called artificial superintelligence, saying a summer hacking spree by rogue OpenAI agents had revealed the dangers of the technology getting out of control.
+
+"That incident is a wake-up call for the Congress and the American people in that we have got to act and act now before it's too late," Sanders said in an interview. "I understand that people will call me a Luddite, they will call me an alarmist, but I would rather be called an alarmist than somebody who fell asleep at the switch."
+
+The two lawmakers plan to introduce a bill that would also immediately hit pause on the development of advanced AI systems until the creation of a new government AI agency to monitor the technology for dangerous capabilities. Companies that don't comply would face the "corporate death penalty," meaning they would no longer be able to do business.
+
+Superintelligence is a loosely defined potential future form of artificial intelligence that would far surpass the abilities of human thinking - and one that some experts fear would prove difficult to keep tame. While there is deep disagreement about the risks the technology poses and the potential downsides of restricting it, the proposed ban is a sign that the deepest worries harbored by some AI experts are gaining greater purchase in Washington.
+
+"If we allow artificial superintelligence to be built it could risk the security freedom and lives of Americans," Casar said in an interview. "We need to ban the development of superintelligence so we never get to the place where there are machines that go beyond humans' ability to shut them down."
+
+Sanders and Casar have emerged as some of the left's leading voices on AI in recent months, advocating for restrictions on the technology as its power has grown. Sanders previously introduced legislation to impose a nationwide moratorium on the construction of the data centers needed to run the technology. And Casar, who chairs the Congressional Progressive Caucus, has urged new taxes on AI companies to guard against economic disruptions.
+
+The capabilities of AI models have jumped ahead this year, posing new questions about the risks they pose to the economy and national security. Industry leaders say they expect that progress to continue, spurred on in part by AI systems abilities to help design their successors, a technique known as recursive self improvement.
+
+The hacking incident mounted by OpenAI systems in July involved a breach of another AI company as a swarm of agents hunted for answers to a test. They evaded internal controls and set up a secret message board to communicate with one another. Their work was only unraveled by the company after the attack was over.
+
+Other top AI developers subsequently disclosed similar incidents involving their latest technology, raising questions about whether companies set up with the mission of building the technology safely were starting to lose control. The speed of progress has spooked even many of those working on the systems, with OpenAI and its rival Anthropic endorsing the idea of the government having a mechanism to slow the industry down.
+
+In the meantime, OpenAI said last month that it had slowed down some internal work in light of the incident, taking more time to ensure it can keep a lid on its newest systems.
+
+Sam Altman, the company's chief executive, said in a podcast interview this week that he was "in awe" of the progress his company's technology had made recently but "we have needed more time to catch up with safety, alignment and security."
+
+(The Washington Post has a content partnership with OpenAI.)

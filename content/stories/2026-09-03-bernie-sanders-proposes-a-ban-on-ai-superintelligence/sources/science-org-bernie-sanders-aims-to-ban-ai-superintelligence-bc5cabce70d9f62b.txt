@@ -1,0 +1,29 @@
+Bernie Sanders aims to ban AI 'superintelligence.' But experts can't agree on what the term means. By Tom Howarth, ScienceInsider, Science and Policy, 4 Sep 2026.
+
+Senator Bernie Sanders (I-VT) wants the U.S. government to take firmer steps to regulate artificial intelligence.
+
+Senator Bernie Sanders (I-VT) yesterday announced he plans to introduce legislation that would ban artificial intelligence (AI) systems that achieve "superintelligence." But the move has revived an awkward question that has long divided AI researchers: What counts as superintelligence?
+
+"I certainly take issue with any legislation that centers around the concept of 'superintelligence,'" says Heidy Khlaaf, chief AI scientist at the AI Now Institute. "Not only does it not have a consistent definition, but it's often hypothetical and unfalsifiable."
+
+Sanders said he planned to join with Representative Greg Casar (D-TX) to introduce the Ban Artificial Superintelligence Act, which would permanently prohibit the development of AI systems that exceed human cognitive abilities. "Despite its potential deadly consequences, cutting-edge AI technology is less regulated than the average food truck," Casar said in a statement. "That must change."
+
+A summary of the legislation did take a stab at defining the elusive term, offering two possible thresholds for superintelligence. A system qualifies if it: "exhibits or can easily be modified to exhibit capabilities that match or exceed human cognitive performance and capabilities across a broad range of domains or tasks"; or has "sufficient capabilities to plan and execute the disempowerment of humanity, including by overthrowing or undermining the U.S. government."
+
+By the first of those measures, the ban may already be too late, some researchers say. "I don't agree with the definition, but I believe it has already been met," says Francois Chollet, who created a test - called the Abstraction and Reasoning Corpus for Artificial General Intelligence - for measuring machine intelligence. For example, Chollet thinks some frontier large language models already exceed human cognitive capabilities in some areas.
+
+Others argue the definition is too loose to bind anyone. "The inconsistent and unfalsifiable nature of these definitions will likely exempt AI companies from this legislation," Khlaaf says. "They can claim plausible deniability, as the noted definitions are either ill-defined, hypothetical, or focus on risks that do not currently exist."
+
+Sanders's office said further details about how regulators would identify superintelligence would come when the bill is formally introduced in the coming weeks. But an outline released by the lawmakers said it will call for establishing a new cabinet-level federal agency, advised by a panel of independent AI experts, to enforce the prohibition. The bill would also pause advanced AI development by companies until that agency sets safety standards. Firms or institutions that violate the law would face the "corporate death penalty," or forced dissolution, and individuals could face prison terms of up to 20 years. The bill also aims to lay the groundwork to ban superintelligence worldwide by encouraging the U.S. government to pursue international agreements.
+
+Debates over AI terminology are not new. Many use terms such as artificial general intelligence (AGI) and superintelligence interchangeably, whereas others argue the two are separate.
+
+The major AI companies are equally divided. OpenAI's charter, for example, defines AGI as "highly autonomous systems that outperform humans at most economically valuable work." In a briefing on Thursday, company President Greg Brockman proclaimed its new Astra model exhibits AGI. "If we fast forward a couple years, and we look back and say when was it really that AGI was created... I think it might be about this model," he said. "I think it's not unreasonable to feel that we are now in the AGI era."
+
+Anthropic CEO Dario Amodei, meanwhile, wrote in his 2024 essay "Machines of Loving Grace" that he finds "AGI to be an imprecise term that has gathered a lot of sci-fi baggage and hype." Instead, he pushes for the term "powerful AI," which would be equivalent to a "country of geniuses in a data center."
+
+For some, regulation of AI should not wait for a linguistic consensus. Computer scientist Roman Yampolskiy of the University of Louisville calls the proposed legislation "a step in the right direction," and says uncertain definitions do not make regulation impossible. "Laws routinely regulate categories whose boundaries require expert interpretation. More importantly, regulations should not wait until we can prove that a system is already superintelligent. By that point it may be too late."
+
+With elections looming in November, Congress is unlikely to act on the proposed legislation this year. But with U.S. voters becoming increasingly uneasy with the rapid advancement of AI, it is likely to be joined by other proposed laws requiring the government to step in.
+
+Editor's note: Roman Yampolskiy is a member of the AI Existential Safety Community Faculty at the Future of Life Institute, which has provided funding to the Tarbell Center for AI Journalism.

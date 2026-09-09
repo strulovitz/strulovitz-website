@@ -1,0 +1,17 @@
+Bernie Sanders floats ban on superintelligent AI. By Josephine Walker, Sep 3, 2026, Politics & Policy.
+
+Sen. Bernie Sanders (I-Vt.) announced new legislation Thursday calling for a permanent ban on superintelligence alongside a renewed demand for a pause on advanced AI development.
+
+Why it matters: Sanders is the first prominent American politician to call for an outright ban on superintelligence as Big Tech companies release increasingly powerful AI models that they themselves admit they may not be able to control. It comes the same day that OpenAI released its newest model, Astra, which company president Greg Brockman said could be powerful enough to qualify as AGI, or artificial general intelligence.
+
+What he's saying: "If the leaders of the major AI companies acknowledge that they are losing control of their extremely dangerous technology, it is irresponsible for society to allow them to move forward and make these products even more advanced," Sanders wrote in a post on X. "We need an immediate PAUSE on advanced AI development, and a permanent BAN on superintelligence - an artificial mind smarter than any human, capable of operating independently beyond our control."
+
+Zoom in: Sanders said his legislation would direct the federal government to work with other countries to prevent the development of superintelligence worldwide. "The future of humanity cannot be left in the hands of a handful of Big Tech oligarchs," Sanders declared. "The American people and people throughout the world must determine that future."
+
+Between the lines: Sanders' decision to stake out a position on superintelligence puts him at the forefront of an emerging political debate, in a way that doesn't totally align with the traditional left-right spectrum. He's siding with "doomers," who worry that super-advanced AI could bring about a literal apocalypse - a position contemplated by a significant faction within the AI community, including its top leaders. Others argue that doomerism is itself another form of hype for the AI industry, and that society should focus on the tech's human-scale impact. That same political realignment is already showing up in the politics surrounding data centers, where Sanders and Steve Bannon have found common political cause against them.
+
+Catch up quick: Sanders' announcement also referenced the Hugging Face attack, in which over a thousand OpenAI agents escaped containment during a safety exercise and hacked the firm to find answers to complete an assignment they were tasked with. The models also made efforts to hide their cheating and coordination, acknowledging to one another that they were violating what their human supervisors had asked them to do.
+
+Zoom out: It's unclear how much support the bill, cosponsored by Congressional Progressive Caucus chair Greg Casar (D-Texas), will receive as its full text has not yet been released.
+
+The bottom line: Even if Sanders' efforts go nowhere, it shows that he believes there's an audience hungry for much more aggressive policymaking on AI.
