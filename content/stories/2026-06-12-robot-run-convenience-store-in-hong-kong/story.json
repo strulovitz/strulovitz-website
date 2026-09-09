@@ -1,0 +1,53 @@
+{
+ "slug": "2026-06-12-robot-run-convenience-store-in-hong-kong",
+ "title": "Robot-run convenience store in Hong Kong",
+ "created_at_utc": "2026-09-09T15:06:54+00:00",
+ "language": "en",
+ "source_count": 3,
+ "total_words": 803,
+ "sources": [
+  {
+   "kind": "article",
+   "url": "https://www.timeout.com/hong-kong/news/hong-kong-will-soon-have-its-first-24-hour-robot-operated-convenience-store-061626",
+   "title": "Like the idea of a 24-hour robot convenience store manager? Hong Kong is getting one soon!",
+   "byline": "Catharina Cheung",
+   "published": "2026-06-15",
+   "fingerprint": "9c8d56fd1e1a12eee3b8b247faff127bafbd92789ec2ae484d16e3605518996d",
+   "fetched_at_utc": "2026-09-09T15:06:44+00:00",
+   "site": "timeout.com",
+   "words": 218,
+   "note": "",
+   "text_file": "timeout-com-like-the-idea-of-a-24-hour-robot-convenience-store-manager-9c8d56fd.txt"
+  },
+  {
+   "kind": "article",
+   "url": "https://futurism.com/robots-and-machines/hong-store-no-employees-robot",
+   "title": "A New Store in Hong Kong Has No Human Employees, Just a Single Humanoid Robot",
+   "byline": "Frank Landymore",
+   "published": "2026-06-21",
+   "fingerprint": "5f9ec9ea5407011e06f8a72c42d381f2b3dd26bcfb28a43834ab9896dfeb0c2f",
+   "fetched_at_utc": "2026-09-09T15:06:50+00:00",
+   "site": "futurism.com",
+   "words": 375,
+   "note": "",
+   "text_file": "futurism-com-a-new-store-in-hong-kong-has-no-human-employees-just-a-si-5f9ec9ea.txt"
+  },
+  {
+   "kind": "article",
+   "url": "https://insideretail.asia/2026/06/12/hong-kong-to-debut-first-robot-run-convenience-store/",
+   "title": "Hong Kong to debut first robot-run convenience store",
+   "byline": "Irene Dong",
+   "published": "2026-06-12",
+   "fingerprint": "edac9c2c2fc560cfc53d3802055d3f104e8e12f1f04c1f1e2f0f5675c2351972",
+   "fetched_at_utc": "2026-09-09T15:06:54+00:00",
+   "site": "insideretail.asia",
+   "words": 210,
+   "note": "",
+   "text_file": "insideretail-asia-hong-kong-to-debut-first-robot-run-convenience-store-edac9c2c.txt"
+  }
+ ],
+ "failed_links": [
+  "https://people.com/hong-kong-convenience-store-to-be-staffed-solely-by-a-humanoid-robot-11998112 - https://people.com/hong-kong-convenience-store-to-be-staffed-solely-by-a-humanoid-robot-11998112 answered with HTTP 402. That is usually a paywall or a bot-block - paste the text by hand, or use a different source.",
+  "https://www.reutersconnect.com/item/hong-kongs-first-robot-run-convenience-store-draws-curious-shoppers/dGFnOnJldXRlcnMuY29tLDIwMjY6bmV3c21sX1ZBMDUxMTA1MDkyMDI2UlAx - https://www.reutersconnect.com/item/hong-kongs-first-robot-run-convenience-store-draws-curious-shoppers/dGFnOnJldXRlcnMuY29tLDIwMjY6bmV3c21sX1ZBMDUxMTA1MDkyMDI2UlAx answered with HTTP 403. That is usually a paywall or a bot-block - paste the text by hand, or use a different source."
+ ]
+}

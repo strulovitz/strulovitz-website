@@ -52,3 +52,10 @@ https://militarnyi.com/en/news/russian-s-71-monochrome-missile-received-ai-based
 https://united24media.com/defense-tech/russias-new-s-71m-stealth-missile-can-hunt-targets-with-ai-powered-by-nvidia-tech-it-shouldnt-have-21600                     # UNITED24 Media
 https://ua.news/en/war-vs-rf/gur-viiavilo-nvidia-jetson-u-rosiiskii-raketi-monokhrom                                                                             # UA.News (GUR report)
 https://interestingengineering.com/military/russia-cruise-missile-us-made-nvidia-chip                                                                            # Interesting Engineering
+
+STORY Robot-run convenience store in Hong Kong
+https://www.timeout.com/hong-kong/news/hong-kong-will-soon-have-its-first-24-hour-robot-operated-convenience-store-061626          # Time Out Hong Kong
+https://people.com/hong-kong-convenience-store-to-be-staffed-solely-by-a-humanoid-robot-11998112                                     # People
+https://www.reutersconnect.com/item/hong-kongs-first-robot-run-convenience-store-draws-curious-shoppers/dGFnOnJldXRlcnMuY29tLDIwMjY6bmV3c21sX1ZBMDUxMTA1MDkyMDI2UlAx      # Reuters Connect
+https://futurism.com/robots-and-machines/hong-store-no-employees-robot                                                              # Futurism
+https://insideretail.asia/2026/06/12/hong-kong-to-debut-first-robot-run-convenience-store/                                          # Inside Retail Asia
