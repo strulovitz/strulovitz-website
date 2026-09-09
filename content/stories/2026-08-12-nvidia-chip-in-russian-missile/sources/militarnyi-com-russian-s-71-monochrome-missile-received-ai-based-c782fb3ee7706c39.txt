@@ -1,0 +1,19 @@
+Russian S-71 'Monochrome' Missile Received AI Based on U.S. NVIDIA Module. By Vladyslav Khomenko, August 12, 2026.
+
+Ukrainian specialists have identified an NVIDIA Jetson Orin computer module in the new Russian S-71M 'Monochrome' air-launched cruise missile.
+
+Details about the components identified in the missile were published on the War&Sanctions portal of Defence Intelligence of Ukraine.
+
+The presence of the microcomputer may indicate the use of artificial intelligence technology in the missile's control system. NVIDIA Jetson Orin is a series of compact computers/modules designed to run artificial intelligence directly on a device without requiring a constant connection to the cloud.
+
+The S-71M 'Monochrome' is a modification of the S-71K Kovyor cruise missile adapted for carriage in the internal weapons bays of the Su-57 and S-70 Okhotnik drone. It is distinguished by reduced observability and a claimed autonomous target-search capability.
+
+[Photo caption: An NVIDIA Jetson Orin TE980M-A1 S TW 2510A1 SNVUP6 MOP TE980-AT processor. Aug. 12, 2026. Photo: Defence Intelligence of Ukraine]
+
+If the rest of its specifications are identical to those of the S-71K, the missile has a range of up to 300 km. Its warhead is an OFAB-250-270 high-explosive fragmentation aerial bomb weighing 250 kg.
+
+Overall, the Defence Intelligence of Ukraine published data on 35 new foreign components in the 'Components in Weapons' section. Most of the components are from the United States, with others from Switzerland, Japan, Belarus and China.
+
+[Photo caption: A Russian S-71K Kovyor missile model. Source: War&Sanctions]
+
+Earlier, the Defence Intelligence of Ukraine reported that it had identified a significant number of Western components in a Geran-4 kamikaze drone.
