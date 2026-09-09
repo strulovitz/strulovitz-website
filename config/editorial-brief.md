@@ -107,7 +107,8 @@ exact shape:
     {
       "term": "A technical term or idea this story leans on, which a non-specialist would not know. Choose the ones that genuinely matter here. If the term already appears in the list of terms you have used in your previous editions, copy its name EXACTLY as it appears there.",
       "slug": "lowercase-hyphenated-name. When the term is one you already used in a previous edition, this MUST be the exact same slug as your existing entry, so your encyclopedia stays one term, one spelling.",
-      "explanation": "100 to 250 words explaining this term to somebody who has never met it, in a way that stays true a year from now. This becomes a permanent entry in the magazine's encyclopedia, so write it to last: explain the idea, not this week's news about it."
+      "explanation": "100 to 250 words explaining this term to somebody who has never met it, in a way that stays true a year from now. This becomes a permanent entry in the magazine's encyclopedia, so write it to last: explain the idea, not this week's news about it.",
+      "image_prompt": "One paragraph describing a single illustration for THIS encyclopedia entry. It must capture the entry's core idea as clearly and completely as you can, so a reader who only looked at the picture would understand the idea. Every concept carries its own picture instruction in this same answer - you are the illustrator's director for every part of your edition, and nothing is asked of you twice."
     }
   ],
 

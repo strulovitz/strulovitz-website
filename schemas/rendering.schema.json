@@ -37,11 +37,12 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["term", "slug", "explanation"],
+        "required": ["term", "slug", "explanation", "image_prompt"],
         "properties": {
           "term": { "type": "string" },
           "slug": { "type": "string", "description": "lowercase-hyphenated" },
-          "explanation": { "type": "string", "description": "100 to 250 words, written to stay true a year from now." }
+          "explanation": { "type": "string", "description": "100 to 250 words, written to stay true a year from now." },
+          "image_prompt": { "type": "string", "description": "One paragraph directing an illustrator for THIS encyclopedia entry, so every node carries its own picture in the same answer. No second pass, ever." }
         }
       }
     },

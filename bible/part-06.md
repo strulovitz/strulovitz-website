@@ -277,6 +277,39 @@ story per edition (feeding the faithfulness scoreboard, Part 10).
    NEVER blocks publication.
 
 --------------------------------------------------------------------------------
+ADDITION 2026-09-09 (by Nir's order, after the second-pass mistake): 6.9.5 ONE
+ANSWER, EVERY PICTURE PROMPT, NO SECOND PASS
+--------------------------------------------------------------------------------
+
+This section is law added later; nothing above it was deleted.
+
+THE MISTAKE THAT MADE THIS LAW
+The edition answer originally asked a model for ONE illustration prompt - the
+article's - while the prompts for the encyclopedia entries' pictures were
+bought afterwards in a SECOND stage of small paid calls, one per concept
+(2026-09-03: 120 asks, $0.55). Nir found out only after being told "48 of 48
+editions complete" that another paid pass was still waiting, and he was right
+to be furious: "why didn't you combine this into the prompts?!"
+
+THE LAW
+The edition answer contains the illustration direction for EVERY part of that
+edition, in the SAME answer, at the SAME price, forever: the article's
+"image_prompt" AND an "image_prompt" inside every encyclopedia entry. A model
+is the illustrator's director for its whole edition; nothing is asked of a
+model twice, and no stage exists whose job is to go back and buy what the
+first answer should have contained. The JSON shape (schemas/rendering.schema.json)
+makes the per-concept image_prompt a required field, the editorial brief
+(config/editorial-brief.md) says the same in words, and the database
+(pipeline/lib/db.py, upsert_edition) stores the concept prompts the moment the
+edition arrives, at $0 extra.
+
+WHAT HAPPENS TO THE OLD SECOND-PASS STAGE
+pipeline/stages/concept_prompts.py is retired for every story written under
+this law. It may be run ONLY for editions written before 2026-09-09 that never
+received concept prompts, and only if Nir says so - it must never be run for
+new stories, by any agent, ever.
+
+--------------------------------------------------------------------------------
 6.10 THE GOLDEN SET AND THE NIGHTLY CANARY (QUALITY WITHOUT A CODER)
 --------------------------------------------------------------------------------
 

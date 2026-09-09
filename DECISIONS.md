@@ -782,3 +782,19 @@ rebuilt from the database. The models' own words - the explanations, the
 articles, the raw answers in answer.txt - were not touched. From now on
 Decision 24 keeps every world clean automatically; this cleanup never needs
 repeating.
+
+DECISION 26 - ONE ANSWER, EVERY PICTURE PROMPT. NO SECOND PASS, EVER
+Date: 2026-09-09
+Decided by: Nir, furious after being told "48 of 48 editions complete" and
+then learning the encyclopedia pictures still needed a second round of paid
+calls: "why didn't you combine this into the prompts?! put it in your bible
+to do this, do not fuck me each and every time!"
+
+Ruling: the edition answer carries the illustration direction for EVERY part
+of the edition in the same answer at the same price - the article's
+image_prompt AND an image_prompt inside every encyclopedia concept. The JSON
+schema makes it a required field, the editorial brief says it in words, the
+database stores the concept prompts the moment the edition arrives ($0 extra),
+and the law is in the Bible as Part 06 addition 6.9.5. The old second-pass
+stage (concept_prompts.py) is retired for all new stories - it may only be
+used for pre-2026-09-09 editions missing prompts, and only if Nir says so.

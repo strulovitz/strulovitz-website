@@ -708,6 +708,25 @@ def upsert_edition(driver: Driver, story: dict, rendering: dict,
                 term=concept.get("term", slug),
                 explanation=concept.get("explanation", ""), eid=eid, position=position,
             )
+            # The concept's own illustration direction, written INSIDE the
+            # edition answer (Nir, 2026-09-09: "why didn't you combine this
+            # into the prompts?!" - a model directs the illustrator for every
+            # part of its edition in ONE answer; no second paid pass exists
+            # any more). Old editions that predate this rule have no
+            # image_prompt here, and that is simply left empty.
+            concept_prompt = str(concept.get("image_prompt") or "").strip()
+            if concept_prompt:
+                session.run(
+                    "MATCH (c:Concept {key: $key}) "
+                    "SET c.image_prompt = $prompt, c.image_prompt_cost_usd = 0.0, "
+                    "    c.image_prompt_asked_at_utc = $asked, "
+                    "    c.image_prompt_model = $served, "
+                    "    c.image_prompt_generation_id = $gid",
+                    key=f"{eid}:{slug}", prompt=concept_prompt,
+                    asked=str(rendering.get("rendered_at_utc", "") or ""),
+                    served=str(rendering.get("model_served", "") or ""),
+                    gid=f"edition:{eid}",
+                )
         # The bullets it extracted, each pointing at its source - the honest
         # ancestor of Part 02's claims (which arrive with the claim pipeline).
         # Order preserved on the edge, as always.
