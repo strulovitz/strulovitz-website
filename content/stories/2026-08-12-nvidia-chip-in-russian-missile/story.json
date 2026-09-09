@@ -1,0 +1,65 @@
+{
+ "slug": "2026-08-12-nvidia-chip-in-russian-missile",
+ "title": "Nvidia chip in Russian missile",
+ "created_at_utc": "2026-09-09T15:04:49+00:00",
+ "language": "en",
+ "source_count": 4,
+ "total_words": 2211,
+ "sources": [
+  {
+   "kind": "article",
+   "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/nvidia-jetson-chip-found-in-russian-cruise-missile-ukraine-claims-presence-in-s-71-monochrome-weapon-may-indicate-use-of-ai-tech",
+   "title": "Nvidia Jetson chip found in Russian cruise missile, Ukraine claims — presence in S-71 'Monochrome' weapon may indicate use of AI tech",
+   "byline": "Anton Shilov",
+   "published": "2026-08-14",
+   "fingerprint": "0eea9bbb89db8eb718dbcc19e043f4dfafd5e3d58ea0c028b46f36affeba0b4e",
+   "fetched_at_utc": "2026-09-09T15:03:33+00:00",
+   "site": "tomshardware.com",
+   "words": 913,
+   "note": "",
+   "text_file": "tomshardware-com-nvidia-jetson-chip-found-in-russian-cruise-missile-uk-0eea9bbb.txt"
+  },
+  {
+   "kind": "article",
+   "url": "https://united24media.com/defense-tech/russias-new-s-71m-stealth-missile-can-hunt-targets-with-ai-powered-by-nvidia-tech-it-shouldnt-have-21600",
+   "title": "Russia’s New S-71M Stealth Missile Can Hunt Targets With AI—Powered by Nvidia Tech It Shouldn’t Have",
+   "byline": "Vlad Litnarovych",
+   "published": "2026-08-12",
+   "fingerprint": "02afe8e4e5b43e35b2c887030fa665c6f57822ee4be0d3ddf62156b8a6738497",
+   "fetched_at_utc": "2026-09-09T15:03:41+00:00",
+   "site": "united24media.com",
+   "words": 454,
+   "note": "",
+   "text_file": "united24media-com-russia-s-new-s-71m-stealth-missile-can-hunt-targets--02afe8e4.txt"
+  },
+  {
+   "kind": "article",
+   "url": "https://ua.news/en/war-vs-rf/gur-viiavilo-nvidia-jetson-u-rosiiskii-raketi-monokhrom",
+   "title": "The Main Intelligence Directorate (GUR) detected an Nvidia Jetson in a Russian Monochrom missile",
+   "byline": "UA NEWS",
+   "published": "2026-08-12",
+   "fingerprint": "579b6fad6efbbc96d760ae1207f20a50c14ab3461589eb494949fdcbe3913d38",
+   "fetched_at_utc": "2026-09-09T15:04:43+00:00",
+   "site": "ua.news",
+   "words": 332,
+   "note": "",
+   "text_file": "ua-news-the-main-intelligence-directorate-gur-detected-an-nvidia-jetso-579b6fad.txt"
+  },
+  {
+   "kind": "article",
+   "url": "https://interestingengineering.com/military/russia-cruise-missile-us-made-nvidia-chip",
+   "title": "Nvidia Jetson chip found inside Russia's S-71 Monochrome cruise missile",
+   "byline": "Georgina Jedikovska",
+   "published": "2026-08-17",
+   "fingerprint": "0e08d96d5d0f2fb27b682ff29257b35a70a9342ee63c2c0e647a54789df05b2e",
+   "fetched_at_utc": "2026-09-09T15:04:49+00:00",
+   "site": "interestingengineering.com",
+   "words": 512,
+   "note": "",
+   "text_file": "interestingengineering-com-nvidia-jetson-chip-found-inside-russia-s-s--0e08d96d.txt"
+  }
+ ],
+ "failed_links": [
+  "https://militarnyi.com/en/news/russian-s-71-monochrome-missile-received-ai-based-on-u-s-nvidia-module/ - https://militarnyi.com/en/news/russian-s-71-monochrome-missile-received-ai-based-on-u-s-nvidia-module/ answered with HTTP 403. That is usually a paywall or a bot-block - paste the text by hand, or use a different source."
+ ]
+}

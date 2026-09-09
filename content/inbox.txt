@@ -45,3 +45,10 @@ STORY The first person jailed for protesting against AI
 https://www.theguardian.com/us-news/2026/aug/16/california-openai-protester-wynd-kaufman   # The Guardian, Robert Booth
 https://www.yahoo.com/news/us/articles/69-old-just-became-first-182647158.html             # Yahoo News, Nikshep Myle
 https://cybernews.com/ai-news/anti-ai-protestor-jail/                                      # Cybernews, Egle Kristopaityte
+
+STORY Nvidia chip in Russian missile
+https://www.tomshardware.com/tech-industry/artificial-intelligence/nvidia-jetson-chip-found-in-russian-cruise-missile-ukraine-claims-presence-in-s-71-monochrome-weapon-may-indicate-use-of-ai-tech    # Tom's Hardware
+https://militarnyi.com/en/news/russian-s-71-monochrome-missile-received-ai-based-on-u-s-nvidia-module/                                                            # Militarnyi
+https://united24media.com/defense-tech/russias-new-s-71m-stealth-missile-can-hunt-targets-with-ai-powered-by-nvidia-tech-it-shouldnt-have-21600                     # UNITED24 Media
+https://ua.news/en/war-vs-rf/gur-viiavilo-nvidia-jetson-u-rosiiskii-raketi-monokhrom                                                                             # UA.News (GUR report)
+https://interestingengineering.com/military/russia-cruise-missile-us-made-nvidia-chip                                                                            # Interesting Engineering

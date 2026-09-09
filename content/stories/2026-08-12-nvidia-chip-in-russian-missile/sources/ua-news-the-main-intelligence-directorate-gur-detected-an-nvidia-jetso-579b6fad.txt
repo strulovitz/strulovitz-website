@@ -1,0 +1,16 @@
+Specialists from the Main Intelligence Directorate of the Ukrainian Ministry of Defense have detected an Nvidia Jetson Orin microcomputer in a Russian S-71 “Monochrom” missile. According to intelligence reports, the presence of such a component may indicate the use of artificial intelligence technologies in the missile’s system.
+ 
+“Specialists from the Main Intelligence Directorate of the Ministry of Defense of Ukraine have detected an Nvidia Jetson Orin computer module in the new Russian S-71 ‘Monochrome’ air-launched cruise missile. The use of this component may indicate the application of artificial intelligence technologies in the missile,” the statement reads.
+Military intelligence publishes new data in the “Weapons Components” section of the War&Sanctions portal. It covers 35 electronic components identified in weapon samples used by the enemy.
+Among the components are:
+- components of a passive radar seeker, which Russia has begun installing on the “Geran-2” UAV to detect and engage anti-aircraft missile systems and radar stations of the Ukrainian Defense Forces;
+- a Chinese Honpho TS130C-01 camera from the “Geran-4” jet-powered UAV;
+- components of the active homing seeker for the Kh-47M2 “Kinzhal” aeroballistic missile.
+Specialists from the Main Intelligence Directorate (GUR) and colleagues from Ukrainian research institutions continue to study Russian weaponry and determine the origin of its electronic components.
+As noted, this data helps Ukraine and its partners identify critical foreign technologies used in Russian weapons and strengthen measures to block their flow to the aggressor state.
+Two years of experience with the “War&Sanctions” portal show that Russia is still unable to fully replace foreign high-tech components with domestic alternatives.
+“The detection of Nvidia Jetson in a new Russian missile once again demonstrates the need to intensify sanctions pressure and coordinate the efforts of the civilized world,” the GUR emphasized.
+Previously, the Main Intelligence Directorate identified more than 5,800 foreign components in Russian weapons.
+An analysis of the Russian “Oreshnik” ballistic missile revealed that all components identified in it were manufactured by companies in Russia and Belarus.
+                                                                    
+        Read us on Telegram and Sends
