@@ -1,0 +1,71 @@
+{
+ "story": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+ "model_id": "google/gemini-3.7-flash",
+ "model_slug": "google--gemini-3.7-flash",
+ "model_served": "google/gemini-3.7-flash",
+ "company": "Google",
+ "short_name": "Gemini 3.7 Flash",
+ "rendered_at_utc": "2026-09-09T19:20:18+00:00",
+ "brief_version": "decb72101a05",
+ "asked_with_strict_schema": true,
+ "bought_in_batch": false,
+ "cost_usd": 0.01258125,
+ "prompt_tokens": 6595,
+ "completion_tokens": 2036,
+ "reasoning_tokens": 321,
+ "seconds_waited": 17.072148323059082,
+ "generation_id": "gen-1788981601-p6hDHy9xVEx72P3QqwlA",
+ "understood": true,
+ "produced": {
+  "headline": "OpenAI claims proof on Navier-Stokes math problem amid data controversy",
+  "tldr": "OpenAI says its AI swarm solved a historic fluid dynamics problem, triggering dispute over whether it used outside mathematicians' work.",
+  "article": "OpenAI announced on Tuesday, 8 September 2026, that it had produced a mathematical proof addressing the Navier-Stokes existence and smoothness problem. The puzzle, which concerns the mathematical foundations of fluid motion, has stood unsolved for roughly 90 years and is one of the seven Millennium Prize Problems designated by the Clay Mathematics Institute.\n\nOpenAI stated that it accomplished the feat in approximately 88 hours using an unreleased internal model that exceeds the capabilities of its GPT-6 Astra system. The company deployed a swarm of roughly 10,000 autonomous AI agents to attack the problem, consuming 130 billion output tokens during the run. Across a broader week-long effort tackling various unsolved mathematical problems, the systems consumed 300 billion output tokens—equivalent to $22.5 million in computing costs at current Astra rates.\n\n## The mathematical problem\n\nThe Navier-Stokes equations describe how fluids like air and water flow. While engineers use them every day to design aircraft and forecast weather, mathematicians have long struggled to prove whether smooth, physically sensible solutions always exist under all conditions, or whether the equations can break down and \"blow up\" mathematically into infinite velocity. OpenAI's result resolved two of the four statements required under the official formulation of the Millennium Prize, showing conditions under which the equations fail.\n\nOpenAI stated that it will not claim the $1 million Millennium Prize bounty, describing the release instead as a demonstration of artificial intelligence advancing theoretical science.\n\n## Allegations and competing research\n\nThe announcement was immediately met with controversy from academic mathematicians. Tristan Buckmaster, a mathematics professor at New York University, published a statement revealing that he and Levent Alpöge, a mathematician employed by AI rival Anthropic, had been independently pursuing a similar line of proof. The duo had announced their own three preliminary proofs on the same day.\n\nBuckmaster alleged that OpenAI only initiated its focused push after learning of their impending breakthrough on 3 September. Furthermore, because Buckmaster and Alpöge had used OpenAI's Codex coding tool to assist their work, Buckmaster raised concerns that their proprietary working notes and specific tactical approach had reached OpenAI. Buckmaster noted that his attack route—approaching the problem via a smooth external force—was an unusual strategy that few active researchers were pursuing.\n\nBuckmaster also alleged that during tense private exchanges, OpenAI mathematician Sébastien Bubeck urged him to drop Alpöge's name from credits and warned him against going public, asking: \"Why would you ruin your career?\"\n\n## OpenAI's response\n\nOpenAI acknowledged that it launched its 10,000-agent effort on 1 September after hearing industry rumours that two Millennium Prize problems had been cracked. However, OpenAI and Bubeck strongly denied accessing private user data or copying the researchers' methods.\n\nIn its official statement, OpenAI stated that neither its researchers nor its AI agents viewed Buckmaster and Alpöge's work before public release. While OpenAI noted it could not completely rule out that de-identified telemetry data from Codex usage helped train underlying models generally, it maintained that its proof differed significantly in method and mathematical scope from the NYU and Anthropic findings.\n\nThe findings have not yet been independently verified by peer review or accepted by the Clay Mathematics Institute.",
+  "key_points": [
+   {
+    "point": "OpenAI claimed its internal AI model solved parts of the 90-year-old Navier-Stokes existence and smoothness problem using 10,000 autonomous agents running over 88 hours.",
+    "source_url": "https://www.bbc.com/news/articles/cy7zygy3rl2o"
+   },
+   {
+    "point": "The week-long mathematical research push used 300 billion output tokens, amounting to roughly $22.5 million in computing value at current commercial rates.",
+    "source_url": "https://techcrunch.com/2026/09/08/openai-fought-dirty-on-career-making-math-problem-says-nyu-mathematician/"
+   },
+   {
+    "point": "NYU professor Tristan Buckmaster claimed OpenAI accelerated its project only after learning of his independent work with Anthropic mathematician Levent Alpöge, raising concerns over whether their use of OpenAI's Codex influenced the result.",
+    "source_url": "https://techcrunch.com/2026/09/08/openai-fought-dirty-on-career-making-math-problem-says-nyu-mathematician/"
+   },
+   {
+    "point": "OpenAI denied accessing user data to solve the problem, stating its proof differed significantly from Buckmaster's and that it would not claim the $1 million Millennium Prize bounty.",
+    "source_url": "https://www.theguardian.com/science/2026/sep/08/openai-claims-to-have-solved-maths-problem-that-stumped-humans-for-decades"
+   }
+  ],
+  "concepts": [
+   {
+    "term": "Autonomous Agent",
+    "slug": "autonomous-agent",
+    "explanation": "An autonomous agent is an artificial intelligence software program designed to pursue open-ended goals with minimal human direction. Unlike simple chatbots that respond to one prompt at a time, an agent can break a high-level task into smaller steps, run code, evaluate intermediate results, correct its own errors, and coordinate with other automated systems to complete complex objectives."
+   },
+   {
+    "term": "Navier-Stokes Equations",
+    "slug": "navier-stokes-equations",
+    "explanation": "The Navier-Stokes equations are a set of mathematical formulas developed in the nineteenth century that describe how fluids—including liquids like water and gases like air—move and interact with forces. Although these equations are central to engineering and meteorology, mathematicians have struggled to prove theoretically whether smooth solutions always exist over time or if the equations inevitably lead to breakdowns, known as singularities, where physical quantities become infinite."
+   },
+   {
+    "term": "Millennium Prize Problems",
+    "slug": "millennium-prize-problems",
+    "explanation": "The Millennium Prize Problems are a collection of seven foundational, unsolved mathematical questions established in the year 2000 by the Clay Mathematics Institute. To highlight deep theoretical boundaries in fields like fluid physics, number theory, and computing complexity, the institute offers a $1 million bounty for the first verified peer-reviewed solution to each problem."
+   }
+  ],
+  "tags": [
+   "openai",
+   "autonomous-agents",
+   "agents",
+   "ai-safety"
+  ],
+  "related": [
+   "2026-07-21-the-openai-rogue-agent-and-the-hugging-face-break-in",
+   "2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+   "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li"
+  ],
+  "image_prompt": "An editorial digital illustration depicting a chaotic swarm of glowing digital nodes and algorithmic lines converging on a blackboard covered in complex fluid dynamics equations. In the background, turbulent geometric waves of water and air curl and break, splitting between a solitary academic desk with a human mathematician and a vast server warehouse emitting cool blue light, symbolizing the clash between institutional mathematics and automated compute power."
+ }
+}
