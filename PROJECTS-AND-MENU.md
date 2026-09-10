@@ -56,8 +56,25 @@ THE MENU, IN THIS ORDER
    sits in the menu just before About, which stays the last item. Added
    2026-09-06 at Nir's request.
 
-   About  --  "/about.html"  --  the last item in the menu, after Vibe
-   Invention.
+8. FINE WINE  --  "/fine-wine.html"  --  already on the site.
+   Games that age like a fine wine: AAA titles tested for real on Linux through
+   Wine, one at a time, with the exact recipe that made each one run. The idea
+   is Nir's, in his words: people install Linux for local AI (Python and AI
+   work is better there), and while their AI works for hours they need
+   something to do - so this section tests the popular Windows games that run
+   through Wine on their machines. It is also a museum for the last days of
+   man-made games: Nir is sure the Star Trek-style Holodeck is coming soon -
+   real-time, personalized, AI-generated worlds, like 3-D YouTube where you
+   create the video on the fly, kind of vibe-coding a game while playing it -
+   and instead of people getting addicted to alcohol they will be addicted to
+   that. Fine Wine memorializes the innocent era of games made by human hands,
+   before it ends. First entry: Red Dead Redemption 2 (2018), installed and
+   running 2026-09-10 (Linux Mint 22, RTX 4070 Ti, wine-staging 11.16 from
+   WineHQ, the jc141 release which needs no installation). It sits in the menu
+   just before About, after Vibe Invention. Added 2026-09-10 at Nir's request.
+
+   About  --  "/about.html"  --  the last item in the menu, after Fine
+   Wine.
 
 
 --------------------------------------------------------------------------------
