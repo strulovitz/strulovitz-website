@@ -128,8 +128,13 @@ after release it looks and plays beautifully, which is exactly the "fine wine" i
 <code>fuse-overlayfs</code> (mounts the game), 32-bit audio libraries
 (<code>libpulse0:i386 libasound2t64:i386 libasound2-plugins:i386</code>), and
 GStreamer plugins (for the cutscene movies)</li>
-<li>No installation of the game itself: the jc141 release mounts its compressed
-image when it starts and unmounts when it quits &mdash; zero extra disk usage</li>
+<li>On our machine the game had to be <em>extracted</em> rather than mounted:
+in the release's <code>script_default_settings</code>, set <code>EXTRACT=1</code>.
+The default is running straight from the compressed image (nothing installed,
+no disk cost), but our heavy reads through the on-the-fly decompressor froze
+the game mid-launch, unkillable for hours &mdash; the one-time extraction
+(~120&nbsp;GB) to real files fixed it completely. Full story:
+<a href="https://github.com/strulovitz/strulovitz-website/blob/master/FINE-WINE-RDR2-TECHNICAL-RECORD-2026-09-10.md">the technical record</a></li>
 <li>Started it with the release's own start script; on first run Wine asked to
 install its ".NET support pack" (wine-mono) &mdash; click Install, one time only</li>
 </ul>

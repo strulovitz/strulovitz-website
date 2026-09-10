@@ -140,3 +140,17 @@ IF THE SESSION DIED, THE BOOT SEQUENCE IS:
 5. ASK NIR for the SFTP password and deploy (ops/deploy.sh — minimum upload:
    only the new version folder + changed root pages, pointer last). The
    deploy must include fine-wine.html and the 20 pages with the new menu.
+================================================================================
+UPDATE 2026-09-10 (~14:50) — THE RDR2 INVISIBLE-WINDOW MYSTERY, SOLVED
+================================================================================
+The game's launch hung for hours with NO window (RDR2.exe "running" at 3% GPU,
+relaunches frozen at 0% CPU, zombie processes unkillable for two hours). Root
+cause: the game ran from the COMPRESSED dwarfs FUSE mount — the userspace
+decompressor stalled under the game's reads, freezing every process mid-read in
+D state. NOT wine's fault, NOT the game's, NOT the GPU's.
+THE FIX (jc141's own option): EXTRACT=1 in the release's script_default_settings
+- one-time ~120GB extraction to real files on the big disk, then no FUSE layer
+exists at runtime. Extraction started 14:38, ~half an hour.
+FULL DIAGNOSIS + THE D-STATE/FUSE RULES LEARNED:
+FINE-WINE-RDR2-TECHNICAL-RECORD-2026-09-10.md (this repo) + updated in the Fine
+Wine page's entry-1 recipe (site/fine-wine.html).
