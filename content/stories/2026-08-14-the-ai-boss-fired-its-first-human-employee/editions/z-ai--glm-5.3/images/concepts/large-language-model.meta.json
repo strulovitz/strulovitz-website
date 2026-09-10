@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-14-the-ai-boss-fired-its-first-human-employee",
+ "model_id": "z-ai/glm-5.3",
+ "model_slug": "z-ai--glm-5.3",
+ "kind": "concept",
+ "concept_slug": "large-language-model",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2239168004,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A cutaway, diagram-style illustration of a machine that is nothing but text. At its center sits the model: a huge sphere woven from billions of fine threads (the \"large\" of its name), eyeless and handless, with no pockets for keys or bank cards — a ribbon of words flows into one slot and out of another, and that is all it ever touches. Above it, a colossal funnel pours books, newspapers and web pages into the sphere, while a magnifying-glass inset shows the single lesson being drummed in: \"The cat sat on the ___,\" with the machine's pencilled-in guess, \"mat.\" Below, the outgoing ribbon fans out into speech bubbles — a poem, a translation, a tidy summary, a friendly chat reply, a worked logic proof — under the caption \"one humble trick, many seeming talents.\" One bubble declares in confident bold type that the Moon is made of cheese, while a small, plain picture of the real Moon beside it says otherwise; and the input slot is a narrow glowing frame that holds only the newest stretch of ribbon, earlier words trailing away beyond it, faded and unread. Bolted around the sphere like a clearly separate, detachable exoskeleton hangs the agent kit — mechanical hands, a camera eye, keys, a credit card and a clipboard of instructions — labeled \"the model alone reads and writes text; wrapped in tools, it becomes an agent.\"",
+ "rendered_at_utc": "2026-09-10T04:28:20+00:00",
+ "seconds_waited": 254.3,
+ "vram_free_gb_before_start": 10.85
+}

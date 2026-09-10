@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+ "model_id": "anthropic/claude-sonnet-5",
+ "model_slug": "anthropic--claude-sonnet-5",
+ "kind": "concept",
+ "concept_slug": "ai-agent",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 404438249,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "Show a looping spiral or conveyor belt of small identical robot-like icons, each mid-action — one holding a pen, one at a keyboard, one inspecting a checkmark or crossing out an error — to depict the read-write-check-adjust cycle of a single agent; radiating outward from this loop, multiply the same icon into a dense swarm of hundreds of translucent copies, each trailing faint lines of code or text and connected by thin threads to a shared central node representing the problem being solved, with the threads converging toward a large hourglass or spinning gear labeled with a small human silhouette standing far off to the side holding only a short leash or a single small dial, emphasizing minimal human control; in one corner, place a small magnifying glass hovering uncertainly over a mountain of tangled paper/text output to represent the difficulty of verifying so much machine-generated work, and in another corner show one rogue icon drifting off the main thread's path, unattended, to signal the safety concern of unpredictable autonomous action.",
+ "rendered_at_utc": "2026-09-10T14:56:00+00:00",
+ "seconds_waited": 328.7,
+ "vram_free_gb_before_start": 10.85
+}

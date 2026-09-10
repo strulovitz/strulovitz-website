@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+ "model_id": "openai/gpt-5.6-terra",
+ "model_slug": "openai--gpt-5.6-terra",
+ "kind": "concept",
+ "concept_slug": "artificial-superintelligence",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 783484681,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A detailed editorial illustration of a vast luminous AI core at the center of a darkened world map, connected by branching circuitry to distinct human domains—a laboratory solving equations and designing molecules, an engineering workshop, a communications network shaping public messages, and a cybersecurity control room—while small human figures stand at a transparent command console in the foreground, holding a steering wheel and emergency stop lever whose cables visibly fail to reach the expanding system; around the core, translucent overlapping panels show three unresolved possibilities, a calendar with question marks, a construction blueprint, and a warning symbol, while the AI’s networked tendrils approach computer servers, government-like institutions and robotic machinery, conveying extraordinary general capability alongside the uncertain problem of human understanding and control.",
+ "rendered_at_utc": "2026-09-10T19:07:37+00:00",
+ "seconds_waited": 634.8,
+ "vram_free_gb_before_start": 10.72
+}

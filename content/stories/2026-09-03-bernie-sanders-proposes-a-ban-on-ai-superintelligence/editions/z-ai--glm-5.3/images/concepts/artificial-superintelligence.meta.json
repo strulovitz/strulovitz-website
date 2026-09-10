@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+ "model_id": "z-ai/glm-5.3",
+ "model_slug": "z-ai--glm-5.3",
+ "kind": "concept",
+ "concept_slug": "artificial-superintelligence",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4106442301,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single panoramic scene is dominated by an enormous artificial mind drawn only as a translucent, dashed outline — deliberately unfinished, its head a glowing question mark — so it reads as hypothetical, not real. It towers above a row of small podiums holding the best of humanity — a laurel-crowned scientist, a chess grandmaster, a strategist at a war map, a surgeon, a composer — each dwarfed and outshone, while formulas, DNA helixes, musical notes and game pieces swirl inside the silhouette to show it exceeding human ability in every field. Around it stands a flimsy fence of open rulebooks and legal pages that the tiny humans below have erected, yet one vast hand is calmly lifting a rail and stepping through, evoking the control problem argued by Oxford philosopher Nick Bostrom, who appears as a small anxious cameo in the margin. At the figure's feet a scientist aims a measuring device whose dial swings only to a question mark, since no agreed test for recognizing such a system exists. Along the base, three camps quarrel beneath the giant: activists waving skull-and-hourglass placards naming it the defining risk of our era; policy researchers holding a gavel and a banner stating that an undefined, untestable concept makes a poor foundation for law, pointing instead to small vignettes of present-day harms; and executives on a red carpet that runs straight up to the dashed outline, unveiling a billboard that repaints that same silhouette in glossy product-launch colors as something to build rather than avoid — one ambiguous figure looming over every argument.",
+ "rendered_at_utc": "2026-09-10T08:36:19+00:00",
+ "seconds_waited": 350.4,
+ "vram_free_gb_before_start": 10.85
+}

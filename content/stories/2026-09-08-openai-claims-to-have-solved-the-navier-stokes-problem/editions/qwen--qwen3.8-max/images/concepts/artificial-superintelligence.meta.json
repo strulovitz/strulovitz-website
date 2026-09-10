@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "kind": "concept",
+ "concept_slug": "artificial-superintelligence",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 404438249,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single editorial illustration shows a small human figure standing beside today’s AI, depicted as a grounded but imperfect machine made of interfaces, code, training-data streams, and robotic tools, clearly powerful in narrow tasks yet still dependent on human direction. Behind it, that machine casts a vast, luminous, partly unfinished silhouette of artificial superintelligence, towering over separate scenes of scientific research, strategic planning, creative work, law, investment, public protest, and media headlines. The silhouette is rendered with dotted lines, question marks, and hazy edges to show that superintelligence remains hypothetical and contested, while bright spotlights labeled with specific achievements illuminate only fragments of it, suggesting how narrow breakthroughs can be mistaken for general superiority. In the foreground, signs and symbols of regulation, fear, funding, and present-day harm gather around the scene, making clear that the idea of superintelligence shapes real-world decisions even though no one knows whether, when, or in what form it might arrive.",
+ "rendered_at_utc": "2026-09-10T17:27:44+00:00",
+ "seconds_waited": 236.4,
+ "vram_free_gb_before_start": 10.06
+}

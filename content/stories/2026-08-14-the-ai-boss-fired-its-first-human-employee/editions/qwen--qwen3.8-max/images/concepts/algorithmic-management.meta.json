@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-14-the-ai-boss-fired-its-first-human-employee",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "kind": "concept",
+ "concept_slug": "algorithmic-management",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2239168004,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "The illustration shows a single cross-section of contemporary work under algorithmic management: a glowing software supervisor floats above a street and office floor, its body composed of performance scores, shift charts, route maps, star ratings, warning icons, policy pages, and chat bubbles. Gig workers—a courier and a driver—are tracked by phone screens and confronted by automatic routing, ratings, and a deactivation symbol, while an office worker faces a personable AI agent that is simultaneously writing a policy and speaking in reassuring text bubbles. To one side, opaque automated pipelines deliver decisions with no visible reasoning; to the other side, a worker steps toward an accessible human manager at a desk with an open appeals folder, a corrected record, and a readable explanation of the decision. The visual contrast should make the entry’s question immediate: can workers understand, challenge, and override the machine’s judgments, or are they managed by systems they cannot reach?",
+ "rendered_at_utc": "2026-09-10T04:41:07+00:00",
+ "seconds_waited": 226.6,
+ "vram_free_gb_before_start": 10.0
+}

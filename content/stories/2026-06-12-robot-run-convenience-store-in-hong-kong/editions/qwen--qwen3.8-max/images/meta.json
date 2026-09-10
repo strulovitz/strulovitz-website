@@ -1,0 +1,18 @@
+{
+ "story": "2026-06-12-robot-run-convenience-store-in-hong-kong",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "kind": "story",
+ "concept_slug": null,
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4097423916,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single clear illustration of a small glowing capsule convenience store at night on a Hong Kong waterfront, with harbour lights behind it. Inside the transparent capsule, a compact humanoid robot with two long arms stands behind a counter, handing a drink to a curious customer while shelves of snacks, toys and medicine boxes surround it. Outside, a few passers-by pause to film with phones, and a modest sign shows the store is open 24 hours. The robot looks useful but slightly limited: one arm is poised carefully over a product, while a small speech bubble above its head shows a multilingual greeting. The scene should feel charming, ordinary and experimental at once, capturing a robot-run shop as a public pilot rather than science fiction.",
+ "rendered_at_utc": "2026-09-09T21:27:56+00:00",
+ "seconds_waited": 260.3,
+ "vram_free_gb_before_start": 10.06
+}

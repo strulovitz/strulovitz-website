@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-12-nvidia-chip-in-russian-missile",
+ "model_id": "anthropic/claude-sonnet-5",
+ "model_slug": "anthropic--claude-sonnet-5",
+ "kind": "story",
+ "concept_slug": null,
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3921325051,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A technical cutaway illustration of a sleek, dark stealth cruise missile in flight above a war-torn landscape at dusk, with a glowing exploded-view inset showing a small circuit board module labeled 'Nvidia Jetson Orin' wired to a tiny camera lens in the missile's nose, surrounded by faint schematic lines suggesting computer-vision target recognition; in the background, small icons of other components (a radar dish, a camera module) hint at the wider pattern of foreign electronics found in Russian weapons, rendered in a muted, investigative-report style rather than dramatic action.",
+ "rendered_at_utc": "2026-09-09T23:48:26+00:00",
+ "seconds_waited": 240.4,
+ "vram_free_gb_before_start": 9.64
+}

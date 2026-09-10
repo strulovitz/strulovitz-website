@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+ "model_id": "anthropic/claude-sonnet-5",
+ "model_slug": "anthropic--claude-sonnet-5",
+ "kind": "concept",
+ "concept_slug": "corporate-death-penalty",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4106442301,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "An illustration of an ornate corporate seal or company charter document being stamped with a large red \"DISSOLVED\" seal and crumbling into fragments, with tiny office towers, shareholder certificates, and employee figures scattering into dust from the crumbling edges; beside this, a judge's gavel connects via a dotted line to a glowing, ill-defined server-and-brain hybrid shape labeled \"SUPERINTELLIGENCE?\" with a faint question mark and blurred outline (contrasted against a sharply drawn \"illegal weapons\" icon nearby to show the comparison in severity), visually conveying that this ultimate corporate punishment—total dissolution—is meant to match the gravity of banned weapons production, yet rests on a legal trigger whose fuzziness makes the whole structure look unstable and asymmetrically enforced.",
+ "rendered_at_utc": "2026-09-10T06:50:37+00:00",
+ "seconds_waited": 481.4,
+ "vram_free_gb_before_start": 10.85
+}

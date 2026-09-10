@@ -1,0 +1,18 @@
+{
+ "story": "2026-06-12-robot-run-convenience-store-in-hong-kong",
+ "model_id": "openai/gpt-5.6-terra",
+ "model_slug": "openai--gpt-5.6-terra",
+ "kind": "story",
+ "concept_slug": null,
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4097423916,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A clear editorial illustration of a tiny glass-walled capsule convenience store on Hong Kong’s harbour front at dusk, with the skyline and water visible beyond it. Inside, a friendly but unmistakably mechanical humanoid robot shopkeeper stands behind a counter, one articulated arm handing a bottled drink to a customer while its other arm reaches toward neatly stocked shelves of snacks and small toys. A family watches and films on a phone; a small queue includes a customer speaking into a microphone instruction card. Show a subtle contrast between delight and limitation: the robot’s speech display has a small “please repeat” indicator while nearby children watch it dance. Warm, observational magazine style, grounded and realistic rather than futuristic fantasy; no logos, no text labels, no threatening imagery.",
+ "rendered_at_utc": "2026-09-10T14:23:26+00:00",
+ "seconds_waited": 770.7,
+ "vram_free_gb_before_start": 10.87
+}

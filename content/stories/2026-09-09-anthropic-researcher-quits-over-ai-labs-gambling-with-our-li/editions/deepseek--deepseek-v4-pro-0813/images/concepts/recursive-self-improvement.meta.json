@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+ "model_id": "deepseek/deepseek-v4-pro-0813",
+ "model_slug": "deepseek--deepseek-v4-pro-0813",
+ "kind": "concept",
+ "concept_slug": "recursive-self-improvement",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 783484681,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "The illustration depicts a single continuous spiral of robot figures rising from a cluttered workshop floor: at the bottom, a small humanoid AI sits at a drafting table, drawing a revised blueprint of its own circuitry, while the next robot behind it—slightly larger and more refined—leans over to redraw that same blueprint with sharper lines and new components, and each successive robot in the ascending spiral is shown editing the design of the one above it, creating a closed loop of improvement with no human hands in the chain; motion-blurred arrows trace the feedback loop, and near the base a human engineer stands frozen with a checklist and a warning light, visibly unable to review each step as the spiral accelerates, the small initial changes compounding into a towering, glowing superintelligent form at the top whose light outshines the workshop.",
+ "rendered_at_utc": "2026-09-10T20:46:42+00:00",
+ "seconds_waited": 394.4,
+ "vram_free_gb_before_start": 10.85
+}

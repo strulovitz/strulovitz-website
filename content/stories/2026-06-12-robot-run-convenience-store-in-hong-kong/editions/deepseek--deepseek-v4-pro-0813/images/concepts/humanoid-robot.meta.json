@@ -1,0 +1,18 @@
+{
+ "story": "2026-06-12-robot-run-convenience-store-in-hong-kong",
+ "model_id": "deepseek/deepseek-v4-pro-0813",
+ "model_slug": "deepseek--deepseek-v4-pro-0813",
+ "kind": "concept",
+ "concept_slug": "humanoid-robot",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4097423916,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "The illustration shows a humanoid robot in the aisle of a small pharmacy or care shop, its upper body shaped like a simplified human torso with a rounded head, two long jointed arms, and no legs—instead a sturdy wheeled base that lets it move between shelves. The robot faces an elderly customer and reaches with one arm to a shelf at exactly human chest height, its three-fingered hand gently gripping a box of medicine, while the other arm is raised in an open-palm greeting; its head tilts slightly toward the customer, and its simple screen-face shows two dots and a curved line that read as a friendly, slightly uncertain smile. In the background, a doorway and a self-checkout kiosk are visible, and through a window a conventional robotic arm is bolted to a factory bench, standing rigid and isolated, to sharpen the contrast between fixed industrial machinery and this flexible, social body. The robot's visible joints, soft plastic panels, and slightly awkward bent elbow as it pulls the box from the shelf suggest that it is not a perfect human copy nor necessarily intelligent—just a machine whose human-like shape lets it reach, grasp, move, and gesture in spaces designed for people.",
+ "rendered_at_utc": "2026-09-09T22:37:48+00:00",
+ "seconds_waited": 409.7,
+ "vram_free_gb_before_start": 10.79
+}

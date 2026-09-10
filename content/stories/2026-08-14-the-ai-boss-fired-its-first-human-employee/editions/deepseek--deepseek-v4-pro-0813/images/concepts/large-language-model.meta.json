@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-14-the-ai-boss-fired-its-first-human-employee",
+ "model_id": "deepseek/deepseek-v4-pro-0813",
+ "model_slug": "deepseek--deepseek-v4-pro-0813",
+ "kind": "concept",
+ "concept_slug": "large-language-model",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2239168004,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "The illustration shows a single unified scene where a vast, cloud-shaped neural network is built from layered pages of books, websites, and code, with streams of text flowing into it from all directions while a person types a prompt into a terminal connected to the network. From the network's center, a ribbon of words emerges one at a time and splits into multiple branches labeled writing, coding, translation, and agent commands, each branch forming a coherent output. Hovering beside the network are a broken hourglass and an empty file cabinet containing only the current prompt, suggesting the absence of lasting memory. A large speech bubble from the network displays a confidently worded but factually incorrect statement with a small disclaimer reading may be wrong, illustrating confident errors. Finally, a finite frame labeled context window encloses only the most recent words on the ribbon, while older words fade and fall into a bin marked forgotten, capturing the limits of attention and recall.",
+ "rendered_at_utc": "2026-09-10T04:07:51+00:00",
+ "seconds_waited": 260.2,
+ "vram_free_gb_before_start": 10.01
+}

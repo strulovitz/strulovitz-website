@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-12-nvidia-chip-in-russian-missile",
+ "model_id": "x-ai/grok-4.6",
+ "model_slug": "x-ai--grok-4.6",
+ "kind": "concept",
+ "concept_slug": "jetson-orin",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3921325051,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A panoramic infographic centers on three compact circuit boards of graduated size labeled Jetson Orin Nano, NX and AGX Orin, each annotated with its peak rating of 67, 157 or 275 trillion operations per second and power draw remaining in the tens of watts, their Ampere GPU, CPU cores and dedicated image-plus-neural-network engines clearly diagrammed; arrows show data staying inside the boards as they process camera feeds and make decisions, while a distant cloud server is crossed out; the same modules appear mounted on a robot, a smart camera and an autonomous vehicle, and also sit on ordinary shop shelves and factory benches to emphasize their consumer-industrial availability rather than any classified military role, all under the JetPack software banner.",
+ "rendered_at_utc": "2026-09-10T01:36:37+00:00",
+ "seconds_waited": 390.6,
+ "vram_free_gb_before_start": 10.85
+}

@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+ "model_id": "anthropic/claude-sonnet-5",
+ "model_slug": "anthropic--claude-sonnet-5",
+ "kind": "concept",
+ "concept_slug": "agi",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4106442301,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "Illustration: a wide horizontal spectrum bar labeled at the far left \"Narrow AI\" (with a small icon of a single gear or chess piece) and at the far right \"Superintelligence\" (with an icon of a figure towering above a tiny human silhouette), with \"AGI\" marked at the midpoint by an icon of a human silhouette standing at equal height beside a humanoid robot silhouette, both surrounded by a loose ring of small icons representing varied tasks — a paintbrush, a wrench, a book, a speech bubble, a calculator — to signify broad competence across domains; hovering above the AGI midpoint, draw a large wavering question mark and a dotted, uncertain measuring line (rather than a solid checkered \"finish line\") to show that no agreed threshold or test marks its arrival; to the side, include a small speech-bubble cluster with contrasting statements like \"We've achieved AGI!\" and \"That's just benchmarks\" pointing at the same midpoint, and a tiny dollar-sign icon or rising stock-chart line near the question mark to indicate that the unresolved definition carries financial and contractual stakes.",
+ "rendered_at_utc": "2026-09-10T06:29:37+00:00",
+ "seconds_waited": 469.8,
+ "vram_free_gb_before_start": 10.85
+}

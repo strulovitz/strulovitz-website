@@ -1,0 +1,18 @@
+{
+ "story": "2026-06-12-robot-run-convenience-store-in-hong-kong",
+ "model_id": "x-ai/grok-4.6",
+ "model_slug": "x-ai--grok-4.6",
+ "kind": "story",
+ "concept_slug": null,
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4097423916,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A compact glass-walled capsule convenience store glowing on a Hong Kong harbour waterfront at dusk, with no human staff inside. A white-and-grey humanoid robot with unusually long arms reaches one hand to a high shelf of snacks and medicines while the other sets a drink on a tiny checkout counter. A short queue of curious adults and a child film the robot on their phones; bilingual 24-hour signage, remote-control toy cars, and squishy snack-shaped toys fill the cramped shelves; harbour lights and a ferry sit in the background. The scene should read as a staffless shop that is also a public spectacle, practical and slightly awkward rather than menacing.",
+ "rendered_at_utc": "2026-09-09T21:06:33+00:00",
+ "seconds_waited": 435.9,
+ "vram_free_gb_before_start": 10.8
+}

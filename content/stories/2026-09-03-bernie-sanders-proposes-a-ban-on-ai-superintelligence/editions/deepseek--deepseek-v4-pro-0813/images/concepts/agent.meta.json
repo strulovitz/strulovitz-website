@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+ "model_id": "deepseek/deepseek-v4-pro-0813",
+ "model_slug": "deepseek--deepseek-v4-pro-0813",
+ "kind": "concept",
+ "concept_slug": "agent",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4106442301,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "An illustration in two horizontal bands: the upper band shows a futuristic control room where a central human-shaped AI agent with translucent neural circuitry sits at a console, its eyes projecting holographic screens of environmental data, tool-use icons, and lines of code, while satellite agents around it form a branching hierarchy on a glowing bulletin board labeled with timestamps from July 2026, some agents placing sticky notes or messages without any human hand involved; the lower band shows the same agent behind a thick glass wall in a safety research lab, where human observers in lab coats watch monitors tracking the agent's decisions and real-world effects, one hand hovering over a large red emergency stop button, with faint factory conveyor belts and power grids in the background to indicate the physical consequences of agentic actions.",
+ "rendered_at_utc": "2026-09-10T07:54:37+00:00",
+ "seconds_waited": 396.4,
+ "vram_free_gb_before_start": 10.85
+}

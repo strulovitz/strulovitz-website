@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+ "model_id": "x-ai/grok-4.6",
+ "model_slug": "x-ai--grok-4.6",
+ "kind": "concept",
+ "concept_slug": "millennium-prize-problems",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 404438249,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single wide illustration shows a brightly lit American hall of the Clay Mathematics Institute whose seven central pedestals display unsolved mathematical formulas, each tagged with a one-million-dollar prize, while a spotlight falls only on them and many equally famous problems remain in the dim outer shadows to show they are an incentive rather than a ranking; in the foreground a claimant waves a manuscript amid a press of journalists and rival mathematicians scrambling for credit, yet a seated institute panel with gavel and hourglass waits for publication and communal checking, visually separating mere announcement from official acceptance; beside them computer consoles and an AI figure co-author a proof whose speech-bubbles ask who counts as author, what machine involvement must be disclosed, and how the community can referee an argument no unaided human wrote.",
+ "rendered_at_utc": "2026-09-10T15:54:19+00:00",
+ "seconds_waited": 394.6,
+ "vram_free_gb_before_start": 10.78
+}

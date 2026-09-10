@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+ "model_id": "deepseek/deepseek-v4-pro-0813",
+ "model_slug": "deepseek--deepseek-v4-pro-0813",
+ "kind": "concept",
+ "concept_slug": "agent",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 404438249,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "The illustration depicts an autonomous AI agent as a self-driving workshop: a human hand at the top places a single goal card into an inbox and then withdraws, leaving the machine to work; inside, a central orchestration engine expands the goal into a branching plan with decision diamonds and looping arrows that revisit earlier outputs for inspection. The engine reaches out to a bank of tools—a magnifying glass over a search bar, a code editor with typed syntax, a testing rig—and in one panel a small agent runs a script and checks the result before proceeding. Other agents work alongside, passing notes to one another in parallel, forming a swarm, while one minor branch follows a strict, pre-labeled script and another chooses its own path, showing the range of independence. A glowing progress bar and a power gauge indicate long-running computation consuming resources. The final output is not a single reply bubble but a shelf of completed research memos, test results, and graphs, with no further human input required.",
+ "rendered_at_utc": "2026-09-10T16:15:31+00:00",
+ "seconds_waited": 437.4,
+ "vram_free_gb_before_start": 10.85
+}

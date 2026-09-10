@@ -1,0 +1,18 @@
+{
+ "story": "2026-06-12-robot-run-convenience-store-in-hong-kong",
+ "model_id": "deepseek/deepseek-v4-pro-0813",
+ "model_slug": "deepseek--deepseek-v4-pro-0813",
+ "kind": "concept",
+ "concept_slug": "autonomous-retail",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4097423916,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "The illustration shows a cutaway view of a small Hong Kong capsule store at night, with a single robot behind the counter and three simultaneous activities: a customer walking out through a sensor gate with a phone notification showing an automatic bill, another customer frowning at a shelf item that failed to scan while the robot looks on helplessly, and a third customer trying to ask a question the robot cannot answer. Above the ceiling, a dense web of cameras and LIDAR sensors feeds data to a remote human operator visible on a small monitor, who has just pressed an override button; through a back door, a human employee in a uniform rushes in to fix the error. A large promotional screen inside the store plays a polished demo video of the same robot smoothly restocking and greeting customers, but the real scene around it is messy and confused, with a floor-cleaning robot bumping into the stranded customer. The contrast makes visible the entry's core ideas: a spectrum of automation from walk-out billing to robot restocking, the illusion of full autonomy versus hidden human oversight, the goal of cutting labour costs and staying open longer, and the risk that a machine can only follow rules while a person can improvise—and that observing a real store with real confused customers is nothing like a demonstration video.",
+ "rendered_at_utc": "2026-09-09T22:30:50+00:00",
+ "seconds_waited": 373.8,
+ "vram_free_gb_before_start": 10.85
+}

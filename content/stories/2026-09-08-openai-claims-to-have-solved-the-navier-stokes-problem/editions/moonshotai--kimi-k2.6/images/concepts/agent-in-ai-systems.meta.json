@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+ "model_id": "moonshotai/kimi-k2.6",
+ "model_slug": "moonshotai--kimi-k2.6",
+ "kind": "concept",
+ "concept_slug": "agent-in-ai-systems",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 404438249,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "The illustration presents a looping vertical pathway at its center, where a luminous goal sphere enters at the top and is transformed by a single autonomous figure—rendered as a walking circuit-board silhouette—into a cascading sequence of discrete tasks: a scroll of mathematical proof, a screen of diagnostic tests, and a returning arrow of revised strategy, all without any human hand hovering nearby to type individual commands. To the left, a static chatbot icon sits enclosed in a simple isolated bubble, showing only one prompt entering and one answer leaving, visually emphasizing its limitation to single-turn exchange. To the right, the composition opens into a vast dark field populated by roughly ten thousand smaller duplicates of the central circuit figure, all active simultaneously and connected by a dense mesh of bright message lines that fork toward countless dead-end nodes before converging on a shared, illuminated equation suggestive of the Navier-Stokes problem, making visible how a swarm of agents shares intermediate results in parallel exploration. Together the three zones contrast the closed reply loop of a chatbot with the iterative, self-directed, massively parallel agency of true AI systems.",
+ "rendered_at_utc": "2026-09-10T17:55:45+00:00",
+ "seconds_waited": 483.8,
+ "vram_free_gb_before_start": 10.8
+}

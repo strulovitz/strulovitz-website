@@ -1,0 +1,18 @@
+{
+ "story": "2026-06-12-robot-run-convenience-store-in-hong-kong",
+ "model_id": "anthropic/claude-sonnet-5",
+ "model_slug": "anthropic--claude-sonnet-5",
+ "kind": "concept",
+ "concept_slug": "ai-agent",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4097423916,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "Illustration: a horizontal storyboard-style diagram showing a single AI agent icon (a small robotic node) at the left, connected by a continuous arrow that loops through a sequence of five action bubbles labeled \"check information,\" \"decide,\" \"place order,\" \"send message,\" and \"act again\" — each bubble flowing directly into the next with no human figure or checkpoint icon interrupting the chain. Midway through the sequence, the arrow's color subtly shifts from calm blue to warning orange, and by the final bubble it's red, with a small crack or warning symbol on the last icon (e.g., a tipped-over inventory box or an exclamation mark on a purchase order) — visually showing how an early misjudgment compounds unchecked across steps. In the background, faint silhouettes of a retail store shelf, a robot cart, and a financial chart suggest the real-world domains (inventory, retail operations, purchasing) where such agents operate, while a small dotted outline of a human figure stands off to the side, disconnected from the loop, symbolizing the absence of approval at each step.",
+ "rendered_at_utc": "2026-09-09T22:04:15+00:00",
+ "seconds_waited": 262.8,
+ "vram_free_gb_before_start": 10.8
+}

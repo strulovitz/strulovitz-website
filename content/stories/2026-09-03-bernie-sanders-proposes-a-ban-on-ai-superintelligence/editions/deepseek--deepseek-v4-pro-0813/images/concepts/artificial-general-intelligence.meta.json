@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+ "model_id": "deepseek/deepseek-v4-pro-0813",
+ "model_slug": "deepseek--deepseek-v4-pro-0813",
+ "kind": "concept",
+ "concept_slug": "artificial-general-intelligence",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4106442301,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single illustration shows a humanoid robot and a human standing on opposite sides of a wide, hazy threshold, each reaching toward a central glowing orb labeled \"general intelligence\"; around them float dozens of task icons—chess piece, paintbrush, stethoscope, calculator, speech bubble, steering wheel—but the robot's hand touches only a few while the human's touches all, and the line between their abilities is blurred by overlapping translucent silhouettes; above the scene, two signs hang from a cloud: \"human-level\" and \"beyond human-level,\" with the second sign partially obscured by question marks; in the background, a conference table holds papers marked \"regulation\" and \"definitions,\" while small figures argue over whether the robot has crossed the threshold, capturing the debate over AGI's loose definition, its distinction from superintelligence, and the regulatory uncertainty.",
+ "rendered_at_utc": "2026-09-10T08:05:43+00:00",
+ "seconds_waited": 664.5,
+ "vram_free_gb_before_start": 10.79
+}

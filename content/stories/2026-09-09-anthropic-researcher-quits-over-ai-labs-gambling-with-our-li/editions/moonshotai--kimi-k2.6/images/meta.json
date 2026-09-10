@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+ "model_id": "moonshotai/kimi-k2.6",
+ "model_slug": "moonshotai--kimi-k2.6",
+ "kind": "story",
+ "concept_slug": null,
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 783484681,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A researcher in a modern office removes their ID badge and places it on a desk, while through a large window behind them, two towering corporate skyscrapers labeled with abstract symbols race upward into a stormy sky. Between the towers, a single runaway gear mechanism grows larger as it feeds into itself, suggesting a machine improving itself beyond human scale. On the desk, a small screen displays a probability figure with a warning sign. The scene should feel tense but grounded, emphasizing the moment of a conscientious departure and the looming, self-accelerating technology left behind.",
+ "rendered_at_utc": "2026-09-10T18:49:53+00:00",
+ "seconds_waited": 388.6,
+ "vram_free_gb_before_start": 10.85
+}

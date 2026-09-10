@@ -1,0 +1,18 @@
+{
+ "story": "2026-06-12-robot-run-convenience-store-in-hong-kong",
+ "model_id": "z-ai/glm-5.3",
+ "model_slug": "z-ai--glm-5.3",
+ "kind": "concept",
+ "concept_slug": "capsule-store",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4097423916,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "One wide, diagram-like landscape illustration reading left to right. At the far left, a cutaway factory hall where an assembly line builds identical compact shop boxes a few metres square — each already fitted out with built-in shelving, ceiling lights and an air-conditioning unit — with one finished capsule being loaded onto a flatbed truck and several more stacked and waiting. In the centre, a crane lowers one finished capsule onto a city plaza while a thick cable plugs it into a socket in the ground; in the background the same box appears on a waterfront promenade and in a car park, and a faded outline with an upward arrow shows a capsule being hoisted away again, conveying the pop-up idea of a shop that exists somewhere for a while and then doesn't. At the far right, a cutaway of the placed capsule shows customers helping themselves from shelves with no till, no queue and no staff room — just a single robotic arm running the shop, beside a small control desk with one operator and a bank of screens. Dotted signal lines fan out from that console to every capsule in the scene, and the factory line terminates not in a crowd of new employees but in more identical boxes rolling out, so the whole picture reads as one story: a shop manufactured as a product, placed anywhere and removed as easily, and grown by building more boxes that a single machine runs all at once.",
+ "rendered_at_utc": "2026-09-09T22:54:02+00:00",
+ "seconds_waited": 564.2,
+ "vram_free_gb_before_start": 10.85
+}

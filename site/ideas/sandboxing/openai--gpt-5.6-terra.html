@@ -55,6 +55,12 @@
 The aim is not to assume that a program is harmless. It is to limit the damage if it fails, behaves unexpectedly, or is actively malicious. Sandboxes are used for testing untrusted software, opening suspicious files, and evaluating AI agents that may be asked to perform risky tasks.
 
 A sandbox is only as strong as every boundary around it. Software flaws, overly broad permissions, trusted third-party services, or poorly isolated credentials can create escape routes. Security teams therefore use layers of protection: restricted accounts, segmented networks, logging, frequent credential rotation, and monitoring. Sandboxing reduces risk; it is not a guarantee that a capable attacker cannot find a weakness.</p>
+<h2>As explained in <a href="../2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence/openai--gpt-5.6-terra.html">2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence</a></h2>
+<figure><img src="images/2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence--openai--gpt-5.6-terra.png" alt="Illustration for Sandboxing"><figcaption>Illustrated locally by flux2-dev, seed 4106442301 - from this edition's own prompt. AI-generated image, labeled per the site's attribution rules.</figcaption></figure><p>Sandboxing is a way of running software inside a deliberately restricted environment. The program may be allowed to read selected files, use particular tools, or visit a limited set of services, while being blocked from the broader internet, private company systems, or sensitive data. The aim is to test unfamiliar or risky software without giving it the power to cause real damage.
+
+For AI agents, a sandbox can limit what the agent can do while researchers evaluate whether it follows instructions, finds security weaknesses, or attempts to use tools in unexpected ways. A sandbox is not a guarantee of safety. Its protections can be incomplete, incorrectly configured, or undermined if the software finds an unexpected path to an allowed resource. Strong testing therefore also examines the surrounding systems: permissions, network connections, monitoring, and what happens when an agent tries to evade constraints.
+
+A sandbox can reduce the consequences of a failure, but it does not establish that the system inside it is reliable.</p>
 
 </div>
 </body>

@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-14-the-ai-boss-fired-its-first-human-employee",
+ "model_id": "google/gemini-3.7-flash",
+ "model_slug": "google--gemini-3.7-flash",
+ "kind": "concept",
+ "concept_slug": "autonomous-agent",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2239168004,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A modern, isometric digital illustration featuring a glowing, stylized AI processing core at the center of a dynamic, multi-step workflow. Above the core, a single high-level goal is visually deconstructed into a branching flowchart of sequential sub-tasks. Radiating outward from the AI, luminous data streams connect directly into an array of floating, semi-transparent tool interfaces: an active web browser extracting information, a terminal window writing and running code, an SQL database updating records, and an email client dispatching automated messages. Curved, glowing feedback loops travel back from these tools to the central core, showing the agent adapting its next steps in real time based on incoming operational results. Encapsulating the entire automated network is a subtle, illuminated perimeter fence labeled with safety thresholds and monitored by a small silhouette of a human overseer with a control tablet, clearly depicting an intelligent system that independently breaks down objectives, utilizes digital tools, and self-corrects within human-defined guardrails.",
+ "rendered_at_utc": "2026-09-10T03:34:39+00:00",
+ "seconds_waited": 476.4,
+ "vram_free_gb_before_start": 10.85
+}

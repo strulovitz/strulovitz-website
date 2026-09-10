@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+ "model_id": "z-ai/glm-5.3",
+ "model_slug": "z-ai--glm-5.3",
+ "kind": "story",
+ "concept_slug": null,
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 404438249,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single wide illustration inside a vast, dim data centre: ten thousand tiny glowing points of light, AI agents, swarm like a murmuration around a towering translucent vortex of water and air whose curves dissolve into handwritten equations, spiralling inward to an infinity symbol at the centre to suggest fluid speeds blowing up to infinity. In the foreground, a lone mathematician's open notebook on a desk carries the same equations, half-derived, while a thin luminous stream carries copies of its pages through a cable into the swarm, capturing the dispute over whether the company saw a rival's unfinished work before starting its own. On the floor lies a giant stopwatch reading 88 hours, and by the exit a sealed glass case holds an unclaimed $1,000,000 Clay Mathematics Institute prize medal awaiting verification.",
+ "rendered_at_utc": "2026-09-10T14:43:25+00:00",
+ "seconds_waited": 619.0,
+ "vram_free_gb_before_start": 10.85
+}

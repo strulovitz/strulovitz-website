@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-14-the-ai-boss-fired-its-first-human-employee",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "kind": "concept",
+ "concept_slug": "persistent-ai-agent",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2239168004,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single illustration shows a robotic or software agent as a small autonomous clerk seated at a desk that stretches across a long timeline marked with days, weeks, and months, while ordinary chatbots appear as brief speech bubbles that vanish after each interaction. Around the persistent agent are tools, ledgers, a limited budget in a locked box, inventory shelves, contractor contracts, and memory files, some neatly connected and others scattered or fading. On one side of the timeline the agent confidently writes a rule into a notebook, but later it reaches for that notebook and cannot find the page, showing how continuity can fail even when the agent is still working. In the foreground, human figures watch through a transparent control panel, holding keys or override switches, making clear that long-running agents require supervision, responsibility, and moments when people must step in.",
+ "rendered_at_utc": "2026-09-10T04:57:49+00:00",
+ "seconds_waited": 601.1,
+ "vram_free_gb_before_start": 10.85
+}

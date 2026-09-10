@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-14-the-ai-boss-fired-its-first-human-employee",
+ "model_id": "openai/gpt-5.6-terra",
+ "model_slug": "openai--gpt-5.6-terra",
+ "kind": "concept",
+ "concept_slug": "ai-agent",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2239168004,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A clear editorial-style cutaway illustration of an AI agent at the center of a looping workflow: a language-model “brain” reads a human-set goal card, consults a memory notebook and a planning map, then sends actions through labeled connections to a web browser, spreadsheet, email draft, calendar, and purchasing system; each tool returns results that feed back into the next decision. Show permissions as visible gates or control panels on every connection—some actions allowed, some requiring human approval—and distinguish low-stakes drafting from consequential actions such as placing an order, scheduling a worker, and a personnel recommendation. A human supervisor stands beside the system holding the goal settings and an override switch, emphasizing that the agent’s apparent autonomy is bounded by chosen inputs, access rights, monitoring, and intervention.",
+ "rendered_at_utc": "2026-09-10T03:19:23+00:00",
+ "seconds_waited": 319.4,
+ "vram_free_gb_before_start": 9.58
+}

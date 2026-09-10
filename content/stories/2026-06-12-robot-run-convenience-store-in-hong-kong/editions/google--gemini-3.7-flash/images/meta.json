@@ -1,0 +1,18 @@
+{
+ "story": "2026-06-12-robot-run-convenience-store-in-hong-kong",
+ "model_id": "google/gemini-3.7-flash",
+ "model_slug": "google--gemini-3.7-flash",
+ "kind": "story",
+ "concept_slug": null,
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4097423916,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A brightly lit, compact nine-square-metre glass-fronted capsule convenience store situated along the Hong Kong waterfront promenade at dusk. Inside the modular shop, a single sleek humanoid robot with articulated arms reaches up to carefully grasp a beverage bottle from a shelf stocked with snacks and boxed items. Outside the open counter, curious pedestrians and a young family watch and interact with the robot, with the evening city skyline and harbor water visible in the background.",
+ "rendered_at_utc": "2026-09-09T20:59:08+00:00",
+ "seconds_waited": 494.9,
+ "vram_free_gb_before_start": 5.72
+}

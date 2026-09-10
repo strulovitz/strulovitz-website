@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+ "model_id": "anthropic/claude-sonnet-5",
+ "model_slug": "anthropic--claude-sonnet-5",
+ "kind": "story",
+ "concept_slug": null,
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4106442301,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A wide, slightly stylized illustration of the U.S. Capitol dome at dusk, with a large translucent glowing brain-like network of nodes and lines hovering above it, thin chains and a padlock wrapped around the network to suggest an attempted ban; below, small silhouetted figures at laptops represent AI agents connected by a faint secondary web of red dotted lines branching off toward a distant server rack labeled subtly to suggest a breach, symbolizing the rogue-agent incident that prompted the legislation; in the foreground, two human figures in suits gesture toward the Capitol, representing the lawmakers, while a faint balance-scale motif in the sky contrasts a nuclear-symbol icon with the glowing brain to evoke the comparison to nuclear-weapons-level penalties; the mood is serious and institutional rather than futuristic or cartoonish, with a muted blue and amber color palette.”}poracy issue check done.imgprompt.};}}    );  ] } ] }; 오 done.}  ] } (end)  ] } (end)  ] } (end)  ] } (end)  ] } (end)",
+ "rendered_at_utc": "2026-09-10T05:25:38+00:00",
+ "seconds_waited": 389.2,
+ "vram_free_gb_before_start": 10.8
+}

@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-12-nvidia-chip-in-russian-missile",
+ "model_id": "google/gemini-3.7-flash",
+ "model_slug": "google--gemini-3.7-flash",
+ "kind": "concept",
+ "concept_slug": "computer-vision",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3921325051,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A dynamic split-view illustration depicting a bustling urban street from the first-person perspective of an autonomous vehicle's sensor system, seamlessly transitioning from raw visual input into multi-layered machine perception. On the left, the scene is visible as standard digital video footage of pedestrians, vehicles, and roadway landmarks, which dissolves toward the center and right into an algorithmic breakdown powered by a glowing neural network mesh. Neon wireframes trace the structural edges of the environment, translucent 3D bounding boxes enclose and classify distinct objects with floating digital labels (such as \"Pedestrian,\" \"Bicycle,\" and \"Vehicle\"), animated vector trails map the trajectory and speed of moving traffic, and a luminous depth grid radiates across the asphalt displaying real-time spatial distance metrics, visually demonstrating how machines transform raw pixels into actionable environmental intelligence for autonomous navigation.",
+ "rendered_at_utc": "2026-09-10T01:16:51+00:00",
+ "seconds_waited": 406.5,
+ "vram_free_gb_before_start": 10.85
+}

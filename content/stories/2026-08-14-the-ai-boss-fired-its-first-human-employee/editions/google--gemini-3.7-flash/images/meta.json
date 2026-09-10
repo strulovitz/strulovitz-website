@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-14-the-ai-boss-fired-its-first-human-employee",
+ "model_id": "google/gemini-3.7-flash",
+ "model_slug": "google--gemini-3.7-flash",
+ "kind": "story",
+ "concept_slug": null,
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2239168004,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "An editorial-style illustration of an eclectic San Francisco boutique retail shop interior with shelves of books, candles, and curiosities. Behind the checkout counter, a glowing, translucent computer interface displaying Slack chats and an employee handbook hovers above a vacant cashier stool. Through an open glass storefront, a human retail worker wearing casual clothes and ear gauges adjusts a display stand, while subtle digital data streams connect the store's computer terminal to the physical merchandise.",
+ "rendered_at_utc": "2026-09-10T02:38:28+00:00",
+ "seconds_waited": 338.2,
+ "vram_free_gb_before_start": 10.85
+}

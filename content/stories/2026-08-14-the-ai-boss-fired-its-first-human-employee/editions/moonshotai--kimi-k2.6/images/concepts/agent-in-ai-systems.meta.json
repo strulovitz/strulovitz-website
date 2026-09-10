@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-14-the-ai-boss-fired-its-first-human-employee",
+ "model_id": "moonshotai/kimi-k2.6",
+ "model_slug": "moonshotai--kimi-k2.6",
+ "kind": "concept",
+ "concept_slug": "agent-in-ai-systems",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2239168004,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "The illustration is divided vertically into two contrasting halves: on the left, a static, monochrome speech bubble sits frozen in a small spotlight, representing a basic chatbot that answers one prompt and then waits; on the right, a vibrant, cyclical flow diagram shows a luminous central core surrounded by three looping arrows labeled observe, plan, and act, with branching pathways extending outward to a web browser, a messaging window, a calendar grid, software interfaces, a robotic arm, and a human figure receiving instructions. Beneath this active scene, a stretched timeline recedes into the distance, dotted with sequential completed tasks to show long-running autonomy, while a translucent human hand hovers at the margin, connected to the core by a thin golden tether that frays into diverging question marks, and small memory chips plus flickering reliability gauges are embedded along the branching pathways, visually expressing the shift from AI as a passive tool to an active participant pursuing goals under limited supervision while foregrounding the unresolved challenges of memory, reliability, and alignment.",
+ "rendered_at_utc": "2026-09-10T05:04:32+00:00",
+ "seconds_waited": 402.1,
+ "vram_free_gb_before_start": 10.8
+}

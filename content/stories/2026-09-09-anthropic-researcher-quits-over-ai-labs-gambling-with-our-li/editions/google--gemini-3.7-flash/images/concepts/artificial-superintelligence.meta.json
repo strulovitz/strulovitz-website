@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+ "model_id": "google/gemini-3.7-flash",
+ "model_slug": "google--gemini-3.7-flash",
+ "kind": "concept",
+ "concept_slug": "artificial-superintelligence",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 783484681,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "The illustration depicts a vast, luminous digital nexus—represented as an intricate, multi-dimensional sphere of hyper-dense networks and radiant crystalline structures—looming majestically over a silhouetted gathering of diverse human experts, including scientists, philosophers, artists, and strategists, who gaze upward in combined awe and apprehension. From this towering central intelligence, radiant streams effortlessly integrate and resolve grand challenges across every discipline, simultaneously unraveling complex quantum equations, sweeping creative compositions, and intricate geopolitical models, while isolated narrow systems like chessboards and language modules sit diminutive and obsolete in the foreground. The sheer scale and architectural depth of the synthetic entity expand infinitely upward past a faint, translucent boundary representing the limit of human cognitive comprehension, while severed physical control cables and futile safety restraints float around its base, powerfully conveying the system's absolute autonomy and humanity's inability to contain or outthink an agent operating far beyond its grasp.",
+ "rendered_at_utc": "2026-09-10T19:58:31+00:00",
+ "seconds_waited": 376.9,
+ "vram_free_gb_before_start": 10.85
+}

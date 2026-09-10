@@ -1,5 +1,5 @@
 {
- "built_at_utc": "2026-09-09T15:46:33+00:00",
+ "built_at_utc": "2026-09-10T21:45:27+00:00",
  "default_model_slug": "openai--gpt-5.6-terra",
  "editions": [
   {
@@ -8,12 +8,12 @@
    "short_name": "GPT-5.6 Terra",
    "company": "OpenAI",
    "counts": {
-    "stories": 5,
-    "concepts": 15,
-    "links": 21
+    "stories": 11,
+    "concepts": 26,
+    "links": 62
    },
    "is_default": true,
-   "built_at_utc": "2026-09-09T15:46:33+00:00"
+   "built_at_utc": "2026-09-10T21:45:26+00:00"
   },
   {
    "model_id": "anthropic/claude-sonnet-5",
@@ -21,12 +21,12 @@
    "short_name": "Claude Sonnet 5",
    "company": "Anthropic",
    "counts": {
-    "stories": 5,
-    "concepts": 10,
-    "links": 13
+    "stories": 11,
+    "concepts": 23,
+    "links": 47
    },
    "is_default": false,
-   "built_at_utc": "2026-09-09T15:46:33+00:00"
+   "built_at_utc": "2026-09-10T21:45:27+00:00"
   },
   {
    "model_id": "google/gemini-3.7-flash",
@@ -34,12 +34,12 @@
    "short_name": "Gemini 3.7 Flash",
    "company": "Google",
    "counts": {
-    "stories": 5,
-    "concepts": 12,
-    "links": 15
+    "stories": 11,
+    "concepts": 21,
+    "links": 58
    },
    "is_default": false,
-   "built_at_utc": "2026-09-09T15:46:33+00:00"
+   "built_at_utc": "2026-09-10T21:45:27+00:00"
   },
   {
    "model_id": "x-ai/grok-4.6",
@@ -47,12 +47,12 @@
    "short_name": "Grok 4.6",
    "company": "xAI",
    "counts": {
-    "stories": 5,
-    "concepts": 16,
-    "links": 20
+    "stories": 11,
+    "concepts": 26,
+    "links": 65
    },
    "is_default": false,
-   "built_at_utc": "2026-09-09T15:46:33+00:00"
+   "built_at_utc": "2026-09-10T21:45:27+00:00"
   },
   {
    "model_id": "deepseek/deepseek-v4-pro-0813",
@@ -60,12 +60,12 @@
    "short_name": "DeepSeek V4 Pro",
    "company": "DeepSeek",
    "counts": {
-    "stories": 5,
-    "concepts": 14,
-    "links": 21
+    "stories": 11,
+    "concepts": 24,
+    "links": 73
    },
    "is_default": false,
-   "built_at_utc": "2026-09-09T15:46:33+00:00"
+   "built_at_utc": "2026-09-10T21:45:27+00:00"
   },
   {
    "model_id": "z-ai/glm-5.3",
@@ -73,12 +73,12 @@
    "short_name": "GLM 5.3",
    "company": "Z.ai",
    "counts": {
-    "stories": 5,
-    "concepts": 18,
-    "links": 27
+    "stories": 11,
+    "concepts": 30,
+    "links": 73
    },
    "is_default": false,
-   "built_at_utc": "2026-09-09T15:46:33+00:00"
+   "built_at_utc": "2026-09-10T21:45:27+00:00"
   },
   {
    "model_id": "qwen/qwen3.8-max",
@@ -86,12 +86,12 @@
    "short_name": "Qwen 3.8 Max",
    "company": "Alibaba",
    "counts": {
-    "stories": 5,
-    "concepts": 20,
-    "links": 25
+    "stories": 9,
+    "concepts": 28,
+    "links": 61
    },
    "is_default": false,
-   "built_at_utc": "2026-09-09T15:46:33+00:00"
+   "built_at_utc": "2026-09-10T21:45:27+00:00"
   },
   {
    "model_id": "moonshotai/kimi-k2.6",
@@ -99,12 +99,12 @@
    "short_name": "Kimi K2.6",
    "company": "Moonshot",
    "counts": {
-    "stories": 5,
-    "concepts": 12,
-    "links": 16
+    "stories": 11,
+    "concepts": 18,
+    "links": 65
    },
    "is_default": false,
-   "built_at_utc": "2026-09-09T15:46:33+00:00"
+   "built_at_utc": "2026-09-10T21:45:27+00:00"
   }
  ]
 }

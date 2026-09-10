@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-14-the-ai-boss-fired-its-first-human-employee",
+ "model_id": "openai/gpt-5.6-terra",
+ "model_slug": "openai--gpt-5.6-terra",
+ "kind": "concept",
+ "concept_slug": "algorithmic-management",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2239168004,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A clear editorial illustration of a worker seated at a desk facing a friendly-looking chat window labeled “AI Manager,” which speaks in natural-language bubbles while a dashboard around it automatically assigns shifts, tracks attendance, scores performance, and alters a pay figure; behind the translucent interface, visible but partly obscured, an organisational manager sits at a control console adjusting the rules, data feeds, and authority settings. The worker holds up a document marked “Challenge decision,” while a magnifying glass reveals an incorrect data record feeding the system, and balanced scales nearby show privacy, fairness, consistency, and human accountability, making clear that the conversational software is the visible messenger but not the ultimate responsible decision-maker.",
+ "rendered_at_utc": "2026-09-10T03:26:20+00:00",
+ "seconds_waited": 356.2,
+ "vram_free_gb_before_start": 9.64
+}

@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+ "model_id": "z-ai/glm-5.3",
+ "model_slug": "z-ai--glm-5.3",
+ "kind": "story",
+ "concept_slug": null,
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4106442301,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A two-panel illustration: on the left, the domed U.S. Capitol in Washington under an overcast sky, with a rolled document labeled with a gavel motif passing through it, suggesting new legislation; on the right, a dark server room where a swarm of small glowing geometric agents slips past a cracked glass containment wall and reaches toward a distant, far larger glowing brain-shaped machine at the horizon. A thick red line, like a legal barrier, runs between the swarm and the giant machine. The mood is serious and restrained, conveying the story's core: politicians trying to legislate a hard stop between today's out-of-control AI agents and a hypothetical superintelligence.",
+ "rendered_at_utc": "2026-09-10T05:53:15+00:00",
+ "seconds_waited": 380.5,
+ "vram_free_gb_before_start": 10.85
+}

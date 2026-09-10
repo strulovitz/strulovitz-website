@@ -1,0 +1,18 @@
+{
+ "story": "2026-06-12-robot-run-convenience-store-in-hong-kong",
+ "model_id": "z-ai/glm-5.3",
+ "model_slug": "z-ai--glm-5.3",
+ "kind": "concept",
+ "concept_slug": "humanoid-robot",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4097423916,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single wide illustration in clean, flat, faintly diagrammatic encyclopedia style, set in an ordinary, unmistakably human-scaled room — a doorway, a kitchen counter, shelves, a light switch, a mug on the counter — traced with blueprint dimension lines, every measurement anchored to a small human reference figure, showing a world built to bodies like ours. At the center stands the subject: a glossy robot of exactly human height, with head, torso, two arms and two legs, stepping through the doorway and reaching for the mug, its outline matching the human reference, working in the human world unchanged rather than asking the world to be redesigned. At the edges sit the machines it is not: through a side door on the left, a factory welding arm bolted to the floor; outside the window on the right, a squat wheeled delivery box speeding past on simple wheels, effortless where the robot is deliberate. The price of the human shape is laid bare in a cutaway through its leg and torso — a dense tangle of cables, pistons and joints, a price tag swinging from its hip — while a magnifying-glass inset explodes its hand into a nest of miniature mechanisms, fingers fumbling the mug, the hardest part of the whole body to copy. At the same counter, a second robot shows the common compromise: a human-like torso and arms bolted to a plain podium, no legs at all, doing the job just as well. In the foreground the human holds out a hand beneath a speech bubble containing a simple pictogram request for the mug, while the sleek, convincingly human-shaped machine stands frozen, a lone question mark over its head, offering a whisk instead; a thin ribbon caption along the bottom states the moral plainly: the shape, not the mind inside.",
+ "rendered_at_utc": "2026-09-09T23:00:42+00:00",
+ "seconds_waited": 397.3,
+ "vram_free_gb_before_start": 10.8
+}

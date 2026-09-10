@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+ "model_id": "google/gemini-3.7-flash",
+ "model_slug": "google--gemini-3.7-flash",
+ "kind": "story",
+ "concept_slug": null,
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 404438249,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "An editorial digital illustration depicting a chaotic swarm of glowing digital nodes and algorithmic lines converging on a blackboard covered in complex fluid dynamics equations. In the background, turbulent geometric waves of water and air curl and break, splitting between a solitary academic desk with a human mathematician and a vast server warehouse emitting cool blue light, symbolizing the clash between institutional mathematics and automated compute power.",
+ "rendered_at_utc": "2026-09-10T10:15:22+00:00",
+ "seconds_waited": 462.3,
+ "vram_free_gb_before_start": 10.82
+}

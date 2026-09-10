@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-12-nvidia-chip-in-russian-missile",
+ "model_id": "moonshotai/kimi-k2.6",
+ "model_slug": "moonshotai--kimi-k2.6",
+ "kind": "concept",
+ "concept_slug": "system-on-module",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3921325051,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A detailed cutaway centers on a credit-card-sized green circuit board—the system-on-module—its surface densely packed with a visible processor, memory modules, graphics chip, and storage, shown halfway inserted into a socket on a larger surrounding circuit board that bears partially completed traces for custom sensors, motors, and antennas. Behind this assembly, the composition splits into two mirrored worlds: on the left, stacks of identical modules sit in benign industrial lighting beside a warehouse robot, emphasizing mass production and low cost, while on the right, the exact same module is being installed into the cramped electronics bay of a silhouetted cruise missile or drone, so that a single visual glance conveys how the standardized, ready-to-use computing core travels effortlessly from civilian automation to military hardware.",
+ "rendered_at_utc": "2026-09-10T02:24:16+00:00",
+ "seconds_waited": 358.6,
+ "vram_free_gb_before_start": 10.79
+}

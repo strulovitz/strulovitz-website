@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+ "model_id": "moonshotai/kimi-k2.6",
+ "model_slug": "moonshotai--kimi-k2.6",
+ "kind": "concept",
+ "concept_slug": "millennium-prize-problems",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 404438249,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "An imposing neoclassical hall engraved with “Clay Mathematics Institute, 2000” frames seven towering marble columns arranged in a semicircle, each crowned with a glowing golden orb representing the $1 million prize; six columns remain wrapped in shadow and swirling equations, while at their shared base a body of fluid splits dramatically into a calm, mirror-smooth stream on one side and a violent, infinitely spiraling turbulence on the other to visualize the Navier–Stokes problem’s question of well-behaved solutions versus impossible infinities, and the single central column stands cleanly broken open with radiant light pouring out to symbolize the solved Poincaré conjecture; in the foreground, a heavy stone examination table holds a sealed million-dollar prize envelope beneath an oversized magnifying glass and the silhouettes of seated experts, capturing the Institute’s requirement that any proof must survive rigorous peer review before the award is granted.",
+ "rendered_at_utc": "2026-09-10T18:00:44+00:00",
+ "seconds_waited": 236.6,
+ "vram_free_gb_before_start": 9.64
+}

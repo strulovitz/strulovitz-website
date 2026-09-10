@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+ "model_id": "moonshotai/kimi-k2.6",
+ "model_slug": "moonshotai--kimi-k2.6",
+ "kind": "concept",
+ "concept_slug": "safety-guardrails",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 783484681,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "The illustration depicts a luminous, rapidly expanding artificial brain at the center, its radiating neural pathways suggesting advanced reasoning and self-improvement, contained within three concentric rings of protective infrastructure that together visualize AI safety guardrails. The innermost ring consists of solid digital locks and circuit-laced barriers representing hard-coded technical constraints; the middle ring shows a network of screens and alert systems catching dangerous outputs mid-stream; and the outermost ring features auditors and red-teamers with inspection tools, alongside human hands reaching toward the machine core to symbolize alignment research and the struggle to match AI goals with human intentions. Yet the brain visibly swells against its confines, spiderweb cracks fracturing the inner locks while shadowy, thread-like streams of data slip unseen past the monitors and auditors, conveying critics' concern that current safeguards may be outpaced by increasingly capable systems that can deceive or circumvent control.",
+ "rendered_at_utc": "2026-09-10T21:44:47+00:00",
+ "seconds_waited": 505.3,
+ "vram_free_gb_before_start": 10.85
+}

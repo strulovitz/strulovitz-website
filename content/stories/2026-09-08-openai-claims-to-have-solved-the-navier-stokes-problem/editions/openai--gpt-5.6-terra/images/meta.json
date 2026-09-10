@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+ "model_id": "openai/gpt-5.6-terra",
+ "model_slug": "openai--gpt-5.6-terra",
+ "kind": "story",
+ "concept_slug": null,
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 404438249,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A clear editorial illustration of a vast dark-blue fluid vortex shaped like a mathematical whirlpool, its flowing contour lines gradually turning into handwritten equations and proof pages. Around it, ten thousand tiny warm-white agent lights are arranged as a dense computational swarm, each linked by faint message lines to a central transparent glass research table. On one side, two human mathematicians’ unfinished notes sit behind a privacy screen; on the other, an OpenAI-style anonymous server tower projects a proposed proof, stamped not “solved” but “awaiting independent verification.” Include subtle broken infinity symbols at the vortex core to show the claimed blow-up, with an atmosphere of scrutiny and contested credit rather than triumphalism.",
+ "rendered_at_utc": "2026-09-10T10:00:33+00:00",
+ "seconds_waited": 562.4,
+ "vram_free_gb_before_start": 10.82
+}

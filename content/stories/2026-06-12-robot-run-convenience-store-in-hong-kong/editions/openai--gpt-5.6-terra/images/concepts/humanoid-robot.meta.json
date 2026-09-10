@@ -1,0 +1,18 @@
+{
+ "story": "2026-06-12-robot-run-convenience-store-in-hong-kong",
+ "model_id": "openai/gpt-5.6-terra",
+ "model_slug": "openai--gpt-5.6-terra",
+ "kind": "concept",
+ "concept_slug": "humanoid-robot",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4097423916,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A clear editorial-style cutaway scene in a familiar workplace that blends a shop, warehouse and kitchen: at the center, a plainly mechanical humanoid robot with torso, head, two articulated arms, hands and slightly bent legs stands beside a human-height counter and shelving, reaching for a jar by its handle while carrying a box, showing why its body fits tools and spaces made for people; visible overlays reveal cameras and depth sensors noticing a nearby worker, internal perception software mapping objects and people, and control signals running to motors in its joints and fingers. Around it, a tipped object, a crowded aisle and uneven floor markings suggest the hard challenges of balance, safe movement and grasping varied items, while a wheeled non-humanoid machine in the background cannot easily reach the same shelf, emphasizing that human shape is useful but not sufficient for general capability.",
+ "rendered_at_utc": "2026-09-09T21:50:46+00:00",
+ "seconds_waited": 440.4,
+ "vram_free_gb_before_start": 10.85
+}

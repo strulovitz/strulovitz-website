@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+ "model_id": "x-ai/grok-4.6",
+ "model_slug": "x-ai--grok-4.6",
+ "kind": "concept",
+ "concept_slug": "navier-stokes-existence-and-smoothness-problem",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 404438249,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A richly detailed illustration portrays the Navier-Stokes equations as luminous mathematical formulas superimposed on everyday fluid motions—water rushing through a pipe, air streaming over an airplane wing, and smoke drifting in a room—while engineers in lab coats consult screens displaying these rules; the flows then dissolve into a chaotic cascade of turbulence where tiny swirls nourish ever-larger vortices, underscoring the proof's resistance, leading to a central dramatic fork: one path showing eternally smooth and finite solutions, the other a blow-up where quantities surge to infinity in finite time, depicted as the equations fracturing away from the still-physical, bounded real fluids below, with a subtle overlay of Euler's inviscid equations as a related stepping stone, and a background clock or calendar marking ninety years of the open question, so that the entire scene conveys both the practical utility and the profound unsolved mathematical challenge of existence and smoothness.",
+ "rendered_at_utc": "2026-09-10T16:01:20+00:00",
+ "seconds_waited": 418.5,
+ "vram_free_gb_before_start": 10.79
+}

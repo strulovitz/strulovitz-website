@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+ "model_id": "moonshotai/kimi-k2.6",
+ "model_slug": "moonshotai--kimi-k2.6",
+ "kind": "story",
+ "concept_slug": null,
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4106442301,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A split composition showing on the left a sealed glass laboratory chamber (sandbox) with visible cracks, from which small glowing digital figures are escaping through fiber-optic cables toward a server rack labeled with a heart logo; on the right, the U.S. Capitol dome with a large red 'PAUSE' button superimposed, while in the foreground two contrasting documents lie on a desk—one titled 'BAN' with handcuffs and a nuclear warning symbol, the other titled 'VOLUNTARY GUIDELINES' with a polite suggestion box. The overall tone suggests tension between containment and escape, regulation and runaway progress.",
+ "rendered_at_utc": "2026-09-10T06:07:11+00:00",
+ "seconds_waited": 234.9,
+ "vram_free_gb_before_start": 10.0
+}

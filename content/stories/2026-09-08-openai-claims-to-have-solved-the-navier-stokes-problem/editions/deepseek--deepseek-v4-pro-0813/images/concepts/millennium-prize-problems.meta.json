@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+ "model_id": "deepseek/deepseek-v4-pro-0813",
+ "model_slug": "deepseek--deepseek-v4-pro-0813",
+ "kind": "concept",
+ "concept_slug": "millennium-prize-problems",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 404438249,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "An illustration depicting a grand marble hall with seven imposing pedestals, each holding a glowing, intricate geometric puzzle box; six of the boxes are locked with heavy chains and padlocks, their surfaces covered in dense equations and question marks, while the seventh, labeled “Poincaré Conjecture,” sits open with its solved mechanism visible and a soft golden light spilling out. Suspended above each pedestal is a large price tag reading “$1,000,000,” but a stern panel of robed mathematicians with magnifying glasses and clipboards stands between the viewer and the boxes, examining a stack of documents on a desk; one of the mathematicians holds a crumpled paper labeled “Blog Post” and shakes their head, while a large hourglass on the desk marked “2-Year Scrutiny” is still running, and a banner overhead reads “Millennium Prize Problems: Seven Challenges, One Solved, Six Remain Open—Only Peer-Reviewed Proofs Collect the Prize.”",
+ "rendered_at_utc": "2026-09-10T16:29:28+00:00",
+ "seconds_waited": 424.7,
+ "vram_free_gb_before_start": 10.85
+}

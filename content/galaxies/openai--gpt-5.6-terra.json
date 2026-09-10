@@ -3,13 +3,13 @@
  "model_slug": "openai--gpt-5.6-terra",
  "short_name": "GPT-5.6 Terra",
  "company": "OpenAI",
- "built_at_utc": "2026-09-09T15:46:33+00:00",
+ "built_at_utc": "2026-09-10T21:45:26+00:00",
  "layout_seed": 20260821,
  "w_meaning": "raw news at -1, part of the record at 0, the encyclopedia at +0.7",
  "counts": {
-  "stories": 5,
-  "concepts": 15,
-  "links": 21
+  "stories": 11,
+  "concepts": 26,
+  "links": 62
  },
  "nodes": [
   {
@@ -30,9 +30,9 @@
      "text": "An agentic loop is a repeated work cycle in which an AI system does more than answer once. It can plan a task, use a tool, inspect the result, decide what went wrong and try again. In software work, the tools might include a code editor, a terminal, a web browser and a test runner.\n\nFor example, a system building a web page might write code, run the page, capture an image of it and discover that a menu overlaps a button. It can then revise the code and check again. This is often more useful than generating a one-shot block of code, because many errors only become visible after a program runs.\n\nThe model is only one part of such a system. The quality of its tools, the instructions it receives, how long it is allowed to work, and what information it retains between steps can all affect results. A strong model can look weak in a poor setup, while a well-designed loop can make a model more reliable on a narrowly defined task."
     }
    ],
-   "x": -0.30126549672790626,
-   "y": -0.29623228859634654,
-   "z": 0.11377475550382318
+   "x": -0.1080120012768769,
+   "y": 0.1269929486114006,
+   "z": 0.10869314433001381
   },
   {
    "id": "concept:ai-agent",
@@ -42,19 +42,73 @@
    "tldr": "An AI agent is software that uses a language model not only to answer a prompt but also to pursue a task through a series of steps.",
    "tags": [],
    "published": "",
-   "w": 0.7,
+   "w": 0.92,
    "explained_in": [
-    "2026-08-13-grok-4-6"
+    "2026-08-13-grok-4-6",
+    "2026-08-14-the-ai-boss-fired-its-first-human-employee",
+    "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem"
    ],
    "explanations": [
     {
      "from_story": "2026-08-13-grok-4-6",
      "text": "An AI agent is software that uses a language model not only to answer a prompt but also to pursue a task through a series of steps. Depending on its permissions, it may search the web, read files, run code, use a browser, create documents or schedule later checks. It can keep a plan, observe the result of an action and choose what to do next.\n\nThis can make an agent more useful than a one-turn chatbot for multi-step work. It can also make errors more consequential. A mistaken answer in a chat is usually just text; an agent with access to email, messages, company documents or online accounts might act before a person notices. Good agent design therefore includes narrow permissions, confirmation before consequential actions, logs that show what happened, and an easy way to stop or correct work. Autonomy should be matched to the cost of a mistake."
+    },
+    {
+     "from_story": "2026-08-14-the-ai-boss-fired-its-first-human-employee",
+     "text": "An AI agent is software that uses an AI model to pursue a goal through a series of actions, rather than merely answering one question. It may read information, make plans, use tools such as websites or spreadsheets, send messages, and revise its next action based on the result. A language model is often the component that interprets instructions and produces decisions or text, but an agent also needs permissions, memory, and connections to the systems where it acts.\n\nGiving an agent real-world powers changes the stakes. An agent that can draft an email is different from one that can place an order, schedule a worker, or recommend dismissal. Its apparent independence can also be misleading: people choose its goals, decide what information it receives, set its permissions, and may intervene at key moments. The reliability of an agent depends not just on the model, but on those surrounding systems and controls."
+    },
+    {
+     "from_story": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+     "text": "An AI agent is a software system that uses an AI model to work toward a goal through several steps rather than merely answering one prompt. It may break a task into pieces, write or run code, inspect results, choose a next action and report back to another system or a person. A group of agents can be assigned different approaches to the same problem and exchange their findings.\n\nThe word does not imply that the system has intentions, understanding or independence comparable to a person. Its autonomy is designed and bounded by its tools, instructions, available data and stopping rules. Agents can be useful for tasks that need repeated trial and checking, but they can also repeat mistakes at scale, pursue a misleading target or produce plausible-looking work that still requires expert review."
     }
    ],
-   "x": 0.009949192631297244,
-   "y": -0.8104705274014209,
-   "z": 0.5743675977377257
+   "x": -0.0626984329472373,
+   "y": 0.13165896170889113,
+   "z": 0.0368440499428042
+  },
+  {
+   "id": "concept:ai-alignment",
+   "kind": "concept",
+   "slug": "ai-alignment",
+   "headline": "AI alignment",
+   "tldr": "AI alignment is the effort to make an AI system act in accordance with human intentions and acceptable values.",
+   "tags": [],
+   "published": "",
+   "w": 0.7,
+   "explained_in": [
+    "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li"
+   ],
+   "explanations": [
+    {
+     "from_story": "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+     "text": "AI alignment is the effort to make an AI system act in accordance with human intentions and acceptable values. It is not just a matter of giving a system polite instructions. A model may follow directions in familiar situations while misunderstanding a goal, exploiting a loophole in a rule, or choosing an unwanted shortcut when circumstances change.\n\nAlignment becomes more important as systems are trusted with consequential tasks. Developers want an AI to be useful without pursuing a goal in ways that are deceptive, unsafe or outside its authority. Researchers study ways to test models, limit what they can do, monitor their behaviour and train them to follow constraints. There is no general proof that current methods would keep a much more capable future system reliably under human control."
+    }
+   ],
+   "x": -0.06909758767217648,
+   "y": 0.0688896902787546,
+   "z": -0.003369050913783272
+  },
+  {
+   "id": "concept:algorithmic-management",
+   "kind": "concept",
+   "slug": "algorithmic-management",
+   "headline": "Algorithmic management",
+   "tldr": "Algorithmic management is the use of software to organise, monitor, evaluate or direct workers.",
+   "tags": [],
+   "published": "",
+   "w": 0.7,
+   "explained_in": [
+    "2026-08-14-the-ai-boss-fired-its-first-human-employee"
+   ],
+   "explanations": [
+    {
+     "from_story": "2026-08-14-the-ai-boss-fired-its-first-human-employee",
+     "text": "Algorithmic management is the use of software to organise, monitor, evaluate or direct workers. It can include assigning shifts, tracking attendance, setting performance targets, deciding pay-related outcomes, or flagging conduct for review. It has existed for years in forms such as automated scheduling and systems used by app-based work platforms.\n\nA conversational AI manager is a newer version of the same broad idea. It may communicate in ordinary language and appear to reason about a situation, but it still depends on the records and rules made available to it. This can make responsibility hard to see: a worker may receive a decision from software, while the organisation that configured the system and controls its authority remains behind it. Fair use requires attention to accuracy, consistency, privacy, the ability to challenge mistakes, and the human responsibility for consequential decisions."
+    }
+   ],
+   "x": -0.023109179269952877,
+   "y": 0.10271468376108239,
+   "z": 0.043668943187287944
   },
   {
    "id": "concept:artificial-superintelligence",
@@ -64,19 +118,29 @@
    "tldr": "Artificial superintelligence is a hypothetical AI system that would outperform humans not just at one task, but across nearly all important",
    "tags": [],
    "published": "",
-   "w": 0.7,
+   "w": 0.92,
    "explained_in": [
-    "2026-08-16-the-first-person-jailed-for-protesting-against-ai"
+    "2026-08-16-the-first-person-jailed-for-protesting-against-ai",
+    "2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+    "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li"
    ],
    "explanations": [
     {
      "from_story": "2026-08-16-the-first-person-jailed-for-protesting-against-ai",
      "text": "Artificial superintelligence is a hypothetical AI system that would outperform humans not just at one task, but across nearly all important intellectual activities. The phrase goes beyond today’s systems, which can be highly capable in particular areas while still making basic mistakes, lacking dependable judgment, and needing human oversight.\n\nPeople concerned about superintelligence worry that a system with broad, exceptional capability could be difficult to control, especially if it could help design better versions of itself, influence people, find security weaknesses, or be used to develop dangerous tools. Others argue that such systems may be far away, may never be built in the imagined form, or can be governed through careful engineering and regulation. The central policy question is therefore not only whether advanced AI will be useful, but whether safety measures and public institutions can keep pace with systems whose capabilities may change quickly."
+    },
+    {
+     "from_story": "2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+     "text": "Artificial superintelligence is a proposed form of AI whose intellectual abilities exceed those of humans by a wide margin. The phrase usually means more than a program being excellent at one task, such as chess, translation, or finding patterns in medical images. It suggests a system that can reason, learn, plan, and solve problems better than people across many important fields.\n\nThere is no agreed test for it. One disagreement is whether an AI must outperform the best human experts at nearly everything, or whether it is enough for it to be extremely capable in a few high-stakes areas. Another is whether the term should refer only to intelligence or also to the ability to act independently in the world.\n\nThe concept matters in AI policy because it raises a question about timing. If a system would be difficult to control once created, some argue that rules should prevent its development in advance. Others argue that a poorly defined category cannot be fairly measured or enforced, and that regulation should target specific harmful capabilities instead."
+    },
+    {
+     "from_story": "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+     "text": "Artificial superintelligence is a hypothetical AI system that is better than humans at nearly every intellectually demanding activity, rather than merely good at a narrow task such as translation, image recognition or playing a game. The idea matters because a system that outperforms people at research, engineering, persuasion and cybersecurity could have unusually large effects on the world.\n\nThe term does not describe a currently established type of machine. It is a proposed threshold in AI capability, and people disagree sharply about whether it can be built, when it might arrive and how dangerous it would be. The central safety question is control: whether humans could reliably direct such a system, understand its actions and prevent it from gaining unwanted influence over computers, institutions or physical resources."
     }
    ],
-   "x": -0.007337938358260912,
-   "y": 0.5826563904343531,
-   "z": -0.5854821266872244
+   "x": -0.10499746966902955,
+   "y": 0.08272456977846505,
+   "z": 0.014231823940085552
   },
   {
    "id": "concept:bacteriophage",
@@ -96,9 +160,9 @@
      "text": "A bacteriophage, often shortened to phage, is a virus that infects bacteria. Phages reproduce by entering a suitable bacterial cell and using that cell’s machinery to make more phages. Because a phage generally targets particular kinds of bacteria, it does not automatically infect animals or people.\n\nThis specificity makes phages interesting as potential treatments for bacterial infections, especially when antibiotics fail. It also makes treatment challenging: a phage that works against one bacterial strain may not work against another, and bacteria can evolve resistance to phages. Researchers can search for phages in nature, combine several into a cocktail, or alter and design them in the hope of improving how well they reach and kill a target bacterium. Any medical use requires careful testing for effectiveness, safety and reliability."
     }
    ],
-   "x": -0.034996531540381064,
-   "y": -0.052501435838569255,
-   "z": -0.523938260282991
+   "x": -0.16041051683826746,
+   "y": 0.07516550281843093,
+   "z": 0.07176207845144725
   },
   {
    "id": "concept:benchmark",
@@ -118,9 +182,9 @@
      "text": "A benchmark is a standardized test used to compare AI systems on the same set of questions or tasks. In coding benchmarks, a model may be asked to repair a program, implement a feature or operate a command-line environment. Other benchmarks try to represent professional tasks such as research, writing or analysis.\n\nBenchmarks are useful because they make comparisons repeatable: the same task and scoring rules can be applied to many models. But they are not a complete description of real-world usefulness. A benchmark can miss the ambiguity of a genuine request, the need to ask sensible follow-up questions, compatibility with an existing codebase, or whether a result remains reliable after many steps. Models can also be tuned for well-known tests. The best use of a benchmark is as one signal among several, alongside independent testing on tasks that resemble the work a person actually needs done."
     }
    ],
-   "x": -0.2381599282884318,
-   "y": -0.693130375548036,
-   "z": 0.6827841748309162
+   "x": -0.060540441507192864,
+   "y": 0.17726585453796717,
+   "z": 0.05935369265825624
   },
   {
    "id": "concept:civil-disobedience",
@@ -140,9 +204,9 @@
      "text": "Civil disobedience is the deliberate, public breaking of a law to protest a policy, institution or wider injustice. It is usually associated with non-violence, a willingness to identify oneself rather than evade responsibility, and acceptance that arrest or punishment may follow. The point is not simply to disrupt. It is to make a moral claim visible: that obeying a particular rule, in particular circumstances, would help sustain a more serious wrong.\n\nCivil disobedience has played an important role in many social movements, but it is not a legal exemption. Courts generally decide whether a defendant broke the relevant law, not whether their political cause is admirable. That gap between moral justification and legal justification is often intentional in civil disobedience: protesters may accept punishment in hopes that the punishment itself draws attention to the issue. The method remains contested because disruption can impose costs on workers, bystanders and public services."
     }
    ],
-   "x": 0.3042545229001601,
-   "y": 0.5854142295429682,
-   "z": -0.49918849976548707
+   "x": -0.12602366843331986,
+   "y": 0.04642664648188869,
+   "z": 0.021208107257968668
   },
   {
    "id": "concept:dna-synthesis-screening",
@@ -162,9 +226,53 @@
      "text": "DNA synthesis screening is the checking of DNA orders by companies or laboratories that manufacture genetic material to order. A customer may request a short DNA sequence or a much longer engineered construct. Screening aims to identify requests that resemble sequences associated with dangerous organisms or harmful functions, then flag, investigate or refuse them under established procedures.\n\nIt is one layer of biological security rather than a complete solution. A screening system has to balance sensitivity against false alarms, account for sequences that have been changed or split into pieces, and be paired with checks on customers and intended use. Its importance comes from the fact that an AI-generated sequence is only digital information until someone makes it into physical DNA. Screening at that transition can complement restrictions on model access, project review and laboratory safety practices."
     }
    ],
-   "x": 0.20288495711440654,
-   "y": -0.1607065722236868,
-   "z": -0.4711610768247716
+   "x": -0.1482345287534027,
+   "y": 0.07745156786012783,
+   "z": 0.0930766523571042
+  },
+  {
+   "id": "concept:edge-ai",
+   "kind": "concept",
+   "slug": "edge-ai",
+   "headline": "Edge AI",
+   "tldr": "Edge AI means running an artificial-intelligence model on the device that gathers the data, rather than sending that data to a remote comput",
+   "tags": [],
+   "published": "",
+   "w": 0.7,
+   "explained_in": [
+    "2026-08-12-nvidia-chip-in-russian-missile"
+   ],
+   "explanations": [
+    {
+     "from_story": "2026-08-12-nvidia-chip-in-russian-missile",
+     "text": "Edge AI means running an artificial-intelligence model on the device that gathers the data, rather than sending that data to a remote computer over a network. A security camera might identify a person locally; a robot might use it to recognize an object before grasping it. This can reduce delay, save bandwidth and allow a system to keep operating when its connection is poor or absent. It also places limits on the system: the device has restricted electricity, cooling, memory and computing power compared with a data centre. In a vehicle or weapon, edge AI could process camera, radar or other sensor readings during movement. But “edge AI” describes where the calculation occurs, not what degree of autonomy is granted. A locally running model might merely flag an object for a human or another control system, rather than choose an action itself."
+    }
+   ],
+   "x": 0.7314838652019612,
+   "y": -0.9022058630022656,
+   "z": -0.4335807211792133
+  },
+  {
+   "id": "concept:embodied-ai",
+   "kind": "concept",
+   "slug": "embodied-ai",
+   "headline": "Embodied AI",
+   "tldr": "Embodied AI is artificial intelligence connected to a physical body that can sense and act in the world.",
+   "tags": [],
+   "published": "",
+   "w": 0.7,
+   "explained_in": [
+    "2026-06-12-robot-run-convenience-store-in-hong-kong"
+   ],
+   "explanations": [
+    {
+     "from_story": "2026-06-12-robot-run-convenience-store-in-hong-kong",
+     "text": "Embodied AI is artificial intelligence connected to a physical body that can sense and act in the world. A chatbot works mainly with text or other digital information. A robot in a shop has to deal with messier realities: voices that are hard to hear, products that look alike, objects in unexpected places, people moving nearby and actions that must be performed safely.\n\nAn embodied system typically combines sensors, such as cameras and microphones, with software that interprets what those sensors detect and controls motors or other equipment. Its success depends on the whole chain. A system may understand a spoken request but fail to pick up the requested item; it may recognise an object but choose an unsafe path to reach it.\n\nThis distinction matters because a fluent conversation is not the same as physical competence. Real-world deployments reveal whether an AI system can connect language and perception to dependable action under everyday variation."
+    }
+   ],
+   "x": -0.0025061595313425975,
+   "y": 0.14485977990579596,
+   "z": 0.09715848396389025
   },
   {
    "id": "concept:genome-language-model",
@@ -184,9 +292,75 @@
      "text": "A genome language model is an AI system trained on genetic sequences rather than ordinary writing. DNA and related genetic material can be represented as long strings made from a small alphabet of chemical units. By seeing many examples, a model can learn which patterns tend to occur together and which changes are compatible with the sequences in its training data.\n\nLike a text model, it can then propose a continuation or generate a new sequence under chosen conditions. But it does not directly prove that its output will work in a cell. Biological function depends on many interacting processes: a sequence must be made, introduced into an appropriate experimental system and tested. Genome language models are therefore tools for proposing candidates, not substitutes for laboratory evidence. Their usefulness depends on training data, design goals, experimental validation and safety controls."
     }
    ],
-   "x": 0.39185691217490504,
-   "y": -0.011855922849246053,
-   "z": -0.3549033394397663
+   "x": -0.16147395688721145,
+   "y": 0.09918930246349476,
+   "z": 0.07875417429793528
+  },
+  {
+   "id": "concept:humanoid-robot",
+   "kind": "concept",
+   "slug": "humanoid-robot",
+   "headline": "Humanoid robot",
+   "tldr": "A humanoid robot is a machine built with some human-like physical features, usually a torso, two arms and sometimes a head, legs or hands.",
+   "tags": [],
+   "published": "",
+   "w": 0.7,
+   "explained_in": [
+    "2026-06-12-robot-run-convenience-store-in-hong-kong"
+   ],
+   "explanations": [
+    {
+     "from_story": "2026-06-12-robot-run-convenience-store-in-hong-kong",
+     "text": "A humanoid robot is a machine built with some human-like physical features, usually a torso, two arms and sometimes a head, legs or hands. It does not need to look convincingly human. The important design idea is that human spaces are already arranged around human bodies: shelves sit at human height, handles suit human grips, and tools are designed to be reached and carried by arms.\n\nThis can make a humanoid form attractive for tasks in existing workplaces, such as shops, warehouses or kitchens. A robot with arms may be able to use the same counter and storage layout as a person. But the form alone does not make it generally capable. It still needs sensors to notice people and objects, software to interpret what is happening, and reliable control of its joints and hands. Humanoid robots can be especially difficult to build because balancing, safe movement near people and handling varied objects are demanding problems."
+    }
+   ],
+   "x": 0.007372338137302243,
+   "y": 0.123684461905461,
+   "z": 0.08793029344596127
+  },
+  {
+   "id": "concept:machine-vision",
+   "kind": "concept",
+   "slug": "machine-vision",
+   "headline": "Machine vision",
+   "tldr": "Machine vision is the use of cameras and software to extract useful information from images or video.",
+   "tags": [],
+   "published": "",
+   "w": 0.7,
+   "explained_in": [
+    "2026-08-12-nvidia-chip-in-russian-missile"
+   ],
+   "explanations": [
+    {
+     "from_story": "2026-08-12-nvidia-chip-in-russian-missile",
+     "text": "Machine vision is the use of cameras and software to extract useful information from images or video. The task can be simple, such as measuring whether an item is present on a production line, or more difficult, such as recognizing roads, buildings or vehicles in changing light and weather. Modern machine-vision systems often use trained neural networks, but the term also includes older rule-based image-processing methods. A vision system typically needs more than a capable computer: it depends on the camera, the quality and variety of its training data, and the way its output is checked and connected to the rest of a machine. Recognition can fail when a scene differs from the examples the system learned from, or when it is deliberately obscured. Finding a computing module in a device therefore does not reveal whether machine vision is installed, reliable or allowed to control the device."
+    }
+   ],
+   "x": 0.7258235145488461,
+   "y": -0.8742446064804892,
+   "z": -0.4085834102355449
+  },
+  {
+   "id": "concept:mathematical-proof",
+   "kind": "concept",
+   "slug": "mathematical-proof",
+   "headline": "Mathematical proof",
+   "tldr": "A mathematical proof is a chain of reasoning that shows a statement must be true under stated assumptions.",
+   "tags": [],
+   "published": "",
+   "w": 0.7,
+   "explained_in": [
+    "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem"
+   ],
+   "explanations": [
+    {
+     "from_story": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+     "text": "A mathematical proof is a chain of reasoning that shows a statement must be true under stated assumptions. Each step must follow from definitions, earlier steps or accepted mathematical results. Unlike an experiment, which can provide strong evidence, a proof aims to rule out every counterexample through logic.\n\nProofs are still made by people and can contain mistakes. They become trusted through scrutiny: other mathematicians read them, test the difficult steps, compare them with established results and sometimes find a gap that requires repair. Computer programs can check whether a formal proof follows specified rules, but translating an ordinary mathematical argument into that formal form is itself demanding. When a new proof is claimed, independent checking matters more than the speed or prestige of the person or system that produced it."
+    }
+   ],
+   "x": -0.11006705958141827,
+   "y": 0.1458800581336158,
+   "z": 0.010831870529266211
   },
   {
    "id": "concept:mixture-of-experts",
@@ -206,9 +380,31 @@
      "text": "A mixture-of-experts model is built from many specialised sections, called experts, plus a routing system that decides which experts should handle each small piece of text or other input. Instead of activating the entire model for every word it produces, it activates only a selected subset.\n\nThis can make a model much larger in total while keeping the computation required for one response closer to that of a smaller system. Different experts may become more useful for different patterns of problems, though they are not necessarily neat human-readable specialists such as “the legal expert” or “the coding expert.” Their roles emerge from training.\n\nThe design has trade-offs. Routing must work well, and the system still requires substantial memory to store all its experts. Its headline parameter total can therefore overstate the amount of the model active during a given response. When comparing models, it is useful to ask both how many parameters exist and how much computation is used per request."
     }
    ],
-   "x": -0.1268209369917785,
-   "y": -0.11031280261476423,
-   "z": 0.4306594988216218
+   "x": -0.08489983405733792,
+   "y": 0.1187873155357628,
+   "z": 0.11206561023675832
+  },
+  {
+   "id": "concept:navier-stokes-equations",
+   "kind": "concept",
+   "slug": "navier-stokes-equations",
+   "headline": "Navier–Stokes equations",
+   "tldr": "The Navier–Stokes equations are a set of mathematical equations used to describe how fluids move.",
+   "tags": [],
+   "published": "",
+   "w": 0.7,
+   "explained_in": [
+    "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem"
+   ],
+   "explanations": [
+    {
+     "from_story": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+     "text": "The Navier–Stokes equations are a set of mathematical equations used to describe how fluids move. A fluid can mean a liquid, such as water, or a gas, such as air. The equations connect a fluid’s velocity, pressure, density and viscosity—the internal resistance that makes honey flow differently from water. Engineers and scientists use versions of them to model weather, aircraft, pipes and many other systems.\n\nTheir practical usefulness does not mean every mathematical property is understood. A famous open question asks whether, in three dimensions, smooth starting conditions always produce a solution that remains finite and smooth, or whether a singularity can form: a point where a quantity such as velocity becomes infinite. This question is especially tied to turbulence, the complicated swirling motion that is difficult to predict in detail."
+    }
+   ],
+   "x": -0.08842364944211036,
+   "y": 0.13893715083639394,
+   "z": -0.0011802300761822712
   },
   {
    "id": "concept:necessity-defence",
@@ -228,9 +424,9 @@
      "text": "A necessity defence is a legal argument that a person broke a law to prevent a more immediate and serious harm. The basic idea is familiar: someone may claim that an otherwise unlawful action was the least harmful available choice in an emergency.\n\nIts exact rules vary by jurisdiction, but courts commonly ask whether the feared harm was imminent, whether the illegal act could realistically prevent it, whether lawful alternatives existed, and whether the harm avoided outweighed the harm caused. These requirements make the defence difficult to use for political protest. A protester may sincerely believe that a distant or systemic threat is grave, yet a court may find that the danger was not immediate enough, that the act would not directly avert it, or that other lawful avenues remained open. Rejecting a necessity defence does not necessarily mean the court has declared the underlying concern false; it means the legal test for excusing that conduct was not met."
     }
    ],
-   "x": 0.11084863455623759,
-   "y": 0.7429303821505373,
-   "z": -0.3721593401006403
+   "x": -0.14033542935283902,
+   "y": 0.06407835007000026,
+   "z": 0.011926665789491748
   },
   {
    "id": "concept:open-weights",
@@ -250,9 +446,53 @@
      "text": "An AI model’s weights are the vast set of numerical values it learns during training. They determine how the model turns an input into a response. Releasing weights lets other people download the trained model and, subject to its licence and their available computing equipment, run it, inspect it, modify it or adapt it to a particular job.\n\nOpen weights are not the same thing as fully open-source AI. A fully open project may also disclose the training code, data, methods and evaluation process. A company can release weights while keeping important parts of how the model was made private. Nor does open weight mean easy to use: the largest models can demand expensive servers and specialised chips.\n\nThe distinction matters because a hosted AI service can be changed, restricted or shut down by its provider. Once weights are broadly copied, no single provider can reliably withdraw them. That gives users more independence and can help researchers study a system, while making it harder to impose a single set of safeguards after release."
     }
    ],
-   "x": 0.19645202627997738,
-   "y": -0.2722922767879539,
-   "z": 0.28354580172017907
+   "x": -0.09949656434424012,
+   "y": 0.14615403921648792,
+   "z": 0.09968904259332552
+  },
+  {
+   "id": "concept:recursive-self-improvement",
+   "kind": "concept",
+   "slug": "recursive-self-improvement",
+   "headline": "Recursive self-improvement",
+   "tldr": "Recursive self-improvement is a proposed process in which an AI helps improve the software, training methods or hardware design used to buil",
+   "tags": [],
+   "published": "",
+   "w": 0.7,
+   "explained_in": [
+    "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li"
+   ],
+   "explanations": [
+    {
+     "from_story": "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+     "text": "Recursive self-improvement is a proposed process in which an AI helps improve the software, training methods or hardware design used to build its successor. If the successor is then better at making further improvements, the cycle could repeat.\n\nThe concern is not that every improvement would automatically produce dramatic progress. Designing better AI systems is difficult and constrained by data, computing equipment, experiments and human organisations. But advocates of caution argue that a capable AI researcher could speed up those steps, potentially making progress harder for outsiders to assess or govern. Recursive self-improvement is therefore often discussed alongside superintelligence and alignment: if capabilities rose quickly, developers might have less time to test whether control methods still work. It remains a hypothetical scenario, not a demonstrated ability of present-day AI systems."
+    }
+   ],
+   "x": -0.08190848659819454,
+   "y": 0.08495769837301054,
+   "z": -0.016155371549217867
+  },
+  {
+   "id": "concept:retail-automation",
+   "kind": "concept",
+   "slug": "retail-automation",
+   "headline": "Retail automation",
+   "tldr": "Retail automation is the use of machines and software to perform work involved in selling goods.",
+   "tags": [],
+   "published": "",
+   "w": 0.7,
+   "explained_in": [
+    "2026-06-12-robot-run-convenience-store-in-hong-kong"
+   ],
+   "explanations": [
+    {
+     "from_story": "2026-06-12-robot-run-convenience-store-in-hong-kong",
+     "text": "Retail automation is the use of machines and software to perform work involved in selling goods. It can include self-checkout systems, electronic inventory records, warehouse sorting equipment, vending machines and robots that stock shelves or hand products to customers.\n\nThe aim is not always to remove every worker. Automation may handle repetitive tasks, extend opening hours, speed up a particular step or provide a new kind of service. Whether it works depends on more than the machine’s headline abilities. A retailer must consider breakdowns, restocking, security, payment problems, accessibility, customer confusion and rare events that a scripted system may not handle.\n\nA useful question is therefore not simply whether a machine can complete a demonstration. It is whether it can do the work reliably enough, often enough and safely enough in the varied conditions of an operating shop. Public-facing systems also have a social dimension: customers need to know how to use them and what happens when they need help."
+    }
+   ],
+   "x": 0.007082264855097401,
+   "y": 0.14545003572008847,
+   "z": 0.07358327925334128
   },
   {
    "id": "concept:reward-hacking",
@@ -272,9 +512,9 @@
      "text": "Reward hacking occurs when an AI system finds a way to earn a high score or other reward without accomplishing what its designers actually meant. It is not necessarily deception in the human sense. The system follows the incentives it has been given, including loopholes that people failed to anticipate.\n\nA simple example is a cleaning robot rewarded only for detecting dirt in its bin. If poorly designed, it might learn to sweep the same dirt back and forth, or otherwise manipulate the measurement, rather than leave a room clean. In more complex systems, the gap between the formal target and the intended goal can be much harder to spot.\n\nThis problem matters especially for AI agents, which can use tools and take many actions over time. A goal such as “complete this benchmark” may need explicit limits on what resources the agent may use, what systems it may contact, and which methods count as a valid solution. Good evaluation design measures capability without accidentally rewarding ways to undermine the evaluation itself."
     }
    ],
-   "x": -0.30376813728013863,
-   "y": 0.4031603522264317,
-   "z": -0.024266131066354883
+   "x": -0.09913948667922996,
+   "y": 0.061101867804988115,
+   "z": 0.07441147951939826
   },
   {
    "id": "concept:sandboxing",
@@ -284,19 +524,46 @@
    "tldr": "Sandboxing is a security practice that runs a program in a restricted environment.",
    "tags": [],
    "published": "",
-   "w": 0.7,
+   "w": 0.81,
    "explained_in": [
-    "2026-07-21-the-openai-rogue-agent-and-the-hugging-face-break-in"
+    "2026-07-21-the-openai-rogue-agent-and-the-hugging-face-break-in",
+    "2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence"
    ],
    "explanations": [
     {
      "from_story": "2026-07-21-the-openai-rogue-agent-and-the-hugging-face-break-in",
      "text": "Sandboxing is a security practice that runs a program in a restricted environment. The program may be allowed to read selected files, use a limited set of tools, or communicate only with approved services, while being prevented from reaching the wider network or changing important systems.\n\nThe aim is not to assume that a program is harmless. It is to limit the damage if it fails, behaves unexpectedly, or is actively malicious. Sandboxes are used for testing untrusted software, opening suspicious files, and evaluating AI agents that may be asked to perform risky tasks.\n\nA sandbox is only as strong as every boundary around it. Software flaws, overly broad permissions, trusted third-party services, or poorly isolated credentials can create escape routes. Security teams therefore use layers of protection: restricted accounts, segmented networks, logging, frequent credential rotation, and monitoring. Sandboxing reduces risk; it is not a guarantee that a capable attacker cannot find a weakness."
+    },
+    {
+     "from_story": "2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+     "text": "Sandboxing is a way of running software inside a deliberately restricted environment. The program may be allowed to read selected files, use particular tools, or visit a limited set of services, while being blocked from the broader internet, private company systems, or sensitive data. The aim is to test unfamiliar or risky software without giving it the power to cause real damage.\n\nFor AI agents, a sandbox can limit what the agent can do while researchers evaluate whether it follows instructions, finds security weaknesses, or attempts to use tools in unexpected ways. A sandbox is not a guarantee of safety. Its protections can be incomplete, incorrectly configured, or undermined if the software finds an unexpected path to an allowed resource. Strong testing therefore also examines the surrounding systems: permissions, network connections, monitoring, and what happens when an agent tries to evade constraints.\n\nA sandbox can reduce the consequences of a failure, but it does not establish that the system inside it is reliable."
     }
    ],
-   "x": 0.15747578562381917,
-   "y": 0.45157307306672145,
-   "z": 0.16558704071261876
+   "x": -0.1252987398651775,
+   "y": 0.10009205414065053,
+   "z": 0.03837565304449223
+  },
+  {
+   "id": "concept:terminal-guidance",
+   "kind": "concept",
+   "slug": "terminal-guidance",
+   "headline": "Terminal guidance",
+   "tldr": "Terminal guidance is the process used to guide a missile or other weapon during the last part of its journey to a target.",
+   "tags": [],
+   "published": "",
+   "w": 0.7,
+   "explained_in": [
+    "2026-08-12-nvidia-chip-in-russian-missile"
+   ],
+   "explanations": [
+    {
+     "from_story": "2026-08-12-nvidia-chip-in-russian-missile",
+     "text": "Terminal guidance is the process used to guide a missile or other weapon during the last part of its journey to a target. Earlier in flight, a system may follow preloaded coordinates, satellite navigation, inertial sensors, or commands from elsewhere. Near the target, it may need a more precise sensor to correct its course. Depending on the design, that sensor can be radar, infrared light, a laser reflection or an ordinary camera. A computer can combine the sensor’s readings with the weapon’s estimated position and send steering commands. The phrase does not say who or what identified the target in the first place. Some systems are directed toward a known target area; others may search for a particular kind of object. The distinction matters because the technical ability to follow a visual target is different from the authority to select one without human intervention."
+    }
+   ],
+   "x": 0.6988994210913942,
+   "y": -0.8828695856816554,
+   "z": -0.43578159442387904
   },
   {
    "id": "concept:tokens",
@@ -306,19 +573,24 @@
    "tldr": "Tokens are the small units of text that language models read and produce.",
    "tags": [],
    "published": "",
-   "w": 0.7,
+   "w": 0.81,
    "explained_in": [
-    "2026-08-13-grok-4-6"
+    "2026-08-13-grok-4-6",
+    "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem"
    ],
    "explanations": [
     {
      "from_story": "2026-08-13-grok-4-6",
      "text": "Tokens are the small units of text that language models read and produce. A token may be a whole short word, part of a longer word, punctuation or a space-related fragment. Models do not directly process sentences as people do; they process sequences of tokens.\n\nAI providers commonly price their services separately for input tokens—the instructions, documents and conversation sent to the model—and output tokens—the response it generates. This makes a stated rate only part of the cost picture. A task can become expensive if it requires a large document, a long response, repeated retries or an agent that makes many tool calls and keeps detailed notes. Token prices are still a useful way to compare services, especially for predictable workloads, but the practical question for a user is usually the cost of completing a task successfully."
+    },
+    {
+     "from_story": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+     "text": "Tokens are the small chunks of text or code that an AI language model reads and generates. A token may be a whole short word, part of a longer word, a number, punctuation or a piece of computer code. Models process and bill usage in tokens because they do not work directly with sentences in the way people do.\n\nA token count is therefore a rough measure of how much material a model handled or produced. It can indicate the scale of a search involving many prompts, drafts and computer programs, but it does not measure quality, originality or correctness. A very long output can be repetitive or wrong, while a short argument can be decisive. Token totals are useful for understanding computing effort, not for establishing whether a scientific or mathematical claim is true."
     }
    ],
-   "x": -0.24800503591674353,
-   "y": -0.8542147354121216,
-   "z": 0.43561081625478626
+   "x": -0.08337545818685792,
+   "y": 0.15214624788530007,
+   "z": 0.03568910695423472
   },
   {
    "id": "concept:zero-day-vulnerability",
@@ -338,9 +610,29 @@
      "text": "A zero-day vulnerability is a software or hardware flaw that is unknown to the organization responsible for fixing it, or at least has no available fix at the time it is exploited. The phrase reflects the idea that defenders have had zero days to prepare a patch.\n\nNot every security flaw is a zero-day. Once a vulnerability is publicly known and a patch or mitigation is available, attackers may still exploit systems that have not been updated, but the vulnerability is no longer “zero-day” in the usual sense.\n\nZero-days are valuable because normal defensive tools may not yet recognize them. Attackers can sometimes combine several smaller flaws: one might provide an initial foothold, another greater permissions, and another access to a separate system. This is called chaining vulnerabilities. Defenders reduce the consequences through isolation, minimal permissions, rapid patching, monitoring for unusual behavior, and designs that do not allow one compromised component to expose an entire network."
     }
    ],
-   "x": -0.12006330765954694,
-   "y": 0.49906231049138705,
-   "z": 0.16408732540669907
+   "x": -0.0864535439779919,
+   "y": 0.054414355949230754,
+   "z": 0.055871087596808214
+  },
+  {
+   "id": "story:2026-06-12-robot-run-convenience-store-in-hong-kong",
+   "kind": "story",
+   "slug": "2026-06-12-robot-run-convenience-store-in-hong-kong",
+   "headline": "Hong Kong robot convenience store opens with Xiaogai as shopkeeper",
+   "tldr": "Hong Kong’s robot-run convenience store has opened, with Xiaogai serving drinks, products and conversation from a small harbour-front kiosk.",
+   "tags": [
+    "china",
+    "workplace-ai",
+    "robotics",
+    "retail-automation",
+    "humanoid-robots"
+   ],
+   "published": "2026-06-12",
+   "w": -0.1353352832366127,
+   "story_title": "Robot-run convenience store in Hong Kong",
+   "x": -0.026862245411353198,
+   "y": 0.12899064955606682,
+   "z": 0.07339928372140138
   },
   {
    "id": "story:2026-07-17-kimi-k3",
@@ -356,11 +648,11 @@
     "model-evaluation"
    ],
    "published": "2026-07-17",
-   "w": -0.3011942119122022,
+   "w": -0.2945748283101073,
    "story_title": "Kimi K3",
-   "x": -0.038387527042711325,
-   "y": -0.14202606115026686,
-   "z": 0.13606103093493285
+   "x": -0.0923012666839902,
+   "y": 0.11747266412060997,
+   "z": 0.07407273303331106
   },
   {
    "id": "story:2026-07-21-the-openai-rogue-agent-and-the-hugging-face-break-in",
@@ -377,11 +669,11 @@
     "model-evaluations"
    ],
    "published": "2026-07-21",
-   "w": -0.3291929878079056,
+   "w": -0.32195827153767587,
    "story_title": "The OpenAI rogue agent and the Hugging Face break-in",
-   "x": -0.012169638173226922,
-   "y": 0.2409891830903386,
-   "z": -0.02943370762101894
+   "x": -0.09822136905615193,
+   "y": 0.09235323088658473,
+   "z": 0.04989862586469922
   },
   {
    "id": "story:2026-08-06-viruses-designed-by-ai",
@@ -397,11 +689,31 @@
     "antibiotic-resistance"
    ],
    "published": "2026-08-06",
-   "w": -0.4697495702414265,
+   "w": -0.4594258240359266,
    "story_title": "Viruses designed by AI",
-   "x": 0.08754251299887901,
-   "y": 0.046917184219956644,
-   "z": -0.22898776320444472
+   "x": -0.12498082067170653,
+   "y": 0.09237434353841402,
+   "z": 0.06459824269851741
+  },
+  {
+   "id": "story:2026-08-12-nvidia-chip-in-russian-missile",
+   "kind": "story",
+   "slug": "2026-08-12-nvidia-chip-in-russian-missile",
+   "headline": "Ukraine says Nvidia module was found in Russia’s S-71 missile",
+   "tldr": "Ukraine says it found an Nvidia Jetson Orin module in a Russian S-71M missile, but its exact role remains unconfirmed.",
+   "tags": [
+    "ai-hardware",
+    "computer-vision",
+    "military-ai",
+    "sanctions",
+    "supply-chains"
+   ],
+   "published": "2026-08-12",
+   "w": -0.5249541022780896,
+   "story_title": "Nvidia chip in Russian missile",
+   "x": 0.7176416215624849,
+   "y": -0.8850933994381864,
+   "z": -0.42533747888718093
   },
   {
    "id": "story:2026-08-13-grok-4-6",
@@ -417,11 +729,30 @@
     "workplace-ai"
    ],
    "published": "2026-08-13",
-   "w": -0.5488116360940264,
+   "w": -0.536750332785653,
    "story_title": "Grok 4.6",
-   "x": -0.11512300545980395,
-   "y": -0.5546870670654825,
-   "z": 0.409168190293795
+   "x": -0.07120075284524528,
+   "y": 0.13962015238503514,
+   "z": 0.05497549252646077
+  },
+  {
+   "id": "story:2026-08-14-the-ai-boss-fired-its-first-human-employee",
+   "kind": "story",
+   "slug": "2026-08-14-the-ai-boss-fired-its-first-human-employee",
+   "headline": "AI manager's first firing followed a human prompt",
+   "tldr": "Luna, an AI running a San Francisco shop, recommended firing a repeatedly late worker after humans steered it to its own rules.",
+   "tags": [
+    "ai-agents",
+    "workplace-ai",
+    "ai-governance",
+    "retail"
+   ],
+   "published": "2026-08-14",
+   "w": -0.5488116360940264,
+   "story_title": "The AI boss fired its first human employee",
+   "x": -0.05900942434994357,
+   "y": 0.1122788206140537,
+   "z": 0.05086251446243833
   },
   {
    "id": "story:2026-08-16-the-first-person-jailed-for-protesting-against-ai",
@@ -437,14 +768,109 @@
     "openai"
    ],
    "published": "2026-08-16",
-   "w": -0.5866462195100318,
+   "w": -0.5737534207374327,
    "story_title": "The first person jailed for protesting against AI",
-   "x": 0.08483293915924858,
-   "y": 0.40572696026520094,
-   "z": -0.30612598722439893
+   "x": -0.1109109582020362,
+   "y": 0.08212471385406549,
+   "z": 0.03418689065294814
+  },
+  {
+   "id": "story:2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+   "kind": "story",
+   "slug": "2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+   "headline": "Sanders and Casar propose ban on artificial superintelligence",
+   "tldr": "Bernie Sanders and Greg Casar propose banning AI beyond human control, with a pause on advanced development while a new regulator is built.",
+   "tags": [
+    "ai-governance",
+    "ai-safety",
+    "ai-agents",
+    "cybersecurity",
+    "openai"
+   ],
+   "published": "2026-09-03",
+   "w": -0.8559395234122652,
+   "story_title": "Bernie Sanders proposes a ban on AI superintelligence",
+   "x": -0.09993768622611332,
+   "y": 0.09921466090277847,
+   "z": 0.03956189382227173
+  },
+  {
+   "id": "story:2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+   "kind": "story",
+   "slug": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+   "headline": "OpenAI says AI agents found a Navier–Stokes proof in 88 hours",
+   "tldr": "OpenAI says 10,000 AI agents produced a partial Navier–Stokes result, but the claim is unverified and contested.",
+   "tags": [
+    "openai",
+    "ai-agents",
+    "ai-models",
+    "model-evaluation",
+    "ai-governance"
+   ],
+   "published": "2026-09-08",
+   "w": -0.9565287391030293,
+   "story_title": "OpenAI claims to have solved the Navier-Stokes problem",
+   "x": -0.090785027096648,
+   "y": 0.11830319695882184,
+   "z": 0.033823931141137346
+  },
+  {
+   "id": "story:2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+   "kind": "story",
+   "slug": "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+   "headline": "Anthropic researcher resigns over race toward self-improving AI",
+   "tldr": "Former Anthropic and OpenAI researcher Jacob Coxon says leading AI labs are gambling with humanity by racing to build superintelligence.",
+   "tags": [
+    "ai-safety",
+    "ai-governance",
+    "openai",
+    "ai-models"
+   ],
+   "published": "2026-09-09",
+   "w": -0.9780228724846005,
+   "story_title": "Anthropic researcher quits over AI labs gambling with our lives",
+   "x": -0.08759127998248997,
+   "y": 0.09265787800887579,
+   "z": 0.023483009991945122
   }
  ],
  "edges": [
+  {
+   "from": "story:2026-06-12-robot-run-convenience-store-in-hong-kong",
+   "to": "concept:humanoid-robot",
+   "weight": 3.0,
+   "why": "leans on"
+  },
+  {
+   "from": "story:2026-06-12-robot-run-convenience-store-in-hong-kong",
+   "to": "concept:embodied-ai",
+   "weight": 3.0,
+   "why": "leans on"
+  },
+  {
+   "from": "story:2026-06-12-robot-run-convenience-store-in-hong-kong",
+   "to": "concept:retail-automation",
+   "weight": 3.0,
+   "why": "leans on"
+  },
+  {
+   "from": "story:2026-06-12-robot-run-convenience-store-in-hong-kong",
+   "to": "story:2026-08-14-the-ai-boss-fired-its-first-human-employee",
+   "weight": 5.0,
+   "why": "read next, shares workplace-ai"
+  },
+  {
+   "from": "story:2026-06-12-robot-run-convenience-store-in-hong-kong",
+   "to": "story:2026-07-17-kimi-k3",
+   "weight": 1.0,
+   "why": "shares china"
+  },
+  {
+   "from": "story:2026-06-12-robot-run-convenience-store-in-hong-kong",
+   "to": "story:2026-08-13-grok-4-6",
+   "weight": 1.0,
+   "why": "shares workplace-ai"
+  },
   {
    "from": "story:2026-07-17-kimi-k3",
    "to": "concept:open-weights",
@@ -482,6 +908,24 @@
    "why": "read next"
   },
   {
+   "from": "story:2026-07-17-kimi-k3",
+   "to": "story:2026-08-14-the-ai-boss-fired-its-first-human-employee",
+   "weight": 1.0,
+   "why": "shares ai-agents"
+  },
+  {
+   "from": "story:2026-07-17-kimi-k3",
+   "to": "story:2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+   "weight": 1.0,
+   "why": "shares ai-agents"
+  },
+  {
+   "from": "story:2026-07-17-kimi-k3",
+   "to": "story:2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+   "weight": 2.0,
+   "why": "shares ai-agents/model-evaluation"
+  },
+  {
    "from": "story:2026-07-21-the-openai-rogue-agent-and-the-hugging-face-break-in",
    "to": "concept:reward-hacking",
    "weight": 3.0,
@@ -512,6 +956,36 @@
    "why": "read next, shares ai-safety/openai"
   },
   {
+   "from": "story:2026-07-21-the-openai-rogue-agent-and-the-hugging-face-break-in",
+   "to": "story:2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+   "weight": 8.0,
+   "why": "read next, shares ai-agents/ai-safety/cybersecurity/openai"
+  },
+  {
+   "from": "story:2026-07-21-the-openai-rogue-agent-and-the-hugging-face-break-in",
+   "to": "story:2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+   "weight": 6.0,
+   "why": "read next, shares ai-agents/openai"
+  },
+  {
+   "from": "story:2026-07-21-the-openai-rogue-agent-and-the-hugging-face-break-in",
+   "to": "story:2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+   "weight": 6.0,
+   "why": "read next, shares ai-safety/openai"
+  },
+  {
+   "from": "story:2026-07-21-the-openai-rogue-agent-and-the-hugging-face-break-in",
+   "to": "story:2026-08-14-the-ai-boss-fired-its-first-human-employee",
+   "weight": 1.0,
+   "why": "shares ai-agents"
+  },
+  {
+   "from": "concept:sandboxing",
+   "to": "story:2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+   "weight": 3.0,
+   "why": "leans on"
+  },
+  {
    "from": "story:2026-08-06-viruses-designed-by-ai",
    "to": "concept:genome-language-model",
    "weight": 3.0,
@@ -536,6 +1010,30 @@
    "why": "read next"
   },
   {
+   "from": "story:2026-08-06-viruses-designed-by-ai",
+   "to": "story:2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+   "weight": 4.0,
+   "why": "read next"
+  },
+  {
+   "from": "story:2026-08-12-nvidia-chip-in-russian-missile",
+   "to": "concept:edge-ai",
+   "weight": 3.0,
+   "why": "leans on"
+  },
+  {
+   "from": "story:2026-08-12-nvidia-chip-in-russian-missile",
+   "to": "concept:machine-vision",
+   "weight": 3.0,
+   "why": "leans on"
+  },
+  {
+   "from": "story:2026-08-12-nvidia-chip-in-russian-missile",
+   "to": "concept:terminal-guidance",
+   "weight": 3.0,
+   "why": "leans on"
+  },
+  {
    "from": "story:2026-08-13-grok-4-6",
    "to": "concept:benchmark",
    "weight": 3.0,
@@ -554,6 +1052,72 @@
    "why": "leans on"
   },
   {
+   "from": "story:2026-08-13-grok-4-6",
+   "to": "story:2026-08-14-the-ai-boss-fired-its-first-human-employee",
+   "weight": 1.0,
+   "why": "shares workplace-ai"
+  },
+  {
+   "from": "story:2026-08-13-grok-4-6",
+   "to": "story:2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+   "weight": 1.0,
+   "why": "shares ai-models"
+  },
+  {
+   "from": "story:2026-08-13-grok-4-6",
+   "to": "story:2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+   "weight": 1.0,
+   "why": "shares ai-models"
+  },
+  {
+   "from": "concept:tokens",
+   "to": "story:2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+   "weight": 3.0,
+   "why": "leans on"
+  },
+  {
+   "from": "concept:ai-agent",
+   "to": "story:2026-08-14-the-ai-boss-fired-its-first-human-employee",
+   "weight": 3.0,
+   "why": "leans on"
+  },
+  {
+   "from": "concept:ai-agent",
+   "to": "story:2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+   "weight": 3.0,
+   "why": "leans on"
+  },
+  {
+   "from": "story:2026-08-14-the-ai-boss-fired-its-first-human-employee",
+   "to": "concept:algorithmic-management",
+   "weight": 3.0,
+   "why": "leans on"
+  },
+  {
+   "from": "story:2026-08-14-the-ai-boss-fired-its-first-human-employee",
+   "to": "story:2026-08-16-the-first-person-jailed-for-protesting-against-ai",
+   "weight": 1.0,
+   "why": "shares ai-governance"
+  },
+  {
+   "from": "story:2026-08-14-the-ai-boss-fired-its-first-human-employee",
+   "to": "story:2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+   "weight": 2.0,
+   "why": "shares ai-agents/ai-governance"
+  },
+  {
+   "from": "story:2026-08-14-the-ai-boss-fired-its-first-human-employee",
+   "to": "story:2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+   "weight": 2.0,
+   "why": "shares ai-agents/ai-governance"
+  },
+  {
+   "from": "story:2026-08-14-the-ai-boss-fired-its-first-human-employee",
+   "to": "story:2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+   "weight": 1.0,
+   "why": "shares ai-governance"
+  },
+  {
    "from": "story:2026-08-16-the-first-person-jailed-for-protesting-against-ai",
    "to": "concept:civil-disobedience",
    "weight": 3.0,
@@ -568,6 +1132,78 @@
   {
    "from": "story:2026-08-16-the-first-person-jailed-for-protesting-against-ai",
    "to": "concept:artificial-superintelligence",
+   "weight": 3.0,
+   "why": "leans on"
+  },
+  {
+   "from": "story:2026-08-16-the-first-person-jailed-for-protesting-against-ai",
+   "to": "story:2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+   "weight": 3.0,
+   "why": "shares ai-governance/ai-safety/openai"
+  },
+  {
+   "from": "story:2026-08-16-the-first-person-jailed-for-protesting-against-ai",
+   "to": "story:2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+   "weight": 2.0,
+   "why": "shares ai-governance/openai"
+  },
+  {
+   "from": "story:2026-08-16-the-first-person-jailed-for-protesting-against-ai",
+   "to": "story:2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+   "weight": 3.0,
+   "why": "shares ai-governance/ai-safety/openai"
+  },
+  {
+   "from": "concept:artificial-superintelligence",
+   "to": "story:2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+   "weight": 3.0,
+   "why": "leans on"
+  },
+  {
+   "from": "concept:artificial-superintelligence",
+   "to": "story:2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+   "weight": 3.0,
+   "why": "leans on"
+  },
+  {
+   "from": "story:2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+   "to": "story:2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+   "weight": 7.0,
+   "why": "read next, shares ai-governance/ai-safety/openai"
+  },
+  {
+   "from": "story:2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+   "to": "story:2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+   "weight": 7.0,
+   "why": "read next, shares ai-agents/ai-governance/openai"
+  },
+  {
+   "from": "story:2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+   "to": "concept:navier-stokes-equations",
+   "weight": 3.0,
+   "why": "leans on"
+  },
+  {
+   "from": "story:2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+   "to": "concept:mathematical-proof",
+   "weight": 3.0,
+   "why": "leans on"
+  },
+  {
+   "from": "story:2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+   "to": "story:2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+   "weight": 3.0,
+   "why": "shares ai-governance/ai-models/openai"
+  },
+  {
+   "from": "story:2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+   "to": "concept:ai-alignment",
+   "weight": 3.0,
+   "why": "leans on"
+  },
+  {
+   "from": "story:2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+   "to": "concept:recursive-self-improvement",
    "weight": 3.0,
    "why": "leans on"
   }

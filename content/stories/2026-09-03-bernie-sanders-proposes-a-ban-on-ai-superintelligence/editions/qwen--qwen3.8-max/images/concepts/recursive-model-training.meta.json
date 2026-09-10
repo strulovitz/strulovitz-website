@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "kind": "concept",
+ "concept_slug": "recursive-model-training",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4106442301,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A luminous, circular assembly line shows an AI system designing, training, and refining successive versions of itself: at the center, a faceted machine mind shapes a smaller, brighter copy, while concentric rings of increasingly advanced iterations spiral outward, each one feeding tools, code, and data back into the next. Human engineers stand at the edge behind a translucent barrier, their instruments hovering unused, suggesting that development is becoming self-directed and harder to supervise. The inner loop glows with promise and rapid acceleration, but its outer edge flickers with warning signs, branching sparks, and uncertain question marks, conveying both the potential for compounding capability gains toward superintelligence and the disputed fear that recursive self-improvement could outpace human control.",
+ "rendered_at_utc": "2026-09-10T09:14:00+00:00",
+ "seconds_waited": 534.5,
+ "vram_free_gb_before_start": 10.78
+}

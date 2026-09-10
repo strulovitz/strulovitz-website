@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+ "model_id": "deepseek/deepseek-v4-pro-0813",
+ "model_slug": "deepseek--deepseek-v4-pro-0813",
+ "kind": "concept",
+ "concept_slug": "frontier-model",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 404438249,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "The illustration depicts a vast, dark landscape under a starry sky, dominated by a glowing, jagged line cutting across the horizon like a moving frontier. On the near side of the line stand several sleek, metallic monoliths labeled with benchmark scores, each representing a released frontier model; they cast long shadows and are illuminated from above. Beyond the line, partially hidden in mist and behind a translucent curtain, loom much larger, shadowy versions of these monoliths with blurred labels and question marks—these are the unreleased frontier models that are more powerful than anything public. The ground in front of the line is littered with gold coins, power cables, and energy meters, conveying the enormous cost of training and running these systems. From the tips of the shadowy monoliths, tendrils of new abilities—glowing sparks, unfinished equations, and strange symbols—spiral upward. In the foreground, small groups of researchers in lab coats and government officials use telescopes, clipboards, and monitoring equipment to watch both the visible line and the hidden models beyond, their expressions tense and attentive. The line itself is not fixed; arrows and motion lines along its edge show it shifting forward as new models appear, and the whole scene is bathed in a cool, analytical light that conveys both awe and caution.",
+ "rendered_at_utc": "2026-09-10T16:22:21+00:00",
+ "seconds_waited": 406.0,
+ "vram_free_gb_before_start": 10.79
+}

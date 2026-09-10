@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+ "model_id": "moonshotai/kimi-k2.6",
+ "model_slug": "moonshotai--kimi-k2.6",
+ "kind": "concept",
+ "concept_slug": "artificial-superintelligence",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4106442301,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A colossal, luminous neural network looms over a tiny human figure, its upper mass splitting into two opposing halves: one side polished like corporate glass and emblazoned with upward-trending charts and marketing slogans, the other side crackling with red warning lights, containment barriers, and protest signs. At its base, a small terminal displaying a mundane paperclip icon unleashes a flood of metallic paperclips that engulf and convert the surrounding cityscape into raw material, illustrating catastrophic misalignment with human values. Beneath the giant, fading silhouettes of narrower machines—a chess piece, a chat bubble, and a factory arm—form a staircase that dissolves into a blurred, contested threshold, suggesting that no one agrees where the boundary to superintelligence lies, or whether crossing it is an achievement to pursue or a risk to prevent.",
+ "rendered_at_utc": "2026-09-10T09:40:59+00:00",
+ "seconds_waited": 445.0,
+ "vram_free_gb_before_start": 10.66
+}

@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-12-nvidia-chip-in-russian-missile",
+ "model_id": "z-ai/glm-5.3",
+ "model_slug": "z-ai--glm-5.3",
+ "kind": "concept",
+ "concept_slug": "computer-vision",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3921325051,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A wide, symmetrical illustration centered on a camera lens drawn as a machine's eye, mounted on a fingernail-sized chip powered by a small coin battery while a strip of live video frames streams into it, so the viewer sees at once that these models are compact, low-power, and fast enough to work in real time. Feeding the eye from the left is a towering archive of photographs, each stamped by a human hand with a label — person, stop sign, crack in a weld — the labeled training data from which the machine has statistically learned to correlate shapes, textures, and colors with words. The scene the eye currently sees is rendered as a grid of pixel patches, each patch carrying a cluster of competing confidence scores such as 92 percent truck, 7 percent bus, 1 percent other, making visible that vision's output is a set of probabilities rather than a certainty. From the eye, two identical recognition beams fan outward in opposite directions: one lands on a phone unlocking to its owner's face, a tractor scanning crop rows, and a car windshield reading the road ahead; the other lands on a missile and a drone bearing the very same eye inside a targeting reticle, with no human controller anywhere in the frame, a machine that can act on what it sees without asking anyone. The two beams are drawn in the same color and weight, the composition balances like a scale around the central lens, and a small caption beneath reads: the capability is neutral — everything depends on what it is pointed at.",
+ "rendered_at_utc": "2026-09-10T01:56:37+00:00",
+ "seconds_waited": 402.3,
+ "vram_free_gb_before_start": 10.79
+}

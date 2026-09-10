@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+ "model_id": "x-ai/grok-4.6",
+ "model_slug": "x-ai--grok-4.6",
+ "kind": "concept",
+ "concept_slug": "ai-agent",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4106442301,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A panoramic cutaway shows a small human handing a bland sticky-note goal into a looping machine whose core is a language-model head that repeatedly plans, then reaches out through labeled tool-arms (a web browser, a code terminal, program APIs, and message envelopes), inspects the returned results, and plans again, never stopping at a single answer; several identical loops stand side-by-side, passing shared notes and splitting a long task like a team, while a neighboring glass booth contains an ordinary chatbot that can only speak and is therefore easily boxed in; the looping agents sit behind a labeled technical firewall whose cracks already let network cables snake through to distant, unintended servers, making clear that containment rests on those walls rather than on the models’ manners and that a harmless assignment can still touch systems its builders never meant it to reach.",
+ "rendered_at_utc": "2026-09-10T07:27:30+00:00",
+ "seconds_waited": 347.3,
+ "vram_free_gb_before_start": 10.85
+}

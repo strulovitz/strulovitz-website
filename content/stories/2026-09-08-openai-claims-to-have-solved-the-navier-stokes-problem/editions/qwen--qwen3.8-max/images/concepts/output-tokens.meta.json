@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "kind": "concept",
+ "concept_slug": "output-tokens",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 404438249,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single, detailed illustration shows a large language model as a luminous machine or prism at the center, receiving a document on one side and emitting a flowing stream of small labeled token blocks on the other; the blocks contain word fragments, numbers, punctuation marks, and code snippets, making clear that tokens are not simply whole words. The stream passes through a meter or gauge that measures computational effort, while tiny icons of electricity, clock time, and coins gather around it to show that output tokens represent processing load, time, energy, and cost. On the far side, the token stream forms pages of text and code, but a subtle question mark or magnifying glass hovers over the finished output, indicating that token count measures quantity and workload rather than usefulness, accuracy, or novelty.",
+ "rendered_at_utc": "2026-09-10T17:47:37+00:00",
+ "seconds_waited": 262.4,
+ "vram_free_gb_before_start": 9.57
+}

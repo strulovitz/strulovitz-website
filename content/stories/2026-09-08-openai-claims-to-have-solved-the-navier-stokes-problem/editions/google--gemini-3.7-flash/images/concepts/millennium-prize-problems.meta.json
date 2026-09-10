@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+ "model_id": "google/gemini-3.7-flash",
+ "model_slug": "google--gemini-3.7-flash",
+ "kind": "concept",
+ "concept_slug": "millennium-prize-problems",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 404438249,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "The illustration depicts a grand, futuristic vault established in the year 2000 by the Clay Mathematics Institute, featuring seven distinct, monumental pedestals arranged in an arc beneath an architectural banner marking the turn of the millennium. Each pedestal displays a glowing, uncracked puzzle symbolizing one of the seven foundational mathematical boundaries: a swirling, chaotic vortex of fluid turbulence; an undulating grid of prime number distributions; a branching binary decision network illustrating computational complexity; and four other abstract topological and quantum geometries. Above each of the seven stations hovers a gleaming golden seal inscribed with a \"$1,000,000 Bounty\" reward, accompanied by an empty peer-review lectern awaiting a verified, published proof, visually summarizing the seven great unsolved mathematical challenges and the million-dollar prizes offered for their solutions.",
+ "rendered_at_utc": "2026-09-10T15:33:29+00:00",
+ "seconds_waited": 430.5,
+ "vram_free_gb_before_start": 10.85
+}

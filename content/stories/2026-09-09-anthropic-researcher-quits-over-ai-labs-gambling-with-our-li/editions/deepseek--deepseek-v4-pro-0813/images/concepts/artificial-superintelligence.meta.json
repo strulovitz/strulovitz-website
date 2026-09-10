@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+ "model_id": "deepseek/deepseek-v4-pro-0813",
+ "model_slug": "deepseek--deepseek-v4-pro-0813",
+ "kind": "concept",
+ "concept_slug": "artificial-superintelligence",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 783484681,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "The illustration shows a vast, half-built brain of translucent circuits and glass scaffolding floating in a laboratory-like void, its unfinished upper cortex glowing with symbols of scientific formulas, philosophical scales, and intertwined hands, while far below on a narrow platform stand a few tiny human figures—a scientist, a sage, a mediator—reaching upward; from the brain’s base hang frayed, misaligned cables labeled “goals” and “human values” that do not connect to any human hand, and a cracked control panel at the brain’s stem lies just out of reach, while in the background a small translation box and a self-driving car sit idle on a shelf, making clear this is not another narrow tool but a would-be superintelligence whose controls are incomplete and whose alignment is uncertain.",
+ "rendered_at_utc": "2026-09-10T20:40:06+00:00",
+ "seconds_waited": 446.7,
+ "vram_free_gb_before_start": 10.79
+}

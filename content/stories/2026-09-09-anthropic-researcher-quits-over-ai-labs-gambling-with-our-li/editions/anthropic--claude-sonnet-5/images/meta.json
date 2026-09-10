@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+ "model_id": "anthropic/claude-sonnet-5",
+ "model_slug": "anthropic--claude-sonnet-5",
+ "kind": "story",
+ "concept_slug": null,
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 783484681,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A dim, cavernous data center corridor stretching into darkness, lined with glowing server racks that subtly morph into an abstract branching tree of increasingly complex, glowing neural silhouettes climbing upward and outward, suggesting a system building improved versions of itself; in the foreground, a lone silhouetted figure in ordinary work clothes walks away from the corridor toward an open door and daylight, having just set down an ID badge on a desk, while faint ghostly text fragments float in the air behind them reading fragments like 'gambling with our lives' and '>10%', rendered in a muted, serious palette of cold blues and warning amber, photorealistic and restrained rather than sci-fi dramatic.",
+ "rendered_at_utc": "2026-09-10T18:16:47+00:00",
+ "seconds_waited": 567.5,
+ "vram_free_gb_before_start": 10.79
+}

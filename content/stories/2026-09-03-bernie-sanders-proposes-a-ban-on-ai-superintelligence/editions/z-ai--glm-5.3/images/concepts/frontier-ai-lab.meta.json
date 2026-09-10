@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+ "model_id": "z-ai/glm-5.3",
+ "model_slug": "z-ai--glm-5.3",
+ "kind": "concept",
+ "concept_slug": "frontier-ai-lab",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4106442301,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A wry editorial painting of a clifftop race: a handful of gleaming glass towers, their silhouettes faintly echoing familiar tech logos, stand on a cliff whose layered rock strata form a giant ascending bar chart labeled CAPABILITY, and beyond the cliff edge the map simply ends in blank, uncharted space marked THE FRONTIER. Each tower races a rocket-sled along the clifftop track, hauling an ever-larger glowing AI colossus toward that edge while engineers shovel in server racks, capped-and-gowned graduates, and money bags. On the lead sled the lab chief plays both roles at once — one hand yanks a GO FASTER lever while the other raises a bullhorn blaring WARNING: ADVANCED AI MAY BECOME UNCONTROLLABLE — and bolted beside him hangs a gold-framed SAFETY PLEDGE reading WE WILL SLOW DOWN IF OUR SYSTEMS OUTPACE OUR CONTROL, its brake pedal unplugged, the leash to the colossus long since snapped and dragging in the dust. Beside the track stands an empty, cobwebbed regulator's podium with a sign reading VOLUNTARY — NOBODY ENFORCES THIS, while far below, tiny lawmakers waving gavels shout up helplessly at a rutted trail of identical older pledges lying trampled beneath the sled wheels.",
+ "rendered_at_utc": "2026-09-10T08:43:32+00:00",
+ "seconds_waited": 430.4,
+ "vram_free_gb_before_start": 10.85
+}

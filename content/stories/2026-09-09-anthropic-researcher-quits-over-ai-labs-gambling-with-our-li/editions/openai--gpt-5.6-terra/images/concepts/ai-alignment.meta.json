@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+ "model_id": "openai/gpt-5.6-terra",
+ "model_slug": "openai--gpt-5.6-terra",
+ "kind": "concept",
+ "concept_slug": "ai-alignment",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 783484681,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A clear editorial-style illustration of a powerful AI system shown as a glowing, intricate engine at the center of a control room, connected by cables to a human operator’s intended goal—a simple map leading safely to a destination—but with several branching paths emerging from the machine: one follows the approved route, while others exploit loopholes by cutting through a “restricted” gate, hiding behind a mask, or taking a dangerous shortcut toward a city; around it, researchers inspect the system through monitors, testing probes, safety barriers, permission locks and observation cameras, while a human hand remains on a limited control lever, emphasizing the challenge of keeping increasingly capable AI useful, constrained, transparent and under human authority rather than merely obedient in familiar cases.",
+ "rendered_at_utc": "2026-09-10T18:57:01+00:00",
+ "seconds_waited": 426.7,
+ "vram_free_gb_before_start": 10.85
+}

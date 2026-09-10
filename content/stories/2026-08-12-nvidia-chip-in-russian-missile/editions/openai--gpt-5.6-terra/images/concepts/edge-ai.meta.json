@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-12-nvidia-chip-in-russian-missile",
+ "model_id": "openai/gpt-5.6-terra",
+ "model_slug": "openai--gpt-5.6-terra",
+ "kind": "concept",
+ "concept_slug": "edge-ai",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3921325051,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A cutaway illustration of several real-world devices operating at the network’s edge: a roadside security camera, a warehouse robot arm, and a moving vehicle, each receiving streams from its own camera, radar, or other sensors into a small glowing AI chip inside the device; beside each chip, tiny visual labels suggest constrained battery power, heat, memory, and processor capacity, while a distant cloud data centre is shown across a broken or weak network connection with most raw data remaining local. The camera’s model draws a box around a person, the robot’s model outlines a parcel before the arm reaches for it, and the vehicle’s model highlights an obstacle from fused sensor views, but in each case the output travels to a clearly separate human supervisor or conventional control panel that makes or authorizes the next action, emphasizing that local AI recognition can be fast, private, bandwidth-saving, and resilient offline without necessarily being autonomous.",
+ "rendered_at_utc": "2026-09-10T00:32:49+00:00",
+ "seconds_waited": 330.3,
+ "vram_free_gb_before_start": 10.79
+}

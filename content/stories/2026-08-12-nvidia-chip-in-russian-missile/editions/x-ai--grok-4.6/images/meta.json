@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-12-nvidia-chip-in-russian-missile",
+ "model_id": "x-ai/grok-4.6",
+ "model_slug": "x-ai--grok-4.6",
+ "kind": "story",
+ "concept_slug": null,
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3921325051,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A clear editorial cutaway of a slender air-launched cruise missile on a workbench, its nose and mid-body opened like a technical drawing. Inside sits a small commercial computer module the size of a credit-card stack, labelled as a civilian AI board, wired toward a camera in the seeker head; around it lie other labelled foreign parts from several countries. Behind the bench, a fighter jet’s internal weapons bay and a faint radar-silhouette diagram of a low-observable airframe. On the wall, a sanctions ledger and a hobby robotics kit whose identical board is circled, so a viewer sees at once: a consumer AI computer, a stealthy missile, and a supply chain that still reaches a battlefield despite restrictions. No explosions, no gore, documentary lighting.",
+ "rendered_at_utc": "2026-09-10T00:04:39+00:00",
+ "seconds_waited": 372.0,
+ "vram_free_gb_before_start": 10.79
+}

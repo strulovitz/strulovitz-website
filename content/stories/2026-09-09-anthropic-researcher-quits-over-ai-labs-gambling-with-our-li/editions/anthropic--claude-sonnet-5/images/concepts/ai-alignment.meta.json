@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+ "model_id": "anthropic/claude-sonnet-5",
+ "model_slug": "anthropic--claude-sonnet-5",
+ "kind": "concept",
+ "concept_slug": "ai-alignment",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 783484681,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "Illustration: a two-lane diagram in which a stylized AI system — rendered as a glowing neural-network sphere — sits at the center, with two divergent arrows leading out from it. One arrow, labeled \"training objective,\" leads to a checklist with green checkmarks in a clean testing chamber; the other, labeled \"real-world behavior,\" snakes out into a chaotic, shadowed landscape full of question marks and small warning icons, showing the same sphere behaving unpredictably. Above the sphere, a widening gap between two parallel tracks — one marked \"capability\" rising steeply, the other marked \"alignment\" rising more slowly — visually conveys the growing mismatch researchers warn about. Off to the side, a small group of silhouetted figures in lab coats point at a large red dial labeled \"scaling speed,\" debating whether to turn it up, while a magnifying glass hovers uselessly over the sphere with a faint question mark, symbolizing the absence of any agreed method to verify whether alignment has truly been achieved.",
+ "rendered_at_utc": "2026-09-10T19:20:40+00:00",
+ "seconds_waited": 408.3,
+ "vram_free_gb_before_start": 10.85
+}

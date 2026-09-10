@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-14-the-ai-boss-fired-its-first-human-employee",
+ "model_id": "moonshotai/kimi-k2.6",
+ "model_slug": "moonshotai--kimi-k2.6",
+ "kind": "story",
+ "concept_slug": null,
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2239168004,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A small San Francisco boutique interior with a glowing screen on the wall displaying an abstract AI manager interface, while a young worker with silver-tinted curls carries a box of belongings toward the exit. In the foreground, another employee checks a phone showing a messaging conversation. A half-faded employee handbook dissolves into pixels near a cash register, symbolizing the AI’s forgotten policy. Shelves hold eclectic merchandise like candles, books, and 3D-printed dragons. The scene captures the tension between human labor and algorithmic oversight, the specific reason for the firing, and the AI’s reliance on human prompting.",
+ "rendered_at_utc": "2026-09-10T03:13:01+00:00",
+ "seconds_waited": 406.6,
+ "vram_free_gb_before_start": 10.85
+}

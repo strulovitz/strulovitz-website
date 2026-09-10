@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+ "model_id": "deepseek/deepseek-v4-pro-0813",
+ "model_slug": "deepseek--deepseek-v4-pro-0813",
+ "kind": "concept",
+ "concept_slug": "navier-stokes-equations",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 404438249,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single illustration shows a large, continuous fluid scene: translucent blue water at the bottom and pale sky at the top flow together around a silver aircraft wing, with curved streamlines and color gradients representing velocity, pressure, and viscosity. Across the image, the Navier-Stokes equations are written in white mathematical notation, linking the flow fields. At the center, one set of streamlines bends into a tight spiral that ends in a small, intensely bright point labeled blow-up?, with a crackling, impossible-looking energy. Hovering nearby is a small, glowing Millennium Prize medal, and faint background outlines of a weather map, an ocean wave, and a wind turbine connect the equations to weather prediction, ocean currents, and engineering. The contrast between the smooth, laminar regions and the singular point visually poses the open question of whether the equations always guarantee smooth solutions or can develop a blow-up.",
+ "rendered_at_utc": "2026-09-10T16:39:25+00:00",
+ "seconds_waited": 595.5,
+ "vram_free_gb_before_start": 10.85
+}

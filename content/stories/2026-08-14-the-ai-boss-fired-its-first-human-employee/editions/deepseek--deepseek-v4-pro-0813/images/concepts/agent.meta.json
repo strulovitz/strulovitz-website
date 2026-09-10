@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-14-the-ai-boss-fired-its-first-human-employee",
+ "model_id": "deepseek/deepseek-v4-pro-0813",
+ "model_slug": "deepseek--deepseek-v4-pro-0813",
+ "kind": "concept",
+ "concept_slug": "agent",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2239168004,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single illustration shows a central humanoid robot with a glowing brain labeled \"LLM\", its arms extended into six labeled circular panels representing a web browser, email, calendar, payment system, messaging app, and a generic software tool; from each panel, a curved arrow loops back to the robot's eyes to indicate observation and adjustment after each action. A small speech-only chatbot icon sits in a corner crossed out in red, contrasting with the robot's active limbs. Above the robot, a translucent memory bubble contains icons for goals and rules, while a human figure stands beside it holding a remote control with a stop button, clearly connected to the robot by a line labeled \"oversight\". Warning triangles appear on the payment and calendar panels, and beneath the robot's feet, small icons for money, people, and jobs are struck through to symbolize potential harm, while a checklist beside the human shows \"memory, tool use, oversight\" as the three reliability factors.",
+ "rendered_at_utc": "2026-09-10T04:02:29+00:00",
+ "seconds_waited": 482.9,
+ "vram_free_gb_before_start": 10.85
+}

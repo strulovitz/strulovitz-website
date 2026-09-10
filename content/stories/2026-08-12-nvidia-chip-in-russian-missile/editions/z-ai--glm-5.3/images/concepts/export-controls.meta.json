@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-12-nvidia-chip-in-russian-missile",
+ "model_id": "z-ai/glm-5.3",
+ "model_slug": "z-ai--glm-5.3",
+ "kind": "concept",
+ "concept_slug": "export-controls",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3921325051,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single tall illustration shaped like an hourglass, read from top to bottom. At the top, a fortified border checkpoint under a sign reading \"EXPORT CONTROLS\": a handful of enormous, gleaming datacenter accelerators sit in crates wrapped in chains and stamped with red \"RESTRICTED\" seals, while uniformed officials with clipboards and national flags turn shipping crates away; alongside them in the same guarded queue stand machine tools, drums of chemicals and crates of weapons, and a small vignette shows a smuggler being handcuffed for slipping a chip across the barrier. One crate labeled \"legal to sell at home\" stands visible in a domestic storefront, forbidden only at the fence. The few chips feed into a narrow neck where a single glowing file—the trained model—squeezes through under a customs officer's eye, a padlock sketched around it, labeled \"training: scarce, expensive, watched.\" Below the neck the composition explodes outward: the file shatters into thousands of identical glowing icons that drift like seeds across a vast, fenceless plain, settling effortlessly onto mass-market hardware—laptops, phones, game consoles, consumer graphics cards, small office servers—in the hands of ordinary people worldwide, some using them for medicine, translation and teaching, others visibly scheming; borders here are only faint dotted lines the copies cross at will. The contrast is the whole argument: iron grip and scarcity at the top, abundance and total freedom at the bottom, where nearly all actual use happens.",
+ "rendered_at_utc": "2026-09-10T02:10:43+00:00",
+ "seconds_waited": 400.4,
+ "vram_free_gb_before_start": 10.85
+}

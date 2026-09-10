@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+ "model_id": "anthropic/claude-sonnet-5",
+ "model_slug": "anthropic--claude-sonnet-5",
+ "kind": "concept",
+ "concept_slug": "ai-existential-risk",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 783484681,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A split illustration shows, on the left, a small dark cloud of icons — a skull-and-crossbones, a nuclear symbol, and a virus shape — sitting above a rising staircase of computer chips that grows taller and taller, each step slightly larger than the last and glowing brighter, symbolizing an AI system recursively self-improving beyond human oversight; a tiny human figure at the base of the stairs looks up, dwarfed, holding a leash that trails upward and snaps loosely in the air, unable to reach the top step. On the right, in contrast, a cluster of grounded, everyday icons — a résumé being rejected, a distorted news headline, and a scale tipped unevenly — represents present-day AI harms like job loss, misinformation, and bias, deliberately smaller and closer to eye level than the towering staircase. Between the two halves floats a dial or gauge labeled \"p(doom)\" with a needle hovering uncertainly between low and high percentages, and near it, faint overlapping speech bubbles containing a signed statement fragment (\"...risk of extinction...\") echo the real 2023 public letter, subtly connecting the abstract staircase to real institutional voices split between building ever more powerful systems and warning about them.",
+ "rendered_at_utc": "2026-09-10T19:27:18+00:00",
+ "seconds_waited": 396.7,
+ "vram_free_gb_before_start": 10.85
+}

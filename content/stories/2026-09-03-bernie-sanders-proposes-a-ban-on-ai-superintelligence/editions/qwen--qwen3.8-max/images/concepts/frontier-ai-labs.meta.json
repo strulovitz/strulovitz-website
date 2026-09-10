@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "kind": "concept",
+ "concept_slug": "frontier-ai-labs",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4106442301,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single wide illustration depicts frontier AI labs as a cluster of four towering research campuses, marked by the names OpenAI, Anthropic, Google DeepMind, and Meta, feeding a colossal glowing model at their center through rivers of data, rows of processors, and streams of recruited experts. The model radiates outward into a cityscape of millions of users, touching phones, hospitals, schools, courts, and workplaces, while a horizontal line beneath it shows the state of the art advancing over time. Around the perimeter, lawmakers, safety researchers, protesters, and supporters face one another across a barrier: some hold warning symbols for hidden risks and calls for regulation, others hold tools, charts, and upward arrows representing progress, together making clear that these labs combine enormous resources to push AI capability while becoming the focal point of safety and governance debates.",
+ "rendered_at_utc": "2026-09-10T09:05:04+00:00",
+ "seconds_waited": 448.5,
+ "vram_free_gb_before_start": 10.85
+}

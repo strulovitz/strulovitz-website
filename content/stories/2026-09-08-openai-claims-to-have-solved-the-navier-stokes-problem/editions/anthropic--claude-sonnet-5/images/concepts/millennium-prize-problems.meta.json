@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+ "model_id": "anthropic/claude-sonnet-5",
+ "model_slug": "anthropic--claude-sonnet-5",
+ "kind": "concept",
+ "concept_slug": "millennium-prize-problems",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 404438249,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "Illustrate a stately marble hall in the style of a Greek treasury, with seven numbered pedestals standing in a row, six of them still bearing sealed, uncracked stone blocks etched with faint mathematical symbols (a knot for Poincaré's neighbors, zeta-function curves, fluid-flow swirls, elliptic curves, and abstract algebraic notation), while the seventh pedestal is open and empty, its block broken apart, with a small plaque reading \"Poincaré — solved\" and a single gold coin resting beside it. Behind the hall, faintly visible through a doorway, a long queue of scholarly figures with magnifying glasses and red pens are shown reviewing a stack of papers on a table labeled \"years of verification,\" symbolizing the slow peer-review gauntlet; in the foreground, separate from this queue, a shiny AI robot hastily stamps a paper \"SOLVED\" and reaches eagerly toward one of the sealed blocks, visually contrasting its instant, unverified claim against the institute's grinding, adversarial process of checking before any prize is ever paid.",
+ "rendered_at_utc": "2026-09-10T15:11:59+00:00",
+ "seconds_waited": 411.5,
+ "vram_free_gb_before_start": 10.85
+}

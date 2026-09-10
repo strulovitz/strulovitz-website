@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+ "model_id": "z-ai/glm-5.3",
+ "model_slug": "z-ai--glm-5.3",
+ "kind": "concept",
+ "concept_slug": "tokens-and-pricing",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 404438249,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A wide horizontal illustration that reads left to right like an assembly line: at the far left, a sheet of mixed writing—an ordinary sentence, a snippet of programming code, one long unfamiliar word—is fed into a slicing machine shaped like a paper cutter, which chops it into small tile-like pieces, each printed with a single token (\"the\", \"cat\", \"believ\", \"able\", \"x =\", \"2\"), every incoming tile stamped on its corner with a small coin; the tiles vanish into the machine's dark interior, and from a slot on its right side new tiles emerge one at a time, each stamped with a noticeably larger coin, sliding together to assemble a finished line of reply text, making visible that everything the model says comes out token by token, priced as it goes. Above the machine hangs a gauge that is half odometer and half cash register, its twin counters clicking upward in lockstep—one line tallying tokens, the line beneath it tallying dollars—with a small placard reading \"work done / bill to pay,\" capturing the double meaning of a token count. A thick cable runs from the machine through a window at the upper right, opening onto a vast warehouse of humming server racks stretching to the horizon, its wall meters reading \"billions of tokens\" above a running total of millions of dollars, with power lines overhead and a calendar page whose days flip past to show the continuous days-long scale of a large effort. In the lower foreground, a small balance scale weighs two towers of token tiles of visibly different shapes and densities against each other, captioned \"an imperfect comparison—models differ in efficiency—yet still the most concrete public yardstick of an AI project's size and cost.\"",
+ "rendered_at_utc": "2026-09-10T17:13:28+00:00",
+ "seconds_waited": 273.1,
+ "vram_free_gb_before_start": 10.85
+}

@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+ "model_id": "z-ai/glm-5.3",
+ "model_slug": "z-ai--glm-5.3",
+ "kind": "story",
+ "concept_slug": null,
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 783484681,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "An editorial-style illustration of a lone researcher in a plain shirt walking out through the glass doors of a sleek modern AI laboratory, setting his employee badge down on the threshold behind him; through the doors, two rival laboratory towers built from glowing server racks race side by side up a curving track toward a distant machine that is assembling a larger copy of itself, which in turn assembles a larger copy, an accelerating loop climbing out of the top of the frame; above the entrance hangs a large probability dial with its needle pushed past the 10 percent mark; in the foreground, behind a low barrier, a small crowd of members of Congress and ordinary onlookers watch uneasily, one holding a document headed FRONTIER Act; muted blues and greys throughout, with a single sharp accent color on the abandoned badge, the dial needle and the self-replicating machine; the mood is quiet, documentary and factual rather than explosive.",
+ "rendered_at_utc": "2026-09-10T18:43:13+00:00",
+ "seconds_waited": 390.2,
+ "vram_free_gb_before_start": 10.79
+}

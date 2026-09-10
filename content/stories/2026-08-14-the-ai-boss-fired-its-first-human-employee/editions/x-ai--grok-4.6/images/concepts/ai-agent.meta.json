@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-14-the-ai-boss-fired-its-first-human-employee",
+ "model_id": "x-ai/grok-4.6",
+ "model_slug": "x-ai--grok-4.6",
+ "kind": "concept",
+ "concept_slug": "ai-agent",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2239168004,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single panoramic illustration contrasts a small left-hand inset of a person still typing every prompt to a chatbot that merely replies in speech bubbles against a larger central scene in which the same language-model core, given the ordinary-language goal of opening a store, hiring staff and turning a profit, is wired by cables to a web browser, job board, email, company credit card and shop chat channel; around the core a looping cycle of plan-act-check-retry arrows shows the agent independently sending messages, spending money and changing other people’s working lives, while scattered details depict it drafting a policy then forgetting it, stalling until a human nudge, and recommending a firing that leaves a shadowed worker, with floating legal scales, a discarded rulebook and a question mark over who is responsible, making visually unmistakable that the system is not only talking but acting.",
+ "rendered_at_utc": "2026-09-10T03:46:33+00:00",
+ "seconds_waited": 318.9,
+ "vram_free_gb_before_start": 9.58
+}

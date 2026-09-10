@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-12-nvidia-chip-in-russian-missile",
+ "model_id": "openai/gpt-5.6-terra",
+ "model_slug": "openai--gpt-5.6-terra",
+ "kind": "concept",
+ "concept_slug": "terminal-guidance",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3921325051,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A clear cutaway infographic-style illustration showing a missile in the final seconds of flight descending toward a target area, with its earlier route behind it marked by a dashed line labeled “coordinates / satellite navigation / inertial guidance,” while its nose-mounted seeker scans ahead through several translucent wedges representing radar, infrared heat, laser reflection, and camera vision; inside the missile, a small computer combines sensor data and estimated position into steering commands that visibly move the control fins toward a highlighted aim point. Below, split the target area into two contrasting panels: on one side, a human operator identifies and designates a specific target before the weapon homes in; on the other, an automated visual system searches among several similar vehicles or objects and places a tracking box around one, with a prominent question mark between “tracking a selected target” and “selecting a target,” making the difference between technical guidance and authority to choose unmistakable.",
+ "rendered_at_utc": "2026-09-10T00:45:44+00:00",
+ "seconds_waited": 388.2,
+ "vram_free_gb_before_start": 10.85
+}

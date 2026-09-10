@@ -1,0 +1,18 @@
+{
+ "story": "2026-06-12-robot-run-convenience-store-in-hong-kong",
+ "model_id": "moonshotai/kimi-k2.6",
+ "model_slug": "moonshotai--kimi-k2.6",
+ "kind": "story",
+ "concept_slug": null,
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4097423916,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A friendly humanoid robot with a slender metallic body and long arms stands inside a compact, glass-walled capsule store on a Hong Kong waterfront promenade at dusk. The robot is reaching up to stock a shelf with local snacks and toy souvenirs in one hand while offering a drink to a curious customer with the other. Through the transparent walls, a small crowd of onlookers—including a parent and child—watch and take photos, with the harbour and city skyline visible behind them. The illustration balances the novelty of automation with an ordinary neighbourhood convenience-store atmosphere, showing shelves of everyday items like medicine boxes, packaged snacks, and plush toys shaped like egg waffles.",
+ "rendered_at_utc": "2026-09-09T21:37:27+00:00",
+ "seconds_waited": 524.2,
+ "vram_free_gb_before_start": 10.69
+}

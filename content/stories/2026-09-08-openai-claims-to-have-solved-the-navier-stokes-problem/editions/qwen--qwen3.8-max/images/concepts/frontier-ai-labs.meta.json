@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "kind": "concept",
+ "concept_slug": "frontier-ai-labs",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 404438249,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single panoramic editorial illustration depicts a high frontier landscape in which four rival AI laboratories, each a distinct glowing campus, stand at the edge of a cliff overlooking an uncharted world, while large general-purpose model cores emerge from them as luminous engines sending autonomous agents, code brackets, mathematical symbols, DNA strands, and robotic tools into society below. In the foreground, each lab’s team weighs testing gates, safety switches, and release doors before outputs flow outward, and those streams reach offices, research benches, courts, and government buildings, showing how frontier models automate work, assist science, and shape regulation. Around the cliff edge, the labs are also placed on adjacent racetracks, racing toward flags for capability, priority, data, and attribution, with overlapping arrows and disputed footprints suggesting competition over discoveries in mathematics, biology, and software development. The image balances bright technical progress with tense incentives, showing a few organizations building powerful general-purpose systems whose choices about testing, release, safety, and credit radiate outward to millions of users and the wider research ecosystem.",
+ "rendered_at_utc": "2026-09-10T17:34:48+00:00",
+ "seconds_waited": 379.5,
+ "vram_free_gb_before_start": 10.69
+}

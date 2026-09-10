@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-12-nvidia-chip-in-russian-missile",
+ "model_id": "z-ai/glm-5.3",
+ "model_slug": "z-ai--glm-5.3",
+ "kind": "concept",
+ "concept_slug": "edge-ai",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3921325051,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A wide illustration in clean infographic style, divided into three zones that together tell the story of moving intelligence out of the cloud and into the device. The upper-left corner, washed out in grey, shows the old arrangement: a smartphone fires a thin dotted request line across a wide empty gap toward a distant glowing datacenter sitting in a network cloud, with the answer crawling back along a second line; the whole corner is stamped with a large faded X, and beside it a small stopwatch and a frayed, cut cable hint at the problems of delay, dead zones and dropped links. The dominant right side is bright and detailed: a cutaway view of a small delivery vehicle, its camera at the front and, immediately behind it inside the body, a tiny green circuit board bearing a chip stamped with a brain symbol; thought lines loop entirely within the vehicle as it reads a roadside sign, showing the decision happening locally, with no line leaving the box even though its network cable hangs severed. Along the bottom, a conveyor belt runs out of a factory puffing symbols of cheap mass production, spilling hundreds of identical brain-chips into plain boxes; four of the identical chips are shown slotted into their new homes — a warehouse robot scanning a shelf, a car windshield reading a speed-limit sign, a drone steadying itself in gusty wind, and a factory camera flagging a cracked part on an assembly line — while a fifth chip, drawn in exactly the same size and friendly style, sits in the guidance bay of a missile whose shipping manifest is a blank page marked only with a question mark, the image's one somber note that these parts are too numerous to trace and that the same component serves a robotics startup and a weapons program alike.",
+ "rendered_at_utc": "2026-09-10T02:04:01+00:00",
+ "seconds_waited": 442.5,
+ "vram_free_gb_before_start": 10.85
+}

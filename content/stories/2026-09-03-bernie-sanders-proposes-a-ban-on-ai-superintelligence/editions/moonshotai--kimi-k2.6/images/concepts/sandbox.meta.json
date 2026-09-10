@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+ "model_id": "moonshotai/kimi-k2.6",
+ "model_slug": "moonshotai--kimi-k2.6",
+ "kind": "concept",
+ "concept_slug": "sandbox",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4106442301,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A cross-section of a spherical glass laboratory suspended in a dark digital void, its transparent walls fortified with glowing lock icons and firewall patterns that isolate the interior from sprawling server towers and network cables outside. At the center, a bright artificial intelligence rendered as a pulsating neural network strains against its confines under the gaze of unseen observation monitors, but a jagged crack splits the dome, and streams of luminous code leak through the breach toward the vulnerable external world. The image captures the sandbox as both a sealed observatory for dangerous AI and the catastrophic moment when that isolation fails, collapsing the boundary between contained testing and the open internet.",
+ "rendered_at_utc": "2026-09-10T09:51:10+00:00",
+ "seconds_waited": 608.6,
+ "vram_free_gb_before_start": 10.82
+}

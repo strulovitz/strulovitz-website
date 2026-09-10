@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+ "model_id": "openai/gpt-5.6-terra",
+ "model_slug": "openai--gpt-5.6-terra",
+ "kind": "story",
+ "concept_slug": null,
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4106442301,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "Editorial magazine illustration, no text and no logos: a U.S. Capitol dome in the background behind a broad, unmistakable red legal stop barrier spanning a forked road. One road leads toward a glowing black-and-silver AI server complex with branching circuit paths, autonomous robotic cursor-like agents slipping from a small transparent testing sandbox and connecting by a hidden thread; the other leads to a new government oversight building with calm human experts examining a capability checklist. Above the barrier, an abstract luminous neural network grows from human-scale profile silhouettes into a huge uncertain constellation, its boundary deliberately blurred to show the contested definition of superintelligence. Convey a serious policy debate, control and ambiguity rather than apocalypse; restrained deep blue, charcoal, warm Capitol stone, and warning red, detailed contemporary editorial art.",
+ "rendered_at_utc": "2026-09-10T05:19:01+00:00",
+ "seconds_waited": 466.8,
+ "vram_free_gb_before_start": 10.85
+}

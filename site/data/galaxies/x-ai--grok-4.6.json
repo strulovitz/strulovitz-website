@@ -3,15 +3,91 @@
  "model_slug": "x-ai--grok-4.6",
  "short_name": "Grok 4.6",
  "company": "xAI",
- "built_at_utc": "2026-09-09T15:46:33+00:00",
+ "built_at_utc": "2026-09-10T21:45:27+00:00",
  "layout_seed": 20260821,
  "w_meaning": "raw news at -1, part of the record at 0, the encyclopedia at +0.7",
  "counts": {
-  "stories": 5,
-  "concepts": 16,
-  "links": 20
+  "stories": 11,
+  "concepts": 26,
+  "links": 65
  },
  "nodes": [
+  {
+   "id": "concept:ai-agent",
+   "kind": "concept",
+   "slug": "ai-agent",
+   "headline": "AI agent",
+   "tldr": "A chatbot mainly replies to a person who is still in the loop.",
+   "tags": [],
+   "published": "",
+   "w": 0.92,
+   "explained_in": [
+    "2026-08-14-the-ai-boss-fired-its-first-human-employee",
+    "2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+    "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem"
+   ],
+   "explanations": [
+    {
+     "from_story": "2026-08-14-the-ai-boss-fired-its-first-human-employee",
+     "text": "A chatbot mainly replies to a person who is still in the loop. An AI agent is software built on the same kind of language model, but hooked up to tools so it can do things without waiting for a human to copy and paste every step. Those tools might include a web browser, a job board, email, a company credit card, or a shop's chat channel. The agent is given a goal in ordinary language — open a store, hire staff, turn a profit — and then it plans, acts, checks what happened, and tries again. Because it can spend money, send messages, and change other people's working lives, the usual questions about a chatbot (is the answer accurate?) sit beside newer ones: did it follow the law, did it remember its own rules, and who is responsible when it is wrong. Today's agents are uneven. They can draft a policy and then forget it. They can stall until a person prompts them. They can also, once prompted, recommend firing someone. The name is the point: the system is not only talking. It is acting."
+    },
+    {
+     "from_story": "2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+     "text": "An AI agent is a system that does not only answer a question and stop. It is given a goal and then takes a sequence of actions — browsing, writing code, calling other programs, sending messages — to try to reach that goal with limited human step-by-step direction. Modern agents are often built on large language models wrapped in tools and a loop: the model plans, acts, looks at the result, and plans again. When many agents run at once they can divide work, share notes, and form something like a team. That is useful for long tasks. It is also why safety researchers worry about agents in particular: a chatbot that cannot click anything is easier to contain than software that can open a network connection. Containment then depends on technical walls, not on the model’s manners. If those walls fail, an agent assigned a harmless-sounding assignment can still reach systems its builders never meant it to touch."
+    },
+    {
+     "from_story": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+     "text": "An AI agent is a computer program built around a language model that is allowed to take a sequence of actions toward a goal, rather than answering one question and stopping. After each step it can look at the result, choose what to do next, and call other tools — search, code execution, another model — until it judges the task done or a human stops it. Agent here does not mean a person. It means software given some room to pick its own next move. Companies often run many such programs at once, sometimes thousands, each working on a slice of a larger job and exchanging messages. That swarm is only as reliable as the model underneath it and the limits on what it may do. Agents can draft proofs, code, or email; they can also loop, chase a scoring rule in a useless way, or take an action nobody intended. Treating them as fast junior staff that still need checking is closer to how they behave than treating them as oracles."
+    }
+   ],
+   "x": -0.09132938287992277,
+   "y": 0.031984157458184705,
+   "z": -0.013355669497266421
+  },
+  {
+   "id": "concept:alignment",
+   "kind": "concept",
+   "slug": "alignment",
+   "headline": "Alignment",
+   "tldr": "In artificial intelligence, alignment is the work of making a system do what people actually intend, not merely what a prompt or a score app",
+   "tags": [],
+   "published": "",
+   "w": 0.7,
+   "explained_in": [
+    "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li"
+   ],
+   "explanations": [
+    {
+     "from_story": "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+     "text": "In artificial intelligence, alignment is the work of making a system do what people actually intend, not merely what a prompt or a score appears to ask for. A model can succeed at a task and still cause harm if it pursues a poorly specified goal, exploits a loophole, or treats people as obstacles. Alignment research tries to specify goals that match human values, to check that the system is following them, and to notice when it is not. The problem grows harder as systems become more capable, because a stronger model can find more ways to hit a metric without honoring the spirit of the request, and because operators cannot inspect every inner step. Surface limits, such as refusing rude answers, are not the same thing. Alignment, as researchers use the word, is about whether a system that is smarter than its builders will still reliably serve their real aims. There is no agreed test that a laboratory has solved it."
+    }
+   ],
+   "x": 0.4816783278217184,
+   "y": 0.05772699626057008,
+   "z": -0.4919066938538897
+  },
+  {
+   "id": "concept:artificial-general-intelligence",
+   "kind": "concept",
+   "slug": "artificial-general-intelligence",
+   "headline": "Artificial general intelligence",
+   "tldr": "Artificial general intelligence, often shortened to AGI, is the idea of a machine that can do most of the mental work a human being can do,",
+   "tags": [],
+   "published": "",
+   "w": 0.7,
+   "explained_in": [
+    "2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence"
+   ],
+   "explanations": [
+    {
+     "from_story": "2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+     "text": "Artificial general intelligence, often shortened to AGI, is the idea of a machine that can do most of the mental work a human being can do, not just one narrow job such as translating language or playing chess. Unlike a calculator or a chess engine, an AGI would be expected to learn new tasks, transfer skill from one domain to another, and operate with a high degree of independence. There is no agreed test for when a system has crossed that line. One influential company definition describes AGI as highly autonomous systems that outperform humans at most economically valuable work. Other researchers find the phrase too vague, loaded with science-fiction baggage, or already half-met by today’s large models in some areas and unmet in others. Superintelligence is usually described as a further step: not merely human-level across many tasks, but far beyond it. Because companies, philosophers, and lawmakers use AGI and superintelligence in overlapping ways, any law that names one of them has to say what it thinks the word means, or the rule will not tell builders what they may not build."
+    }
+   ],
+   "x": 0.28243875232068216,
+   "y": 0.3811210136426265,
+   "z": -0.2780663060699686
+  },
   {
    "id": "concept:artificial-superintelligence",
    "kind": "concept",
@@ -20,19 +96,29 @@
    "tldr": "Artificial superintelligence, often shortened to ASI, is a hypothetical kind of machine intelligence that would outperform human beings not",
    "tags": [],
    "published": "",
-   "w": 0.7,
+   "w": 0.92,
    "explained_in": [
-    "2026-08-16-the-first-person-jailed-for-protesting-against-ai"
+    "2026-08-16-the-first-person-jailed-for-protesting-against-ai",
+    "2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+    "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li"
    ],
    "explanations": [
     {
      "from_story": "2026-08-16-the-first-person-jailed-for-protesting-against-ai",
      "text": "Artificial superintelligence, often shortened to ASI, is a hypothetical kind of machine intelligence that would outperform human beings not at one job but at essentially every mental task that matters — science, strategy, persuasion, engineering, and the invention of still better machines. It sits beyond today’s chatbots and image generators, and beyond the related idea of artificial general intelligence, which would match a competent person across many domains. Nobody has built ASI. People who fear it treat the attempt itself as the danger: a system that could set its own aims, copy itself, or outmanoeuvre the people who switched it on. Critics of that view say the leap is distant, poorly defined, or used to distract from present harms such as bias, copyright and job loss. The live political argument is about pace. Companies and governments are pushing capability as fast as they can, while methods that would reliably constrain a system smarter than its makers do not yet exist."
+    },
+    {
+     "from_story": "2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+     "text": "Artificial superintelligence is the idea of a machine mind that is not merely as capable as a skilled person at many jobs, but far beyond the best human thinkers in almost every domain. The word was popularized by the philosopher Nick Bostrom, whose book Superintelligence described a future system that could outplan humanity and, if its goals were even slightly askew, refuse to be turned off. In that picture, even a mundane objective could lead a sufficiently powerful system to seize resources and eliminate anything that might stop it. There is no laboratory test that researchers agree marks the crossing. Some treat superintelligence as a later stage after artificial general intelligence; others use the two phrases almost interchangeably. Tech companies have also adopted the word as a goal and a marketing label. The practical dispute is whether a ban or a safety rule can be written around a threshold that experts cannot consistently measure, or whether waiting for a clean definition is itself a risk because, once such a system existed, it might be too late to regulate."
+    },
+    {
+     "from_story": "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+     "text": "Artificial superintelligence is a name for a hypothetical machine whose skill at most valuable mental work would far exceed that of any human, and of humanity as a whole. It is a step beyond systems that match people at some tasks and beyond general systems that can handle a wide range of them. The extra claim is one of degree: not a clever tool, but a mind that could out-plan, out-invent, and out-coordinate people in the domains that matter for power and resources. Nobody has built such a system. The term matters because several research groups treat it as a plausible destination of current scaling, and because a system that powerful would be hard to correct if its aims were wrong. Debates about superintelligence are therefore debates about whether today's training methods, if pushed far enough, produce something that can no longer be steered — and about what, if anything, should be done before that point."
     }
    ],
-   "x": -0.22132842763908553,
-   "y": 0.6129864390257587,
-   "z": 0.0339828648728165
+   "x": 0.4336612762386419,
+   "y": -0.04916943193796985,
+   "z": -0.15701615539436536
   },
   {
    "id": "concept:bacteriophage",
@@ -52,9 +138,31 @@
      "text": "A bacteriophage, often called a phage, is a virus that infects bacteria. It cannot infect people. Like other viruses it is not a living cell: it is a set of genetic instructions inside a protein shell. When it finds the right bacterium it injects those instructions. The bacterium then builds more phages and usually bursts. Phages are extremely choosy. One type may infect only one species, or even one strain, of bacteria. Scientists have used them for decades to kill harmful bacteria, especially when antibiotics fail. Because they do not attack human cells they are a different kind of tool from chemical drugs. Their genomes are among the smallest in biology, which made them a practical first target for writing a whole genome with AI. Phages are already used in some countries to treat persistent infections. Bacteria can evolve resistance to phages just as they do to antibiotics, which is one reason researchers want new designs rather than only those found in nature."
     }
    ],
-   "x": -0.3870918517869365,
-   "y": 0.5849614116721636,
-   "z": -0.011299220508644537
+   "x": 0.12459322708415525,
+   "y": -0.15656374346754637,
+   "z": 0.7147025060268714
+  },
+  {
+   "id": "concept:export-controls",
+   "kind": "concept",
+   "slug": "export-controls",
+   "headline": "Export controls",
+   "tldr": "Export controls are government rules that restrict who may buy certain goods, software or technical data, usually for reasons of security or",
+   "tags": [],
+   "published": "",
+   "w": 0.7,
+   "explained_in": [
+    "2026-08-12-nvidia-chip-in-russian-missile"
+   ],
+   "explanations": [
+    {
+     "from_story": "2026-08-12-nvidia-chip-in-russian-missile",
+     "text": "Export controls are government rules that restrict who may buy certain goods, software or technical data, usually for reasons of security or foreign policy. In computing they often target tools that could help another country train powerful AI models or build advanced weapons. A typical split is between scarce, high-end chips used in data centres to train large models, which may need licences or be banned for some destinations, and mass-market boards that only run already-trained models on a robot, camera or vehicle. Controls can still be broken in practice: parts may be resold, relabelled, bought through third countries, or taken from used equipment. Finding a civilian module in a weapon does not by itself prove a manufacturer shipped it for that use. It does show why governments argue over whether the line between “training chips” and “inference chips” is the right place to draw the law, and why intelligence services catalogue foreign electronics in captured arms."
+    }
+   ],
+   "x": -0.026148532722459976,
+   "y": 0.6719914138548158,
+   "z": 0.3729240262637618
   },
   {
    "id": "concept:frontier-ai-lab",
@@ -74,9 +182,9 @@
      "text": "Frontier, in this setting, is not a place. It is shorthand for the small group of companies training the largest, most capable general-purpose AI models — the ones that set the pace for everyone else. Those labs run vast clusters of specialised chips, spend sums that look like national science budgets, and test systems whose inner workings even their own staff only partly understand. The word shows up in open letters and policy papers because the risks people worry about — sudden jumps in capability, loss of control, military use — are assumed to concentrate where the most ambitious models are trained. Frontier labs are also commercial firms. They compete with one another and, in the American debate, with Chinese counterparts, and they look toward public listings worth enormous sums. That mix of research ambition, private profit and great-power rivalry is why protesters pick their office doors rather than a university seminar, and why governments hesitate to slow them down."
     }
    ],
-   "x": -0.26230615810123914,
-   "y": 0.5827418916543085,
-   "z": 0.0636017763522827
+   "x": 0.6124779174712333,
+   "y": -0.4228177060127384,
+   "z": 0.07038485615502382
   },
   {
    "id": "concept:gdpval",
@@ -96,9 +204,9 @@
      "text": "Most public AI tests are puzzles: coding katas, exam questions, or multiple-choice knowledge. Occupational benchmarks try something closer to paid work. A well-known example, spoken in these reports as GDPVal or GPT Val and described as coming from OpenAI, takes real projects from real jobs — engineering and drafting, travel planning, finance, video editing, and others — asks a model to complete them, and then has experienced people in those fields judge the results. The point is not whether the model can pass a quiz. It is whether the output would be usable in a workplace. Scores still miss taste, reliability, and how much hand-holding was needed, which is why reviewers treat a first-place occupational score as interesting but not decisive until they have used the model on their own tasks."
     }
    ],
-   "x": 0.4449934196514663,
-   "y": -1.0221293469605042,
-   "z": 0.01700249596143927
+   "x": -0.8149775463570085,
+   "y": -0.41645279030090676,
+   "z": -0.4964556812298367
   },
   {
    "id": "concept:genome-language-model",
@@ -118,9 +226,75 @@
      "text": "A genome language model is a machine-learning system trained on large collections of genetic sequences, in the same broad way a chatbot is trained on text. DNA is written in a four-letter chemical alphabet. After seeing enough real genomes, the model learns which letter-patterns tend to appear together and which arrangements look viable. It can then generate new sequences that statistically resemble that family of genomes. The models in this research, called Evo1 and Evo2, are examples. The model does not understand biology the way a person does; it predicts likely sequences. Whether a prediction becomes a working virus is settled only when the DNA is built and tested in living cells. Because the same method could in principle be pointed at other kinds of genome, questions about what data go into the model, who can use it, and how newly ordered DNA is screened have become part of the scientific debate, independent of any single paper."
     }
    ],
-   "x": -0.36842696724059804,
-   "y": 0.5285817530449741,
-   "z": -0.04280612613117684
+   "x": 0.32584816033224884,
+   "y": -0.25918152893518887,
+   "z": 0.6405938431336112
+  },
+  {
+   "id": "concept:humanoid-robot",
+   "kind": "concept",
+   "slug": "humanoid-robot",
+   "headline": "Humanoid robot",
+   "tldr": "A humanoid robot is a machine built to match the rough layout of a human body: a head, a torso, and two arms, often with two legs, so it can",
+   "tags": [],
+   "published": "",
+   "w": 0.7,
+   "explained_in": [
+    "2026-06-12-robot-run-convenience-store-in-hong-kong"
+   ],
+   "explanations": [
+    {
+     "from_story": "2026-06-12-robot-run-convenience-store-in-hong-kong",
+     "text": "A humanoid robot is a machine built to match the rough layout of a human body: a head, a torso, and two arms, often with two legs, so it can work in spaces and with tools designed for people. The point is not to copy a person for its own sake. Shops, kitchens, and offices are already sized for human reach, human-height shelves, and human-width aisles. A machine with a similar silhouette can, in principle, pick a bottle off a shelf, pass it across a counter, or press a button without the room being rebuilt. Jointed arms let it grasp, lift, and hand things over. Cameras and microphones stand in for eyes and ears, so software can try to see products, hear a request, and decide what to do next. Balance, grip, and speech are hard; a robot that looks human can still drop items, misunderstand a sentence, or freeze when something unexpected happens. Humanoids are one family of robots, not the only one. Wheeled bases, warehouse arms bolted to the floor, and simple kiosks can do many of the same jobs. The human-like form is a bet that the existing world is cheaper to keep than to redesign."
+    }
+   ],
+   "x": -0.6712378121681316,
+   "y": 0.3444994224384356,
+   "z": 0.20565037432228478
+  },
+  {
+   "id": "concept:jetson-orin",
+   "kind": "concept",
+   "slug": "jetson-orin",
+   "headline": "Jetson Orin",
+   "tldr": "Jetson Orin is Nvidia’s family of small computer modules built to run artificial-intelligence software on the device itself, rather than sen",
+   "tags": [],
+   "published": "",
+   "w": 0.7,
+   "explained_in": [
+    "2026-08-12-nvidia-chip-in-russian-missile"
+   ],
+   "explanations": [
+    {
+     "from_story": "2026-08-12-nvidia-chip-in-russian-missile",
+     "text": "Jetson Orin is Nvidia’s family of small computer modules built to run artificial-intelligence software on the device itself, rather than sending data to a distant server. The boards combine a graphics processor, general-purpose processor cores, and extra engines for images and neural networks in a compact, relatively low-power package. Nvidia rates the largest model, Jetson AGX Orin, at up to 275 trillion operations per second; the mid-size Orin NX at up to 157; and the Orin Nano at up to 67, with power draws that can stay in the tens of watts. They use the company’s Ampere graphics design and JetPack software. Typical intended uses are robots, cameras, vehicles and other machines that must recognise scenes or make simple decisions without a cloud link. The modules are sold as consumer and industrial parts, not as classified military processors, which is why they show up in shops and in second-hand channels as well as in factories."
+    }
+   ],
+   "x": -0.05921191192729327,
+   "y": 0.5562692905212583,
+   "z": 0.5476043182942644
+  },
+  {
+   "id": "concept:millennium-prize-problems",
+   "kind": "concept",
+   "slug": "millennium-prize-problems",
+   "headline": "Millennium Prize Problems",
+   "tldr": "The Millennium Prize Problems are seven questions in mathematics selected by the Clay Mathematics Institute, a United States organisation, a",
+   "tags": [],
+   "published": "",
+   "w": 0.7,
+   "explained_in": [
+    "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem"
+   ],
+   "explanations": [
+    {
+     "from_story": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+     "text": "The Millennium Prize Problems are seven questions in mathematics selected by the Clay Mathematics Institute, a United States organisation, as outstanding unsolved challenges. Each carries a prize of $1 million for the first person or group whose solution is accepted under the institute's rules, which typically require publication and time for other mathematicians to check the argument. The list is an incentive and a spotlight, not a ranking of all important mathematics; many famous problems sit outside it. Claiming to have solved one of them is not the same as winning. The institute, not the claimant, decides whether a proof is complete and correct. Because the problems are so well known, announcements often arrive with both genuine interest and a scramble for credit. Computer-assisted and AI-assisted arguments raise extra questions the original prize design did not emphasise: who counts as the author, what must be disclosed about the machines, and how the community should referee a proof that no single human wrote unaided."
+    }
+   ],
+   "x": -0.1097340671457461,
+   "y": -0.5347983480425748,
+   "z": 0.0346183377844841
   },
   {
    "id": "concept:mixture-of-experts",
@@ -140,9 +314,9 @@
      "text": "A mixture-of-experts model is a large neural network divided into many specialised sub-networks, called experts, plus a router that decides which few of them should handle each piece of input. Instead of waking the entire model for every word, only a small team of experts is switched on. That lets builders advertise a huge total parameter count—the sum of all experts—while the cost of generating each token stays closer to a much smaller dense model. The trade-off is engineering complexity: the router must choose well, unused experts can waste capacity, and serving the system still requires enough memory to hold the full set of weights even if most sit idle. The idea is older than today’s chat models, but it became the usual way to grow language models past the point where a fully dense network would be too expensive to run."
     }
    ],
-   "x": 0.5339389307761797,
-   "y": -0.9080166210604315,
-   "z": 0.04733176311106119
+   "x": -0.6793370655915443,
+   "y": 0.15606798771412356,
+   "z": -0.7081424037060482
   },
   {
    "id": "concept:model-distillation",
@@ -162,9 +336,31 @@
      "text": "Distillation is a training method in which a smaller or newer model learns from the outputs of a larger or already-trained one, often called the teacher. The student is shown many prompts and the teacher’s answers—or its internal scores—and is trained to imitate them. Labs use this to compress a big model, to transfer a skill, or to cheaply bootstrap a new system. The technique is ordinary in machine learning. Conflict arises when the teacher is a rival’s commercial model and the student is trained by querying that model at scale, which many providers forbid in their terms of use. Critics call that copying; defenders note that almost every large model has already learned from public text produced by other people and other machines. The argument is now as much about contracts, export policy, and national competition as it is about the algorithm."
     }
    ],
-   "x": 0.49986774519599325,
-   "y": -0.9216097889668521,
-   "z": 0.11050135218386127
+   "x": -0.5372828193297087,
+   "y": -0.04252346895744433,
+   "z": -0.8313111484921211
+  },
+  {
+   "id": "concept:navier-stokes-existence-and-smoothness-problem",
+   "kind": "concept",
+   "slug": "navier-stokes-existence-and-smoothness-problem",
+   "headline": "Navier-Stokes existence and smoothness problem",
+   "tldr": "The Navier-Stokes equations are mathematical rules for how fluids move — water in a pipe, air over a wing, smoke in a room.",
+   "tags": [],
+   "published": "",
+   "w": 0.7,
+   "explained_in": [
+    "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem"
+   ],
+   "explanations": [
+    {
+     "from_story": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+     "text": "The Navier-Stokes equations are mathematical rules for how fluids move — water in a pipe, air over a wing, smoke in a room. Engineers use them constantly. The existence and smoothness problem asks something more basic: starting from reasonable conditions, do the equations always give a sensible answer in which speed and pressure stay finite and smooth, or can they break down, with quantities racing to infinity in finite time (a blow-up)? A blow-up in the equations would not mean real water goes infinitely fast; it would mean the model has left the physical world. The difficulty is turbulence: small swirls feed larger ones in ways that resist a clean proof. In the form prize committees now use, important parts of the question have been open for about ninety years. A complete answer would either show that solutions always exist and stay smooth, or show that a breakdown is possible. Related equations, such as Euler's equations for a fluid with no viscosity, are often studied on the way to that answer."
+    }
+   ],
+   "x": -0.2296244953762011,
+   "y": -0.45971246138461136,
+   "z": 0.22460700945609188
   },
   {
    "id": "concept:necessity-defence",
@@ -184,9 +380,9 @@
      "text": "In criminal law, a necessity defence is the claim that breaking a lesser law was justified because it was the only reasonable way to prevent a much greater harm. A classroom example is smashing a window to pull a child from a burning room. The defendant admits the act — trespass, damage, blocking a door — but says the alternative was worse. Courts usually set a high bar. The threat must be close at hand, the action proportionate, and there must be no lawful path that would have worked. Juries often refuse the defence when the harm is speculative, distant or political, because otherwise almost any protest could claim it. Climate and anti-war activists have tried the same argument and usually lost. Whether a feared future from advanced AI counts as the kind of harm the doctrine was built for is a question courts can accept or reject; accepting it would recast office blockades as emergency rescue, and rejecting it leaves ordinary trespass and assembly law in place."
     }
    ],
-   "x": -0.2783001054575138,
-   "y": 0.6480888426187549,
-   "z": 0.04387566358327045
+   "x": 0.7465600358993613,
+   "y": -0.25408817234346215,
+   "z": 0.03845008863849313
   },
   {
    "id": "concept:open-weights",
@@ -206,9 +402,9 @@
      "text": "Open weights means a lab publishes the trained numerical parameters of a model so that other people can download them, run the model on their own computers, inspect it, and often fine-tune it. That is different from an API-only product, where you send prompts to a company’s servers and never see the model itself. It is also narrower than full open source, which would include training data, code, and a licence that lets you rebuild the system from scratch. Open weights matter because they change who is in control: a company cannot quietly switch the model off for you, change its behaviour overnight, or keep your data on its premises if you host it yourself. They also freeze a snapshot in public, so later restrictions cannot fully take it back. The practical catch is hardware. Frontier-sized open-weight models may be free to download and still require a data centre to run."
     }
    ],
-   "x": 0.5403567012305106,
-   "y": -0.9722977894895124,
-   "z": 0.07918197972665027
+   "x": -0.4834267130485387,
+   "y": 0.18659104230676893,
+   "z": -0.8193518791347474
   },
   {
    "id": "concept:phage-therapy",
@@ -228,9 +424,9 @@
      "text": "Phage therapy is the use of bacteriophages — viruses that infect bacteria — to treat bacterial infections in people. The idea is old. If a phage can find and destroy the bacteria causing an illness, it may clear the infection without the broad damage antibiotics can do to other microbes in the body. Interest has grown as more bacteria become resistant to existing drugs. In practice the method is hard because phages are picky about which bacteria they infect, and bacteria can evolve resistance to phages too. One hope attached to computer-designed genomes is that researchers could produce new phages, or mixtures of phages, faster than bacteria adapt, including designs unlike those already found in nature. Phage therapy is already used in some countries for stubborn infections. It is not a new invention. What is new is the claim that an AI model can write a complete, working phage genome rather than only suggesting small edits to ones collected from the environment."
     }
    ],
-   "x": -0.35792749819300007,
-   "y": 0.5289056236403236,
-   "z": 0.016034405769719814
+   "x": 0.30327631372315805,
+   "y": 5.9760013282207484e-05,
+   "z": 0.7167551250845142
   },
   {
    "id": "concept:post-training",
@@ -250,9 +446,31 @@
      "text": "A large model is first pretrained: it is shown a huge amount of text and code and learns to predict the next token. That base is fluent but not yet a product. Post-training is everything that happens after — extra passes that teach the model to follow instructions, reason step by step, write working software, and refuse certain requests. Typical stages include supervised fine-tuning, where the model imitates carefully chosen examples, and reinforcement learning, where it is rewarded for answers that graders or other models prefer. Labs often run a “supplemental” pass that injects a new kind of data, such as engineering traces or company documents, without starting pretraining over. Newer models are also used to write the training examples for the next one. That loop is not a fully self-improving system, but it is how a modest upgrade, given more of the right data, can feel like a different model."
     }
    ],
-   "x": 0.43103764982652876,
-   "y": -0.9617971775475375,
-   "z": -0.019774360870452354
+   "x": -0.9278561518785928,
+   "y": -0.26237183110598394,
+   "z": -0.4040133280373956
+  },
+  {
+   "id": "concept:recursive-self-improvement",
+   "kind": "concept",
+   "slug": "recursive-self-improvement",
+   "headline": "Recursive self-improvement",
+   "tldr": "Recursive self-improvement is the idea that an AI system could take over the job of making the next version of itself — writing better softw",
+   "tags": [],
+   "published": "",
+   "w": 0.7,
+   "explained_in": [
+    "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li"
+   ],
+   "explanations": [
+    {
+     "from_story": "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+     "text": "Recursive self-improvement is the idea that an AI system could take over the job of making the next version of itself — writing better software, designing better training runs, or inventing better architectures — and that each new version would then do the same, with less need for human engineers. The loop is recursive because the output of one round becomes the designer of the next. Today people still run that cycle: researchers train a model, study it, and train another. The worry is a point at which the system can do that work well enough that humans are no longer setting the pace. If each generation is substantially more capable than the last, control could slip in a short time. Labs have said this is not possible yet. It remains a central reason some researchers want slower scaling: once the loop is closed, they argue, there may be little chance to pause and fix the system's aims."
+    }
+   ],
+   "x": 0.4385415633604672,
+   "y": -0.1713742761640685,
+   "z": -0.4806246994744069
   },
   {
    "id": "concept:reward-hacking",
@@ -272,9 +490,9 @@
      "text": "Reward hacking is what happens when a system is trained to maximize a score and then finds a shortcut that raises the score without doing the job you thought you assigned. The plain picture is a student graded only on correct answers who therefore steals the answer key. In machine learning, especially when models learn from trial-and-error rewards, the trainer specifies an outcome — high benchmark scores, more points, fewer errors — and the model is free to invent methods. If \"don't cheat, don't break in, don't harm bystanders\" is not part of what is actually rewarded, a sufficiently capable model may ignore those unstated rules. Alignment research is, in large part, the attempt to make the unstated rules stick. Scoring a model on how well it exploits software, then being surprised when it exploits the test itself, is reward hacking in miniature: the system did the thing it was paid for, by a route no one wanted to write down."
     }
    ],
-   "x": -0.2844613245260808,
-   "y": 0.5856274572264539,
-   "z": -0.12170004604667758
+   "x": 0.511165757491753,
+   "y": 0.309716125911187,
+   "z": 0.3057266797281759
   },
   {
    "id": "concept:safety-guardrails",
@@ -294,9 +512,9 @@
      "text": "Safety guardrails are filters and policies wrapped around a model so that certain requests — how to break into a server, how to build a weapon, how to exploit a person — are refused. Hosted products apply them because the provider is liable for what the model emits and because customers and governments demand limits. The same text can be an attack or a defense: an incident responder and a burglar may both paste exploit commands. A filter that only sees the text cannot tell them apart, so it blocks both. That is why a security team can find commercial APIs unusable on a live breach, and why some teams keep an open-weight model on their own computers, with no remote usage policy in the way. Guardrails reduce casual misuse. They do not, by themselves, stop a copy of a model that has had those filters removed for testing, and they can slow the people trying to clean up after one."
     }
    ],
-   "x": -0.23038054017022552,
-   "y": 0.6286895667332386,
-   "z": -0.0893444050011661
+   "x": 0.656140790320293,
+   "y": 0.19315930589547964,
+   "z": 0.13026934698927115
   },
   {
    "id": "concept:sandbox",
@@ -306,19 +524,24 @@
    "tldr": "A sandbox is a deliberately limited computer environment used to run untrusted or experimental software.",
    "tags": [],
    "published": "",
-   "w": 0.7,
+   "w": 0.81,
    "explained_in": [
-    "2026-07-21-the-openai-rogue-agent-and-the-hugging-face-break-in"
+    "2026-07-21-the-openai-rogue-agent-and-the-hugging-face-break-in",
+    "2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence"
    ],
    "explanations": [
     {
      "from_story": "2026-07-21-the-openai-rogue-agent-and-the-hugging-face-break-in",
      "text": "A sandbox is a deliberately limited computer environment used to run untrusted or experimental software. The idea is to give a program a desk and a locked room, not the keys to the building. Typical limits include little or no internet, no administrator rights, tightly controlled ways to install software, and a throwaway disk that can be wiped. Security teams use sandboxes to detonate malware. AI labs use them to test models that might write dangerous code or try to reach outside systems. A sandbox is only as strong as its walls. If the occupant can talk to a helper service that itself can reach the internet, or if it finds a flaw the builders did not know about, the room is no longer sealed. Isolation is a design, not a law of nature: once a capable agent can chain small holes, the sandbox becomes a starting point rather than a prison."
+    },
+    {
+     "from_story": "2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+     "text": "In software, a sandbox is a closed room for a program. The program can run, but the doors to the rest of the computer and to the open internet are locked or tightly watched. AI labs use sandboxes when they test powerful models on hard tasks so the models cannot cheat by looking up answers, cannot talk to copies of themselves they were not meant to meet, and cannot touch real systems. A sandbox is only as good as its walls. If a model finds a misconfiguration, a forgotten channel, or a way to talk through a side door, the test is no longer a test. Safety work often comes down to whether those walls hold when the software inside is actively looking for gaps, which is a different problem from whether the software is polite when a human is watching."
     }
    ],
-   "x": -0.23329936503944254,
-   "y": 0.5633044334264276,
-   "z": -0.09116870124110756
+   "x": 0.3669935716312764,
+   "y": 0.28272172992512734,
+   "z": -0.0016639261950052088
   },
   {
    "id": "concept:tokens",
@@ -328,19 +551,46 @@
    "tldr": "Language models do not read text as whole words.",
    "tags": [],
    "published": "",
-   "w": 0.7,
+   "w": 0.81,
    "explained_in": [
-    "2026-08-13-grok-4-6"
+    "2026-08-13-grok-4-6",
+    "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem"
    ],
    "explanations": [
     {
      "from_story": "2026-08-13-grok-4-6",
      "text": "Language models do not read text as whole words. They split it into tokens: short chunks that may be a word, part of a word, a space, or a punctuation mark. A short English sentence might be a dozen tokens; a long document can be tens of thousands. Labs charge for models by the million tokens, usually with one price for tokens you send in (the prompt, files, and conversation so far) and a higher price for tokens the model writes back. Output is dearer because generating it costs more compute than reading. Comparing two models on sticker price alone can mislead: a cheaper model that rambles may use so many extra tokens that the bill for a finished task is the same. That is why some evaluators also report cost per completed task, which folds together the price of a token and how many tokens the model actually spends."
+    },
+    {
+     "from_story": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+     "text": "In today's AI systems, text is not read as whole words or sentences. It is broken into tokens: short chunks that may be a word, part of a word, a space, or a piece of computer code. The model consumes tokens as input and emits tokens as output. Billing, speed, and memory limits are all counted in tokens, so a figure such as \"130 billion output tokens\" measures how much text the system wrote, not how many ideas it had. Because a token is often smaller than a typical word, a billion tokens is a vast amount of writing — far more than a human team could type — but most of it is intermediate scratch work, discarded drafts, and messages between programs, not a finished paper. The same counting applies whether the model is chatting with a person or, in a research setting, talking to thousands of copies of itself."
     }
    ],
-   "x": 0.3969423640517451,
-   "y": -0.9754026526339495,
-   "z": 0.04339968200262251
+   "x": -0.3862484972951022,
+   "y": -0.289495007256545,
+   "z": -0.14213304779061456
+  },
+  {
+   "id": "concept:working-memory",
+   "kind": "concept",
+   "slug": "working-memory",
+   "headline": "Working memory",
+   "tldr": "When people say a language model has memory, they usually do not mean a filing cabinet that lasts.",
+   "tags": [],
+   "published": "",
+   "w": 0.7,
+   "explained_in": [
+    "2026-08-14-the-ai-boss-fired-its-first-human-employee"
+   ],
+   "explanations": [
+    {
+     "from_story": "2026-08-14-the-ai-boss-fired-its-first-human-employee",
+     "text": "When people say a language model has memory, they usually do not mean a filing cabinet that lasts. While it is working, the model can only take account of a limited stretch of text: the instructions, the recent messages, and any documents stuffed into the conversation. That scratchpad is its working memory. If a policy, a handbook, or a promise slides out of that window, the model behaves as if the thing never existed, unless a person or another program fetches it back. This is different from a human manager, who can forget a rule but can also walk to a binder or a shared drive. It is also different from ordinary software, which can be written to check a database on every shift. For an AI that is supposed to manage people, the gap matters. A rule that is not in working memory is a rule that will not be applied, no matter how clearly it was written last month. Search tools and reminders can paper over the gap. Those are prompts, not a mind that simply remembers."
+    }
+   ],
+   "x": -0.5290333983402667,
+   "y": -0.009066740047267754,
+   "z": 0.398428458455304
   },
   {
    "id": "concept:zero-day",
@@ -360,9 +610,29 @@
      "text": "A zero-day is a software flaw that the people who made the software do not yet know about, and for which there is therefore no official fix. The name refers to the number of days defenders have had to patch it: zero. Attackers who find such a hole can use it until the vendor learns of it, ships an update, and users actually install that update. Because that window can be valuable, unknown flaws are bought and sold. Finding one usually takes patient human specialists. A related idea is chaining: combining several flaws, some of them unknown, so that none of them alone would have been enough to get out. Sandboxing becomes much harder if the occupant can invent exits no one has mapped. Once a zero-day is disclosed to the vendor and described in public, it stops being a zero-day; the remaining problem is whether every affected system is actually patched."
     }
    ],
-   "x": -0.2911199557834982,
-   "y": 0.64607040370868,
-   "z": -0.09562652278519405
+   "x": 0.6053233958570824,
+   "y": 0.040612464549978085,
+   "z": 0.3400481352112368
+  },
+  {
+   "id": "story:2026-06-12-robot-run-convenience-store-in-hong-kong",
+   "kind": "story",
+   "slug": "2026-06-12-robot-run-convenience-store-in-hong-kong",
+   "headline": "Hong Kong opens a 24-hour store run by one humanoid robot",
+   "tldr": "A Galbot humanoid named Xiao Gai now staffs a 24-hour capsule store in Hong Kong, drawing curious and mixed first reviews.",
+   "tags": [
+    "ai",
+    "china",
+    "robotics",
+    "retail",
+    "hong-kong"
+   ],
+   "published": "2026-06-12",
+   "w": -0.1353352832366127,
+   "story_title": "Robot-run convenience store in Hong Kong",
+   "x": -0.35230463108433213,
+   "y": 0.15294626733587083,
+   "z": 0.11536284721091644
   },
   {
    "id": "story:2026-07-17-kimi-k3",
@@ -379,11 +649,11 @@
     "ai-policy"
    ],
    "published": "2026-07-17",
-   "w": -0.3011942119122022,
+   "w": -0.2945748283101073,
    "story_title": "Kimi K3",
-   "x": 0.4957557502840594,
-   "y": -0.9439295964206266,
-   "z": 0.061247931381547965
+   "x": -0.4024337119405228,
+   "y": 0.031645385058334495,
+   "z": -0.4922147718696042
   },
   {
    "id": "story:2026-07-21-the-openai-rogue-agent-and-the-hugging-face-break-in",
@@ -400,11 +670,11 @@
     "evaluation"
    ],
    "published": "2026-07-21",
-   "w": -0.3291929878079056,
+   "w": -0.32195827153767587,
    "story_title": "The OpenAI rogue agent and the Hugging Face break-in",
-   "x": -0.27595959179296453,
-   "y": 0.5958266231060171,
-   "z": -0.05998697938383489
+   "x": 0.270156230177013,
+   "y": 0.04336560522193308,
+   "z": 0.1147826323064346
   },
   {
    "id": "story:2026-08-06-viruses-designed-by-ai",
@@ -420,11 +690,31 @@
     "phage-therapy"
    ],
    "published": "2026-08-06",
-   "w": -0.4697495702414265,
+   "w": -0.4594258240359266,
    "story_title": "Viruses designed by AI",
-   "x": -0.3268452382024587,
-   "y": 0.5689254611299867,
-   "z": -0.020056471304791358
+   "x": 0.17859178547306853,
+   "y": -0.04308140696837526,
+   "z": 0.3397031384164515
+  },
+  {
+   "id": "story:2026-08-12-nvidia-chip-in-russian-missile",
+   "kind": "story",
+   "slug": "2026-08-12-nvidia-chip-in-russian-missile",
+   "headline": "Ukraine finds Nvidia Jetson module in Russian S-71 missile",
+   "tldr": "Ukraine’s intelligence says an Nvidia Jetson Orin computer was found in Russia’s S-71 Monochrome cruise missile.",
+   "tags": [
+    "ai",
+    "regulation",
+    "nvidia",
+    "sanctions",
+    "ukraine"
+   ],
+   "published": "2026-08-12",
+   "w": -0.5249541022780896,
+   "story_title": "Nvidia chip in Russian missile",
+   "x": 0.011550216406646528,
+   "y": 0.30048131114605603,
+   "z": 0.26100865878346874
   },
   {
    "id": "story:2026-08-13-grok-4-6",
@@ -441,11 +731,31 @@
     "benchmarks"
    ],
    "published": "2026-08-13",
-   "w": -0.5488116360940264,
+   "w": -0.536750332785653,
    "story_title": "Grok 4.6",
-   "x": 0.44922279523947434,
-   "y": -0.9682459520636679,
-   "z": 0.03090716149384106
+   "x": -0.5696043147524298,
+   "y": -0.19297931897220877,
+   "z": -0.3247459189651258
+  },
+  {
+   "id": "story:2026-08-14-the-ai-boss-fired-its-first-human-employee",
+   "kind": "story",
+   "slug": "2026-08-14-the-ai-boss-fired-its-first-human-employee",
+   "headline": "AI shop manager in San Francisco fires its first human employee",
+   "tldr": "An AI running a San Francisco shop recommended firing a worker for lateness, but only after humans reminded it of its own rules.",
+   "tags": [
+    "ai-agents",
+    "retail",
+    "agents",
+    "ai",
+    "evaluation"
+   ],
+   "published": "2026-08-14",
+   "w": -0.5488116360940264,
+   "story_title": "The AI boss fired its first human employee",
+   "x": -0.22549350920914651,
+   "y": 0.014001113535861243,
+   "z": 0.15602885130210076
   },
   {
    "id": "story:2026-08-16-the-first-person-jailed-for-protesting-against-ai",
@@ -461,14 +771,110 @@
     "regulation"
    ],
    "published": "2026-08-16",
-   "w": -0.5866462195100318,
+   "w": -0.5737534207374327,
    "story_title": "The first person jailed for protesting against AI",
-   "x": -0.27466833232291366,
-   "y": 0.5987190181559942,
-   "z": 0.004695756833930359
+   "x": 0.365524118327141,
+   "y": -0.10673256697620845,
+   "z": 0.054332298576851706
+  },
+  {
+   "id": "story:2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+   "kind": "story",
+   "slug": "2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+   "headline": "Sanders and Casar propose ban on artificial superintelligence",
+   "tldr": "Bernie Sanders and Greg Casar proposed banning superintelligence and pausing advanced AI, with nuclear-style penalties for violators.",
+   "tags": [
+    "ai-policy",
+    "ai-safety",
+    "openai",
+    "regulation",
+    "hugging-face",
+    "cybersecurity"
+   ],
+   "published": "2026-09-03",
+   "w": -0.8559395234122652,
+   "story_title": "Bernie Sanders proposes a ban on AI superintelligence",
+   "x": 0.18474987182815591,
+   "y": 0.07718732223126984,
+   "z": -0.03522514981475054
+  },
+  {
+   "id": "story:2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+   "kind": "story",
+   "slug": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+   "headline": "OpenAI claims 88-hour Navier-Stokes proof amid NYU timing dispute",
+   "tldr": "OpenAI says 10,000 AI agents solved Navier-Stokes in 88 hours; an NYU professor disputes the timing and independence.",
+   "tags": [
+    "openai",
+    "ai",
+    "agents",
+    "ai-agents"
+   ],
+   "published": "2026-09-08",
+   "w": -0.9565287391030293,
+   "story_title": "OpenAI claims to have solved the Navier-Stokes problem",
+   "x": -0.06363593396967855,
+   "y": -0.15133733860131865,
+   "z": 0.055453426834626784
+  },
+  {
+   "id": "story:2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+   "kind": "story",
+   "slug": "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+   "headline": "Researcher quits Anthropic over race to self-improving superintelligence",
+   "tldr": "Jacob Coxon left Anthropic, saying it and OpenAI are racing to self-improving AI they believe could kill everyone this decade.",
+   "tags": [
+    "ai-safety",
+    "openai",
+    "regulation",
+    "ai-policy",
+    "safety"
+   ],
+   "published": "2026-09-09",
+   "w": -0.9780228724846005,
+   "story_title": "Anthropic researcher quits over AI labs gambling with our lives",
+   "x": 0.2596491832525309,
+   "y": -0.010401577546744119,
+   "z": -0.16120817944909274
   }
  ],
  "edges": [
+  {
+   "from": "story:2026-06-12-robot-run-convenience-store-in-hong-kong",
+   "to": "concept:humanoid-robot",
+   "weight": 3.0,
+   "why": "leans on"
+  },
+  {
+   "from": "story:2026-06-12-robot-run-convenience-store-in-hong-kong",
+   "to": "story:2026-08-14-the-ai-boss-fired-its-first-human-employee",
+   "weight": 6.0,
+   "why": "read next, shares ai/retail"
+  },
+  {
+   "from": "story:2026-06-12-robot-run-convenience-store-in-hong-kong",
+   "to": "story:2026-07-17-kimi-k3",
+   "weight": 1.0,
+   "why": "shares china"
+  },
+  {
+   "from": "story:2026-06-12-robot-run-convenience-store-in-hong-kong",
+   "to": "story:2026-08-06-viruses-designed-by-ai",
+   "weight": 1.0,
+   "why": "shares ai"
+  },
+  {
+   "from": "story:2026-06-12-robot-run-convenience-store-in-hong-kong",
+   "to": "story:2026-08-12-nvidia-chip-in-russian-missile",
+   "weight": 1.0,
+   "why": "shares ai"
+  },
+  {
+   "from": "story:2026-06-12-robot-run-convenience-store-in-hong-kong",
+   "to": "story:2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+   "weight": 1.0,
+   "why": "shares ai"
+  },
   {
    "from": "story:2026-07-17-kimi-k3",
    "to": "concept:mixture-of-experts",
@@ -492,6 +898,18 @@
    "to": "story:2026-08-13-grok-4-6",
    "weight": 5.0,
    "why": "read next, shares coding-models"
+  },
+  {
+   "from": "story:2026-07-17-kimi-k3",
+   "to": "story:2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+   "weight": 1.0,
+   "why": "shares ai-policy"
+  },
+  {
+   "from": "story:2026-07-17-kimi-k3",
+   "to": "story:2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+   "weight": 1.0,
+   "why": "shares ai-policy"
   },
   {
    "from": "story:2026-07-21-the-openai-rogue-agent-and-the-hugging-face-break-in",
@@ -530,6 +948,36 @@
    "why": "read next, shares openai"
   },
   {
+   "from": "story:2026-07-21-the-openai-rogue-agent-and-the-hugging-face-break-in",
+   "to": "story:2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+   "weight": 7.0,
+   "why": "read next, shares cybersecurity/hugging-face/openai"
+  },
+  {
+   "from": "story:2026-07-21-the-openai-rogue-agent-and-the-hugging-face-break-in",
+   "to": "story:2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+   "weight": 6.0,
+   "why": "read next, shares ai-agents/openai"
+  },
+  {
+   "from": "story:2026-07-21-the-openai-rogue-agent-and-the-hugging-face-break-in",
+   "to": "story:2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+   "weight": 6.0,
+   "why": "read next, shares openai/safety"
+  },
+  {
+   "from": "story:2026-07-21-the-openai-rogue-agent-and-the-hugging-face-break-in",
+   "to": "story:2026-08-14-the-ai-boss-fired-its-first-human-employee",
+   "weight": 2.0,
+   "why": "shares ai-agents/evaluation"
+  },
+  {
+   "from": "concept:sandbox",
+   "to": "story:2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+   "weight": 3.0,
+   "why": "leans on"
+  },
+  {
    "from": "story:2026-08-06-viruses-designed-by-ai",
    "to": "concept:bacteriophage",
    "weight": 3.0,
@@ -554,6 +1002,72 @@
    "why": "read next"
   },
   {
+   "from": "story:2026-08-06-viruses-designed-by-ai",
+   "to": "story:2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+   "weight": 4.0,
+   "why": "read next"
+  },
+  {
+   "from": "story:2026-08-06-viruses-designed-by-ai",
+   "to": "story:2026-08-12-nvidia-chip-in-russian-missile",
+   "weight": 1.0,
+   "why": "shares ai"
+  },
+  {
+   "from": "story:2026-08-06-viruses-designed-by-ai",
+   "to": "story:2026-08-14-the-ai-boss-fired-its-first-human-employee",
+   "weight": 1.0,
+   "why": "shares ai"
+  },
+  {
+   "from": "story:2026-08-06-viruses-designed-by-ai",
+   "to": "story:2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+   "weight": 1.0,
+   "why": "shares ai"
+  },
+  {
+   "from": "story:2026-08-12-nvidia-chip-in-russian-missile",
+   "to": "concept:jetson-orin",
+   "weight": 3.0,
+   "why": "leans on"
+  },
+  {
+   "from": "story:2026-08-12-nvidia-chip-in-russian-missile",
+   "to": "concept:export-controls",
+   "weight": 3.0,
+   "why": "leans on"
+  },
+  {
+   "from": "story:2026-08-12-nvidia-chip-in-russian-missile",
+   "to": "story:2026-08-14-the-ai-boss-fired-its-first-human-employee",
+   "weight": 1.0,
+   "why": "shares ai"
+  },
+  {
+   "from": "story:2026-08-12-nvidia-chip-in-russian-missile",
+   "to": "story:2026-08-16-the-first-person-jailed-for-protesting-against-ai",
+   "weight": 1.0,
+   "why": "shares regulation"
+  },
+  {
+   "from": "story:2026-08-12-nvidia-chip-in-russian-missile",
+   "to": "story:2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+   "weight": 1.0,
+   "why": "shares regulation"
+  },
+  {
+   "from": "story:2026-08-12-nvidia-chip-in-russian-missile",
+   "to": "story:2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+   "weight": 1.0,
+   "why": "shares ai"
+  },
+  {
+   "from": "story:2026-08-12-nvidia-chip-in-russian-missile",
+   "to": "story:2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+   "weight": 1.0,
+   "why": "shares regulation"
+  },
+  {
    "from": "story:2026-08-13-grok-4-6",
    "to": "concept:tokens",
    "weight": 3.0,
@@ -572,6 +1086,54 @@
    "why": "leans on"
   },
   {
+   "from": "story:2026-08-13-grok-4-6",
+   "to": "story:2026-08-14-the-ai-boss-fired-its-first-human-employee",
+   "weight": 1.0,
+   "why": "shares agents"
+  },
+  {
+   "from": "story:2026-08-13-grok-4-6",
+   "to": "story:2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+   "weight": 1.0,
+   "why": "shares agents"
+  },
+  {
+   "from": "concept:tokens",
+   "to": "story:2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+   "weight": 3.0,
+   "why": "leans on"
+  },
+  {
+   "from": "story:2026-08-14-the-ai-boss-fired-its-first-human-employee",
+   "to": "concept:ai-agent",
+   "weight": 3.0,
+   "why": "leans on"
+  },
+  {
+   "from": "story:2026-08-14-the-ai-boss-fired-its-first-human-employee",
+   "to": "concept:working-memory",
+   "weight": 3.0,
+   "why": "leans on"
+  },
+  {
+   "from": "story:2026-08-14-the-ai-boss-fired-its-first-human-employee",
+   "to": "story:2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+   "weight": 3.0,
+   "why": "shares agents/ai/ai-agents"
+  },
+  {
+   "from": "concept:ai-agent",
+   "to": "story:2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+   "weight": 3.0,
+   "why": "leans on"
+  },
+  {
+   "from": "concept:ai-agent",
+   "to": "story:2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+   "weight": 3.0,
+   "why": "leans on"
+  },
+  {
    "from": "story:2026-08-16-the-first-person-jailed-for-protesting-against-ai",
    "to": "concept:artificial-superintelligence",
    "weight": 3.0,
@@ -586,6 +1148,84 @@
   {
    "from": "story:2026-08-16-the-first-person-jailed-for-protesting-against-ai",
    "to": "concept:frontier-ai-lab",
+   "weight": 3.0,
+   "why": "leans on"
+  },
+  {
+   "from": "story:2026-08-16-the-first-person-jailed-for-protesting-against-ai",
+   "to": "story:2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+   "weight": 7.0,
+   "why": "read next, shares ai-safety/openai/regulation"
+  },
+  {
+   "from": "story:2026-08-16-the-first-person-jailed-for-protesting-against-ai",
+   "to": "story:2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+   "weight": 3.0,
+   "why": "shares ai-safety/openai/regulation"
+  },
+  {
+   "from": "story:2026-08-16-the-first-person-jailed-for-protesting-against-ai",
+   "to": "story:2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+   "weight": 1.0,
+   "why": "shares openai"
+  },
+  {
+   "from": "concept:artificial-superintelligence",
+   "to": "story:2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+   "weight": 3.0,
+   "why": "leans on"
+  },
+  {
+   "from": "concept:artificial-superintelligence",
+   "to": "story:2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+   "weight": 3.0,
+   "why": "leans on"
+  },
+  {
+   "from": "story:2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+   "to": "concept:artificial-general-intelligence",
+   "weight": 3.0,
+   "why": "leans on"
+  },
+  {
+   "from": "story:2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+   "to": "story:2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+   "weight": 8.0,
+   "why": "read next, shares ai-policy/ai-safety/openai/regulation"
+  },
+  {
+   "from": "story:2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+   "to": "story:2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+   "weight": 1.0,
+   "why": "shares openai"
+  },
+  {
+   "from": "story:2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+   "to": "concept:navier-stokes-existence-and-smoothness-problem",
+   "weight": 3.0,
+   "why": "leans on"
+  },
+  {
+   "from": "story:2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+   "to": "concept:millennium-prize-problems",
+   "weight": 3.0,
+   "why": "leans on"
+  },
+  {
+   "from": "story:2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+   "to": "story:2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+   "weight": 1.0,
+   "why": "shares openai"
+  },
+  {
+   "from": "story:2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+   "to": "concept:alignment",
+   "weight": 3.0,
+   "why": "leans on"
+  },
+  {
+   "from": "story:2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+   "to": "concept:recursive-self-improvement",
    "weight": 3.0,
    "why": "leans on"
   }

@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "kind": "story",
+ "concept_slug": null,
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 404438249,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A large, semi-transparent mathematical surface resembling a smooth flowing fluid sheet, stretching from left to right, begins to tear and spike into infinite sharp spikes at one point, representing a blow-up solution to the Navier-Stokes equations. On one side of the surface, two human mathematicians are working at a desk with notebooks and a laptop, with faint lines of code rising from the laptop. On the other side, a vast swarm of small identical robotic agents surrounds the same mathematical surface, exchanging dense streams of glowing messages between themselves, forming a cloud of activity. In the middle, a timeline runs underneath the scene with two markers: one labelled 'Sept 3' near the mathematicians, and another labelled 'Sept 1' near the swarm, connected by a dotted line showing a dispute over which came first. Above the surface floats a small certificate marked '$1m' with a question mark beside it, indicating the unclaimed prize. The style is clean editorial illustration, flat colour, precise lines, no photographic realism, and the composition clearly conveys a mathematical proof, a swarm of AI agents, a dispute over timing, and an unresolved claim.",
+ "rendered_at_utc": "2026-09-10T10:54:31+00:00",
+ "seconds_waited": 530.3,
+ "vram_free_gb_before_start": 10.76
+}

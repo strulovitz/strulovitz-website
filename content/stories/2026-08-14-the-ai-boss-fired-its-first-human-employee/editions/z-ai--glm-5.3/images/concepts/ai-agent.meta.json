@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-14-the-ai-boss-fired-its-first-human-employee",
+ "model_id": "z-ai/glm-5.3",
+ "model_slug": "z-ai--glm-5.3",
+ "kind": "concept",
+ "concept_slug": "ai-agent",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2239168004,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single wide illustration of an open-plan office, arranged along one diagonal path. In the lower-left corner, for contrast, a small chatbot terminal is tethered to a desk, exchanging one speech bubble with a user and then dimming to wait for the next message; everything else in the frame belongs to the agent. The agent is a slender robot whose transparent head holds a glowing swirl of printed words — the language model at its core — and it strides along a trail of stepping stones that it lays down just ahead of its own feet, numbering each step itself as it carries a slip stamped GOAL toward a distant flag reading GOAL MET. The stones are labeled with its real-world actions — browsing the web, sending messages, filling in forms, spending money, hiring a small figure who signs a contract — while the stones already crossed show what is at stake: one cracked, one spilling coins from a struck purse, one littered with crumpled paperwork, its mistakes leaving real dents in the world. Its judgement visibly consists only of what it carries: a satchel stenciled MEMORY bulging with notes and a rulebook titled INSTRUCTIONS buckled at its waist. Humans crowd the edges of the frame: eager managers in suits watch from cubicles clutching ledgers, while one supervisor walks at the robot's shoulder, prompting it through a megaphone, bolting a guardrail of checkpoint gates around its path, and snatching a red bug-shaped ERROR out of the air before it lands; a background sign reads AGENT-RUN BUSINESS, TRIAL 7, and beneath it the supervisor's clipboard tallies a long list of previous catches.",
+ "rendered_at_utc": "2026-09-10T04:14:43+00:00",
+ "seconds_waited": 395.9,
+ "vram_free_gb_before_start": 10.79
+}

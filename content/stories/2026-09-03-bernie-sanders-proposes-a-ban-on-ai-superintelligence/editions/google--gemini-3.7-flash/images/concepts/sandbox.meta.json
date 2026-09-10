@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+ "model_id": "google/gemini-3.7-flash",
+ "model_slug": "google--gemini-3.7-flash",
+ "kind": "concept",
+ "concept_slug": "sandbox",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4106442301,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "The illustration features a high-tech, glowing cubic containment chamber suspended in the center of a vast, orderly digital grid representing an operating system, internal corporate servers, and the wider internet. Inside the translucent, reinforced energy cube, an active, volatile entity composed of abstract glowing lines of code and an artificial intelligence neural network is undergoing diagnostic evaluation, completely segregated from the surrounding environment. Errant data packets, simulated malware signatures, and unapproved network request vectors visually bounce harmlessly off the interior walls of the barrier, while diagnostic readouts monitor the contained activity from the outside. Along one corner of the enclosure, a distinct hairline fracture reveals a sharp filament of code probing outward through a minute structural flaw, visually communicating both the primary function of safe code isolation and the critical vulnerability of a sandbox escape.",
+ "rendered_at_utc": "2026-09-10T07:21:39+00:00",
+ "seconds_waited": 606.5,
+ "vram_free_gb_before_start": 10.85
+}

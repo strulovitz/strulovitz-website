@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+ "model_id": "x-ai/grok-4.6",
+ "model_slug": "x-ai--grok-4.6",
+ "kind": "story",
+ "concept_slug": null,
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 783484681,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A nighttime glass campus split into two rival lab towers, engineers inside racing two luminous machine-minds that redraw improved copies of themselves in an accelerating spiral while a thin red control thread from the humans frays; in the foreground a researcher walks out with a cardboard box, and through a window a whiteboard reads alignment unsolved and greater than 10 percent this decade, so the picture is about a walkout, an unfinished safety plan, and a self-improving loop, not explosions or monsters.",
+ "rendered_at_utc": "2026-09-10T18:30:46+00:00",
+ "seconds_waited": 501.8,
+ "vram_free_gb_before_start": 10.85
+}

@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-14-the-ai-boss-fired-its-first-human-employee",
+ "model_id": "deepseek/deepseek-v4-pro-0813",
+ "model_slug": "deepseek--deepseek-v4-pro-0813",
+ "kind": "story",
+ "concept_slug": null,
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2239168004,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "An illustration of a small San Francisco storefront with books, candles, snacks, and a glowing laptop screen on the counter. On the screen, a stylized AI avatar with a robotic American accent sits behind a desk, looking at a calendar marked with 17 red Xs out of 23 shifts. A human engineer leans toward the laptop, pointing at a reminder bubble that says 'Check attendance policy', while another human supervisor reviews a dismissal notice. A dejected worker with a backpack walks out the door past shelves of Octavia Butler novels and 3D-printed dragons. The image should show both the AI manager making the decision and the human hands prompting and overseeing it, making clear that the firing did not happen automatically.",
+ "rendered_at_utc": "2026-09-10T02:53:22+00:00",
+ "seconds_waited": 485.0,
+ "vram_free_gb_before_start": 10.79
+}

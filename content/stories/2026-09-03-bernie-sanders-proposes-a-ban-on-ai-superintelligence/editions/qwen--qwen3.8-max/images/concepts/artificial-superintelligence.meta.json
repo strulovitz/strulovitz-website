@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "kind": "concept",
+ "concept_slug": "artificial-superintelligence",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4106442301,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A towering, luminous artificial mind, shaped like a vast translucent head or orb, rises far above a row of brilliant human thinkers, its branching light reaching into symbols of scientific discovery, chess-like strategy, maps, microscopes, and crowds of people being subtly influenced, while below it ordinary humans appear small and animal-like in scale to show the gap in intelligence; around the central mind, one side carries warning signs, chains slipping loose, and a fragile rudder labeled by imagery rather than words to suggest alignment to human values, while the other side shows glossy corporate flags and finish-line banners treating superintelligence as a coveted milestone; conflicting arrows, speed signs, and barriers converge beneath it, some urging acceleration, some demanding slowdown, and some calling for prohibition, with faint question marks and uneven measuring scales scattered throughout to show that its definition remains uncertain and disputed.",
+ "rendered_at_utc": "2026-09-10T08:57:31+00:00",
+ "seconds_waited": 434.8,
+ "vram_free_gb_before_start": 10.77
+}

@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-12-nvidia-chip-in-russian-missile",
+ "model_id": "google/gemini-3.7-flash",
+ "model_slug": "google--gemini-3.7-flash",
+ "kind": "story",
+ "concept_slug": null,
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3921325051,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A disassembled stealth cruise missile section resting on an analytical laboratory workbench, with its outer dark composite shell opened to reveal internal electronics. In the center, under focused examination lighting, sits a compact commercial green printed circuit board featuring an Nvidia Jetson computer chip. In the background, technical schematics and diagnostic computer screens show computer vision recognition outlines and component analysis graphs.",
+ "rendered_at_utc": "2026-09-09T23:58:25+00:00",
+ "seconds_waited": 597.5,
+ "vram_free_gb_before_start": 10.85
+}

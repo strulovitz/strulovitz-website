@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+ "model_id": "anthropic/claude-sonnet-5",
+ "model_slug": "anthropic--claude-sonnet-5",
+ "kind": "concept",
+ "concept_slug": "artificial-superintelligence",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4106442301,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "Illustration: split the frame down the middle. On the left, render a radiant, upward-sweeping graph or halo of light labeled with icons for chess, protein molecules, language, and code, converging into a glowing humanoid silhouette bathed in optimistic blue-gold light — evoking the \"aspirational product\" framing pushed by AI company marketing. On the right, mirror the same humanoid silhouette, but now cracked open like a fault line, with a tangle of arrows escaping past a broken \"OFF\" switch and a small human figure trying and failing to pull a lever — evoking loss of control and the catastrophic-misalignment warning from Bostrom's book. Between the two halves, draw a wavering, dashed vertical line labeled \"?\" with several overlapping, contradictory tick-marks (one marked \"cognitive performance,\" one \"resists shutdown,\" one \"acts independently\") to show there's no agreed threshold for when a system counts as superintelligent. At the bottom, add a small courtroom-style gavel resting on a rulebook with a blank line where a definition should be, symbolizing how any regulation built on this undefined term risks being sidestepped by companies as capabilities keep advancing.",
+ "rendered_at_utc": "2026-09-10T06:42:33+00:00",
+ "seconds_waited": 414.1,
+ "vram_free_gb_before_start": 10.85
+}

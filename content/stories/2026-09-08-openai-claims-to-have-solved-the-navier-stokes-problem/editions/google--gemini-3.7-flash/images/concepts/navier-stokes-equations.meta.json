@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+ "model_id": "google/gemini-3.7-flash",
+ "model_slug": "google--gemini-3.7-flash",
+ "kind": "concept",
+ "concept_slug": "navier-stokes-equations",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 404438249,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A detailed digital concept art piece that merges physics, mathematics, and nature, depicting fluid dynamics flowing across a split composition that represents both practical applications and theoretical mathematical mystery. In the scene, swirling, semi-transparent streams of water and atmospheric wind currents curl around faint silhouettes of a soaring airplane wing and an expansive meteorological storm system. Inscribed and glowing along these fluid paths are the vector calculus formulas of the Navier-Stokes equations. The fluid begins on the left as an orderly, smooth, and continuous ribbon of laminar flow, but as it travels toward the right, the stream twists into an intense, turbulent vortex where the smooth mathematical grid tears, abruptly fracturing into sharp, infinitely spiking light fractures—visually communicating the unresolved dilemma between predictable, smooth fluid motion and catastrophic, infinite mathematical singularities.",
+ "rendered_at_utc": "2026-09-10T15:40:15+00:00",
+ "seconds_waited": 402.4,
+ "vram_free_gb_before_start": 10.85
+}

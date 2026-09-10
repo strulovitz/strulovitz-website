@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-12-nvidia-chip-in-russian-missile",
+ "model_id": "anthropic/claude-sonnet-5",
+ "model_slug": "anthropic--claude-sonnet-5",
+ "kind": "concept",
+ "concept_slug": "edge-ai-computing",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3921325051,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "Illustrate a cutaway diagram of a small missile in flight, its nose cone opened to reveal a compact circuit board labeled \"Jetson-class edge AI chip,\" directly wired to a small camera lens at the tip; around the missile, faint dotted lines show a rejected alternate path — a signal arcing up to a distant satellite and down to a data center building, crossed out with an \"X\" and stamped \"too slow / no connection\" — contrasting with a solid short arrow looping from the camera lens straight into the chip and back out to the missile's steering fins, labeled \"instant, on-device decision\"; beside the missile, smaller inset icons of a drone, a security camera, a smartphone, and a self-driving car all point to the same identical chip with the caption \"same chip, everyday uses,\" while a faint factory silhouette in the background releases a stream of identical chips into both the civilian icons and the missile, visually showing how one mass-produced, low-power component quietly flows from ordinary gadgets into autonomous weapons without any special checkpoint stopping it.",
+ "rendered_at_utc": "2026-09-10T00:52:15+00:00",
+ "seconds_waited": 388.6,
+ "vram_free_gb_before_start": 10.85
+}

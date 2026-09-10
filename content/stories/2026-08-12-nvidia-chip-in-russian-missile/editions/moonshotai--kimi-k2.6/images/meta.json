@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-12-nvidia-chip-in-russian-missile",
+ "model_id": "moonshotai/kimi-k2.6",
+ "model_slug": "moonshotai--kimi-k2.6",
+ "kind": "story",
+ "concept_slug": null,
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3921325051,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A cutaway diagram of a Russian S-71 Monochrome cruise missile in flight, with a small green circuit board highlighted near its nose—the Nvidia Jetson Orin module—connected by glowing lines to a camera lens and a fin guidance system. Around the missile, faint silhouettes of foreign-made electronic components scatter like breadcrumbs, illustrating the global supply chain. In the background, a darkened factory floor suggests the difficulty of tracking consumer chips that slip from civilian markets into weapons.",
+ "rendered_at_utc": "2026-09-10T00:27:18+00:00",
+ "seconds_waited": 559.0,
+ "vram_free_gb_before_start": 10.8
+}

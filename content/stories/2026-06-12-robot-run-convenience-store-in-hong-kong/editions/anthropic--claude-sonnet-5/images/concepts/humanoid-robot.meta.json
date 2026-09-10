@@ -1,0 +1,18 @@
+{
+ "story": "2026-06-12-robot-run-convenience-store-in-hong-kong",
+ "model_id": "anthropic/claude-sonnet-5",
+ "model_slug": "anthropic--claude-sonnet-5",
+ "kind": "concept",
+ "concept_slug": "humanoid-robot",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4097423916,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A cutaway illustration of a humanoid robot standing in an everyday setting — one side of its body rendered as a realistic android with a torso, head, arms, and legs matched to human proportions, the other side exposed to reveal its mechanical joints, camera \"eyes,\" a microphone icon near its head, and a chest-mounted processor unit labeled with a small cloud symbol to suggest AI connectivity; the robot reaches with a gripper hand toward a shelf item at normal human reach-height in a space with unmodified doors, counters, and shelving, subtly emphasizing that its human-like shape lets it use the same surroundings people do, while a faint thought-bubble or screen display above its head shows it confidently recognizing a single known object but rendered with a question mark or glitch icon when facing a jumbled, unexpected pile of objects beside it — visually contrasting its competence at repetitive, well-defined tasks with its struggle to improvise.",
+ "rendered_at_utc": "2026-09-09T22:10:48+00:00",
+ "seconds_waited": 391.6,
+ "vram_free_gb_before_start": 10.79
+}

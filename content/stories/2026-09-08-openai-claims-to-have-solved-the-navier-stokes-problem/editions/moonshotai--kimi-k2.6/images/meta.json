@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+ "model_id": "moonshotai/kimi-k2.6",
+ "model_slug": "moonshotai--kimi-k2.6",
+ "kind": "story",
+ "concept_slug": null,
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 404438249,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A split scene: on the left, a dense web of 10,000 tiny glowing nodes exchanging streams of equations and messages in mid-air, representing the swarm of AI agents; on the right, two human mathematicians examine handwritten proofs at a desk, with a thin, translucent data thread running from their work toward the swarm, symbolising the disputed flow of information between the researchers and the company. In the background, a large chalkboard shows the Navier–Stokes equations dissolving into turbulent swirls at one edge, hinting at the 'blow up' result. The overall mood is one of intellectual competition shadowed by questions of fairness and data boundaries.",
+ "rendered_at_utc": "2026-09-10T11:02:25+00:00",
+ "seconds_waited": 472.5,
+ "vram_free_gb_before_start": 10.82
+}

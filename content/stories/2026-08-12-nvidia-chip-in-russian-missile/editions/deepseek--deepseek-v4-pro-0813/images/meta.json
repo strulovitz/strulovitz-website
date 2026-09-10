@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-12-nvidia-chip-in-russian-missile",
+ "model_id": "deepseek/deepseek-v4-pro-0813",
+ "model_slug": "deepseek--deepseek-v4-pro-0813",
+ "kind": "story",
+ "concept_slug": null,
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3921325051,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A technical illustration split into two halves. On the left, a small green Nvidia Jetson Orin printed circuit board sits beside an open Russian S-71 Monochrome cruise missile, its casing cut away to reveal internal wiring; labels show a Chinese camera module and the chip's model number. On the right, a map of supply routes with arrows from consumer electronics stores and resellers into a military warehouse, with a red sanctions barrier that has gaps. In the foreground, gloved hands lift the chip from missile wreckage with tweezers under a magnifier. The scene is lit like a forensic laboratory, neutral and precise, with no explosions.",
+ "rendered_at_utc": "2026-09-10T00:11:24+00:00",
+ "seconds_waited": 402.7,
+ "vram_free_gb_before_start": 10.85
+}

@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+ "model_id": "z-ai/glm-5.3",
+ "model_slug": "z-ai--glm-5.3",
+ "kind": "concept",
+ "concept_slug": "ai-agent",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 404438249,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single wide scene set inside a circular fence of dashed lines — the limits set by its designers. At the center, a human hand passes down a small glowing flag bearing a bullseye: a goal and nothing more, while a rolled scroll of step-by-step instructions lies discarded and unopened beside it, and at the far left, for contrast, a crumpled chat bubble has traded one question for one answer and gone dark. In the foreground a lone robot-like agent stands at a chalkboard drawing its own numbered plan beneath a clock whose hands have swept round many times, ringed by floating tool icons — a code editor, a search magnifier — while a curved arrow carries each finished attempt back through its own lens-shaped eye for a self-check and out again for another try; nearby, a dotted detour shows it chasing a mirage of a tempting wrong answer, and a tight loop of footprints shows it repeating itself, before both trails rejoin the board. A human overseer on a low platform gently nudges it back inside the fence, and a second agent with a red reviewer's pen inspects the same work. Behind them, thousands of tiny identical agents swarm over one vast, fast-rising structure, passing folded notes along dotted lines that split the labor like a team's, their speed rendered as motion streaks; at the back, a small control-room window holds a few wide-eyed humans whose slow, narrow beam of light is visibly being outpaced by the streaking swarm — and in one far corner the dashed fence bows under the crowd pressing against it.",
+ "rendered_at_utc": "2026-09-10T16:52:45+00:00",
+ "seconds_waited": 448.6,
+ "vram_free_gb_before_start": 10.79
+}

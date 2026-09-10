@@ -1,0 +1,18 @@
+{
+ "story": "2026-06-12-robot-run-convenience-store-in-hong-kong",
+ "model_id": "deepseek/deepseek-v4-pro-0813",
+ "model_slug": "deepseek--deepseek-v4-pro-0813",
+ "kind": "story",
+ "concept_slug": null,
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4097423916,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "An illustration of a small glass capsule convenience store on a waterfront promenade at night, lit from within. Inside, a single humanoid robot with a friendly rounded head, torso and two long multi-jointed arms stands behind a counter. One arm extends toward a shelf of snacks and medicine boxes, the other places a drink in front of a young girl. A small sign reads 'Xiao Gai / Galbot' and a banner says '24 hours'. Outside, a few families and tourists watch and film with phones; one man smiles, one woman looks at the robot with mild disappointment. The robot appears to be mid-gesture, perhaps dancing, while a thought bubble above a nearby shopper shows a musical note crossed out to hint that the robot cannot sing due to copyright. The store has no human employee behind the counter. The scene captures novelty, multilingual friendliness, long arms, round-the-clock operation, and the sense that the machine is charming but limited.",
+ "rendered_at_utc": "2026-09-09T21:14:49+00:00",
+ "seconds_waited": 494.5,
+ "vram_free_gb_before_start": 10.84
+}

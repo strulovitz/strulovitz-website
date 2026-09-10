@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+ "model_id": "anthropic/claude-sonnet-5",
+ "model_slug": "anthropic--claude-sonnet-5",
+ "kind": "concept",
+ "concept_slug": "recursive-self-improvement",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4106442301,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "Depict a spiral staircase made of glowing computer chips, ascending upward and shrinking into the distance, where each step is a slightly larger, more intricate chip than the one below it, and a small robotic arm or AI icon on each step reaches up to solder and assemble the next step above it, illustrating one generation of AI building the next; the staircase's upper steps should blur and accelerate closer together, visually suggesting speed compounding as it rises, while at the bottom, tiny human figures with magnifying glasses, clipboards, and safety harnesses try to inspect the lower steps but are shown falling further and further behind the ascending spiral, with a faint dotted line marking the widening gap between where the humans stand and where the construction has already reached — together conveying both the self-building mechanism of recursive self-improvement and the central worry that human oversight cannot keep pace with it.",
+ "rendered_at_utc": "2026-09-10T06:55:31+00:00",
+ "seconds_waited": 286.7,
+ "vram_free_gb_before_start": 10.85
+}

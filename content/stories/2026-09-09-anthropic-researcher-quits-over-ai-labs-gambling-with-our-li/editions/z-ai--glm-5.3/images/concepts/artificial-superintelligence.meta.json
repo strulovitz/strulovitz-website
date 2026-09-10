@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+ "model_id": "z-ai/glm-5.3",
+ "model_slug": "z-ai--glm-5.3",
+ "kind": "concept",
+ "concept_slug": "artificial-superintelligence",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 783484681,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single dark editorial illustration built around a glowing radar chart: five labeled axes — mathematics, engineering, science, persuasion, strategy — radiate from a center point, and on each axis a thin ring marks the level of the best human expert. Two shapes overlay the chart. Today's AI appears as a jagged polygon that spikes far beyond the rings on a few axes and sags well inside them on others, its edges drawn flickering and broken to show it cannot tell which of its own abilities are real. Superintelligence appears as one smooth circle of warm light passing beyond every human ring on every axis at once, with no dips anywhere — the visual meaning of a system with no weak spots — its rim slightly out of focus to mark it as hypothetical. Rays extend outward from that circle, tipped with icons of what such a system could do: a code window, a stack of coins, an org chart of tiny figures, and speech bubbles drifting over a crowd, each icon dwarfing the matching human silhouettes beneath it. In the lower foreground a lone human evaluator sits at a small desk in a pool of lamplight with clipboard, checklist, test tube and gavel laid out, holding up a leash whose end simply vanishes into the dark with nothing attached, while the evaluator's own shadow is swallowed by the circle's glow — every oversight method in the picture assumes the person holding it is the cleverest one in the room. Along the bottom edge a road recedes into fog past three tilted signposts reading Years, Decades and Never, and a fourth, blank signpost labeled Plan. The palette is cool blue and gray throughout, with the superintelligence's circle the only saturated warm element, so the eye is drawn first to the shape that exceeds everything and cannot be overseen.",
+ "rendered_at_utc": "2026-09-10T21:01:01+00:00",
+ "seconds_waited": 290.2,
+ "vram_free_gb_before_start": 10.0
+}

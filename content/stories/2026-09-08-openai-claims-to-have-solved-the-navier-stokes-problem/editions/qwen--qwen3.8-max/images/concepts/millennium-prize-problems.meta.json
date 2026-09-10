@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "kind": "concept",
+ "concept_slug": "millennium-prize-problems",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 404438249,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single panoramic illustration depicts a dark marble amphitheater representing pure mathematics, with seven towering stone tablets or sealed doors arranged in a semicircle, each engraved with emblematic motifs for a Millennium Prize problem: prime spirals for number theory, curved surfaces for geometry and topology, quantum-like grids for mathematical physics, and especially a turbulent blue fluid vortex for the Navier–Stokes problem. Above them, a modest official banner identifies the Clay Mathematics Institute and the year 2000, while a medal or scale signifies the one-million-dollar prize. One tablet, marked as the Poincaré conjecture, is open, solved, and bathed in light, while the other six remain sealed and unresolved. In the foreground, mathematicians examine transparent, publicly displayed proof manuscripts under lenses and lanterns, showing that a solution must be rigorous, publicly available, and accepted by the mathematical community rather than merely plausible. The image presents the seven problems as famous public markers of progress in mathematics, with only one solved and accepted as of the early 2020s.",
+ "rendered_at_utc": "2026-09-10T17:42:13+00:00",
+ "seconds_waited": 442.2,
+ "vram_free_gb_before_start": 10.85
+}

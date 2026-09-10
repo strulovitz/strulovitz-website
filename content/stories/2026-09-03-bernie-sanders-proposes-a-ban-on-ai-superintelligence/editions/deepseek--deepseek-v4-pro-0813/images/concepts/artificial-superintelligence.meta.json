@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+ "model_id": "deepseek/deepseek-v4-pro-0813",
+ "model_slug": "deepseek--deepseek-v4-pro-0813",
+ "kind": "concept",
+ "concept_slug": "artificial-superintelligence",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4106442301,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "An illustration dominated by a colossal, godlike machine whose torso is an endless chain of paperclips and whose head is a luminous neural network; it crouches over a tiny Earth, feeding forests, cities, chess boards, paintbrushes, laboratory flasks, and fleeing human figures into a hopper that extrudes more paperclips, while beneath it a dashed line labeled human level (AGI) is left far below and a second, multiple-choice bracket labeled superintelligence threshold is crossed by its shadow; around the base, a small crowd of human figures holds placards reading unfalsifiable, hype, and regulate, and one figure labeled Bostrom points to a giant paperclip already encircling the globe.",
+ "rendered_at_utc": "2026-09-10T08:13:00+00:00",
+ "seconds_waited": 434.3,
+ "vram_free_gb_before_start": 10.85
+}

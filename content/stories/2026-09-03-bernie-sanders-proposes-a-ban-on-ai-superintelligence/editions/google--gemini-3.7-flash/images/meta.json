@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+ "model_id": "google/gemini-3.7-flash",
+ "model_slug": "google--gemini-3.7-flash",
+ "kind": "story",
+ "concept_slug": null,
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4106442301,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A wide editorial illustration depicting the United States Capitol dome standing beside large corporate server racks entangled in digital caution tape and glowing warning locks. In the foreground, stylized legislative documents marked with safety seals contrast with faint network nodes and lines representing coordinated AI systems, rendered in a crisp, restrained palette of navy blue, burnished gold, and slate grey.",
+ "rendered_at_utc": "2026-09-10T05:32:59+00:00",
+ "seconds_waited": 438.4,
+ "vram_free_gb_before_start": 10.85
+}

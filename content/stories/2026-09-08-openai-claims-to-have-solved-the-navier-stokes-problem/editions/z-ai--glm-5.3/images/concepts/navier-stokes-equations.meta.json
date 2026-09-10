@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+ "model_id": "z-ai/glm-5.3",
+ "model_slug": "z-ai--glm-5.3",
+ "kind": "concept",
+ "concept_slug": "navier-stokes-equations",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 404438249,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "The illustration is a single wide panel that reads left to right like one continuous sentence. Across the top, the Navier–Stokes equations are written in flowing chalk-white notation that seems to pour downward into the scene and become the fluid it describes. On the left, that fluid moves in clean, parallel streamlines through three stacked everyday settings — water gliding through a pipe, air curving over an airplane wing, blood pulsing through a branching vessel — while beneath them a contented engineer with a slide rule reads numbers off the orderly flow, representing the approximate solutions used every day. Moving right, the streamlines begin to wobble, then coil into dense, chaotic eddies of turbulence, drawn ever tighter until they become a tangled scribble that the falling equation-symbols reach toward but cannot grasp, embodying the turbulence the equations seem to contain but not explain. At the far right edge, the scribble tightens to a single brilliant point where the streamlines converge and shatter, the infinity symbol ∞ bursting from it in jagged fragments beneath a large hovering question mark — the possible blow-up, where predicted speeds run to infinity and the description would break down. A gold medallion on a ribbon, stamped \"Millennium Prize Problem,\" hangs beside that question mark, and a chalk-dusted mathematician stands at the boundary between the smooth left side and the chaotic right, hand raised as if to answer, but unable to decide.",
+ "rendered_at_utc": "2026-09-10T17:08:37+00:00",
+ "seconds_waited": 535.7,
+ "vram_free_gb_before_start": 10.7
+}

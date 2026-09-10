@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+ "model_id": "anthropic/claude-sonnet-5",
+ "model_slug": "anthropic--claude-sonnet-5",
+ "kind": "concept",
+ "concept_slug": "navier-stokes-existence-and-smoothness-problem",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 404438249,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "Split the illustration into two mirrored panels sharing a single fluid domain, rendered as a swirling three-dimensional flow of water or air with visible eddies and streamlines. In the left panel, labeled \"smooth forever,\" the streamlines remain fine, continuous, and orderly as they evolve across a timeline running left to right, gradually developing turbulent swirls without ever breaking apart. In the right panel, labeled \"blow-up,\" the same flow pattern intensifies until, at a single marked point in space and a finite marked moment on the timeline, the streamlines collapse into a tight, blinding singularity — depicted as a bright infinite spike or vortex — where the fluid's speed shoots off the chart. Above both panels, show the Navier-Stokes equations written out faintly as a mathematical backdrop, with small annotated branches labeling \"forced\" and \"unforced\" (and other variants) leading into each panel, some branches marked with a checkmark (partially resolved) and others with a question mark (still open), visually conveying that the overall problem splits into related sub-questions, only some of which have been answered.",
+ "rendered_at_utc": "2026-09-10T15:19:15+00:00",
+ "seconds_waited": 434.3,
+ "vram_free_gb_before_start": 10.8
+}

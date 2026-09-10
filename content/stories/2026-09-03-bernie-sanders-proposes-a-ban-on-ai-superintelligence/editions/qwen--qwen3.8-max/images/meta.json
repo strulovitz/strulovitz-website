@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "kind": "story",
+ "concept_slug": null,
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4106442301,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single illustration showing a large, glowing digital brain suspended above a cityscape, with tangled wires and server towers beneath it. On one side, tiny human figures look up in alarm; on the other, a row of identical robot heads fade into darkness, suggesting the fear of losing control. In the foreground, a simple legislative gavel rests on a desk, with a banner reading \"Ban Artificial Superintelligence\" partially visible. The overall mood is tense but not apocalyptic, capturing the political effort to regulate a technology many believe is already slipping beyond human grasp.",
+ "rendered_at_utc": "2026-09-10T06:02:12+00:00",
+ "seconds_waited": 491.1,
+ "vram_free_gb_before_start": 10.85
+}

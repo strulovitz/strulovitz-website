@@ -1,0 +1,18 @@
+{
+ "story": "2026-06-12-robot-run-convenience-store-in-hong-kong",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "kind": "concept",
+ "concept_slug": "labour-shortage-automation",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4097423916,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single panoramic illustration shows a night-time strip of workspaces—airport baggage belts, warehouse shelves, a hotel corridor, and a retail counter—each marked by empty human silhouettes, unfilled shift rosters, and ageing demographic charts, while varied machines and software dashboards step into the gaps: a robotic arm lifting heavy luggage, an autonomous cleaner moving across the floor, a shelf-scanning device in a store, and scheduling screens glowing around them. The scene is framed as a practical response to missing labour and round-the-clock demand, but a cracked reflective surface beneath the machines reveals competing questions: pay scales too low, poor working conditions, a profit arrow flowing from workers to owners, and small warning lights suggesting that the technology may be unreliable or overstated.",
+ "rendered_at_utc": "2026-09-09T23:22:46+00:00",
+ "seconds_waited": 485.2,
+ "vram_free_gb_before_start": 10.85
+}

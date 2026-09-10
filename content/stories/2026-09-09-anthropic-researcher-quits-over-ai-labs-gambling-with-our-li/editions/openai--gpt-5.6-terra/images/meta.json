@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+ "model_id": "openai/gpt-5.6-terra",
+ "model_slug": "openai--gpt-5.6-terra",
+ "kind": "story",
+ "concept_slug": null,
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 783484681,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A sober editorial illustration of a night-time AI research laboratory seen from above: two sleek, competing glass towers labelled only by abstract geometric logos race along parallel tracks toward a bright, unfinished machine at the far end, while a lone researcher walks away from one tower carrying a small cardboard box. Between the tracks is a widening gap marked with warning beacons and a partially built guardrail, suggesting missing safety rules. In the foreground, engineers study tangled control diagrams under a magnifying lamp; beyond them, the unfinished machine casts branching shadows shaped like computer networks, a lock, scientific equations and city infrastructure. Human figures should look small but not helpless; use restrained blue, white and amber light, realistic magazine illustration style, no text or slogans.",
+ "rendered_at_utc": "2026-09-10T18:07:12+00:00",
+ "seconds_waited": 351.0,
+ "vram_free_gb_before_start": 10.85
+}

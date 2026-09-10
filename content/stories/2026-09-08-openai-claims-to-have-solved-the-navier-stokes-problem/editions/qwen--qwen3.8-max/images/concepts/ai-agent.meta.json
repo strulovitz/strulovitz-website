@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "kind": "concept",
+ "concept_slug": "ai-agent",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 404438249,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single, clean diagram-style illustration shows the difference between a simple chatbot and an AI agent: on the left, a small chat bubble gives one immediate answer to one question; on the right, a larger agent figure stands before a goal flag and works through a visible loop of planning, acting, checking, and revising, with icons for tools such as code, search, documents, calendars, and software APIs connected to it, while a memory panel stores past steps and notes; behind the agent, a timeline shows multiple stages of work, including drafts, error checks, retries, and intermediate outputs, and a faint swarm of smaller agents can be seen collaborating on the same task, producing many messages and traces, while a human supervisor watches from the edge with a magnifying glass and a control switch, suggesting both the power and the difficulty of auditing autonomous, multi-step AI work.",
+ "rendered_at_utc": "2026-09-10T17:22:46+00:00",
+ "seconds_waited": 517.9,
+ "vram_free_gb_before_start": 10.79
+}

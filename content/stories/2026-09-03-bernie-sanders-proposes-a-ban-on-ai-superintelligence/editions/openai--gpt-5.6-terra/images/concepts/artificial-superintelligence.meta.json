@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+ "model_id": "openai/gpt-5.6-terra",
+ "model_slug": "openai--gpt-5.6-terra",
+ "kind": "concept",
+ "concept_slug": "artificial-superintelligence",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4106442301,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A conceptual editorial illustration of a vast, luminous AI intelligence at the center of a dark control room, represented not as a humanoid robot but as a branching network of light that simultaneously outperforms human specialists around it: a chess grandmaster, surgeon reading scans, scientist at a laboratory bench, engineer with blueprints, diplomat studying maps, and mathematician at a chalkboard, each dwarfed by the system’s expanding web of solutions; one side of the image shows the AI’s network contained behind a transparent safety barrier with lawmakers placing warning signs before it can reach robotic hands, factories, financial markets, and infrastructure beyond the wall, while the other side shows officials arguing over an unfinished measuring scale and blurry labels reading “general intelligence,” “expert capability,” and “autonomy,” emphasizing that no clear test or boundary exists; the overall scene should convey both extraordinary cross-domain ability and the policy dilemma of whether to regulate an uncertain future category in advance or focus on concrete dangerous powers.",
+ "rendered_at_utc": "2026-09-10T06:15:59+00:00",
+ "seconds_waited": 526.1,
+ "vram_free_gb_before_start": 10.85
+}

@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-12-nvidia-chip-in-russian-missile",
+ "model_id": "google/gemini-3.7-flash",
+ "model_slug": "google--gemini-3.7-flash",
+ "kind": "concept",
+ "concept_slug": "edge-ai",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3921325051,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A detailed cutaway conceptual illustration centered on a sleek, battery-powered drone hovering in a remote, offline landscape with a subtle \"no network connection\" icon displayed near its interface. A transparent cross-section of the drone exposes a compact, ultra-low-power microchip glowing with an active neural network lattice, instantly translating real-time camera sensor data into flight decisions on the spot. Flanking the drone are a smartphone and a compact security camera, both highlighted with identical internal AI chips performing on-device processing. In the distant background, a dim, remote cloud data center sits disconnected with a crossed-out data transmission beam, visually emphasizing that all intelligent computation occurs self-sufficiently within the local hardware without the latency, bandwidth consumption, or reliance of offloading raw data to remote servers.",
+ "rendered_at_utc": "2026-09-10T01:23:17+00:00",
+ "seconds_waited": 384.3,
+ "vram_free_gb_before_start": 10.85
+}

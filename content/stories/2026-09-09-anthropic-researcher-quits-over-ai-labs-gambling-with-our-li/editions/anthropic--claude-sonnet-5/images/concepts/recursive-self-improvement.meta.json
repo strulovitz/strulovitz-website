@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+ "model_id": "anthropic/claude-sonnet-5",
+ "model_slug": "anthropic--claude-sonnet-5",
+ "kind": "concept",
+ "concept_slug": "recursive-self-improvement",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 783484681,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "Illustrate a vertical spiral staircase that ascends into a bright, blurred vanishing point, each step formed from a glowing computer chip slightly more intricate and luminous than the one below it, with faint schematic arrows looping from each chip forward to the one above it, showing the chip \"designing\" its successor. At the lowest steps, a small human silhouette stands beside the staircase holding a clipboard and a checkpoint gate icon, clearly able to inspect and pause the process; but a few steps up, the gate icon disappears and the human figure is left behind, dwarfed and static, while the staircase continues upward without any further gates, curving away faster and faster (the steps growing closer together, suggesting acceleration) into a small radiant starburst at the top labeled with a subtle infinity-like glow to evoke superintelligence. The overall image should read clearly as: each machine builds a better machine, humans can only supervise the first few steps, and beyond that point the loop runs on its own toward something far beyond human oversight.",
+ "rendered_at_utc": "2026-09-10T19:44:41+00:00",
+ "seconds_waited": 326.4,
+ "vram_free_gb_before_start": 10.79
+}

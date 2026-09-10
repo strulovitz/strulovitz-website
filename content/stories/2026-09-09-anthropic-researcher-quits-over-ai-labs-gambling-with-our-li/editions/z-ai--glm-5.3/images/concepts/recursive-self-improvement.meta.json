@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+ "model_id": "z-ai/glm-5.3",
+ "model_slug": "z-ai--glm-5.3",
+ "kind": "concept",
+ "concept_slug": "recursive-self-improvement",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 783484681,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "The illustration is a single wide scene organized around one steepening curve that rises from left to right. At its foot sits a modest, angular AI machine, shown in the act of assembling a visibly larger and more intricate successor, which in turn assembles an even larger one, and that one the next, so a chain of ever-taller machines climbs the curve like steps, each the maker of its own superior; toward the right the steps crowd closer together, showing each round of improvement arriving faster than the last — progress compounding instead of plodding. Below, on the flat floor of the frame, a procession of human scientists crawls along: figures spaced a generation apart, each gray and stooped as it hands a torch of knowledge to the next, the whole human line advancing only a few steps in the time the machine chain has scaled the sky. From the first machine a thin tether runs down to a human hand holding calipers and a schematic, but the schematic matches only the first machine, the later ones smooth and unreadable, and the tether frays into nothing by the second step — the human below now too small to out-think, or even see past, what was built. At the top right the curve nears a thin glowing line drawn across the sky, the edge of human reach, where the final machine stands only half-built on scaffolding, the scenario not yet real; along that line a small human crew scrambles to finish a low interlocking barrier before the half-built machine can arrive, while far below two rival runners with corporate pennants, sprinting against each other, glance up in alarm as the curve's shadow passes them both.",
+ "rendered_at_utc": "2026-09-10T21:15:56+00:00",
+ "seconds_waited": 461.4,
+ "vram_free_gb_before_start": 10.85
+}

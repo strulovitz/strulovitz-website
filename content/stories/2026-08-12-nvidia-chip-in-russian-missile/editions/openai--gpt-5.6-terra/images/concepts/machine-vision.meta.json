@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-12-nvidia-chip-in-russian-missile",
+ "model_id": "openai/gpt-5.6-terra",
+ "model_slug": "openai--gpt-5.6-terra",
+ "kind": "concept",
+ "concept_slug": "machine-vision",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3921325051,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A clear cutaway-style illustration of a factory-and-street scene viewed through several machine-vision cameras: on the left, a fixed camera above a conveyor identifies, measures and rejects a missing or misaligned part with simple geometric overlays; in the center, a neural-network vision module receives many varied training images—sun, rain, night, different vehicles and objects—before sending labeled outputs to a robot arm and a dashboard where a human checks results; on the right, a vehicle camera tries to recognize road lanes, buildings and pedestrians as weather shifts from bright sun to fog and rain, with some labels becoming uncertain or wrong when an object is shadowed, covered, or altered with camouflage. Show the full system chain—lens, image data, software model, confidence indicator, and physical machine action—while a small inset contrasts a computer chip merely sitting inside a device with a connected, validated vision system authorized to control it.",
+ "rendered_at_utc": "2026-09-10T00:39:14+00:00",
+ "seconds_waited": 382.5,
+ "vram_free_gb_before_start": 10.85
+}

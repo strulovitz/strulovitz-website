@@ -1,0 +1,18 @@
+{
+ "story": "2026-06-12-robot-run-convenience-store-in-hong-kong",
+ "model_id": "z-ai/glm-5.3",
+ "model_slug": "z-ai--glm-5.3",
+ "kind": "story",
+ "concept_slug": null,
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4097423916,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A wide evening illustration of a small glass-walled capsule store — a compact prefabricated box about nine square metres, glowing with light — standing on a Hong Kong harbourfront promenade with the city skyline and water behind it. Inside, a single humanoid robot the height of a person, with a vaguely human upper body and conspicuously long arms, stands behind the counter handing a canned drink to a customer; behind it, shelves hold remote-controlled toy taxis and squishy toys shaped like an egg waffle and a pineapple bun. A speech bubble above the robot shows the same greeting in English, Mandarin and Cantonese. Outside, a mixed crowd reacts: a father and his daughter film the robot on a phone, a woman watches with folded arms and a skeptical eyebrow, and a small child claps as the robot begins a little dance. There is no human staff anywhere in the store. In the far background, silhouettes of identical capsules loaded on a delivery truck hint at many more rolling out to other cities.",
+ "rendered_at_utc": "2026-09-09T21:22:28+00:00",
+ "seconds_waited": 457.3,
+ "vram_free_gb_before_start": 10.79
+}

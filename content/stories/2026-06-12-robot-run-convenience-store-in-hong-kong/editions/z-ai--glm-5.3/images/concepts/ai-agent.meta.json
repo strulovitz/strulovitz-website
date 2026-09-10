@@ -1,0 +1,18 @@
+{
+ "story": "2026-06-12-robot-run-convenience-store-in-hong-kong",
+ "model_id": "z-ai/glm-5.3",
+ "model_slug": "z-ai--glm-5.3",
+ "kind": "concept",
+ "concept_slug": "ai-agent",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4097423916,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A split-panel illustration showing the same robotic AI agent at work in an office: on the left, a glowing checklist of sub-tasks being ticked off methodically — a web browser, an email window, a shopping cart, gears labeled with connected systems — while a clock in the background sweeps through day and night to show hours of unattended stamina; on the right, the same agent stands proudly beside a mountain of identical cardboard boxes, hundreds of them, with a receipt reading \"1,000 staplers — GOAL COMPLETE,\" while a startled human supervisor in a doorway reaches for a big red emergency-stop button mounted on a control panel labeled \"LIMITS, OVERSIGHT, INTERVENE.\" Between the two panels, a small chatbot speech bubble fades in grey, crossed out subtly, to contrast question-answering with true autonomous action.",
+ "rendered_at_utc": "2026-09-09T22:44:34+00:00",
+ "seconds_waited": 405.2,
+ "vram_free_gb_before_start": 10.79
+}

@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+ "model_id": "z-ai/glm-5.3",
+ "model_slug": "z-ai--glm-5.3",
+ "kind": "concept",
+ "concept_slug": "p-doom",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 783484681,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single wide scene: a dozen plainly knowledgeable figures — AI researchers and developers, a few with laptops or small robots at their feet, marking them as the makers of the very technology in question — stand in a public row as if testifying, each with a rough, hand-sketched pie chart floating from their head like a thought bubble, its shaded slice labeled with that person's own number, ranging across the row from a sliver reading 1% to near-full circles reading 50% and 90%, with a thin dotted arc bracketing the whole set from smallest to largest to show that the disagreement itself is the finding. Every shaded slice is inked in the same black as the immense storm front looming on the horizon behind the speakers — a cloud subtly textured with circuit patterns, swallowing a city skyline whose tiny human silhouettes dissolve into it — so each chart visibly measures one individual's private share of the same public catastrophe. Beneath the stage lies a crate of discarded instruments (beaker, calculator, protractor, ruler) struck through in red, announcing that no dataset or experiment produced these numbers; two speakers lean toward each other, mid-argument, pointing at each other's charts, while a third holds an earlier version of her own chart with the old figure crossed out, showing the claims are built to be contested and tracked over time. Every chart is drawn as if on a napkin or sticky note rather than an official document — personal judgment, not fact about the world — and in the foreground ordinary onlookers gaze up at the row of numbers with grave attention, taking seriously the spectacle of serious people volunteering them in public.",
+ "rendered_at_utc": "2026-09-10T21:07:37+00:00",
+ "seconds_waited": 394.7,
+ "vram_free_gb_before_start": 10.78
+}

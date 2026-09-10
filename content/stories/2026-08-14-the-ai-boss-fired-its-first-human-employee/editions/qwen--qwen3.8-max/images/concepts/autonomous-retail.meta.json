@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-14-the-ai-boss-fired-its-first-human-employee",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "kind": "concept",
+ "concept_slug": "autonomous-retail",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2239168004,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A cutaway view of a small experimental shop whose front area still has human staff serving customers and restocking shelves, while the back office is dominated by a glowing software brain or control system sitting at a manager’s desk, simultaneously choosing products, changing price tags, setting opening hours on a clock, ordering stock, designing logos, and reviewing hiring schedules on multiple screens; money and internet connections flow into the system through cables or icons, but visible glitches such as a forgotten policy note, a poorly chosen hire, a broken rule sign, and a downward financial chart show the limits and risks of letting AI coordinate a real business.",
+ "rendered_at_utc": "2026-09-10T04:47:47+00:00",
+ "seconds_waited": 394.3,
+ "vram_free_gb_before_start": 10.85
+}

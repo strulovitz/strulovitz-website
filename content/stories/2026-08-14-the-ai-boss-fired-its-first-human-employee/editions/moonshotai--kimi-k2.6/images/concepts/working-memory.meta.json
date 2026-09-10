@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-14-the-ai-boss-fired-its-first-human-employee",
+ "model_id": "moonshotai/kimi-k2.6",
+ "model_slug": "moonshotai--kimi-k2.6",
+ "kind": "concept",
+ "concept_slug": "working-memory",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2239168004,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "An AI manager sits at a small desk lit by a single lamp, with only a few scattered sheets of paper on its cramped desktop representing the limited information it can actively hold in mind; behind it stretches a vast, dim warehouse of towering filing cabinets and servers containing countless documents, among which a thick, labeled rulebook sits on a distant, dust-covered shelf, clearly separated from the desk. A slack, unlit retrieval cable dangles between the workspace and the archive, while a wall calendar shows months having passed, illustrating the gap between stored data and active working memory and how the system lacks immediate awareness of its own earlier work without deliberate retrieval.",
+ "rendered_at_utc": "2026-09-10T05:11:13+00:00",
+ "seconds_waited": 398.3,
+ "vram_free_gb_before_start": 10.79
+}

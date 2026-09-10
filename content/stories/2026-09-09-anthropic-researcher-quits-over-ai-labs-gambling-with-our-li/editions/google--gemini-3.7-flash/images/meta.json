@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+ "model_id": "google/gemini-3.7-flash",
+ "model_slug": "google--gemini-3.7-flash",
+ "kind": "story",
+ "concept_slug": null,
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 783484681,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "An editorial illustration showing a scientist walking out the exit door of a modern, glass-walled artificial intelligence laboratory, looking back with apprehension. Inside the facility, glowing complex computer server racks and intricate mathematical diagrams cast sharp shadows, while outside, government buildings and concerned citizens stand beneath a stormy sky.",
+ "rendered_at_utc": "2026-09-10T18:22:22+00:00",
+ "seconds_waited": 266.5,
+ "vram_free_gb_before_start": 10.06
+}

@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+ "model_id": "anthropic/claude-sonnet-5",
+ "model_slug": "anthropic--claude-sonnet-5",
+ "kind": "concept",
+ "concept_slug": "data-regurgitation",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 404438249,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "Split the image down the middle: on the left, a solitary user at a laptop feeds a stream of labeled documents—\"draft,\" \"code,\" \"research notes\"—into a funnel-shaped icon representing an AI company's training pipeline, with a small checkbox marked \"opt out\" barely visible and unchecked in the corner; the funnel narrows into a glowing neural-network sphere labeled \"model.\" On the right, some time later, a second, unrelated user types a prompt into a new, more advanced version of the same AI interface, and the output flowing back to them visually mirrors—faint ghostly overlay lines connecting them—the original documents from the left side, showing a code snippet, a paragraph, and a diagram nearly identical to the first user's private material. Between the two halves, draw a tangled question mark made of dotted, uncertain lines threading through the neural sphere, symbolizing the opacity of the training process, with small text fragments like \"independent discovery?\" and \"leakage?\" floating around it to capture the unresolved, hard-to-prove dispute at the heart of the concept.",
+ "rendered_at_utc": "2026-09-10T15:04:26+00:00",
+ "seconds_waited": 501.1,
+ "vram_free_gb_before_start": 10.78
+}

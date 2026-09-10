@@ -1,0 +1,18 @@
+{
+ "story": "2026-06-12-robot-run-convenience-store-in-hong-kong",
+ "model_id": "x-ai/grok-4.6",
+ "model_slug": "x-ai--grok-4.6",
+ "kind": "concept",
+ "concept_slug": "humanoid-robot",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4097423916,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "In an unmodified supermarket aisle and checkout area built to human scale, a bipedal humanoid robot with a camera-and-microphone head, torso, and two jointed arms reaches a bottle from a standard-height shelf and hands it across the counter, its slightly unsteady stance and a dropped item at its feet revealing the persistent difficulties of balance, grip, and unexpected events, while a wheeled robot, a floor-bolted warehouse arm, and a simple kiosk perform comparable work nearby to show that the human-like silhouette is merely a practical bet on using existing spaces and tools rather than the only or inherently superior design.",
+ "rendered_at_utc": "2026-09-09T22:24:35+00:00",
+ "seconds_waited": 304.8,
+ "vram_free_gb_before_start": 9.64
+}

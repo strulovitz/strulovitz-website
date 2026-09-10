@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-14-the-ai-boss-fired-its-first-human-employee",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "kind": "story",
+ "concept_slug": null,
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2239168004,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A modest San Francisco boutique at street level, its window sign reading Andon Market. Inside, shelves hold books, candles, chocolate bars and small 3D-printed dragons. At the center stands a simple screen or terminal representing Luna, the AI manager, showing a neatly written attendance policy that is fading at the edges as if being forgotten. On one side, a human employee with a backpack arrives late beside a wall clock; on the other, a human supervisor points back at the policy, prompting the screen. A small receipt-like panel shows $100,000 dropping to $61,186. The tone is calm and reportorial, not dystopian, with warm daylight and ordinary retail details.",
+ "rendered_at_utc": "2026-09-10T03:05:59+00:00",
+ "seconds_waited": 366.9,
+ "vram_free_gb_before_start": 9.64
+}

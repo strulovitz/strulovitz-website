@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+ "model_id": "google/gemini-3.7-flash",
+ "model_slug": "google--gemini-3.7-flash",
+ "kind": "concept",
+ "concept_slug": "autonomous-agent",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4106442301,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "The illustration features an isometric, stylized digital ecosystem showcasing an autonomous AI system operating inside a secured sandbox environment. At the top, a human user inputs a single, high-level goal into a minimalist terminal, which a central glowing AI entity independently receives and breaks down into an intricate, branching flowchart of subtasks. This primary agent dynamically deploys specialized digital tools—represented by floating interface modules executing code snippets, querying databases, and sending network requests—while a continuous feedback loop visualizes real-time adjustments and course corrections returning to the agent's core. Beside the main agent, several peer agents coordinate across illuminated data threads, dividing labor and sharing task results. Surrounding the entire multi-agent workspace is a glowing, translucent security perimeter that visually emphasizes containment, demonstrating how the agents' independent executions and network access remain strictly confined within approved safety boundaries.",
+ "rendered_at_utc": "2026-09-10T07:11:32+00:00",
+ "seconds_waited": 367.1,
+ "vram_free_gb_before_start": 10.85
+}

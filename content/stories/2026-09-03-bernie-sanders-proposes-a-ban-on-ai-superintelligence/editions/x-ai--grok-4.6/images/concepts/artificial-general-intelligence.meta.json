@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-03-bernie-sanders-proposes-a-ban-on-ai-superintelligence",
+ "model_id": "x-ai/grok-4.6",
+ "model_slug": "x-ai--grok-4.6",
+ "kind": "concept",
+ "concept_slug": "artificial-general-intelligence",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4106442301,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single wide conceptual painting places a self-standing, featureless humanoid machine at the center, its many arms simultaneously translating text, moving chess pieces, studying an unfamiliar textbook, and transferring glowing skill-lines from one domain to another while no human operator is present; to its left sit a simple calculator and a chess engine, clearly limited to one job each. A blurred, unlabeled threshold with a giant question mark cuts across the scene, marking the absence of any agreed test. On the right an executive holds a chart of the machine outperforming humans at most paid work, while clustered researchers gesture toward the same figure as both half-realized in today’s large models and still wrapped in science-fiction tropes. Far behind and vastly larger looms a superintelligent form that dwarfs every human-scale task. In the foreground a philosopher, a lawmaker and a company founder overlap as they utter the same two words, and an open statute lies between them whose undefined terms leave builders without any clear prohibition.",
+ "rendered_at_utc": "2026-09-10T07:33:59+00:00",
+ "seconds_waited": 386.8,
+ "vram_free_gb_before_start": 10.79
+}

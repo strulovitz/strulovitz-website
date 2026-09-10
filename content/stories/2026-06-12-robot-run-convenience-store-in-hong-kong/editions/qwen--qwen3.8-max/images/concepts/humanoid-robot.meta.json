@@ -1,0 +1,18 @@
+{
+ "story": "2026-06-12-robot-run-convenience-store-in-hong-kong",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "kind": "concept",
+ "concept_slug": "humanoid-robot",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4097423916,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A detailed diagrammatic illustration shows a humanoid robot standing in an ordinary narrow shop aisle built for people, with shelves, a counter, stacked packages, and reachable heights all around it; the robot has a torso, a head-like sensor housing with cameras and microphones, and articulated arms handling a packaged item, while translucent overlays reveal its motors, joints, and software processes for perceiving objects, planning motions, and responding to speech; nearby, a small caption-like visual contrast shows the robot succeeding in a tidy, controlled capsule-like workspace but hesitating before unexpected clutter, unusual items, or a confused customer, making clear that the robot is not generally intelligent but is a human-shaped body plan combined with automation designed to fit existing human environments.",
+ "rendered_at_utc": "2026-09-09T23:14:24+00:00",
+ "seconds_waited": 400.6,
+ "vram_free_gb_before_start": 10.85
+}

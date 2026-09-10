@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+ "model_id": "openai/gpt-5.6-terra",
+ "model_slug": "openai--gpt-5.6-terra",
+ "kind": "concept",
+ "concept_slug": "tokens",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 404438249,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A clean editorial infographic shows a language model as a glowing central processor receiving a flowing sentence that breaks apart into distinct colored tiles—whole short words, word fragments, numbers, punctuation marks and snippets of code—then emitting another stream of tiles that reassemble into text; beside it, a large counter visibly tallies incoming and outgoing tiles as a meter for processing and billing, while a branching background montage of many prompts, drafts and code files suggests accumulated computational effort; in clear visual contrast, a tiny elegant proof and a short accurate answer sit on one side with a green check, while a towering pile of repetitive, garbled pages sits on the other with a red question mark, making clear that token volume measures material handled rather than quality, originality, or truth.",
+ "rendered_at_utc": "2026-09-10T14:50:10+00:00",
+ "seconds_waited": 358.8,
+ "vram_free_gb_before_start": 10.85
+}

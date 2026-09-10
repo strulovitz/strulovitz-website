@@ -1,0 +1,18 @@
+{
+ "story": "2026-06-12-robot-run-convenience-store-in-hong-kong",
+ "model_id": "openai/gpt-5.6-terra",
+ "model_slug": "openai--gpt-5.6-terra",
+ "kind": "concept",
+ "concept_slug": "embodied-ai",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4097423916,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A clear editorial-style illustration of a service robot in a small grocery shop, shown as one integrated sensing-to-action system: a customer gives a spoken request, “Please get the red tea,” while sound waves travel toward the robot’s microphone; its camera view overlays identify several nearly identical tea boxes, including one partly hidden behind another item; arrows connect microphone and cameras to a visible internal AI decision map, then down to the robot’s motors and gripper as it carefully reaches for the correct box. Around it, everyday complications make the physical challenge visible—a child and shopping trolley move nearby, a dropped item lies in the aisle, shelves are slightly disordered, and a safety-zone path curves around people and obstacles—contrasting the simple speech bubble with the complex, cautious real-world perception and action required to fulfil it.",
+ "rendered_at_utc": "2026-09-09T21:43:19+00:00",
+ "seconds_waited": 350.8,
+ "vram_free_gb_before_start": 10.79
+}

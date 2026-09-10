@@ -1,0 +1,18 @@
+{
+ "story": "2026-06-12-robot-run-convenience-store-in-hong-kong",
+ "model_id": "openai/gpt-5.6-terra",
+ "model_slug": "openai--gpt-5.6-terra",
+ "kind": "concept",
+ "concept_slug": "retail-automation",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4097423916,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A clear cutaway illustration of a modern grocery shop operating as a connected system: at the front, customers use self-checkout kiosks and a vending-style pickup locker, with one shopper scanning an item successfully while another faces a payment-error screen and presses a prominent “help” button; a nearby human employee assists them, showing that automation does not eliminate staff. Across the aisles, a shelf-stocking robot pauses beside a spilled item, an accessible checkout is usable by a wheelchair user, and electronic shelf labels link by visible data lines to an inventory dashboard. In the background, a warehouse conveyor sorts boxes while a worker restocks a machine, and small visual callouts show practical disruptions—an out-of-stock shelf, a security alert, a jammed scanner, and a robot needing charging—contrasted with smooth flows of goods and data, conveying that retail automation succeeds through reliable operation, maintenance, safety, and human support rather than a single impressive machine.",
+ "rendered_at_utc": "2026-09-09T21:59:21+00:00",
+ "seconds_waited": 511.1,
+ "vram_free_gb_before_start": 10.85
+}

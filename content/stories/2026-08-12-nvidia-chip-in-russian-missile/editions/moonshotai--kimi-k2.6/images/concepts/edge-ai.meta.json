@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-12-nvidia-chip-in-russian-missile",
+ "model_id": "moonshotai/kimi-k2.6",
+ "model_slug": "moonshotai--kimi-k2.6",
+ "kind": "concept",
+ "concept_slug": "edge-ai",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3921325051,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A cutaway view of a missile in its final seconds of flight reveals a tiny, low-power AI chip and compact camera housed inside its nose cone, where raw video is being processed locally into bright target-recognition outlines around a vehicle on the ground below while the missile’s fins autonomously adjust course; in the background, a distant data center fades on the horizon, connected to the weapon only by a broken, jammed radio link, visually insisting that the lethal computation happens entirely on board without any live cloud connection, and the stark miniature scale of the embedded hardware—contrasted with the massive, remote server racks—underscores the severe efficiency and size constraints that define the field.",
+ "rendered_at_utc": "2026-09-10T02:17:25+00:00",
+ "seconds_waited": 396.6,
+ "vram_free_gb_before_start": 10.85
+}

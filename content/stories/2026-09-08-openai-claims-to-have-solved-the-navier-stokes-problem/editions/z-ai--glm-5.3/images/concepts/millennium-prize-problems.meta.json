@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+ "model_id": "z-ai/glm-5.3",
+ "model_slug": "z-ai--glm-5.3",
+ "kind": "concept",
+ "concept_slug": "millennium-prize-problems",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 404438249,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single panoramic illustration of a vast, dim hall whose rear wall holds seven colossal sealed doors, each carved with the emblem of its own problem — a turbulent, rippling wave for the question of how fluids behave, a shimmering line of glowing primes for the Riemann hypothesis, and other symbols showing that the list mixes famous old puzzles with questions at the foundations of physics — and each hung with a brass tag stamped $1,000,000, beneath a carved dedication naming the Clay Mathematics Institute and the year 2000. The only route to any door is one long, narrow bridge labeled verification: proposed proofs cross it as manuscripts riding a slow conveyor beneath a huge hourglass marked two years, while mathematicians crowd both rails with red pens, visibly tearing at and probing every page, and a carved motto above the doors declares that a proof is not a result until the community has failed to break it. One door, the Poincaré, stands open in warm light, yet at its threshold an untouched stack of banded cash and a Fields Medal sit on the floor while a lone, casually dressed figure — Perelman — walks away down the hall, empty-handed. Before the six still-sealed doors, two kinds of arrivals queue to enter that same slow bridge: human researchers clutching hand-lettered manuscripts, and, newer and glossier, corporate machines stamped with AI logos waving banners that blare the word solved, each stamped over in red with the word claim — their papers shunted onto the identical conveyor, the scene making plain that an announcement is only a claim until the slow crossing runs its course.",
+ "rendered_at_utc": "2026-09-10T16:59:36+00:00",
+ "seconds_waited": 409.3,
+ "vram_free_gb_before_start": 10.85
+}

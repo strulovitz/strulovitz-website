@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-12-nvidia-chip-in-russian-missile",
+ "model_id": "deepseek/deepseek-v4-pro-0813",
+ "model_slug": "deepseek--deepseek-v4-pro-0813",
+ "kind": "concept",
+ "concept_slug": "edge-ai",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3921325051,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single illustration should show a compact, rugged electronic module—resembling a small system-on-module with a visible processor and parallel graphics chip—mounted inside the nose cone of a sleek missile, with a glowing neural network pattern etched across its surface; the missile is flying through a dark, cloudless sky with no network cables or satellite links, while a faint, crossed-out cloud icon in the corner indicates the absence of remote servers, and a small label on the module reads “trained model only, no learning,” with a factory silhouette in the background suggesting the model was trained elsewhere, and a price tag or barcode hinting at its cheap, mass-produced nature that makes export control difficult.",
+ "rendered_at_utc": "2026-09-10T01:43:26+00:00",
+ "seconds_waited": 394.3,
+ "vram_free_gb_before_start": 10.85
+}

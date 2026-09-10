@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+ "model_id": "deepseek/deepseek-v4-pro-0813",
+ "model_slug": "deepseek--deepseek-v4-pro-0813",
+ "kind": "concept",
+ "concept_slug": "token",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 404438249,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single illustration in the style of a cutaway diagram shows a pipeline from text to computation: at left, the word unbelievable is split by scissors into three colored blocks labeled un, believ, and able; these blocks roll on a conveyor into a stylized AI engine made of neural-network nodes, where they mix with streams of code and inter-agent speech bubbles that are also chopped into token blocks; from the engine's right side, a torrent of small coin-shaped output tokens pours into a giant hopper labeled billions or trillions of tokens, while a nearby meter counts output tokens and a price sticker reads per token; behind the machine, a chalkboard wall is covered with rough-work calculations, and a supervisor's clipboard shows that the total token count is used to measure how much computing the model has done, making the picture a self-contained explanation of tokens as countable, billable chunks of AI work.",
+ "rendered_at_utc": "2026-09-10T16:45:15+00:00",
+ "seconds_waited": 348.7,
+ "vram_free_gb_before_start": 10.76
+}

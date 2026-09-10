@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-12-nvidia-chip-in-russian-missile",
+ "model_id": "anthropic/claude-sonnet-5",
+ "model_slug": "anthropic--claude-sonnet-5",
+ "kind": "concept",
+ "concept_slug": "export-controls",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3921325051,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "Illustrate a world map with the United States highlighted as the origin of an export arrow pointing toward stylized high-end AI chips labeled \"restricted,\" which are shown blocked by a wall icon before reaching outlined silhouettes of Russia and China; beside this, depict a second, wider and unobstructed pathway showing small mass-market electronic components (simple chips, circuit boards) flowing freely from a generic \"global market\" storefront through a chain of intermediary hands — a hobbyist, a reseller, a shipping crate stamped with a third-party country's flag — before ending up inside a diagram of a missile or drone marked with a question mark, symbolizing their untracked diversion into weapons despite the formal restrictions meant to stop advanced technology from reaching sanctioned actors.",
+ "rendered_at_utc": "2026-09-10T01:04:04+00:00",
+ "seconds_waited": 706.2,
+ "vram_free_gb_before_start": 10.79
+}

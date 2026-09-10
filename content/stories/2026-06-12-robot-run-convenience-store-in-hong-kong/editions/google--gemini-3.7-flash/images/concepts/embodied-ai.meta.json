@@ -1,0 +1,18 @@
+{
+ "story": "2026-06-12-robot-run-convenience-store-in-hong-kong",
+ "model_id": "google/gemini-3.7-flash",
+ "model_slug": "google--gemini-3.7-flash",
+ "kind": "concept",
+ "concept_slug": "embodied-ai",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4097423916,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A full-bodied humanoid robot stands actively engaged in a dynamic, cluttered real-world environment, delicately picking up a fragile glass object to demonstrate physical manipulation. Digital overlays and cutaways reveal its internal systems bridging the gap between digital software and physical reality: a glowing, intricate neural network core inside its head and torso sends pulses down articulated limbs, while visual data overlays illustrate its sensory inputs in real time—such as colorful lidar depth-mapping grids radiating from its optical camera lenses, a tactile pressure heatmap illuminating its fingertip force sensors, and audio waveform arcs around its directional microphones. Surrounding the robot, environmental elements like shifting natural sunlight casting harsh shadows, varying floor textures, and scattered obstacles visually emphasize friction, gravity, and physical unpredictability, clearly conveying that the intelligence exists not in an abstract screen, but within an active, sensing mechanical body navigating the messiness of the physical world.",
+ "rendered_at_utc": "2026-09-09T22:18:29+00:00",
+ "seconds_waited": 458.4,
+ "vram_free_gb_before_start": 10.85
+}

@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+ "model_id": "anthropic/claude-sonnet-5",
+ "model_slug": "anthropic--claude-sonnet-5",
+ "kind": "concept",
+ "concept_slug": "p-doom",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 783484681,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "Illustration: a single horizontal number line labeled \"0%\" on the left and \"100%\" on the right, titled \"p(doom),\" with a scattering of small labeled dots placed at wildly different points along it — each dot a stylized portrait or silhouette of an \"AI researcher,\" with a speech-bubble percentage above it (e.g., \"5%,\" \"20%,\" \"50%,\" \"90%\") to show how personal and inconsistent these estimates are. Above the line, a thought bubble or dotted question mark hovers over the whole scene, suggesting the absence of any agreed method for arriving at these figures — no formulas, no shared data, just intuition. To one side, a small newspaper clipping or \"BREAKING\" banner shows one of these percentages being reported as a headline, capturing how a personal guess becomes public news. The overall tone should be sketchy and informal, almost like a whiteboard diagram, to visually reinforce the entry's point that p(doom) is a subjective, improvised shorthand for existential worry rather than a rigorous scientific measurement.",
+ "rendered_at_utc": "2026-09-10T19:39:11+00:00",
+ "seconds_waited": 706.9,
+ "vram_free_gb_before_start": 10.85
+}

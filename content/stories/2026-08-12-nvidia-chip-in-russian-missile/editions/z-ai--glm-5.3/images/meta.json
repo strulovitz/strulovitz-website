@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-12-nvidia-chip-in-russian-missile",
+ "model_id": "z-ai/glm-5.3",
+ "model_slug": "z-ai--glm-5.3",
+ "kind": "story",
+ "concept_slug": null,
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3921325051,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single detailed cutaway illustration, drawn like a cross between a technical diagram and an editorial drawing. At the top, a sleek grey stealth cruise missile in flight, its body sliced open to reveal a tiny green circuit-board computer sitting inside — clearly a mass-market hobbyist module, still bearing a retail-style label. A dotted line runs from that module to a rounded inset panel showing what the missile's camera sees: a grey landscape from above with one vehicle outlined by a recognition box, illustrating machine-vision guidance in the final seconds of flight. At the bottom, a documentary workbench scene: gloved hands with tweezers lifting the same small module out of an opened missile casing, beside a grid of 35 tiny chips and parts laid out on a mat like evidence, each tagged with a small country label (USA, Switzerland, Japan, China, Belarus). The overall mood is quiet and anatomical rather than dramatic — a forensic drawing of how ordinary consumer technology ends up inside a weapon.",
+ "rendered_at_utc": "2026-09-10T00:17:57+00:00",
+ "seconds_waited": 386.3,
+ "vram_free_gb_before_start": 10.85
+}

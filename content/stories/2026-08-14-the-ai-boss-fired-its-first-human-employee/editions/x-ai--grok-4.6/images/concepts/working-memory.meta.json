@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-14-the-ai-boss-fired-its-first-human-employee",
+ "model_id": "x-ai/grok-4.6",
+ "model_slug": "x-ai--grok-4.6",
+ "kind": "concept",
+ "concept_slug": "working-memory",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2239168004,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A conceptual illustration centers on a robotic AI office manager whose attention is locked inside a narrow, sliding scratchpad window that displays only the latest instructions, recent chat messages, and a few stuffed documents, while last month’s policy handbook, written promises, and other rules slide off the edges and vanish into darkness so the robot behaves as if they never existed; to one side a human manager walks to a physical binder and shared-drive cabinet, to the other ordinary software remains tethered to a database it checks on every shift, and a few search-tool reminder slips are hastily taped back into the window as mere prompts rather than genuine recollection.",
+ "rendered_at_utc": "2026-09-10T03:54:22+00:00",
+ "seconds_waited": 467.1,
+ "vram_free_gb_before_start": 10.85
+}

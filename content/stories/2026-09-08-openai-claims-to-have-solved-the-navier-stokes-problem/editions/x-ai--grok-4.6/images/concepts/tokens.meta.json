@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+ "model_id": "x-ai/grok-4.6",
+ "model_slug": "x-ai--grok-4.6",
+ "kind": "concept",
+ "concept_slug": "tokens",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 404438249,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "The illustration is a panoramic cutaway of a vast AI factory in which a river of unbroken text and code is sliced by a laser grid into a torrent of tiny labeled blocks—whole words, prefixes, suffixes, blank spaces, and syntax fragments—that pour as input into a glowing central processor and stream out as output tokens; surrounding gauges and a towering digital counter marked “130 billion output tokens” track billing, speed, and memory while a minuscule finished page sits at the base, dwarfed by overflowing mountains of crumpled drafts, scratch calculations, and dense inter-machine message packets that link thousands of identical AI replicas, with a single human conversation visible only as a thin token trickle on the far edge, visually equating the same token accounting to both personal chat and massive self-talk and making plain that the volume far exceeds anything a team of human typists could ever produce.",
+ "rendered_at_utc": "2026-09-10T16:07:54+00:00",
+ "seconds_waited": 392.3,
+ "vram_free_gb_before_start": 10.85
+}

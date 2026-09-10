@@ -1,0 +1,18 @@
+{
+ "story": "2026-06-12-robot-run-convenience-store-in-hong-kong",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "kind": "concept",
+ "concept_slug": "autonomous-retail",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4097423916,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single cutaway illustration of a small, transparent, nine-square-metre autonomous retail capsule on a street corner, showing a shopper entering without staff while overhead sensors and cameras track a packaged snack, a toy, and a medicine being lifted from shelves and automatically charged to a phone; on one side, a compact vending panel and robotic kiosk dispense items, while a robot arm restocks a shelf and attempts to hand over a product; nearby, small visual vignettes show the system’s limits—a spilled drink, a confused customer, an oddly shaped item the gripper cannot grasp, and a wheelchair user checking accessibility—while in the background a faint, oversized supermarket silhouette suggests a harder, larger version of the same idea, and a glowing 24-hour sign conveys continuous operation, presenting autonomous retail not as a finished store but as an experimental machine for everyday commerce.",
+ "rendered_at_utc": "2026-09-09T23:07:40+00:00",
+ "seconds_waited": 416.9,
+ "vram_free_gb_before_start": 10.78
+}

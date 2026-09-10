@@ -1,0 +1,18 @@
+{
+ "story": "2026-06-12-robot-run-convenience-store-in-hong-kong",
+ "model_id": "anthropic/claude-sonnet-5",
+ "model_slug": "anthropic--claude-sonnet-5",
+ "kind": "story",
+ "concept_slug": null,
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 4097423916,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A small glass-walled capsule store on a Hong Kong waterfront at night, neon skyline reflected in the harbour water behind it, with a slender humanoid robot inside reaching its long arms up to a shelf stocked with snacks and drinks while a checkout counter and a small screen glow beside it; outside the capsule, a handful of curious shoppers of different ages peer in and film with their phones, one child watching the robot mid-gesture as if it is dancing, capturing both the novelty and the small scale of the operation.",
+ "rendered_at_utc": "2026-09-10T14:33:03+00:00",
+ "seconds_waited": 572.5,
+ "vram_free_gb_before_start": 10.78
+}

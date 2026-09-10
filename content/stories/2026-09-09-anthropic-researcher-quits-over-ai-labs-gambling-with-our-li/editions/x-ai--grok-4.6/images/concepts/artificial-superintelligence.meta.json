@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+ "model_id": "x-ai/grok-4.6",
+ "model_slug": "x-ai--grok-4.6",
+ "kind": "concept",
+ "concept_slug": "artificial-superintelligence",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 783484681,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A vast speculative panorama shows contemporary training labs and exponential scaling graphs in the foreground feeding an unstoppable data highway that culminates in a colossal, unbuilt mind of glowing neural architecture towering over the entire Earth, its intricate webs of plans, inventions and coordinated resource flows rendering all humanity as tiny specks far below; the entity dwarfs every human capability while a slender control tether from the researchers frays and snaps unused, and divided clusters of figures at its base argue amid warning signs, capturing both the hypothetical leap beyond mere tools and the irreversible difficulty of correcting misaligned aims once such power exists.",
+ "rendered_at_utc": "2026-09-10T20:19:24+00:00",
+ "seconds_waited": 426.6,
+ "vram_free_gb_before_start": 10.83
+}

@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+ "model_id": "google/gemini-3.7-flash",
+ "model_slug": "google--gemini-3.7-flash",
+ "kind": "concept",
+ "concept_slug": "autonomous-agent",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 404438249,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A detailed conceptual illustration shows a modern digital workflow driven by a luminous central AI core operating with minimal human oversight. On the left, a human silhouette inputs a single high-level objective and steps back, leaving the AI entity to autonomously orchestrate the process. The central AI branches this main goal into a floating sequence of interconnected sub-tasks: one node displays glowing lines of self-generated code running in a terminal, another illustrates data exchange with external automated software systems, and a prominent circular feedback loop depicts the agent analyzing an intermediate result, flagging an error, and dynamically rewriting its own instructions to correct the path. The visual flow progresses seamlessly from that initial broad prompt through continuous planning, tool use, and self-correction, culminating on the right in a fully resolved, complex digital project, clearly illustrating the agent's independent, multi-step problem-solving capability.",
+ "rendered_at_utc": "2026-09-10T15:26:17+00:00",
+ "seconds_waited": 419.5,
+ "vram_free_gb_before_start": 10.79
+}

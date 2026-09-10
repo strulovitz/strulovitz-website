@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-12-nvidia-chip-in-russian-missile",
+ "model_id": "openai/gpt-5.6-terra",
+ "model_slug": "openai--gpt-5.6-terra",
+ "kind": "story",
+ "concept_slug": null,
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3921325051,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A clear editorial illustration of a compact black Nvidia-style computer module exposed inside the opened midsection of a grey low-observable cruise missile, with its circuit board and camera lens visibly connected by lines of light. In the background, a muted Su-57-like aircraft silhouette carries the missile, while a separate translucent layer shows a camera’s uncertain visual interpretation of roads and buildings as labelled bounding boxes with question marks, making clear that onboard image processing is possible but unproven. Include a faint global chain of reseller boxes and electronic components crossing borders, not flags or propaganda; sober, forensic magazine style, cool blue-grey palette with small green circuit highlights, no text or logos.",
+ "rendered_at_utc": "2026-09-09T23:43:22+00:00",
+ "seconds_waited": 471.4,
+ "vram_free_gb_before_start": 10.85
+}

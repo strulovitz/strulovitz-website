@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+ "model_id": "moonshotai/kimi-k2.6",
+ "model_slug": "moonshotai--kimi-k2.6",
+ "kind": "concept",
+ "concept_slug": "p-doom",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 783484681,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "The illustration depicts a group of AI engineers and researchers gathered in a modern laboratory, their personal estimates of existential risk scrawled across whiteboards, sticky notes, and the margins of technical documents as a chaotic array of handwritten percentages ranging from nearly zero to well above ten percent; the figures exhibit a mixture of anxious body language and skeptical postures, with some gesturing urgently toward glowing monitors while others lean back with crossed arms or bite their pencils in quiet dread, and behind them a towering bank of server racks pulses with bright light, underscoring that this debate is unfolding among the people actually building these systems rather than distant academic philosophers, while the informal, scattered nature of the numbers makes visible that p(doom) functions less as a rigorous statistical forecast and more as a raw expression of insiders' genuine fear about the accelerating pace of development.",
+ "rendered_at_utc": "2026-09-10T21:35:35+00:00",
+ "seconds_waited": 232.4,
+ "vram_free_gb_before_start": 10.06
+}

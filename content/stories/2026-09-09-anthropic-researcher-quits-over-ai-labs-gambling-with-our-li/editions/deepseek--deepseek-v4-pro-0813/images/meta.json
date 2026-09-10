@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+ "model_id": "deepseek/deepseek-v4-pro-0813",
+ "model_slug": "deepseek--deepseek-v4-pro-0813",
+ "kind": "story",
+ "concept_slug": null,
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 783484681,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single researcher stands at the edge of a vast open laboratory where two identical corridors, labelled with simple geometric logos, race toward a distant machine that is building a larger version of itself out of glowing parts. The researcher, mid-stride and facing the viewer, holds a resignation letter, while behind them a monitor shows a probability dial reading just over 10 percent next to the words 'could kill all humans'. Small human silhouettes are visible in the foreground, and the two corridors are crowded with people running forward, not looking back. The image should feel quiet and urgent rather than apocalyptic: the danger is a choice being made at speed.",
+ "rendered_at_utc": "2026-09-10T18:36:41+00:00",
+ "seconds_waited": 352.7,
+ "vram_free_gb_before_start": 10.85
+}

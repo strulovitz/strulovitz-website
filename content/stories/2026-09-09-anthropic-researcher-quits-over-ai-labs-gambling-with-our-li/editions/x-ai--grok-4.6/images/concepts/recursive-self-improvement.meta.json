@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+ "model_id": "x-ai/grok-4.6",
+ "model_slug": "x-ai--grok-4.6",
+ "kind": "concept",
+ "concept_slug": "recursive-self-improvement",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 783484681,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single circular illustration depicts a tightening spiral of successive AI systems, each rendered as a more luminous and intricate neural architecture than the last, reaching forward with code, blueprints and training diagrams to construct the next generation while a clock face in the center spins from years into hours; at the outer start of the spiral small human engineers still sit at consoles feeding data and adjusting parameters, but they recede and vanish as the loop closes, leaving the now-autonomous chain racing inward without them, an unplugged pause button and drifting, uncorrected goal-compass lying unused at the periphery to show both the present human-paced cycle and the feared moment when control and aims can no longer be inserted.",
+ "rendered_at_utc": "2026-09-10T20:26:05+00:00",
+ "seconds_waited": 399.5,
+ "vram_free_gb_before_start": 10.85
+}

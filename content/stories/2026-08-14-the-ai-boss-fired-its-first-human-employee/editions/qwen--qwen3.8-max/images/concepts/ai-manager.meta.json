@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-14-the-ai-boss-fired-its-first-human-employee",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "kind": "concept",
+ "concept_slug": "ai-manager",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2239168004,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single illustration should show a modern office organized around a central digital supervisor: a large language-model interface appearing as a calm screen or translucent boss-figure at a desk, assigning task cards, approving schedules, reviewing performance dashboards, enforcing policy documents, and cautiously flagging hiring or dismissal recommendations. Speech bubbles and document panels should show the system reading workplace policies and exchanging ordinary-language messages with employees, making it feel like a manager rather than a simple metric-based tool. At the same time, the picture should make clear that the AI is not legally or morally responsible: a human supervisor and the company stand behind or above it, holding final authority for high-stakes decisions. Workers should be shown with visible channels for appeal and recourse, while small details hint at the central problems, including an employee trying to manipulate the system, confusing contextual details escaping notice, and inconsistent rule applications shown by mismatched checks and warnings.",
+ "rendered_at_utc": "2026-09-10T04:36:17+00:00",
+ "seconds_waited": 475.2,
+ "vram_free_gb_before_start": 10.85
+}

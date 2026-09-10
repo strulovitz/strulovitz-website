@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+ "model_id": "openai/gpt-5.6-terra",
+ "model_slug": "openai--gpt-5.6-terra",
+ "kind": "concept",
+ "concept_slug": "navier-stokes-equations",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 404438249,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A scientific editorial illustration split seamlessly between physical fluid flow and mathematical uncertainty: on the left, clear blue water and translucent air stream smoothly around a pipe, an aircraft wing and a small weather cloud, with labeled visual cues for velocity arrows, pressure contours, density shading and thick-versus-thin flow showing viscosity like honey compared with water; toward the center, the orderly streamlines curl into increasingly intricate three-dimensional turbulent vortices, overlaid with elegant Navier–Stokes equation symbols and a transparent coordinate grid; on the right, the vortices tighten around a single glowing, unresolved point where the grid bends and breaks, suggesting the open question of whether smooth flow remains finite or develops an infinite singularity, with no answer implied, in a precise modern magazine-encyclopedia style.",
+ "rendered_at_utc": "2026-09-10T11:27:11+00:00",
+ "seconds_waited": 482.4,
+ "vram_free_gb_before_start": 10.85
+}

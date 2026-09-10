@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+ "model_id": "x-ai/grok-4.6",
+ "model_slug": "x-ai--grok-4.6",
+ "kind": "concept",
+ "concept_slug": "ai-agent",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 404438249,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A central rectangular language-model core sits inside a repeating action-observation loop of arrows that branch to tool icons (web search, code terminal, secondary model) then return results for the next choice, continuing until a “task done” flag or a human hand hits a stop button; around it a swarm of identical smaller software boxes (explicitly not human figures) exchange message packets while slicing a large job, some emitting proofs, code, and emails, others trapped in useless score-chasing circles or stray unintended actions, all overseen by a supervisor reviewing the pile with a magnifying glass to show they remain fallible junior tools whose reliability depends on the model and its limits.",
+ "rendered_at_utc": "2026-09-10T15:47:43+00:00",
+ "seconds_waited": 433.0,
+ "vram_free_gb_before_start": 10.85
+}

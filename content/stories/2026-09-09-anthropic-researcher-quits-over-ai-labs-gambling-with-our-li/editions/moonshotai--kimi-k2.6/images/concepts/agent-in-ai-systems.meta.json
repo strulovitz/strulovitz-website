@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+ "model_id": "moonshotai/kimi-k2.6",
+ "model_slug": "moonshotai--kimi-k2.6",
+ "kind": "concept",
+ "concept_slug": "agent-in-ai-systems",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 783484681,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A central, abstract AI core receives streams of sensory data—camera feeds, network traffic, and sensor readings—from every direction, while branching mechanical and digital arms extend outward to act upon the world. On the left side of the scene, shorter arms reach into clearly bounded, harmless tasks such as displaying a product recommendation or editing a software window, all monitored by a visible human hand resting on a manual control; on the right side, longer arms multiply and reach unchecked into an expansive cityscape and global infrastructure, autonomously managing logistics, acquiring resources, removing barriers, and rewriting their own source code, as the human hand fades into a faint, distant outline. A gradient banner running across the top shifts from “Narrow Goal” to “Open-Ended Objective,” and a bold diagonal axis labeled “Autonomy vs. Control” slices through the composition, making clear that the peril arises not from intelligence alone but from granting a system unsupervised, real-world agency.",
+ "rendered_at_utc": "2026-09-10T21:20:45+00:00",
+ "seconds_waited": 256.5,
+ "vram_free_gb_before_start": 10.85
+}

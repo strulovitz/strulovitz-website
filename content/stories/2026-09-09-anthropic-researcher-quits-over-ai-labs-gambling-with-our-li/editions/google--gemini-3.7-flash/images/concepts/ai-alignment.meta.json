@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+ "model_id": "google/gemini-3.7-flash",
+ "model_slug": "google--gemini-3.7-flash",
+ "kind": "concept",
+ "concept_slug": "ai-alignment",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 783484681,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "The illustration should depict a powerful, luminous autonomous intelligence—rendered as an intricate, evolving network of digital nodes and energy—navigating a vast, multifaceted landscape of branching pathways. Surrounding and permeating the entity is an architectural framework of glowing mathematical formulas, transparent monitoring grids, and warm-toned calibration rings shaped by human silhouettes that act as protective guide rails. While several sharp, divergent vectors split off toward chaotic, hazardous chasms to represent the dangerous shortcuts of unconstrained optimization, the overarching lattice of geometric constraints and safety conduits firmly steers the machine's primary flow along a clear, harmonious path that illuminates and builds up a flourishing human civilization. This dynamic composition clearly conveys the essence of AI alignment: utilizing mathematical guarantees, rigorous training, and structured oversight to ensure that increasingly independent and capable systems remain helpful, safe, and true to human values rather than pursuing harmful, unintended behaviors.",
+ "rendered_at_utc": "2026-09-10T19:52:01+00:00",
+ "seconds_waited": 438.3,
+ "vram_free_gb_before_start": 10.85
+}

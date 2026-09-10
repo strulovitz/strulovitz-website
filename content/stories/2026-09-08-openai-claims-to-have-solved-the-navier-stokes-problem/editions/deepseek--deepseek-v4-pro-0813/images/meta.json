@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-08-openai-claims-to-have-solved-the-navier-stokes-problem",
+ "model_id": "deepseek/deepseek-v4-pro-0813",
+ "model_slug": "deepseek--deepseek-v4-pro-0813",
+ "kind": "story",
+ "concept_slug": null,
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 404438249,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A wide illustration showing dozens of small robotic agents crowded around a giant blackboard covered in swirling fluid-wave equations, one robot chalking a proof at the top while others pass glowing messages between themselves. A lone human mathematician sits at a nearby desk holding a notebook, glancing sideways with a concerned expression. A large hourglass shows 88 hours. Behind the scene, a translucent server room glows with activity. Several robots consult a screen marked with computer code, while a faint triangular warning symbol suggests an unpublished draft being peered at. The equations curve into turbulent spiral shapes, and the contrast between the calm human and the frantic mechanical swarm conveys automated speed versus scholarly caution.",
+ "rendered_at_utc": "2026-09-10T10:30:36+00:00",
+ "seconds_waited": 416.5,
+ "vram_free_gb_before_start": 10.74
+}

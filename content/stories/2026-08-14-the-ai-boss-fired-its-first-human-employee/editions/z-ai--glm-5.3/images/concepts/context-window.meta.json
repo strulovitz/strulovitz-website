@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-14-the-ai-boss-fired-its-first-human-employee",
+ "model_id": "z-ai/glm-5.3",
+ "model_slug": "z-ai--glm-5.3",
+ "kind": "concept",
+ "concept_slug": "context-window",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2239168004,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A single wide illustration shows a blocky machine with a single lens-shaped eye seated before a large glowing rectangular window floating in darkness, able to see only what passes inside the frame. Within the window, a ribbon of calendar pages labeled WEEK 1 through WEEK 10 scrolls steadily rightward; the WEEK 1 page, stamped ATTENDANCE POLICY, has been pushed to the window's right border, and wherever pages cross that edge they dissolve into half-erased letters and then pure black, showing that whatever drifts out of the window, for the model, simply stops existing. The machine's next reply, drifting out of it as a speech bubble, is visibly stitched together from the bright text still inside the frame and nothing else. Beneath the window, the machine's mechanical hand photocopies the fading pages into a filing cabinet labeled NOTES — a small inset beside it shows a person scribbling in a pocket notebook for the same reason, because memory fades — but the dashed arrow from machine to cabinet breaks midway, a magnifying glass lies on the wrong drawer, and dust has settled over the file marked POLICY, a sign that saved notes help only when the agent thinks to look for them. At the far right a human figure leans into the frame and points, first at the dusty file and then at the policy page dissolving past the window's edge, supplying the reminder the machine could not give itself, while the machine's lens reflects only the small lit rectangle of the present moment and none of the darkness around it.",
+ "rendered_at_utc": "2026-09-10T04:23:01+00:00",
+ "seconds_waited": 492.8,
+ "vram_free_gb_before_start": 10.79
+}
