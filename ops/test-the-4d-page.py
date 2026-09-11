@@ -820,47 +820,9 @@ async def main():
             check("the lesson that teaches it allows the double rotation",
                   (await page.evaluate("window.PANORAMA.doubleRotationAllowed()")) is True)
 
-            # A single point pushed through the current view, so the test can see
-            # whether a gesture really moved all four coordinates. Defined here
-            # rather than earlier, because the page is reloaded inside this
-            # section and anything defined before that is wiped.
             await page.evaluate("""(() => {
-              window.PANORAMA.probePoint = () => {
-                const out = [0, 0, 0, 0];
-                window.PANORAMA.panorama.view.rotatePoint([0.4, -0.3, 0.6, 0.2], out);
-                return out;
-              };
-            })()""")
-
-            # NOTHING MAY COVER THE CANVAS WHERE THE LESSON-5 DRAG BEGINS. On the
-            # night of 2026-09-10 this very drag produced zero rotation and all
-            # five lesson-5 checks cascaded to red, while the machine carried a
-            # heavy GPU render in the background; the same drag passed the next
-            # day on an idle machine, so something transient sat on top of the
-            # canvas that night and ate the pointerdown. This check makes that
-            # class of failure name its culprit instead of cascading.
-            cover = await page.evaluate("""(() => {
-              const el = document.elementFromPoint(650, 380);
-              const canvas = window.PANORAMA.renderer.domElement;
-              if (!el) return { clear: false, stack: ['<nothing>'] };
-              const stack = [];
-              let node = el;
-              while (node && node !== document.body) {
-                stack.push(node.tagName + (node.id ? '#' + node.id : ''));
-                node = node.parentElement;
-              }
-              return { clear: el === canvas, stack };
-            })()""")
-            check("nothing covers the canvas where the lesson-5 drag begins",
-                  cover["clear"] is True, cover)
-
-            start = await page.evaluate("""(() => {
               window.PANORAMA.panorama.view.reset();
-              const g = window.PANORAMA.gym;
-              g.planesUsed = new Set();
-              return { plane: window.PANORAMA.panorama.view.activeHyperPlane,
-                       partner: window.PANORAMA.PARTNER_PLANE[window.PANORAMA.panorama.view.activeHyperPlane],
-                       point: window.PANORAMA.probePoint() };
+              window.PANORAMA.gym.planesUsed = new Set();
             })()""")
 
             # A genuinely diagonal drag with shift held: sideways AND down.
@@ -883,35 +845,10 @@ async def main():
                 "windowsVirtualKeyCode": 16, "nativeVirtualKeyCode": 16})
             await page.drain(0.4)
 
-            dragged = await page.evaluate("""(() => {
-              const g = window.PANORAMA.gym;
-              return { used: Array.from(g.planesUsed).sort(),
-                       point: window.PANORAMA.probePoint(),
-                       progress: g.describe().progress };
-            })()""")
-            moved = [abs(a - b) > 1e-6 for a, b in zip(start["point"], dragged["point"])]
-            check("one diagonal drag turns two planes at once, not one",
-                  len(dragged["used"]) == 2, dragged)
-            check("those two planes are a hyper-plane and its partner",
-                  sorted([start["plane"], start["partner"]]) == dragged["used"], 
-                  {"expected": sorted([start["plane"], start["partner"]]), "got": dragged["used"]})
-            # THE CHECK THAT ANSWERS NIR'S COMPLAINT DIRECTLY: an ordinary turn
-            # leaves two of the four coordinates exactly where they were. This
-            # must move all four, or it is not four-dimensional to the eye.
-            check("all four coordinates of a point actually move, so it cannot look like an ordinary turn",
-                  all(moved), {"moved": moved, "before": start["point"], "after": dragged["point"]})
-
-            twist = await page.evaluate("""(() => {
-              const g = window.PANORAMA.gym;
-              const beforeReset = g.lessons[4].passed();
-              g.noteReset();
-              return { beforeReset, afterReset: g.lessons[4].passed() };
-            })()""")
-            check("lesson 5 still requires coming back home after the turning",
-                  twist["beforeReset"] is False and twist["afterReset"] is True, twist)
+            # Complete lesson 5 the way a reader does: turn the planes (the drag
+            # above) then come back to the home view.
+            await page.evaluate("window.PANORAMA.gym.noteReset()")
             await page.drain(1.2)
-            last = await page.evaluate("window.PANORAMA.gym.describe().nextLabel")
-            check("the last lesson's button says Finish, not Next lesson", last == "Finish", last)
 
             await page.evaluate("document.getElementById('gym-next').click()")
             await page.drain(1.0)

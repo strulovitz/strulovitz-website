@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "kind": "concept",
+ "concept_slug": "frontier-ai-labs",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 783484681,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "Several sleek laboratory towers stand at the edge of a vast uncharted digital landscape, their beams of light scanning forward into unknown terrain. Each tower represents a leading AI developer, and the frontier before them suggests both opportunity and risk, with safety barriers and warning markers visible at the perimeter.",
+ "rendered_at_utc": "2026-09-11T11:01:44+00:00",
+ "seconds_waited": 327.1,
+ "vram_free_gb_before_start": 9.6
+}

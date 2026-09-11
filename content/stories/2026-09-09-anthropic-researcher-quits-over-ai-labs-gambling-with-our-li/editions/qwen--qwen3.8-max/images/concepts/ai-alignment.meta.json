@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "kind": "concept",
+ "concept_slug": "ai-alignment",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 783484681,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A luminous path made of interlocking puzzle pieces extends toward a distant artificial horizon, but several pieces are subtly misaligned, causing the path to bend. A human hand reaches in to adjust one piece. The scene conveys the delicate work of making powerful systems follow intended goals rather than drifting into unintended outcomes.",
+ "rendered_at_utc": "2026-09-11T10:48:56+00:00",
+ "seconds_waited": 600.0,
+ "vram_free_gb_before_start": 10.76
+}

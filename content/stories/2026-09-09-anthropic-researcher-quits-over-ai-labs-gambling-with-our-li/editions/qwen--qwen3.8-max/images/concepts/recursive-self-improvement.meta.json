@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "kind": "concept",
+ "concept_slug": "recursive-self-improvement",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 783484681,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A sleek robotic hand builds a more advanced version of itself, which in turn builds an even more refined successor, the sequence repeating into a spiraling loop that grows brighter and more complex with each iteration. Human observers stand outside the loop, watching but no longer directly involved, emphasizing the loss of hands-on control.",
+ "rendered_at_utc": "2026-09-11T11:19:28+00:00",
+ "seconds_waited": 325.6,
+ "vram_free_gb_before_start": 10.28
+}
