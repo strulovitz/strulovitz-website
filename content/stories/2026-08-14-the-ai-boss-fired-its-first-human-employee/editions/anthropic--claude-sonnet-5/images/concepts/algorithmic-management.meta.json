@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-14-the-ai-boss-fired-its-first-human-employee",
+ "model_id": "anthropic/claude-sonnet-5",
+ "model_slug": "anthropic--claude-sonnet-5",
+ "kind": "concept",
+ "concept_slug": "algorithmic-management",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2239168004,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A stylized office scene viewed from a worker's perspective, looking up at a screen mounted where a manager's desk would normally be, with the screen displaying a shift schedule, a warning notice, and a termination form stacking up in sequence, while a small human figure below holds a phone showing a chat message, emphasizing a worker being managed entirely through a screen rather than a person.",
+ "rendered_at_utc": "2026-09-11T10:24:18+00:00",
+ "seconds_waited": 363.0,
+ "vram_free_gb_before_start": 10.86
+}

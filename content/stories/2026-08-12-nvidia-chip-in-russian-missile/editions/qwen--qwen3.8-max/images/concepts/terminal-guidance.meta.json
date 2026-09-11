@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-12-nvidia-chip-in-russian-missile",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "kind": "concept",
+ "concept_slug": "terminal-guidance",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3921325051,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A side-on diagram of a missile's flight path in three labelled stages: launch, mid-course flight along a planned route, and a final curved descent toward a marked target. In the last stage, a small cone of vision extends from the missile's nose toward the target, with a camera symbol and a magnified inset showing the target being matched to a stored image. The illustration should make clear that terminal guidance is the short, decisive final segment.",
+ "rendered_at_utc": "2026-09-11T10:01:05+00:00",
+ "seconds_waited": 430.4,
+ "vram_free_gb_before_start": 10.86
+}

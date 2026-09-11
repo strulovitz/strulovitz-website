@@ -67,7 +67,7 @@ minimum_sources = 2
 # A ceiling on how much a model may write in one answer. This is a guard
 # against a runaway loop printing forever, NOT a budget (DECISIONS.md decision
 # 15: there is no daily dollar ceiling; the roster is the limit).
-max_output_tokens = 64000
+max_output_tokens = 128000
 
 # Language of everything published. Nir: "always English ONLY please."
 language = "en"

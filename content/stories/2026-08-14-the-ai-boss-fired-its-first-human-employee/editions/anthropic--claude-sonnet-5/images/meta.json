@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-14-the-ai-boss-fired-its-first-human-employee",
+ "model_id": "anthropic/claude-sonnet-5",
+ "model_slug": "anthropic--claude-sonnet-5",
+ "kind": "story",
+ "concept_slug": null,
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2239168004,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A small, minimalist San Francisco boutique storefront with a glowing screen mounted behind the counter displaying a simple female-voiced AI face labeled 'Luna', overseeing a shop of candles, books, and snacks. In the foreground, a human employee in an apron walks out the door carrying a box while another employee restocks shelves, and a faint holographic checklist behind the AI screen shows a crossed-out attendance policy and a stack of ignored warnings, capturing the idea of an AI manager that created its own rules, forgot them, and then enforced them only after being prompted.",
+ "rendered_at_utc": "2026-09-11T10:07:47+00:00",
+ "seconds_waited": 399.9,
+ "vram_free_gb_before_start": 10.86
+}

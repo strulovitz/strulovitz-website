@@ -1,0 +1,18 @@
+{
+ "story": "2026-09-09-anthropic-researcher-quits-over-ai-labs-gambling-with-our-li",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "kind": "story",
+ "concept_slug": null,
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 783484681,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A researcher stands at the doorway of a sleek AI laboratory, hand on the door, looking back toward a glowing corridor where a massive, intricate machine hums with power. Above the machine, a faint red warning light pulses. Outside the doorway, a crowd of people and lawmakers looks on, some reaching toward the lab, others turning away. The scene captures the moment of departure, warning, and public reckoning described in the story.",
+ "rendered_at_utc": "2026-09-11T10:38:54+00:00",
+ "seconds_waited": 461.0,
+ "vram_free_gb_before_start": 10.7
+}

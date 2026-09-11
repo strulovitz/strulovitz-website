@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-12-nvidia-chip-in-russian-missile",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "kind": "concept",
+ "concept_slug": "computer-vision",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3921325051,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A split illustration showing a camera view of a road scene on one side and, on the other, the same scene overlaid with labelled bounding boxes around a car, a pedestrian, and a bicycle. Thin lines connect each box to a small neural-network diagram, suggesting that the machine is matching pixel patterns to learned categories. The style should be explanatory rather than futuristic, with clear labels and no text that could be misread.",
+ "rendered_at_utc": "2026-09-11T09:44:40+00:00",
+ "seconds_waited": 777.4,
+ "vram_free_gb_before_start": 10.86
+}

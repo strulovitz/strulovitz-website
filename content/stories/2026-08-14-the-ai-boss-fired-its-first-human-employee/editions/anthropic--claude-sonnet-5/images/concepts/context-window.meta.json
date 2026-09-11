@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-14-the-ai-boss-fired-its-first-human-employee",
+ "model_id": "anthropic/claude-sonnet-5",
+ "model_slug": "anthropic--claude-sonnet-5",
+ "kind": "concept",
+ "concept_slug": "context-window",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2239168004,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "An illustration of a glass window with a clear view showing neatly organized documents labeled 'policy', 'warnings', and 'schedule' sitting inside it, while identical documents drift and fade into fog just outside the window's frame, showing information that exists but is no longer visible or usable to the AI looking through it.",
+ "rendered_at_utc": "2026-09-11T10:31:11+00:00",
+ "seconds_waited": 408.3,
+ "vram_free_gb_before_start": 10.86
+}

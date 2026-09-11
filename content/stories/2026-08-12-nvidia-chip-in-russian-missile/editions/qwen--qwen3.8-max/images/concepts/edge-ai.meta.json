@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-12-nvidia-chip-in-russian-missile",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "kind": "concept",
+ "concept_slug": "edge-ai",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3921325051,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A clean, labelled diagram showing two paths for the same task. On the left, a small drone with a camera sends an image to a distant cloud data centre and waits for a reply, drawn with a long dashed line and a clock showing delay. On the right, the same drone contains a glowing compact computer chip inside its body, with a quick loop from camera to chip to action, showing instant local recognition of a shape. The contrast between remote dependence and onboard independence should be immediately legible.",
+ "rendered_at_utc": "2026-09-11T09:53:54+00:00",
+ "seconds_waited": 492.0,
+ "vram_free_gb_before_start": 9.65
+}

@@ -1,453 +1,60 @@
 {
-  "headline": "Nvidia Jetson computer found inside Russian S-71 cruise missile",
-  "tldr": "Ukraine's military intelligence says a US-made Nvidia Jetson Orin module was found inside Russia's new S-71 Monochrome cruise missile.",
-  "article": "Ukraine's military intelligence agency says it has found a Nvidia Jetson Orin computer module inside Russia's new S-71 Monochrome air-launched cruise missile. The Main Directorate of Intelligence, known as HUR, announced the discovery on 12 August 2026, saying the part could mean Russia is using artificial-intelligence technology in the weapon. HUR did not say exactly what the module does during flight.\n\n## What HUR says it found\n\nHUR published the finding in the Components in Weapons section of its War&Sanctions portal, as part of a release covering 35 foreign electronic components identified in Russian weapons. The agency says specialists from HUR and Ukrainian research institutions examine captured and recovered Russian weapons to determine where their electronic parts come from. The purpose is to show Ukraine and its partners which foreign technologies Russia still depends on, so supply routes can be tightened.\n\nAccording to Militarnyi, the specific module carries markings that make it look like a Jetson Orin NX system-on-module. Tom's Hardware reports the markings show the unit was packaged in March 2025. The Orin NX is the smaller member of Nvidia's Jetson Orin family: compact, low-power computers intended for running AI directly on a device rather than in a data centre. Tom's Hardware describes the Orin NX as an automotive-grade module with up to 157 trillion sparse INT8 operations per second of AI performance. Source 1 gives a broader family figure of up to 157 TOPS for the Orin NX, and says the flagship Jetson AGX Orin can deliver up to 275 TOPS.\n\n## What it might do in the missile\n\nThe sources are careful to separate what was found from what can be proven about its role. HUR said the presence of the module may indicate AI technology in the missile, but did not disclose how the hardware is used. Militarnyi and Tom's Hardware both use that same cautious language. Tom's Hardware offers one plausible technical picture: the Orin NX could serve as the compute engine for an electro-optical perception system, recognising images in real time and helping terminal guidance, perhaps alongside a Chinese-made Honpho TS130C-01 camera module. United24 Media goes further, saying the Nvidia module works with an onboard camera to provide terminal guidance in the missile's final stage, citing the Ukrainian military channel Polkovnik Gsh.\n\nThe missile itself is a modification of the S-71 Kovyor, shaped to fit inside the internal weapons bays of Russia's Su-57 fighter jet and S-70 Okhotnik drone. Sources give different specifications. Militarnyi says that if the S-71M matches the S-71K, it has a range of up to 300 kilometres and carries a 250-kilogram high-explosive fragmentation bomb. United24 Media says the missile carries a 250-kilogram warhead, travels at around 500 to 600 kilometres per hour, and has an estimated range of 350 to 400 kilometres. It also repeats a claimed radar cross-section of 0.007 square metres. Those are stated claims, not independently verified figures.\n\n## Nvidia's response and the export-control gap\n\nNvidia told Tom's Hardware that Jetson Orin modules are consumer-grade products sold to students, developers and startups, that they are not available in Russia and not designed for military purposes. The company added that pre-owned Jetsons circulate through reseller channels, that it cannot track products after sale, and that it will take action if it finds a customer violating US export controls.\n\nThat points to the awkward policy issue Tom's Hardware raises. The US government export-controls high-end AI accelerators such as Nvidia's H100 and B200, which are used to train AI models, but it does not export-control hardware that runs trained models locally. Jetson modules are widely available: Tom's Hardware notes one German store sells modules for €685 including 19% VAT, and that Nvidia sells hundreds of thousands, if not millions, of Orin NX units a year. So even if Russia cannot buy them officially, they can move through third-party distributors and resellers.\n\nThis is not the first time HUR has pointed to Nvidia hardware in Russian weapons. Tom's Hardware says Ukrainian intelligence previously reported Jetson Orin NX modules in Russia's Shahed MS001 autonomous drones, and United24 Media mentions similar technology in Russia's V2U system and Shahed-236 attack drone. The new finding fits a wider pattern from the same release: HUR also identified parts of a passive radar seeker on Geran-2 drones, a Chinese Honpho camera in a Geran-4 jet-powered drone, and components from the active seeker of the Kh-47M2 Kinzhal aeroballistic missile. HUR says more than 5,800 foreign components have already been identified in Russian weapons.",
+  "headline": "Nvidia AI module found inside Russian S-71 Monochrome missile",
+  "tldr": "Ukraine's military intelligence says an Nvidia Jetson Orin computer was found in Russia's S-71 cruise missile.",
+  "article": "Ukraine's military intelligence says it has found an Nvidia Jetson Orin computer module inside Russia's new S-71 Monochrome air-launched cruise missile. The Main Directorate of Intelligence, known as HUR, announced the discovery on August 12, publishing it on its War&Sanctions portal alongside 35 other foreign electronic components identified in Russian weapons.\n\nThe finding does not prove how the missile uses the hardware. HUR said the chip's presence could indicate that Russia is relying on artificial intelligence technology in the weapon, but it did not disclose precisely what functions the Nvidia hardware performs during missile operations.\n\n## What was found\n\nSeveral Ukrainian outlets describe the component as belonging to Nvidia's Jetson Orin family, a line of compact computers designed to run AI tasks directly on the device rather than in a cloud data centre. Tom's Hardware reports that the module carried markings suggesting it resembles the Jetson Orin NX 8GB/16GB system-on-module. According to that report, the unit had packaging marks indicating March 2025.\n\nThe S-71 Monochrome itself is a new cruise missile adapted to be carried inside the internal weapons bays of Russia's Su-57 fighter jet and the S-70 Okhotnik drone. Militarnyi describes it as having reduced observability and a claimed autonomous target-search capability. If the S-71M variant shares the S-71K Kovyor's specifications, Militarnyi says its range is up to 300 km and its warhead is a 250 kg high-explosive fragmentation aerial bomb. United24 gives different figures: a 250 kg warhead, a speed of about 500 to 600 km per hour, and a range of 350 to 400 km.\n\n## What the chip might do\n\nTom's Hardware suggests one possible use: the Jetson could act as the computing engine behind an electro-optical perception system that recognises images in real time and helps with terminal guidance, the final stage of flight when the missile homes in on its target. That publication notes that a Chinese-made Honpho TS130C-01 camera module was also identified among the components HUR examined. United24 goes further, citing the Ukrainian military channel Polkovnik Gsh to say that the Nvidia module works with an onboard camera to provide terminal guidance using machine-vision algorithms.\n\nThose are claims of different confidence levels. HUR itself stopped at saying the hardware may indicate AI use without assigning it a specific role. Nvidia told Tom's Hardware that Jetson Orin modules are consumer-grade products sold to students, developers and startups, are not officially available in Russia, and are not designed for military purposes. The company said pre-owned Jetsons circulate through reseller channels and that it would take action if it determined a customer was violating U.S. export controls.\n\n## Why it matters\n\nThe discovery fits a broader pattern that Ukrainian investigators have been documenting. HUR says its research has identified 5,816 foreign-made components across 202 Russian weapons systems as of August 2026. The same release covering the S-71 included components of a passive radar seeker that Russia has begun installing on Geran-2 drones, apparently so they can find and strike Ukrainian air-defence systems and radar stations, as well as components from the active seeker of the Kh-47M2 Kinzhal aeroballistic missile.\n\nThe larger conclusion HUR draws is that Russia still cannot fully replace foreign high-tech electronics with domestic alternatives, despite years of sanctions and attempts to build alternative supply chains. The Jetson case also highlights a gap in export controls: while the U.S. government restricts high-end AI accelerators used to train models, Tom's Hardware notes that hardware which can run such models locally is not export-controlled in the same way and remains widely available.\n\nIn one contrast within the same set of findings, HUR's analysis of Russia's Oreshnik ballistic missile found that all identified components in that weapon were manufactured in Russia and Belarus. The S-71 tells the opposite story: a stealthy new missile with a foreign computer at its core.",
   "key_points": [
    {
-  "point": "Ukraine's HUR announced on 12 August 2026 that specialists found an Nvidia Jetson Orin module inside Russia's new S-71 Monochrome air-launched cruise missile.",
-  "source_url": "https://interestingengineering.com/military/russia-cruise-missile-us-made-nvidia-chip"
-   },
-   {
-  "point": "HUR says the module's presence may indicate artificial-intelligence technology in the missile, but did not disclose how the hardware is used.",
-  "source_url": "https://interestingengineering.com/military/russia-cruise-missile-us-made-nvidia-chip"
-   },
-   {
-  "point": "The finding was part of a release of 35 foreign electronic components identified in Russian weapons, most of them from the United States.",
+  "point": "Ukraine's HUR announced on August 12 that it found an Nvidia Jetson Orin module inside Russia's S-71 Monochrome cruise missile.",
   "source_url": "https://militarnyi.com/en/news/russian-s-71-monochrome-missile-received-ai-based-on-u-s-nvidia-module/"
-   },
-   {
-  "point": "Nvidia told Tom's Hardware that Jetson Orin modules are consumer-grade products, not available in Russia, not designed for military purposes, and not export-controlled.",
+},
+{
+  "point": "HUR published the finding as part of a release detailing 35 foreign electronic components identified in Russian weapons.",
+  "source_url": "https://interestingengineering.com/military/russia-cruise-missile-us-made-nvidia-chip"
+},
+{
+  "point": "The module's markings suggest it resembles a Jetson Orin NX system-on-module and was packaged in March 2025.",
   "source_url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/nvidia-jetson-chip-found-in-russian-cruise-missile-ukraine-claims-presence-in-s-71-monochrome-weapon-may-indicate-use-of-ai-tech"
-   },
-   {
-  "point": "Tom's Hardware says the US export-controls high-end AI training accelerators such as Nvidia's H100 and B200, but not hardware that runs trained models locally.",
+},
+{
+  "point": "Nvidia said Jetson Orin modules are consumer-grade products, are not officially available in Russia, and are not designed for military use.",
   "source_url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/nvidia-jetson-chip-found-in-russian-cruise-missile-ukraine-claims-presence-in-s-71-monochrome-weapon-may-indicate-use-of-ai-tech"
-   },
-   {
-  "point": "United24 Media says the S-71M has a 250-kilogram warhead, speed of around 500 to 600 km/h, and estimated range of 350 to 400 kilometres, while Militarnyi says the range may be up to 300 kilometres if it matches the S-71K.",
-  "source_url": "https://united24media.com/defensetech/russias-new-s-71m-stealth-missile-can-hunt-targets-with-ai-powered-by-nvidia-tech-it-shouldnt-have-21600"
-   },
-   {
-  "point": "HUR says more than 5,800 foreign components have already been identified in Russian weapons through the War&Sanctions portal.",
+},
+{
+  "point": "HUR says Russia still cannot fully replace foreign high-tech electronics with domestic alternatives after two years of research.",
   "source_url": "https://ua.news/en/war-vs-rf/gur-viiavilo-nvidia-jetson-u-rosiiskii-raketi-monokhrom"
-   },
-   {
-  "point": "Tom's Hardware says Ukrainian intelligence previously reported Nvidia Jetson Orin NX modules in Russia's Shahed MS001 autonomous drones.",
-  "source_url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/nvidia-jetson-chip-found-in-russian-cruise-missile-ukraine-claims-presence-in-s-71-monochrome-weapon-may-indicate-use-of-ai-tech"
-   }
+},
+{
+  "point": "HUR has identified 5,816 foreign-made components in 202 Russian weapons systems as of August 2026.",
+  "source_url": "https://united24media.com/defense-tech/russias-new-s-71m-stealth-missile-can-hunt-targets-with-ai-powered-by-nvidia-tech-it-shouldnt-have-21600"
+}
   ],
   "concepts": [
    {
   "term": "Edge AI",
   "slug": "edge-ai",
-  "explanation": "Edge AI means running artificial-intelligence programs on the device doing the job, rather than sending data to a remote data centre. A phone that recognises speech without an internet connection, a camera that spots people locally, or a drone that processes images as it flies are all edge-AI systems. The appeal is speed, privacy and independence from a network link: the model runs where the action happens, with no waiting for an answer from the cloud. The trade-off is that the onboard computer has limited power, memory and cooling, so designers usually choose compact, low-energy processors and smaller, more specialised models instead of the largest systems available. Nvidia's Jetson family is a common example of this kind of hardware: small modules built to run computer vision and other AI tasks on robots, drones and machines that work away from a reliable connection. In weapons, edge AI matters because it can let a missile or drone analyse sensor data during flight, without depending on external control."
-   },
-   {
-  "term": "Export controls",
-  "slug": "export-controls",
-  "explanation": "Export controls are government rules that limit which technologies can be sold to which countries, companies or end users. In the chip industry, they are used to stop sensitive hardware from reaching military programmes, weapons makers or geopolitical rivals. Controls can ban sales outright, require licences before shipping, or target particular performance thresholds. Their weakness is that they follow formal sales channels, while goods can still move through resellers, re-export hubs, front companies and second-hand markets. A product may be legally sold to a research lab in one country and later turn up somewhere else through intermediaries. Export controls also depend on how a technology is classified: high-end AI training accelerators can be tightly restricted, while smaller devices that run already-trained models may be treated as ordinary commercial goods. That distinction matters because modern AI has two stages: training, where enormous processors build a model, and inference, where a much smaller device uses that model. Controls aimed mainly at the first stage can leave the second stage relatively open."
-   },
-   {
-  "term": "Terminal guidance",
-  "slug": "terminal-guidance",
-  "explanation": "Terminal guidance is the final phase of steering a weapon, when it switches from following a planned route to locking onto the actual target. Earlier in flight, a missile may rely on satellite navigation, inertial sensors or pre-loaded waypoints, but those can be jammed, drifted or imprecise. Terminal guidance uses onboard sensing near the target: radar, infrared seekers, laser spotting or cameras. A camera-based system can compare what it sees with an expected target image and make final corrections. If image-recognition software is added, the weapon may be able to identify or select targets automatically in the last seconds of flight, which raises both military and ethical questions. Such systems are especially attractive where GPS or radio control may be unavailable. In that sense, terminal guidance is the point where AI perception becomes most consequential in a weapon: not for flying the whole route, but for deciding, at the end, what the weapon is actually aiming at."
-   },
-   {
-  "term": "Sanctions evasion",
-  "slug": "sanctions-evasion",
-  "explanation": "Sanctions evasion is the practice of getting restricted goods into a sanctioned country despite trade controls. It usually does not involve dramatic smuggling so much as ordinary-looking paperwork. A component is sold to a distributor in a third country, resold to an intermediary, relabelled, routed through another company, and eventually reaches the prohibited end user. Dual-use electronics are especially prone to this because the same part can be used in consumer products, industrial machines, robots or weapons. Investigators often detect evasion by opening captured equipment, recording serial numbers and packaging dates, and tracing where the parts were supposed to have gone. The policy response is to tighten licensing, monitor resellers, pressure distributors and publish evidence of diversion. But when a component is mass-produced, commercially available and not individually tracked after sale, preventing every unit from reaching a blocked destination is very difficult."
-   },
-   {
-  "term": "Jetson Orin",
-  "slug": "jetson-orin",
-  "explanation": "Jetson Orin is Nvidia's family of compact computing modules designed for running artificial intelligence on devices such as robots, drones, cameras and autonomous machines. Unlike the large accelerators Nvidia sells for data centres, Jetson modules are built for low power, small size and local processing. The family includes the Orin Nano, Orin NX and the larger AGX Orin, with different balances of speed, power and cost. They use Nvidia's Ampere GPU architecture and support the company's JetPack software for AI applications. Nvidia markets them to students, developers, startups and industrial users, and Tom's Hardware describes the Orin NX as an automotive-grade module suited to space- and power-constrained systems that need vision. Because the modules are sold widely and are not export-controlled in the same way as high-end AI training chips, they can reach places through reseller channels even when official sales to a country are blocked."
-   },
+  "explanation": "Edge AI means running artificial intelligence software directly on the device that collects the data, rather than sending that data to a remote data centre and waiting for an answer. A camera or sensor can feed information to a small computer built into the same machine, and that computer can recognise objects, make a judgement, and act within fractions of a second. The appeal is speed and independence: an edge device does not need a network connection, so it keeps working when connectivity is unavailable, unreliable, or too slow. The trade-off is power. Because the hardware must be small and energy-efficient, it cannot match the raw computing power of a data-centre server, so engineers must choose compact chips and carefully compressed models that fit the job. Nvidia's Jetson family is one well-known line of edge AI hardware, designed for robots, drones, and other machines that need to perceive their surroundings locally. The broader importance is that edge AI moves intelligence out of the cloud and into physical objects, which changes what autonomous machines can do when they are out of reach of any network.",
+  "image_prompt": "A clean, labelled diagram showing two paths for the same task. On the left, a small drone with a camera sends an image to a distant cloud data centre and waits for a reply, drawn with a long dashed line and a clock showing delay. On the right, the same drone contains a glowing compact computer chip inside its body, with a quick loop from camera to chip to action, showing instant local recognition of a shape. The contrast between remote dependence and onboard independence should be immediately legible."
+},
    {
   "term": "Computer vision",
   "slug": "computer-vision",
-  "explanation": "Computer vision is the field of artificial intelligence concerned with enabling machines to interpret images and video. A computer-vision system can be trained to detect objects, classify scenes, track movement or compare what it sees against a reference image. Modern systems usually rely on neural networks trained on large collections of labelled pictures, learning patterns that let them recognise cars, faces, ships, terrain or other features. In robotics and weapons, computer vision can replace or supplement other sensors such as radar or GPS. It can work without an outside signal, and it can be used in the final approach to a target by matching live camera images to a stored picture or object class. Its reliability depends on lighting, weather, angle, training data and countermeasures, so it is not magic; but when running on onboard hardware, it can give a machine a degree of independent perception in situations where remote control is impossible or jammed."
-   },
-   {
-  "term": "Autonomous targeting",
-  "slug": "autonomous-targeting",
-  "explanation": "Autonomous targeting means a weapon can find, identify or track a target without a human directing each step. The degree of autonomy varies widely: a missile might simply follow a pre-programmed route, compare its camera view to a target image in the last seconds, or independently search an area and decide what to strike. Military researchers are interested because autonomous guidance can work when GPS is jammed, communications are cut or operators cannot react fast enough. The ethical and legal concern is that a machine may make life-and-death decisions with insufficient human judgment, especially if its perception fails or it misidentifies a target. In public reporting, the term is often used loosely. Finding an AI-capable computer inside a weapon suggests the possibility of autonomous or semi-autonomous functions, but it does not by itself prove how much independence the weapon has or whether a human approves the final strike."
-   },
-   {
-  "term": "Radar cross-section",
-  "slug": "radar-cross-section",
-  "explanation": "Radar cross-section is a measure of how detectable an object is by radar. It is expressed as an area, usually in square metres, but it is not simply the physical size of the object. A small, angular missile can reflect radar energy strongly, while a larger shape designed to scatter waves away from the receiver may appear much smaller. Lower radar cross-section makes it harder for radar systems to detect and track a weapon at long range, which is one of the main aims of stealth design. Claims of very low values, such as fractions of a square metre, should be treated cautiously because they depend on the radar frequency, angle and measurement conditions. In the case of a cruise missile, a small radar signature matters because it shortens the time defenders have to notice, identify and intercept the weapon."
-   },
-   {
-  "term": "Dual-use technology",
-  "slug": "dual-use-technology",
-  "explanation": "Dual-use technology is any technology that can serve both civilian and military purposes. Chips, cameras, navigation systems, drones, machine tools and software all fall into this category. A processor sold for a university robotics project can also end up guiding a drone; a commercial camera can become part of a weapon's seeker. This makes regulation difficult, because restricting a technology that has widespread legitimate uses can harm ordinary industry and research, while leaving it open can enable weapons development. Dual-use is central to debates about AI hardware: the same compact AI modules used for delivery robots, inspection drones or classroom experiments can also be integrated into autonomous weapons. Export controls, sanctions and end-user checks are attempts to manage this ambiguity, but because dual-use goods circulate globally through normal commercial channels, total prevention is rarely possible."
-   },
-   {
-  "term": "Inference",
-  "slug": "inference",
-  "explanation": "Inference is the stage of artificial intelligence when a trained model is actually used. Training is the earlier, much more expensive stage in which vast numbers of processors learn patterns from data; inference is what happens afterwards when the finished model answers questions, recognises images or makes decisions. A phone translating speech, a camera detecting a pedestrian, or a missile comparing what it sees to a target image are all performing inference. Inference generally needs far less computing power than training, and it can often run on small, low-power devices. This distinction matters for policy: governments may restrict the huge processors used to train frontier AI models while allowing the much smaller devices that run those models. It also matters for weapons, because an onboard inference computer can give a missile or drone local perception without needing a link back to a data centre."
-   },
-   {
-  "term": "Military autonomy",
-  "slug": "military-autonomy",
-  "explanation": "Military autonomy is the use of machines that can perform tasks, make decisions or complete missions without continuous human direction. It ranges from simple automation, such as a drone holding altitude, to systems that can navigate, avoid obstacles, recognise targets or respond to threats. The military interest is clear: autonomous systems can operate where communications are jammed, react faster than humans, or reduce risk to personnel. The danger is that they may act unpredictably, misidentify targets, be fooled by deception, or shift life-and-death authority away from accountable human judgment. Debates over military autonomy often focus on how much control a human retains, whether meaningful control is possible once a system is launched, and how international law applies. In reporting, terms such as AI, machine vision and autonomous targeting are sometimes blurred, so the key question is not only what hardware is present but what role humans still play."
-   },
-   {
-  "term": "Supply-chain transparency",
-  "slug": "supply-chain-transparency",
-  "explanation": "Supply-chain transparency is the ability to trace a product or component back through every step of its production and distribution: who made it, who sold it, where it went and whether it reached its intended user. In electronics, this is hard because parts pass through manufacturers, distributors, resellers, integrators and sometimes second-hand markets. When investigators find a chip in a weapon, they may be able to identify the maker and model, but tracing how it got there requires serial numbers, purchase records, export licences and cooperation from companies and governments. Transparency matters for sanctions enforcement because without it, restricted goods can be diverted and no one can say where the chain broke. Publishing evidence of diversion, as Ukraine's War&Sanctions portal does, is one way to pressure manufacturers, distributors and governments to close the gaps."
-   },
-   {
-  "term": "War&Sanctions portal",
-  "slug": "war-and-sanctions-portal",
-  "explanation": "War&Sanctions is an online portal run by Ukraine's military intelligence agency, HUR, where it publishes information about foreign components found in Russian weapons. The project's stated aim is to identify which foreign technologies Russia continues to rely on despite international sanctions, and to help Ukraine and its partners block those supply routes. Entries typically list components, their makers and countries of origin, and sometimes include photos, markings and technical details. The portal also tracks broader patterns of dependence, such as whether Russia can replace foreign electronics with domestic alternatives. It is a tool of intelligence disclosure and sanctions advocacy, not an independent laboratory report, so its claims are best treated as documented allegations unless corroborated elsewhere. Still, it has become an important public source for researchers studying sanctions evasion, dual-use technology and the electronics inside modern weapons."
-   },
-   {
-  "term": "HUR",
-  "slug": "hur",
-  "explanation": "HUR is the common abbreviation for Ukraine's Main Directorate of Intelligence, part of the Ministry of Defence. It is one of Ukraine's main intelligence and security agencies, responsible for military intelligence, special operations and the analysis of enemy capabilities. During the war with Russia, HUR has become a frequent public source for claims about Russian weapons, including what components are inside missiles and drones, how they are supplied and what technologies they use. Its reports serve both intelligence and information purposes: they inform Western partners about sanctions gaps, while also presenting Ukraine's view of Russia's dependence on foreign technology. Because HUR is a wartime intelligence agency, its statements should be read as official claims that may be accurate but are not independently verified. Its credibility on specific component discoveries is strengthened when photos, markings and third-party reporting match."
-   },
-   {
-  "term": "S-71 Monochrome",
-  "slug": "s-71-monochrome",
-  "explanation": "The S-71 Monochrome is a Russian air-launched cruise missile, described by Ukrainian sources as a modification of the S-71 Kovyor. It is designed to be carried inside the internal weapons bays of Russia's Su-57 fighter jet and S-70 Okhotnik drone, which suggests an emphasis on stealth and low observability. Ukrainian military intelligence says the missile may have autonomous target-search capability and that an Nvidia Jetson Orin module found inside it could indicate AI-based guidance. Reported specifications differ between sources: Militarnyi says its range may be up to 300 kilometres if it matches the S-71K, while United24 Media estimates 350 to 400 kilometres and a speed of around 500 to 600 kilometres per hour. It carries a 250-kilogram warhead. As with many new weapons in wartime, some claims about its performance remain unverified."
-   },
-   {
-  "term": "TOPS",
-  "slug": "tops",
-  "explanation": "TOPS stands for trillion operations per second, a common measure used to describe the raw computing throughput of AI accelerators. It is especially associated with low-precision arithmetic used in neural-network inference, such as INT8 operations, where each number is stored in eight bits. Higher TOPS means a chip can perform more calculations per second, which matters for image recognition, object detection and other AI tasks that require many simple operations in parallel. TOPS is not the same as general computer speed: it reflects only certain kinds of mathematical work, and different vendors may measure it differently. Nvidia's Jetson modules are often described in these terms. For example, source 1 says the Jetson AGX Orin can deliver up to 275 TOPS, while Tom's Hardware says the Orin NX provides up to 157 sparse INT8 TOPS."
-   },
-   {
-  "term": "System-on-module",
-  "slug": "system-on-module",
-  "explanation": "A system-on-module is a small circuit board that bundles the core parts of a computer—processor, memory and often other essential chips—into one compact unit. It is not the final product itself; it is meant to be plugged into a larger carrier board or device that adds power, connectors, sensors and other features. The advantage is that engineers can design complex electronics without building the hardest part from scratch. This is common in robotics, drones, cameras and embedded systems, where space and time matter. Nvidia's Jetson Orin NX is described as a system-on-module: a compact AI computer that can be integrated into a device needing vision and local processing. In the S-71 missile story, the question is whether the module itself was used, or a product built around it."
-   },
-   {
-  "term": "CUDA cores",
-  "slug": "cuda-cores",
-  "explanation": "CUDA cores are the processing units inside Nvidia graphics processors that perform the parallel calculations needed for graphics and AI. The name comes from CUDA, Nvidia's programming platform for using GPUs for general-purpose computing. A GPU may have hundreds or thousands of CUDA cores, each relatively simple but able to work on many pieces of data at once. This makes GPUs well suited to tasks such as image processing and neural-network computation, where the same operation must be applied to large blocks of numbers. Tom's Hardware says the Jetson Orin NX module has a GPU with 1024 CUDA cores and 32 Tensor cores. CUDA cores matter in this story because they are one measure of the module's ability to run vision and AI workloads locally."
-   },
-   {
-  "term": "Tensor cores",
-  "slug": "tensor-cores",
-  "explanation": "Tensor cores are specialised processing units in Nvidia GPUs designed to accelerate the matrix multiplications at the heart of neural networks. While CUDA cores handle a broad range of parallel calculations, Tensor cores are tuned for the dense, repetitive arithmetic used in AI training and inference. They can perform many multiply-and-add operations in a single step, which makes them much faster for AI workloads than general-purpose cores alone. Modern AI chips often combine both: CUDA cores for general tasks and Tensor cores for the heavy lifting of neural computation. Tom's Hardware says the Jetson Orin NX has 32 Tensor cores and can deliver up to 157 sparse INT8 TOPS. In a missile or drone, Tensor cores matter because they allow onboard image-recognition models to run quickly enough to be useful in real time."
-   },
-   {
-  "term": "Reseller diversion",
-  "slug": "reseller-diversion",
-  "explanation": "Reseller diversion is a way restricted or controlled goods reach a prohibited destination through legitimate-looking commercial channels. A product is sold to one buyer, often in a country where it is legal, then passed to another company, shipped through an intermediary hub, and finally delivered somewhere the original seller was not allowed to send it. The maker may never know the final user. This is especially common with electronics that are widely sold and hard to track after purchase. In the Nvidia Jetson story, Nvidia said pre-owned Jetsons are available through many reseller channels and that it cannot track products after they are sold. That is a typical example: even if a company stops official sales to a country, second-hand markets, distributors and shell companies can keep the goods moving."
-   },
-   {
-  "term": "Military-civil fusion",
-  "slug": "military-civil-fusion",
-  "explanation": "Military-civil fusion is the idea that civilian technology, industry and research should be integrated with military development, so advances in one sector can flow to the other. In practice, it can mean using commercial chips, sensors, software or manufacturing methods in weapons systems, or directing civilian companies to support defence needs. The concept is often associated with China, but the underlying dynamic appears wherever modern militaries rely on commercial electronics. In the S-71 missile case, a consumer-grade Nvidia module designed for students, developers and startups may have been integrated into a cruise missile. That illustrates how the boundary between civilian and military technology has become porous: the same AI hardware that powers a classroom robot can also help guide a weapon."
-   },
-   {
-  "term": "End-user control",
-  "slug": "end-user-control",
-  "explanation": "End-user control is a set of export and trade measures aimed at who ultimately receives a product, not just what the product is. A government may allow a sale to one country or company only if the buyer promises not to pass the goods to a prohibited end user. Licences, certificates, screening and post-sale checks are all tools of end-user control. The difficulty is that modern supply chains are long and opaque: goods can be resold, repackaged, moved through third countries or stripped of identifying information. When a component turns up in a weapon it was never supposed to reach, it suggests end-user controls failed somewhere. In the Nvidia case, the company said it cannot track products after sale, which highlights the gap between formal restrictions and practical enforcement."
-   },
-   {
-  "term": "Sanctions enforcement",
-  "slug": "sanctions-enforcement",
-  "explanation": "Sanctions enforcement is the effort to make trade restrictions actually work. Passing sanctions is only the first step; enforcement requires monitoring exports, investigating suspicious shipments, penalising violators and persuading third countries and companies to cooperate. In technology sanctions, enforcement is especially hard because components are small, valuable, easy to smuggle and often dual-use. Investigators may rely on serial numbers, shipping records, whistleblower reports and physical examination of captured equipment. Publishing findings, as Ukraine does with foreign components in Russian weapons, is itself an enforcement tactic: it names the parts, pressures manufacturers and alerts governments to loopholes. But when a product is mass-produced and commercially available, enforcement becomes a game of catching diversions after the fact rather than preventing every one."
-   },
-   {
-  "term": "Component identification",
-  "slug": "component-identification",
-  "explanation": "Component identification is the process of determining what parts are inside a piece of equipment, who made them and where they came from. In military investigations, this usually means dismantling captured or recovered weapons, photographing circuit boards, reading markings on chips, tracing serial numbers and comparing parts with commercial catalogues. The work can reveal whether a weapon relies on foreign technology, whether sanctions are being evaded, and which supply chains need tightening. It is technical but not infallible: markings can be removed, parts can be relabelled, and a component's presence does not always prove its exact function. In the S-71 story, Ukrainian investigators identified the Nvidia Jetson module among 35 foreign components, then published the finding to help allies understand Russia's continuing dependence on outside electronics."
-   },
-   {
-  "term": "Open-source intelligence",
-  "slug": "open-source-intelligence",
-  "explanation": "Open-source intelligence, often called OSINT, is the collection and analysis of information from publicly available sources: photos, videos, social media, official statements, satellite images, shipping records and technical documents. In wartime, OSINT researchers can often identify weapons, track movements and verify claims without access to classified information. The S-71 Nvidia story sits at the edge of OSINT: a government intelligence agency published photos and component data, which journalists then analysed and compared with commercial specifications. The strength of open-source work is that others can check it. The weakness is that public evidence can be incomplete, misleading or deliberately selected. Good OSINT distinguishes what is directly shown from what is inferred, and treats wartime claims with appropriate caution."
-   },
-   {
-  "term": "AI in warfare",
-  "slug": "ai-in-warfare",
-  "explanation": "AI in warfare refers to the use of artificial intelligence for tasks such as target recognition, navigation, sensor fusion, logistics, decision support and autonomous weapon control. Modern AI can process images, detect patterns and make rapid decisions, which makes it attractive for missiles, drones and battlefield systems. But it also raises serious risks: misidentification, brittleness under unexpected conditions, adversarial deception and the moral problem of delegating lethal decisions to machines. In policy debates, the focus is often on whether humans remain in control and whether systems can comply with the laws of war. Finding AI hardware in a weapon does not settle how much autonomy it has, but it shows that military forces are trying to put commercial AI capabilities into operational weapons, often using components that were never designed for that purpose."
-   },
-   {
-  "term": "Commercial-off-the-shelf",
-  "slug": "commercial-off-the-shelf",
-  "explanation": "Commercial-off-the-shelf, often shortened to COTS, describes products that are already sold commercially and can be bought without custom development. In defence, COTS components can be cheaper, more available and more advanced than bespoke military parts, but they may lack the ruggedness, security or guaranteed supply chains required for weapons. The use of COTS electronics in missiles and drones shows how modern warfare draws on ordinary industrial technology. A chip designed for robotics or edge computing can be adapted to military use if it performs the needed task. The downside for regulators is that COTS goods are widely distributed, hard to track and often not subject to the same export controls as specialised military hardware. The Nvidia Jetson module is a clear example of this pattern."
-   },
-   {
-  "term": "Electro-optical seeker",
-  "slug": "electro-optical-seeker",
-  "explanation": "An electro-optical seeker is a sensor system that uses visible or infrared light to detect and track a target, usually through a camera or imaging sensor. Unlike radar, it does not emit radio waves; it receives light or heat. This can make it harder to detect and less vulnerable to some forms of radar jamming, though it can be affected by weather, smoke, decoys and lighting conditions. In missiles, electro-optical seekers are often used for terminal guidance, comparing live images with a stored target picture or using image recognition to stay locked on. Tom's Hardware suggests the Jetson Orin NX could serve as the compute engine for such a perception system in the S-71 missile. The presence of a camera module, such as the Chinese Honpho TS130C-01 mentioned in the reporting, supports this idea."
-   },
-   {
-  "term": "Machine vision",
-  "slug": "machine-vision",
-  "explanation": "Machine vision is a practical branch of AI focused on enabling computers to see and interpret images. It overlaps heavily with computer vision but is often used for applied systems: factory inspection, robotics, surveillance, navigation and weapon guidance. A machine-vision system might detect whether a part is defective, follow a lane on a road, or recognise a vehicle in a camera feed. In weapons, machine vision can help a missile compare what its camera sees during the final approach with an expected target, or identify objects without external control. The technology is powerful but not perfect: it depends on training data, lighting, angle and countermeasures. In the S-71 story, machine vision is the likely function of the Nvidia module if it is used for terminal guidance."
-   },
-   {
-  "term": "Terminal-homing",
-  "slug": "terminal-homing",
-  "explanation": "Terminal homing is a form of terminal guidance in which a weapon actively tracks a target during the last part of its flight. The seeker, whether radar, infrared or optical, keeps the weapon pointed toward the target and corrects for movement or evasion. In semi-active systems, the weapon follows a signal illuminated by another platform; in active systems, it generates or processes its own tracking information. Machine vision can be used as a form of terminal homing by locking onto visual features. The distinction matters because terminal homing can give a weapon greater accuracy than pure navigation, but it also brings the weapon closer to autonomous decision-making if the seeker selects or confirms the target without human input."
-   },
-   {
-  "term": "Su-57",
-  "slug": "su-57",
-  "explanation": "The Su-57 is Russia's fifth-generation fighter aircraft, designed to compete with advanced Western fighters. It is intended to carry weapons internally to reduce radar visibility, and it has been associated with new air-launched missiles such as the S-71 Monochrome. The Su-57 matters in this story because the missile's shape and stealth design are described as being adapted for carriage inside the Su-57's internal weapons bays. That suggests Russia is trying to pair a low-observable aircraft with a low-observable cruise missile, increasing the difficulty of detection and interception. The Su-57 has seen limited use in the war in Ukraine, and claims about its operational role should be treated cautiously."
-   },
-   {
-  "term": "S-70 Okhotnik",
-  "slug": "s-70-okhotnik",
-  "explanation": "The S-70 Okhotnik is a Russian heavy combat drone, sometimes described as a stealth unmanned aircraft. It has been linked to future air-combat concepts, including operating alongside manned fighters and carrying weapons internally. In the S-71 missile story, Ukrainian sources say the missile is designed to be carried inside the weapons bays of both the Su-57 fighter and the S-70 Okhotnik drone. This matters because it suggests Russia is thinking about launching cruise missiles not only from aircraft but also from large autonomous or remotely controlled drones. The operational status of the Okhotnik remains uncertain, so reports about its role should be treated as claims rather than confirmed capabilities."
-   },
-   {
-  "term": "Geran drones",
-  "slug": "geran-drones",
-  "explanation": "Geran is the name used by Ukrainian sources for Russian one-way attack drones, often associated with the Shahed family of Iranian-designed weapons. Geran-2 is a propeller-driven kamikaze drone, while Geran-4 is described as a jet-powered variant. Ukrainian intelligence has reported finding foreign components in these drones, including passive radar seekers and cameras. They matter in the Nvidia story because they show a broader pattern: Russia is integrating foreign electronics into a range of weapons, from cruise missiles to attack drones. The Geran series has been widely used against Ukrainian targets, making it a key focus for component investigation and sanctions enforcement."
-   },
-   {
-  "term": "Kh-47M2 Kinzhal",
-  "slug": "kh-47m2-kinzhal",
-  "explanation": "The Kh-47M2 Kinzhal is a Russian air-launched aeroballistic missile, typically carried by MiG-31 interceptors. It is one of Russia's most prominent advanced weapons, often described as hypersonic, though the term can be misleading because its speed depends on launch conditions and trajectory. In the S-71 component release, HUR said it also identified components from the active seeker of a Kinzhal missile. This is relevant because it places the Nvidia finding in a wider context: Ukrainian intelligence is not only reporting one unusual chip but systematically documenting foreign parts across Russia's missile and drone arsenal."
-   },
-   {
-  "term": "Air-launched cruise missile",
-  "slug": "air-launched-cruise-missile",
-  "explanation": "An air-launched cruise missile is a missile carried and released from an aircraft, then flown under its own power toward a target. Unlike ballistic missiles, which follow a high arc, cruise missiles fly relatively low and can follow terrain or pre-planned routes. Being launched from an aircraft gives them extra initial speed and altitude, extending their range and allowing them to be used from standoff distances. Stealth shaping and internal carriage can make them harder to detect. The S-71 Monochrome is described as an air-launched cruise missile designed for the Su-57 and S-70 Okhotnik, which means it combines aircraft launch with cruise-missile flight and possibly autonomous terminal guidance."
-   },
-   {
-  "term": "Low observability",
-  "slug": "low-observability",
-  "explanation": "Low observability is the quality of being hard to detect by radar, infrared, acoustic or visual sensors. In military aviation and missiles, it usually means stealth shaping, radar-absorbing materials and design choices that reduce heat or reflection. A weapon with low observability may not be invisible, but it can reduce the distance at which defenders can detect and intercept it. The S-71 Monochrome is described by Ukrainian sources as having reduced observability, and United24 Media cites a claimed radar cross-section of 0.007 square metres. Such figures should be treated carefully because they depend on measurement conditions, but the general point is that Russia appears to be designing missiles to complicate air defence."
-   },
-   {
-  "term": "Warhead",
-  "slug": "warhead",
-  "explanation": "A warhead is the explosive part of a missile, rocket or torpedo, designed to damage or destroy a target. Different warheads are suited to different targets: high-explosive for general blast effect, fragmentation for spreading deadly pieces, shaped charges for armour, or specialised payloads for other purposes. The S-71 Monochrome is reported to carry a 250-kilogram high-explosive fragmentation warhead, based on the OFAB-250-270 aerial bomb. That suggests it is intended against area targets, vehicles, buildings or personnel rather than heavily fortified structures. The warhead's size and type help analysts understand what the missile is meant to hit."
-   },
-   {
-  "term": "OFAB-250-270",
-  "slug": "ofab-250-270",
-  "explanation": "The OFAB-250-270 is a Russian high-explosive fragmentation aerial bomb weighing about 250 kilograms. The designation indicates its general purpose and weight class: OFAB stands for high-explosive fragmentation aerial bomb. Such bombs are designed to explode and scatter fragments over an area, making them effective against unarmoured targets, personnel, vehicles and light structures. In the S-71 missile story, Militarnyi says the missile's warhead is based on the OFAB-250-270. This tells readers that the missile is not merely a precision-guided route but a delivery system for a conventional explosive payload of a familiar Soviet/Russian bomb type."
-   },
-   {
-  "term": "Passive radar seeker",
-  "slug": "passive-radar-seeker",
-  "explanation": "A passive radar seeker is a sensor that detects and homes in on radio emissions from enemy radars or communications, rather than sending out its own radar signal. Because it listens instead of transmitting, it is harder for the target to know it is being tracked. Such seekers are often used in anti-radiation weapons designed to attack air-defence radars. In the S-71 component release, HUR said it found parts of a passive radar seeker that Russia has begun installing on Geran-2 drones so they can detect and strike Ukrainian surface-to-air missile systems and radar stations. This is another example of foreign electronics being used to make Russian weapons more capable."
-   },
-   {
-  "term": "Active seeker",
-  "slug": "active-seeker",
-  "explanation": "An active seeker is a missile guidance sensor that emits its own radar signal and listens for the reflection from a target. This allows the missile to track the target independently in the final phase of flight, without relying on the launching aircraft to illuminate it. Active seekers are common in modern air-to-air and anti-ship missiles. In the S-71 component release, HUR said it identified components from the active seeker of Russia's Kh-47M2 Kinzhal aeroballistic missile. The relevance is that it shows Ukrainian investigators are tracking not just AI modules but also radar and sensor components across different Russian weapons."
-   },
-   {
-  "term": "Sanctions",
-  "slug": "sanctions",
-  "explanation": "Sanctions are economic or trade restrictions imposed by one country or group of countries on another, usually to change behaviour, punish aggression or limit military capability. They can include export bans, financial restrictions, travel bans and limits on technology transfers. In the context of Russia's war against Ukraine, Western sanctions have aimed to restrict Russia's access to advanced electronics, chips and other components needed for weapons. The S-71 Nvidia story is about how effective those sanctions are in practice. Despite years of restrictions, Ukrainian intelligence continues to find foreign components in Russian weapons, suggesting that sanctions have slowed but not stopped Russia's access to critical technology."
-   },
-   {
-  "term": "Foreign components",
-  "slug": "foreign-components",
-  "explanation": "Foreign components are parts made outside the country that uses them. In weapons analysis, identifying foreign components shows whether a country can produce its own military electronics or depends on outside suppliers. For Russia, this is politically significant because sanctions are intended to cut off access to advanced foreign technology. Ukrainian intelligence has published thousands of foreign components found in Russian weapons, including chips, cameras, sensors and seekers. The presence of a US-made Nvidia module in the S-71 missile is a striking example because it shows a high-profile AI component reaching Russia despite official restrictions."
-   },
-   {
-  "term": "Domestic alternatives",
-  "slug": "domestic-alternatives",
-  "explanation": "Domestic alternatives are home-produced replacements for imported components. For countries under sanctions, developing domestic alternatives is a way to reduce dependence on foreign technology and keep weapons production going. But making advanced chips, sensors and processors domestically is difficult, expensive and often years behind the global frontier. Ukrainian intelligence says two years of research through the War&Sanctions project show that Russia still cannot fully replace foreign high-tech electronics with domestic alternatives. This matters because it suggests sanctions, while imperfect, continue to impose constraints on Russia's military-industrial base."
-   },
-   {
-  "term": "Supply chain",
-  "slug": "supply-chain",
-  "explanation": "A supply chain is the sequence of companies, factories, distributors and transport routes that move a product from raw materials to the final user. In electronics, supply chains are global and complex: a chip may be designed in one country, manufactured in another, packaged elsewhere, sold through distributors and then integrated into a device by a fourth company. This complexity makes it hard to control where every component ends up. In the S-71 story, the supply chain is central: the question is not only what Nvidia module was found, but how it reached Russia despite sanctions and corporate restrictions."
-   },
-   {
-  "term": "Diversion",
-  "slug": "diversion",
-  "explanation": "Diversion is the movement of goods away from their intended or legal destination into prohibited hands. It is a key concept in export control and sanctions enforcement. A component may be sold legally to a civilian buyer, then resold or smuggled to a military user or sanctioned country. Diversion can involve shell companies, false paperwork, transshipment through third countries and removal of identifying marks. The discovery of a Nvidia Jetson module in a Russian missile is an alleged case of diversion: the module may have been sold commercially, then redirected into Russian weapons production through channels Nvidia did not control."
-   },
-   {
-  "term": "Gray market",
-  "slug": "gray-market",
-  "explanation": "The gray market is the trade of goods through channels that are legal but not authorised by the original manufacturer, or through resellers operating between the formal market and outright black-market smuggling. Gray-market goods may be surplus stock, returned items, refurbished units or products bought in one region and resold in another. They are not necessarily counterfeit, but they can evade distribution controls. Nvidia's statement that pre-owned Jetsons are available through many reseller channels points to this issue: even if Nvidia does not sell directly to Russia, used or diverted modules can still circulate through gray-market networks."
-   },
-   {
-  "term": "Black market",
-  "slug": "black-market",
-  "explanation": "The black market is trade in goods or services that is illegal or hidden from regulators. In the context of sanctions, it can involve smuggling restricted components, falsifying export documents, using shell companies or bribing officials. The boundary between gray market and black market is often blurry: a legal resale can become illegal diversion once the goods enter a sanctioned country or military programme. The S-71 story does not prove a black-market route, but it raises the possibility that the Nvidia module reached Russia through illicit or semi-licit channels."
-   },
-   {
-  "term": "Shell company",
-  "slug": "shell-company",
-  "explanation": "A shell company is a business entity that exists on paper but has little or no real operations. Shell companies can be used legitimately, but they are also used to hide ownership, move money, disguise the destination of goods and evade sanctions or export controls. In technology diversion, a shell company may buy components under a false identity, then pass them to another company in another country, making the trail harder to follow. Investigators trying to trace how a chip reached a weapon often have to untangle chains of such entities."
-   },
-   {
-  "term": "Transshipment",
-  "slug": "transshipment",
-  "explanation": "Transshipment is the movement of goods through an intermediate country before reaching their final destination. It is a normal part of global trade, but it can also be used to obscure the origin or destination of restricted items. A shipment may be sent to a country with weak export controls, relabelled, repackaged or sold to a new company, then forwarded to a sanctioned destination. Transshipment hubs are therefore a major focus of sanctions enforcement. The S-71 Nvidia story is one example of why governments watch transshipment closely: a US-made module can reach Russia only through some chain of intermediaries."
-   },
-   {
-  "term": "Semiconductor sanctions",
-  "slug": "semiconductor-sanctions",
-  "explanation": "Semiconductor sanctions are restrictions aimed specifically at chips and the equipment, software and materials needed to make them. They have become central to modern technology competition because chips are the foundation of computing, AI and military systems. Such sanctions may block sales of advanced processors, restrict chipmaking tools, limit investment in foreign chip industries or target companies that help evade controls. The Nvidia case shows both the power and the limits of semiconductor sanctions: high-end AI training chips can be controlled, but smaller AI inference modules may remain commercially available and harder to stop from reaching restricted users."
-   },
-   {
-  "term": "Export licence",
-  "slug": "export-licence",
-  "explanation": "An export licence is official permission from a government to ship controlled goods to a particular buyer or country. For sensitive technologies, companies must apply for a licence and provide details about the product, end user and intended use. Licences can be granted, denied or made conditional. Export-control systems rely heavily on this paperwork, but their effectiveness depends on whether buyers tell the truth and whether goods stay with the approved user. If a product does not require a licence because it is classified as ordinary commercial hardware, it can move much more freely. That is part of the issue with Nvidia's Jetson modules."
-   },
-   {
-  "term": "End-user certificate",
-  "slug": "end-user-certificate",
-  "explanation": "An end-user certificate is a document in which a buyer promises that it is the final recipient of a controlled item and will not transfer it to another party without permission. It is meant to give sellers and governments confidence that goods will not be diverted. In practice, certificates can be forged or violated, especially when supply chains involve many intermediaries. The S-71 story raises the question of whether such assurances were given and broken, or whether the module moved through channels where end-user controls were weak or absent."
-   },
-   {
-  "term": "Dual-use export control",
-  "slug": "dual-use-export-control",
-  "explanation": "Dual-use export control is the regulation of goods that can be used for both civilian and military purposes. Because such goods are common in modern industry, governments must balance national security against economic and scientific interests. Controls can be based on technical performance, intended use, destination or end user. The Nvidia Jetson case illustrates the difficulty: the module is designed for robotics, education and industrial AI, but it can also be used in a missile's perception system. If a product is not classified as controlled, it may be legally sold widely, making later diversion harder to prevent."
-   },
-   {
-  "term": "Military end-use",
-  "slug": "military-end-use",
-  "explanation": "Military end-use means that a product will be used by or for armed forces or in weapons systems. Export rules often treat military end-use more strictly than civilian use, requiring licences or banning sales altogether to certain countries. The challenge is proving what the end use will be. A buyer may claim civilian purposes while intending to pass the goods to a military programme. Nvidia said its Jetson modules are not designed for military purposes, but their discovery in a Russian missile suggests they may have been used for a military end-use despite that."
-   },
-   {
-  "term": "AI accelerator",
-  "slug": "ai-accelerator",
-  "explanation": "An AI accelerator is a processor designed to perform the mathematical operations used in artificial intelligence very quickly. Modern AI models rely heavily on matrix multiplications and other parallel calculations, which ordinary central processors are not always best suited to handle. Accelerators use many specialised cores and high-bandwidth memory to run these operations more efficiently. Some are built for training large models in data centres, while others are built for running trained models on devices such as robots, cameras or drones. Nvidia makes both kinds. Its data-centre chips, such as the H100 and B200, are export-controlled because they can train advanced AI models; its Jetson modules are smaller devices intended for local inference and are not controlled in the same way."
-   },
-   {
-  "term": "Data-centre AI",
-  "slug": "data-centre-ai",
-  "explanation": "Data-centre AI refers to artificial intelligence trained and run on large clusters of powerful computers in specialised facilities. These systems can handle enormous models and datasets, but they require stable power, cooling and network connections. This is different from edge AI, where a smaller model runs locally on a device. The distinction matters for policy because export controls often target the huge accelerators used to train frontier models in data centres, while paying less attention to the smaller devices that later run those models. A missile does not need a data centre to use AI; it needs only enough onboard computing power to perform inference during flight."
-   },
-   {
-  "term": "Autonomous systems",
-  "slug": "autonomous-systems",
-  "explanation": "Autonomous systems are machines that can perform tasks without continuous human control. They include robots, drones, self-driving vehicles and weapons that can navigate, perceive and act on their own. The level of autonomy can vary: a system may follow a fixed route, avoid obstacles, recognise targets or make decisions about when to act. In military contexts, autonomy raises legal and ethical questions because a machine may affect life-and-death outcomes. The presence of an AI computer in a weapon does not prove full autonomy, but it shows that engineers are building systems capable of local perception and possibly automated guidance."
-   },
-   {
-  "term": "Autonomy in weapons",
-  "slug": "autonomy-in-weapons",
-  "explanation": "Autonomy in weapons means giving missiles, drones or other munitions the ability to perform functions such as navigation, target detection or engagement without direct human control. The degree can range from simple automated flight to systems that can search for and attack targets independently. Proponents argue that autonomous weapons can react faster and reduce risk to soldiers; critics argue that they may make mistakes, lower the threshold for war and obscure accountability. International debate continues over whether and how such weapons should be regulated. In the S-71 case, Ukrainian intelligence says the Nvidia module may indicate AI technology in the missile's control system, but the exact level of autonomy remains unclear."
-   },
-   {
-  "term": "Human-in-the-loop",
-  "slug": "human-in-the-loop",
-  "explanation": "Human-in-the-loop is a design and policy principle requiring a human to be involved in a system's critical decisions, especially when force may be used. In military terms, it often means a person must authorise or confirm an attack before a weapon engages. The opposite is a system that acts on its own, sometimes called human-out-of-the-loop. The concept matters because AI perception can be fooled, and because legal responsibility for unlawful attacks is harder to assign if a machine made the final choice. In the S-71 story, the key question is not only whether AI is present but whether a human remains able to intervene in targeting."
-   },
-   {
-  "term": "Human-on-the-loop",
-  "slug": "human-on-the-loop",
-  "explanation": "Human-on-the-loop is a middle position between full human control and full automation. A human does not make every decision in real time, but monitors the system and can intervene, abort or override it. This is common in systems where speed matters but some human oversight is still desired. In weapons, human-on-the-loop control may mean a missile can navigate and identify targets automatically, but a human can cancel the strike. The distinction matters because as AI systems become faster and more independent, meaningful oversight may become harder if the human cannot react quickly enough."
-   },
-   {
-  "term": "Human-out-of-the-loop",
-  "slug": "human-out-of-the-loop",
-  "explanation": "Human-out-of-the-loop describes a system that can act without human intervention once activated. In weapons, this would mean a machine selects and engages targets on its own. Such systems are ethically and legally controversial because they remove direct human judgment from the use of force. They may also be more vulnerable to errors, deception or unintended engagement. Public reporting often uses autonomy loosely, so finding an AI chip does not prove a weapon is fully human-out-of-the-loop. But it does raise the possibility that some functions, especially terminal guidance, are automated."
-   },
-   {
-  "term": "Meaningful human control",
-  "slug": "meaningful-human-control",
-  "explanation": "Meaningful human control is a phrase used in debates over autonomous weapons to describe the kind of human involvement needed to make the use of force lawful and ethical. It is not enough for a human to press a button if they cannot understand what the system is doing, intervene in time or predict its behaviour. Meaningful control requires sufficient information, time, authority and ability to stop or redirect an action. In the context of AI-guided missiles, meaningful human control may be difficult during the final seconds of flight, especially if the weapon uses machine vision to identify targets autonomously."
-   },
-   {
-  "term": "Lethal autonomous weapons",
-  "slug": "lethal-autonomous-weapons",
-  "explanation": "Lethal autonomous weapons are systems that can select and attack targets without direct human control. They are sometimes called killer robots in public debate, though real systems are usually less dramatic than the phrase suggests. The concern is not only that they kill, but that they may do so based on machine perception and algorithms that can fail, be biased or be deceived. International discussions have struggled to define and regulate such weapons because autonomy exists on a spectrum and many systems already have automated features. The S-71 missile story is relevant because it shows AI-capable hardware being integrated into a weapon, even if its exact level of autonomy is not known."
-   },
-   {
-  "term": "Autonomous targeting",
-  "slug": "autonomous-targeting",
-  "explanation": "Autonomous targeting is the ability of a weapon to find, identify or track a target without continuous human direction. It can range from comparing a live camera image with a stored target picture to independently searching an area and deciding what to attack. The military value is that such systems can operate where GPS is jammed or communications are cut. The danger is that a machine may misidentify objects, be fooled by decoys, or act in ways humans did not intend. In the S-71 story, Ukrainian sources say the missile has claimed autonomous target-search capability, but the exact meaning of that claim is not independently verified."
-   },
-   {
-  "term": "Target recognition",
-  "slug": "target-recognition",
-  "explanation": "Target recognition is the process by which a system identifies what it is looking at: a vehicle, building, ship, radar installation or other object. In AI systems, this is usually done by machine-learning models trained on images or sensor data. Recognition can be used to guide a weapon to a pre-selected target, to distinguish military from civilian objects, or to trigger an attack. The reliability of target recognition depends on training data, environmental conditions and countermeasures. In the S-71 case, target recognition would be one possible function of the Nvidia module if it is used for terminal guidance."
-   },
-   {
-  "term": "Image matching",
-  "slug": "image-matching",
-  "explanation": "Image matching is a technique in which a system compares a current camera view with a reference image to find the same object or scene. It is used in navigation, robotics and weapon guidance. A missile might store an image of a target taken before launch, then compare what its camera sees during the final approach with that image to correct its course. This can work without GPS or external control, but it can fail if lighting, angle, weather or camouflage changes. Image matching is a simpler form of machine vision than full object recognition, but it can be effective for terminal guidance."
-   },
-   {
-  "term": "Scene matching",
-  "slug": "scene-matching",
-  "explanation": "Scene matching is a navigation or guidance method in which a system compares what it sees with a stored map or image of the expected terrain. It is related to image matching but often used over larger areas, such as matching a landscape or coastline. In missiles, scene matching can help correct navigation errors during flight. It does not necessarily require artificial intelligence in the modern sense; older systems used correlation techniques. But when paired with onboard AI hardware, scene matching can become more flexible and capable. The S-71 story does not confirm scene matching, but it is one of the possible uses for an onboard perception computer."
-   },
-   {
-  "term": "Terrain-contour matching",
-  "slug": "terrain-contour-matching",
-  "explanation": "Terrain-contour matching is a cruise-missile navigation technique in which the weapon compares the terrain below it with a pre-stored map of elevation data. It allows the missile to correct its position without relying on GPS. The method is especially useful in environments where satellite navigation is jammed or unavailable. Modern versions can use radar, lidar or cameras. The S-71 story does not specifically mention terrain matching, but it is part of the broader family of autonomous navigation and guidance techniques that AI hardware could support."
-   },
-   {
-  "term": "Inertial navigation",
-  "slug": "inertial-navigation",
-  "explanation": "Inertial navigation uses accelerometers and gyroscopes to track a vehicle's position by measuring its movements from a known starting point. It does not require external signals, which makes it resistant to jamming, but errors accumulate over time. Modern missiles often combine inertial navigation with GPS, terrain matching or terminal guidance to improve accuracy. In the S-71 missile, inertial navigation would likely be one part of a broader guidance system, possibly supplemented by AI-based perception near the target."
-   },
-   {
-  "term": "GPS guidance",
-  "slug": "gps-guidance",
-  "explanation": "GPS guidance uses signals from navigation satellites to determine a weapon's position and steer it toward a target. It is widely used because it can provide good accuracy, but it is vulnerable to jamming and spoofing. In high-intensity warfare, GPS signals may be degraded or denied, so weapons often combine GPS with inertial navigation or terminal seekers. The presence of an onboard AI camera system in a missile could reduce dependence on GPS by providing another way to find the target in the final phase of flight."
-   },
-   {
-  "term": "Satellite navigation",
-  "slug": "satellite-navigation",
-  "explanation": "Satellite navigation is the use of signals from orbiting satellites to determine position, velocity and time. The best-known systems are GPS, Russia's GLONASS, Europe's Galileo and China's BeiDou. In weapons, satellite navigation can improve accuracy, but it is not always reliable in contested environments because signals can be jammed or spoofed. This is one reason militaries seek alternative guidance methods, including inertial navigation, terrain matching and AI-based terminal guidance."
-   },
-   {
-  "term": "GNSS",
-  "slug": "gnss",
-  "explanation": "GNSS stands for Global Navigation Satellite System, the general term for satellite navigation constellations such as GPS, GLONASS, Galileo and BeiDou. GNSS receivers can determine position anywhere on Earth if they can receive signals from enough satellites. In military use, GNSS is valuable but vulnerable to jamming, spoofing and signal degradation. Weapons that rely heavily on GNSS may need backup guidance systems, which is one reason AI-based perception and inertial navigation are attracting interest."
-   },
-   {
-  "term": "Jamming",
-  "slug": "jamming",
-  "explanation": "Jamming is the deliberate disruption of signals, such as radio communications, radar or satellite navigation. In electronic warfare, jamming can blind sensors, break control links or prevent a weapon from receiving positioning data. This matters for AI weapons because if a missile depends on GPS or remote control, jamming can defeat it. Onboard perception systems can partly counter jamming by allowing the weapon to navigate or recognise targets without external signals. But jamming is not the only threat: AI systems can also be fooled by camouflage, decoys or adversarial manipulation."
-   },
-   {
-  "term": "Spoofing",
-  "slug": "spoofing",
-  "explanation": "Spoofing is the practice of sending false signals or data to deceive a system. In navigation, spoofing can make a GPS receiver think it is somewhere it is not. In computer vision, spoofing can involve fake objects, misleading patterns or altered images. For autonomous weapons, spoofing is a serious concern because the system may trust its sensors without human judgment. A missile using image recognition could be misled by decoys or camouflage. This is one reason why military AI systems must be tested against adversarial conditions, not just clean laboratory data."
-   },
-   {
-  "term": "Electronic warfare",
-  "slug": "electronic-warfare",
-  "explanation": "Electronic warfare is the use of electromagnetic energy to attack, protect or exploit enemy systems. It includes jamming communications, disrupting radar, spoofing navigation signals and intercepting emissions. Modern warfare depends heavily on electronics, so electronic warfare can shape battles as much as direct fire. In the S-71 story, electronic warfare matters because AI-guided weapons may be designed to operate where GPS and radio links are contested. But AI also creates new vulnerabilities, such as being fooled by deceptive sensor inputs."
-   },
-   {
-  "term": "Countermeasures",
-  "slug": "countermeasures",
-  "explanation": "Countermeasures are actions or technologies used to defeat or degrade an enemy system. Against missiles, countermeasures include jamming, decoys, camouflage, smoke, radar traps and interception. AI-guided weapons may be harder to defeat with traditional jamming if they use onboard perception, but they can still be vulnerable to visual decoys, false targets or environmental confusion. The race between guidance and countermeasures is continuous: as weapons become smarter, defenders develop new ways to mislead or destroy them."
-   },
-   {
-  "term": "Decoys",
-  "slug": "decoys",
-  "explanation": "Decoys are false targets designed to trick sensors, weapons or operators. They can be physical objects shaped to look like vehicles or aircraft, inflatable models, radar reflectors, heat sources or electronic emitters. Against AI-guided weapons, decoys are especially important because a machine-vision system may be trained to recognise certain shapes or signatures and could be fooled by a convincing imitation. The effectiveness of decoys depends on the sophistication of the seeker and the quality of the deception."
-   },
-   {
-  "term": "Camouflage",
-  "slug": "camouflage",
-  "explanation": "Camouflage is the use of concealment, patterns, materials or positioning to make something harder to detect or recognise. In modern warfare, camouflage must work not only against human eyes but also against radar, infrared sensors and AI image recognition. A target may be hidden, covered, dispersed or made to resemble something else. AI systems can sometimes see through simple camouflage, but they can also be confused if the visual scene differs from their training data. This makes camouflage an ongoing contest between concealment and perception."
-   },
-   {
-  "term": "Adversarial examples",
-  "slug": "adversarial-examples",
-  "explanation": "Adversarial examples are inputs deliberately designed to fool machine-learning models. In image recognition, small changes that may be invisible to humans can cause a system to misclassify an object. In military settings, adversarial techniques could make a stop sign look like something else to a self-driving car, or cause a weapon's vision system to misidentify a target. The existence of adversarial examples is one reason AI weapons are concerning: their perception may be brittle in ways that are hard to predict. Defending against them requires robust training, testing and validation, which is difficult in wartime conditions."
-   },
-   {
-  "term": "Robustness",
-  "slug": "robustness",
-  "explanation": "Robustness is the ability of a system to keep working correctly under unexpected, noisy or hostile conditions. For AI, robustness matters because models trained in one environment may fail in another. A missile guidance system must handle weather, smoke, camouflage, decoys, sensor noise and adversarial inputs. A system that performs well in tests may still fail in combat. This is why claims about AI weapons should be treated carefully: the presence of advanced hardware does not guarantee reliable performance."
-   },
-   {
-  "term": "Brittleness",
-  "slug": "brittleness",
-  "explanation": "Brittleness is the tendency of an AI system to fail unexpectedly when conditions differ from those it was trained on. A model may be excellent at recognising objects in clear daylight but poor in fog, at unusual angles or against camouflage. In military systems, brittleness is dangerous because failures can lead to missed targets, fratricide or civilian harm. It also makes AI weapons less predictable than their advocates sometimes claim. The S-71 story does not show how robust the system is; it only shows that AI-capable hardware is present."
-   },
-   {
-  "term": "Sensor fusion",
-  "slug": "sensor-fusion",
-  "explanation": "Sensor fusion is the process of combining data from multiple sensors—camera, radar, inertial measurement, GPS and others—to produce a more reliable picture than any single sensor could provide. In weapons and robots, sensor fusion can improve navigation, target recognition and resistance to jamming or deception. An AI module such as a Jetson Orin could be used to fuse camera data with other inputs during terminal guidance. The exact sensor mix in the S-71 missile is not known from the sources, but the idea helps explain why a compact AI computer would be useful."
-   },
-   {
-  "term": "Perception",
-  "slug": "perception",
-  "explanation": "Perception in AI is the ability of a machine to interpret sensory data, especially images, sound or radar returns. For a weapon, perception means detecting objects, recognising targets and understanding its environment. Perception is not the same as decision-making: a system may perceive a target but still require a human or another part of the system to decide whether to attack. In the S-71 story, the
+  "explanation": "Computer vision is the field of making machines able to interpret what they see. A camera captures light, but raw pixels mean nothing to a machine on their own. Computer vision systems are trained on large numbers of labelled images so they learn to pick out objects, shapes, faces, text, or scenes in new images they have not seen before. Modern computer vision usually relies on deep neural networks, which find patterns in pixel data without being hand-programmed with rules for every object. The technology is now common in face recognition, medical imaging, quality inspection in factories, and self-driving vehicles. In military contexts, it can allow a weapon to compare what its onboard camera sees against a stored target image and adjust course. The key idea is not that the machine understands the world the way a person does, but that statistical patterns learned from training data let it sort and locate visual information quickly and automatically.",
+  "image_prompt": "A split illustration showing a camera view of a road scene on one side and, on the other, the same scene overlaid with labelled bounding boxes around a car, a pedestrian, and a bicycle. Thin lines connect each box to a small neural-network diagram, suggesting that the machine is matching pixel patterns to learned categories. The style should be explanatory rather than futuristic, with clear labels and no text that could be misread."
+},
+   {
+  "term": "Terminal guidance",
+  "slug": "terminal-guidance",
+  "explanation": "Terminal guidance is the final phase of steering a weapon onto its target. A missile may spend most of its flight following a pre-planned route, inertial navigation, or satellite fixes, but in the last stretch of flight it needs more precise information to hit a specific point. Terminal guidance systems switch on when the weapon is close enough to sense the target area, using radar, infrared sensors, laser designation, or cameras to lock on and correct the course. This is the part of a missile's flight where accuracy is decided. A weapon that can recognise a target visually at this stage can, in principle, aim itself without a human operator keeping it on course by radio. That makes terminal guidance one of the places where onboard AI and machine vision become practically significant: not because they fly the whole mission, but because they shape the final decisions in the seconds before impact.",
+  "image_prompt": "A side-on diagram of a missile's flight path in three labelled stages: launch, mid-course flight along a planned route, and a final curved descent toward a marked target. In the last stage, a small cone of vision extends from the missile's nose toward the target, with a camera symbol and a magnified inset showing the target being matched to a stored image. The illustration should make clear that terminal guidance is the short, decisive final segment."
+}
+  ],
+  "tags": [
+   "ai-in-weapons",
+   "export-controls",
+   "russia-ukraine-war",
+   "sanctions",
+   "computer-vision"
+],
+  "related": [],
+  "image_prompt": "A cutaway illustration of a cruise missile in flight, with a translucent section revealing a small compact computer module and a camera in its nose. Beside the missile, a labelled inset shows the same Nvidia-style module as a consumer product on a workshop bench, connected by a dashed line to the missile to show how a widely available civilian device ended up inside a weapon. A small map in the background shows the missile launched from an aircraft toward a target, with the final guidance stage highlighted. The overall image should convey the central story: an off-the-shelf AI computer placed at the heart of a new guided weapon."
+}

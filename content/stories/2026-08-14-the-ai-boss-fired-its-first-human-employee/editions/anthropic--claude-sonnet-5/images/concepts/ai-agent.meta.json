@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-14-the-ai-boss-fired-its-first-human-employee",
+ "model_id": "anthropic/claude-sonnet-5",
+ "model_slug": "anthropic--claude-sonnet-5",
+ "kind": "concept",
+ "concept_slug": "ai-agent",
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 2239168004,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A simple diagram showing a glowing AI icon at the center with arrows radiating outward to small icons representing its independent actions over time — a shopping cart, a job posting, a calendar, a credit card, and a clock — illustrating an AI agent making a chain of its own decisions rather than answering one single question.",
+ "rendered_at_utc": "2026-09-11T10:18:08+00:00",
+ "seconds_waited": 560.9,
+ "vram_free_gb_before_start": 10.07
+}

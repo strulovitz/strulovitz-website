@@ -1,0 +1,18 @@
+{
+ "story": "2026-08-12-nvidia-chip-in-russian-missile",
+ "model_id": "qwen/qwen3.8-max",
+ "model_slug": "qwen--qwen3.8-max",
+ "kind": "story",
+ "concept_slug": null,
+ "image_model": "flux2-dev",
+ "quantization": "Q4_K_M",
+ "seed": 3921325051,
+ "steps": 28,
+ "guidance": 4.0,
+ "width": 1024,
+ "height": 1024,
+ "prompt": "A cutaway illustration of a cruise missile in flight, with a translucent section revealing a small compact computer module and a camera in its nose. Beside the missile, a labelled inset shows the same Nvidia-style module as a consumer product on a workshop bench, connected by a dashed line to the missile to show how a widely available civilian device ended up inside a weapon. A small map in the background shows the missile launched from an aircraft toward a target, with the final guidance stage highlighted. The overall image should convey the central story: an off-the-shelf AI computer placed at the heart of a new guided weapon.",
+ "rendered_at_utc": "2026-09-11T09:31:39+00:00",
+ "seconds_waited": 620.3,
+ "vram_free_gb_before_start": 10.94
+}
