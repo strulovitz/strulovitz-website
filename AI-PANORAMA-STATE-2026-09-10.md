@@ -1,5 +1,9 @@
 # THE FULL STATE — 2026-09-10 (written at Nir's request, session-crash-proofing)
 
+> SUPERSEDED 2026-09-11 by AI-PANORAMA-STATE-2026-09-11.md — its deploy, the
+> two-picture catch-up, and the entire Fine Wine/RDR2 section are now history
+> (Fine Wine was cancelled and deleted entirely). Kept for its reasoning.
+
 This file documents what was done on 2026-09-09/10 so that if the OpenCode session
 is lost, everything is recoverable from GitHub alone. It covers BOTH halves of the
 day: the AI Panorama news machine (the magazine) and the new "Fine Wine" games
