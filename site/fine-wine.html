@@ -113,7 +113,7 @@ will be added as games are tested.</p>
 <div class="entry">
 <h3>Red Dead Redemption 2 (2018)</h3>
 <p class="meta">First tested: 2026-09-10 &middot; Release tested: jc141 offline dump &middot; Machine: Linux Mint 22, NVIDIA RTX 4070 Ti, 64 GB RAM</p>
-<p class="status">Installed and running. Full review after a few days of play.</p>
+<p class="status">Installed. Four separate boot blockers found and fixed &mdash; all four are written out below, with the exact commands. First launch still being completed; this page is updated as it goes, honestly, including what is not yet proven.</p>
 
 <p><strong>What this is:</strong> Rockstar's open-world western from 2018 &mdash; a game
 widely considered one of the most detailed human-made worlds ever built. Even years
@@ -138,6 +138,70 @@ the game mid-launch, unkillable for hours &mdash; the one-time extraction
 <li>Started it with the release's own start script; on first run Wine asked to
 install its ".NET support pack" (wine-mono) &mdash; click Install, one time only</li>
 </ul>
+
+<p><strong>Then came four boot blockers.</strong> The game would start, work, and never
+show a window. Each one was found by measuring what the game actually did, not by
+guessing, and each fix is a one-liner you can copy. In the order we hit them:</p>
+
+<ul class="recipe">
+<li><strong>1. The endless hunt for an NVIDIA file.</strong> Symptom: one CPU core at
+100% forever, no window, GPU completely idle. Measured cause: the game asks "is this
+an NVIDIA machine?" by <em>looking for the file</em> <code>nvapi64.dll</code> &mdash;
+Wine's own version of that library is virtual (there is no file), so the game's
+search loop never ended (about 43,000 directory scans per second).
+Fix: install real NVIDIA-API translation files into the game's Wine prefix &mdash;
+<a href="https://github.com/jp7677/dxvk-nvapi">dxvk-nvapi</a> 0.9.2:
+<code>x64/nvapi64.dll</code> and <code>x64/nvofapi64.dll</code> into
+<code>prefix/drive_c/windows/system32</code>, <code>x32/nvapi.dll</code> into
+<code>syswow64</code>, then register them as native:
+<code>wine reg add "HKCU\Software\Wine\DllOverrides" /v nvapi64 /d native /f</code>
+(and the same for <code>nvapi</code> and <code>nvofapi64</code>).
+Full story: <a href="https://github.com/strulovitz/strulovitz-website/blob/master/FINE-WINE-RDR2-NVAPI-FIX-2026-09-11.md">the nvapi record</a></li>
+
+<li><strong>2. Nine graphics drivers on the list.</strong> Linux advertises every
+installed Vulkan driver in <code>/usr/share/vulkan/icd.d/</code>. This machine listed
+nine (the real NVIDIA one plus software renderers, nouveau, Intel, virtio...), and
+RDR2 takes a different, broken code path when it thinks there are several adapters.
+Fix: show it only the real card &mdash; launch with
+<code>VK_ICD_FILENAMES=/usr/share/vulkan/icd.d/nvidia_icd.json</code>.
+Effect, measured: the GPU went from doing nothing at all to genuinely rendering
+(16&ndash;59% load, 4&nbsp;GB of video memory).</li>
+
+<li><strong>3. The release forgets to tell Wine about two graphics files.</strong>
+The release ships the modern Direct3D&rarr;Vulkan translators next to the game's own
+exe (<code>dxgi.dll</code>, <code>d3d11.dll</code>, <code>d3d9.dll</code>,
+<code>d3d12.dll</code>, <code>d3d12core.dll</code>), but its start script only
+declares <em>d3d12</em> as native. Wine therefore used its own twenty-year-old
+OpenGL-based layer for the rest: measured proof was 2,144 invisible helper windows
+("WineD3D fake window") created and destroyed in a retry loop, and a "DXGI device
+window" that only Wine's built-in code creates. Fix: add the missing names to the
+override list:
+<code>WINEDLLOVERRIDES="dxgi,d3d9,d3d10core,d3d11,d3d12,d3d12core=n,b;dinput8=n,b;vulkan-1=n,b;amd_ags_x64=n,b;ffx_fsr2_api_vk_x64=n,b;winemenubuilder.exe=d"</code>.
+After it, Wine's old layer never loads at all &mdash; verified with
+<code>WINEDEBUG=+loaddll</code>: every graphics file now loads <em>native</em>, from
+the game's own folder.</li>
+
+<li><strong>4. The bundled mods.</strong> This release ships mods pre-installed
+(Lenny's Mod Loader via <code>version.dll</code>, its .NET parts
+<code>ModManager.Core.dll</code> and <code>ModManager.NativeInterop.dll</code>,
+Alexander&nbsp;Blade's <code>ScriptHookRDR2.dll</code> and
+<code>NativeTrainer.asi</code>). They load into the game together with the whole
+Mono/.NET runtime, and Wine's Mono is a known weak point for exactly this kind of
+code. Fix for testing: move those six items out of the game folder and
+<em>keep</em> <code>dinput8.dll</code> (the ASI loader) and <code>vfs.asi</code>
+&mdash; those two are the chain the release itself needs to start. Effect, measured:
+the game stopped quitting at the 3&frac12;-minute mark and kept working.</li>
+</ul>
+
+<p>A hand-over document with every measurement, every dead end, and the exact commands
+for reproducing each test is kept in the open:
+<a href="https://github.com/strulovitz/strulovitz-website/blob/master/RDR2-HANDOVER-FOR-NEXT-AGENT-2026-09-11.md">the RDR2 hand-over</a>.</p>
+
+<p><strong>What is still not proven:</strong> as of this writing the game runs past
+every blocker above with the GPU busy, but a visible window has not yet been
+confirmed on our machine. This line stays here, unchanged, until it is &mdash; a
+recipe that "almost" works is worth nothing to a reader, and pretending otherwise
+would make this whole section useless.</p>
 
 <p><strong>The one-time slow start:</strong> the very first launch spends a long while
 building the game's shader cache (a black screen or no window for many minutes is
