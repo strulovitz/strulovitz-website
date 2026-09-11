@@ -996,15 +996,15 @@ async def main():
             })()""")
             check("the entry button points at a page that exists when served locally",
                   entry["screen"] == "tesseract.html", entry)
-            # The menu grows as the site grows: 7 links on 2026-08-22 (About and
-            # Peak Together), 9 on 2026-09-09 (Vibe Invention and Fine Wine).
-            # This expectation was last updated to match the real menu on
-            # 2026-09-11. The check's meaning is unchanged and stays strict: the
-            # exact full menu, Night Watch among it.
+            # The menu changes as the site changes: 7 links on 2026-08-22, 9 on
+            # 2026-09-09, back to 8 on 2026-09-11 when Nir deleted the Fine
+            # Wine page and the whole RDR2 experiment. The check's meaning is
+            # unchanged and stays strict: the exact full menu, Night Watch
+            # among it.
             check("the menu lists every project, Night Watch included",
                   entry["menu"] == ['AI Panorama', 'Night Watch planned', 'Hive',
                                    'Ghost', 'Learnime', 'Peak Together',
-                                   'Vibe Invention', 'Fine Wine', 'About'],
+                                   'Vibe Invention', 'About'],
                   entry["menu"])
 
             await page.send("Page.navigate", {"url": f"http://127.0.0.1:{PORT}/night-watch.html"})
