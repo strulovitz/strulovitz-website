@@ -224,6 +224,31 @@ def _first_sentence(text: str, limit: int = 140) -> str:
     return (cut[:stop + 1] if stop > 40 else cut).strip()
 
 
+def _park_directions(count: int) -> list[tuple[float, float, float]]:
+    """
+    Deterministic, well-spread unit vectors on the sphere (a golden-angle
+    spiral), so when a world has islands there is one stable, sensible
+    place to park each of them.
+    """
+    golden = math.pi * (3.0 - math.sqrt(5.0))
+    out = []
+    for i in range(count):
+        z = 1.0 - 2.0 * (i + 0.5) / max(1, count)
+        r = math.sqrt(max(0.0, 1.0 - z * z))
+        theta = golden * i
+        out.append((r * math.cos(theta), r * math.sin(theta), z))
+    return out
+
+
+def _settle_component(graph: nx.Graph) -> dict[str, np.ndarray]:
+    """One component's own spring layout, deterministic under RANDOM_SEED."""
+    raw = nx.spring_layout(
+        graph, dim=3, weight="weight", seed=RANDOM_SEED,
+        iterations=400, k=1.4 / math.sqrt(graph.number_of_nodes()),
+    )
+    return {node: np.array(raw[node], dtype=float) for node in graph.nodes}
+
+
 def place(graph: nx.Graph, nodes: dict[str, dict]) -> dict[str, tuple[float, float, float]]:
     """
     Settle the graph in three dimensions, then fit it into the unit box.
@@ -231,17 +256,50 @@ def place(graph: nx.Graph, nodes: dict[str, dict]) -> dict[str, tuple[float, flo
     Uses a spring layout: linked nodes pull together, everything pushes apart.
     Deterministic under RANDOM_SEED, so the same choices always make the same
     galaxy (bible/part-03.md 3.2, the layout contract).
+
+    THE ISLAND RULE (2026-09-11, GPT's nvidia story). A model can write an
+    article whose concepts no other article shares and whose read-next
+    choices point nowhere - then that story and its concepts form a
+    component with no spring holding it to the rest of the world. Two
+    free-floating components push apart for the whole run, and the
+    fit-to-box scale below then divides EVERYTHING by that drifting gap:
+    ten stories clumped onto one point, exactly what Nir saw in GPT's sky.
+    So when there is more than one component, each is settled on its own
+    and the islands are parked in sight of the main world, at an honest
+    distance set by their sizes. An island stays visibly its own little
+    cluster - that truth comes from the model's own choices and is kept -
+    but it can never again stretch the world it belongs to.
     """
     if graph.number_of_nodes() == 0:
         return {}
     if graph.number_of_nodes() == 1:
         return {next(iter(graph.nodes)): (0.0, 0.0, 0.0)}
 
-    raw = nx.spring_layout(
-        graph, dim=3, weight="weight", seed=RANDOM_SEED,
-        iterations=400, k=1.4 / math.sqrt(graph.number_of_nodes()),
-    )
-    points = np.array([raw[node] for node in graph.nodes], dtype=float)
+    components = sorted(nx.connected_components(graph), key=len, reverse=True)
+    if len(components) == 1:
+        settled = _settle_component(graph)
+    else:
+        biggest = len(components[0])
+        directions = _park_directions(len(components) - 1)
+        settled = {}
+        for index, component in enumerate(components):
+            own = _settle_component(graph.subgraph(component))
+            own_points = np.array([own[n] for n in component], dtype=float)
+            centre = own_points.mean(axis=0)
+            extent = float(np.abs(own_points - centre).max()) or 1.0
+            # An island stays small but never a dot: at least a fifth of the
+            # main world's reach, growing with the cube root of its share.
+            radius = max(0.2, (len(component) / biggest) ** (1.0 / 3.0))
+            for n in component:
+                settled[n] = (own[n] - centre) * (radius / extent)
+            if index > 0:
+                dx, dy, dz = directions[index - 1]
+                distance = 1.0 + radius + 0.35
+                for n in component:
+                    settled[n] = settled[n] + np.array(
+                        [dx * distance, dy * distance, dz * distance])
+
+    points = np.array([settled[node] for node in graph.nodes], dtype=float)
 
     # Centre it, then scale the widest axis to fill the box. Scaling all three
     # axes by the SAME factor matters: scaling them separately would stretch the
