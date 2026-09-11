@@ -67,6 +67,11 @@
     padding: 0.7rem 0.85rem; background: #0b1120d9;
     border: 1px solid #26365a; border-radius: 9px;
     font-size: 0.83rem; color: #a4b6d4;
+    /* Pure text, nothing to click: it must never swallow a canvas drag that a
+       reader happens to begin on top of it. On the night of 2026-09-10 the
+       lesson-5 drag check lost its rotation this way (something on top of the
+       canvas ate the pointerdown); dead text may not do that. */
+    pointer-events: none;
   }
   #keys h3 { margin: 0 0 0.4rem; font-size: 0.9rem; color: #eaf1ff; }
   #keys div { display: flex; justify-content: space-between; gap: 0.5rem; }

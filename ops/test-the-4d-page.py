@@ -832,6 +832,28 @@ async def main():
               };
             })()""")
 
+            # NOTHING MAY COVER THE CANVAS WHERE THE LESSON-5 DRAG BEGINS. On the
+            # night of 2026-09-10 this very drag produced zero rotation and all
+            # five lesson-5 checks cascaded to red, while the machine carried a
+            # heavy GPU render in the background; the same drag passed the next
+            # day on an idle machine, so something transient sat on top of the
+            # canvas that night and ate the pointerdown. This check makes that
+            # class of failure name its culprit instead of cascading.
+            cover = await page.evaluate("""(() => {
+              const el = document.elementFromPoint(650, 380);
+              const canvas = window.PANORAMA.renderer.domElement;
+              if (!el) return { clear: false, stack: ['<nothing>'] };
+              const stack = [];
+              let node = el;
+              while (node && node !== document.body) {
+                stack.push(node.tagName + (node.id ? '#' + node.id : ''));
+                node = node.parentElement;
+              }
+              return { clear: el === canvas, stack };
+            })()""")
+            check("nothing covers the canvas where the lesson-5 drag begins",
+                  cover["clear"] is True, cover)
+
             start = await page.evaluate("""(() => {
               window.PANORAMA.panorama.view.reset();
               const g = window.PANORAMA.gym;
@@ -1037,13 +1059,15 @@ async def main():
             })()""")
             check("the entry button points at a page that exists when served locally",
                   entry["screen"] == "tesseract.html", entry)
-            # The menu grew to 7 links when commit 055ad00 added the About and
-            # Peak Together entries (2026-08-22); this expectation was updated
-            # to match the real menu on 2026-09-03. The check's meaning is
-            # unchanged and stays strict: the exact full menu, Night Watch
-            # among it.
+            # The menu grows as the site grows: 7 links on 2026-08-22 (About and
+            # Peak Together), 9 on 2026-09-09 (Vibe Invention and Fine Wine).
+            # This expectation was last updated to match the real menu on
+            # 2026-09-11. The check's meaning is unchanged and stays strict: the
+            # exact full menu, Night Watch among it.
             check("the menu lists every project, Night Watch included",
-                  len(entry["menu"]) == 7 and any("Night Watch" in m for m in entry["menu"]),
+                  entry["menu"] == ['AI Panorama', 'Night Watch planned', 'Hive',
+                                   'Ghost', 'Learnime', 'Peak Together',
+                                   'Vibe Invention', 'Fine Wine', 'About'],
                   entry["menu"])
 
             await page.send("Page.navigate", {"url": f"http://127.0.0.1:{PORT}/night-watch.html"})
