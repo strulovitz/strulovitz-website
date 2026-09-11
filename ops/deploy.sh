@@ -69,7 +69,7 @@ echo "  web root    $WEB_ROOT"
 echo "  version     $VERSION  ($FILE_COUNT files)"
 echo ""
 echo "  step 1  upload the folder $VERSION            (visitors still see the old site)"
-echo "  step 2  upload index.html and night-watch.html"
+echo "  step 2  upload every page at the root, fine-wine.html included"
 echo "  step 3  upload pointer.json                   <- THIS is the moment it flips"
 echo ""
 read -r -p "Type yes to go ahead: " AGREED
@@ -104,7 +104,18 @@ run_lftp "mirror --reverse --delete --verbose=1 --parallel=3 '$EXPORTS/$VERSION'
 
 echo ""
 echo "STEP 2 of 3  uploading the pages at the root ..."
-run_lftp "cd '$WEB_ROOT'; put '$EXPORTS/index.html' -o index.html; put '$EXPORTS/night-watch.html' -o night-watch.html"
+# Every file build-export.py placed at the exports root is a root page or a
+# root asset, and every one of them ships. The menu lives on all of them, so a
+# deploy that skips any of them publishes pages whose menu points at a page
+# that is not there -- on 2026-09-11 fine-wine.html was exactly that, and the
+# old two-file step 2 would have left it behind (found the honest way: the
+# live root answered 404 for it while every other root page answered 200).
+ROOT_FILES="$(find "$EXPORTS" -maxdepth 1 -type f ! -name 'pointer.json' ! -name '.gitkeep' -printf '%f\n' | sort)"
+PUTS=""
+for f in $ROOT_FILES; do
+    PUTS+="put '$EXPORTS/$f' -o '$f'; "
+done
+run_lftp "cd '$WEB_ROOT'; $PUTS"
 
 echo ""
 echo "STEP 3 of 3  uploading pointer.json - this is the moment it goes live ..."

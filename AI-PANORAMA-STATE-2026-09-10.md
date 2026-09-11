@@ -154,3 +154,28 @@ exists at runtime. Extraction started 14:38, ~half an hour.
 FULL DIAGNOSIS + THE D-STATE/FUSE RULES LEARNED:
 FINE-WINE-RDR2-TECHNICAL-RECORD-2026-09-10.md (this repo) + updated in the Fine
 Wine page's entry-1 recipe (site/fine-wine.html).
+
+================================================================================
+UPDATE 2026-09-11 (~10:35) — DEPLOYED, LIVE, PLUS THE SIX CHECKS FIXED
+================================================================================
+THE DEPLOY IS DONE. v2026-09-11-a is live at www.strulovitz.org (pointer
+flipped ~10:33 Israel time; 923 files, 586 MB; step 1 the dated folder, step 2
+every root page, step 3 the pointer). Verified over the real internet:
+pointer.json names v2026-09-11-a; fine-wine.html answers 200 (it was 404
+before); a new story's reading page answers 200 and its 1.75 MB picture
+downloads; all six new stories appear in every edition's galaxy data under
+data/galaxies/.
+ALSO FIXED THIS DAY, in ops/deploy.sh: step 2 used to upload only index.html
+and night-watch.html, which would have left fine-wine.html and every other
+changed root page stale (the live root answered 404 for fine-wine.html while
+every other root page answered 200 — that is how it was found). Step 2 now
+uploads EVERY file build-export.py places at the exports root (pointer.json
+still goes last, alone). General code, not a one-off.
+AND THE SIX OLD CHECK FAILURES, DIAGNOSED AND FIXED (commit c6c868b): five of
+them all cascaded from one flaky moment on the loaded machine the night of
+2026-09-10 (something transient sat on the canvas and ate the lesson-5 drag's
+pointerdown; the same drag passed on an idle machine). Fixes: #keys is now
+pointer-events: none (dead text may not swallow canvas drags), a new check
+names any canvas-covering culprit at the exact drag point, and the menu check
+expects the real nine-item menu (Vibe Invention and Fine Wine grew it from
+seven). Three consecutive full-suite runs: ALL CHECKS PASSED.
