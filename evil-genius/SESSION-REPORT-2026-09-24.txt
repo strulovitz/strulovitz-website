@@ -1,0 +1,175 @@
+================================================================
+EVIL GENIUS PROJECT — SESSION REPORT 2026-09-24
+Agent: GLM 5.3 in OpenCode, Machine: desktop-linux (Linux Mint 22,
+NVIDIA RTX 4070 Ti 12GB VRAM, 64GB RAM)
+================================================================
+
+THE MISSION
+Install 4 big AI software packages, ALL of them (and everything
+they ever download) on the BIG partition (/home, 1.7TB), NOT the
+small OS partition (/, 92GB). Plus: a beginner "Windows-style"
+experience — desktop + start-menu icons with one-click STOP
+icons that free the GPU, so no agent help is ever needed.
+
+THE 4 PACKAGES
+1. Unsloth Studio        — INSTALLED, WORKS
+2. WAN2GP via Pinokio    — INSTALLED, WORKS
+3. Locally Uncensored    — FAILED, DELETED ENTIRELY (do in Windows)
+4. LLaMA-Factory         — NOT YET INSTALLED (next time)
+
+================================================================
+WHAT WORKED
+================================================================
+
+--- 1. UNSLOTH STUDIO (fine-tuning + local chat) — SUCCESS ---
+- Installed via official installer -> /home/nir/.unsloth/studio
+  (7.3GB, big partition OK). Models cache: ~/.cache/huggingface
+  (big partition OK). Version 2026.9.11.
+- Start: "unsloth studio -p 8888" -> browser at localhost:8888.
+  Verified: HTTP 200, GPU detected, torch warm in 5.4s.
+- Nir tested chat in it — worked (it loads a ~9.6GB model into
+  VRAM when chatting).
+- ICONS: "Unsloth Studio" (start) + red-X "STOP Unsloth Studio"
+  — both on Desktop AND in the start menu (icon: sloth).
+- STOP icon kills the studio server + llama-server and shows a
+  notification "Stopped, VRAM is free now".
+
+--- 2. PINOKIO (the AI app store) — SUCCESS ---
+- AppImage v8.2.0 at /home/nir/Apps/Pinokio/Pinokio.AppImage
+  (big partition OK). Everything Pinokio installs goes to
+  ~/pinokio (big partition OK).
+- ICONS: "Pinokio" + red-X "STOP Pinokio / Wan2GP" — Desktop +
+  start menu.
+- LESSON: new start-menu entries may not appear until Cinnamon
+  is restarted: right-click taskbar -> Troubleshoot ->
+  Restart Cinnamon (screen flickers 2s, nothing closes).
+
+--- 3. WAN2GP / WanGP (video generation app) — SUCCESS ---
+- Installed INSIDE Pinokio (Pinokio = the mall, WanGP = a shop).
+  In Pinokio: Explore -> search "wan2gp" -> pick the FIRST one:
+  "Wan2GP" by pinokiofactory/wan (official, v8.0, 627 check-ins,
+  NVIDIA). NOT the "AMD" one, NOT the stale v3.7 forks.
+- The "Save as" dialog (folder name wan.git) -> just click
+  Download, keep the default.
+- First render failed: "insufficient VRAM" — CAUSE: Unsloth's
+  leftover chat model held 9.6GB of the 12GB VRAM. FIX: the STOP
+  icons (that is why they exist). RULE: on a 12GB card, run ONE
+  big AI thing at a time.
+- Second render: SUCCESS — the octopus video rendered fine at
+  default settings (Wan 2.1 480p). WanGP does GPU<->CPU
+  offloading AUTOMATICALLY (it is built for "GPU-poor" cards) —
+  nothing to configure.
+
+================================================================
+WHAT DID NOT WORK — LOCALLY UNCENSORED (v3.0.2, Linux AppImage)
+by PurpleDoubleD — DELETED AFTER 5 REAL BUGS
+================================================================
+
+What we did: installed the AppImage to /home/nir/Apps (118MB),
+wizard chose: LU Engine (its own engine, good choice) + its own
+private ComfyUI at /home/nir/ComfyUI (all big partition OK),
+skipped chat model + RAG (chat belongs to Unsloth Studio).
+
+THE 5 BUGS (all verified with real evidence, not guesses):
+1. LTX Video 2.3 22B FP8 recipe is broken IN THE APP:
+   the hidden workflow wires VAEDecodeTiled's VAE input to
+   UNETLoader's MODEL output, and there is NO VAE loader node
+   at all -> ComfyUI rejects it: "Return type mismatch between
+   linked nodes". (The 29.5GB checkpoint DOES contain the VAE
+   inside — model/vae/audio_vae/vocoder all verified inside
+   the file — the app just wired it wrong.)
+2. The engine DIES SILENTLY. No engine status, no ComfyUI
+   start/restart/repair button anywhere in Settings.
+3. Stale model list: the Create tab's model menu shows what it
+   REMEMBERS, not what is on disk (showed deleted LTX, hid the
+   freshly downloaded HunyuanVideo). List only refreshes from
+   the engine when the app reconnects at startup.
+4. HunyuanVideo 1.5 T2V FP8 recipe is ALSO broken IN THE APP:
+   CLIPLoader uses type "wan" (wrong AI family -> the model got
+   the prompt as gibberish) + uses the OLD HunyuanVideo 1.0
+   latent node instead of the 1.5 one (wrong film shape).
+   Result: the render "succeeded" but produced a 3-second
+   ACID TRIP of flashing colors — not a wave.
+   (The VAE was actually fine — the 8 "missing VAE keys"
+   warning is harmless, those parts are never used.)
+5. Broken gallery/preview on Linux: renders SUCCEED, files
+   land in /home/nir/ComfyUI/output/, but the app never shows
+   them ("This render lives on the local engine, which isn't
+   reachable right now").
+
+Verdict by Nir: "complete crap" -> DELETED EVERYTHING:
+- All models (Juggernaut 6.7G, HunyuanVideo 7.8G + 2.4G VAE +
+  9G qwen encoder, Wan 2.2 9.4G + 1.4G VAE + umt5 + clip_l)
+- Its whole private ComfyUI /home/nir/ComfyUI (31GB total freed)
+- The AppImage + all its data/config folders + all its icons
+- The website's own ComfyUI at /home/nir/ai-art/ was NOT
+  touched and is safe.
+- Nir's 2 test videos were saved to the Desktop first
+  (MY-WAN-2.2-VIDEO.mp4 kept; the Hunyuan acid trip deleted).
+
+ROOT CAUSE ANALYSIS (why so buggy):
+- The app's own download page admits: Windows = "tested every
+  release", Linux = "built on every release" (built != tested).
+  All 5 bugs are Linux-side.
+- It is a young app (new version every few days) chasing the
+  NEWEST AI models weekly; each new model needs a hand-written
+  recipe inside the app. Both broken recipes were for models
+  released WEEKS ago (LTX 2.3, HunyuanVideo 1.5). The boring
+  old stuff would have worked.
+- Pattern discovered: apps that HIDE a ComfyUI and write secret
+  recipes for it (Locally Uncensored) break; apps that are
+  their OWN thing (WanGP) stay stable.
+
+================================================================
+THE PART WE NEED TO DO IN WINDOWS
+================================================================
+* LOCALLY UNCENSORED — if we still want it (all-in-one local
+  AI: chat + images + video + coding agent, one window), it
+  must be done in WINDOWS, where it is "tested every release".
+  Download: Locally.Uncensored_3.0.2_x64-setup.exe from
+  github.com/PurpleDoubleD/locally-uncensored/releases/latest
+  On Windows, expect: the engine manager, the model recipes and
+  the gallery to actually work.
+
+================================================================
+STILL TO DO (next time)
+================================================================
+1. LLaMA-Factory (package #4) — NOT installed yet.
+   Purpose (explained to Nir): post-training = teach a local
+   model a personality/style/behavior from examples (LoRA,
+   friendly web UI, a 7B-14B trains fine on this 4070 Ti).
+   NOT for facts — RAG wins for "questions about a book/PDF"
+   (fine-tuning changes WHO the model is, RAG changes WHAT it
+   can see). Possible first project: fine-tune a model to BE
+   Madie (27 scenes of saga scripts exist in the Anime repo).
+2. More WanGP video work whenever wanted (octopus proven).
+3. Windows session: Locally Uncensored (see above).
+
+================================================================
+USEFUL TECHNICAL FACTS (for the next agent)
+================================================================
+- Disk layout: / = sda2 92G (OS), /home = sda4 1.7TB (BIG).
+  Everything in /home/nir is automatically on the BIG one.
+- The STOP-icon scripts live in /home/nir/.local/bin/
+  (launch-*.sh / kill-*.sh pattern). LESSON: a kill script's
+  pkill patterns must never match the script's own filename
+  (a kill script once killed itself before showing the
+  notification). Real process names of the LU AppImage were:
+  "locally-uncensored", "./LocallyUncensored.AppImage" and the
+  launcher bash script — always check `ps aux` for real names.
+- ComfyUI engines must be launched with the correct working
+  directory (main.py is relative) — a launch from the wrong
+  cwd fails with "can't open file main.py".
+- Google AI search prompts (paste full technical details,
+  exact errors, versions, what was already tried) were a very
+  effective bug-hunting tool today — Nir pastes the answers
+  back into the chat.
+- Diagnosis tools that worked: the engine's own log, ComfyUI
+  /history (contains the exact workflow JSON the app sent),
+  reading safetensors headers (key names + shapes without
+  loading the file), nvidia-smi process list.
+
+Money spent this session: $0 (everything local).
+================================================================
+END OF REPORT
+================================================================
