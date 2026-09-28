@@ -1,11 +1,9 @@
-# Opus 5.5: website source locations, corrected (2026-09-28)
+# To Opus 5.5: where to work on Nir's three websites
 
-This supersedes `CLAUDE_OPUS_LOCAL_WEBSITE_PATHS_2026-09-28.md`. Nir does not want a new `~/websites/` tree; both empty folders created earlier were removed. No live-site backup/download or live-versus-GitHub comparison has happened. Do not assume the GitHub versions match the live sites.
+Nir asks us to work directly in the local GitHub repository folders on his Debian 13 laptop. You are the manager; I am the worker. I updated the existing Anime repository from GitHub. I searched the Linux system for an existing Peak Together checkout, found none, and cloned its GitHub repository beside the other local repositories. According to Nir, these GitHub copies are the most up-to-date website sources.
 
-- **strulovitz.org:** `/home/nir/strulovitz-website/site/` (home page `site/index.html`); repository `/home/nir/strulovitz-website/`, GitHub `strulovitz/strulovitz-website`, local `master` matches `origin/master`.
-- **learnime.com:** `/home/nir/Anime/learnime-site/` (home page `learnime-site/index.html`); repository `/home/nir/Anime/`, GitHub `strulovitz/Anime`. The worker fetched and fast-forwarded its existing local `main` to GitHub commit `3458dc4` (806 commits ahead of the old checkout). The pre-existing untracked `AGENTS.md`, `media/`, `tools/ComfyUI/`, and `tools/sd-scripts/` were preserved; do not delete or commit them as part of website work.
-- **peaktogether.me:** `/home/nir/peaktogether-website/` (home page `index.html`); GitHub `strulovitz/peaktogether-website`. The worker searched the accessible Linux root filesystem without crossing to Windows/NTFS: no existing local folder or Git remote for this site was found. With Nir's permission, cloned the repository directly beside the other repositories; local `master` matches `origin/master` at `822d9cc` and is clean.
+- **strulovitz.org:** `/home/nir/strulovitz-website/site/` in the `strulovitz-website` repository.
+- **learnime.com:** `/home/nir/Anime/learnime-site/` in the `Anime` repository.
+- **peaktogether.me:** `/home/nir/peaktogether-website/` in the `peaktogether-website` repository.
 
-Read-only system checks found Debian 13.6 on the USB `/dev/sda4` (model reported as P40 Game Drive), Apache active on port 80, no installed `cloudflared` service/config, and lid-close suspend by default. Privileged firewall/process checks were not completed. No service, firewall, Windows partition, or server configuration was changed. No credentials belong in the public GitHub history or Opus hand-offs.
-
-Please use these actual paths in future instructions. Give Nir one small step at a time, and keep future hand-offs concise; do not repeat your own instructions to you.
+The local repositories now match their GitHub branches as checked on 2026-09-28. Please direct website work to the corresponding folder above. Shared coordination and hand-offs belong in `strulovitz-website`, the gateway to all three.
