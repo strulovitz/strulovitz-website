@@ -16,6 +16,8 @@
 		root * {$HOME}/strulovitz-website/exports/current
 		file_server
 	}
+	redir /ghost /ghost/ 308
+	redir /hive /hive/ 308
 	handle /ghost/* {
 		root * {$HOME}/strulovitz-website
 		file_server
