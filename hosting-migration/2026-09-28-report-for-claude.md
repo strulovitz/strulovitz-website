@@ -34,3 +34,24 @@ No duplicate origin URLs among the Git checkouts, so there are no duplicate last
 - `git lfs ls-files` could not run: Git LFS is not installed. No tracked `.gitattributes` in these three repos and no LFS pointer signature found in site files, but LFS use cannot be conclusively ruled out with the missing command.
 
 **Task 5:** Debian GNU/Linux 13.6 (trixie), host `deb-server`, user `nir`; `/` and `/home` on `/dev/sda4` ext4 (USB P40 Game Drive), 1.8 TB total, 262 GB used, 1.4 TB free. `/home/nir` permissions `700`, owner `nir`. On PATH: git, curl, wget, rsync, python3; not on PATH: cloudflared, nginx, caddy, apache2 (Apache service nevertheless installed and active). No cloudflared unit or `/etc/cloudflared` / `~/.cloudflared` directory; no config contents to report. nginx/caddy inactive. Unprivileged `ss` showed listeners on 80, 22, 631 (loopback), 11434 (loopback), 1716, 18789 (loopback); none on 443 or 8080-8090. Apache serves port 80. Privileged process ownership and firewall rules **not verified**; `ufw` command is missing. Effective logind defaults suspend when the lid closes (also on AC); idle action is ignore. No packages, services, config files, Windows partitions or existing Cloudflare setup were changed.
+
+**Additional domain-status task:** Saved your follow-up instructions verbatim at `hosting-migration/2026-09-28-claude-domains-status-instructions.md`. Created `hosting-migration/domains-status.md` with exactly the requested text below; committed and pushed as `4fff5a1` with message `Add domains status notes`. No DNS, Cloudflare, DreamHost, or other settings were changed.
+
+```md
+# Domains status (migration from DreamHost to Cloudflare)
+Nameservers are public information, not secrets.
+NEVER write EPP/transfer codes or passwords in this file.
+
+## strulovitz.org
+- Added to Cloudflare (Free plan): YES, 2026-09-28
+- Cloudflare nameservers: lia.ns.cloudflare.com, stanley.ns.cloudflare.com
+- Old DreamHost nameservers: ns1/ns2/ns3.dreamhost.com
+- Nameservers changed at DreamHost: NOT YET
+- Transfer to Cloudflare Registrar: NOT YET
+
+## learnime.com
+- Added to Cloudflare: NOT YET
+
+## peaktogether.me
+- Added to Cloudflare: NOT YET
+```
