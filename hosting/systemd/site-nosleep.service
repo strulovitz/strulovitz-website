@@ -1,0 +1,10 @@
+[Unit]
+Description=Keep laptop awake while hosting websites
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/systemd-inhibit --what=sleep:handle-lid-switch --why=Hosting\x20websites /usr/bin/sleep infinity
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

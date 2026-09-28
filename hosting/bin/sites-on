@@ -1,0 +1,41 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+repo="$HOME/strulovitz-website"
+token="$HOME/.config/site-hosting/tunnel-token"
+
+if [[ ! -s "$token" ]]; then
+    printf 'The Cloudflare tunnel token is missing. Nothing was started.\n'
+    printf 'When the tunnel is ready, put its token in %s (mode 600).\n' "$token"
+    exit 1
+fi
+if [[ "$(stat -c %a "$token")" != 600 ]]; then
+    printf 'The tunnel token must have permission 600. Nothing was started.\n'
+    exit 1
+fi
+if ! command -v cloudflared >/dev/null 2>&1; then
+    printf 'cloudflared is not installed yet. Nothing was started.\n'
+    exit 1
+fi
+
+old=$(git -C "$repo" rev-parse HEAD)
+for name in strulovitz-website Anime peaktogether-website; do
+    printf 'Checking GitHub updates for %s...\n' "$name"
+    git -C "$HOME/$name" pull --ff-only
+done
+
+if [[ ! -f "$repo/exports/pointer.json" ]] || ! git -C "$repo" diff --quiet "$old" HEAD -- site/ ops/build-export.py; then
+    printf 'Building the updated Strulovitz website locally...\n'
+    python3 "$repo/ops/build-export.py"
+fi
+
+version=$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1]))["live"])' "$repo/exports/pointer.json")
+if [[ ! -d "$repo/exports/$version" ]]; then
+    printf 'The website build is missing: %s\n' "$version"
+    exit 1
+fi
+ln -sfnT "$version" "$repo/exports/current"
+
+printf 'Starting the local websites, tunnel, and keep-awake service...\n'
+systemctl --user start site-caddy.service site-nosleep.service site-tunnel.service
+printf 'Websites started. Run sites-status to check them.\n'

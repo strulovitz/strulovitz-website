@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+printf 'Stopping the tunnel, local websites, and keep-awake service...\n'
+systemctl --user stop site-tunnel.service site-caddy.service site-nosleep.service
+printf 'Stopped. Apache and your other programs were not touched.\n'

@@ -1,0 +1,57 @@
+{
+	auto_https off
+	admin 127.0.0.1:2019
+}
+
+:8081 {
+	bind 127.0.0.1
+	@hidden path_regexp hidden "(^|/)[.]"
+	respond @hidden 404
+	@rootDocs path_regexp rootDocs "^/[^/]+[.]md$"
+	respond @rootDocs 404
+
+	root * {$HOME}/strulovitz-website/exports
+	# Keep links to the old dated version working across future builds.
+	handle_path /v2026-09-11-c/* {
+		root * {$HOME}/strulovitz-website/exports/current
+		file_server
+	}
+	handle /ghost/* {
+		root * {$HOME}/strulovitz-website
+		file_server
+	}
+	handle /hive/* {
+		root * {$HOME}/strulovitz-website
+		file_server
+	}
+	handle {
+		file_server
+	}
+}
+
+:8082 {
+	bind 127.0.0.1
+	@hidden path_regexp hidden "(^|/)[.]"
+	respond @hidden 404
+	@rootDocs path_regexp rootDocs "^/[^/]+[.]md$"
+	respond @rootDocs 404
+	root * {$HOME}/Anime/learnime-site
+	file_server
+}
+
+:8083 {
+	bind 127.0.0.1
+	@hidden path_regexp hidden "(^|/)[.]"
+	respond @hidden 404
+	@rootDocs path_regexp rootDocs "^/[^/]+[.]md$"
+	respond @rootDocs 404
+	@python path_regexp python "[.]py$"
+	header @python Content-Type "text/plain; charset=utf-8"
+	header @python Content-Disposition attachment
+	@images path *.png *.jpg *.jpeg *.gif *.svg *.webp
+	header @images Cache-Control "public, max-age=2592000"
+	@cssjs path *.css *.js
+	header @cssjs Cache-Control "public, max-age=604800"
+	root * {$HOME}/peaktogether-website
+	file_server
+}

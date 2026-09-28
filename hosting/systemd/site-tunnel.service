@@ -1,0 +1,11 @@
+[Unit]
+Description=Cloudflare Tunnel for the three websites
+After=network-online.target site-caddy.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/cloudflared tunnel --no-autoupdate run --token-file %h/.config/site-hosting/tunnel-token
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

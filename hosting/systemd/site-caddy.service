@@ -1,0 +1,10 @@
+[Unit]
+Description=Local static websites (Caddy)
+
+[Service]
+Type=simple
+ExecStart=%h/.local/bin/caddy run --config %h/strulovitz-website/hosting/Caddyfile --adapter caddyfile
+Restart=on-failure
+
+[Install]
+WantedBy=default.target

@@ -10,6 +10,7 @@
 .env
 .env.*
 !.env.example
+**/tunnel-token
 
 # --- PYTHON WORKING FILES. Rebuilt by "uv sync" in seconds. ---
 __pycache__/
