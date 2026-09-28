@@ -71,3 +71,9 @@ FINISH with a section titled "REPORT FOR CLAUDE" containing: OS details, which t
 - Saved Claude's replacement instructions verbatim in `hosting-migration/2026-09-28-claude-corrected-instructions.md` and pushed that file first. No earlier saved prompt mentioned WordPress.
 - Inspected Git checkouts for duplicates, compared the three live home pages with their GitHub sources, checked static-site assets and scripts, and performed read-only system checks. No site content, server settings, or Windows disks were changed.
 - Compact results and limitations are in `hosting-migration/2026-09-28-report-for-claude.md`. Privileged firewall/process details were not obtained; do not put any password into commands or public GitHub files.
+
+## 2026-09-28: Local hosting on the laptop
+
+- Saved Claude's local-hosting prompt verbatim at `hosting-migration/2026-09-28-claude-local-hosting-instructions.md`. Caddy v2.11.4 was verified against the official SHA-512 checksum, and `python3 ops/build-export.py` made `exports/v2026-09-28-a/`. Caddy is serving all three sites at 127.0.0.1:8081-8083; only the Caddy user service is running, and Apache remains untouched on port 80.
+- Cloudflared 2026.9.3 was installed from Cloudflare's signed apt repository via desktop authentication without recording a password. Apt installed only cloudflared, with no upgrades. Its `--token-file` flag is supported. Apt also warned about a missing signing key for the unrelated pre-existing GitHub CLI repository; nothing there was changed.
+- Full configuration, test results, and remaining work are in `hosting-migration/2026-09-28-local-hosting-session.md`. No tunnel token exists and no public cutover occurred. `ops/pointers/pointer-v2026-09-28-a.json` remains untracked for Nir and Claude to decide about. DreamHost transfers are pending.

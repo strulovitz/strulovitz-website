@@ -29,8 +29,8 @@ On this laptop Caddy is already running. After a restart, preview the sites
 without a tunnel with `systemctl --user start site-caddy.service`, then run
 `sites-status`. Stop the preview with `systemctl --user stop site-caddy.service`.
 These commands only control our Caddy user service; they never touch Apache.
-The Cloudflare tunnel service must not start until `cloudflared` is installed,
-its `--token-file` option is verified, and Nir has a token from the dashboard.
+Cloudflared 2026.9.3 is installed and supports `--token-file`, but the tunnel
+service must not start until Nir has a token from the dashboard.
 
 To switch computers later: stop hosting on the old computer with `sites-off`;
 on the other Linux computer, pull the Strulovitz, Anime, and Peak Together
