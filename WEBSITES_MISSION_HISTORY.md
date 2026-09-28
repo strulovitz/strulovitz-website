@@ -51,3 +51,10 @@ FINISH with a section titled "REPORT FOR CLAUDE" containing: OS details, which t
 
 - First push of the history commit was rejected because GitHub's `master` had 155 newer commits. No force-push was attempted.
 - With Nir's explicit permission, discarded only the unrelated uncommitted edit in `SESSION_STATE_DEBIAN_13_RTX5090.md`, fetched the newer commits, and rebased the one-file history commit. The push succeeded. No website files or server settings were changed.
+
+## 2026-09-28: Read-only inspection and local path check
+
+- Nir clarified that Learnime's GitHub source is `Anime/learnime-site`. The local `~/Anime` checkout is older and lacks that folder; `~/strulovitz-website/site/` exists; no local Peak Together checkout was found under `/home/nir`.
+- Started read-only OS/service/port checks; no privileged firewall details were obtained. No site downloads or repo clones occurred.
+- Created empty `~/websites/backups/` and `~/websites/` per the original backup instructions, then immediately removed both empty directories when Nir said he does not want that new backup tree. Do not recreate it without his permission.
+- Nir requested a concise, standalone report for Opus, not Opus's earlier instructions repeated. See `CLAUDE_OPUS_LOCAL_WEBSITE_PATHS_2026-09-28.md` for the actual findings and remaining questions.
