@@ -58,3 +58,10 @@ FINISH with a section titled "REPORT FOR CLAUDE" containing: OS details, which t
 - Started read-only OS/service/port checks; no privileged firewall details were obtained. No site downloads or repo clones occurred.
 - Created empty `~/websites/backups/` and `~/websites/` per the original backup instructions, then immediately removed both empty directories when Nir said he does not want that new backup tree. Do not recreate it without his permission.
 - Nir requested a concise, standalone report for Opus, not Opus's earlier instructions repeated. See `CLAUDE_OPUS_LOCAL_WEBSITE_PATHS_2026-09-28.md` for the actual findings and remaining questions.
+
+## 2026-09-28: Existing checkouts updated and Peak Together located
+
+- Nir authorized using existing folders and, only if no Peak Together checkout existed anywhere accessible on the Linux root filesystem, creating a clone alongside the other repositories in `/home/nir`.
+- Fetched and fast-forwarded the existing `~/Anime` from `633a58c` to `3458dc4`; `~/Anime/learnime-site/` is now present. Preserved all pre-existing untracked files.
+- Searched the accessible Linux root filesystem for Peak Together names and Git repositories/remotes without crossing filesystem boundaries; none existed. Cloned `strulovitz/peaktogether-website` into `~/peaktogether-website/`, currently at `822d9cc` and clean.
+- All three GitHub source folders are now local: `~/strulovitz-website/site/`, `~/Anime/learnime-site/`, and `~/peaktogether-website/`. The earlier local-paths hand-off is superseded by `CLAUDE_OPUS_WEBSITE_LOCATIONS_UPDATED_2026-09-28.md`. Live-site comparison/backups still have not happened.
