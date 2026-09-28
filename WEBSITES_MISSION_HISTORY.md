@@ -65,3 +65,9 @@ FINISH with a section titled "REPORT FOR CLAUDE" containing: OS details, which t
 - Fetched and fast-forwarded the existing `~/Anime` from `633a58c` to `3458dc4`; `~/Anime/learnime-site/` is now present. Preserved all pre-existing untracked files.
 - Searched the accessible Linux root filesystem for Peak Together names and Git repositories/remotes without crossing filesystem boundaries; none existed. Cloned `strulovitz/peaktogether-website` into `~/peaktogether-website/`, currently at `822d9cc` and clean.
 - All three GitHub source folders are now local: `~/strulovitz-website/site/`, `~/Anime/learnime-site/`, and `~/peaktogether-website/`. The earlier local-paths hand-off is superseded by `CLAUDE_OPUS_WEBSITE_LOCATIONS_UPDATED_2026-09-28.md`. Live-site comparison/backups still have not happened.
+
+## 2026-09-28: Claude's corrected inspection instructions
+
+- Saved Claude's replacement instructions verbatim in `hosting-migration/2026-09-28-claude-corrected-instructions.md` and pushed that file first. No earlier saved prompt mentioned WordPress.
+- Inspected Git checkouts for duplicates, compared the three live home pages with their GitHub sources, checked static-site assets and scripts, and performed read-only system checks. No site content, server settings, or Windows disks were changed.
+- Compact results and limitations are in `hosting-migration/2026-09-28-report-for-claude.md`. Privileged firewall/process details were not obtained; do not put any password into commands or public GitHub files.
