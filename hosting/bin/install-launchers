@@ -76,7 +76,7 @@ for action in on off; do
         "$action" "$action" > "$launcher"
     cp -- "$launcher" "$desktop/sites-$action.desktop"
     chmod +x -- "$launcher" "$desktop/sites-$action.desktop"
-    if [[ "${XDG_CURRENT_DESKTOP:-}" == *GNOME* ]]; then
+    if [[ "${XDG_CURRENT_DESKTOP:-}" == *GNOME* || "${XDG_CURRENT_DESKTOP:-}" == *Cinnamon* ]]; then
         gio set "$desktop/sites-$action.desktop" metadata::trusted true
     fi
 done
