@@ -38,3 +38,12 @@ repos, install Caddy and cloudflared there, link the repo's user services and
 scripts there, and use that computer's own private tunnel token. Do not run
 both tunnels for the same websites simultaneously. Use `sites-on` then
 `sites-status` on the new computer. No DreamHost deploy script is used.
+
+## Clickable icons
+
+Run `hosting/bin/install-launchers` once to add **Websites ON** and **Websites OFF**
+to the applications menu and your desktop. Each opens a terminal and waits for
+Enter so you can read the result. On GNOME, the Desktop Icons NG (DING)
+extension must be enabled to see the desktop copies; on Mint Cinnamon, desktop
+icons work natively. Re-run the installer after moving the repository to update
+its absolute paths.

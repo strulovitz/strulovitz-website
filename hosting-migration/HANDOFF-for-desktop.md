@@ -35,3 +35,6 @@ Host 3 static websites from Nir's home PCs via ONE Cloudflare Tunnel. Only ONE P
 - PCs in Windows, asleep or off = sites offline. That's acceptable for Nir.
 - Use 127.0.0.1, not localhost, in routes. Don't use "http://127.0.0.1:8081" as a Caddy site address (the Host header would mismatch); use ":8081" + bind.
 - In Cloudflare DNS, the leftover ftp/mysql/ssh A records point to DreamHost; they're harmless and can be deleted after October 2.  
+
+## Extra request from Nir (added from the laptop session)
+Nir wants 2 clickable icons, "Websites ON" and "Websites OFF", in the applications menu AND on the desktop background, so he never needs the terminal. This is already done on the laptop via hosting/bin/install-launchers (in the repo). On the Desktop (Linux Mint 22, Cinnamon, which shows desktop icons natively): after the setup works, have the worker run hosting/bin/install-launchers, fix anything Mint-specific (terminal = gnome-terminal or x-terminal-emulator; it may need "Allow launching" / trusted), and test both icons. Keep hosting ON the correct PC at the end of the test.

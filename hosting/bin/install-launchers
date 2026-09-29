@@ -1,0 +1,83 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+repo_bin="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+
+if [[ "${1:-}" == --run ]]; then
+    case "${2:-}" in
+        on|off) action="$2" ;;
+        *) printf 'Unknown action.\n' >&2; exit 1 ;;
+    esac
+    "$repo_bin/sites-$action" || printf 'Websites %s failed (exit code %s).\n' "$action" "$?"
+    read -r -p 'Press Enter to close' _ || true
+    exit 0
+fi
+
+if [[ $# -ne 0 ]]; then
+    printf 'Usage: %s [--run on|off]\n' "$0" >&2
+    exit 1
+fi
+
+desktop="$(xdg-user-dir DESKTOP)"
+apps="$HOME/.local/share/applications"
+if [[ -z "$desktop" || "$desktop" == "$HOME" ]]; then
+    printf 'Desktop folder could not be identified.\n' >&2
+    exit 1
+fi
+
+if command -v gnome-terminal >/dev/null 2>&1; then
+    terminal="$(command -v gnome-terminal)"
+    terminal_arg=--
+elif command -v x-terminal-emulator >/dev/null 2>&1; then
+    terminal="$(command -v x-terminal-emulator)"
+    terminal_arg=-e
+else
+    printf 'No supported graphical terminal found.\n' >&2
+    exit 1
+fi
+
+# Quote an Exec argument according to the desktop entry specification.
+desktop_quote() {
+    local value="$1"
+    value="${value//\\/\\\\}"
+    value="${value//\"/\\\"}"
+    value="${value//\$/\\\$}"
+    value="${value//\`/\\\`}"
+    printf '"%s"' "$value"
+}
+
+mkdir -p -- "$apps" "$desktop"
+for action in on off; do
+    name="Websites ON"
+    icon=media-playback-start
+    if [[ "$action" == off ]]; then
+        name="Websites OFF"
+        icon=media-playback-stop
+    fi
+    for target in "$apps/sites-$action.desktop" "$desktop/sites-$action.desktop"; do
+        if [[ -e "$target" || -L "$target" ]]; then
+            owned=false
+            while IFS= read -r line; do
+                if [[ "$line" == "X-Strulovitz-Hosting-Launcher=$action" ]]; then
+                    owned=true
+                    break
+                fi
+            done < "$target"
+            if [[ "$owned" != true || -L "$target" ]]; then
+                printf 'Not overwriting an existing non-hosting launcher: %s\n' "$target" >&2
+                exit 1
+            fi
+        fi
+    done
+    launcher="$apps/sites-$action.desktop"
+    printf '[Desktop Entry]\nType=Application\nName=%s\nIcon=%s\nCategories=Network;\nExec=%s %s %s %s --run %s\nX-Strulovitz-Hosting-Launcher=%s\n' \
+        "$name" "$icon" "$(desktop_quote "$terminal")" "$terminal_arg" \
+        "$(desktop_quote "$(command -v bash)")" "$(desktop_quote "$repo_bin/install-launchers")" \
+        "$action" "$action" > "$launcher"
+    cp -- "$launcher" "$desktop/sites-$action.desktop"
+    chmod +x -- "$launcher" "$desktop/sites-$action.desktop"
+    if [[ "${XDG_CURRENT_DESKTOP:-}" == *GNOME* ]]; then
+        gio set "$desktop/sites-$action.desktop" metadata::trusted true
+    fi
+done
+printf 'Installed Websites ON and Websites OFF in the applications menu and %s.\n' "$desktop"
