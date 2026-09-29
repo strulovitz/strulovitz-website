@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
+printf 'REMINDER: run sites-off on the OTHER computer first. Never host from both at the same time (their strulovitz build versions differ, which would break pages).\n'
+
 repo="$HOME/strulovitz-website"
 token="$HOME/.config/site-hosting/tunnel-token"
 

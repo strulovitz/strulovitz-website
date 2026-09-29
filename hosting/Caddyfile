@@ -5,6 +5,10 @@
 
 :8081 {
 	bind 127.0.0.1
+	handle /hosted-by {
+		header Cache-Control "no-store"
+		respond "Served by {system.hostname} (home PC via Cloudflare Tunnel)" 200
+	}
 	@hidden path_regexp hidden "(^|/)[.]"
 	respond @hidden 404
 	@rootDocs path_regexp rootDocs "^/[^/]+[.]md$"
@@ -33,6 +37,10 @@
 
 :8082 {
 	bind 127.0.0.1
+	handle /hosted-by {
+		header Cache-Control "no-store"
+		respond "Served by {system.hostname} (home PC via Cloudflare Tunnel)" 200
+	}
 	@hidden path_regexp hidden "(^|/)[.]"
 	respond @hidden 404
 	@rootDocs path_regexp rootDocs "^/[^/]+[.]md$"
@@ -43,6 +51,10 @@
 
 :8083 {
 	bind 127.0.0.1
+	handle /hosted-by {
+		header Cache-Control "no-store"
+		respond "Served by {system.hostname} (home PC via Cloudflare Tunnel)" 200
+	}
 	@hidden path_regexp hidden "(^|/)[.]"
 	respond @hidden 404
 	@rootDocs path_regexp rootDocs "^/[^/]+[.]md$"
