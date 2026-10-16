@@ -20,6 +20,14 @@
 		root * {$HOME}/strulovitz-website/exports/current
 		file_server
 	}
+	# Crystal Balls: served directly from its own repo, not from the
+	# Strulovitz export build (crystal-balls/BIBLE/part-08-publishing.md 8.3).
+	handle_path /crystal-balls/* {
+		root * {$HOME}/crystal-balls/public
+		file_server
+		header Cache-Control "public, max-age=300"
+	}
+	redir /crystal-balls /crystal-balls/ permanent
 	redir /ghost /ghost/ 308
 	redir /hive /hive/ 308
 	handle /ghost/* {
