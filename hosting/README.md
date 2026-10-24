@@ -39,6 +39,15 @@ scripts there, and use that computer's own private tunnel token. Do not run
 both tunnels for the same websites simultaneously. Use `sites-on` then
 `sites-status` on the new computer. No DreamHost deploy script is used.
 
+## Second Opinion at /2nd-opinion/
+
+`https://www.strulovitz.org/2nd-opinion/` is served straight from the separate
+`second-opinion` repository: `exports/2nd-opinion` is a link to
+`~/second-opinion/site` (exports/ is not in git, so each serving computer has
+its own link). `sites-on` pulls `~/second-opinion` (or downloads it from GitHub
+if it is missing) and creates the link if needed, so whichever computer hosts
+shows the newest pushed Second Opinion. No build or copy step is involved.
+
 ## Clickable icons
 
 Run `hosting/bin/install-launchers` once to add **Websites ON** and **Websites OFF**

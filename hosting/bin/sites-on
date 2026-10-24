@@ -38,6 +38,22 @@ if [[ ! -d "$repo/exports/$version" ]]; then
 fi
 ln -sfnT "$version" "$repo/exports/current"
 
+# Second Opinion (https://www.strulovitz.org/2nd-opinion/) is served straight
+# from its own repository: exports/2nd-opinion is a link to ~/second-opinion/site.
+# Bring that clone up to date (or create it) so this computer shows the newest
+# pushed version. A problem here only prints a warning; the other sites still start.
+so="$HOME/second-opinion"
+if [[ -d "$so/.git" ]]; then
+    printf 'Checking GitHub updates for second-opinion...\n'
+    git -C "$so" pull --ff-only || printf 'WARNING: second-opinion could not be updated; serving the version already on this computer.\n'
+elif [[ ! -e "$so" ]]; then
+    printf 'Downloading second-opinion from GitHub...\n'
+    git clone https://github.com/strulovitz/second-opinion.git "$so" || printf 'WARNING: second-opinion could not be downloaded.\n'
+fi
+if [[ -d "$so/site" && ! -e "$repo/exports/2nd-opinion" ]]; then
+    ln -s "$so/site" "$repo/exports/2nd-opinion"
+fi
+
 printf 'Starting the local websites, tunnel, and keep-awake service...\n'
 systemctl --user start site-caddy.service site-nosleep.service site-tunnel.service
 printf 'Websites started. Run sites-status to check them.\n'
