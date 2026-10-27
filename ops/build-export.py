@@ -55,6 +55,8 @@ POINTER_HISTORY = os.path.join(REPOSITORY, "ops", "pointers")
 # until the tiny pointer file lands last.
 SHIPPING_ROOT = [
     "index.html",
+    "ai-panorama.html",
+    "crystal-balls.html",
     "night-watch.html",
     "about.html",
     "home-page-gpt-image-2.html",
@@ -201,11 +203,13 @@ def main():
     # root pages are only fixed up if they happen to use it.
     # encoding="utf-8" is MANDATORY: the pages carry emojis, and on Windows a
     # plain open() reads them in the local codepage and silently corrupts them.
-    root_index = os.path.join(EXPORTS, "index.html")
+    # Since 2026-10-27 the placeholder lives in ai-panorama.html (the home page
+    # no longer carries the tesseract buttons).
+    root_index = os.path.join(EXPORTS, "ai-panorama.html")
     with open(root_index, encoding="utf-8") as handle:
         landing = handle.read()
     if "VERSION_FALLBACK" not in landing:
-        raise RuntimeError("site/index.html lost its VERSION_FALLBACK placeholder")
+        raise RuntimeError("site/ai-panorama.html lost its VERSION_FALLBACK placeholder")
     with open(root_index, "w", encoding="utf-8") as handle:
         handle.write(landing.replace("VERSION_FALLBACK", version))
     for name in root_copied:

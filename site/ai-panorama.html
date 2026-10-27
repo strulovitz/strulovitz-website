@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI PANORAMA - the whole picture, any day you walk in</title>
+<meta name="description" content="A free, open-source encyclopedia-magazine about artificial intelligence, that you can fly through in 3D on a screen and in genuine 4D in Virtual Reality.">
+<!--
+  THE AI PANORAMA PAGE (www.strulovitz.org/ai-panorama.html). Until 2026-10-27
+  this lived at the bottom of the home page; Nir split them: the home page
+  (index.html + the home-page-*.html variants) now holds only the project
+  overview, and everything about the magazine lives here. See PROJECTS-AND-MENU.md .
+
+  It is deliberately plain HTML. The only JavaScript is four lines that read
+  pointer.json to find which dated folder is currently live, and point the two
+  entry buttons at it. With JavaScript switched off, the buttons still work,
+  because the version that was live at build time is written into the links.
+  That is what makes deployment atomic without a redirect (bible/part-01.md 1.9)
+  while keeping the address bar showing plainly www.strulovitz.org .
+-->
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; background: #07090f; color: #dbe4f4;
+    font: 17px/1.65 system-ui, -apple-system, Segoe UI, sans-serif;
+  }
+  a { color: #9fd0ff; }
+
+  nav {
+    border-bottom: 1px solid #1b2437; background: #090d16;
+    position: sticky; top: 0; z-index: 5;
+  }
+  nav ul {
+    display: flex; flex-wrap: wrap; gap: 0.2rem;
+    margin: 0 auto; padding: 0.55rem 1rem; max-width: 62rem; list-style: none;
+  }
+  nav a {
+    display: block; padding: 0.4rem 0.7rem; border-radius: 7px;
+    color: #a8bad8; text-decoration: none; font-size: 0.95rem;
+  }
+  nav a:hover { background: #16203a; color: #eaf4ff; }
+  nav a.here { background: #1b2949; color: #fff; }
+  nav .soon { font-size: 0.72rem; color: #7f92b4; }
+  nav .away::after { content: " \2197"; color: #6d7f9e; }
+
+  main { max-width: 44rem; margin: 0 auto; padding: 2.6rem 1.4rem 5rem; }
+  h1 { font-size: 2.3rem; line-height: 1.1; margin: 0 0 0.3rem; color: #fff; }
+  .tagline { color: #8fa3c4; font-size: 1.15rem; margin: 0 0 2rem; }
+  h2 { font-size: 1.2rem; margin: 2.6rem 0 0.6rem; color: #eaf1ff; }
+
+  a.enter {
+    display: block; margin: 0.7rem 0; padding: 1rem 1.2rem;
+    background: #16203a; border: 1px solid #33507f; border-radius: 10px;
+    color: #eaf4ff; text-decoration: none;
+  }
+  a.enter:hover { background: #1d2b4c; }
+  a.enter strong { display: block; font-size: 1.1rem; }
+  a.enter span { color: #93a7c9; font-size: 0.95rem; }
+
+  ul.plain { padding-left: 1.2rem; }
+  ul.plain li { margin: 0.35rem 0; }
+  code { background: #131a2a; padding: 0.1rem 0.35rem; border-radius: 4px; }
+  .note {
+    border-left: 3px solid #33507f; padding: 0.1rem 0 0.1rem 0.9rem;
+    color: #a8bad8;
+  }
+  footer {
+    border-top: 1px solid #1b2437; margin-top: 3.5rem; padding-top: 1.2rem;
+    color: #6d7f9e; font-size: 0.9rem;
+  }
+
+  /* ---- THE FIRST RESULTS. Table and edition buttons. ---- */
+  .editions { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 26px; }
+  .editions a {
+    display: block; padding: 9px 13px; border-radius: 8px; text-decoration: none;
+    background: #16203a; border: 1px solid #2c3c60; color: #dce8ff; font-size: 15px;
+  }
+  .editions a:hover { border-color: #6ec6ff; background: #1b2748; }
+  .editions a b { display: block; font-weight: 600; }
+  .editions a span { display: block; font-size: 12.5px; color: #93a6c8; margin-top: 2px; }
+  .results { width: 100%; border-collapse: collapse; margin: 18px 0 8px; font-size: 15px; }
+  .results th, .results td { text-align: right; padding: 7px 9px; border-bottom: 1px solid #223255; }
+  .results th { color: #93a6c8; font-weight: 600; font-size: 13px; white-space: nowrap; }
+  .results th:first-child, .results td:first-child { text-align: left; }
+  .results td:first-child { white-space: nowrap; }
+  .results td:first-child a { color: #dce8ff; text-decoration: none; border-bottom: 1px solid #33456e; }
+  .results td:first-child a:hover { color: #fff; border-bottom-color: #6ec6ff; }
+  .results tbody tr:hover { background: #141d33; }
+  .results .cheapest { color: #a0e7a0; }
+  .results .most { color: #ffd166; }
+  .results caption { caption-side: bottom; text-align: left; color: #8b9dbe;
+                     font-size: 13px; padding-top: 10px; line-height: 1.5; }
+  @media (max-width: 620px) { .results { font-size: 13px; } .results th, .results td { padding: 5px 5px; } }
+
+
+
+
+
+
+/* NIR CSS BEGIN */
+  /* ---- Nir's tsunami section, model comparison and project table. ---- */
+  .tsunami { display:flex; align-items:center; gap:1.2rem; margin:0 0 0.4rem; flex-wrap:wrap; }
+  .tsunami img.logo { width:200px; height:200px; object-fit:cover; border-radius:12px;
+                      cursor:zoom-in; border:1px solid #1b2437; }
+  p.tsunami-line { margin:0; font-size:1.25rem; }
+  p.enjoy { color:#8fa3c4; font-size:1.08rem; margin:0.5rem 0 0.35rem; }
+  p.enjoy-big { color:#dbe4f4; font-size:1.45rem; font-weight:bold;
+                margin:0.35rem 0 1.5rem; }
+  p.enjoy-big a { color:#9fd0ff; font-weight:bold; }
+  img.nir-hero { width:100%; height:auto; display:block; border-radius:12px;
+                 border:1px solid #1b2437; }
+  .compare { margin:1.5rem 0 2.6rem; }
+  #ai-panorama { scroll-margin-top: 4.5rem; }
+  .compare p.cap { color:#8fa3c4; margin:0 0 0.7rem; }
+  .compare .row { display:flex; flex-wrap:wrap; gap:8px; }
+  a.model-btn { display:inline-block; padding:6px 12px; border-radius:8px;
+                background:#16203a; border:1px solid #2c3c60; color:#dce8ff;
+                font-size:0.9rem; text-decoration:none; }
+  a.model-btn:hover { border-color:#6ec6ff; background:#1b2748; }
+  a.model-btn.here { background:#1b2949; color:#fff; border-color:#33507f; }
+  .projects { display:flex; flex-direction:column; gap:2rem; }
+  .project { display:grid; grid-template-columns:200px 1fr; gap:1.6rem 1.5rem; }
+  .projects .pic img { width:200px; height:200px; object-fit:cover; display:block;
+                       border-radius:10px; cursor:zoom-in; border:1px solid #1b2437; }
+  .projects p.label { margin:0.5rem 0 0; font-size:0.98rem; line-height:1.45; }
+  .projects p.label a { color:#dce8ff; text-decoration:none;
+                        border-bottom:1px solid #33456e; }
+  .projects p.label a:hover { color:#fff; border-bottom-color:#6ec6ff; }
+  .projects .desc { color:#b9c7e2; margin:0; }
+  blockquote { border-left:3px solid #33507f; margin:1rem 0; padding:0.2rem 0 0.2rem 1rem;
+               color:#c7d4ee; font-style:italic; }
+  @media (max-width:620px) {
+    .project { grid-template-columns:128px 1fr; gap:0.9rem; }
+    .tsunami img.logo, .projects .pic img { width:128px; height:128px; }
+  }
+  /* NIR CSS END */
+</style>
+</head>
+<body>
+
+<nav>
+  <ul>
+    <li><a href="/">Home</a></li>
+    <li><a href="/crystal-balls.html">Crystal Balls</a></li>
+    <li><a class="here" href="/ai-panorama.html">AI Panorama</a></li>
+    <li><a href="/night-watch.html">Night Watch <span class="soon">planned</span></a></li>
+    <li><a href="/second-opinion.html">Second Opinion <span class="soon">coming soon</span></a></li>
+    <li><a href="/hive/index.html">Hive</a></li>
+    <li><a href="/ghost/index.html">Ghost</a></li>
+    <li><a class="away" href="https://learnime.com/" target="_blank" rel="noopener">Learnime</a></li>
+    <li><a class="away" href="https://www.peaktogether.me/" target="_blank" rel="noopener">Peak Together</a></li>
+    <li><a href="/vibe-invention.html">Vibe Invention</a></li>
+    <li><a href="/about.html">About</a></li>
+  </ul>
+</nav>
+
+<main>
+
+  <h1 id="ai-panorama">AI PANORAMA</h1>
+  <p class="tagline">The whole picture, any day you walk in.</p>
+
+  <p>Every other source of AI news is a stream. Miss a week and something that
+  changed the world scrolls away below today's trivia, gone. This is not a
+  stream. It is a <em>state</em>: whenever you walk in, you get the whole
+  current condition of the field, laid out as a map you can fly through.</p>
+
+  <p>Free, open source, and every number carries a link to where it came
+  from.</p>
+
+  <h2>What is working right now</h2>
+  <p class="note">The first thing built was the hardest thing: real four
+  dimensions. It now has real content in it &mdash; the first stories, written
+  eight separate times over, by eight different AI models.</p>
+
+  <a class="enter" id="enter-screen" href="VERSION_FALLBACK/tesseract.html">
+    <strong>Hello, Tesseract &mdash; on this screen</strong>
+    <span>Mouse and keyboard. Works on any laptop or desktop.</span>
+  </a>
+
+  <a class="enter" id="enter-vr" href="VERSION_FALLBACK/tesseract.html?vr=1">
+    <strong>Hello, Tesseract &mdash; in Virtual Reality</strong>
+    <span>Meta Quest 3 and other WebXR headsets. Open this page in the
+    headset's own browser, then press Enter VR.</span>
+  </a>
+
+<!-- RESULTS BEGIN -->
+  <h2>The first real results</h2>
+  <p>11 stories so far, each one written 8 separate times over, by 8 different AI models. Every model read exactly the same frozen sources and did the entire job alone: the article, the one-line summary, the encyclopedia entries behind it, the tags, the links to other stories, and the instructions for its own illustration. Nothing any of them wrote has been corrected, improved or graded by us. If one of them is wrong, switch to another and see for yourself &mdash; that comparison is the point of this magazine, not a flaw in it.</p>
+  <p>Pick whose edition you want to fly through. Each one is its own four-dimensional world, because each model chose its own tags and its own links, and those choices are what decide where everything sits. Changing edition rearranges the sky.</p>
+  <div class="editions">
+    <a class="edition-link" data-edition="openai--gpt-5.6-terra" href="tesseract.html?edition=openai--gpt-5.6-terra"><b>GPT-5.6 Terra</b><span>the one this site opens with</span></a>
+    <a class="edition-link" data-edition="anthropic--claude-sonnet-5" href="tesseract.html?edition=anthropic--claude-sonnet-5"><b>Claude Sonnet 5</b><span>Anthropic</span></a>
+    <a class="edition-link" data-edition="google--gemini-3.7-flash" href="tesseract.html?edition=google--gemini-3.7-flash"><b>Gemini 3.7 Flash</b><span>Google</span></a>
+    <a class="edition-link" data-edition="x-ai--grok-4.6" href="tesseract.html?edition=x-ai--grok-4.6"><b>Grok 4.6</b><span>xAI</span></a>
+    <a class="edition-link" data-edition="deepseek--deepseek-v4-pro-0813" href="tesseract.html?edition=deepseek--deepseek-v4-pro-0813"><b>DeepSeek V4 Pro</b><span>DeepSeek</span></a>
+    <a class="edition-link" data-edition="z-ai--glm-5.3" href="tesseract.html?edition=z-ai--glm-5.3"><b>GLM 5.3</b><span>Z.ai</span></a>
+    <a class="edition-link" data-edition="qwen--qwen3.8-max" href="tesseract.html?edition=qwen--qwen3.8-max"><b>Qwen 3.8 Max</b><span>Alibaba</span></a>
+    <a class="edition-link" data-edition="moonshotai--kimi-k2.6" href="tesseract.html?edition=moonshotai--kimi-k2.6"><b>Kimi K2.6</b><span>Moonshot</span></a>
+  </div>
+  <table class="results">
+    <thead><tr><th>Edition</th><th>Cost per story</th><th>Words per article</th><th>Ideas explained</th><th>Links drawn</th><th>Links per node</th><th>Seconds each</th></tr></thead>
+    <tbody>
+      <tr><td><a href="tesseract.html?edition=google--gemini-3.7-flash">Gemini 3.7 Flash</a></td><td class="cheapest">$0.0149</td><td>589</td><td>21</td><td>58</td><td>1.8</td><td>44</td></tr>
+      <tr><td><a href="tesseract.html?edition=deepseek--deepseek-v4-pro-0813">DeepSeek V4 Pro</a></td><td>$0.0261</td><td>703</td><td>24</td><td>73</td><td>2.1</td><td>4235</td></tr>
+      <tr><td><a href="tesseract.html?edition=openai--gpt-5.6-terra">GPT-5.6 Terra</a></td><td>$0.0270</td><td>785</td><td>26</td><td>62</td><td>1.7</td><td>4224</td></tr>
+      <tr><td><a href="tesseract.html?edition=moonshotai--kimi-k2.6">Kimi K2.6</a></td><td>$0.0407</td><td>656</td><td>18</td><td>65</td><td class="most">2.2</td><td>151</td></tr>
+      <tr><td><a href="tesseract.html?edition=z-ai--glm-5.3">GLM 5.3</a></td><td>$0.0483</td><td>938</td><td>30</td><td>73</td><td>1.8</td><td>2893</td></tr>
+      <tr><td><a href="tesseract.html?edition=anthropic--claude-sonnet-5">Claude Sonnet 5</a></td><td>$0.0835</td><td>634</td><td>24</td><td>54</td><td>1.5</td><td>58</td></tr>
+      <tr><td><a href="tesseract.html?edition=x-ai--grok-4.6">Grok 4.6</a></td><td>$0.0935</td><td>816</td><td>26</td><td>65</td><td>1.8</td><td>319</td></tr>
+      <tr><td><a href="tesseract.html?edition=qwen--qwen3.8-max">Qwen 3.8 Max</a></td><td>$0.1435</td><td>747</td><td>34</td><td>75</td><td>1.7</td><td>431</td></tr>
+    </tbody>
+    <caption>Every number here is measured, not estimated. The costs are what was actually charged for the work. &ldquo;Ideas explained&rdquo; is how many encyclopedia entries that model decided the stories needed. &ldquo;Links per node&rdquo; is how densely it wove its own world together. All 8 editions of all 11 stories cost $5.25 in total.</caption>
+  </table>
+  <p class="note">What the table already shows: Kimi K2.6 wove a world 1.5 times more densely connected than Claude Sonnet 5&rsquo;s, from the same 11 stories. GLM 5.3 wrote 938 words per article where Gemini 3.7 Flash wrote 589. DeepSeek V4 Pro took 4235 seconds to think where Gemini 3.7 Flash took 44. And Gemini 3.7 Flash, at $0.0149 a story, costs 10 times less than the dearest edition here &mdash; read them side by side and judge whether it shows.</p>
+  <p class="note">Hover a node for its one-line summary and picture; click it to read the whole page its model wrote for it. Every node carries the illustration its model imagined for the idea.</p>
+  <!-- generated by pipeline/stages/build_home.py on 2026-09-11 - do not edit by hand -->
+<!-- RESULTS END -->
+
+  <h2>What you are looking for</h2>
+  <p>A tesseract is to a cube what a cube is to a square. A square has four
+  corners, a cube has eight, a tesseract has sixteen. You cannot see one
+  properly, any more than a drawing on paper can properly show a cube &mdash;
+  but you can watch one <em>turn</em>, and that part your brain can genuinely
+  learn.</p>
+  <p>Turn it in the ZW plane and watch it pass through itself and come out
+  inside-out. Turn it four times and it comes exactly home. Nothing is broken
+  when that happens; that is simply what four dimensions look like.</p>
+
+  <h2>Why four dimensions, and not just a pretty effect</h2>
+  <p>Because the fourth direction is going to <em>mean</em> something you can
+  travel along. At one end hangs this week's raw, half-confirmed news. At the
+  other end sits the settled encyclopedia. Swimming from one to the other is
+  watching news condense into knowledge, with your own hand. Nowhere else on
+  the internet can you do that, and it is the whole idea of the magazine made
+  into a direction in space.</p>
+  <p>One promise about that: the fourth dimension will never be shown as a
+  colour. Colour means identity here &mdash; which model, which edition &mdash;
+  and nothing else.</p>
+
+  <h2>Done already</h2>
+  <ul class="plain">
+    <li>Real four dimensions, on a screen and in a headset, with five short
+      lessons that teach anyone to follow an object through a turn it should
+      not survive.</li>
+    <li>Editions: every story written from scratch by eight different AI
+      models, so you can judge them on work you actually came to read.</li>
+    <li>Eight separate worlds, one per edition, because each model decided for
+      itself what belongs beside what.</li>
+  </ul>
+
+  <h2>Coming, in this order</h2>
+  <ul class="plain">
+    <li>The reading pages, with every source linked beside every number, every
+      date and every name.</li>
+    <li>The illustrations. Every model wrote instructions for its own picture,
+      and the pictures get drawn with the same tool and the same starting
+      point for all of them &mdash; so the only difference you see is how well
+      each one directed the artist.</li>
+    <li>Model comparisons in real dimensions. Not our own invented scores: the
+      benchmarks the world already publishes, combined into three and four
+      dimensions instead of the one-dimensional bar chart everybody else
+      prints.</li>
+    <li>A do-it-yourself workshop, the way the old computer magazines had. The
+      first project is <a href="/night-watch.html">Night Watch</a>.</li>
+  </ul>
+
+  <h2>Comfort, if you use the headset</h2>
+  <p>The room never moves and you are never moved. Only the object turns, and it
+  turns slowly on purpose. If anything is uncomfortable for even a moment, that
+  is a fault worth reporting, not something to push through.</p>
+
+  <footer>
+    <p>Built in Israel, for a future shared with Madie in Romania.</p>
+    <p><a id="health-link" href="VERSION_FALLBACK/build-health.html">What exactly is live right now</a></p>
+  </footer>
+
+</main>
+
+<script>
+  // Find which dated folder is live, and aim the buttons at it. If this fails
+  // for any reason, the links already in the HTML still work.
+  fetch('pointer.json', { cache: 'no-store' })
+    .then((response) => response.json())
+    .then((pointer) => {
+      document.getElementById('enter-screen').href = pointer.live + '/tesseract.html';
+      document.getElementById('enter-vr').href = pointer.live + '/tesseract.html?vr=1';
+      document.getElementById('health-link').href = pointer.live + '/build-health.html';
+      // The edition links are generated into this page by
+      // pipeline/stages/build_home.py and point at the folder next door, which
+      // is right during development and wrong once deployed. Aim them at
+      // whichever dated folder is live. Done by CLASS, not by name, so a model
+      // added next month needs no change here.
+      for (const link of document.querySelectorAll('a.edition-link, table.results a')) {
+        const target = link.getAttribute('href');
+        // Skip anything that already carries the live folder's name, so a
+        // link can never be doubled up ("v.../v.../tesseract.html" was the
+        // 404 Nir pasted on 2026-09-04). Plain relative links get the folder
+        // name added exactly once; links that already have it are left alone.
+        if (target && !target.startsWith('/')
+            && !target.startsWith('http')
+            && !target.startsWith(pointer.live + '/')) {
+          link.href = pointer.live + '/' + target;
+        }
+      }
+    })
+    .catch(() => {
+      // No pointer file means we are being served straight out of the site/
+      // folder during development, where the application sits next door rather
+      // than inside a dated folder. Aim the buttons there instead, so that
+      // ops/look-at-the-site.sh gives a working page with no build step.
+      document.getElementById('enter-screen').href = 'tesseract.html';
+      document.getElementById('enter-vr').href = 'tesseract.html?vr=1';
+      document.getElementById('health-link').style.display = 'none';
+    });
+</script>
+  <script src="/lightbox.js" defer></script>
+</body>
+</html>

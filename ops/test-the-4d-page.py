@@ -167,7 +167,7 @@ async def main():
 
             for _ in range(40):
                 try:
-                    urllib.request.urlopen(f"http://127.0.0.1:{PORT}/index.html", timeout=1).read()
+                    urllib.request.urlopen(f"http://127.0.0.1:{PORT}/ai-panorama.html", timeout=1).read()
                     break
                 except Exception:
                     time.sleep(0.25)
@@ -985,7 +985,7 @@ async def main():
                   all(r["bottom"] <= 320.001 for r in fits), fits)
 
 
-            await page.send("Page.navigate", {"url": f"http://127.0.0.1:{PORT}/index.html"})
+            await page.send("Page.navigate", {"url": f"http://127.0.0.1:{PORT}/ai-panorama.html"})
             await page.drain(2.0)
             title = await page.evaluate("document.title")
             check("the root landing page loads", "AI PANORAMA" in (title or ""), title)
@@ -1002,8 +1002,9 @@ async def main():
             # unchanged and stays strict: the exact full menu, Night Watch
             # among it.
             check("the menu lists every project, Night Watch included",
-                  entry["menu"] == ['AI Panorama', 'Night Watch planned', 'Hive',
-                                   'Ghost', 'Learnime', 'Peak Together',
+                  entry["menu"] == ['Home', 'Crystal Balls', 'AI Panorama',
+                                   'Night Watch planned', 'Second Opinion coming soon',
+                                   'Hive', 'Ghost', 'Learnime', 'Peak Together',
                                    'Vibe Invention', 'About'],
                   entry["menu"])
 

@@ -82,7 +82,9 @@ def home_pages() -> list[Path]:
     Since 2026-09-05 this stage refreshes the generated section in ALL of
     them, so they can never disagree again.
     """
-    return [SITE / "index.html"] + sorted(SITE.glob("home-page-*.html"))
+    # 2026-10-27: the results section moved with the rest of AI Panorama onto its own
+    # page; the home pages no longer carry it.
+    return [SITE / "ai-panorama.html"]
 
 BEGIN = "<!-- RESULTS BEGIN -->"
 END = "<!-- RESULTS END -->"
