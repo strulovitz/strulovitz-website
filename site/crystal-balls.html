@@ -66,7 +66,7 @@
 
 <main>
 
-<h1>Crystal Balls</h1>
+<h1>CRYSTAL BALLS</h1>
 <p class="tagline"><a href="/crystal-balls/"><strong>Open the live Crystal Balls</strong></a></p>
 
 <!--
@@ -83,7 +83,66 @@
 <hr class="rule red">
 -->
 
-<p class="tagline">This page is being written.</p>
+<p class="tagline">A new algorithm for predicting the future. Invented at home. Free for everyone.</p>
+
+<section class="story">
+<h2>THE INVENTION</h2>
+<!-- IMAGE 1 goes here (prompt saved in crystal-balls-marketing-fable-2026-10-27.md) -->
+<p>Everyone who has tried to make an AI predict the news has made the same mistake: they showed it one photograph of the world and asked "what happens next?" One photo has no motion in it. Crystal Balls is built on a different idea, one that had never been applied to the news before: the Strulovitz momentum-and-wind method. Take the situation of a country this week and the situation last week, and let the AI read the difference between them, the way a physicist reads velocity from two positions. Then take the forecast the AI made last week, compare it with what really happened, and let the AI read its own error, the way an archer reads the wind from the first arrow. Now give it the present, the velocity, and the wind, and ask again. That is Newton's method, lifted out of mathematics and applied to the news of the world, in plain language, by a machine. Nobody had done this. Now anyone can.</p>
+</section>
+
+<hr class="rule blue">
+
+<section class="story">
+<h2>VELOCITY: THE DRIVER WHO SEES THE ROAD AHEAD</h2>
+<!-- IMAGE 2 goes here -->
+<p>Look at a car in one photo and you know where it is. Look at it in two photos taken a second apart and you suddenly know everything: how fast it is going, which way the wheel is turned, whether the foot is on the gas or the brake, and therefore where it will be in the next second. That is the first half of the invention. Crystal Balls never looks at one week alone. Every week it places this week's situation next to last week's and reads the motion of each country: what is accelerating, what is braking, what just swerved into view. It forecasts from the motion. Every other approach forecasts from the still photo. That single difference is why this method can see around corners that a snapshot cannot.</p>
+</section>
+
+<hr class="rule red">
+
+<section class="story">
+<h2>WIND: THE ARCHER WHO AIMS WITH THE FIRST ARROW'S MISS</h2>
+<!-- IMAGE 3 goes here -->
+<p>The second half of the invention is older than Newton and just as powerful: learn from the miss. An archer shoots straight at the target and watches the wind carry the arrow to the left. The second arrow is not aimed at the target at all. It is aimed into the wind, by exactly the amount the first one missed, and it strikes the center. Crystal Balls shoots its arrow every week. Then it compares last week's forecast with what the headlines really reported, and reads the wind: too optimistic on peace talks, too slow on economic damage, too quick to believe a dramatic story would last. The next forecast is aimed with that reading in hand, separately for every country, because the wind over Iran is not the wind over Japan. A forecaster that corrects for its own systematic error is a forecaster that gets sharper every single week. No oracle in history did that.</p>
+</section>
+
+<hr class="rule blue">
+
+<section class="story">
+<h2>THREE GLASS GLOBES: THE FUTURE YOU CAN SEE THROUGH</h2>
+<!-- IMAGE 4 goes here -->
+<p>The algorithm produces three measurements of every country, and the page shows all three at once, as three transparent globes nested like Russian dolls. The small dark globe inside is the week before last. The silver globe around it is last week. The bright white globe on the outside is the forecast for the week to come. Each country wears its flag and three icons that capture its week: a ballot box, crossed swords, a falling chart, a dove. Spin the world and the three globes turn together, so every country's past, present and future line up in one column, and you can see with your own eyes the motion that produced the forecast. Tap a country and it tells you, in plain words, what to expect next week and why. It is the crystal ball every culture dreamed of, except this one shows you how it thinks.</p>
+</section>
+
+<hr class="rule red">
+
+<section class="story">
+<h2>PROPHECY WITH A SCORECARD, FROM A LIVING ROOM, FOR FREE</h2>
+<!-- IMAGE 5 goes here -->
+<p>Every fortune teller in history had one trick in common: nobody checked. Crystal Balls checks itself in public. Every forecast is sealed with a timestamp in an open archive before the week begins. A week later an AI judge reads what the news really reported and grades every forecast line by line, and grades a rival forecaster with no memory at all, so the power of the method shows up as a number anyone can read. And here is the part that should make you sit up: all of this runs on one ordinary gaming PC in an apartment, with a free open AI model you can download tonight and free news feeds from twelve of the world's great newsrooms. No lab, no budget, no company. The method is open source, and it scales: run it on the strongest AI in the world and it gets stronger still. Predicting the future was the privilege of emperors and oracles for five thousand years. As of now, it is yours.</p>
+</section>
+
+<hr class="rule blue">
+
+<section class="story">
+<h2>DO IT YOURSELF, TONIGHT</h2>
+<p>The method is open and it is yours. Download a free local AI model (we use Qwen, 27 billion parameters, on one graphics card). Pull this week's headlines about a country from Google News and ask the model to describe the situation and forecast next week. Save it. Next week, give it both situations and ask it to read the velocity. Give it last week's forecast and this week's reality and ask it to read the wind. Then give it the present, the velocity and the wind, and ask for the forecast. You have just run the Strulovitz method by hand. Our open-source pipeline does it automatically for 32 countries every week, draws the globes, runs the judge and publishes the score. Fork it, run it on a bigger model, beat us.</p>
+</section>
+
+<hr class="rule red">
+
+<section class="story">
+<h2>FOR JOURNALISTS, THE FACTS</h2>
+<p>What it is: a new forecasting algorithm for the news, invented by Nir Strulovitz and running weekly as a free, open-source, non-profit experiment on one home PC.</p>
+<p>The method: momentum (read the velocity of a country's situation from two consecutive weeks) plus wind (read the systematic error of last week's forecast against reality) feed a corrected forecast. Newton's method applied to news, carried out in natural language by a language model.</p>
+<p>Why it is new: previous attempts at AI news forecasting give the model a single snapshot. This is the first method that gives it the trajectory and its own measured error, and the first that publishes a weekly self-score.</p>
+<p>Where it runs: one gaming PC, free open model (Qwen 27B), free Google News RSS feeds of Reuters, AP, AFP, BBC, CNN, DW, TV5Monde, Bloomberg, WSJ, FT, CNBC and Al Jazeera. Zero budget. Scales to any model.</p>
+<p>The test: two forecasters, one using the method and one without memory, graded blind every week by an AI judge against what the twelve sources reported, alongside a "nothing changes" baseline. Forecasts are timestamped in a public git archive before the week starts. The judge was validated against deliberately damaged forecasts before any score was shown.</p>
+<p>Who: Nir Strulovitz, Israel. strulovitz.org, a free volunteer site about using AI in new ways. Code and data at github.com/strulovitz/crystal-balls, MIT and CC BY 4.0.</p>
+<p>Status: live, running weekly since October 2026. The scorecard fills in week by week.</p>
+</section>
+
 
 <footer>
   <p><a href="/">Back to Home</a></p>
