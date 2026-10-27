@@ -1003,7 +1003,7 @@ async def main():
             # among it.
             check("the menu lists every project, Night Watch included",
                   entry["menu"] == ['Home', 'Crystal Balls', 'AI Panorama',
-                                   'Night Watch planned', 'Second Opinion coming soon',
+                                   'Night Watch planned', 'Laser Chess planned', 'Second Opinion coming soon',
                                    'Hive', 'Ghost', 'Learnime', 'Peak Together',
                                    'Vibe Invention', 'About'],
                   entry["menu"])
