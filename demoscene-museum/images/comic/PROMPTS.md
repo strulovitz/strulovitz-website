@@ -2,8 +2,8 @@
 
 HOW TO USE: for every page, paste the COMMON BLOCK first, then that page's
 prompt, as ONE message to the image model.  Generate portrait 2:3 (e.g.
-1024x1536 or larger).  Save as images/comic/page-NN.webp, 1200x1800,
-WebP quality 82.  The model has no memory, which is why the common block
+1024x1536 or larger).  Save as images/comic/page-NN.jpg at the image's
+native size, no resizing (Nir's choice: JPEG quality 82, not WebP).  The model has no memory, which is why the common block
 describes the style, the three characters and the machine every time.
 
 ======================================================================
