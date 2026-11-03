@@ -28,6 +28,14 @@
 		header Cache-Control "public, max-age=300"
 	}
 	redir /crystal-balls /crystal-balls/ permanent
+	# Demoscene Museum: served directly from its own repo clone
+	# (github.com/strulovitz/demoscene-museum), like Crystal Balls.
+	handle_path /demoscene-museum/* {
+		root * {$HOME}/demoscene-museum
+		file_server
+		header Cache-Control "public, max-age=300"
+	}
+	redir /demoscene-museum /demoscene-museum/ permanent
 	redir /ghost /ghost/ 308
 	redir /hive /hive/ 308
 	handle /ghost/* {
