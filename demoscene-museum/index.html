@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<!-- index.html  --  landing page of the Demoscene Museum: a scrolling comic.
+     Pages: images/comic/page-01.webp .. page-13.webp (portrait 2:3, 1200x1800).
+     Prompts for the images: images/comic/PROMPTS.md.
+     The museum: museum/index.html -->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Real-Time Machine — a demoscene story · Demoscene Museum</title>
+  <meta name="description" content="A comic about the demoscene — the art that runs in real time — and a 3D museum you can walk through in your browser, where every work is remade in Python, Java and JavaScript so you can read it and change it.">
+  <meta property="og:title" content="Demoscene Museum — The Real-Time Machine">
+  <meta property="og:image" content="images/comic/page-01.webp">
+  <style>
+    :root { --bg: #0b0b10; --paper: #15151d; --text: #e6e6ea; --muted: #9a9aa6; --accent: #78dce8; --gold: #ffd866; }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; line-height: 1.55; }
+    a { color: var(--accent); }
+    .wrap { max-width: 900px; margin: 0 auto; padding: 0 14px; }
+    /* ---- top bar (sticky) ---- */
+    .bar { position: sticky; top: 0; z-index: 10; background: rgba(11,11,16,.9); backdrop-filter: blur(6px); border-bottom: 1px solid #22222c; }
+    .bar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 10px 14px; }
+    .bar .name { font-weight: 800; letter-spacing: .04em; font-size: .95rem; }
+    .bar .name span { color: var(--gold); }
+    .btn { display: inline-block; padding: 10px 18px; border-radius: 6px; font-weight: 700; text-decoration: none; background: var(--accent); color: #06161a; white-space: nowrap; transition: transform .15s, box-shadow .15s; }
+    .btn:hover { transform: translateY(-1px); box-shadow: 0 6px 24px rgba(120,220,232,.35); }
+    .btn.big { padding: 16px 34px; font-size: 1.15rem; }
+    /* ---- title ---- */
+    .title { position: relative; text-align: center; padding: 60px 14px 40px; overflow: hidden; }
+    #plasma { position: absolute; inset: 0; width: 100%; height: 100%; image-rendering: pixelated; opacity: .35; }
+    .title::after { content: ""; position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(11,11,16,.2), rgba(11,11,16,.95) 80%); }
+    .title > * { position: relative; z-index: 1; }
+    .kicker { letter-spacing: .25em; text-transform: uppercase; font-size: .75rem; color: var(--gold); margin: 0 0 10px; }
+    h1 { margin: 0 0 8px; font-size: clamp(2.2rem, 7vw, 4.4rem); line-height: 1.05; letter-spacing: -.02em; text-shadow: 0 2px 30px #000; }
+    .sub { color: var(--text); font-size: clamp(1rem, 2.2vw, 1.25rem); max-width: 640px; margin: 0 auto 18px; text-shadow: 0 1px 12px #000; }
+    .tiny { color: var(--muted); font-size: .85rem; max-width: 640px; margin: 14px auto 0; }
+    .toggle { font-size: .85rem; color: var(--muted); margin-top: 18px; display: inline-flex; gap: 8px; align-items: center; cursor: pointer; }
+    /* ---- the comic ---- */
+    .comic { padding: 20px 0 10px; }
+    figure { margin: 0 0 18px; background: var(--paper); border: 1px solid #22222c; border-radius: 8px; overflow: hidden; }
+    figure img { display: block; width: 100%; aspect-ratio: 2 / 3; object-fit: cover; background: #000; }
+    figcaption { padding: 12px 16px 14px; font-size: .9rem; color: var(--muted); border-top: 1px solid #22222c; }
+    figcaption b { color: var(--text); }
+    body.noscript figcaption { display: none; }
+    .pageno { font-size: .75rem; letter-spacing: .2em; color: var(--gold); display: block; margin-bottom: 4px; }
+    /* ---- end ---- */
+    .end { text-align: center; padding: 70px 14px 40px; background: radial-gradient(ellipse at center, #1a1a26, var(--bg) 70%); }
+    .end h2 { font-size: clamp(1.6rem, 4vw, 2.6rem); margin: 0 0 10px; }
+    .end p { color: var(--muted); max-width: 620px; margin: 0 auto 26px; }
+    footer { padding: 30px 14px 50px; color: var(--muted); font-size: .85rem; text-align: center; border-top: 1px solid #22222c; }
+    footer a { margin: 0 9px; }
+  </style>
+</head>
+<body>
+
+<div class="bar">
+  <div class="wrap">
+    <div class="name">DEMOSCENE <span>MUSEUM</span></div>
+    <a class="btn" href="museum/">Enter the Museum</a>
+  </div>
+</div>
+
+<header class="title">
+  <canvas id="plasma" width="160" height="90" aria-hidden="true"></canvas>
+  <p class="kicker">A comic in thirteen pages</p>
+  <h1>The Real-Time Machine</h1>
+  <p class="sub">Two old sceners, one bored eighteen-year-old, and a 1990s computer whose Turbo button finally does something. The story of the art that runs in real time — and the museum built so you can walk through it.</p>
+  <a class="btn big" href="museum/">Skip the comic, enter the Museum</a>
+  <p class="tiny">The colours behind this title are not a video. They are a small program running right now — which is the whole point of everything below.</p>
+  <label class="toggle"><input type="checkbox" id="scriptToggle" checked> Show the script under each page</label>
+</header>
+
+<main class="comic">
+  <div class="wrap">
+
+    <figure><img src="images/comic/page-01.webp" alt="Cover: Léa, Benny and Noa in a rainy neon alley in front of a giant glowing beige tower PC." loading="eager">
+      <figcaption><span class="pageno">PAGE 1</span><b>The Real-Time Machine — a demoscene story.</b></figcaption></figure>
+
+    <figure><img src="images/comic/page-02.webp" alt="A rainy cyberpunk street. Noa is bored; Léa and Benny tease her." loading="lazy">
+      <figcaption><span class="pageno">PAGE 2</span><b>Noa:</b> I've played everything. I've watched everything. I'm bored, Auntie. <b>Léa:</b> You consume everything. Have you ever <i>made</i> anything? <b>Benny:</b> When we were your age, we built whole worlds. In 64 kilobytes. <b>Noa:</b> When you were my age, the internet made a screaming noise. <b>Léa:</b> She's not wrong. <b>Benny:</b> The scream was the sound of the future arriving. <b>Léa:</b> Come. Benny has a machine. And a story he's told a thousand times. <b>Benny:</b> It gets better every time.</figcaption></figure>
+
+    <figure><img src="images/comic/page-03.webp" alt="Benny's attic. The giant beige tower with a dinner-plate Turbo button glows teal." loading="lazy">
+      <figcaption><span class="pageno">PAGE 3</span><b>Noa:</b> That's a computer? <b>Benny:</b> That's a time machine. It was a computer until I fixed it. <b>Léa:</b> The Turbo button. On every PC of the nineties. It never did anything. <b>Benny:</b> Now it does. <i>KA-CHUNK.</i> <b>Noa:</b> Why does it smell like hot dust? <b>Benny:</b> That's the smell of 1991. <b>Léa:</b> Insert disk two.</figcaption></figure>
+
+    <figure><img src="images/comic/page-04.webp" alt="1991: a steampunk-tinged bedroom, a cracktro with rainbow bars and a wavy scroller on a brass-framed screen." loading="lazy">
+      <figcaption><span class="pageno">PAGE 4</span><b>Benny:</b> That's me. Look at that hair. <b>Léa:</b> We're looking. We can't stop. <b>Noa:</b> What am I looking at? <b>Léa:</b> A cracktro. The screen before a game. Groups signed their work with these. The intro became more interesting than the game — so people stopped making games and just made intros. <b>Noa:</b> And the games were... legally acquired? <b>Benny:</b> The scene grew up fast and left all that behind. Moving on. <b>Léa:</b> We're a museum, not a courtroom. <b>Noa:</b> ...Okay. The wavy text is kind of hypnotic. <b>Benny:</b> It's called a sine scroller. Say it with respect.</figcaption></figure>
+
+    <figure><img src="images/comic/page-05.webp" alt="1993: a vast sports hall in Finland, thousands of computers, a giant screen, a cheering crowd." loading="lazy">
+      <figcaption><span class="pageno">PAGE 5</span><i>1993. A sports hall in Finland. Three thousand computers.</i> <b>Benny:</b> This is it. The demo that changed everything is about to play. <b>Noa:</b> That's running live? On <i>those</i>? <b>Léa:</b> No graphics card. No Windows. A 486 and pure stubbornness. <b>Benny:</b> I cried. I'm crying now. <b>Léa:</b> You cry at modem sounds. <b>Noa:</b> ...Okay, I get it a little.</figcaption></figure>
+
+    <figure><img src="images/comic/page-06.webp" alt="3 a.m. at the party: pizza, beer, a tracker screen, a deadline clock, young Benny and Léa at work." loading="lazy">
+      <figcaption><span class="pageno">PAGE 6</span><i>3 a.m. The compo deadline is at six.</i> <b>Benny:</b> I composed the soundtrack that night. Four channels. <i>Four.</i> <b>Léa:</b> Four channels, and you used three of them for the same bass. <b>Benny:</b> It was a motif. <b>Léa:</b> And I rewrote the tunnel routine three times because it worked on my machine and nowhere else. <b>Noa:</b> That still happens. That's literally every group project. So it's all-nighters, pizza and beer? <b>Léa:</b> And then your thing plays on a screen the size of a house while a thousand people scream. <b>Benny:</b> They screamed at my bass. <b>Léa:</b> They screamed at the tunnel.</figcaption></figure>
+
+    <figure><img src="images/comic/page-07.webp" alt="A brass lens the size of a table focused on one floppy disk; through it, a glowing orange pixel tunnel." loading="lazy">
+      <figcaption><span class="pageno">PAGE 7</span><b>Léa:</b> Then it got weird. How small can art be? Sixty-four kilobytes. Four. Two hundred fifty-six <i>bytes</i>. <b>Noa:</b> My photo of a sandwich is three megabytes. <b>Léa:</b> This tunnel is ten thousand times smaller than your sandwich. <b>Benny:</b> Two hundred fifty-six bytes. Smaller than this speech bubble. <b>Noa:</b> That's not possible. <b>Léa:</b> It's in our first hall. You can read it. <b>Noa:</b> How? <b>Léa:</b> Math, spite, and a palette that turns negative numbers teal. <b>Benny:</b> She's flirting with the code again.</figcaption></figure>
+
+    <figure><img src="images/comic/page-08.webp" alt="The 2000s: snow and neon outside a German hall; glossy 3D on the big screen; a lone lit window in the polar night." loading="lazy">
+      <figcaption><span class="pageno">PAGE 8</span><i>The 2000s. Graphics cards. Windows. Easter in Germany and Norway, Christmas in Denmark, summer in Finland.</i> <b>Benny:</b> We planned our year around them. <b>Noa:</b> Okay, this looks like a movie. <b>Léa:</b> Still not a movie. Still computed live. The rule never changed. Why do you think it started in the north? It's dark twenty hours a day. You code or you lose your mind. <b>Benny:</b> Or both. <b>Noa:</b> So the demoscene is basically seasonal depression with a soundtrack. <b>Benny:</b> ...With a <i>great</i> soundtrack.</figcaption></figure>
+
+    <figure><img src="images/comic/page-09.webp" alt="A montage: a game studio, a graphics-chip lab, a music studio, a security operations room." loading="lazy">
+      <figcaption><span class="pageno">PAGE 9</span><b>Léa:</b> And then they grew up. The kids from those halls founded game studios. Built the benchmarks your graphics card is judged by. Wrote the music software in every studio. Some guard banks. Some do film effects. I do satellites. <b>Noa:</b> Wait. This nerd hobby is a <i>career</i>? <b>Benny:</b> The nerd hobby <i>is</i> the career. The suit is optional. <b>Léa:</b> He has never owned a suit.</figcaption></figure>
+
+    <figure><img src="images/comic/page-10.webp" alt="Back in the attic, searching for a museum on screens; Benny horrified at a video-player icon; Léa resolute." loading="lazy">
+      <figcaption><span class="pageno">PAGE 10</span><b>Noa:</b> So where's the museum? There must be a museum. <b>Léa:</b> Five countries list it as cultural heritage. There are exhibitions, archives, the parties themselves... <b>Benny:</b> ...and videos. They show real-time art as <i>video</i>. That's like photographing a song. <b>Léa:</b> Then we build one. A museum you walk through. In the browser. Every work runs live, and you can read its code. <b>Noa:</b> And I can change it? <b>Léa:</b> You can break it. That's how everyone learned. <b>Benny:</b> Remade in languages kids actually know. No assembly. <b>Léa:</b> He says that like he ever knew assembly.</figcaption></figure>
+
+    <figure><img src="images/comic/page-11.webp" alt="The future: a spaceship bridge; Noa describes a tunnel to a floating AI light and drags a number in the air." loading="lazy">
+      <figcaption><span class="pageno">PAGE 11</span><b>Benny:</b> One more stop. <b>Noa:</b> Where? <b>Léa:</b> Next week. <b>Noa:</b> <i>This</i> is next week? <b>Léa:</b> The future arrives faster than it used to. <b>Noa:</b> Computer — a tunnel. Spinning. On fire on one side. In Python. ... I changed one number and it's a fisheye! <b>Benny:</b> In my day... <b>Noa and Léa:</b> ...you had dial-up. <b>Léa:</b> The barriers are gone, Noa. If you can describe it, you can build it. The only limit left is what you can imagine.</figcaption></figure>
+
+    <figure><img src="images/comic/page-12.webp" alt="At the spaceship window: Léa explains that image AIs are starting to write programs that draw; Benny tears up." loading="lazy">
+      <figcaption><span class="pageno">PAGE 12</span><b>Léa:</b> Funny thing. The newest image AIs are starting to write programs that draw, instead of painting pixels. <b>Benny:</b> A program that draws. That's a demo. That's all we ever did. <b>Noa:</b> So the demoscene was... right? <b>Léa:</b> The demoscene was always right. It was just thirty years early. <b>Benny:</b> I'm not crying. It's the nebula. <b>Léa:</b> It's the modem sound in your head.</figcaption></figure>
+
+    <figure><img src="images/comic/page-13.webp" alt="The glowing museum doors. Noa steps in first toward the tunnel on the far wall." loading="lazy">
+      <figcaption><span class="pageno">PAGE 13</span><b>Léa:</b> It's open. Go in. Press any key to enter with sound. <b>Noa:</b> Which key is "any"? <b>Benny:</b> That's your handle now. "Any". <b>Noa:</b> I hate it. I love it. <i>The doors are open. Yours too.</i></figcaption></figure>
+
+  </div>
+</main>
+
+<section class="end">
+  <h2>Your turn, "Any".</h2>
+  <p>Not a game you play. A world you make — at home, with your imagination, in languages you can read, with every entry barrier gone. Walk in. Press a key to hear the music. Find the tunnel. Change a number.</p>
+  <a class="btn big" href="museum/">Enter the Museum</a>
+</section>
+
+<footer>
+  <a href="museum/">Museum</a><a href="exhibits/tube/web/">Standalone: tube</a><a href="shared/web/examples/mod.html">Standalone: MOD player</a><a href="https://github.com/strulovitz/demoscene-museum">GitHub</a><a href="https://www.pouet.net">pouet.net</a><a href="https://demozoo.org">Demozoo</a><a href="https://www.strulovitz.org">strulovitz.org</a>
+  <p style="margin-top:14px">Demoscene Museum · MIT licence · Original works © their authors · Léa, Benny, Noa and the Real-Time Machine are original characters.</p>
+</footer>
+
+<script>
+  // script toggle
+  const toggle = document.getElementById('scriptToggle');
+  toggle.onchange = () => document.body.classList.toggle('noscript', !toggle.checked);
+  // the title background: a real-time plasma (same idea as exhibits/plasma)
+  const canvas = document.getElementById('plasma'), ctx = canvas.getContext('2d');
+  const W = canvas.width, H = canvas.height, img = ctx.createImageData(W, H), px = new Uint32Array(img.data.buffer);
+  const pal = new Uint32Array(256);
+  for (let i = 0; i < 256; i++) {
+    const a = i / 256 * 2 * Math.PI;
+    pal[i] = (255 << 24) | ((110 + 100 * Math.sin(a + 4.2)) << 16) | ((90 + 90 * Math.sin(a + 2.1)) << 8) | (60 + 50 * Math.sin(a));
+  }
+  const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function frame(ms) {
+    const t = reduce ? 0 : ms / 1000;
+    let i = 0;
+    for (let y = 0; y < H; y++) for (let x = 0; x < W; x++) {
+      const v = Math.sin(x / 14 + t) + Math.sin(y / 9 - t * .7) + Math.sin((x + y) / 18 + t * .5) + Math.sin(Math.hypot(x - 80, y - 45) / 9 - t);
+      px[i++] = pal[((v + 4) / 8 * 255) | 0];
+    }
+    ctx.putImageData(img, 0, 0);
+    if (!reduce) requestAnimationFrame(frame);
+  }
+  requestAnimationFrame(frame);
+</script>
+</body>
+</html>
