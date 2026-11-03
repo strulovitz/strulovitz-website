@@ -69,9 +69,22 @@ THE MENU, IN THIS ORDER
    and instead of people getting addicted to alcohol they will be addicted to
    that. Fine Wine memorializes the innocent era of games made by human hands,
    before it ends. First entry: Red Dead Redemption 2 (2018), installed and
-   running 2026-09-10 (Linux Mint 22, RTX 4070 Ti, wine-staging 11.16 from
-   WineHQ, the jc141 release which needs no installation). It sits in the menu
-   just before About, after Vibe Invention. Added 2026-09-10 at Nir's request.
+    running 2026-09-10 (Linux Mint 22, RTX 4070 Ti, wine-staging 11.16 from
+    WineHQ, the jc141 release which needs no installation). It sits in the menu
+    just before About, after Vibe Invention. Added 2026-09-10 at Nir's request.
+
+9. DEMOSCENE MUSEUM  --  "/demoscene-museum/"  --  placeholder page since
+   2026-11-03; Fable's real explanation page will replace it.
+   Nir's Demoscene Museum: a walkable 3D museum of demoscene history, built
+   from scratch with a software raycaster and no libraries. Working exhibits
+   with their code in Python, Java and JavaScript, the BIBLE that governs the
+   project, and music: Space Debris by Captain (Markus Kaarlonen) plays on a
+   four-faced pillar in the Lobby, one channel per face. The code lives in its
+   own GitHub repository, github.com/strulovitz/demoscene-museum, and it is
+   that repository which is served at /demoscene-museum/. The first page there
+   is a placeholder whose very beginning carries a prominent, clearly marked
+   link to enter the actual walkable museum. It sits in the menu just before
+   About, which stays the last item. Added 2026-11-03 at Nir's request.
 
    About  --  "/about.html"  --  the last item in the menu, after Fine
    Wine.
