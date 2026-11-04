@@ -6,10 +6,18 @@ and stays untouched. The local websites listen only on `127.0.0.1`, not on the
 public network. No services are enabled automatically at boot.
 
 - `sites-status` shows which services are running and checks ports 8081-8083.
-- `sites-on` checks GitHub for updates to the three existing repos, rebuilds the
-  Strulovitz export only when its website source changes, and starts the local
+- `sites-on` pulls (or clones, if missing) EVERY repository the web server serves
+  from: strulovitz-website, Anime, peaktogether-website, second-opinion,
+  demoscene-museum and crystal-balls. A failure prints a loud warning but the other
+  sites still start. It rebuilds the
+  Strulovitz export whenever its website source is newer than the last build (a stamp in
+  `exports/.built-from`, so a hand-made `git pull` cannot leave an old build), starts the local
   web server, tunnel, and keep-awake service. It refuses to start anything if
   the tunnel token is missing. It does not upload to DreamHost.
+- `sites-check` asks the local server for every menu link and every link, image and
+  script of the project landing pages (Second Opinion, Demoscene Museum comic, Crystal
+  Balls) and prints each one that is not 200; it also lists every served file that git
+  ignores or has not pushed (invisible on the other computer). `sites-on` runs it last.
 - `sites-off` stops these three services, leaving Apache alone.
 
 The local pages are `http://127.0.0.1:8081/` (Strulovitz), `:8082/`
@@ -56,3 +64,17 @@ Enter so you can read the result. On GNOME, the Desktop Icons NG (DING)
 extension must be enabled to see the desktop copies; on Mint Cinnamon, desktop
 icons work natively. Re-run the installer after moving the repository to update
 its absolute paths.
+
+## A page is not done until its live URL is checked
+
+A website that only works on the computer where it was made is broken: the desktop and the
+laptop take turns serving, and each serves only what it pulled from GitHub (the Site Folder
+Law, see `AGENTS.md`). So nobody tells Nir "it works" or "it is live" until ALL of these
+were fetched over the REAL internet (`curl -sI https://www.strulovitz.org/...` and a
+headless-Chrome look, not only 127.0.0.1):
+1. the menu item on the home page (every link in the menu answers 200),
+2. the landing page of the project (its images and scripts too),
+3. the project's own site (for example `/2nd-opinion/` search "hernia", `/demoscene-museum/museum/`,
+   `/crystal-balls/` shows its globes).
+Run `sites-check` on the serving computer first; it must print OK. Remember Cloudflare and the
+browser may keep an old copy for hours: a hard reload or a private window shows the truth.
