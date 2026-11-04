@@ -1,0 +1,142 @@
+#!/usr/bin/env python3
+"""sites-check: is every website really working on THIS computer, and is every file it serves on GitHub?
+
+Part 1 (links): asks the local web server (127.0.0.1:8081-8083) for
+  - every internal link in the menu of the root index.html that is actually served,
+  - every internal link, image and script of each project landing page
+    (Second Opinion, Demoscene Museum comic, Crystal Balls) plus a few key data files,
+  and prints every one that is not HTTP 200. It also compares the served menu with the
+  menu in the git source (a different list means an old local build).
+Part 2 (GitHub): for every repository whose files are served, lists files in the served
+  folder that are ignored by git or untracked (invisible on the other computer), changes not
+  committed, and commits not pushed. Nothing is silently ignored.
+
+Exit code 1 if anything is wrong. Only reads; changes nothing.
+Needs the local Caddy running: systemctl --user start site-caddy.service
+"""
+import os, re, subprocess, sys, urllib.error, urllib.parse, urllib.request
+from html.parser import HTMLParser
+
+HOME = os.path.expanduser("~")
+BASE = "http://127.0.0.1:8081"
+WEBSITE = os.path.join(HOME, "strulovitz-website")
+LANDING = ["/2nd-opinion/", "/2nd-opinion/viewer/", "/demoscene-museum/", "/crystal-balls/"]
+KEY_FILES = ["/2nd-opinion/data/search.json", "/2nd-opinion/data/golden.json", "/crystal-balls/data/index.json",
+             "/demoscene-museum/museum/", "/hosted-by"]
+OTHER_SITES = {"http://127.0.0.1:8082/": "Learnime", "http://127.0.0.1:8083/": "Peak Together"}
+# repository -> folders inside it that the web server serves
+SERVED = {"strulovitz-website": ["site", "demoscene-museum", "ghost", "hive"],
+          "second-opinion": ["site"], "crystal-balls": ["public"], "demoscene-museum": ["."],
+          "Anime": ["learnime-site"], "peaktogether-website": ["."]}
+
+bad = []
+
+
+class Links(HTMLParser):
+    def __init__(self):
+        super().__init__(); self.found = []
+    def handle_starttag(self, tag, attrs):
+        a = dict(attrs)
+        for key in ("href", "src"):
+            if a.get(key):
+                self.found.append(a[key])
+
+
+def links_of(html, page_url):
+    p = Links(); p.feed(html); out = []
+    for raw in p.found:
+        if raw.startswith(("mailto:", "javascript:", "data:", "#")):
+            continue
+        full = urllib.parse.urljoin(page_url, raw.split("#")[0])
+        if full.startswith(BASE):
+            out.append(full)
+    return out
+
+
+def status(url, method="HEAD"):
+    try:
+        req = urllib.request.Request(url, method=method, headers={"User-Agent": "sites-check"})
+        with urllib.request.urlopen(req, timeout=30) as r:
+            return r.status
+    except urllib.error.HTTPError as e:
+        return e.code
+    except Exception as e:
+        return f"unreachable ({e})"
+
+
+def get(url):
+    with urllib.request.urlopen(urllib.request.Request(url, headers={"User-Agent": "sites-check"}), timeout=30) as r:
+        return r.read().decode("utf-8", "replace")
+
+
+def main():
+    if status(BASE + "/hosted-by") != 200:
+        print("!!! The local web server does not answer on 127.0.0.1:8081. Start it: systemctl --user start site-caddy.service")
+        return 1
+    # ---- Part 1: links
+    checked, seen = 0, set()
+    def check(url, why):
+        nonlocal checked
+        if url in seen:
+            return
+        seen.add(url); checked += 1
+        s = status(url)
+        if s != 200:
+            bad.append(f"{s}  {url}   (from: {why})")
+    root_html = get(BASE + "/")
+    menu = sorted({l for l in links_of(root_html, BASE + "/") if not l.endswith(".css")})
+    for l in menu:
+        check(l, "menu of the served index.html")
+    src_index = os.path.join(WEBSITE, "site", "index.html")
+    if os.path.exists(src_index):
+        src_links = {urllib.parse.urljoin(BASE + "/", h) for h in re.findall(r'href="(/[^"#]*)"', open(src_index).read())}
+        served = {urllib.parse.urljoin(BASE + "/", h) for h in re.findall(r'href="(/[^"#]*)"', root_html)}
+        for missing in sorted(src_links - served):
+            bad.append(f"OLD BUILD: the menu in site/index.html has {missing} but the served page does not (rebuild: python3 ops/build-export.py)")
+    for page in LANDING:
+        url = BASE + page
+        s = status(url)
+        if s != 200:
+            bad.append(f"{s}  {url}   (project landing page)"); checked += 1; continue
+        for l in links_of(get(url), url):
+            check(l, page)
+    for f in KEY_FILES:
+        check(BASE + f, "key file")
+    for url, name in OTHER_SITES.items():
+        check(url, name)
+    print(f"Links: {checked} requested on this computer, {len([b for b in bad if not b.startswith('OLD')])} not 200.")
+    # ---- Part 2: GitHub
+    flagged = 0
+    for repo, folders in SERVED.items():
+        d = os.path.join(HOME, repo)
+        if not os.path.isdir(os.path.join(d, ".git")):
+            bad.append(f"MISSING REPO: {d} is not on this computer; its pages cannot be served"); continue
+        lines = []
+        for folder in folders:
+            out = subprocess.run(["git", "-C", d, "status", "--porcelain", "--ignored", "--untracked-files=all", "--", folder],
+                                 capture_output=True, text=True).stdout.splitlines()
+            lines += out
+        hidden = [l for l in lines if re.search(r"(^|/)\.[^/]", l[3:]) or "__pycache__" in l]  # dot-files are never served
+        real = [l for l in lines if l not in hidden]
+        ahead = subprocess.run(["git", "-C", d, "rev-list", "--count", "@{u}..HEAD"], capture_output=True, text=True).stdout.strip()
+        if real:
+            flagged += 1
+            kinds = {"!!": "IGNORED by git (not on GitHub)", "??": "untracked (not on GitHub)"}
+            bad.append(f"{repo}: {len(real)} served file(s) are not safely on GitHub, e.g.:")
+            for l in real[:8]:
+                bad.append(f"      {kinds.get(l[:2], 'changed, not committed')}: {l[3:]}")
+        if ahead not in ("", "0"):
+            bad.append(f"{repo}: {ahead} commit(s) NOT pushed to GitHub")
+        print(f"GitHub: {repo:22s} {'PROBLEM' if real or ahead not in ('', '0') else 'ok'}"
+              + (f"  ({len(hidden)} dot/cache files, never served)" if hidden else ""))
+    if bad:
+        print(f"\nsites-check: {len(bad)} PROBLEM LINE(S):")
+        for b in bad:
+            print("  - " + b)
+        return 1
+    print("\nsites-check: OK (every link answers 200 and every served file is on GitHub)")
+    return 0
+
+
+if __name__ == "__main__":
+    sys.exit(main())
