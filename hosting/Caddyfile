@@ -28,11 +28,24 @@
 		header Cache-Control "public, max-age=300"
 	}
 	redir /crystal-balls /crystal-balls/ permanent
-	# Demoscene Museum: served directly from its own repo clone
-	# (github.com/strulovitz/demoscene-museum), like Crystal Balls.
+	# Demoscene Museum. The comic landing page lives in THIS repo
+	# (strulovitz-website/demoscene-museum/); the museum itself (museum/,
+	# exhibits/, shared/, bible/) is served from its own repo clone
+	# (github.com/strulovitz/demoscene-museum). A file found in the landing
+	# folder wins; everything else comes from the museum clone.
 	handle_path /demoscene-museum/* {
-		root * {$HOME}/demoscene-museum
-		file_server
+		@landing file {
+			root {$HOME}/strulovitz-website/demoscene-museum
+			try_files {path} {path}/index.html
+		}
+		handle @landing {
+			root * {$HOME}/strulovitz-website/demoscene-museum
+			file_server
+		}
+		handle {
+			root * {$HOME}/demoscene-museum
+			file_server
+		}
 		header Cache-Control "public, max-age=300"
 	}
 	redir /demoscene-museum /demoscene-museum/ permanent
