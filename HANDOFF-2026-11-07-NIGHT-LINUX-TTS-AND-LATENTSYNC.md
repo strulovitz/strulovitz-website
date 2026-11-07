@@ -203,3 +203,21 @@ If TTS cannot be installed soon, ask Nir whether he wants to use one of our song
 3. Use the resulting WAV for the LatentSync test (section 3).
 4. Update the handoff section in this repo and push ONLY by named file after he asks; then verify
    with `git status --porcelain` and `git log origin/master..HEAD`.
+
+## 6. UPDATE 8 Nov 2026 (after midnight): TTS rows chosen, row 2 installed
+
+Nir chose ALL FOUR rows (Drama 3, VoxCPM2, Zonos, Voicebox) and said yes to installing, one at a time.
+Order I proposed: VoxCPM2 first. DONE: VoxCPM2.
+- `~/voxcpm2` 14 GB (env 8.7 GB, model 4.7 GB). Code OpenBMB/VoxCPM commit 4b8dd44, uv Python 3.12,
+  torch 2.7.1+cu128 (sm_120 ok, checked). Model openbmb/VoxCPM2 in `models/VoxCPM2`, loaded by local path.
+- Page http://127.0.0.1:8808 (we pass --host 127.0.0.1; upstream default is 0.0.0.0). Served HTTP 200.
+- `start-voxcpm2.sh` / `stop-voxcpm2.sh`, 5 Desktop icons (voxcpm2-start/end/outputs/folder/guide), also in
+  ~/.local/share/applications. Docs in `~/voxcpm2/docs/`. HF_HUB_OFFLINE=1; SenseVoice ASR NOT downloaded.
+- NO speech generated yet. Nir was asked "generate the test sentence?" and went to sleep (no answer).
+  Server was stopped with the End script at the end of the night.
+- Sizes were underestimated slightly (VoxCPM2 estimated 12-15 GB, real 14 GB). `/` had 134 GB free before it.
+- Torch install lesson: a long `sleep` in one tool call killed a backgrounded install; use `setsid nohup`
+  and poll in short steps.
+REMAINING, in this order, one at a time with a report after each: 3 Zonos (`~/zonos`, needs espeak-ng,
+check with Nir before apt), 4 Voicebox (`~/voicebox`, build from source, Qwen3-TTS + Chatterbox),
+1 Drama 3 (`~/drama3`, audio.cpp, risky/unverified, say so). Then the LatentSync real test (section 3).
