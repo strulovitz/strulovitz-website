@@ -1,0 +1,613 @@
+NATIVE LINUX INSTALLATION PROMPT FOR OPENCODE — 2026-11-07
+OFFICIAL ACE-STEP 1.5 + RUACH STUDIO
+USER-REQUESTED FOLDER NAMES: ace-step AND rauch
+============================================================
+
+READ THIS ONCE, THEN USE IT AS THE SESSION'S WORKING BRIEF.
+This is self-contained. Linux OpenCode will NOT have access to Windows.
+Do not ask Nir to open Windows files or rebuild the previous conversation.
+
+GitHub repository: https://github.com/strulovitz/strulovitz-website
+This file:
+https://github.com/strulovitz/strulovitz-website/blob/master/HANDOFF-2026-11-07-LINUX-ACE-STEP-AND-RAUCH.txt
+Raw text:
+https://raw.githubusercontent.com/strulovitz/strulovitz-website/master/HANDOFF-2026-11-07-LINUX-ACE-STEP-AND-RAUCH.txt
+
+This is a preparation/handoff document, not a claim that Linux installation
+has already happened. When Nir asks you to install in Linux, carry out the
+work below. Reading the document alone is not a request to start downloads.
+
+
+1. WHAT NIR WANTS — INCLUDING THE NAMING CORRECTION
+================================================
+
+Install TWO exact applications, on this laptop's NATIVE Linux boot:
+
+A. Official ACE-Step 1.5 and its ORIGINAL official Gradio interface:
+   https://github.com/ace-step/ACE-Step-1.5
+
+B. Ruach Studio, specifically igrbible's application:
+   https://github.com/igrbible/Ruach_Studio
+
+IMPORTANT: Ruach Studio is the APPLICATION. YuE2 is its music MODEL.
+Nir explicitly corrected the proposed folder name from "yue2" to "rauch".
+Use the literal directory name rauch, as requested. The product's proper
+name in explanations and desktop shortcut labels is Ruach Studio.
+Do not call the application "YuE2 Studio" or silently choose another UI.
+
+Put both installation roots on the Linux-accessible partition with the most
+available disk space. Nir described it as the largest partition. Establish
+the real mount point first; do not guess /home, /opt, /mnt/data or /.
+
+Proposed roots AFTER confirming the actual mount point:
+  <CHOSEN_MOUNT>/ace-step
+  <CHOSEN_MOUNT>/rauch
+
+Make the arrangement as similar as practical to the Windows WanGP setup:
+separate application, models, settings, outputs, cache, logs and tools;
+simple Start and End desktop icons; useful Folder/Outputs/Quick Guide icons;
+isolated runtimes; an appropriate quality/memory configuration for THIS GPU.
+
+No alternative music studio, Pinokio interface, website development, hosting
+work or Windows installation is part of this task. Native Linux is already
+dual-booted on this laptop. Do not propose WSL.
+
+
+2. WORKING STYLE AND AUTHORIZATION
+=================================
+
+- Be calm, brief and practical in chat. This document carries the detail.
+- Keep cost/context small: reuse these findings, inspect only relevant
+  current files, and stop researching once the installation question is
+  answered. Do not reread chat databases, historical notes or whole READMEs
+  repeatedly. No subagents unless Nir explicitly requests them.
+- Work through the requested installation rather than repeatedly offering
+  to do it. Explain a meaningful action once.
+- First inspect existing folders and running applications; preserve user
+  work. Do not overwrite a studio, its outputs or its service definitions.
+- Say the actual destination BEFORE installing. Never select a different
+  folder silently. The names ace-step and rauch are deliberate.
+- Before large downloads, give one concise component/precision/size plan
+  for the studio and get approval for the bundle if not already authorized.
+  A specific approved installation plan supplies authorization; do not ask
+  separately for every file in that same agreed bundle.
+- Ask before sudo/system package changes or other substantial changes
+  outside the two agreed installation roots. Do not upgrade the NVIDIA
+  driver, alter global Python/git settings, or reconfigure partitions as
+  an incidental part of installing a studio.
+- No automatic song generations, test renders, benchmarks or batch tests.
+  Startup, file checks, imports and model registration are not generation.
+  Ask separately before even a short actual song generation.
+- Stop/talking-only means stop actions. A naming correction means apply
+  the correction to this task, not invent another installation.
+- Do not claim "best", community consensus, proven stability, successful
+  GPU inference or successful audio output from a README or a startup check.
+- Installation time/difficulty are not the selection criterion. Working
+  native runtime support, features, quality and memory behavior matter.
+- A new interface, optional model collection or cloud account needs a
+  request. Local generation is the goal; paid API usage is not required.
+- The website repository is only a portable handoff store. Push only when
+  requested, announce the changed files/count first, and never publish a
+  private OpenCode memory/configuration file.
+
+
+3. LAPTOP HARDWARE — ACTUALLY CHECKED IN WINDOWS
+=============================================
+
+The same physical laptop was checked on November 7, 2026:
+
+  GPU: NVIDIA GeForce RTX 5090 Laptop GPU
+  Reported GPU memory: 24,463 MiB = approximately 23.89 GiB
+  Marketed VRAM class: 24 GB
+  System RAM: approximately 63.4 GiB usable, 64 GB class
+  Windows NVIDIA driver: 592.01
+
+These are real local observations, not specifications copied from someone
+else's issue report. Do NOT assume this is an 8 GB laptop.
+
+The Windows C: volume had about 405.8 GiB free before the Music3 install.
+That is NOT a measurement of Linux's target partition or available space.
+
+Unknown until the native Linux session:
+  distro/version, Linux username/home, desktop environment, mounted
+  filesystems and free space, installed Linux driver/CUDA toolkit,
+  existing ACE-Step/Ruach installations and any currently occupied VRAM.
+
+Reuse the hardware facts above. Check only the Linux-specific information
+needed for the requested install. No repeated broad hardware diagnostics.
+If a live GPU/driver check is needed, one read-only query is enough after
+authorization. A Windows driver version is not a Linux driver version.
+
+Be careful with the 24 GB boundary: this GPU reports about 23.89 GiB.
+Software may classify it below a strict >=24 GiB threshold. Inspect the
+actual selected tier; do not round it upward and promise unlimited memory.
+
+
+4. EXACT WINDOWS REFERENCE — SO LINUX NEEDS NO WINDOWS FILES
+==========================================================
+
+WanGP is arranged under C:\wangp:
+
+  app/       application source
+  env/       isolated Python environment
+  models/    model weights and LoRAs
+  config/    saved settings and runtime-env.ps1
+  outputs/   completed media/workspaces
+  inputs/    input material
+  cache/     downloads, temporary files and framework caches
+  logs/      installation/check results
+  tools/     helpers, including the scoped stop script
+  docs/      quick-start and installation records
+
+Root launchers: start-wangp.cmd and end-wangp.cmd.
+Desktop: WanGP - Start / End / Outputs / Folder / Quick Guide.
+Start applies environment paths only to its own process and children, then
+opens the official interface. End stops that studio and its workers, keeps
+finished outputs/models, and releases that studio's process allocations.
+It does not kill every Python process on the machine.
+
+This Windows session then successfully installed MiniMax Music3 Studio in
+the USER-CHOSEN location C:\music3, following that pattern:
+
+  app/       official portable desktop executable and native engines
+  models/minimaxmusic-cpp/  five required music model components
+  config/    runtime-env.ps1 and studio-settings.json
+  outputs/   generated/imported media
+  data/      library database and native application state
+  cache/     downloads, temporary files, CUDA cache, WebView profile
+  logs/      native logs, hashes and final installation results
+  tools/     install, start/stop and verification helpers
+  docs/      quick-start and full installation record
+
+Native directory mappings preserve the application's expected paths:
+  app/data -> data
+  app/temp -> cache/temp
+  data/media -> outputs
+  data/logs -> logs
+On Windows these are junctions; on Linux use supported path settings first,
+or ordinary symlinks for directories when the application requires them.
+
+Music3 desktop shortcuts:
+  MiniMax Music3 - Start
+  MiniMax Music3 - End
+  MiniMax Music3 - Outputs
+  MiniMax Music3 - Folder
+  MiniMax Music3 - Quick Guide
+
+Windows Music3 version: timoncool/MiniMax-Music3-Studio 3.8.5.
+Selected profile: Quality Q8_0. Exact components:
+  LM:       MiniMax-Music3-language_model-Q8_0.gguf       9,127,257,376 bytes
+  Depth:    MiniMax-Music3-rvq_depth_decoder-Q8_0.gguf       686,513,600 bytes
+  DiT:      MiniMax-Music3-transformer-Q8_0.gguf           2,602,401,248 bytes
+  Encoder:  MiniMax-Music3-condition_encoder-F32.gguf       100,672,192 bytes
+  Vocoder:  MiniMax-Music3-vocoder-F32.gguf                 306,102,784 bytes
+
+Model weights: 12,822,947,200 bytes.
+Studio + all five weights + CUDA archive downloaded: 13,693,031,166 bytes.
+Observed folder contents after startup, including retained archives/cache:
+  14,826,577,567 bytes, about 14.83 GB / 13.81 GiB.
+
+Backend Auto selected CUDA. keep_loaded=false retained stage swapping.
+Startup, all-five-component registration, saved Q8 selection, paths and
+Start/End close-and-reopen checks passed. The window was left open.
+NO song was generated. Inference-time weight loading, actual GPU fit during
+generation and audio quality remain untested.
+
+That example explains what "similar to WanGP" means. It does NOT mean
+that ACE-Step and Ruach must use Q8, need the same files/size, use a Windows
+executable, or can reuse a Windows environment.
+
+Windows video selections are already installed (11). They are not Linux
+installation tasks here. Neither ACE-Step nor Ruach was installed by this
+Windows session. Existing native Linux contents must be inspected, not
+assumed empty.
+
+
+5. FIND AND CONFIRM THE CORRECT PARTITION FIRST
+=============================================
+
+Use a short read-only inspection appropriate to the actual Linux system.
+For example, inspect /etc/os-release, the desktop environment, and:
+
+  lsblk -b -o NAME,PATH,TYPE,SIZE,FSTYPE,LABEL,UUID,MOUNTPOINTS
+  df -B1 --output=source,fstype,size,used,avail,target
+
+Compare real storage filesystems, not tmpfs, EFI, recovery, loop devices,
+read-only mounts or duplicate views of the same filesystem. A partition's
+capacity and its currently free space are different measurements.
+
+Nir's intent is the partition with the most space available for the apps,
+models and outputs. If largest total capacity and largest free space point
+to different plausible destinations, ask one clear location question with
+those two values. Otherwise propose the actual best-matching mount and the
+two exact roots, and confirm before writing there.
+
+Prefer an existing, writable native Linux filesystem suitable for Python
+environments, executable files and symlinks. If the biggest partition is
+unmounted, Windows-only, read-only or not usable for this purpose, explain
+that concrete obstacle and ask. Do not silently install on a smaller root
+partition. Do not format, repartition, shrink Windows, mount Windows for
+model reuse, or change /etc/fstab without a specific request.
+
+Record the filesystem UUID, actual mount point, filesystem type and free
+bytes in the local installation record. Confirm the selected mount really
+exists before creating folders. A launcher must refuse to start if the
+chosen data filesystem is absent; it must not create a new empty folder on
+the small root filesystem underneath a missing mount.
+
+Quote paths correctly, especially under /media/<user>/... with spaces.
+Use the normal user to run studios, not root. If creating the two agreed
+roots requires elevated permissions, ask for that narrowly and make only
+those roots user-owned. Do not chmod 777 or recursively chown a whole disk.
+
+
+6. TARGET LAYOUT FOR EACH STUDIO
+==============================
+
+  <CHOSEN_MOUNT>/ace-step/
+    app/         official ACE-Step checkout
+    env/         this studio's isolated Python environment
+    models/      selected checkpoints, encoders, VAE and tokenizer files
+    config/      runtime environment, persistent settings/configuration
+    inputs/      reference/input audio when needed
+    outputs/     finished songs and application outputs
+    cache/       package/HF/CUDA/temp/compiler caches used by this studio
+    logs/        startup logs, download manifest, final checks
+    tools/       scoped lifecycle and small installation helpers
+    docs/        quick-start and exact installation record
+    start-ace-step.sh
+    stop-ace-step.sh
+    README.txt
+
+  <CHOSEN_MOUNT>/rauch/
+    app/         igrbible/Ruach_Studio checkout, including its patched engine
+    env/         its core isolated Python environment
+    models/      selected music backbone, decoder and required support files
+    config/      native settings/user configuration, as supported
+    inputs/      user references
+    outputs/     songs/workspaces and related music media
+    cache/       downloads, build/temp/package/HF/CUDA caches
+    logs/        native/service logs or their documented local capture
+    tools/       scoped start/stop/setup helpers
+    docs/        quick-start and exact installation record
+    start-rauch.sh
+    stop-rauch.sh
+    README.txt
+
+Adapt to the application's real paths; do not change large source files
+merely to impose this directory layout. Supported environment/CLI settings
+come first. If native paths are fixed, use documented directory symlinks
+and verify their targets and persistence after restarting.
+
+For ACE-Step, inspect its checkpoint-path mechanism and output settings.
+If it requires app/checkpoints or app/.venv, map them correctly to the
+selected models/environment rather than creating a second hidden copy.
+uv's supported project-environment override can be used after confirming
+it is honored by the chosen launch method.
+
+Ruach's current scripts derive paths from the checkout root, including
+models/, outputs/, tmp/, .venv/, user/ and settings.json. Appropriate
+directory links can route those into the top-level layout. settings.json
+is a FILE: check whether native atomic saves replace a symlink. Preserve
+the application's save behavior instead of forcing a fragile file link;
+document any necessary native-path exception clearly.
+
+Keep both Python environments separate. Do not share incompatible package
+environments or blindly reuse Windows wheels. Reuse existing compatible
+Linux system dependencies when appropriate, without unrelated upgrades.
+Process-local environment settings should keep the large caches on the
+chosen partition. Small .desktop files and user service definitions belong
+in Linux's normal per-user integration directories.
+
+
+7. PRECISION / QUANTIZATION — A REAL PLAN, NOT A Q4 HABIT
+======================================================
+
+Principles:
+- Choose the highest practical supported precision for this 24 GB-class
+  GPU and 64 GB RAM, while retaining working-memory headroom.
+- Quantization compresses weights; CPU/RAM offload moves components or
+  stages. They are different. Offload is not automatically layer streaming.
+- Include decoder/encoder precision, KV cache, activations, sequence length
+  and batch size. File sizes alone do not establish GPU fit.
+- Batch ONE song initially. Do not start both studios' GPU work together.
+- Explain the selected profile in a short table BEFORE downloading it.
+- Recommendations below are planning candidates, not already tested Linux
+  configurations. Do not describe them as successful song generations.
+
+ACE-STEP 1.5 — QUALITY TARGET
+---------------------------
+Official current model names include:
+  acestep-v15-xl-sft   : 4B-parameter XL DiT, quality-focused song generation
+  acestep-v15-xl-turbo : separate eight-step distilled variant
+  acestep-v15-xl-base  : separate base variant with broader editing tasks
+  acestep-5Hz-lm-4B    : largest listed planning LM
+  acestep-5Hz-lm-1.7B  : smaller planning LM
+
+Proposed quality target for this laptop:
+  XL-SFT DiT in its native BF16 weights, with the 4B planning LM in its
+  supported native precision, batch one and CPU component offload available.
+  Retain the official required precision for the text encoder and VAE.
+
+Do not automatically convert this application to GGUF Q8/Q4 because the
+Windows Music3 installation used Q8. Its native PyTorch precision/offload
+path is a different implementation. Explain BF16 as the native reduced-
+precision floating-point weights, not a GGUF quantization profile.
+
+Why this is a candidate: the official guide lists XL support at 20–24 GB,
+and its >=24 GB tier allows XL + 4B LM without quantization. XL DiT weights
+alone are documented around 9 GB. However, the 20–24 GB tier recommends
+the 1.7B LM by default, and this GPU reports 23.89 GiB. Do not use the
+>=24 tier claim as proof that every duration/backend/configuration fits.
+
+During actual Linux preflight, inspect the current native tier, backend
+memory reservations and supported offload controls. If XL + 4B has adequate
+headroom on the supported path, use it. If the current runtime cannot
+establish that, explain the specific constraint and propose XL BF16 +
+1.7B LM as the conservative starting set before downloading. Do not silently
+downgrade the profile, install both LMs, or promise the larger one works.
+
+The official guide defaults to vLLM on larger NVIDIA tiers. Its KV-cache
+reservation must be included in the memory plan. Use the supported PyTorch
+LM backend when appropriate if vLLM's runtime/memory behavior is unsuitable;
+explain the change. Do not install extra backends speculatively or benchmark
+them. CPU offload is supported; DiT-offload is an additional memory-saving
+control if needed. Use current verified CLI/environment names, not guessed
+variables. No generation is needed simply to inspect supported options.
+
+RUACH STUDIO — BF16 STARTING PLAN
+-------------------------------
+Propose a BF16 music backbone on this 24 GB-class GPU, batch one, with the
+standard YuE2 F32 VAE/decoder and the studio's required support components.
+The author's native Linux installation guide says 24 GB runs full precision;
+Q8_0 is the documented smaller-card option. This is developer guidance,
+not a measured generation on this particular laptop.
+
+The current studio's DEFAULT is its own fine-tuned model:
+  YuE2-RS-TW 2.0 x0.75, derived from its RS-FW fine-tune.
+This is NOT the untouched m-a-p YuE2-3B checkpoint. Before choosing the
+starting checkpoint, tell Nir which is being installed/selected. A stock
+YuE2 baseline means deliberately selecting the original YuE2-3B + original
+standard VAE; do not describe the studio's fine-tune as stock.
+
+Use BF16 for the selected backbone if the current active-stage memory plan
+supports it. Q8_0 is a justified fallback if actual available GPU memory or
+the current runtime requires it, not an automatic downgrade for this GPU.
+Do not download every quantization or every fine-tune/merge. If the native
+installer's required bundle includes both original and default fine-tuned
+backbones, include BOTH in the preflight size table and explain that fact.
+
+Current observed native names/settings to recheck at installation time:
+  models/YuE2-3B-BF16.gguf
+  models/YuE2-3B-RS-TW-2.0x0.75-BF16.gguf  (fine-tuned candidate)
+  models/YuE2-Vae-F32.gguf
+  YUE2CPP_BATCH=1
+  YUE2CPP_QUANT=BF16                      (original backbone explicitly)
+  YUE2CPP_QUANT=RS-TW-2.0x0.75-BF16       (fine-tune explicitly)
+
+The engine swaps AR planning, NAR synthesis and VAE stages. Preserve the
+memory-saving default; do not enable --keep-loaded by habit. KV cache and
+the active stage still need to fit. Do not promise arbitrary layer-wise
+offloading or interpret an artwork-room offload option as a music feature.
+
+
+8. DOWNLOAD SIZE AND SCOPE
+==========================
+
+Before downloading each approved studio bundle, report:
+  component | actual checkpoint/role | precision | pinned source | bytes
+Then distinguish:
+  model-weight total; application/build files; Python/runtime packages;
+  retained download/package caches; estimated extraction/build workspace;
+  space left for outputs. Mark an estimate as an estimate.
+
+Use current pinned manifests/file metadata and package requirements.
+Do not reuse Music3's 12.82/13.69/14.83 GB figures for either Linux studio.
+Do not say the application download is the complete model installation.
+No verified complete ACE-Step Linux total was calculated in this Windows
+session; calculate the selected bundle during Linux preflight.
+
+Ruach's author reported, measured November 1, 2026:
+  about 34 GB installed for the 12–16 GB-card bundle;
+  about 41 GB for the 24 GB-card bundle;
+  program about 0.9 GB;
+  two Python environments together about 16.5 GB;
+  models about 17.0 or 23.7 GB, including the default fine-tune.
+These are dated author bundle figures, NOT a measured lean music-only
+installation on this laptop. The stock environment installer also installs
+the Artist environment; inspect scope before running it.
+
+Large optional Ruach rooms include Writer, Artist, Refiner, Videographer,
+listener and Trainer. Some add tens of gigabytes each. Inspect fetch-models.sh,
+heresy/fetch-heresy.sh and lab/install-venv.sh before executing defaults.
+Agree on the music scope and required native services. Do not install every
+optional room or the .venv-art environment automatically to make a check say
+"missing 0". A music-only installation should document intentional optional
+omissions rather than fake a complete-everything check.
+
+Use resumable downloads and pinned hashes where provided. Record source,
+revision, bytes and checksum results. Keep the large assets/caches on the
+chosen partition. Avoid downloading duplicate quantizations just in case.
+
+
+9. NATIVE INSTALLATION NOTES ALREADY RESEARCHED
+==============================================
+
+ACE-Step official reference snapshot checked in Windows:
+  ca1e85fe9430179831e6bc6be790c332190a3866
+  https://github.com/ace-step/ACE-Step-1.5/blob/ca1e85fe9430179831e6bc6be790c332190a3866/docs/en/GPU_COMPATIBILITY.md
+
+Official native quick-start uses uv sync and the acestep Gradio entry point
+(uv run acestep); start_gradio_ui.sh is the Linux launch script. Gradio's
+documented default is http://127.0.0.1:7860. Use the ORIGINAL Gradio path,
+not the REST API server, as the user's studio.
+
+Verified .env.example keys at that snapshot include:
+  ACESTEP_CONFIG_PATH
+  ACESTEP_LM_MODEL_PATH
+  ACESTEP_LM_BACKEND
+Check current launch help/source for port/bind/offload/output settings and
+auto-download behavior. Pre-stage approved weights so the first startup
+does not unexpectedly fetch the default turbo or a second LM.
+
+Use a coherent official Linux NVIDIA package set supporting this RTX 5090
+Laptop/Blackwell generation. The previous comparison found a native Linux
+torch 2.10.0+cu128 default, but recheck the current lock/dependency metadata
+before installation. A newer version number is not proof of stability.
+
+Ruach reference snapshot checked in Windows:
+  cbc0233dc55e2997a4f5bb30f84506b48ddeafce
+  https://github.com/igrbible/Ruach_Studio/blob/cbc0233dc55e2997a4f5bb30f84506b48ddeafce/INSTALL.md
+  https://github.com/igrbible/Ruach_Studio/blob/cbc0233dc55e2997a4f5bb30f84506b48ddeafce/INSTALL_by_LLM_Agent.md
+
+The author documents Linux x86_64, developed/tested on Ubuntu 24.04;
+CUDA toolkit 12.8 with nvcc, cmake >=3.24, gcc/g++ 13, Python 3.12 with
+venv, git, ffmpeg and curl. Translate package names to the actual distro;
+do not blindly apply Ubuntu commands to a different distribution.
+
+Its current native sequence, AFTER inspecting and agreeing on scope, is:
+  lab/install-venv.sh         Python setup (default also includes Artist)
+  fetch-models.sh --check     inspect inventory without downloading
+  fetch-models.sh             native bundle; inspect what it fetches first
+  build.sh --server --no-restart
+  systemd/install-units.sh    user service definitions; inspect first
+
+The studio's engine is its own patched yue2.cpp tree in this repository.
+Do not replace it with an upstream engine binary merely because the name
+matches. The documented built executable is build/build/yue-server.
+
+Studio port: 7777. The helper lab and studio are separate native processes;
+current user unit names are heresy-lab.service and ruach-studio.service.
+The helper's actual port should be read from its current configuration.
+Health endpoint: http://127.0.0.1:7777/api/v1/health
+
+The upstream service installer can remove/replace older unit names. Inspect
+existing units first and preserve user work. Install only the units needed
+for the approved local setup. Merely installing service definitions does
+not justify enabling boot/login autostart or loginctl linger.
+
+Current start.sh supports YUE2CPP_DRY_RUN=1 to print the launch command
+without running it. Use that when helpful for a no-generation path check.
+The script's GPU selector is YUE2CPP_GPU; it explicitly avoids using
+CUDA_VISIBLE_DEVICES for the studio. Respect its native GPU management.
+The default batch is two in that snapshot; set the intended batch one.
+
+The sources above are enough to resume. Narrowly recheck changed runtime
+requirements when installing; do not restart broad studio/OS comparisons.
+
+
+10. START/END DESKTOP ICONS — REQUIRED DELIVERABLE
+================================================
+
+Create executable shell wrappers in each chosen root, plus .desktop
+launchers in the actual user's desktop directory and application menu as
+appropriate to the actual desktop. Discover the desktop path with the
+system's XDG mechanism; do not assume ~/Desktop or Cinnamon.
+
+Desktop labels:
+  ACE-Step 1.5 - Start
+  ACE-Step 1.5 - End
+  ACE-Step 1.5 - Outputs
+  ACE-Step 1.5 - Folder
+  ACE-Step 1.5 - Quick Guide
+
+  Ruach Studio - Start
+  Ruach Studio - End
+  Ruach Studio - Outputs
+  Ruach Studio - Folder
+  Ruach Studio - Quick Guide
+
+Start must:
+- Confirm the intended filesystem is mounted and paths exist.
+- Apply process-local environment/configuration and use the correct venv.
+- Start only the studio's required processes; avoid duplicate instances.
+- Wait for a bounded readiness/health check, then open the local URL with
+  xdg-open or the desktop's normal mechanism.
+- If the port is occupied by something else, explain and resolve the
+  conflict; do not kill it or silently relocate the interface.
+- Give a readable error/log location if startup fails.
+
+End must:
+- Close only that studio and its owned workers/helpers.
+- Prefer a user service/cgroup or well-scoped recorded process group.
+- Use graceful termination first, then a bounded forced stop if needed.
+- Keep model files, settings and completed outputs.
+- Report "already stopped" cleanly if appropriate.
+- Never use blanket pkill python, pkill -f uv, killall, or GPU-wide resets.
+- For Ruach, account for BOTH ruach-studio and its private helper lab;
+  inspect whether a helper is shared before stopping someone else's work.
+
+Systemd --user units are a practical lifecycle mechanism on a desktop with
+systemd; retain Ruach's native service architecture and current flags.
+Use correct WorkingDirectory, EnvironmentFile and scoped KillMode as
+needed. If systemd user services are unavailable, use owned process groups
+and robust PID identity checks instead of installing another supervisor.
+
+Do not enable run-at-login/boot, linger or automatic updates by default.
+Start should run when Nir clicks Start; End should release its allocations.
+Trust/mark the .desktop files using the actual desktop's supported method,
+and use recognizable product icons. Check .desktop Exec quoting, paths,
+ownership, executability and that the shortcuts visibly exist.
+
+
+11. VALIDATION AND FINISHING
+============================
+
+Do the required checks once, and stop when they pass:
+
+1. Correct mount/UUID, both approved roots, writable native filesystem and
+   enough space after the real download/extraction plan.
+2. Isolated environments and GPU-compatible dependencies; correct selected
+   checkpoint names, revisions, precision, decoder, and supporting assets.
+3. Resume/checksums completed, no unexpected partial or duplicate files.
+4. Models/settings/output/cache paths resolve inside the intended roots
+   and the official applications recognize the selected model set.
+5. Launch the official UI and required native services; check local health,
+   model registration and absence of a real startup error. Do not trigger
+   automatic generation during initialization.
+6. Use the actual Start and End paths, then reopen to verify persistence.
+   Confirm End closes owned workers while preserving saved data.
+7. Save a short quick-start and a detailed local installation record for
+   EACH studio: exact application commit/release, dependencies/backend,
+   model components and precision, hashes, paths, port, Start/End method,
+   measured disk usage and what was actually verified.
+8. Count installed files/storage without following symlinks twice. Separate
+   installed assets from retained downloads and future output allowance.
+
+Component loading checks are appropriate when the native application
+supports a no-generation check. If it only loads weights on generation,
+state that limit. Do not invent a loading success from model registration.
+
+Ask separately before a first song. If authorized, agree on a single short
+test and judge actual output; no unattended benchmark or repeated test
+batch. Label startup, weight loading, GPU inference and audio success
+separately. A generated song is the evidence for generation, not a model
+menu, import or healthy web server.
+
+Give Nir a concise final reply: where both apps live, selected model/precision
+and offloading behavior, actual size, desktop shortcut names, and checks.
+If a profile remains unresolved or blocked, say exactly what is pending
+rather than claiming completion. Save enough local state to resume without
+another round of old research.
+
+
+12. SHORT MESSAGE NIR CAN PASTE AFTER BOOTING LINUX
+==================================================
+
+Read this handoff once; it contains the Windows findings because you cannot
+access Windows from this Linux session:
+https://raw.githubusercontent.com/strulovitz/strulovitz-website/master/HANDOFF-2026-11-07-LINUX-ACE-STEP-AND-RAUCH.txt
+
+Help me install official ACE-Step 1.5 and igrbible/Ruach_Studio on native
+Linux on this same RTX 5090 Laptop, 24 GB VRAM / 64 GB RAM machine. Find and
+confirm the partition with the most disk space available first. Use folders
+named ace-step and rauch, exactly. Ruach Studio is the application; YuE2 is
+its model. Use a WanGP-like layout, isolated environments, and desktop
+Start/End, Folder, Outputs and Quick Guide shortcuts for each. Explain the
+appropriate native precision/quantization, offloading and complete download
+size before large downloads. Follow the handoff's quality/memory plan,
+check existing work first, keep cost/context small, no subagents and no
+automatic music generation. Proceed with the installation once the actual
+location and download plan are agreed.
+
+END OF SELF-CONTAINED LINUX HANDOFF
