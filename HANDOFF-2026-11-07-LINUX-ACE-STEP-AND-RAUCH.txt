@@ -611,3 +611,61 @@ automatic music generation. Proceed with the installation once the actual
 location and download plan are agreed.
 
 END OF SELF-CONTAINED LINUX HANDOFF
+
+
+13. RESULT OF THE LINUX INSTALLATION (7 Nov 2026, evening, Debian 13 laptop)
+=========================================================================
+
+STATUS: BOTH STUDIOS INSTALLED, STARTED AND STOPPED THROUGH THEIR SCRIPTS,
+AND EACH MADE ONE 30-SECOND TEST SONG. Nir listened to both: "a nice song" /
+"also a very good song". Longer songs and quality comparison are untested.
+
+NAME CORRECTION: the folder "rauch" in sections 1 and 6 was a typo. The
+application is Ruach Studio (Hebrew, spirit/wind). The folder was renamed to
+/home/nir/ruach. Section 1 and 6 "rauch" now means "ruach".
+
+PLACE: Nir said "the largest free LINUX partition", not the storage drives.
+The only Linux partition is / (/dev/sda4, ext4). The NTFS storage drives
+(EXTERNAL8, 1E42..., T7 Shield) were NOT used and must not be touched.
+Roots: /home/nir/ace-step (40 GB) and /home/nir/ruach (33 GB).
+Disk after install: about 149 GB free.
+
+ACE-STEP 1.5 (commit ca1e85fe9430179831e6bc6be790c332190a3866)
+- uv env in ace-step/env (Python 3.12, torch 2.10.0+cu128), caches in ace-step/cache.
+- Models in ace-step/models (28 GB): acestep-v15-xl-sft (bf16), acestep-5Hz-lm-4B,
+  Qwen3-Embedding-0.6B, vae. Nir chose the 4B planner (largest official one).
+  No turbo model, no 1.7B LM.
+- app/checkpoints -> ../models and app/gradio_outputs -> ../outputs (symlinks).
+  The LM lookup needed app/checkpoints. HF_HUB_OFFLINE=1 blocks surprise downloads.
+- Start flags: port 7860, --backend pt, --offload_to_cpu true, batch 1,
+  --init_service true --init_llm true.
+- Test: DiT + 4B LM loaded using about 9.9 GB VRAM. One 30 s song (50 steps,
+  guidance 7): 29 s total (planner about 15 s). tools/test-song.py.
+- Scripts: start-ace-step.sh, stop-ace-step.sh. Desktop icons: Start, End,
+  Outputs, Folder, Quick Guide.
+
+RUACH STUDIO (igrbible/Ruach_Studio commit cbc0233dc55e2997a4f5bb30f84506b48ddeafce)
+- Env in ruach/env (Python 3.12 via uv, torch 2.11.0+cu128), app/.venv -> ../env.
+  Music only: no Artist env (.venv-art), no Writer/Trainer/Videographer.
+- Engine built with CUDA 13.0 (the system had no 12.8) and gcc 14 (guide says 13):
+  build OK in 242 s. Nir decided NOT to change CUDA. A song was made with it.
+- Models in ruach/models (symlink app/models): default fine-tune
+  YuE2-3B-RS-TW-2.0x0.75-BF16, original YuE2-3B-BF16, VAEs (F32, legacy, blend),
+  SheetSage2-Q8_0, MERT-v2-FullSong-Q8_0. Extras in app/: whisper, separation,
+  universr, and loras (2.1 GB; the default bundle fetched them before Nir was asked).
+- Services: systemd --user ruach-studio and heresy-lab, with drop-ins (CUDA 13.0,
+  YUE2CPP_BATCH=1). NOT enabled at login. Server listens on 0.0.0.0:7777 (LAN).
+- Test: POST /api/v1/songs, mode direct, 30 s: about 33 s, output
+  ruach/outputs/20261107-224703-nir-test (audio.wav 30.0 s).
+- Scripts: start-ruach.sh, stop-ruach.sh. Same five icons.
+
+LESSONS FOR NEXT TIME
+- Ask before downloading anything not in the approved table (the LoRAs, the
+  second backbone). Report progress every step, one question at a time, short
+  answers (Nir cannot scroll in OpenCode on Linux).
+- Do not run pkill -f / pgrep -f with a pattern that appears in your own command
+  line: it kills your own shell.
+- Run only one studio at a time (one GPU). Install records are in each docs/.
+
+NOT VERIFIED: songs longer than 30 s, which studio sounds better, the Ruach
+Whisper/stems/upscaler features, Ruach lab health beyond startup.
