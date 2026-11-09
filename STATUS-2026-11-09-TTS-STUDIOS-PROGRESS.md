@@ -21,7 +21,7 @@ Companion to HANDOFF-2026-11-09-DESKTOP-LINUX-TTS-STUDIOS.md. This file is the C
 | Drama 3 (~/drama3, 45G) | yes | start, stop, folder, guide, outputs | DONE |
 | VoxCPM2 (~/voxcpm2, 12G) | yes | start, stop, folder, guide, outputs | DONE |
 | Zonos (~/zonos, ~19G) | DONE: env, fast parts built (sm_89), espeak-ng (apt), models in ~/zonos/hf, torchcodec 0.11.1+cu128 | start, stop, folder, guide, outputs (Desktop + menu) | DONE, headless test of both models OK; GUI click-test by Nir pending |
-| Voicebox (~/voicebox, 283M) | partial (app, bun, env, install-vb.log) | none | INCOMPLETE |
+| Voicebox (~/voicebox, ~60G) | DONE: fresh reinstall, web mode (dev-web style, no Docker/Rust/Tauri), models in ~/voicebox/hf | start, stop, folder, guide, outputs (Desktop + menu) | DONE, headless checks OK; GUI click-test by Nir pending |
 
 Nothing is running now except normal desktop + neo4j. Website state: not mine to touch, ask Nir.
 
@@ -55,3 +55,13 @@ Nothing is running now except normal desktop + neo4j. Website state: not mine to
 - torchaudio 2.11 needed torchcodec: the PyPI one (0.17, cuda13) broke; installed 0.11.1+cu128 from download.pytorch.org/whl/cu128.
 - Headless test (~/zonos/test-zonos.py): both models generated audio (outputs/test-transformer.wav, test-hybrid.wav). Capped build/test runs with systemd-run MemoryMax=30G.
 - NEXT: Voicebox (~/voicebox partial). Read ~/voicebox/install-vb.log first. Same rules: gradual, say each step, caps on anything heavy, explicit go for downloads/compiles/sudo.
+
+## UPDATE 19:55 (Voicebox DONE)
+- Old half install deleted, fresh install in ~/voicebox (script install-voicebox.sh, log install-vb.log, "INSTALL ALL OK"). The earlier failure was a network glitch fetching linacodec from GitHub; retry worked.
+- Web mode only (Nir's decision): backend uvicorn on 127.0.0.1:17493 + vite web on 127.0.0.1:5173. No Docker, no Rust, no Tauri, no just. Scripts: ~/voicebox/start-voicebox.sh, stop-voicebox.sh.
+- Models in ~/voicebox/hf (HF_HOME): whisper-large (= openai/whisper-large-v3, highest Whisper in Voicebox), qwen-tts-1.7B, qwen-custom-voice-1.7B, qwen-voice-design-1.7B, luxtts, chatterbox-tts (multilingual, Hebrew), chatterbox-turbo, tada-1b, tada-3b-ml. NOT installed by Nir's choice: Qwen 0.6B, Kokoro (OmniVoice not requested).
+- UPSTREAM BUG: Voicebox generic model-download route (POST /models/download) for TADA always loads 1B, so tada-3b-ml never downloads that way. Worked around by huggingface_hub snapshot_download("HumeAI/tada-3b-ml") with HF_HOME=~/voicebox/hf (download-tada3b.py).
+- Trap: the download route also LOADS each model into VRAM (it stacked to 10.9GB); unload with POST /models/unload and /models/<name>/unload after each.
+- Checks: web 200, backend sees RTX 4070 Ti CUDA, Whisper Large transcribed the Zonos test wav correctly. Nothing is running now.
+- Icons made (5) with the same pattern as Zonos. All three new studios: one big AI app at a time on the 12GB card.
+- NEXT: Nir click-tests Start/STOP icons for Zonos and Voicebox. Nothing else pending for the TTS studios.
