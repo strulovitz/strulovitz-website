@@ -79,3 +79,15 @@ Nothing is running now except normal desktop + neo4j. Website state: not mine to
 - Kept both Chatterbox versions (Nir's decision). Verified after: chatterbox-turbo and chatterbox-tts load on the GPU via the backend; chatterbox/qwen/backend imports OK. Everything stopped afterwards (GPU idle).
 - ~/voicebox/requirements-no-lux-tada.txt no longer lists Kokoro/misaki either.
 - Final Voicebox engine set: Qwen TTS 1.7B, Qwen CustomVoice 1.7B, Qwen VoiceDesign 1.7B, Chatterbox Multilingual, Chatterbox Turbo, Whisper Large v3.
+
+## FINAL SUMMARY 2026-11-09 night (read this first)
+All four TTS studios on desktop-linux are installed, tested headless, and have 5 icons each (Start, STOP, Folder, Guide, Outputs) on ~/Desktop and in the start menu. Run only ONE big AI app at a time (12 GB card); always click STOP after use.
+| Studio | Folder | Port | What is inside |
+|---|---|---|---|
+| Drama 3 | ~/drama3 | 8035 | audio.cpp, Q4 model, CUDA toolkit at ~/drama3/cuda (also used by the Zonos build) |
+| VoxCPM2 | ~/voxcpm2 | 8808 | VoxCPM2 (Hebrew supported) |
+| Zonos | ~/zonos | 7860 | transformer + hybrid models, flash-attn/mamba-ssm/causal-conv1d built for sm_89 only, espeak-ng (apt), torchcodec cu128 |
+| Voicebox | ~/voicebox | 5173 web + 17493 API | Qwen TTS / CustomVoice / VoiceDesign 1.7B, Chatterbox Multilingual (Hebrew) + Turbo (only Turbo reads [laugh]/[sigh] tags), Whisper Large v3. Removed by Nir: TADA, LuxTTS, Kokoro, Qwen 0.6B. No Docker/Rust/Tauri. |
+Uninstall any studio = delete its folder (+ its icons in ~/Desktop, ~/.local/share/applications, ~/.local/share/icons). Only system-level thing added: apt package espeak-ng.
+Lessons: (1) never compile with many jobs, build one GPU arch only (sm_89) with MAX_JOBS=1, nice 19, systemd-run MemoryMax; (2) Voicebox model download route also loads models into VRAM, unload after each; (3) Voicebox TADA download bug (irrelevant now, TADA removed); (4) self-match trap: pgrep -f/pkill -f patterns can match your own shell, use exact names or patterns that cannot appear in your own command line.
+PENDING: Nir click-tests Start/STOP icons for Zonos and Voicebox (not clicked by the agent). The website (Caddy + tunnel) was never touched by the agent in this work; its state is Nir's.
