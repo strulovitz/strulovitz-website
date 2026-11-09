@@ -65,3 +65,11 @@ Nothing is running now except normal desktop + neo4j. Website state: not mine to
 - Checks: web 200, backend sees RTX 4070 Ti CUDA, Whisper Large transcribed the Zonos test wav correctly. Nothing is running now.
 - Icons made (5) with the same pattern as Zonos. All three new studios: one big AI app at a time on the 12GB card.
 - NEXT: Nir click-tests Start/STOP icons for Zonos and Voicebox. Nothing else pending for the TTS studios.
+
+## UPDATE 20:30 (Voicebox: TADA and LuxTTS removed on Nir's request)
+- Deleted from ~/voicebox/hf/hub: HumeAI tada-1b, tada-3b-ml, tada-codec, YatharthS LuxTTS, unsloth Llama-3.2-1B mirror, facebook wav2vec2-large (24G freed).
+- Uninstalled from backend/venv: hume-tada, Zipvoice, linacodec and the 21 packages only they needed (computed with a dependency check; lhotse, vocos, tensorboard, piper-phonemize, etc.).
+- Verified after: chatterbox (tts, mtl_tts, tts_turbo), qwen_tts, kokoro package, backend.main all import OK. pip check complaints about chatterbox-tts/omnivoice pins are expected (installed --no-deps by upstream design).
+- Reproducible install now uses ~/voicebox/requirements-no-lux-tada.txt (install-voicebox.sh updated).
+- The Voicebox app UI still lists TADA/LuxTTS (upstream code) but they are not installed. Do not click download on them.
+- Chatterbox facts (from the Voicebox README, line ~147): ONLY Chatterbox Turbo interprets inline tags like [laugh]/[sigh]; Multilingual reads them as text; Multilingual has an exaggeration/cfg_weight emotion knob instead (backend/backends/chatterbox_backend.py).
