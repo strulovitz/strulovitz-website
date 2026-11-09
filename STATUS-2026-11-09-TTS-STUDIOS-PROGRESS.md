@@ -6,7 +6,7 @@ Companion to HANDOFF-2026-11-09-DESKTOP-LINUX-TTS-STUDIOS.md. This file is the C
 - Work GRADUALLY. Before each step, tell Nir in plain words what you are about to do. After each step, report.
 - NEVER run anything that can freeze or stick the PC (big compiles, many parallel jobs, huge RAM use). If unsure, ask first.
 - Explicit "go" from Nir before every download, install, compile, or sudo step.
-- NEVER touch his website (Caddy + Cloudflare Tunnel). He shut it down himself after the freeze. It is OFF. Do not turn it on unless he says.
+- NEVER touch his website (Caddy + Cloudflare Tunnel). He had to shut it down after the freeze at 13:37; its state changes, so never assume it. Do not start or stop it unless he says.
 - Short messages, emojis on every line, important thing last. Do only what he says.
 
 ## WHAT HAPPENED (the freeze)
@@ -23,7 +23,7 @@ Companion to HANDOFF-2026-11-09-DESKTOP-LINUX-TTS-STUDIOS.md. This file is the C
 | Zonos (~/zonos, 11G) | base env + torch 2.11+cu128 OK; fast parts (flash-attn, mamba-ssm, causal-conv1d) NOT built | none | INCOMPLETE |
 | Voicebox (~/voicebox, 283M) | partial (app, bun, env, install-vb.log) | none | INCOMPLETE |
 
-Nothing is running now except normal desktop + neo4j. Website is OFF (by Nir).
+Nothing is running now except normal desktop + neo4j. Website state: not mine to touch, ask Nir.
 
 ## WHAT ZONOS NEEDS
 - The 3 packages are CUDA code with no prebuilt wheel for this torch + RTX 4070 Ti, so they must be compiled. Needed only for Zonos Hybrid mode; Transformer mode should work without them (verify in ~/zonos/app/README.md before claiming).
