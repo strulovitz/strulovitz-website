@@ -73,3 +73,9 @@ Nothing is running now except normal desktop + neo4j. Website state: not mine to
 - Reproducible install now uses ~/voicebox/requirements-no-lux-tada.txt (install-voicebox.sh updated).
 - The Voicebox app UI still lists TADA/LuxTTS (upstream code) but they are not installed. Do not click download on them.
 - Chatterbox facts (from the Voicebox README, line ~147): ONLY Chatterbox Turbo interprets inline tags like [laugh]/[sigh]; Multilingual reads them as text; Multilingual has an exaggeration/cfg_weight emotion knob instead (backend/backends/chatterbox_backend.py).
+
+## UPDATE 20:55 (Voicebox: Kokoro removed too, Nir's request)
+- Uninstalled kokoro, misaki and the packages only they needed (addict, loguru, spacy tree, en-core-web-sm, unidic-lite, fugashi, mojimoji, pypinyin, ordered-set...). No Kokoro model had been downloaded.
+- Kept both Chatterbox versions (Nir's decision). Verified after: chatterbox-turbo and chatterbox-tts load on the GPU via the backend; chatterbox/qwen/backend imports OK. Everything stopped afterwards (GPU idle).
+- ~/voicebox/requirements-no-lux-tada.txt no longer lists Kokoro/misaki either.
+- Final Voicebox engine set: Qwen TTS 1.7B, Qwen CustomVoice 1.7B, Qwen VoiceDesign 1.7B, Chatterbox Multilingual, Chatterbox Turbo, Whisper Large v3.
