@@ -20,7 +20,7 @@ Companion to HANDOFF-2026-11-09-DESKTOP-LINUX-TTS-STUDIOS.md. This file is the C
 |---|---|---|---|
 | Drama 3 (~/drama3, 45G) | yes | start, stop, folder, guide, outputs | DONE |
 | VoxCPM2 (~/voxcpm2, 12G) | yes | start, stop, folder, guide, outputs | DONE |
-| Zonos (~/zonos, 11G) | base env + torch 2.11+cu128 OK; fast parts (flash-attn, mamba-ssm, causal-conv1d) NOT built | none | INCOMPLETE |
+| Zonos (~/zonos, ~19G) | DONE: env, fast parts built (sm_89), espeak-ng (apt), models in ~/zonos/hf, torchcodec 0.11.1+cu128 | start, stop, folder, guide, outputs (Desktop + menu) | DONE, headless test of both models OK; GUI click-test by Nir pending |
 | Voicebox (~/voicebox, 283M) | partial (app, bun, env, install-vb.log) | none | INCOMPLETE |
 
 Nothing is running now except normal desktop + neo4j. Website state: not mine to touch, ask Nir.
@@ -47,3 +47,11 @@ Nothing is running now except normal desktop + neo4j. Website state: not mine to
 - flash-attn: building since ~14:34, 73 pieces, ~1-1.5 min each, est 70-110 min. RAM ~10GB used total, safe.
 - Everything lives inside ~/zonos (uninstall = delete the folder; only external thing used is ~/drama3/cuda).
 - NEXT: when flash-attn says BUILD OK, import-test it, then a real Zonos generation test, then make Zonos start/stop/folder/guide/outputs icons (pattern: ~/drama3 icons), then Voicebox.
+
+## UPDATE 18:15 (Zonos DONE)
+- flash-attn BUILD OK 16:07 (1h34m). All 3 fast parts import-tested on the GPU.
+- Icons made: ~/Desktop/zonos-*.desktop and ~/.local/share/applications; scripts ~/zonos/start-zonos.sh / stop-zonos.sh (port 7860, 127.0.0.1 only, HF_HOME=~/zonos/hf).
+- espeak-ng installed with apt (needed sudo). Models downloaded to ~/zonos/hf (transformer, hybrid, descript/dac_44khz).
+- torchaudio 2.11 needed torchcodec: the PyPI one (0.17, cuda13) broke; installed 0.11.1+cu128 from download.pytorch.org/whl/cu128.
+- Headless test (~/zonos/test-zonos.py): both models generated audio (outputs/test-transformer.wav, test-hybrid.wav). Capped build/test runs with systemd-run MemoryMax=30G.
+- NEXT: Voicebox (~/voicebox partial). Read ~/voicebox/install-vb.log first. Same rules: gradual, say each step, caps on anything heavy, explicit go for downloads/compiles/sudo.
