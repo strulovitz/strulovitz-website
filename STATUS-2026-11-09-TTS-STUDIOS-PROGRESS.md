@@ -38,3 +38,12 @@ Nothing is running now except normal desktop + neo4j. Website state: not mine to
 3. Check Voicebox install state (read install-vb.log), finish it, make its icons.
 4. Test each studio ONE at a time (one big AI thing at a time on the 12 GB card).
 5. Update this file after every step and push.
+
+## UPDATE 14:36 (Zonos fast parts, Option A chosen by Nir)
+- Cause of the 36-min compile: causal-conv1d and mamba-ssm setup.py hardcode 5-9 GPU archs. RTX 4070 Ti = 8.9. I patched MY copies in ~/zonos/src to build only sm_89 (flash-attn: FLASH_ATTN_CUDA_ARCHS=89 plus a patched "89" branch).
+- Safe build script: ~/zonos/build-one.sh <name> <srcdir> (1 job, nice 19, systemd-run MemoryMax=20G, logs BUILD OK / BUILD FAILED). Logs: ~/zonos/build-*.log.
+- causal-conv1d: BUILD OK (2m45s, ~1GB RAM), import test OK on GPU.
+- mamba-ssm: BUILD OK (~6 min), import test OK on GPU.
+- flash-attn: building since ~14:34, 73 pieces, ~1-1.5 min each, est 70-110 min. RAM ~10GB used total, safe.
+- Everything lives inside ~/zonos (uninstall = delete the folder; only external thing used is ~/drama3/cuda).
+- NEXT: when flash-attn says BUILD OK, import-test it, then a real Zonos generation test, then make Zonos start/stop/folder/guide/outputs icons (pattern: ~/drama3 icons), then Voicebox.
