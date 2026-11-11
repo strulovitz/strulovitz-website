@@ -1,8 +1,8 @@
 ================================================================================
 ATTRACT MODE -- THE BIBLE -- PART 05 OF 11
 THE KITS: PACKAGES, PICTURES AND TOYS
-Version 1.1 -- 11 November 2026
-Obeys Parts 00 to 04, with their notices and with section 5.2 below.
+Version 2.0, folded on 11 November 2026
+Obeys Parts 00 to 04 and section 5.2 below.
 This version replaces every earlier Part 05.
 ================================================================================
 
@@ -90,12 +90,6 @@ this section wins.
    ANSWERS (5.12).
 3. Sections 4.3, B and 4.9: in the plan, the Toy section has one
    line for each thing the toy's form needs (5.13).
-
-THE NOTICE. The first agent adds at the very top of part-04.md :
-    NOTICE, 11 November 2026: the kind of question NUMBER is
-    removed, wrong answers may also be near answers, and the Toy
-    section of the plan has one line for each need. The changes
-    are written in Part 05, section 5.2.
 
 ADDITIONS. These add to earlier Parts and contradict nothing.
 1. Part 01, section 1.7, Place 3: one more folder, packages/ .
@@ -296,6 +290,9 @@ HOW THE WRITER USES THEM.
 6. If these words cannot say what the page needs, write one line,
    KIT GAP, saying what is missing. The EXPERT decides whether
    the list of words grows.
+7. Under a picture line the writer MAY add a line "when:" with two or
+   three words copied from the page's text. It says in which sentence
+   the line appears (Part 06, 6.10).
 
 --------------------------------------------------------------------------------
 5.6 DRAWN PICTURES: THE CHARTS
@@ -350,7 +347,8 @@ the names. A new chart is built by the EXPERT after a KIT GAP.
    colour alone: a dashed line is dashed, a strong line is thick.
 5. OUTPUT. For each picture, two files in the workshop's folder
    pictures/ : the picture itself (SVG), and the list of final
-   positions in drawing order (JSON). The Guide shows the first.
+   positions in drawing order, made of the seven shapes (Part 06, 6.9)
+   (JSON). The Guide shows the first.
    The film reads the second.
 
 THE SCRIPT'S CHECKS ON A DRAWN PICTURE.
@@ -386,7 +384,8 @@ EXAMPLES (format only):
 2. THE SCRIPT SETS IT PROPERLY: a division as a fraction with a
    bar, a power raised, a multiplication sign where one is
    needed. On the pages it is shown by the browser itself, with
-   no library. The film gets the same formula (Part 06).
+   no library. The film gets a formula as a photograph of the Guide's
+   page (Part 06).
 3. SAID BEFORE SHOWN. The text of the same page first says in
    words what the formula says.
 4. At most two formula lines on a page.
@@ -733,7 +732,8 @@ is serving. (Example: 5.3, D.)
 6. THE STAMP. Each package carries a short fingerprint, shown
    small on its last page. "am level status" prints the
    fingerprint of the newest build. So anyone can tell whether
-   the package in Moodle is the newest.
+   the package in Moodle is the newest. The stamp of the newest build is
+   also written into the workshop, so that it travels by Git.
 7. SIZE. A package is at most 5 MB, and a picture at most 200 KB.
    The limits are in the configuration. Part 08 sets Moodle's
    upload limit above them.
@@ -796,7 +796,7 @@ Added to the single command "am":
 5.17 WHO DOES WHAT
 --------------------------------------------------------------------------------
 
-1. THE STRONGEST MODEL, ONCE: the golden toy (done, saved with
+1. THE STRONGEST MODEL, ONCE (read Part 11, 11.7): the golden toy (done, saved with
    this Part); the drawer; the formula reader; the page player
    and the Challenge player; the packer; the robots and the
    pretend Moodle; the first charts.

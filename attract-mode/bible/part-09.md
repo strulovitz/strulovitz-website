@@ -1,14 +1,8 @@
-NOTICE, 11 November 2026: D59 of this Part is no longer open. Nir
-decided it: when he travels, the desktop at home serves, and his
-parents can come and click Websites ON. This changes section 9.2
-(D59) and section 9.11 (the choice between A and B: A, the PC that
-stays home, is chosen, and it is the desktop). Written in Part 10,
-section 10.2, and in DECISIONS.md.
 ================================================================================
 ATTRACT MODE -- THE BIBLE -- PART 09 OF 11
 OPERATIONS
-Version 1.0 -- 11 November 2026
-Obeys Parts 00 to 08, with their notices and with section 9.2 below.
+Version 2.0, folded on 11 November 2026
+Obeys Parts 00 to 08 and section 9.2 below.
 ================================================================================
 
 HOW TO READ THIS PART
@@ -46,6 +40,8 @@ D54. Insert Coin costs 5 US dollars, once. Access is for ever,
      and includes every Challenge added later. The line on its
      page: "5 dollars, once. The price of one coffee. Yours for
      ever."
+D59. When Nir travels, the desktop at home serves. His parents can
+     come and click Websites ON.
 
 Chosen for Nir by the author of this Part; Nir may reverse any:
 D55. THE BATON: one small file says which PC holds Moodle's
@@ -55,8 +51,6 @@ D57. While serving, a PC fetches new work every ten minutes and
      puts it into Moodle by itself.
 D58. A second USB stick, AMBACKUP, holds a weekly copy and is
      kept away from the PCs.
-D59. OPEN, Nir's: which PC serves while he travels (9.11).
-     Until he says: the PC that stays at home.
 
 ADDITIONS. These add to earlier Parts and contradict nothing.
 1. Part 01, section 1.6: the fetch timer also runs the sync.
@@ -307,20 +301,25 @@ trip, another bag. It holds private data, like an export.
 9.11 TRAVEL
 --------------------------------------------------------------------------------
 
-D59, Nir's choice:
-A. THE PC THAT STAYS HOME SERVES (recommended). It stays on, in
-   Linux. Nir works on the laptop anywhere: new Levels go by
-   Git, packages are uploaded through the browser, and the home
-   PC puts them into Moodle by itself (9.7, timer 2). If the
-   home PC goes down, the site is down until somebody clicks
-   Websites ON there, or until Nir takes over on the laptop
-   (9.8) and loses up to a day.
-B. THE LAPTOP SERVES. Then the site is down whenever the laptop
-   is closed, in a bag, or in Windows.
+D59, decided by Nir: WHEN NIR TRAVELS, THE DESKTOP AT HOME SERVES. It
+stays on, in Linux. Nir works on the laptop anywhere: new Levels go by
+Git, packages are uploaded through the browser, and the desktop puts
+them into Moodle by itself (9.7, timer 2). If the desktop goes down,
+the site is down until somebody clicks Websites ON there, or until Nir
+takes over on the laptop (9.8) and loses up to a day. His parents can
+come and click Websites ON.
 
-WITH A, the laptop receives the nightly export whenever it is
-on in Linux. Before a long trip: one hand-over drill, and a
-fresh copy on the stick.
+The laptop receives the nightly export whenever it is on in Linux.
+Before a long trip: one hand-over drill, and a fresh copy on the stick.
+
+THE HOME CARD. Before a trip, the EXPERT prints one page for Nir's
+parents, in the language Nir chooses: "If the website is down: 1. Switch
+the PC on. 2. Wait for the desktop. 3. Double click Websites ON. 4. Wait
+for the line that says the site answers." Before a trip, the desktop is
+set to start in Linux by itself.
+
+TRAVEL MODE (optional, Nir's decision): the websites start by
+themselves after a power cut. It would change AM-LAW 12.
 
 --------------------------------------------------------------------------------
 9.12 UPDATES
@@ -357,7 +356,8 @@ COMMANDS, added to "am":
 6. am tidy
 
 WHO DOES WHAT.
-1. THE STRONGEST MODEL, ONCE: the hand-over scripts, the baton,
+1. THE STRONGEST MODEL, ONCE (read Part 11, 11.7): the hand-over
+   scripts, the baton,
    the timers, the take-over.
 2. THE EXPERT: Moodle updates; anything after a refusal that
    the plain sentence did not solve.

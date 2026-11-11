@@ -1,9 +1,7 @@
-NOTICE, 11 November 2026: section 3.3 is changed in one
-place. The change is written in Part 04, section 4.2.
 ================================================================================
 ATTRACT MODE -- THE BIBLE -- PART 03 OF 11
 RESEARCH WITH NIR
-Version 1.0 -- 11 November 2026
+Version 2.0, folded on 11 November 2026
 Status: FOUNDATIONAL. Obeys Part 00, Part 01 and Part 02, as changed
 in section 3.1 below.
 ================================================================================
@@ -58,22 +56,6 @@ saved in Place 3, in a new folder: attract-mode-files/raw/ . Reason:
 those are other people's whole pages, and Place 1 is public. This
 follows Part 01's own rule, "WHICH PLACE?", item 3.
 
-THE NOTICES. The first agent to read this Part does three things and
-changes nothing else in those files:
-1. In part-00.md , replaces the existing three-line notice with:
-       NOTICE, 11 November 2026: by Nir's decisions, this Part is
-       changed in eight places. The changes are written in Part 01,
-       section 1.2, and in Part 03, section 3.1, and they win over
-       the text below.
-2. At the very top of part-01.md , adds:
-       NOTICE, 11 November 2026: section 1.7 is changed in one
-       place. The change is written in Part 03, section 3.1.
-3. At the very top of part-02.md , adds:
-       NOTICE, 11 November 2026: by Nir's decision the "clean" rule
-       and the age rating are removed, and problem cards gain a part
-       letter and one property. The changes are written in Part 03,
-       section 3.1, and they win over the text below.
-
 --------------------------------------------------------------------------------
 3.2 THE ONE PRINCIPLE: LEADS AND SOURCES
 --------------------------------------------------------------------------------
@@ -100,7 +82,8 @@ check, because the words are not there.
 1. SEARCHES are always carried by Nir: search engines, their AI
    answers, Reddit, searches inside any site. No agent automates a
    search engine, uses a scraping tool or signs up for a search
-   service. Nir's own browser sees the real internet; an agent's
+   service. One exception: a SCRIPT may ask Wikimedia Commons for photos
+   through its public interface (Part 04, D27). Nir's own browser sees the real internet; an agent's
    search tool sees a poorer one.
 2. A KNOWN ADDRESS may be opened by the agent itself, if its tool
    returns the WHOLE page as text. The agent saves it the same way.

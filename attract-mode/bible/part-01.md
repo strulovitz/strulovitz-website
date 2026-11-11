@@ -1,12 +1,7 @@
-NOTICE, 11 November 2026: section 1.7 is changed in one
-place. The change is written in Part 03, section 3.1. Also changed by
-Part 04, section 4.2.
-TeX Live is not installed. Written in Part 06, section 6.2.
-Also changed by Part 11, section 11.2.
 ================================================================================
 ATTRACT MODE -- THE BIBLE -- PART 01 OF 11
 ARCHITECTURE AND MACHINES
-Version 1.1 -- 11 November 2026
+Version 2.0, folded on 11 November 2026
 Status: FOUNDATIONAL. Obeys Part 00 as changed in section 1.2.
 ================================================================================
 
@@ -75,7 +70,8 @@ in particular AM-LAW 13, AM-LAW 14 and AM-LAW 16.
 2. FREE (0.7 item 1). Free things are Moodle courses open to guests:
    no account and no login click. In 0.7 item 2, the sentence about
    the site working with the paid part switched off is replaced by:
-   "A free Level never depends on a login or on PayPal."
+   "A free Level never depends on a login or on PayPal." What is free and
+   what is paid is as in Part 04, section 4.1.
 3. THE WORD "CASHIER" IS RETIRED. Say "Moodle". In AM-LAW 12, "the
    cashier's data" means "Moodle's data".
 4. "THE LAB" is now THE PREQUELS (glossary item 17).
@@ -84,14 +80,6 @@ in particular AM-LAW 13, AM-LAW 14 and AM-LAW 16.
 6. AM-LAW 8. Nir's jobs also include OWNER ACTS (1.12), and job 2
    includes uploading finished videos to YouTube.
 7. THE MAP (0.13). Part 08 is named "Moodle".
-
-THE NOTICE. The first agent to read this Part adds the following three
-lines at the very top of attract-mode/bible/part-00.md , above
-everything else, and changes nothing else in that file:
-
-    NOTICE, 11 November 2026: by Nir's decisions, this Part is changed
-    in seven places. The changes are written in Part 01, section 1.2,
-    and they win over the text below.
 
 --------------------------------------------------------------------------------
 1.3 THE PICTURE
@@ -157,11 +145,12 @@ Nir's to change.
 OUR PLAIN FILES. Moodle owns the root of the address. Everything of
 ours that is not Moodle lives under ONE path word, /am/ , which Caddy
 answers before Moodle sees it:
-1. /am/toy/NAME/    one toy, shown inside a Moodle page in a frame
-2. /am/assets/      our own pictures, styles and scripts
-3. /am/vendor/      pinned copies of other people's libraries
-4. /am/go/NAME      a short link that forwards to a Level in Moodle
-5. /am/beacon/      measurement (see below)
+1. /am/assets/      our own pictures, styles and scripts
+2. /am/vendor/      pinned copies of other people's libraries
+3. /am/go/NAME      a short link that forwards to a Level in Moodle
+4. /am/beacon/      measurement (see below)
+There is no path for toys: a toy lives inside its Challenge package.
+(Part 04, section 4.2.)
 Also /hosted-by , the existing convention that says which PC is
 serving.
 NAME is lowercase English letters, digits and hyphens.
@@ -225,9 +214,8 @@ WINDOWS 11 (both PCs).
 3. No Attract Mode code. Nothing is installed on Windows for this
    project beyond what Nir already uses to record.
 4. Agents working in Linux never touch a Windows partition. Footage
-   crosses from Windows to Linux in two ways only: Nir uploads the
-   clip to YouTube and pastes its address, or Nir copies it on a
-   removable drive. Part 06 owns the procedure.
+   crosses from Windows to Linux on the stick AMFOOTAGE, and in no
+   other way. Part 06 owns the procedure.
 
 LINUX (both PCs, set up identically).
 1. ALWAYS RUNNING, from the moment Linux starts, as on any normal
@@ -235,7 +223,8 @@ LINUX (both PCs, set up identically).
    from the PC itself.
 2. SERVING, only on the PC whose "Websites ON" icon was clicked:
    Caddy, the tunnel and keep-awake (all existing), and, new, Moodle's
-   clock and a timer that fetches new work from GitHub. Nothing
+   clock and a timer that fetches new work from GitHub and also runs
+   the sync. Nothing
    becomes PUBLIC by itself: the tunnel starts only from the icon.
 3. PRODUCING, on either PC, serving or not: the line (Python), Manim,
    the browser tests, the voice, the coding agent, Obsidian.
@@ -272,7 +261,9 @@ strulovitz-website. Public: the whole world can read it.
 5. machines/     the two survey reports (1.5).
 6. config/       project settings, role-to-model names, version pins.
 7. vault/        the knowledge base (Part 02).
-8. research/     questions for Nir and what he pasted back (Part 03).
+8. research/     the questions, the claims and the dossiers (Part 03).
+                  What Nir carries back is not kept here: it is saved in
+                  Place 3, in raw/ .
 9. levels/       one folder per Level: plan, narration, toy, scenes,
                  quiz questions (Part 04).
 10. kits/        the toy kit and the video kit (Parts 05 and 06).
@@ -302,7 +293,11 @@ each other directly, with Syncthing.
 3. masters/    finished videos and audio.
 4. sessions/   recordings of art sessions (Part 10).
 5. handover/   Moodle's data on its way to the other PC (Part 09).
-6. work/       scratch space. Not copied. May be deleted any time.
+6. raw/        what Nir carries back: other people's whole pages
+               (Part 03). Place 1 is public, so these are not kept there.
+7. packages/   the finished Guide and Challenge packages (Part 05).
+8. voice/      Nir's voice sample, kept like a password (Part 06).
+9. work/       scratch space. Not copied. May be deleted any time.
 
 WHICH PLACE? For any new file, ask in this order:
 1. Is it a password or a key? See PASSWORDS below. Never GitHub.
@@ -350,8 +345,8 @@ FACTS CHECKED ON 11 NOVEMBER 2026, from the makers' own pages:
 6. Manim Community 0.22.1 needs Python 3.11 or newer. Its own
    documentation recommends the tool "uv". On Debian-family systems
    it also needs build-essential, python3-dev, libcairo2-dev and
-   libpango1.0-dev, and LaTeX (TeX Live) for formulas. Its health
-   check is: uv run manim checkhealth
+   libpango1.0-dev, and LaTeX (TeX Live) for formulas. We do not
+   install TeX Live (D36). Its health check is: uv run manim checkhealth
 
 FROM MEMORY, TO BE CONFIRMED IN PART 08:
 1. Moodle can let visitors into guest courses with no login click
@@ -376,7 +371,8 @@ TO ADD, ON BOTH PCS.
 1. For the website: PHP with the extensions Moodle asks for; MariaDB;
    Moodle; Syncthing.
 2. For producing: uv; a Python that uv keeps inside the project;
-   Manim Community; TeX Live; ffmpeg; Playwright with its own
+   Manim Community; ffmpeg; a speech-to-text library; a tested library
+   that turns numbers into words (both pinned); Playwright with its own
    Chromium, for testing every toy at phone size and desktop size.
 3. For looking: Obsidian. A viewer only. If it vanished tomorrow,
    nothing would break.
@@ -386,10 +382,11 @@ NOT USED, so that no agent adds them "to help":
 2. Conda, for our line. The art studios keep whatever they use.
 3. Node.js, npm and bundlers. Toys are plain files.
 4. Neo4j or any second database. (AM-LAW 11.)
-5. SCORM. Mathematica.
+5. SCORM 2004. Mathematica. (Our packages are SCORM 1.2, D13.)
 6. Any outside file server, font service or analytics service.
 7. Apache. It belongs to something else on the laptop.
 8. Extra Moodle plugins, unless Part 08 names them.
+9. LaTeX and TeX Live. (D36.)
 
 --------------------------------------------------------------------------------
 1.9 INSTALLATION RULES
@@ -409,10 +406,8 @@ NOT USED, so that no agent adds them "to help":
    Caddy, which runs as Nir, talk to PHP.
 3. SAME ON BOTH. The same script and the same pins on both PCs.
    Afterwards "am doctor" (1.10) must print matching versions.
-4. ORDER. The survey. Then owner-setup on both PCs. Then Moodle and
-   Switch Day on the serving PC. Then Moodle on the other PC, and one
-   test switch in each direction. Then the production tools.
-   Moodle is NOT installed before Part 08 and Part 09 are saved.
+4. ORDER. The order of installing is the order of the stages in
+   Part 11, section 11.4.
 5. A CHECK FOR EVERYTHING. Every installed piece gets one check
    inside "am doctor". A piece is not installed until its check
    passes on BOTH PCs.
@@ -473,8 +468,8 @@ This Part defines three words. Other Parts add theirs.
 
 1. EXPERT: the owner-setup script; our Caddy block and the one import
    line; the Switch Day redirects; anything inside hosting/ .
-2. WORKHORSE: the survey; the folder skeleton; DECISIONS.md; the
-   notice in Part 00; STATE.md; the configuration files.
+2. WORKHORSE: the survey; the folder skeleton; DECISIONS.md;
+   STATE.md; the configuration files.
 3. SCRIPT: am doctor, am build, am publish; the list of old paths;
    the check that Moodle has no folder named "am".
 4. NIR -- THE OWNER ACTS of this Part. For each, the EXPERT writes a
@@ -490,7 +485,7 @@ This Part defines three words. Other Parts add theirs.
 
 Part 01 is built when all of these are true:
 1. attract-mode/DECISIONS.md exists with D1 to D10.
-2. The notice of 1.2 stands at the top of part-00.md .
+2. Part 00 is folded (Part 11, section 11.10).
 3. Both survey files exist.
 4. The folder skeleton of 1.7 exists on both PCs, including the
    big-files folder, and Syncthing copies a test file both ways.

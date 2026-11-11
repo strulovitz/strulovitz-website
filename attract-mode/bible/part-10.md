@@ -1,8 +1,8 @@
 ================================================================================
 ATTRACT MODE -- THE BIBLE -- PART 10 OF 11
 THE ART STUDIO
-Version 1.0 -- 11 November 2026
-Obeys Parts 00 to 09, with their notices and with section 10.2 below.
+Version 2.0, folded on 11 November 2026
+Obeys Parts 00 to 09 and section 10.2 below.
 ================================================================================
 
 HOW TO READ THIS PART
@@ -67,10 +67,6 @@ CHANGES. Where an earlier Part disagrees, this section wins.
    hook, idea and SOURCE. The pairing is the same sum.
 3. Part 07, section 7.2: there are fourteen audits. A14 is
    written in 10.8.
-THE NOTICE. The first agent adds to the notices at the top of
-part-00.md and part-02.md , and at the very top of part-07.md ,
-one sentence: "Also changed by Part 10, section 10.2."
-
 ADDITIONS. These add to earlier Parts and contradict nothing.
 1. Part 08, section 8.4: one more site page, Co-op. The menu
    word Art leads to the four art departments and to Co-op.
@@ -386,7 +382,7 @@ COMMANDS, added to "am":
 5. am gpu
 
 WHO DOES WHAT.
-1. THE STRONGEST MODEL, ONCE: the script behind "am art in"; the
+1. THE STRONGEST MODEL, ONCE (read Part 11, 11.7): the script behind "am art in"; the
    fit check; the toy type card-sort; the golden humanities
    Level.
 2. THE WORKHORSE: sheets; draft replies; the studio list.

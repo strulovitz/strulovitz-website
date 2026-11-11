@@ -1,13 +1,8 @@
-NOTICE, 11 November 2026: D54 of this Part is no longer open. Nir
-decided it: Insert Coin costs 5 US dollars, once, and access is for
-ever (no number of days). This changes section 8.2 (D54, and the
-item 'from memory' about days) and section 8.8, item 1. Written in
-Part 09, section 9.2, and in DECISIONS.md.
 ================================================================================
 ATTRACT MODE -- THE BIBLE -- PART 08 OF 11
 MOODLE
-Version 1.0 -- 11 November 2026
-Obeys Parts 00 to 07, with their notices and with section 8.2 below.
+Version 2.0, folded on 11 November 2026
+Obeys Parts 00 to 07 and section 8.2 below.
 ================================================================================
 
 HOW TO READ THIS PART
@@ -39,8 +34,14 @@ This file is saved VERBATIM at: attract-mode/bible/part-08.md
 8.2 DECISIONS, CHANGES, FROM MEMORY
 --------------------------------------------------------------------------------
 
-Added to attract-mode/DECISIONS.md . All were chosen for Nir by
-the author of this Part; Nir may reverse any of them.
+Added to attract-mode/DECISIONS.md :
+
+Decided by Nir, 11 November 2026:
+D54. Insert Coin costs 5 US dollars, once. Access is for ever, and
+     includes every Challenge added later. The line on its page: "5
+     dollars, once. The price of one coffee. Yours for ever."
+
+Chosen for Nir by the author of this Part; Nir may reverse any:
 D47. A department is one free Moodle course, open to guests. It
      appears when its first Level is live. A Level is one
      section of it.
@@ -54,9 +55,6 @@ D51. A Challenge may be tried any number of times. The highest
      score counts.
 D52. Badges wait.
 D53. Nobody who bought can see who else bought.
-D54. OPEN, Nir's: the price of Insert Coin, and whether it buys
-     access for ever or for a number of days. Until he says:
-     for ever.
 
 CHANGES. Where an earlier Part disagrees, this section wins.
 1. Part 04, section 4.1: the Attract, the Guide and the
@@ -66,14 +64,10 @@ CHANGES. Where an earlier Part disagrees, this section wins.
    except for the packages, which Nir drops in.
 3. AM-LAW 15: the public words also include Insert Coin.
 4. Part 00, section 0.7: badges come later (Part 11).
-THE NOTICE. The first agent adds to the notices at the top of
-part-00.md and part-04.md one sentence: "Also changed by Part
-08, section 8.2."
-
 FROM MEMORY. Each is confirmed by a test of 8.10 or on the day.
 1. Moodle's PayPal takes ONE payment. It cannot charge every
    month by itself.
-2. "Enrolment on payment" can end access after a number of days.
+2. "Enrolment on payment" can give access with no end date.
 3. A zip file dragged onto a course page in edit mode can be
    added as a SCORM package.
 4. Behind a tunnel, Moodle's settings file needs the line
@@ -129,7 +123,8 @@ THE FRONT PAGE, from the top:
 4. Insert Coin.
 
 THE MENU: Departments, All Levels, By school topic, Insert
-Coin, Art, About Nir, The Prequels.
+Coin, Art, About Nir, The Prequels. The menu word Art leads to the
+four art departments and to Co-op.
 
 SITE PAGES, made by the script from files in Git:
 1. All Levels -- every Level with its game, its question and
@@ -140,6 +135,7 @@ SITE PAGES, made by the script from files in Git:
 4. Corrections -- from corrections.md (Part 07, 7.8).
 5. Privacy -- what is kept (an email, a nickname, scores), that
    there is no advertising, and how to have an account deleted.
+6. Co-op -- the paid hour with Nir (Part 10, 10.7).
 
 A DEPARTMENT. One free course. One section for each Level, each
 on its own page. The section's title is the hook's question.
@@ -246,13 +242,13 @@ forgotten password. A home connection cannot deliver mail.
 8.8 PAYPAL
 --------------------------------------------------------------------------------
 
-1. ONE PAYMENT. The price buys access for ever, or for a number
-   of days. After that the parent may pay again (D54).
+1. ONE PAYMENT. The price buys access for ever (D54).
 2. OWNER ACTS: in PayPal's pages for developers, Nir makes an
    "app" and gets two keys. He types them into Moodle's payment
    page himself.
 3. The script adds "Enrolment on payment" to Insert Coin, with
-   the price, the currency and the days from the configuration.
+   the price and the currency from the configuration. Access has no
+   end date.
 4. PRETEND MONEY FIRST. PayPal has a test mode. Then ONE real
    purchase by Nir, from a second account, and its refund.
 5. A REFUND is given by Nir, in PayPal. Then the agent ends
@@ -288,7 +284,8 @@ NIR'S UPLOAD, for one Level. This is step 16 of the line.
 3. Open Insert Coin. Drag the Challenge file onto the
    department's section. The same choice.
 4. Say "uploaded".
-Then the agent runs the sync. It knows each package by its
+Then the sync runs: at once if an agent is there, and otherwise within
+ten minutes by itself (Part 09, D57). It knows each package by its
 fingerprint, which must be that of the newest build. It gives
 the package its public name, its place and its mark. The
 Level's state becomes "live". Its short link is made. Last, the
@@ -340,7 +337,7 @@ COMMANDS, added to "am":
 2. am moodle try
 
 WHO DOES WHAT.
-1. THE STRONGEST MODEL, ONCE: the installation; the hands; the
+1. THE STRONGEST MODEL, ONCE (read Part 11, 11.7): the installation; the hands; the
    settings of 8.5 and 8.6.
 2. THE WORKHORSE: runs the sync and the tests.
 3. NIR, OWNER ACTS, each from a checklist written on the day:

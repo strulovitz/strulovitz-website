@@ -1,8 +1,8 @@
 ================================================================================
 ATTRACT MODE -- THE BIBLE -- PART 06 OF 11
 THE VIDEO LINE
-Version 1.0 -- 11 November 2026
-Obeys Parts 00 to 05, with their notices and with section 6.2 below.
+Version 2.0, folded on 11 November 2026
+Obeys Parts 00 to 05 and section 6.2 below.
 ================================================================================
 
 HOW TO READ THIS PART
@@ -102,10 +102,6 @@ CHANGES. Where an earlier Part disagrees, this section wins.
 1. Part 01, section 1.8: TeX Live is not installed (D36).
 2. Part 05, section 5.8, item 2: the film gets a formula as a
    photograph of the Guide's page.
-
-THE NOTICE. The first agent adds one sentence to the notice at the
-top of part-01.md : "TeX Live is not installed. Written in Part
-06, section 6.2."
 
 ADDITIONS. These add to earlier Parts and contradict nothing.
 1. Part 01, section 1.7, Place 3: one more folder, voice/ .
@@ -277,6 +273,9 @@ was not in the clip: record again.
 LOOK ANSWERS. After the footage is in, the agent asks Nir for the
 answers he wrote on the sheet, one by one, and saves each as a
 claim with the grade "seen" (Part 03, 3.8).
+
+MAKING OFS OF LINUX STUDIOS (Part 10) are recorded in Linux. The EXPERT
+picks a screen recorder for Linux.
 
 --------------------------------------------------------------------------------
 6.6 THE VOICE
@@ -630,7 +629,7 @@ Added to the single command "am":
 6.16 WHO DOES WHAT
 --------------------------------------------------------------------------------
 
-1. THE STRONGEST MODEL, ONCE: the golden film and the golden
+1. THE STRONGEST MODEL, ONCE (read Part 11, 11.7): the golden film and the golden
    timeline (done, saved with this Part); their tests as files;
    the scripts of 6.5, 6.6, 6.11, 6.12 and 6.13; the voice
    adapter; the sample text.

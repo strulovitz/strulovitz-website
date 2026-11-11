@@ -1,14 +1,7 @@
-NOTICE, 11 November 2026: by Nir's decision the "clean" rule
-and the age rating are removed, and problem cards gain a part
-letter and one property. The changes are written in Part 03,
-section 3.1, and they win over the text below. Also changed by Part 04,
-section 4.2.
-Also changed by Part 10, section 10.2.
-Also changed by Part 11, section 11.2.
 ================================================================================
 ATTRACT MODE -- THE BIBLE -- PART 02 OF 11
 THE VAULT
-Version 1.0 -- 11 November 2026
+Version 2.0, folded on 11 November 2026
 Status: FOUNDATIONAL. Obeys Part 00 (as changed in Part 01, section
 1.2) and Part 01.
 ================================================================================
@@ -231,7 +224,8 @@ EXAMPLE (format only):
 
 A PROBLEM is one published competition problem: a Boss candidate.
 Folder: FIELD/problems/ . Id: field letter, competition code, year,
-number. The competition codes are listed in one configuration file,
+number, and, when the problem has parts, a hyphen and one letter naming
+the part (Part 03, 3.13). The competition codes are listed in one configuration file,
 which Part 03 fills.
 
 PROPERTIES:
@@ -243,6 +237,7 @@ PROPERTIES:
    cannot leave the state "candidate". (AM-LAW 7.)
 5. key -- link to the ONE idea that cracks the problem.
 6. state -- candidate, routed, audited or set-aside.
+7. solution-kind -- worked or answer-only (Part 03, 3.13).
 
 BODY, three sections:
 1. "Statement" -- the problem. Part 03 says when it may be quoted in
@@ -265,6 +260,7 @@ EXAMPLE (format only):
     statement-source: (address of the official page)
     solution-source: (address, or book and page)
     key: "[[m-divides-a-combination]]"
+    solution-kind: worked
     state: audited
     ---
     ## Statement
@@ -293,10 +289,9 @@ PROPERTIES:
 2. single-player -- must be true.
 3. photo-mode -- true or false: can the game freeze and let the
    camera fly?
-4. age-rating -- as printed by the rating board, from the dossier.
-5. dossier -- path of the research folder for this game (Part 03).
-6. chosen -- the date Nir named it.
-7. state -- named, researched or set-aside.
+4. dossier -- path of the research folder for this game (Part 03).
+5. chosen -- the date Nir named it.
+6. state -- named, researched or set-aside.
 BODY: Nir's own words about what struck him in this game, if he
 said any.
 
@@ -310,7 +305,6 @@ EXAMPLE (format only):
     maker: CD Projekt Red
     single-player: true
     photo-mode: true
-    age-rating: PEGI 18
     dossier: research/games/cyberpunk-2077/
     chosen: 2026-11-11
     state: researched
@@ -337,10 +331,9 @@ PROPERTIES:
 7. honest-line -- the one sentence for the Credits that says what
    kind of connection this is. If it is a stretch, it says so.
 8. seen, true, heart, toy -- four scores from 0 to 3 (below).
-9. clean -- true or false (below).
-10. sources -- the research files that support it.
-11. nir -- none, yes or no. Nir's own word on this hook.
-12. state -- proposed, audited or rejected.
+9. sources -- the research files that support it.
+10. nir -- none, yes or no. Nir's own word on this hook.
+11. state -- proposed, audited or rejected.
 
 THE FOUR SCORES.
 SEEN -- can a stranger see it?
@@ -368,21 +361,15 @@ TOY -- can a 14-year-old play with the idea?
 1: only something close to a quiz.
 0: no toy can be imagined.
 
-CLEAN. True when 20 to 40 seconds of this moment can be shown with
-no gore, no sex or nudity, no drugs and no strong language, in
-picture or in sound. The audience is 14 to 17 and a parent is
-watching. If false, another MOMENT in the same game is looked for.
-This rule never refuses a game.
-
 A HOOK IS USABLE when: state is audited; no score is 0; true is 2 or
-3; clean is true; nir is not "no"; the idea's state is approved; the
-game is not set aside.
+3; nir is not "no"; the idea's state is approved; the game is not
+set aside.
 THE HOOK SCORE is seen + true + heart + toy. The most is 12.
 
 WHO SCORES. The WORKHORSE writes the hook and scores it. An AUDITOR,
 a different model, scores it again without seeing the first scores.
-The lower number stands. If two numbers differ by 2 or more, or the
-two disagree about clean, the hook goes to the EXPERT.
+The lower number stands. If two numbers differ by 2 or more, the
+hook goes to the EXPERT.
 
 EXAMPLE (format only):
 
@@ -401,7 +388,6 @@ EXAMPLE (format only):
     true: 2
     heart: 3
     toy: 3
-    clean: true
     sources:
       - research/games/cyberpunk-2077/dossier.md
     nir: none
@@ -426,6 +412,9 @@ PROPERTIES:
    department are all read from the hook. They are not typed again.
 3. boss -- link to a problem card.
 4. state -- planned, built, live or retired.
+5. attract-video -- the address of the Attract on YouTube (Part 06).
+6. walkthrough-video -- the address of the Walkthrough on YouTube
+   (Part 06).
 
 BODY: one block per checkpoint, in order. Each block has a heading
 "Checkpoint" with its number, then these lines:
@@ -477,13 +466,10 @@ THE RULE. An idea is ground only if BOTH documents teach it by age
 14. The card's sources quote the line from each. An idea found in
 only one of them is NOT ground. It will simply sit very low.
 
-SEED, THEN GROW.
-1. SEED. For each field the EXPERT writes, once, the topic cards and
-   the ground cards that almost every route will touch.
-2. GROW. When a route reaches something that seems to be school
-   knowledge and has no card, the WORKHORSE may add a ground card,
-   but only with the two quoted lines. An AUDITOR checks the quotes
-   against the documents.
+GROUND CARDS ARE MADE WHEN A ROUTE NEEDS THEM. No seed is built first.
+When a route reaches something that seems to be school knowledge and has
+no card, the WORKHORSE may add a ground card, but only with the two
+quoted lines. An AUDITOR checks the quotes against the documents.
 
 SHAKY. Some ground ideas are taught by 14 and still not held by the
 teenagers we serve: fractions, negative numbers, ratio. The EXPERT
@@ -538,7 +524,9 @@ All of this is written into made/ and never typed by a model.
    configuration. It follows from the Level's shape: checkpoint 1 is
    ground, each later checkpoint teaches one idea, and a Level has
    at most five checkpoints. A problem over the limit is not wrong;
-   it is too big to be a Boss, and its state becomes set-aside.
+   it is too big to be a Boss, and its state becomes set-aside. For a
+   humanities Level there is no ground: checkpoint 1 need not be
+   ground, and the limit is 5.
 5. TIER of a Level: the highest tier among its checkpoint ideas.
 
 --------------------------------------------------------------------------------
@@ -547,6 +535,10 @@ All of this is written into made/ and never typed by a model.
 
 The pairing decides which game gets which idea and which Boss. It is
 one calculation, done by SCRIPT, proposed to Nir and decided by Nir.
+
+THE FIRST LEVELS ARE PAIRED BY HAND. Nir names the game, the planner
+proposes the idea and the Boss, and Nir says yes. The sum below is built
+when ten games are researched.
 
 A CHAIN is: a game, a usable hook of that game, the hook's idea, and
 an eligible Boss whose route contains that idea.
@@ -599,8 +591,8 @@ refuses, or a pair he wants instead.
 The pairing runs when an agent is asked to run it, after new games
 or new problems have come in. It never runs by itself.
 
-Humanities chains have no Boss card. Part 10 says what stands in its
-place.
+A humanities chain is a game, a usable hook, the hook's idea and a
+SOURCE (Part 10). The pairing is the same sum.
 
 --------------------------------------------------------------------------------
 2.15 THE VARIETY LEDGER
@@ -647,7 +639,8 @@ HOW THE ORDER IS MADE, for one field:
    button leads back to the studio.
 
 The order is worked out again whenever a Level goes live. It is the
-same for every visitor. A personal order, from a signed-in player's
+same for every visitor. The sync puts the "next Level" line on the
+Level's page in Moodle; it is not inside a package. A personal order, from a signed-in player's
 saved progress, is a later improvement and is not built now.
 
 --------------------------------------------------------------------------------
@@ -710,7 +703,8 @@ LEVELS.
 V10. One Level per game. One Level per headline idea. One Level per
      Boss. (Retired Levels do not count.)
 V11. The Boss's route contains the headline idea.
-V12. Three to five checkpoints. The idea of checkpoint 1 is ground.
+V12. Three to five checkpoints. The idea of checkpoint 1 is ground
+     (not required in a humanities Level).
 V13. THE ORDER CHECK. Everything that a checkpoint's idea needs is
      either ground or the idea of an EARLIER checkpoint of the same
      Level. A Level never leans on another Level.
@@ -773,7 +767,7 @@ real vault, and again after every change to them.
 --------------------------------------------------------------------------------
 
 1. EXPERT: the golden example cards; the scripts and the test vault;
-   the topic cards and the seed of ground for each field; marking
+   the topic cards for each field; marking
    shaky; approving and merging ideas; the first routes of each
    field (Part 04); the checkpoints of each Level (Part 04);
    settling hook scores that the two scorers dispute.
@@ -794,8 +788,8 @@ Part 02 is built when all of these are true:
 1. The folders of 2.3 exist, with a golden example of each of the
    six kinds of card in examples/ .
 2. The seven commands exist and reproduce the test vault's answers.
-3. For maths: the topic cards and the seed of ground exist, each
-   ground card quoting both reference documents.
+3. For maths: the topic cards exist, and every ground card that exists
+   quotes both reference documents.
 4. "am vault check" passes on the real vault, and fails, with a
    plain sentence, on each of a set of deliberately broken cards.
 5. Obsidian opens the vault on both PCs with the same colours.

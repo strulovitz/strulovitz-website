@@ -1,13 +1,8 @@
-NOTICE, 11 November 2026: the kind of question NUMBER is
-removed, wrong answers may also be near answers, and the Toy
-section of the plan has one line for each need. The changes
-are written in Part 05, section 5.2.
-Also changed by Part 08, section 8.2.
 ================================================================================
 ATTRACT MODE -- THE BIBLE -- PART 04 OF 11
 LEVEL DESIGN
-Version 1.1 -- 11 November 2026
-Obeys Parts 00 to 03, with their notices and with section 4.2 below.
+Version 2.0, folded on 11 November 2026
+Obeys Parts 00 to 03 and section 4.2 below.
 This version replaces every earlier Part 04.
 ================================================================================
 
@@ -26,7 +21,9 @@ This file is saved VERBATIM at: attract-mode/bible/part-04.md
 4.1 WHAT A LEVEL IS MADE OF
 --------------------------------------------------------------------------------
 
-A Level is five pieces, in one section of a Moodle course. EVERY
+A Level is five pieces. The Attract, the Guide and the Walkthrough sit in
+the Level's section of its department's Moodle course. The Challenge,
+with the toy, sits in Insert Coin (Part 08). EVERY
 Level has ALL FIVE, from the first Level on. None is optional and
 none is postponed.
 
@@ -116,14 +113,6 @@ this section wins.
 7. Part 03, section 3.3, item 1: one exception. A SCRIPT may ask
    Wikimedia Commons for photos through its public interface.
 
-THE NOTICES. The first agent to read this Part:
-1. Adds, to the notices at the top of part-00.md , part-01.md and
-   part-02.md , one sentence: "Also changed by Part 04, section
-   4.2."
-2. Adds at the very top of part-03.md :
-       NOTICE, 11 November 2026: section 3.3 is changed in one
-       place. The change is written in Part 04, section 4.2.
-
 --------------------------------------------------------------------------------
 4.3 THE WHOLE EXAMPLE
 --------------------------------------------------------------------------------
@@ -182,9 +171,17 @@ B. THE PLAN. One form, filled in. It decides everything.
 
     ## Toy
     type: mirror-bounce
-    uses: lamp, eye, sign
+    light: lamp
+    eye: eye
+    mirrorLeft: street-left
+    mirrorRight: street-right
+    sign: sign
+    label light: lamp
+    label eye: eye
+    label twin: twin lamp
+    unit: m
     task 1: Slide the spot until the light from the lamp reaches the eye.
-    task 2: Switch on the twin lamp. Now find the spot in one move.
+    task 2: Now the twin lamp is shown. Find the spot in one move.
     task 3: Press the button. The machine does it for the whole sign.
 
 C. THE GUIDE. The pages as the visitor reads them. Every page
@@ -356,11 +353,16 @@ that the numbers file worked out.
 D. THE CHALLENGE. It opens with the toy. Then eight questions.
 Three of them:
 
-    QUESTION 1 -- NUMBER (checkpoint 1)
+    QUESTION 1 -- PICK (checkpoint 1)
     A lamp hangs 2 metres up. An eye is 1 metre up. They are 9
     metres apart. How far from the lamp is the bounce spot, in
     metres?
-    Right answer: 6
+    A. 3 metres. "That is how far the spot is from the eye. The
+       question asks from the lamp."
+    B. 4.5 metres. "That is the middle. The spot is not in the middle,
+       because the lamp hangs higher than the eye."
+    C. 5 metres. "Not this one. Checkpoint 1 of the Guide shows the way."
+    D. 6 metres. (Right.)
 
     QUESTION 3 -- PICK (checkpoint 2)
     A lamp hangs 3 metres above a puddle. How far below the puddle
@@ -538,6 +540,8 @@ In informatics there is one more kind, CODE (4.13).
 
 EVERY PAGE HAS A PICTURE, except NAME and CREDITS (4.8).
 
+A page may carry FORMULA lines, after its text (Part 05, 5.8).
+
 A shaky ground idea (Part 02, 2.11) is refreshed in one or two
 sentences on the SEE page that first uses it.
 
@@ -653,8 +657,9 @@ do it for the whole scene.
    a FORM: which points and numbers it needs, and which tasks it
    offers.
 2. THE PLANNER names one toy type in the plan and fills its form
-   with NAMES from the numbers file (example: 4.3, B). Nobody
-   writes toy code for a Level.
+   with NAMES from the numbers file, one line for each thing the form
+   needs (example: 4.3, B; Part 05, 5.13). Nobody writes toy code for a
+   Level.
 3. TASKS. Two to four, each one sentence. The first is the job by
    hand. The last hands the job to the machine. The toy itself
    shows when a task is done, from the numbers. Tasks are not
@@ -675,8 +680,7 @@ first page is the toy. Then comes a fixed list of questions.
 
 1. HOW MANY. Two for each checkpoint, and two for the Boss. The
    numbers are in the configuration.
-2. THREE KINDS.
-   NUMBER -- type a number.
+2. TWO KINDS.
    PICK -- choose one of four.
    SPOT -- a Boss step is shown; which idea does it use? The
    SCRIPT makes these from the cards.
@@ -684,9 +688,11 @@ first page is the toy. Then comes a fixed list of questions.
    fresh numbers. They never ask about the game.
 4. We never ask the teenager to solve the Boss.
 5. EVERY RIGHT ANSWER is worked out by the numbers file.
-6. WRONG ANSWERS ARE SLIPS. In a PICK, each wrong answer is what
-   one slip from the idea card would give. Its sentence says
-   kindly what happened: "That is what you get if you ..." The
+6. WRONG ANSWERS ARE SLIPS FIRST. A PICK has one right answer and
+   three wrong ones. Each wrong answer is first what one slip from the
+   idea card would give. If the idea has fewer than three slips, the
+   numbers file fills up with NEAR ANSWERS (Part 05, 5.12). A slip's
+   sentence says kindly what happened: "That is what you get if you ..." The
    word "wrong" is not used.
 7. A question may have a drawn picture, by the rules of 4.8.
 8. THE SCORE is the number of right answers out of all. It goes to
@@ -717,6 +723,8 @@ worked out by a script.
 7. TWICE COMPUTED. An auditor writes its own small program from
    the plan alone, without seeing the numbers file. A script
    compares the two results. Two models, two programs, one answer.
+8. The numbers file also gives scenes, lists, answers and toy tests
+   (Part 05, 5.4).
 
 --------------------------------------------------------------------------------
 4.12 THE ATTRACT AND THE WALKTHROUGH
@@ -765,7 +773,8 @@ INFORMATICS. Real code, as in the real contests.
    a small procedure is carried out by hand, in plain numbered
    steps. Then a CODE page shows the same procedure as a short
    program.
-2. THE CODE PAGE. One program of at most 20 lines, and under it
+2. THE CODE PAGE. One program of at most 20 lines, a line of at most
+   48 characters so that it fits a phone, and under it
    up to 80 words saying which lines do which step.
 3. The planner writes each program as a file in the workshop. The
    writer never types code: it names the file, and the script
@@ -918,7 +927,7 @@ The toy and the film of the golden Level are the "done" of Parts
 18. TOY TYPE -- a toy built once, then filled with a Level's
     numbers.
 19. KIT GAP -- a note that the kit lacks something a Level needs.
-20. NUMBER, PICK, SPOT -- the three kinds of question.
+20. PICK, SPOT -- the two kinds of question.
 21. WORKSHOP -- the folder where one Level is made.
 
 ================================================================================

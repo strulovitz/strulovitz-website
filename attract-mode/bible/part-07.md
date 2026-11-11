@@ -1,10 +1,8 @@
-NOTICE, 11 November 2026: Also changed by Part 10, section 10.2.
-Also changed by Part 11, section 11.2.
 ================================================================================
 ATTRACT MODE -- THE BIBLE -- PART 07 OF 11
 QUALITY
-Version 1.0 -- 11 November 2026
-Obeys Parts 00 to 06, with their notices.
+Version 2.0, folded on 11 November 2026
+Obeys Parts 00 to 06.
 ================================================================================
 
 HOW TO READ THIS PART
@@ -51,7 +49,7 @@ D46. Live Levels are watched by the counters and corrected in
 7.2 THE AUDITS
 --------------------------------------------------------------------------------
 
-Thirteen audits. For each: who, what goes IN, what it ANSWERS.
+Fourteen audits. For each: who, what goes IN, what it ANSWERS.
 
 A1  MEANING (text). IN: a claim's "says" line and its quote.
     Does the quote say this? YES / NO.
@@ -91,6 +89,9 @@ A12 FILM SHEET (eyes). IN: the last picture of each film page,
 A13 TOY SCREEN (eyes). IN: a screenshot of each task of a new
     toy type, and its form. Does the screen show what the form
     says for this task? YES / NO.  (Part 05, 5.13.)
+A14 SOURCED (text). IN: one page's sentences, and the Level's claims.
+    For each sentence: the id of the claim it rests on, or NONE. A NONE
+    sends the page back.  (Part 10, 10.8; humanities Levels.)
 
 --------------------------------------------------------------------------------
 7.3 THE AUDIT CARD
@@ -161,8 +162,9 @@ That is measured, not hoped.
 
 1. For each audit there is a folder of TRAPS,
    kits/audits/traps/ID/ : five good cases and ten broken ones,
-   each with its right answer. The strongest model makes them
-   once, from the golden Level, by breaking one thing in each: a
+   each with its right answer. First the golden Level is audited by the
+   best model Nir can afford, before any trap exists. The traps are then
+   made from it, by breaking one thing in each: a
    step removed from a route, a label moved in a picture, a
    quote changed by one word.
 2. "am audit traps" runs every audit on its traps with the
@@ -262,8 +264,8 @@ COMMANDS, added to "am":
 3. am report live
 
 WHO DOES WHAT.
-1. THE STRONGEST MODEL, ONCE: the thirteen audit cards, the
-   traps, the scripts that fill, send and read.
+1. THE STRONGEST MODEL, ONCE (read Part 11, 11.7): the fourteen audit
+   cards, the traps, the scripts that fill, send and read.
 2. AUDITOR-TEXT and AUDITOR-EYES: cheap models that passed the
    trap test.
 3. THE EXPERT: escalations.
@@ -271,7 +273,7 @@ WHO DOES WHAT.
 5. NIR: nothing, except the uploads that a correction needs.
 
 DONE MEANS.
-1. The thirteen cards and their traps exist.
+1. The fourteen cards and their traps exist.
 2. "am audit traps" has run, and the configuration names an
    auditor-text and an auditor-eyes that passed.
 3. The golden Level has passed "am level audit".
