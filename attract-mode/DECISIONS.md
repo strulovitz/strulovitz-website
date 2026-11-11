@@ -133,3 +133,36 @@ Decided by: chosen for Nir by the author of Part 04; Nir may reverse it.
 2026-11-11 -- D27 -- Photos from Wikimedia Commons
 A script may ask Wikimedia Commons for photos by itself.
 Decided by: chosen for Nir by the author of Part 04; Nir may reverse it.
+
+2026-11-11 -- D28 -- Every question is multiple choice
+Every question of a Challenge is multiple choice. Nobody types an answer.
+Decided by: Nir, 11 November 2026.
+
+2026-11-11 -- D29 -- The golden toy
+The toy gets a real blueprint: one finished, working toy that the weaker
+models copy.
+Decided by: Nir, 11 November 2026.
+
+2026-11-11 -- D30 -- A package is closed
+A package is closed: it holds everything it needs.
+Decided by: chosen for Nir by the author of Part 05; Nir may reverse it.
+
+2026-11-11 -- D31 -- Formulas
+Formulas are typed the way people type on a calculator. A script sets them.
+They are shown, not spoken.
+Decided by: chosen for Nir by the author of Part 05; Nir may reverse it.
+
+2026-11-11 -- D32 -- A toy is one file
+A toy is one file of plain code, with no outside library. A library enters
+only when the EXPERT finds that a toy type cannot be built without it.
+Decided by: chosen for Nir by the author of Part 05; Nir may reverse it.
+
+2026-11-11 -- D33 -- Right answers inside the package
+The right answers travel inside the Challenge package. Somebody who wants to
+cheat can ask an AI anyway.
+Decided by: chosen for Nir by the author of Part 05; Nir may reverse it.
+
+2026-11-11 -- D34 -- Painted pictures switched off
+Painted pictures are switched off until a script can start Nir's local image
+model by itself (Part 05, 5.10).
+Decided by: chosen for Nir by the author of Part 05; Nir may reverse it.

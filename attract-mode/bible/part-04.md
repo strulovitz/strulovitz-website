@@ -1,3 +1,7 @@
+NOTICE, 11 November 2026: the kind of question NUMBER is
+removed, wrong answers may also be near answers, and the Toy
+section of the plan has one line for each need. The changes
+are written in Part 05, section 5.2.
 ================================================================================
 ATTRACT MODE -- THE BIBLE -- PART 04 OF 11
 LEVEL DESIGN

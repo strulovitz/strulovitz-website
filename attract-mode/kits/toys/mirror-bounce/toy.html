@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Toy: mirror-bounce</title>
+<style>
+  html, body { margin: 0; padding: 0; background: #ffffff; color: #1b1f24;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial,
+      sans-serif; }
+  #toy { max-width: 640px; margin: 0 auto; padding: 8px;
+    box-sizing: border-box; }
+  #task { font-size: 18px; line-height: 1.35; margin: 4px 4px 8px 4px;
+    min-height: 2.7em; }
+  #stage { display: block; width: 100%; aspect-ratio: 4 / 3;
+    border: 1px solid #c9d1d9; border-radius: 8px; touch-action: none;
+    user-select: none; -webkit-user-select: none; }
+  #readout { font-size: 18px; margin: 8px 4px; min-height: 1.4em; }
+  #buttons { display: flex; gap: 8px; flex-wrap: wrap; }
+  #buttons button { font-size: 18px; min-height: 48px; padding: 8px 16px;
+    border-radius: 8px; border: 2px solid #1b1f24; background: #ffffff;
+    color: #1b1f24; flex: 1 1 auto; }
+  #buttons button:disabled { opacity: 0.4; }
+  #buttons #machine { background: #1b1f24; color: #ffffff; }
+</style>
+</head>
+<body>
+<div id="toy">
+  <p id="task"></p>
+  <svg id="stage" viewBox="0 0 400 300" tabindex="0" role="img"></svg>
+  <p id="readout"></p>
+  <div id="buttons">
+    <button id="machine" type="button" hidden>Run the machine</button>
+    <button id="reset" type="button">Start again</button>
+    <button id="next" type="button">Next task</button>
+  </div>
+</div>
+<script>
+"use strict";
+
+// =====================================================================
+// PART 1 -- THE LEVEL'S DATA
+// The packer replaces everything between the two marks below with
+// the names and numbers of one Level. Nobody edits it by hand.
+// =====================================================================
+/*LEVEL-START*/
+var LEVEL = {
+  points: {
+    "street-left":  [-1, 0],
+    "street-right": [ 9, 0],
+    "lamp":         [ 0, 3],
+    "eye":          [ 8, 1]
+  },
+  lists: {
+    "sign": [[2,2],[2,3],[2,4],[3,4],[4,4],[4,3],[4,2],[3,2],
+             [5,2],[6,3],[5,4]]
+  },
+  uses: {
+    light: "lamp",
+    eye: "eye",
+    mirrorLeft: "street-left",
+    mirrorRight: "street-right",
+    sign: "sign"
+  },
+  labels: { light: "lamp", eye: "eye", twin: "twin lamp" },
+  unit: "m",
+  tasks: [
+    "Slide the spot until the light from the lamp reaches the eye.",
+    "Now the twin lamp is shown. Find the spot in one move.",
+    "Press the button. The machine does it for the whole sign."
+  ]
+};
+/*LEVEL-END*/
+
+// =====================================================================
+// PART 2 -- THE SHARED PARTS
+// The same in every toy type. Do not change this part in a new toy.
+// =====================================================================
+var VIEW_W = 400, VIEW_H = 300, PAD = 28;
+var INK = "#1b1f24", SOFT = "#8a94a0", RAY = "#c2410c";
+var SVG_NS = "http://www.w3.org/2000/svg";
+var stage = document.getElementById("stage");
+var taskLine = document.getElementById("task");
+var readout = document.getElementById("readout");
+var machineButton = document.getElementById("machine");
+var resetButton = document.getElementById("reset");
+var nextButton = document.getElementById("next");
+var frame = null;
+
+// The frame: the smallest box that holds all the given points.
+// The scale is the same across and up, so shapes stay true.
+function makeFrame(points) {
+  var minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
+  for (var i = 0; i < points.length; i++) {
+    minX = Math.min(minX, points[i][0]); maxX = Math.max(maxX, points[i][0]);
+    minY = Math.min(minY, points[i][1]); maxY = Math.max(maxY, points[i][1]);
+  }
+  var wide = Math.max(maxX - minX, 0.001), high = Math.max(maxY - minY, 0.001);
+  var unit = Math.min((VIEW_W - 2 * PAD) / wide, (VIEW_H - 2 * PAD) / high);
+  return {
+    minX: minX, maxY: maxY, unit: unit,
+    offX: (VIEW_W - wide * unit) / 2,
+    offY: (VIEW_H - high * unit) / 2
+  };
+}
+
+// From a place in the scene to a place on the stage. Up is up.
+function toStage(p) {
+  return [frame.offX + (p[0] - frame.minX) * frame.unit,
+          frame.offY + (frame.maxY - p[1]) * frame.unit];
+}
+
+// From a finger or a mouse to a place in the scene.
+function fromPointer(evt) {
+  var box = stage.getBoundingClientRect();
+  var scale = Math.min(box.width / VIEW_W, box.height / VIEW_H);
+  var vx = (evt.clientX - box.left - (box.width - VIEW_W * scale) / 2) / scale;
+  var vy = (evt.clientY - box.top - (box.height - VIEW_H * scale) / 2) / scale;
+  return [frame.minX + (vx - frame.offX) / frame.unit,
+          frame.maxY - (vy - frame.offY) / frame.unit];
+}
+
+function clearStage() {
+  while (stage.firstChild) { stage.removeChild(stage.firstChild); }
+}
+
+function add(name, attrs, words) {
+  var el = document.createElementNS(SVG_NS, name);
+  for (var key in attrs) { el.setAttribute(key, attrs[key]); }
+  if (words !== undefined) { el.textContent = words; }
+  stage.appendChild(el);
+  return el;
+}
+
+// style: { color, width, dashed }
+function drawLine(a, b, style) {
+  var p = toStage(a), q = toStage(b);
+  var attrs = { x1: p[0], y1: p[1], x2: q[0], y2: q[1],
+    stroke: style.color || INK, "stroke-width": style.width || 2,
+    "stroke-linecap": "round" };
+  if (style.dashed) { attrs["stroke-dasharray"] = "7 6"; }
+  add("line", attrs);
+}
+
+// style: { r, color, hollow }
+function drawDot(a, style) {
+  var p = toStage(a);
+  add("circle", { cx: p[0], cy: p[1], r: style.r || 6,
+    fill: style.hollow ? "#ffffff" : (style.color || INK),
+    stroke: style.color || INK, "stroke-width": 2 });
+}
+
+// dx, dy: how far from the point the words stand, on the stage.
+function drawLabel(a, words, dx, dy) {
+  var p = toStage(a);
+  add("text", { x: p[0] + dx, y: p[1] + dy, "font-size": 18, fill: INK },
+      words);
+}
+
+// A number as people write it: 6 and not 6.0, 5.3 and not 5.3333.
+function plain(v) {
+  return String(Math.round(v * 10) / 10);
+}
+
+function showTask(number, total, words, done) {
+  taskLine.textContent = "Task " + number + " of " + total + ". " + words +
+    (done ? " Done." : "");
+}
+
+// =====================================================================
+// PART 3 -- THIS TOY TYPE: mirror-bounce
+// A new toy type changes only this part. It has five pieces:
+//   A. the geometry   B. the state   C. the tasks
+//   D. the drawing    E. what the finger does
+// =====================================================================
+
+// ---- A. THE GEOMETRY: everything is worked out from LEVEL -----------
+var P = LEVEL.points, U = LEVEL.uses;
+var light = P[U.light], eye = P[U.eye];
+var mirrorA = P[U.mirrorLeft], mirrorB = P[U.mirrorRight];
+var sign = LEVEL.lists[U.sign];
+var floor = mirrorA[1];                      // the mirror is flat
+var leftEnd = Math.min(mirrorA[0], mirrorB[0]);
+var rightEnd = Math.max(mirrorA[0], mirrorB[0]);
+var SNAP = 0.025 * (rightEnd - leftEnd);     // how close is close enough
+
+// The twin of a point: as far below the mirror as the point is above.
+function twinOf(p) {
+  return [p[0], floor - (p[1] - floor)];
+}
+
+// Where light from p must bounce to reach the eye: the place where
+// the straight line from the eye to p's twin crosses the mirror.
+function bounceSpotFor(p) {
+  var up = p[1] - floor, eyeUp = eye[1] - floor;
+  return p[0] + (eye[0] - p[0]) * up / (up + eyeUp);
+}
+
+// Light from the lamp bounces at the spot x and leaves as steeply as
+// it came. This says where that light is when it is as high as the eye.
+function lightAtEyeHeight(x) {
+  return x + (x - light[0]) * (eye[1] - floor) / (light[1] - floor);
+}
+
+// ---- B. THE STATE: the few things that can change -------------------
+var state = { task: 0, spot: 0, twins: 0, timer: null };
+
+function startSpot() {
+  var x = light[0] + 0.25 * (eye[0] - light[0]);
+  if (Math.abs(x - bounceSpotFor(light)) <= 2 * SNAP) {
+    x = light[0] + 0.6 * (eye[0] - light[0]);
+  }
+  return x;
+}
+
+// ---- C. THE TASKS ----------------------------------------------------
+// Task 0: the job by hand.  Task 1: with the twin.  Task 2: the machine.
+function taskDone() {
+  if (state.task < 2) {
+    return Math.abs(state.spot - bounceSpotFor(light)) < 1e-9;
+  }
+  return state.twins === sign.length;
+}
+
+function stopMachine() {
+  if (state.timer !== null) { clearInterval(state.timer); state.timer = null; }
+}
+
+function goToTask(n) {
+  stopMachine();
+  state.task = Math.max(0, Math.min(LEVEL.tasks.length - 1, n));
+  state.spot = startSpot();
+  state.twins = 0;
+  draw();
+}
+
+function moveSpot(x) {
+  if (state.task >= 2) { return; }
+  x = Math.max(leftEnd, Math.min(rightEnd, x));
+  var right = bounceSpotFor(light);
+  if (Math.abs(x - right) <= SNAP) { x = right; }   // the magnet
+  state.spot = x;
+  draw();
+}
+
+function machineStep() {
+  if (state.twins < sign.length) { state.twins = state.twins + 1; }
+  if (state.twins === sign.length) { stopMachine(); }
+  draw();
+}
+
+function runMachine() {
+  if (state.task !== 2) { return; }
+  stopMachine();
+  state.twins = 0;
+  draw();
+  state.timer = setInterval(machineStep, 450);
+}
+
+// ---- D. THE DRAWING: everything is drawn again after every change ---
+function draw() {
+  var done = taskDone();
+  clearStage();
+  drawLine(mirrorA, mirrorB, { width: 4 });
+  drawDot(eye, { r: done && state.task < 2 ? 10 : 7 });
+  drawLabel(eye, LEVEL.labels.eye, -12, -16);
+
+  if (state.task < 2) {
+    var spot = [state.spot, floor];
+    if (state.task === 1) {
+      var twin = twinOf(light);
+      drawLine(eye, twin, { color: SOFT, dashed: true });
+      drawDot(twin, { hollow: true });
+      drawLabel(twin, LEVEL.labels.twin, 12, 6);
+    }
+    drawDot(light, { r: 8 });
+    drawLabel(light, LEVEL.labels.light, 12, -8);
+    drawLine(light, spot, { color: RAY, width: 3 });
+    if (done) {
+      drawLine(spot, eye, { color: RAY, width: 3 });
+    } else {
+      // The light leaves as steeply as it came, and misses the eye.
+      var across = state.spot - light[0], up = light[1] - floor;
+      var far = 40 / Math.sqrt(across * across + up * up);
+      drawLine(spot, [state.spot + across * far, floor + up * far],
+               { color: RAY, width: 3 });
+    }
+    drawDot(spot, { r: 11, color: RAY, hollow: true });
+    readout.textContent = "Bounce spot: " +
+      plain(Math.abs(state.spot - light[0])) + " " + LEVEL.unit +
+      " from the " + LEVEL.labels.light + ". " +
+      (done ? "The light reaches the eye." : "The light misses the eye.");
+  } else {
+    for (var i = 0; i < sign.length; i++) { drawDot(sign[i], { r: 5 }); }
+    for (var k = 0; k < state.twins; k++) {
+      drawDot(twinOf(sign[k]), { r: 5, hollow: true });
+    }
+    if (state.twins > 0 && !done) {
+      var p = sign[state.twins - 1];
+      var s = [bounceSpotFor(p), floor];
+      drawLine(eye, twinOf(p), { color: SOFT, dashed: true });
+      drawLine(p, s, { color: RAY, width: 2 });
+      drawLine(s, eye, { color: RAY, width: 2 });
+    }
+    readout.textContent = "Twins drawn: " + state.twins + " of " +
+      sign.length + ".";
+  }
+
+  showTask(state.task + 1, LEVEL.tasks.length, LEVEL.tasks[state.task],
+           done);
+  machineButton.hidden = (state.task !== 2);
+  nextButton.disabled = (state.task === LEVEL.tasks.length - 1);
+  stage.setAttribute("aria-label", readout.textContent);
+}
+
+// ---- E. WHAT THE FINGER DOES -----------------------------------------
+// The whole stage follows the finger: touch anywhere, and the spot
+// goes under the finger. Nobody has to hit a small handle.
+var dragging = false;
+stage.addEventListener("pointerdown", function (evt) {
+  dragging = true;
+  try { stage.setPointerCapture(evt.pointerId); } catch (e) {}
+  moveSpot(fromPointer(evt)[0]);
+});
+stage.addEventListener("pointermove", function (evt) {
+  if (dragging) { moveSpot(fromPointer(evt)[0]); }
+});
+stage.addEventListener("pointerup", function () { dragging = false; });
+stage.addEventListener("pointercancel", function () { dragging = false; });
+stage.addEventListener("keydown", function (evt) {
+  // A key step is twice the magnet's reach, so a key can always leave
+  // the magnet, and can never jump over the right spot.
+  var step = 2 * SNAP;
+  if (evt.key === "ArrowLeft") {
+    moveSpot(state.spot - step); evt.preventDefault();
+  }
+  if (evt.key === "ArrowRight") {
+    moveSpot(state.spot + step); evt.preventDefault();
+  }
+});
+machineButton.addEventListener("click", runMachine);
+resetButton.addEventListener("click", function () { goToTask(state.task); });
+nextButton.addEventListener("click", function () { goToTask(state.task + 1); });
+
+// =====================================================================
+// PART 4 -- START, AND THE TEST HOOK
+// The test hook lets a robot set the toy and read it, without a finger.
+// Every toy type offers the same four words: task, set, machine, read.
+// =====================================================================
+frame = makeFrame(
+  [mirrorA, mirrorB, light, eye, twinOf(light)]
+    .concat(sign).concat(sign.map(twinOf))
+);
+goToTask(0);
+
+window.toyTest = {
+  task: function (n) { goToTask(n); },
+  set: function (along) { moveSpot(light[0] + along); },
+  machine: function () {
+    if (state.task !== 2) { return; }
+    stopMachine();
+    state.twins = sign.length;
+    draw();
+  },
+  read: function () {
+    return {
+      task: state.task,
+      along: state.spot - light[0],
+      lightAtEyeHeight: lightAtEyeHeight(state.spot) - light[0],
+      twins: state.twins,
+      done: taskDone(),
+      says: readout.textContent
+    };
+  }
+};
+</script>
+</body>
+</html>
