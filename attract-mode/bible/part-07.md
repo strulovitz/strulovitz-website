@@ -1,4 +1,5 @@
 NOTICE, 11 November 2026: Also changed by Part 10, section 10.2.
+Also changed by Part 11, section 11.2.
 ================================================================================
 ATTRACT MODE -- THE BIBLE -- PART 07 OF 11
 QUALITY

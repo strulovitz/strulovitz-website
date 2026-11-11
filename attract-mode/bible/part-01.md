@@ -2,6 +2,7 @@ NOTICE, 11 November 2026: section 1.7 is changed in one
 place. The change is written in Part 03, section 3.1. Also changed by
 Part 04, section 4.2.
 TeX Live is not installed. Written in Part 06, section 6.2.
+Also changed by Part 11, section 11.2.
 ================================================================================
 ATTRACT MODE -- THE BIBLE -- PART 01 OF 11
 ARCHITECTURE AND MACHINES

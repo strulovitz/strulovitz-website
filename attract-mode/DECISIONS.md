@@ -302,3 +302,35 @@ Decided by: chosen for Nir by the author of Part 10; Nir may reverse it.
 2026-11-11 -- D68 -- One turn at the graphics card
 ONE TURN AT THE GRAPHICS CARD: the line never starts a model while another program is using the card.
 Decided by: chosen for Nir by the author of Part 10; Nir may reverse it.
+
+2026-11-11 -- D69 -- The first Level is the mirror Level
+The first Level is the mirror Level of Part 04 (Part 11, 11.6).
+Decided by: chosen for Nir by the author of Part 11; Nir may reverse it.
+
+2026-11-11 -- D70 -- The stages
+The stages of Part 11, section 11.4, with their NOT YET lists.
+Decided by: chosen for Nir by the author of Part 11; Nir may reverse it.
+
+2026-11-11 -- D71 -- Switch Day
+Switch Day comes when there is something to show (Part 11, 11.5).
+Decided by: chosen for Nir by the author of Part 11; Nir may reverse it.
+
+2026-11-11 -- D72 -- Models
+Models are used as Part 11, section 11.7 says.
+Decided by: chosen for Nir by the author of Part 11; Nir may reverse it.
+
+2026-11-11 -- D73 -- Task cards and am today
+Work is cut into task cards. "am today" lists what waits for Nir.
+Decided by: chosen for Nir by the author of Part 11; Nir may reverse it.
+
+2026-11-11 -- D74 -- The bill
+The bill: what each session and each Level cost.
+Decided by: chosen for Nir by the author of Part 11; Nir may reverse it.
+
+2026-11-11 -- D75 -- Insert Coin opens at three Levels
+Insert Coin opens to the public when three Levels are live.
+Decided by: chosen for Nir by the author of Part 11; Nir may reverse it.
+
+2026-11-11 -- D76 -- The fold
+The Bible is folded (Part 11, 11.10). After that, a change is written straight into its Part.
+Decided by: chosen for Nir by the author of Part 11; Nir may reverse it.
