@@ -214,3 +214,35 @@ Decided by: chosen for Nir by the author of Part 07; Nir may reverse it.
 2026-11-11 -- D46 -- Live Levels watched and corrected
 Live Levels are watched by the counters and corrected in the open (Part 07, 7.8).
 Decided by: chosen for Nir by the author of Part 07; Nir may reverse it.
+
+2026-11-11 -- D47 -- A department is a free course
+A department is one free Moodle course, open to guests. It appears when its first Level is live. A Level is one section of it.
+Decided by: chosen for Nir by the author of Part 08; Nir may reverse it.
+
+2026-11-11 -- D48 -- Insert Coin
+All Challenges are in ONE paid course. Its public name is Insert Coin.
+Decided by: chosen for Nir by the author of Part 08; Nir may reverse it.
+
+2026-11-11 -- D49 -- One family, one account
+One family, one account. The parent's progress page is the Grades page of that account.
+Decided by: chosen for Nir by the author of Part 08; Nir may reverse it.
+
+2026-11-11 -- D50 -- A script builds Moodle
+A script builds everything in Moodle through Moodle's own functions. Nir drops in the two packages of each Level.
+Decided by: chosen for Nir by the author of Part 08; Nir may reverse it.
+
+2026-11-11 -- D51 -- Challenge attempts
+A Challenge may be tried any number of times. The highest score counts.
+Decided by: chosen for Nir by the author of Part 08; Nir may reverse it.
+
+2026-11-11 -- D52 -- Badges wait
+Badges wait.
+Decided by: chosen for Nir by the author of Part 08; Nir may reverse it.
+
+2026-11-11 -- D53 -- Buyers are hidden from each other
+Nobody who bought can see who else bought.
+Decided by: chosen for Nir by the author of Part 08; Nir may reverse it.
+
+2026-11-11 -- D54 -- OPEN: price of Insert Coin
+OPEN, Nir's: the price of Insert Coin, and whether it buys access for ever or for a number of days. Until he says: for ever.
+Decided by: OPEN, waiting for Nir. Until he says: for ever.
