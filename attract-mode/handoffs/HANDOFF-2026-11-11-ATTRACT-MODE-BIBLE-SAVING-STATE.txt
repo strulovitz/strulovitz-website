@@ -89,7 +89,7 @@ Notices at the top of earlier parts (added exactly as Fable wrote):
   part-09: my own notice that D59 is decided (Part 10, 10.2).
   part-00, part-02: added 'Also changed by Part 10, section 10.2.'; part-07 got a new top notice with it.
   Part 11 notice 'Also changed by Part 11, section 11.2.' added to part-00, 01, 02, 07 (my own judgment: its late corrections change those Parts).
-(Bodies of earlier parts were NOT edited.)
+(Update, later on 11 November: at Nir's order Parts 01-10 were FOLDED by me (changes written into the Parts, notices removed, version 2.0, commit fa25438), and Part 00 was REPLACED by Fable's folded version 2.0 (commit 85edbc5). The notices listed above no longer exist. The fold check of Part 11, section 11.10, by a different model, has NOT been run. Only D64 (price of a Co-op hour) is open.)
 
 --------------------------------------------------------------------------------
 4. WHAT IS NEXT
