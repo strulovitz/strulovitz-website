@@ -166,3 +166,39 @@ Decided by: chosen for Nir by the author of Part 05; Nir may reverse it.
 Painted pictures are switched off until a script can start Nir's local image
 model by itself (Part 05, 5.10).
 Decided by: chosen for Nir by the author of Part 05; Nir may reverse it.
+
+2026-11-11 -- D35 -- Footage by USB stick
+Footage travels from Windows to Linux on one USB stick, named AMFOOTAGE. YouTube is where finished films go.
+Decided by: chosen for Nir by the author of Part 06; Nir may reverse it.
+
+2026-11-11 -- D36 -- No LaTeX
+No LaTeX anywhere in the project. For the film, formulas and programs are photographed from the Guide's own pages.
+Decided by: chosen for Nir by the author of Part 06; Nir may reverse it.
+
+2026-11-11 -- D37 -- No manim-voiceover
+The plugin manim-voiceover is not used. Our own timeline sets the times, and ffmpeg joins sound and picture.
+Decided by: chosen for Nir by the author of Part 06; Nir may reverse it.
+
+2026-11-11 -- D38 -- One film player
+One film player for all Levels (the golden film).
+Decided by: chosen for Nir by the author of Part 06; Nir may reverse it.
+
+2026-11-11 -- D39 -- The ear
+THE EAR: a speech-to-text model on Nir's own PC listens to every spoken sentence and to every take of Nir's.
+Decided by: chosen for Nir by the author of Part 06; Nir may reverse it.
+
+2026-11-11 -- D40 -- Numbers as words for the voice
+For the voice only, numbers are turned into words.
+Decided by: chosen for Nir by the author of Part 06; Nir may reverse it.
+
+2026-11-11 -- D41 -- Voice-model card
+The film's last card says that the narration is Nir's own voice, made with a voice model.
+Decided by: chosen for Nir by the author of Part 06; Nir may reverse it.
+
+2026-11-11 -- D42 -- Film format
+Films are 1920 by 1080, 30 pictures a second. Voice only, no music.
+Decided by: chosen for Nir by the author of Part 06; Nir may reverse it.
+
+2026-11-11 -- D43 -- Films public on YouTube
+Films are public on YouTube, with a captions file and a list of chapters made by the script.
+Decided by: chosen for Nir by the author of Part 06; Nir may reverse it.
