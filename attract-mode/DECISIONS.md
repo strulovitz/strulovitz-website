@@ -65,3 +65,52 @@ Decided by: Nir.
 Nir carries every SEARCH. An agent may open a KNOWN ADDRESS by itself
 when its tool returns the whole page.
 Decided by: chosen for Nir by the author of Part 03; Nir may reverse it.
+
+2026-11-11 -- D13 -- Guide and Challenge are SCORM packages
+The Guide and the Challenge are SCORM packages. Nir uploads them to
+Moodle.
+Decided by: Nir.
+
+2026-11-11 -- D14 -- The text carries the Level
+The text carries the Level. Pictures are extras. In a science Level,
+nothing is drawn by an image-generating model.
+Decided by: Nir.
+
+2026-11-11 -- D15 -- Films stay outside the packages
+Films stay outside the packages, on the course page.
+Decided by: Nir.
+
+2026-11-11 -- D16 -- Fixed set of questions
+The Challenge has a fixed set of questions, the same for everyone. No
+shuffling, no question bank.
+Decided by: Nir.
+
+2026-11-11 -- D17 -- No break switch
+There is no "break" switch.
+Decided by: Nir.
+
+2026-11-11 -- D18 -- Within reach of cheap models
+The work done for every Level must be within reach of a cheap model
+and a middle-priced model.
+Decided by: Nir.
+
+2026-11-11 -- D19 -- Free and paid parts of a Level
+Free: Attract, Guide, Walkthrough. Paid: Challenge, with the toy
+inside it.
+Decided by: chosen for Nir by the author of Part 04; Nir may reverse it.
+
+2026-11-11 -- D20 -- Live without film or toy
+A Level goes live without waiting for its film or its toy.
+Decided by: chosen for Nir by the author of Part 04; Nir may reverse it.
+
+2026-11-11 -- D21 -- Public names
+The public names are Guide and Challenge.
+Decided by: chosen for Nir by the author of Part 04; Nir may reverse it.
+
+2026-11-11 -- D22 -- The Walkthrough speaks the Guide
+The Walkthrough speaks the Guide's own text.
+Decided by: chosen for Nir by the author of Part 04; Nir may reverse it.
+
+2026-11-11 -- D23 -- No program code in informatics Levels
+Informatics Levels show no program code.
+Decided by: chosen for Nir by the author of Part 04; Nir may reverse it.

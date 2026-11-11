@@ -1,5 +1,6 @@
 NOTICE, 11 November 2026: section 1.7 is changed in one
-place. The change is written in Part 03, section 3.1.
+place. The change is written in Part 03, section 3.1. Also changed by
+Part 04, section 4.2.
 ================================================================================
 ATTRACT MODE -- THE BIBLE -- PART 01 OF 11
 ARCHITECTURE AND MACHINES
