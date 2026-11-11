@@ -263,6 +263,42 @@ Decided by: chosen for Nir by the author of Part 09; Nir may reverse it.
 A second USB stick, AMBACKUP, holds a weekly copy and is kept away from the PCs.
 Decided by: chosen for Nir by the author of Part 09; Nir may reverse it.
 
-2026-11-11 -- D59 -- OPEN: which PC serves while Nir travels
-OPEN, Nir's: which PC serves while he travels (Part 09, 9.11). Until he says: the PC that stays at home.
-Decided by: OPEN, waiting for Nir. Until he says: the PC that stays at home.
+2026-11-11 -- D59 -- The desktop serves while Nir travels
+When Nir travels, the desktop at home serves. His parents can come and click Websites ON.
+Decided by: Nir, 11 November 2026. (This replaces the earlier OPEN D59 of Part 09.)
+
+2026-11-11 -- D60 -- Making Of
+An art tutorial is called a MAKING OF. It exists only after the proof piece.
+Decided by: chosen for Nir by the author of Part 10; Nir may reverse it.
+
+2026-11-11 -- D61 -- CUT HERE and WE ARE BACK
+While recording, Nir says CUT HERE before a wait and WE ARE BACK after it. He says STEP ONE, STEP TWO. A script cuts the waits and makes the chapters.
+Decided by: chosen for Nir by the author of Part 10; Nir may reverse it.
+
+2026-11-11 -- D62 -- Co-op
+The paid hour is called CO-OP. Its menu is the list of live Making Ofs.
+Decided by: chosen for Nir by the author of Part 10; Nir may reverse it.
+
+2026-11-11 -- D63 -- How Co-op is asked for and paid
+Co-op is asked for by email and paid by PayPal before the hour. A FIT CHECK comes before any payment. If the hour did not work, the customer chooses: a second hour free, or the money back.
+Decided by: chosen for Nir by the author of Part 10; Nir may reverse it.
+
+2026-11-11 -- D64 -- OPEN: price of a Co-op hour
+OPEN, Nir's: the price of a Co-op hour. A guess to start from: 25 US dollars.
+Decided by: OPEN, waiting for Nir.
+
+2026-11-11 -- D65 -- The Boss of a humanities Level is a source
+In a humanities Level the Boss is a real SOURCE. "Your scene" is an invitation in the Credits.
+Decided by: chosen for Nir by the author of Part 10; Nir may reverse it.
+
+2026-11-11 -- D66 -- No ground list, no numbers file in humanities
+Humanities Levels have no ground list and no numbers file. Every sentence rests on a claim.
+Decided by: chosen for Nir by the author of Part 10; Nir may reverse it.
+
+2026-11-11 -- D67 -- First candidates among Nir's studios
+First candidates among Nir's studios: VoxCPM2 for the voice; ComfyUI with FLUX.2-dev for painted pictures.
+Decided by: chosen for Nir by the author of Part 10; Nir may reverse it.
+
+2026-11-11 -- D68 -- One turn at the graphics card
+ONE TURN AT THE GRAPHICS CARD: the line never starts a model while another program is using the card.
+Decided by: chosen for Nir by the author of Part 10; Nir may reverse it.

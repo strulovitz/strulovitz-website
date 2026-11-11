@@ -3,6 +3,7 @@ and the age rating are removed, and problem cards gain a part
 letter and one property. The changes are written in Part 03,
 section 3.1, and they win over the text below. Also changed by Part 04,
 section 4.2.
+Also changed by Part 10, section 10.2.
 ================================================================================
 ATTRACT MODE -- THE BIBLE -- PART 02 OF 11
 THE VAULT

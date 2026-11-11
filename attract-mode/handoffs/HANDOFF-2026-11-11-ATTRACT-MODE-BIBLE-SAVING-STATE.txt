@@ -1,6 +1,6 @@
 HANDOFF 2026-11-11 -- ATTRACT MODE BIBLE: SAVING WORKFLOW AND CURRENT STATE
 (written by the Windows OpenCode agent for itself, to read after a restart)
-(UPDATED after Part 09 was saved. This is the ONLY copy. Latest commit c08771b.)
+(UPDATED after Part 10 was saved. This is the ONLY copy.)
 
 This file contains NO passwords and NO private data. It is public on GitHub.
 
@@ -50,9 +50,9 @@ Mode Bible lives only in attract-mode/bible/ .
    Manim install; the test render of film.py.)
 
 --------------------------------------------------------------------------------
-3. WHAT IS DONE (all pushed; latest commit c08771b)
+3. WHAT IS DONE (all pushed after Part 10)
 --------------------------------------------------------------------------------
-Saved in attract-mode/bible/ : part-00 ... part-09 (ten files).
+Saved in attract-mode/bible/ : part-00 ... part-10 (eleven files).
   00 Vision and Iron Laws; 01 Architecture and Machines (v1.1); 02 The Vault;
   03 Research with Nir; 04 Level Design (v1.1, replaced an earlier bad one);
   05 The Kits (v1.1); 06 The Video Line; 07 Quality; 08 Moodle;
@@ -65,10 +65,11 @@ Code saved verbatim:
       with the REAL Manim (low quality) with no errors; Nir watched it: works
       and looks great (the first page says "(picture: still.jpg)" - expected).
 
-DECISIONS.md (attract-mode/DECISIONS.md) is at D59. D1-D27 earlier parts;
+DECISIONS.md (attract-mode/DECISIONS.md) is at D68. D1-D27 earlier parts;
 D28-D34 Part 05; D35-D43 Part 06; D44-D46 Part 07; D47-D54 Part 08;
 D54 was DECIDED by Nir in Part 09 (Insert Coin = 5 US dollars, once, for ever)
-and its entry was replaced in place; D55-D59 Part 09.
+and its entry was replaced in place; D55-D58 Part 09; D59 DECIDED by Nir in Part 10 (the desktop at home serves while he travels; entry replaced in place);
+D60-D68 Part 10.
 Entry format: "2026-11-11 -- Dn -- short name", then the text, then
 "Decided by: ..." (Nir, or "chosen for Nir by the author of Part NN; Nir may
 reverse it").
@@ -85,13 +86,14 @@ Notices at the top of earlier parts (added exactly as Fable wrote):
   part-04: NUMBER-question-removed notice (Part 05, 5.2) + "Also changed by
            Part 08, section 8.2."
   part-08: my own notice that D54 is decided (Part 09, 9.2).
+  part-09: my own notice that D59 is decided (Part 10, 10.2).
+  part-00, part-02: added 'Also changed by Part 10, section 10.2.'; part-07 got a new top notice with it.
 (Bodies of earlier parts were NOT edited.)
 
 --------------------------------------------------------------------------------
 4. WHAT IS NEXT
 --------------------------------------------------------------------------------
-Nir pastes the remaining parts, one at a time:
-  Part 10  The Art Studio
+Nir pastes the remaining part:
   Part 11  Roadmap (Part 08 says "badges come later (Part 11)"; Part 09 says
            the weekly AMBACKUP copy is in Part 11)
 For each: (a) save verbatim; (b) read it for "first agent" instructions
@@ -132,6 +134,6 @@ start the build on your own.
 6. A GOOD FIRST REPLY AFTER RESTART
 --------------------------------------------------------------------------------
 Read this file once. Say hello to Nir warmly with emojis, say in two or three
-lines that you remember: Parts 00-09 are saved, DECISIONS.md is at D59 (only
-D59 open), the golden toy/film/timeline work, and you are ready for Part 10.
+lines that you remember: Parts 00-10 are saved, DECISIONS.md is at D68 (only
+D64 open), the golden toy/film/timeline work, and you are ready for Part 11.
 Then wait for him to paste it.

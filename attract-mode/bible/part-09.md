@@ -1,3 +1,9 @@
+NOTICE, 11 November 2026: D59 of this Part is no longer open. Nir
+decided it: when he travels, the desktop at home serves, and his
+parents can come and click Websites ON. This changes section 9.2
+(D59) and section 9.11 (the choice between A and B: A, the PC that
+stays home, is chosen, and it is the desktop). Written in Part 10,
+section 10.2, and in DECISIONS.md.
 ================================================================================
 ATTRACT MODE -- THE BIBLE -- PART 09 OF 11
 OPERATIONS
