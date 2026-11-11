@@ -1,5 +1,6 @@
 HANDOFF 2026-11-11 -- ATTRACT MODE BIBLE: SAVING WORKFLOW AND CURRENT STATE
 (written by the Windows OpenCode agent for itself, to read after a restart)
+(UPDATED after Part 09 was saved. This is the ONLY copy. Latest commit c08771b.)
 
 This file contains NO passwords and NO private data. It is public on GitHub.
 
@@ -7,8 +8,8 @@ This file contains NO passwords and NO private data. It is public on GitHub.
 1. WHAT THE PROJECT IS
 --------------------------------------------------------------------------------
 ATTRACT MODE is Nir's new project. Claude Fable 5.2 (in a chat on OpenRouter)
-is writing a new BIBLE for it, in 12 parts: Part 00 to Part 11. Nir pastes
-each part into the OpenCode chat. The agent saves it to GitHub.
+is writing a BIBLE for it in 12 parts: Part 00 to Part 11. Nir pastes each part
+(and sometimes code files) into the OpenCode chat. The agent saves it to GitHub.
 
 Repository: https://github.com/strulovitz/strulovitz-website
 Local clone (Windows): C:\Users\strul\strulovitz-website
@@ -19,110 +20,118 @@ of AI PANORAMA. It is a different project. NEVER write into it. The Attract
 Mode Bible lives only in attract-mode/bible/ .
 
 --------------------------------------------------------------------------------
-2. WHAT NIR ASKED (THE RULES OF THIS WORK)
+2. THE RULES OF THIS WORK (from Nir)
 --------------------------------------------------------------------------------
-1. Save every part VERBATIM, AS-IS, WORD-FOR-WORD at
-   attract-mode/bible/part-NN.md (NN = 00 to 11). Do not edit, summarize,
-   reformat or "improve" Fable's text. Use the Write tool with the text exactly
-   as pasted.
+1. Save every part VERBATIM, WORD-FOR-WORD at attract-mode/bible/part-NN.md.
+   Do not edit, summarize, reformat or "improve" Fable's text. Use the Write
+   tool with the text exactly as pasted. Code blocks (toy.html, film.py,
+   timeline.py) are saved the same way, at the path Fable names.
 2. Commit and push after EACH part.
-3. If Fable's text contains instructions for "the first agent to read this
-   Part" (notices to add, decisions to record, files to create), DO THEM
-   EXACTLY as Fable wrote them. Nir said this explicitly: always follow
-   Fable's instructions, in earlier or future parts, exactly.
-4. Never keep two copies of a part. If Nir gives a replacement for a part,
-   overwrite the same file, and clean up everything the old version caused
-   (notices, decisions) so that a future AI is not confused. Nir said: use
-   your own judgment and intelligence for that clean-up.
-5. Nir gave permission for git pull --rebase and push as needed for this work.
-   (On 2026-11-11 a plain push was rejected because the Linux computer had
-   pushed new commits. Fix: git pull --rebase origin master, then push.
-   Stage only attract-mode/ files; never "git add ." -- there are other
-   untracked files in the repo root that are not ours.)
-6. Nir's style (from AGENTS.md): use emojis, be warm and polite, short plain
-   replies, he is a beginner.
+3. If Fable's text has instructions for "the first agent" (notices to add,
+   decisions to record, files to create), DO THEM EXACTLY. Nir said: always
+   follow Fable's instructions, in earlier or future parts, exactly.
+4. Never keep two copies of a part. If Nir gives a replacement, overwrite the
+   same file and clean up everything the old version caused.
+5. NIR'S RULE (said angrily on 2026-11-11, remember it): when a later part
+   DECIDES something that an earlier part still shows as OPEN, fix it
+   EVERYWHERE in the same step: DECISIONS.md (replace the entry in place) AND
+   a NOTICE at the top of the earlier part. Never leave "open" things that
+   are decided. Use your own judgment and intelligence for such clean-ups.
+   Before finishing a part, grep attract-mode/ for stale "OPEN" items.
+6. Nir gave permission for git pull --rebase and push for this work. Stage
+   ONLY attract-mode/ files by name; NEVER "git add ." (other untracked files
+   in the repo root are not ours). Before each push, list the files sent.
+7. Nir's style (AGENTS.md): emojis, warm and polite, short plain replies, he
+   is a beginner. Fable's remark: later parts are short, hard decisions only.
+8. Do NOT start the build work the Bible describes (survey of the PCs, folder
+   skeleton, STATE.md, installing Moodle, Switch Day, the "am" command, kits,
+   hosting/, the live website). Only SAVE + do notices/decisions. Ask Nir first.
+   (Exceptions he explicitly asked for: opening the toy in a browser; the
+   Manim install; the test render of film.py.)
 
 --------------------------------------------------------------------------------
-3. WHAT IS DONE (all pushed to GitHub, latest commit 07673b3 at the time of writing)
+3. WHAT IS DONE (all pushed; latest commit c08771b)
 --------------------------------------------------------------------------------
-Saved verbatim in attract-mode/bible/ :
-  part-00.md  Vision and Iron Laws          (v1.0)
-  part-01.md  Architecture and Machines     (v1.1)
-  part-02.md  The Vault                     (v1.0)
-  part-03.md  Research with Nir             (v1.0)
-  part-04.md  Level Design                  (v1.1, REPLACED the earlier bad Part 04)
+Saved in attract-mode/bible/ : part-00 ... part-09 (ten files).
+  00 Vision and Iron Laws; 01 Architecture and Machines (v1.1); 02 The Vault;
+  03 Research with Nir; 04 Level Design (v1.1, replaced an earlier bad one);
+  05 The Kits (v1.1); 06 The Video Line; 07 Quality; 08 Moodle;
+  09 Operations.
+Code saved verbatim:
+  attract-mode/kits/toys/mirror-bounce/toy.html  (golden toy) - Nir opened it
+      in his browser: works and looks great.
+  attract-mode/kits/film/film.py and timeline.py (golden film / timeline).
+      timeline.py output matched section 6.3 C exactly. film.py was rendered
+      with the REAL Manim (low quality) with no errors; Nir watched it: works
+      and looks great (the first page says "(picture: still.jpg)" - expected).
 
-Also created / maintained by us as Fable instructed:
-  attract-mode/DECISIONS.md   the decision record. Entries D1 to D27 exist.
-      D1-D10 from Part 01. D11-D12 from Part 03. D13-D27 from Part 04 v1.1.
-      (The old D13-D23 from the discarded Part 04 were REPLACED, because they
-      contradicted the new ones, e.g. old D14/D15/D21.)
-      Format of an entry: date line "2026-11-11 -- Dn -- short name", then the
-      decision text, then "Decided by: ...".
+DECISIONS.md (attract-mode/DECISIONS.md) is at D59. D1-D27 earlier parts;
+D28-D34 Part 05; D35-D43 Part 06; D44-D46 Part 07; D47-D54 Part 08;
+D54 was DECIDED by Nir in Part 09 (Insert Coin = 5 US dollars, once, for ever)
+and its entry was replaced in place; D55-D59 Part 09.
+Entry format: "2026-11-11 -- Dn -- short name", then the text, then
+"Decided by: ..." (Nir, or "chosen for Nir by the author of Part NN; Nir may
+reverse it").
+STILL OPEN: D59 only (which PC serves while Nir travels; until he says: the PC
+that stays at home). It is Nir's to decide, not ours.
 
-Notices added at the very top of earlier parts, exactly as Fable wrote:
-  part-00.md : the 4-line notice "changed in eight places" (Part 01 sec 1.2 and
-               Part 03 sec 3.1) followed by "Also changed by Part 04, section 4.2."
-  part-01.md : notice "section 1.7 is changed in one place" + "Also changed by
-               Part 04, section 4.2."
-  part-02.md : notice about the removed "clean" rule and age rating + "Also
-               changed by Part 04, section 4.2."
-  part-03.md : notice "section 3.3 is changed in one place ... Part 04, 4.2."
-Note: the notices say that earlier parts are changed by later parts; the body
-text of those earlier parts was NOT edited (Fable said: change nothing else).
+Notices at the top of earlier parts (added exactly as Fable wrote):
+  part-00: eight-places notice + "Also changed by Part 04, section 4.2." +
+           "Also changed by Part 08, section 8.2."
+  part-01: section 1.7 notice + Part 04 + "TeX Live is not installed.
+           Written in Part 06, section 6.2."
+  part-02: clean-rule/age-rating notice + Part 04.
+  part-03: section 3.3 notice (Part 04, 4.2).
+  part-04: NUMBER-question-removed notice (Part 05, 5.2) + "Also changed by
+           Part 08, section 8.2."
+  part-08: my own notice that D54 is decided (Part 09, 9.2).
+(Bodies of earlier parts were NOT edited.)
 
 --------------------------------------------------------------------------------
 4. WHAT IS NEXT
 --------------------------------------------------------------------------------
-Nir will paste the remaining parts, one at a time:
-  Part 05  (named "The Kits: packages, pictures and toys")
-  Part 06  The Video Line
-  Part 07  Quality
-  Part 08  Moodle
-  Part 09  Operations
+Nir pastes the remaining parts, one at a time:
   Part 10  The Art Studio
-  Part 11  Roadmap
-For each: (a) save verbatim; (b) read it for instructions to the "first agent"
-and do them; (c) pull --rebase; commit; push; (d) tell Nir what was done.
-Check each new part's section on "changes to earlier parts" and "notices".
-
-Whenever a part says "the first agent adds to DECISIONS.md", add the entries
-in the same format as the existing ones.
-
---------------------------------------------------------------------------------
-5. WHAT WE ARE NOT DOING (do not start these unless Nir asks)
---------------------------------------------------------------------------------
-The Bible describes much future work: the survey of the two PCs, the folder
-skeleton, STATE.md, installing Moodle, Switch Day, pre.strulovitz.org, the "am"
-command, kits, etc. NONE of that has been started. Nir only asked for the
-parts to be SAVED, plus the explicit instructions inside them (notices,
-DECISIONS.md). Do not run surveys, install anything, touch hosting/, or change
-the live website. Ask Nir first.
-(Part 01 also says the first agent should create STATE.md, machines/ etc.
-later in its own steps; those are for the build phase, not for this saving
-phase. Nir's instruction was to do the notices and the decision record only.)
+  Part 11  Roadmap (Part 08 says "badges come later (Part 11)"; Part 09 says
+           the weekly AMBACKUP copy is in Part 11)
+For each: (a) save verbatim; (b) read it for "first agent" instructions
+(decisions, notices, files) and do them; (c) check whether it decides anything
+that earlier parts show as OPEN, and fix those (rule 5); (d) git add ONLY
+attract-mode files by name, commit, pull --rebase origin master, push, show
+the commit; (e) tell Nir briefly what was done.
+Nir often pastes an "opening text" first, "for understanding, no need to keep
+it". Do not save that. Wait for the part.
+After Part 11 the saving phase is finished; ask Nir what he wants next. Do not
+start the build on your own.
 
 --------------------------------------------------------------------------------
-6. OTHER FACTS FOR THE AGENT
+5. OTHER FACTS FOR THE AGENT
 --------------------------------------------------------------------------------
-1. Windows PowerShell 5.1. Chain git commands with ";". The git push output
-   goes to stderr and shows up as a "NativeCommandError" in PowerShell; that
-   is normal if the last line shows "master -> master".
-2. LF/CRLF warnings from git are harmless.
-3. In the repo root there is an untracked file
+1. Windows PowerShell 5.1. Chain git commands with ";". git push output goes
+   to stderr and looks like "NativeCommandError"; it is fine if the last line
+   shows "master -> master". LF/CRLF warnings are harmless.
+2. "rg" (ripgrep) is NOT installed. Use the Grep tool.
+3. The repo root has an untracked file
    HANDOFF-2026-11-07-WINDOWS-WANGP-AND-LINUX-MUSIC.txt . It is Nir's WanGP
-   handoff, not ours. Leave it alone. (The older, different laptop copy of
-   HANDOFF-2026-11-07-LINUX-ACE-STEP-AND-RAUCH.txt was deleted at Nir's
-   request; the GitHub version from Linux is the one that stays.)
-4. The private memory file is C:\Users\strul\.config\opencode\AGENTS.md
-   (never push it to git). It points to this handoff.
-5. Part 00 AM-LAW 13: never commit passwords, Moodle database, customer data.
-   Before each push, list the files being sent. They are only text files under
-   attract-mode/.
+   handoff, not ours. Leave it alone.
+4. Manim 0.22.1 is installed ONLY inside C:\Users\strul\manim-env (292 MB,
+   made with uv from the existing Python 3.13). Nothing global was changed.
+   To remove it: delete that folder. Run it with
+   C:\Users\strul\manim-env\Scripts\manim.exe . No system ffmpeg; Manim's own
+   "av" library worked. The test render is in
+   C:\Users\strul\AppData\Local\Temp\opencode\film-test (not in the repo).
+5. Private memory file: C:\Users\strul\.config\opencode\AGENTS.md (never push).
+6. AM-LAW 13: never commit passwords, the voice sample, Moodle exports,
+   customer data. Only text/code under attract-mode/ is pushed.
+7. Typical edit helpers: for inserting a line into the notice at the top of an
+   earlier part, read the first lines, then use a small PowerShell
+   ReadAllText/Replace/WriteAllText (UTF-8 without BOM), keeping the file's
+   line endings (the files use LF).
 
 --------------------------------------------------------------------------------
-7. A GOOD FIRST REPLY AFTER RESTART
+6. A GOOD FIRST REPLY AFTER RESTART
 --------------------------------------------------------------------------------
-Read this file once. Say hello to Nir warmly with emojis, say in two lines that
-you remember: Parts 00-04 are saved, DECISIONS.md is at D27, and you are ready
-for Part 05. Then wait for him to paste it.
+Read this file once. Say hello to Nir warmly with emojis, say in two or three
+lines that you remember: Parts 00-09 are saved, DECISIONS.md is at D59 (only
+D59 open), the golden toy/film/timeline work, and you are ready for Part 10.
+Then wait for him to paste it.
