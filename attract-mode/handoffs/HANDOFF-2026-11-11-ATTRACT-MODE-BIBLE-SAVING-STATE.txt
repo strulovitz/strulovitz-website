@@ -1,0 +1,128 @@
+HANDOFF 2026-11-11 -- ATTRACT MODE BIBLE: SAVING WORKFLOW AND CURRENT STATE
+(written by the Windows OpenCode agent for itself, to read after a restart)
+
+This file contains NO passwords and NO private data. It is public on GitHub.
+
+--------------------------------------------------------------------------------
+1. WHAT THE PROJECT IS
+--------------------------------------------------------------------------------
+ATTRACT MODE is Nir's new project. Claude Fable 5.2 (in a chat on OpenRouter)
+is writing a new BIBLE for it, in 12 parts: Part 00 to Part 11. Nir pastes
+each part into the OpenCode chat. The agent saves it to GitHub.
+
+Repository: https://github.com/strulovitz/strulovitz-website
+Local clone (Windows): C:\Users\strul\strulovitz-website
+Branch: master. Remote: origin.
+
+THE OTHER BIBLE. The folder bible/ at the top of the repository is the BIBLE
+of AI PANORAMA. It is a different project. NEVER write into it. The Attract
+Mode Bible lives only in attract-mode/bible/ .
+
+--------------------------------------------------------------------------------
+2. WHAT NIR ASKED (THE RULES OF THIS WORK)
+--------------------------------------------------------------------------------
+1. Save every part VERBATIM, AS-IS, WORD-FOR-WORD at
+   attract-mode/bible/part-NN.md (NN = 00 to 11). Do not edit, summarize,
+   reformat or "improve" Fable's text. Use the Write tool with the text exactly
+   as pasted.
+2. Commit and push after EACH part.
+3. If Fable's text contains instructions for "the first agent to read this
+   Part" (notices to add, decisions to record, files to create), DO THEM
+   EXACTLY as Fable wrote them. Nir said this explicitly: always follow
+   Fable's instructions, in earlier or future parts, exactly.
+4. Never keep two copies of a part. If Nir gives a replacement for a part,
+   overwrite the same file, and clean up everything the old version caused
+   (notices, decisions) so that a future AI is not confused. Nir said: use
+   your own judgment and intelligence for that clean-up.
+5. Nir gave permission for git pull --rebase and push as needed for this work.
+   (On 2026-11-11 a plain push was rejected because the Linux computer had
+   pushed new commits. Fix: git pull --rebase origin master, then push.
+   Stage only attract-mode/ files; never "git add ." -- there are other
+   untracked files in the repo root that are not ours.)
+6. Nir's style (from AGENTS.md): use emojis, be warm and polite, short plain
+   replies, he is a beginner.
+
+--------------------------------------------------------------------------------
+3. WHAT IS DONE (all pushed to GitHub, latest commit 07673b3 at the time of writing)
+--------------------------------------------------------------------------------
+Saved verbatim in attract-mode/bible/ :
+  part-00.md  Vision and Iron Laws          (v1.0)
+  part-01.md  Architecture and Machines     (v1.1)
+  part-02.md  The Vault                     (v1.0)
+  part-03.md  Research with Nir             (v1.0)
+  part-04.md  Level Design                  (v1.1, REPLACED the earlier bad Part 04)
+
+Also created / maintained by us as Fable instructed:
+  attract-mode/DECISIONS.md   the decision record. Entries D1 to D27 exist.
+      D1-D10 from Part 01. D11-D12 from Part 03. D13-D27 from Part 04 v1.1.
+      (The old D13-D23 from the discarded Part 04 were REPLACED, because they
+      contradicted the new ones, e.g. old D14/D15/D21.)
+      Format of an entry: date line "2026-11-11 -- Dn -- short name", then the
+      decision text, then "Decided by: ...".
+
+Notices added at the very top of earlier parts, exactly as Fable wrote:
+  part-00.md : the 4-line notice "changed in eight places" (Part 01 sec 1.2 and
+               Part 03 sec 3.1) followed by "Also changed by Part 04, section 4.2."
+  part-01.md : notice "section 1.7 is changed in one place" + "Also changed by
+               Part 04, section 4.2."
+  part-02.md : notice about the removed "clean" rule and age rating + "Also
+               changed by Part 04, section 4.2."
+  part-03.md : notice "section 3.3 is changed in one place ... Part 04, 4.2."
+Note: the notices say that earlier parts are changed by later parts; the body
+text of those earlier parts was NOT edited (Fable said: change nothing else).
+
+--------------------------------------------------------------------------------
+4. WHAT IS NEXT
+--------------------------------------------------------------------------------
+Nir will paste the remaining parts, one at a time:
+  Part 05  (named "The Kits: packages, pictures and toys")
+  Part 06  The Video Line
+  Part 07  Quality
+  Part 08  Moodle
+  Part 09  Operations
+  Part 10  The Art Studio
+  Part 11  Roadmap
+For each: (a) save verbatim; (b) read it for instructions to the "first agent"
+and do them; (c) pull --rebase; commit; push; (d) tell Nir what was done.
+Check each new part's section on "changes to earlier parts" and "notices".
+
+Whenever a part says "the first agent adds to DECISIONS.md", add the entries
+in the same format as the existing ones.
+
+--------------------------------------------------------------------------------
+5. WHAT WE ARE NOT DOING (do not start these unless Nir asks)
+--------------------------------------------------------------------------------
+The Bible describes much future work: the survey of the two PCs, the folder
+skeleton, STATE.md, installing Moodle, Switch Day, pre.strulovitz.org, the "am"
+command, kits, etc. NONE of that has been started. Nir only asked for the
+parts to be SAVED, plus the explicit instructions inside them (notices,
+DECISIONS.md). Do not run surveys, install anything, touch hosting/, or change
+the live website. Ask Nir first.
+(Part 01 also says the first agent should create STATE.md, machines/ etc.
+later in its own steps; those are for the build phase, not for this saving
+phase. Nir's instruction was to do the notices and the decision record only.)
+
+--------------------------------------------------------------------------------
+6. OTHER FACTS FOR THE AGENT
+--------------------------------------------------------------------------------
+1. Windows PowerShell 5.1. Chain git commands with ";". The git push output
+   goes to stderr and shows up as a "NativeCommandError" in PowerShell; that
+   is normal if the last line shows "master -> master".
+2. LF/CRLF warnings from git are harmless.
+3. In the repo root there is an untracked file
+   HANDOFF-2026-11-07-WINDOWS-WANGP-AND-LINUX-MUSIC.txt . It is Nir's WanGP
+   handoff, not ours. Leave it alone. (The older, different laptop copy of
+   HANDOFF-2026-11-07-LINUX-ACE-STEP-AND-RAUCH.txt was deleted at Nir's
+   request; the GitHub version from Linux is the one that stays.)
+4. The private memory file is C:\Users\strul\.config\opencode\AGENTS.md
+   (never push it to git). It points to this handoff.
+5. Part 00 AM-LAW 13: never commit passwords, Moodle database, customer data.
+   Before each push, list the files being sent. They are only text files under
+   attract-mode/.
+
+--------------------------------------------------------------------------------
+7. A GOOD FIRST REPLY AFTER RESTART
+--------------------------------------------------------------------------------
+Read this file once. Say hello to Nir warmly with emojis, say in two lines that
+you remember: Parts 00-04 are saved, DECISIONS.md is at D27, and you are ready
+for Part 05. Then wait for him to paste it.
