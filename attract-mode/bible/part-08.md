@@ -1,3 +1,8 @@
+NOTICE, 11 November 2026: D54 of this Part is no longer open. Nir
+decided it: Insert Coin costs 5 US dollars, once, and access is for
+ever (no number of days). This changes section 8.2 (D54, and the
+item 'from memory' about days) and section 8.8, item 1. Written in
+Part 09, section 9.2, and in DECISIONS.md.
 ================================================================================
 ATTRACT MODE -- THE BIBLE -- PART 08 OF 11
 MOODLE
