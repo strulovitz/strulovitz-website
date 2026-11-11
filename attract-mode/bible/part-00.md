@@ -1,3 +1,6 @@
+NOTICE, 11 November 2026: by Nir's decisions, this Part is changed
+in seven places. The changes are written in Part 01, section 1.2,
+and they win over the text below.
 ================================================================================
 ATTRACT MODE -- THE BIBLE -- PART 00 OF 11
 VISION AND IRON LAWS
