@@ -72,45 +72,64 @@ Moodle.
 Decided by: Nir.
 
 2026-11-11 -- D14 -- The text carries the Level
-The text carries the Level. Pictures are extras. In a science Level,
-nothing is drawn by an image-generating model.
+The text carries the Level: a page must be understood even if its
+picture fails.
 Decided by: Nir.
 
-2026-11-11 -- D15 -- Films stay outside the packages
+2026-11-11 -- D15 -- Pictures are required
+Pictures are required. They are made in ways that a cheap model can
+manage, and Wikimedia Commons is one source.
+Decided by: Nir.
+
+2026-11-11 -- D16 -- Films stay outside the packages
 Films stay outside the packages, on the course page.
 Decided by: Nir.
 
-2026-11-11 -- D16 -- Fixed set of questions
+2026-11-11 -- D17 -- Fixed set of questions
 The Challenge has a fixed set of questions, the same for everyone. No
 shuffling, no question bank.
 Decided by: Nir.
 
-2026-11-11 -- D17 -- No break switch
+2026-11-11 -- D18 -- No break switch
 There is no "break" switch.
 Decided by: Nir.
 
-2026-11-11 -- D18 -- Within reach of cheap models
+2026-11-11 -- D19 -- Within reach of cheap models
 The work done for every Level must be within reach of a cheap model
 and a middle-priced model.
 Decided by: Nir.
 
-2026-11-11 -- D19 -- Free and paid parts of a Level
-Free: Attract, Guide, Walkthrough. Paid: Challenge, with the toy
-inside it.
+2026-11-11 -- D20 -- Every Level has all its pieces
+Every Level has all its pieces, from the first Level on.
+Decided by: Nir.
+
+2026-11-11 -- D21 -- Program code in informatics Levels
+Informatics Levels show program code, as the real contests use it.
+Decided by: Nir.
+
+2026-11-11 -- D22 -- Free and paid parts of a Level
+Free: Attract, Guide, Walkthrough. Paid: toy and Challenge.
 Decided by: chosen for Nir by the author of Part 04; Nir may reverse it.
 
-2026-11-11 -- D20 -- Live without film or toy
-A Level goes live without waiting for its film or its toy.
+2026-11-11 -- D23 -- Exact things are drawn by a script
+Whatever must be exact is drawn by a script from numbers. An
+image-generating model paints imagined scenes only. (This is the
+lesson of Nir's own laser experiment.)
 Decided by: chosen for Nir by the author of Part 04; Nir may reverse it.
 
-2026-11-11 -- D21 -- Public names
+2026-11-11 -- D24 -- Public names
 The public names are Guide and Challenge.
 Decided by: chosen for Nir by the author of Part 04; Nir may reverse it.
 
-2026-11-11 -- D22 -- The Walkthrough speaks the Guide
-The Walkthrough speaks the Guide's own text.
+2026-11-11 -- D25 -- The Walkthrough
+The Walkthrough speaks the Guide's text and shows its pictures.
 Decided by: chosen for Nir by the author of Part 04; Nir may reverse it.
 
-2026-11-11 -- D23 -- No program code in informatics Levels
-Informatics Levels show no program code.
+2026-11-11 -- D26 -- Programming languages
+Programs on the pages are in Python. The Boss's program also exists in
+C++, linked from the Credits.
+Decided by: chosen for Nir by the author of Part 04; Nir may reverse it.
+
+2026-11-11 -- D27 -- Photos from Wikimedia Commons
+A script may ask Wikimedia Commons for photos by itself.
 Decided by: chosen for Nir by the author of Part 04; Nir may reverse it.
