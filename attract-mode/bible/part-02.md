@@ -1,3 +1,7 @@
+NOTICE, 11 November 2026: by Nir's decision the "clean" rule
+and the age rating are removed, and problem cards gain a part
+letter and one property. The changes are written in Part 03,
+section 3.1, and they win over the text below.
 ================================================================================
 ATTRACT MODE -- THE BIBLE -- PART 02 OF 11
 THE VAULT

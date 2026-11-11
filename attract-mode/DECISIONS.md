@@ -55,3 +55,13 @@ Decided by: Nir.
 There is no waiting period. The old site moves to pre on the day Moodle
 is installed.
 Decided by: Nir.
+
+2026-11-11 -- D11 -- No content rule for game clips
+There is no content rule for game clips. The "clean" rule and the age
+rating are removed.
+Decided by: Nir.
+
+2026-11-11 -- D12 -- Who carries searches
+Nir carries every SEARCH. An agent may open a KNOWN ADDRESS by itself
+when its tool returns the whole page.
+Decided by: chosen for Nir by the author of Part 03; Nir may reverse it.
