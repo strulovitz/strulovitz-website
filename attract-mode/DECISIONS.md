@@ -243,6 +243,26 @@ Decided by: chosen for Nir by the author of Part 08; Nir may reverse it.
 Nobody who bought can see who else bought.
 Decided by: chosen for Nir by the author of Part 08; Nir may reverse it.
 
-2026-11-11 -- D54 -- OPEN: price of Insert Coin
-OPEN, Nir's: the price of Insert Coin, and whether it buys access for ever or for a number of days. Until he says: for ever.
-Decided by: OPEN, waiting for Nir. Until he says: for ever.
+2026-11-11 -- D54 -- Price of Insert Coin
+Insert Coin costs 5 US dollars, once. Access is for ever, and includes every Challenge added later. The line on its page: "5 dollars, once. The price of one coffee. Yours for ever."
+Decided by: Nir, 11 November 2026. (This replaces the earlier OPEN D54 of Part 08.)
+
+2026-11-11 -- D55 -- The baton
+THE BATON: one small file says which PC holds Moodle's data.
+Decided by: chosen for Nir by the author of Part 09; Nir may reverse it.
+
+2026-11-11 -- D56 -- Nightly export
+While serving, a PC exports Moodle's data every night.
+Decided by: chosen for Nir by the author of Part 09; Nir may reverse it.
+
+2026-11-11 -- D57 -- Fetch and sync every ten minutes
+While serving, a PC fetches new work every ten minutes and puts it into Moodle by itself.
+Decided by: chosen for Nir by the author of Part 09; Nir may reverse it.
+
+2026-11-11 -- D58 -- AMBACKUP stick
+A second USB stick, AMBACKUP, holds a weekly copy and is kept away from the PCs.
+Decided by: chosen for Nir by the author of Part 09; Nir may reverse it.
+
+2026-11-11 -- D59 -- OPEN: which PC serves while Nir travels
+OPEN, Nir's: which PC serves while he travels (Part 09, 9.11). Until he says: the PC that stays at home.
+Decided by: OPEN, waiting for Nir. Until he says: the PC that stays at home.
