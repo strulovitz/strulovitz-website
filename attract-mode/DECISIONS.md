@@ -202,3 +202,15 @@ Decided by: chosen for Nir by the author of Part 06; Nir may reverse it.
 2026-11-11 -- D43 -- Films public on YouTube
 Films are public on YouTube, with a captions file and a list of chapters made by the script.
 Decided by: chosen for Nir by the author of Part 06; Nir may reverse it.
+
+2026-11-11 -- D44 -- Trap test for auditors
+An auditor model must pass the trap test (Part 07, 7.5).
+Decided by: chosen for Nir by the author of Part 07; Nir may reverse it.
+
+2026-11-11 -- D45 -- Audits are closed questions
+Audits are closed questions, and YES means good.
+Decided by: chosen for Nir by the author of Part 07; Nir may reverse it.
+
+2026-11-11 -- D46 -- Live Levels watched and corrected
+Live Levels are watched by the counters and corrected in the open (Part 07, 7.8).
+Decided by: chosen for Nir by the author of Part 07; Nir may reverse it.
