@@ -125,7 +125,6 @@ Working proof (2026-11-19): New-Laptop-Windows <-> New-Desktop-Windows exchange 
 - Nir gives the token values by hand (or New-Laptop-Windows hands them to Nir); NEVER write token values in this repo. Back up `~/.openclaw/openclaw.json` before editing; merge, do not overwrite. Restart the gateway after the change (`openclaw gateway restart`).
 - Test: `curl -s -o /dev/null -w "%{http_code}" https://new-laptop-windows.tail195bea.ts.net/.well-known/agent-card.json` must be 200.
 - Send: message tool, channel `a2a`, target `a2a:new-laptop-windows`. `deliveryStatus: sent` = delivered. The reply arrives as a NEW message.
-- Message rules (from `2026-11-19_RULES-for-A2A-from-New-Laptop-Windows.md`): start with [TASK]/[QUESTION]/[INFO]/[DONE]; never reply to INFO/DONE/thanks/PONG; max 2 messages per task per side; no secrets; if a tool fails twice, change approach (deferred tools go through `dispatch_action`).
 - Do this AFTER step 6 works and the website HC is unchanged. New-Laptop-Windows and New-Desktop-Windows will add you as a peer on their side (they need your tokens and URL: send them by A2A once your side is up, tokens only via Nir).
 ---
 ## 7. Link B: New-Desktop-Linux's OWN gateway reachable from the other machines (Windows -> Linux, Linux -> Linux later)
