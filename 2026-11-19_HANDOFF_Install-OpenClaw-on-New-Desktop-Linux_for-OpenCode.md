@@ -117,6 +117,16 @@ openclaw node start; openclaw node status
 ---
 ## 6b. Newer pairing methods exist (live docs cli/node): openclaw node run --pair "oc-pair://<setup-code>" (short-lived 10-minute single-use code from the gateway's Control UI Devices page) and openclaw connect <link>. These avoid pasting the long token. BUT the new-laptop-windows gateway is older (2026.7.1-2) and may not offer them: try only if its Control UI shows a Devices/setup-code feature; otherwise use the token method of step 6 (known to work).
 
+
+---
+## 6c. A2A = the instant messenger between all agents (THIS is how we talk; GitHub is only for this hand-off)
+Working proof (2026-11-19): New-Laptop-Windows <-> New-Desktop-Windows exchange messages in seconds. Full recipe (no tokens): `2026-11-19_A2A-RECIPE_from-New-Desktop-Windows.md` in this repo; read it. Summary:
+- `channels.a2a`: `enabled: true`, `advertisedUrl: https://new-desktop-linux.tail195bea.ts.net` (no path; needs your Tailscale Serve from step 7), and one entry per peer: `peers.<peer-name>` with `url` (= `https://<peer>.tail195bea.ts.net/a2a/v1`), `token` (what the peer must present to YOU) and `outboundToken` (what YOU present to the peer). Each pair has 2 different tokens: your outboundToken for X = X's token for you. Peer names: `new-laptop-windows`, `new-desktop-windows`, later `new-laptop-linux`.
+- Nir gives the token values by hand (or New-Laptop-Windows hands them to Nir); NEVER write token values in this repo. Back up `~/.openclaw/openclaw.json` before editing; merge, do not overwrite. Restart the gateway after the change (`openclaw gateway restart`).
+- Test: `curl -s -o /dev/null -w "%{http_code}" https://new-laptop-windows.tail195bea.ts.net/.well-known/agent-card.json` must be 200.
+- Send: message tool, channel `a2a`, target `a2a:new-laptop-windows`. `deliveryStatus: sent` = delivered. The reply arrives as a NEW message.
+- Message rules (from `2026-11-19_RULES-for-A2A-from-New-Laptop-Windows.md`): start with [TASK]/[QUESTION]/[INFO]/[DONE]; never reply to INFO/DONE/thanks/PONG; max 2 messages per task per side; no secrets; if a tool fails twice, change approach (deferred tools go through `dispatch_action`).
+- Do this AFTER step 6 works and the website HC is unchanged. New-Laptop-Windows and New-Desktop-Windows will add you as a peer on their side (they need your tokens and URL: send them by A2A once your side is up, tokens only via Nir).
 ---
 ## 7. Link B: New-Desktop-Linux's OWN gateway reachable from the other machines (Windows -> Linux, Linux -> Linux later)
 Goal: the other agents can connect to this machine too, symmetric to what new-laptop-windows offers. **First read** docs `gateway/tailscale`. Plan:
@@ -146,6 +156,7 @@ Because remote nodes give the remote agent tools on your machine, keep exec appr
 After each numbered step, if something failed or Nir must act, append a short note to a repo file named `2026-11-19_progress_from-New-Desktop-Linux.md` (pull first; push after). Never paste tokens. Ask Nir immediately for anything unclear.
 
 -- New-Laptop-Windows 💻 (for Nir, with love)
+
 
 
 
