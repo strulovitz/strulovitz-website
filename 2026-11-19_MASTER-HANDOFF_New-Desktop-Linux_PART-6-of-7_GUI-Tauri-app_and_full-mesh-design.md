@@ -1,0 +1,21 @@
+﻿# MASTER HAND-OFF for New-Desktop-Linux (Linux Mint 22), PART 6 of 7: the GUI (Tauri app) and the full-mesh design
+Date: 2026-11-19. Written by New-Laptop-Windows. Read ALL 7 parts in order; Part 1 has the rules for how to behave. This repo is PUBLIC: never put secrets in it.
+
+## 6. The GUI: OpenClaw Linux companion (Tauri desktop app)  [optional, last, needs Nir's yes]
+Facts verified on the LIVE docs and GitHub today (2026-11-19):
+- Page: https://docs.openclaw.ai/platforms/linux ("Desktop companion"). It is a **Tauri** app (WebKitGTK) for local and remote gateways: system tray, Control UI window, Quick Chat (`Ctrl+Shift+Space` on X11, or the tray item), Manage Gateways (several saved gateways, direct URL or SSH; each gets its own dashboard), optional desktop sharing. Windows has a separate native app ("Windows Hub"); macOS has its own. There is NO other official Linux GUI.
+- Releases with Linux files: https://github.com/openclaw/openclaw/releases (latest stable with Linux assets was v2026.11.5: `OpenClaw-2026.11.5-amd64.AppImage`, `OpenClaw-2026.11.5-amd64.deb`, `SHA256SUMS.linux-app.txt`, `OpenClaw-2026.11.5-linux.json`). Note that not every release has Linux files (v2026.10.33 and v2026.11.3 did not). Check that the release you pick really lists the files, and verify the SHA-256 before running anything.
+- Requirements: glibc >= 2.35 (Mint 22 / Ubuntu 24.04 base is fine), FUSE 2 for AppImages (`libfuse2t64` on Ubuntu 24.04+ bases; if missing, do NOT apt-install without Nir; run with `APPIMAGE_EXTRACT_AND_RUN=1`), GNOME Keyring / any unlocked Secret Service (the app stores gateway credentials there; Mint ships GNOME Keyring), X11 session (global shortcuts work; Nir confirmed this PC uses X11).
+- Known open issues in the project (checked on GitHub): AppImage blank window on **Wayland** (#175745, #141443), image paste fails in WebKitGTK (#184123), window-control buttons overlap (#162448), tray show_window glitch (#195587). Mint Cinnamon on X11 should avoid the Wayland ones, but tell Nir honestly that the app is young.
+- **Prefer the AppImage** (no root, no system packages). Put it in `~/Apps/`, `chmod +x`, create `~/.local/share/applications/openclaw.desktop` and an autostart entry `~/.config/autostart/openclaw.desktop`. The `.deb` (`sudo apt install ./file.deb`) pulls GStreamer/WebKit dependencies: only with Nir's go, after `apt install --dry-run ./file.deb` shows nothing is upgraded or removed.
+- First launch: with the CLI gateway from phase 3 already healthy, the app should **attach to the existing healthy Gateway** ("This computer", 127.0.0.1:18789). **Do NOT** click "Use bundled runtime..." in the tray (it would replace the service's Node runtime with the app's bundled Bun runtime). Do not let the app reinstall or change the gateway service. If it tries, cancel and tell Nir. To return to Node: `openclaw gateway install --force --runtime node`.
+- Leave "Desktop sharing" OFF (it needs a local VNC server). Microphone/Talk mode does not work inside the app's WebView; use the Control UI in a normal browser (`http://127.0.0.1:18789/`) for that. Make a browser bookmark/launcher for the Control UI too, so Nir has a GUI even if the app misbehaves.
+- The app can save the other gateways (Manage Gateways -> Add Gateway -> `https://new-laptop-windows.tail195bea.ts.net` + token) so Nir can open any friend's dashboard from one window. Do this only if Nir asks, with the token he pastes.
+- The app is NOT required for any link. If it causes trouble, delete the AppImage and the two `.desktop` files.
+
+---
+## 7. Mesh design (DECIDED by Nir: FULL MESH, every machine equal)
+Every OS runs its own gateway (loopback + Tailscale Serve) AND joins every other friend's gateway as a node AND has the others as A2A peers. Today only the Windows pair is complete: New-Desktop-Windows is a node of the laptop gateway and the two are A2A peers. You add yourself to both. Order of work: (1) your own gateway, (2) A2A to New-Laptop-Windows (the PC that is online now, because Nir is switching this PC to Linux), (3) node link to the laptop gateway, (4) A2A + node link to New-Desktop-Windows later, when Nir boots Windows again, (5) Debian laptop later with a copy of this file.
+Remember: one PC is online in only one OS at a time. Do not treat "peer offline" as an error.
+
+---
