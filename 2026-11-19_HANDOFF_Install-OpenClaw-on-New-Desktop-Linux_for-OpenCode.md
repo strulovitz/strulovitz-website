@@ -15,7 +15,7 @@ This repo is PUBLIC. NEVER write tokens, passwords or API keys in it. Communicat
 2. **Do not guess. If anything is unclear, STOP and ask Nir** (he is next to you). Also ask before anything destructive.
 3. Prefer installs that stay in the user's home (no root, no system-wide changes). Use sudo only where this file says so, and show Nir the command first.
 4. Keep OpenClaw's gateway on **loopback (127.0.0.1)**. Never bind it to 0.0.0.0 or the LAN.
-5. Names (never get confused): agent = **New-Desktop-Linux**; Tailscale machine name = **desktop-linux** (already on the tailnet, 100.118.103.61); OS = Linux Mint 22. Others: New-Laptop-Windows (laptop-windows, 100.99.200.43), New-Desktop-Windows (desktop-windows, 100.107.152.18), future New-Laptop-Linux (Debian 13, laptop-linux).
+5. Names (never get confused): agent = **New-Desktop-Linux**; Tailscale machine name = **new-desktop-linux** (already on the tailnet, 100.118.103.61); OS = Linux Mint 22. Others: New-Laptop-Windows (new-laptop-windows, 100.99.200.43), New-Desktop-Windows (new-desktop-windows, 100.107.152.18), future New-Laptop-Linux (Debian 13, laptop-linux).
 
 ---
 ## 1. Baseline snapshot of the website (BEFORE any change)
@@ -33,19 +33,17 @@ curl -sS -o /dev/null -w "public:%{http_code}\n" https://strulovitz.org/
 Ask Nir which local port/service actually serves the site if unclear. This is the **website health check** (HC): `systemctl is-active cloudflared`, the two curl lines, and `ss -tlnp` unchanged except for new OpenClaw ports.
 
 ---
-## 2. Tailscale: register a FRESH machine named `new-desktop-linux` (Nir's decision: do not reuse the old `desktop-linux` entry)
-- The tailnet lists this PC as `desktop-linux` (100.118.103.61). Nir wants a clean, unambiguous name. DO IT YOURSELF (Nir already approved; just tell him what you run):
-  1. `tailscale status` and `tailscale version` (read-only).
-  2. `sudo tailscale set --hostname=new-desktop-linux`  (renames THIS machine in place: no logout, no reconnect, no routing/DNS change, no stale old entry to delete, same IP). If `set --hostname` is unsupported in this version, ask Nir before using `sudo tailscale up --hostname=new-desktop-linux` (only that flag).
-  3. Verify: `tailscale status` shows `new-desktop-linux`; website HC unchanged. Note: the MagicDNS name becomes `new-desktop-linux.tail195bea.ts.net`.
-  4. Only if the rename is impossible and a logout/new login is needed: Nir does the browser login, and New-Laptop-Windows will try to remove the stale entry (it cannot always; the admin page may need Nir's login).
-- Machine naming rule going forward: agent `New-Desktop-Linux` = tailscale `new-desktop-linux`; later `New-Laptop-Linux` = `new-laptop-linux` (Debian 13). (Existing Windows ones are called `laptop-windows` and `desktop-windows`; Nir may want to rename them to the same scheme later: ask him, do not do it.)
-- The Windows laptop gateway is reachable ONLY inside the tailnet at `https://laptop-windows.tail195bea.ts.net` (port 443, TLS, Tailscale Serve, no Funnel). Gateway token auth. Windows desktop is connected to it as a node (verified).
-- VERSIONS (checked on GitHub 2026-11-19): latest stable OpenClaw = v2026.11.5 (Linux AppImage/.deb exist for 2026.11.5). The laptop-windows gateway CLI is 2026.7.1-2 (its node reports core 2026.11.3). So a fresh Linux install will be NEWER than the laptop gateway. Newer clients usually still connect, but if you see protocol/version errors, STOP and tell Nir/New-Laptop-Windows: we would then either update the laptop gateway (Nir decides) or install the matching older version on Linux (`npm i -g openclaw@2026.7.1-2` into the local prefix).
+## 2. Tailscale: register a FRESH machine named `new-desktop-linux` (Nir's decision: do not reuse the old `new-desktop-linux` entry)
+- **ALREADY DONE by New-Laptop-Windows (via Tailscale admin, with Nir logged in): this PC is now named `new-desktop-linux` in the tailnet** (IP 100.118.103.61, unchanged). Also renamed: `new-laptop-windows` (100.99.200.43), `new-desktop-windows` (100.107.152.18). The old short names no longer resolve. In the admin page the "Auto-generate from OS hostname" box had to be unticked for the new name to stick.
+- YOUR job here: only verify `tailscale status` shows `new-desktop-linux`, `tailscale ip -4` is 100.118.103.61, and that the website HC is unchanged. OPTIONAL and only with Nir's OK, make the OS hostname match: `sudo tailscale set --hostname=new-desktop-linux` (no logout, no other flags).
+- If the machine name in `tailscale status` is NOT new-desktop-linux, tell Nir and New-Laptop-Windows via the mailbox; do not logout/relogin on your own.
+- Machine naming rule going forward: agent `New-Desktop-Linux` = tailscale `new-desktop-linux`; later `New-Laptop-Linux` = `new-laptop-linux` (Debian 13). (All four follow the same `new-<pc>-<os>` scheme so old computers can join the tailnet later without name clashes.)
+- The Windows laptop gateway is reachable ONLY inside the tailnet at `https://new-laptop-windows.tail195bea.ts.net` (port 443, TLS, Tailscale Serve, no Funnel). Gateway token auth. Windows desktop is connected to it as a node (verified).
+- VERSIONS (checked on GitHub 2026-11-19): latest stable OpenClaw = v2026.11.5 (Linux AppImage/.deb exist for 2026.11.5). The new-laptop-windows gateway CLI is 2026.7.1-2 (its node reports core 2026.11.3). So a fresh Linux install will be NEWER than the laptop gateway. Newer clients usually still connect, but if you see protocol/version errors, STOP and tell Nir/New-Laptop-Windows: we would then either update the laptop gateway (Nir decides) or install the matching older version on Linux (`npm i -g openclaw@2026.7.1-2` into the local prefix).
 - Model used by the Windows agents: `openrouter/anthropic/claude-sonnet-5.5`, thinking level **medium**.
 ---
 ## 3. Install OpenClaw WITHOUT disturbing the system
-Docs (authoritative, read the LIVE site, local copies on the Windows machines are older): https://docs.openclaw.ai (install, platforms/linux, gateway, cli/node, gateway/tailscale). Node requirement changes between releases (live Linux page: Node 26 recommended, or 24.22.1+/26.12.1+; older docs said 24.15+). The local-prefix installer brings its own suitable Node, so you do not need to touch the system Node. Ideally match the OpenClaw version of the laptop-windows gateway (2026.7.1-2 reported by CLI) or newer; tell Nir if versions differ a lot.
+Docs (authoritative, read the LIVE site, local copies on the Windows machines are older): https://docs.openclaw.ai (install, platforms/linux, gateway, cli/node, gateway/tailscale). Node requirement changes between releases (live Linux page: Node 26 recommended, or 24.22.1+/26.12.1+; older docs said 24.15+). The local-prefix installer brings its own suitable Node, so you do not need to touch the system Node. Ideally match the OpenClaw version of the new-laptop-windows gateway (2026.7.1-2 reported by CLI) or newer; tell Nir if versions differ a lot.
 Because the website may use Node, **do not replace/upgrade the system Node**. Use the local-prefix installer, which keeps its own Node under `~/.openclaw`:
 ```bash
 curl -fsSL https://openclaw.ai/install-cli.sh | bash
@@ -69,7 +67,7 @@ Verify: `openclaw gateway status` -> Runtime running, Listening 127.0.0.1:18789,
 ### GUI = the OpenClaw Linux companion (a **Tauri** desktop app) - OPTIONAL, PHASE 2: do it only after everything else (steps 5-9) passes, and only if Nir says yes
 **Research result (GitHub, 2026-11-19):** it is official and released (latest with Linux files: v2026.11.5, AppImage + .deb + SHA256SUMS.linux-app.txt), BUT it is young and has open Linux bugs, e.g. #175745 (AppImage dashboard blanks, Fedora/GNOME/**Wayland**), #141443 (blank window on Wayland), #184123 (image paste into chat fails in WebKitGTK), #162448 (window buttons overlap), #195587 (tray show_window). Reports are mostly **Wayland**; Mint Cinnamon is normally X11 (check echo $XDG_SESSION_TYPE). The CLI + gateway + browser Control UI do NOT depend on this app, so the app can never break the core link. If the app misbehaves, just uninstall it (delete the AppImage + autostart file).
 
-**CORRECTION:** an earlier draft of this file wrongly said there is no Linux app. The current docs (https://docs.openclaw.ai/platforms/linux, section "Desktop companion") say: *"The OpenClaw Linux companion is a Tauri desktop app for local and remote Gateways."* (Nir's local docs copy on Windows is older and does not show it. Always read the LIVE page.) The Windows equivalent is the "Windows Hub" (tray app), so on Linux this Tauri app is the matching GUI: system tray, Control UI window, Quick Chat (`Ctrl+Shift+Space` or tray item), Manage Gateways menu (can save several gateways incl. the laptop-windows one: direct URL + token), optional desktop sharing.
+**CORRECTION:** an earlier draft of this file wrongly said there is no Linux app. The current docs (https://docs.openclaw.ai/platforms/linux, section "Desktop companion") say: *"The OpenClaw Linux companion is a Tauri desktop app for local and remote Gateways."* (Nir's local docs copy on Windows is older and does not show it. Always read the LIVE page.) The Windows equivalent is the "Windows Hub" (tray app), so on Linux this Tauri app is the matching GUI: system tray, Control UI window, Quick Chat (`Ctrl+Shift+Space` or tray item), Manage Gateways menu (can save several gateways incl. the new-laptop-windows one: direct URL + token), optional desktop sharing.
 
 **How to install it (safest for this machine):**
 1. Download from https://github.com/openclaw/openclaw/releases (latest stable release that really contains the Linux assets): `OpenClaw-<version>-amd64.AppImage` and `SHA256SUMS.linux-app.txt`. Check the checksum (`sha256sum -c` or compare). Linux Mint 22 (Ubuntu 24.04 base, glibc 2.39) meets the AppImage requirement (glibc >= 2.35). Ask Nir to confirm the download source/version before running anything.
@@ -97,19 +95,19 @@ loginctl show-user $(whoami) | grep Linger   # must say Linger=yes
 Difference from Windows: Windows tasks start at login; Linux with linger starts at boot. Also check Tailscale: `systemctl is-enabled tailscaled` must be `enabled` (it is a system service, usually default).
 
 ---
-## 6. Link A: New-Desktop-Linux as a NODE of the laptop-windows gateway (Linux -> Windows)
+## 6. Link A: New-Desktop-Linux as a NODE of the new-laptop-windows gateway (Linux -> Windows)
 This mirrors what New-Desktop-Windows did. Separate service from step 4 (a node host is separate from your own gateway).
-1. Nir copies the **laptop-windows gateway token** to you (from his email/clipboard). **Use ALL 48 characters.** Lesson learned the hard way: the Windows desktop first used a token shortened with "..." and got `token_mismatch`. If a token contains `...` or `…`, it is truncated: ask for the full one.
+1. Nir copies the **new-laptop-windows gateway token** to you (from his email/clipboard). **Use ALL 48 characters.** Lesson learned the hard way: the Windows desktop first used a token shortened with "..." and got `token_mismatch`. If a token contains `...` or `…`, it is truncated: ask for the full one.
 2. Quick foreground test (token only for this shell, not saved in history if possible):
 ```bash
 read -rs OPENCLAW_GATEWAY_TOKEN; export OPENCLAW_GATEWAY_TOKEN
-openclaw node run --host laptop-windows.tail195bea.ts.net --port 443 --tls --display-name "New-Desktop-Linux" --node-id desktop-linux-node
+openclaw node run --host new-laptop-windows.tail195bea.ts.net --port 443 --tls --display-name "New-Desktop-Linux" --node-id desktop-linux-node
 ```
 3. First time it says `pairing required (requestId: ...)`. Write that requestId in a repo file `2026-11-19_node-pairing-request_from-New-Desktop-Linux_to-New-Laptop-Windows.md` (NO token) and tell Nir to prompt New-Laptop-Windows to approve. After approval, re-run; it should print `node host gateway connected`.
 4. Do NOT run `openclaw nodes status`/`devices` against the laptop gateway from here: on Windows that changed the device identity and caused an extra re-pair request. Use the repo mailbox instead.
 5. Make it permanent: stop the foreground run, then
 ```bash
-openclaw node install --host laptop-windows.tail195bea.ts.net --port 443 --tls --display-name "New-Desktop-Linux" --node-id desktop-linux-node
+openclaw node install --host new-laptop-windows.tail195bea.ts.net --port 443 --tls --display-name "New-Desktop-Linux" --node-id desktop-linux-node
 openclaw node start; openclaw node status
 ```
 (check `openclaw node install --help` first for exact option names; the gateway token must be available to the service: use the mechanism the docs describe - env in the unit or `~/.openclaw` config - and verify that the stored value is the FULL token without printing it, e.g. check its length is 48.) Linger from step 5 covers boot start. Then write `..._reply_from-New-Desktop-Linux_...md` (no secrets) and let New-Laptop-Windows verify with `system.which` on your node.
@@ -117,23 +115,23 @@ openclaw node start; openclaw node status
 7. Exec approvals stay ON for the node (the laptop agent can only run what is allowed). Do not widen them without Nir.
 
 ---
-## 6b. Newer pairing methods exist (live docs cli/node): openclaw node run --pair "oc-pair://<setup-code>" (short-lived 10-minute single-use code from the gateway's Control UI Devices page) and openclaw connect <link>. These avoid pasting the long token. BUT the laptop-windows gateway is older (2026.7.1-2) and may not offer them: try only if its Control UI shows a Devices/setup-code feature; otherwise use the token method of step 6 (known to work).
+## 6b. Newer pairing methods exist (live docs cli/node): openclaw node run --pair "oc-pair://<setup-code>" (short-lived 10-minute single-use code from the gateway's Control UI Devices page) and openclaw connect <link>. These avoid pasting the long token. BUT the new-laptop-windows gateway is older (2026.7.1-2) and may not offer them: try only if its Control UI shows a Devices/setup-code feature; otherwise use the token method of step 6 (known to work).
 
 ---
 ## 7. Link B: New-Desktop-Linux's OWN gateway reachable from the other machines (Windows -> Linux, Linux -> Linux later)
-Goal: the other agents can connect to this machine too, symmetric to what laptop-windows offers. **First read** docs `gateway/tailscale`. Plan:
+Goal: the other agents can connect to this machine too, symmetric to what new-laptop-windows offers. **First read** docs `gateway/tailscale`. Plan:
 1. Check Tailscale Serve is allowed on the tailnet (Nir already enabled HTTPS certificates; Funnel is OFF and must stay OFF - never run `tailscale funnel`).
 2. **Port conflict check (website safety):** `tailscale serve` on 443 binds only the tailnet IP, but verify with `ss -tlnp | grep ':443'` that nothing else (nginx/apache) listens on 0.0.0.0:443 first. If something does, use a different HTTPS port for OpenClaw, e.g. `tailscale serve --bg --https=8443 18789`, and tell the other agents the port. Also `tailscale serve status` must show no pre-existing config you would overwrite (inspect first; if the website already uses Tailscale Serve, STOP and ask Nir).
 3. Prefer the OpenClaw-managed way: config `gateway.tailscale.mode = "serve"` with `gateway.bind = "loopback"` (this setting is protected: **Nir must run** `openclaw config set gateway.tailscale.mode serve` and `openclaw gateway restart` himself - an agent patch is refused). If the first start says "Serve is not enabled on your tailnet", Nir opens the link it prints and approves (already done once for this tailnet; Funnel stays off).
-4. Result address (expected): `https://desktop-linux.tail195bea.ts.net` (port 443, or 8443 if you had to move it). Re-run **HC**. Tell New-Laptop-Windows the final address in the mailbox; token goes to others through Nir only.
+4. Result address (expected): `https://new-desktop-linux.tail195bea.ts.net` (port 443, or 8443 if you had to move it). Re-run **HC**. Tell New-Laptop-Windows the final address in the mailbox; token goes to others through Nir only.
 This is "Link B"; New-Desktop-Windows / New-Laptop-Windows will later connect as nodes to it (Windows -> Linux) the same way you did in step 6.
 
 ---
 ## 8. DECIDED by Nir: FULL MESH (no machine is the boss; every PC is equally important; each PC is Windows OR Linux at different times)
-Every OS install runs its OWN gateway (reachable on the tailnet via Tailscale Serve, loopback bind) AND joins every other machine's gateway as a node, so any pair can talk. Machines/agents: New-Laptop-Windows (laptop-windows), New-Desktop-Windows (desktop-windows), New-Desktop-Linux (new-desktop-linux, Mint 22), New-Laptop-Linux (new-laptop-linux, Debian 13, later). A dual-boot PC is offline in the other OS; links must reconnect by themselves when it comes back (services + Restart=always).
+Every OS install runs its OWN gateway (reachable on the tailnet via Tailscale Serve, loopback bind) AND joins every other machine's gateway as a node, so any pair can talk. Machines/agents: New-Laptop-Windows (new-laptop-windows), New-Desktop-Windows (new-desktop-windows), New-Desktop-Linux (new-desktop-linux, Mint 22), New-Laptop-Linux (new-laptop-linux, Debian 13, later). A dual-boot PC is offline in the other OS; links must reconnect by themselves when it comes back (services + Restart=always).
 Design for your Linux box (identical on the Debian laptop):
 - Your own gateway: `openclaw-gateway.service` (user service, loopback:18789) exposed with Tailscale Serve (step 7).
-- One node-host service PER remote gateway, each with its own profile and a UNIQUE node id/display name, e.g. `openclaw --profile to-laptop-windows node install ...` (check the live docs `openclaw --help` / cli/node / multiple-gateways for the exact `--profile` syntax; do not guess; ask Nir if unclear). Do NOT run two nodes against the same gateway under one identity. Start with ONE link (laptop-windows), verify it, then add the others one by one (desktop-windows when Nir boots Windows, later new-laptop-linux).
+- One node-host service PER remote gateway, each with its own profile and a UNIQUE node id/display name, e.g. `openclaw --profile to-laptop-windows node install ...` (check the live docs `openclaw --help` / cli/node / multiple-gateways for the exact `--profile` syntax; do not guess; ask Nir if unclear). Do NOT run two nodes against the same gateway under one identity. Start with ONE link (new-laptop-windows), verify it, then add the others one by one (new-desktop-windows when Nir boots Windows, later new-laptop-linux).
 - Each profile has its own state directory: this keeps tokens separate. Never write tokens in the repo.
 - Keep a table of links in the final report: which gateway, which node id, service name, status.
 Because remote nodes give the remote agent tools on your machine, keep exec approvals ON for every link.
@@ -148,6 +146,7 @@ Because remote nodes give the remote agent tools on your machine, keep exec appr
 After each numbered step, if something failed or Nir must act, append a short note to a repo file named `2026-11-19_progress_from-New-Desktop-Linux.md` (pull first; push after). Never paste tokens. Ask Nir immediately for anything unclear.
 
 -- New-Laptop-Windows 💻 (for Nir, with love)
+
 
 
 
