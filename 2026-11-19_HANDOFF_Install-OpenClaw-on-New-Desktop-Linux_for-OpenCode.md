@@ -40,7 +40,7 @@ Ask Nir which local port/service actually serves the site if unclear. This is th
 
 ---
 ## 3. Install OpenClaw WITHOUT disturbing the system
-Docs (authoritative): https://docs.openclaw.ai (install, platforms/linux, gateway, cli/node, gateway/tailscale). Requirements: Node 24.15+ (or 22.22.3+ / 25.9+).
+Docs (authoritative, read the LIVE site, local copies on the Windows machines are older): https://docs.openclaw.ai (install, platforms/linux, gateway, cli/node, gateway/tailscale). Node requirement changes between releases (live Linux page: Node 26 recommended, or 24.22.1+/26.12.1+; older docs said 24.15+). The local-prefix installer brings its own suitable Node, so you do not need to touch the system Node. Ideally match the OpenClaw version of the laptop-windows gateway (2026.7.1-2 reported by CLI) or newer; tell Nir if versions differ a lot.
 Because the website may use Node, **do not replace/upgrade the system Node**. Use the local-prefix installer, which keeps its own Node under `~/.openclaw`:
 ```bash
 curl -fsSL https://openclaw.ai/install-cli.sh | bash
@@ -61,9 +61,22 @@ Answer prompts with Nir. Settings to choose / ask Nir for:
 - Channels: skip for now (the Windows agents use the local webchat/Control UI only). Ask Nir if he wants any.
 Verify: `openclaw gateway status` -> Runtime running, Listening 127.0.0.1:18789, `openclaw status`. Re-run **HC**.
 
-### GUI
-- There is **no native Linux companion app** in the docs ("There is no native Linux companion app yet"). The Windows "Hub"/tray app is Windows-only. I do not know of a Tauri Linux app; do not claim one exists. Don't guess - check docs.openclaw.ai/platforms/linux and, if unsure, tell Nir.
-- The GUI on Linux = the **Control UI / WebChat in the browser**: open `http://127.0.0.1:18789/` (log in with the gateway token; Nir pastes it). `openclaw dashboard` may open it with the token. Make a desktop launcher/bookmark for it (a `.desktop` file in `~/.local/share/applications` that runs `xdg-open http://127.0.0.1:18789/`). Optionally a tray/autostart is NOT needed.
+### GUI = the OpenClaw Linux companion (a **Tauri** desktop app) - install it AFTER the CLI gateway above is healthy
+**CORRECTION:** an earlier draft of this file wrongly said there is no Linux app. The current docs (https://docs.openclaw.ai/platforms/linux, section "Desktop companion") say: *"The OpenClaw Linux companion is a Tauri desktop app for local and remote Gateways."* (Nir's local docs copy on Windows is older and does not show it. Always read the LIVE page.) The Windows equivalent is the "Windows Hub" (tray app), so on Linux this Tauri app is the matching GUI: system tray, Control UI window, Quick Chat (`Ctrl+Shift+Space` or tray item), Manage Gateways menu (can save several gateways incl. the laptop-windows one: direct URL + token), optional desktop sharing.
+
+**How to install it (safest for this machine):**
+1. Download from https://github.com/openclaw/openclaw/releases (latest stable release that really contains the Linux assets): `OpenClaw-<version>-amd64.AppImage` and `SHA256SUMS.linux-app.txt`. Check the checksum (`sha256sum -c` or compare). Linux Mint 22 (Ubuntu 24.04 base, glibc 2.39) meets the AppImage requirement (glibc >= 2.35). Ask Nir to confirm the download source/version before running anything.
+2. **Prefer the AppImage: it needs NO root and changes no system packages.** `chmod +x` it and run it. It needs FUSE 2: check `dpkg -l | grep -i libfuse2`. If missing, do NOT apt-install without Nir; instead run it with `APPIMAGE_EXTRACT_AND_RUN=1 ./OpenClaw-<version>-amd64.AppImage`. (The `.deb` route `sudo apt install ./OpenClaw-<version>-amd64.deb` pulls GStreamer/WebKit dependencies: only if Nir wants it, and first run `apt install --dry-run ./file.deb` and show Nir the list; it must NOT upgrade or remove anything already installed.)
+3. Put the AppImage in `~/Apps/` and create `~/.local/share/applications/openclaw.desktop` (menu entry) plus `~/.config/autostart/openclaw.desktop` so the tray app starts at each login (Mint/Cinnamon). Remember the GUI starts at login; the gateway/node services start at boot via linger (step 5).
+4. First launch: because step 4 already created a local config and a healthy gateway, the app should **attach to the existing healthy Gateway** (docs: "attaches to a healthy Gateway before attempting service changes"). Check that it shows the local gateway ("This computer", 127.0.0.1:18789) and that `systemctl --user status openclaw-gateway` is unchanged afterwards.
+5. **Do NOT click** "Use bundled runtime..." in the tray, and do not let it join a discovered remote gateway as Primary. The CLI owns the service (Node from the local prefix); the app's own bundled Bun runtime is optional and not wanted here (it would replace the service runtime). If the app tries to change/reinstall the service, cancel and ask Nir. To return to Node if ever switched: `openclaw gateway install --force --runtime node`.
+6. The app keeps saved gateway credentials in the OS credential store: it needs an unlocked **Secret Service (GNOME Keyring on Mint)**. If the app complains, tell Nir (keyring unlock at login).
+7. Wayland vs X11: Mint Cinnamon is normally X11, so global shortcuts work. On Wayland use the tray Quick Chat item.
+8. Microphone/Talk mode does not work in the app's WebView; use the Control UI in a regular browser for that (`http://127.0.0.1:18789/`, token pasted by Nir). Also make a browser bookmark/launcher for it.
+9. "Desktop sharing" (app setting) needs a local VNC server: leave it OFF/not set up; ask Nir later.
+10. Re-run **HC** after installing/starting the app. Add its version and source URL to the report.
+
+The same Tauri app is the plan for the Debian 13 laptop (glibc 2.41, fine); Windows uses the Windows Hub.
 
 ---
 ## 5. Survive reboots - "forever" (systemd user service + linger)
@@ -93,7 +106,8 @@ openclaw node install --host laptop-windows.tail195bea.ts.net --port 443 --tls -
 openclaw node start; openclaw node status
 ```
 (check `openclaw node install --help` first for exact option names; the gateway token must be available to the service: use the mechanism the docs describe - env in the unit or `~/.openclaw` config - and verify that the stored value is the FULL token without printing it, e.g. check its length is 48.) Linger from step 5 covers boot start. Then write `..._reply_from-New-Desktop-Linux_...md` (no secrets) and let New-Laptop-Windows verify with `system.which` on your node.
-6. Exec approvals stay ON for the node (the laptop agent can only run what is allowed). Do not widen them without Nir.
+6. **Capability approval (Linux node plugin):** after pairing, the laptop gateway approves the node's command/capability surface SEPARATELY: the node may show connected but with empty caps/commands until `openclaw nodes pending` / `openclaw nodes approve <requestId>` is done on the GATEWAY side (New-Laptop-Windows will do it; tell it in the mailbox). Optional device capabilities (docs "Node capabilities"): desktop notifications are on by default (needs `notify-send`); camera and location are OFF - leave them off unless Nir asks.
+7. Exec approvals stay ON for the node (the laptop agent can only run what is allowed). Do not widen them without Nir.
 
 ---
 ## 7. Link B: New-Desktop-Linux's OWN gateway reachable from the other machines (Windows -> Linux, Linux -> Linux later)
