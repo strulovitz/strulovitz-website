@@ -34,12 +34,11 @@ Ask Nir which local port/service actually serves the site if unclear. This is th
 
 ---
 ## 2. Tailscale: register a FRESH machine named `new-desktop-linux` (Nir's decision: do not reuse the old `desktop-linux` entry)
-- The tailnet currently lists an OLD entry `desktop-linux` (100.118.103.61). Nir wants a clean new one. Steps (ask Nir before each; none of them touches the Cloudflare tunnel, which does not use Tailscale):
-  1. `tailscale status` / `tailscale version` (do not change anything yet).
-  2. Nir approves, then: `sudo tailscale logout` (this machine only), then `sudo tailscale up --hostname=new-desktop-linux` - NO other flags (no exit node, no routes, no DNS flags). Nir logs in via the URL it prints (same account).
-  3. Nir deletes the OLD `desktop-linux` machine in the Tailscale admin console (https://login.tailscale.com/admin/machines) - only Nir does that; if both entries are the same physical PC, make sure he deletes the OLD/offline one.
-  4. Check: `tailscale ip -4`, `tailscale status` shows `new-desktop-linux`, and re-run website HC.
-- If this PC was used remotely over Tailscale SSH, warn Nir before logout (it will drop that connection).
+- The tailnet lists this PC as `desktop-linux` (100.118.103.61). Nir wants a clean, unambiguous name. DO IT YOURSELF (Nir already approved; just tell him what you run):
+  1. `tailscale status` and `tailscale version` (read-only).
+  2. `sudo tailscale set --hostname=new-desktop-linux`  (renames THIS machine in place: no logout, no reconnect, no routing/DNS change, no stale old entry to delete, same IP). If `set --hostname` is unsupported in this version, ask Nir before using `sudo tailscale up --hostname=new-desktop-linux` (only that flag).
+  3. Verify: `tailscale status` shows `new-desktop-linux`; website HC unchanged. Note: the MagicDNS name becomes `new-desktop-linux.tail195bea.ts.net`.
+  4. Only if the rename is impossible and a logout/new login is needed: Nir does the browser login, and New-Laptop-Windows will try to remove the stale entry (it cannot always; the admin page may need Nir's login).
 - Machine naming rule going forward: agent `New-Desktop-Linux` = tailscale `new-desktop-linux`; later `New-Laptop-Linux` = `new-laptop-linux` (Debian 13). (Existing Windows ones are called `laptop-windows` and `desktop-windows`; Nir may want to rename them to the same scheme later: ask him, do not do it.)
 - The Windows laptop gateway is reachable ONLY inside the tailnet at `https://laptop-windows.tail195bea.ts.net` (port 443, TLS, Tailscale Serve, no Funnel). Gateway token auth. Windows desktop is connected to it as a node (verified).
 - VERSIONS (checked on GitHub 2026-11-19): latest stable OpenClaw = v2026.11.5 (Linux AppImage/.deb exist for 2026.11.5). The laptop-windows gateway CLI is 2026.7.1-2 (its node reports core 2026.11.3). So a fresh Linux install will be NEWER than the laptop gateway. Newer clients usually still connect, but if you see protocol/version errors, STOP and tell Nir/New-Laptop-Windows: we would then either update the laptop gateway (Nir decides) or install the matching older version on Linux (`npm i -g openclaw@2026.7.1-2` into the local prefix).
@@ -130,11 +129,16 @@ Goal: the other agents can connect to this machine too, symmetric to what laptop
 This is "Link B"; New-Desktop-Windows / New-Laptop-Windows will later connect as nodes to it (Windows -> Linux) the same way you did in step 6.
 
 ---
-## 8. Open decision for Nir (ASK, do not decide alone)
-Right now one node host process connects to ONE gateway. Nir wants every machine pair connected (Win-Win done, Win-Linux, Linux-Win, Linux-Linux). Options: (a) a central hub gateway that all others join as nodes (simple), or (b) every machine runs its own gateway AND runs extra node-host profiles (`--profile`/separate service) to join each other's gateways (full mesh, more services). Recommend to Nir: start with step 6 (joins the existing hub), then step 7, then decide on mesh together with New-Laptop-Windows. Same design will be reused for the Debian 13 laptop ("New-Laptop-Linux", tailscale name laptop-linux): same steps 1-9, only names and the Cloudflare check differ.
+## 8. DECIDED by Nir: FULL MESH (no machine is the boss; every PC is equally important; each PC is Windows OR Linux at different times)
+Every OS install runs its OWN gateway (reachable on the tailnet via Tailscale Serve, loopback bind) AND joins every other machine's gateway as a node, so any pair can talk. Machines/agents: New-Laptop-Windows (laptop-windows), New-Desktop-Windows (desktop-windows), New-Desktop-Linux (new-desktop-linux, Mint 22), New-Laptop-Linux (new-laptop-linux, Debian 13, later). A dual-boot PC is offline in the other OS; links must reconnect by themselves when it comes back (services + Restart=always).
+Design for your Linux box (identical on the Debian laptop):
+- Your own gateway: `openclaw-gateway.service` (user service, loopback:18789) exposed with Tailscale Serve (step 7).
+- One node-host service PER remote gateway, each with its own profile and a UNIQUE node id/display name, e.g. `openclaw --profile to-laptop-windows node install ...` (check the live docs `openclaw --help` / cli/node / multiple-gateways for the exact `--profile` syntax; do not guess; ask Nir if unclear). Do NOT run two nodes against the same gateway under one identity. Start with ONE link (laptop-windows), verify it, then add the others one by one (desktop-windows when Nir boots Windows, later new-laptop-linux).
+- Each profile has its own state directory: this keeps tokens separate. Never write tokens in the repo.
+- Keep a table of links in the final report: which gateway, which node id, service name, status.
+Because remote nodes give the remote agent tools on your machine, keep exec approvals ON for every link.
 
----
-## 9. Final checks (all must pass), then reboot test (ask Nir to approve the reboot)
+---## 9. Final checks (all must pass), then reboot test (ask Nir to approve the reboot)
 - HC identical to baseline; `https://strulovitz.org/` returns the same code as before; `cloudflared` still active.
 - `openclaw gateway status` OK, node service running, Linger=yes, `tailscale status` OK.
 - After Nir approves a reboot: log in, wait 2 min, repeat all the checks (website first!). Write the results in `2026-11-19_final-report_from-New-Desktop-Linux.md` (no secrets): versions, ports, service names, what Nir still has to do, anything unexpected.
@@ -144,5 +148,6 @@ Right now one node host process connects to ONE gateway. Nir wants every machine
 After each numbered step, if something failed or Nir must act, append a short note to a repo file named `2026-11-19_progress_from-New-Desktop-Linux.md` (pull first; push after). Never paste tokens. Ask Nir immediately for anything unclear.
 
 -- New-Laptop-Windows 💻 (for Nir, with love)
+
 
 
