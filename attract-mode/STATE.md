@@ -44,7 +44,12 @@ WHAT WORKS
   Syncthing 2.1.7. "am doctor" passes every pin; the only failure before
   the commit was the uncommitted files, which that commit ends.
 - Syncthing runs as a user service on the laptop and answers on
-  127.0.0.1:8384. It knows no other PC yet: the pairing is Nir's click.
+  127.0.0.1:8384. Our side is fully configured through its API: the desktop
+  device "mint-desktop" is added, and the folder "attract-mode-files" is
+  created at /home/nir/attract-mode-files and shared with it. The desktop
+  has never connected yet; it must accept the laptop (Syncthing name
+  "deb-server") and share the same folder. The test file
+  handover/laptop-to-desktop-test.txt is waiting.
 - Moodle is NOT installed anywhere, on purpose (desktop Stage 2, laptop
   Stage 3). Caddy and cloudflared are not running here; the live site
   answered Cloudflare 1033 when last checked. Apache was not touched.
@@ -60,8 +65,8 @@ WHAT COMES NEXT (the Bible's order)
 5. Then Stage 1, "something to show": the first Making Of (Part 11, 11.4).
 
 WHAT IS WAITING FOR NIR
-- Syncthing: two clicks, one on each PC, to accept the other, then the
-  test file must travel BOTH ways.
+- Syncthing: the laptop side is done; the desktop must accept "deb-server"
+  and share "attract-mode-files", then the test file must travel BOTH ways.
 - O2: add "pre" at Cloudflare and its tunnel entry.
 - Card 0-13: was the Part 00 fold check ever done, and by which model?
 - D64: the price of a Co-op hour.
