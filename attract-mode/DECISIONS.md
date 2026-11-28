@@ -334,3 +334,10 @@ Decided by: chosen for Nir by the author of Part 11; Nir may reverse it.
 2026-11-11 -- D76 -- The fold
 The Bible is folded (Part 11, 11.10). After that, a change is written straight into its Part.
 Decided by: chosen for Nir by the author of Part 11; Nir may reverse it.
+2026-11-28 -- D77 -- Ollama models live outside the system disk
+The Ollama model store moved from /usr/share/ollama/.ollama/models to
+/home/ai-models/ollama/models (set by OLLAMA_MODELS in the ollama systemd
+override). Reason: 19 GB of model weights on a 93 GB system disk left too
+little free space for Stage 0. This is an exception to D9 (programs live on
+/): only the model weights live on /home; Ollama itself stays installed on /.
+Decided by: Nir, 2026-11-28.

@@ -11,13 +11,31 @@ This file is PUBLIC. It holds no passwords, no tokens and no IP addresses.
 WARNING -- FREE SPACE (the rule of section 1.5)
 --------------------------------------------------------------------------------
 
-The system disk ( / ) has 31 GB free of 93.1 GB (66% used).
+The system disk ( / ) has 61 GB free of 93.1 GB (27 GB used, 31% used).
 Section 1.5 says: if less than 60 GB is free on either PC, stop and tell
-Nir. Nir was told on 2026-11-28.
+Nir. Nir was told on 2026-11-28 when it was 31 GB, and he approved a
+cleanup the same day (see 1a below). The rule now passes.
 
-The big home disk ( /home ) has 377 GB free of 1.7 TB.
+The big home disk ( /home ) has 356 GB free of 1.7 TB.
 PHP, MariaDB and Moodle would normally live on the system disk, not on
 /home. This is why the warning matters for the kitchen (Stage 0).
+
+1a. CLEANUP APPROVED BY NIR, 2026-11-28 (freed 30 GB on /):
+  - Deleted the one old Timeshift snapshot (2025-11-03, 9.5 GB). Timeshift
+    schedules are off; no new snapshot exists.
+  - Trimmed the system journal to 200 MB (1.6 GB freed).
+  - Removed the two old 6.14 kernels and the orphan 6.14.0-37 headers.
+    Kept 7.0.0-30 (running) and 7.0.0-28 (spare); GRUB verified; the
+    Windows entry was not touched.
+  - MOVED the Ollama model store off / : it was /usr/share/ollama/.ollama/
+    models (19 GB) and is now /home/ai-models/ollama/models, owned by the
+    ollama user, set by OLLAMA_MODELS in
+    /etc/systemd/system/ollama.service.d/override.conf. The copy was
+    verified byte for byte (19,761,284,627 bytes, 17 files) and the old
+    copy was deleted only after the 3B model answered from the new path.
+    The 27B model and the Crystal Balls check
+    (python -m pipeline.common --ping) both passed after the move.
+  Nothing else was changed.
 
 
 --------------------------------------------------------------------------------
@@ -38,8 +56,8 @@ The internal NVMe disk (953.9 GB) holds Windows 11 (a BitLocker partition)
 and the EFI partition. It was not read and not touched.
 
 Free space:
-  /      31 GB free of 93.1 GB   (see the warning above)
-  /home 377 GB free of 1.7 TB
+  /      61 GB free of 93.1 GB   (the rule of section 1.5 now passes)
+  /home 356 GB free of 1.7 TB
 
 Hardware:
   RAM  62 GiB
