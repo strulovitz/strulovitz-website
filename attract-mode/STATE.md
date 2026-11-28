@@ -19,10 +19,12 @@ WHAT EXISTS
   chosen from the pin's major version). It does NOT install Moodle (Stage 2
   on the desktop, Stage 3 on the laptop) and does not touch Caddy, the live
   websites or Apache.
-- hosting/attract-mode.caddy -- the "pre" door (Part 01, 1.9, item 6):
-  listens on 127.0.0.1:8084 and reverse-proxies to the old site's own
-  server on 127.0.0.1:8081, so "pre" shows the old site and the two can
-  never drift apart.
+- hosting/attract-mode.caddy -- our block (Part 01, 1.9, item 6). The
+  ports are the Bible's (Part 01, 1.4): 8084 belongs to Attract Mode
+  (Moodle, from Switch Day), and "pre" is simply the tunnel pointing at
+  127.0.0.1:8081 -- it needs no door of its own. The block reserves
+  127.0.0.1:8084 and answers a plain sentence there until Moodle arrives.
+  An earlier version gave 8084 to "pre"; corrected the same day (step 5d).
 - hosting/Caddyfile -- one import line added at the end. Nothing else
   changed. Validated with "caddy validate"; the adapted config shows the
   three live blocks untouched.

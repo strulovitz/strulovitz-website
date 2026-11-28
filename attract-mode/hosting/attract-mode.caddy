@@ -1,23 +1,32 @@
-# ATTRACT MODE -- the "pre" preview (Part 01, section 1.9, item 6).
+# ATTRACT MODE -- our own block (Part 01, section 1.9, item 6).
 #
-# This file is pulled into the live configuration by ONE line at the end of
+# Pulled into the live configuration by ONE line at the end of
 # hosting/Caddyfile:
 #     import ../attract-mode/hosting/attract-mode.caddy
 # Caddy reads import paths relative to the Caddyfile's own folder, so the
 # path starts with ".." on purpose.
 #
-# STAGE 0: "pre" must show the OLD site. This block therefore hands every
-# request to the old site's own server on 127.0.0.1:8081 -- one door, no
-# second copy of the old site, so the two can never drift apart.
-# At Stage 2 the old site moves to "pre" with its redirects, and this block
-# grows then.
+# THE PORTS ARE THE BIBLE'S, NOT OURS (Part 01, 1.4 and Part 11, 11.5):
+#   8081  everything www.strulovitz.org serves today, and pre.strulovitz.org
+#   8082  learnime.com
+#   8083  peaktogether.me
+#   8084  Attract Mode: Moodle plus our plain files, from Switch Day
 #
-# It listens on 127.0.0.1 only; the Cloudflare Tunnel publishes it. The name
-# pre.strulovitz.org is added at Cloudflare by Nir (O2), together with the
-# tunnel entry that points it at 127.0.0.1:8084 on the serving PC.
-# Port 8084 was free at the survey of 2026-11-28.
+# SO "pre" NEEDS NOTHING HERE. pre.strulovitz.org is the tunnel's job: its
+# entry points at 127.0.0.1:8081, the old site's own port (Nir's owner act
+# O2). An earlier version of this file wrongly listened on 8084 and gave
+# that port to "pre"; 8084 belongs to Moodle. Corrected 2026-11-28.
+#
+# WHAT THIS FILE HOLDS NOW: the 8084 door, reserved and answering plainly,
+# so the port is declared in the configuration before Stage 2 needs it.
+# Nothing on the public internet points here yet.
+#
+# AT STAGE 2 this block is replaced by the real thing (Part 08, section
+# 8.5): Caddy answers /am/ itself, everything else goes to Moodle's public
+# folder with PHP running as Nir's own user, and anything that matches no
+# file goes to Moodle's router.
 
 :8084 {
 	bind 127.0.0.1
-	reverse_proxy 127.0.0.1:8081
+	respond "Attract Mode is being built. Nothing is for sale yet." 200
 }
