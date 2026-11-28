@@ -410,3 +410,15 @@ grunt work is done by the cheaper one.
 The arrangement lives in config/roles, as Part 01, section 1.7, item 6 asks.
 This does not change any role in Part 00, section 0.8: it fills two chairs.
 Decided by: Nir, 2026-11-28.
+
+2026-11-28 -- D83 -- The agents may test the art studios
+Nir grants the agents permission to launch and test the art studios on his
+PCs and to use the graphics card for that work, when a task needs it. The
+"never launch a studio" line in card 1-01 was the planner's safety rule, not
+Nir's; he did not ask for it and rejects it. He said, in his own words: "if
+you need to test then test". Still true and not weakened: one studio at a
+time (D68), stop it when the work is done, never install into a studio
+(Part 01, 1.6), and Part 10, 10.1 stands -- only a piece Nir made himself can
+be a Making Of. An agent-made test is recorded as a test, never as a proof
+piece.
+Decided by: Nir, 2026-11-28.
