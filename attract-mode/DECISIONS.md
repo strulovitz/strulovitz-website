@@ -422,3 +422,13 @@ time (D68), stop it when the work is done, never install into a studio
 be a Making Of. An agent-made test is recorded as a test, never as a proof
 piece.
 Decided by: Nir, 2026-11-28.
+
+2026-11-28 -- D85 -- Moodle is built AT www from the start; there is nobody to protect
+Nir, plainly: "i do NOT have any visitors ... do everything in the real thing".
+So the rule that www must keep the old site until Moodle is finished is retired:
+it protects nobody. Moodle is installed with https://www.strulovitz.org as its
+address (Part 08, 8.5, item 1, unchanged) and the www route is pointed at 8084
+AS SOON AS that door answers -- even if the site still looks unfinished. The old
+site stays reachable at pre.strulovitz.org; nothing is deleted. The way back is
+the route set to 8081 again.
+Decided by: Nir, 2026-11-28.
