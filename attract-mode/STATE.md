@@ -15,10 +15,18 @@ WHAT EXISTS
   choices); the reason is written under the pin.
 - hosting/install/owner-setup.sh -- THE one setup script (Part 01, 1.9).
   Written and syntax-checked; an agent never runs it. It installs PHP and
-  MariaDB, and Syncthing only when its pin is a real number. It does NOT
-  install Moodle (Stage 2 on the desktop, Stage 3 on the laptop) and does
-  not touch Caddy, the live websites or Apache.
-- Seven empty folders for later steps: config/ (holds the pins), vault/,
+  MariaDB, and Syncthing 2.1.7 from Syncthing's own repository (channel
+  chosen from the pin's major version). It does NOT install Moodle (Stage 2
+  on the desktop, Stage 3 on the laptop) and does not touch Caddy, the live
+  websites or Apache.
+- hosting/attract-mode.caddy -- the "pre" door (Part 01, 1.9, item 6):
+  listens on 127.0.0.1:8084 and reverse-proxies to the old site's own
+  server on 127.0.0.1:8081, so "pre" shows the old site and the two can
+  never drift apart.
+- hosting/Caddyfile -- one import line added at the end. Nothing else
+  changed. Validated with "caddy validate"; the adapted config shows the
+  three live blocks untouched.
+- Seven folders for later steps: config/ (holds the pins), vault/,
   research/, levels/, line/, hosting/, public/.
 - WORKFLOW-2026-11-28.md -- the dated running log.
 - handoffs/ -- notes between agents, dated. kits/ -- the kits.
@@ -30,23 +38,27 @@ WHAT EXISTS
 
 WHAT WORKS
 - Nothing is installed or running for Attract Mode yet: no PHP, no
-  MariaDB, no Moodle, no Syncthing, no Obsidian, no Caddy change. The setup
-  script exists but has never been run.
+  MariaDB, no Moodle, no Syncthing, no Obsidian. The setup script exists
+  but has never been run.
+- Caddy and cloudflared are NOT running on this PC (verified 2026-11-28:
+  no process, nothing listening on 8081-8084). The live site answered
+  Cloudflare "error 1033" (tunnel not connected) at that check. Nobody
+  started or reloaded anything: that is Nir's decision.
 - The two PCs are not joined yet. The laptop has not been surveyed.
-- Untouched and still working: the live website, and Crystal Balls (its
-  own check, python -m pipeline.common --ping, exit 0).
+- Crystal Balls is untouched and still passes its own check.
 
 WHAT COMES NEXT (the Bible's order)
-1. hosting/attract-mode.caddy, plus the ONE import line in hosting/Caddyfile
-   (Part 01, 1.9, item 6). Validate, reload (never restart), sites-check.
-2. line/ -- the am command with am doctor (Part 01, 1.10).
-3. Nir runs owner-setup once on each PC (O1).
-4. Nir adds the name "pre" at Cloudflare (O2).
-5. The checks of Part 01, section 1.13.
+1. line/ -- the am command with am doctor (Part 01, 1.10).
+2. Nir runs owner-setup once on each PC (O1).
+3. Nir adds the name "pre" at Cloudflare, plus the tunnel entry that points
+   it at 127.0.0.1:8084 on the serving PC (O2).
+4. The checks of Part 01, section 1.13.
 
 WHAT IS WAITING FOR NIR
+- Whether to start Caddy and the tunnel on this PC at all, and when; the
+  live site is currently not answering (Cloudflare 1033).
 - The laptop survey (Part 01, 1.5): needs the laptop on and connected.
 - O1: run owner-setup on each PC, typing his own password.
-- O2: add "pre" at Cloudflare.
+- O2: add "pre" at Cloudflare and its tunnel entry.
 - D64: the price of a Co-op hour.
 - The fold check of Part 00 by a different model (11.10 and 11.12, item 5).

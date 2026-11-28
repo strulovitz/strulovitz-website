@@ -1,0 +1,23 @@
+# ATTRACT MODE -- the "pre" preview (Part 01, section 1.9, item 6).
+#
+# This file is pulled into the live configuration by ONE line at the end of
+# hosting/Caddyfile:
+#     import ../attract-mode/hosting/attract-mode.caddy
+# Caddy reads import paths relative to the Caddyfile's own folder, so the
+# path starts with ".." on purpose.
+#
+# STAGE 0: "pre" must show the OLD site. This block therefore hands every
+# request to the old site's own server on 127.0.0.1:8081 -- one door, no
+# second copy of the old site, so the two can never drift apart.
+# At Stage 2 the old site moves to "pre" with its redirects, and this block
+# grows then.
+#
+# It listens on 127.0.0.1 only; the Cloudflare Tunnel publishes it. The name
+# pre.strulovitz.org is added at Cloudflare by Nir (O2), together with the
+# tunnel entry that points it at 127.0.0.1:8084 on the serving PC.
+# Port 8084 was free at the survey of 2026-11-28.
+
+:8084 {
+	bind 127.0.0.1
+	reverse_proxy 127.0.0.1:8081
+}

@@ -98,3 +98,6 @@
 	root * {$HOME}/peaktogether-website
 	file_server
 }
+
+# Attract Mode -- the "pre" preview (one line, Part 01, 1.9, item 6).
+import ../attract-mode/hosting/attract-mode.caddy
