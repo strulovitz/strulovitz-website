@@ -341,3 +341,17 @@ override). Reason: 19 GB of model weights on a 93 GB system disk left too
 little free space for Stage 0. This is an exception to D9 (programs live on
 /): only the model weights live on /home; Ollama itself stays installed on /.
 Decided by: Nir, 2026-11-28.
+
+2026-11-28 -- D78 -- The agent runs owner-setup
+The agent working on a PC starts hosting/install/owner-setup.sh there itself,
+once, on Nir's explicit word, and reports every line it printed. Nir does not
+start it and does not type a password for it. Reason, in his own words: he is a
+beginner with ADD, and a person copying commands by hand is one more layer of
+mistakes; the agent also sees the whole output, where Nir could only give back
+the last few lines.
+This replaces Part 01, section 1.9, item 1 ("Nir starts it himself") and the O1
+owner act of section 1.12. Everything else about the script is unchanged: it
+prints its plan, it is safe to run twice, and it touches no live site.
+Still true, and not weakened: an agent never writes a password into any file
+(AM-LAW 13), and a root change is reported in plain words.
+Decided by: Nir, 2026-11-28.

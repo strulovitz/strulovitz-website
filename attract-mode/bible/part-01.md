@@ -394,10 +394,11 @@ NOT USED, so that no agent adds them "to help":
 
 1. ONE SETUP SCRIPT. Everything that needs administrator rights is
    collected in ONE script, attract-mode/hosting/install/owner-setup.sh
-   . It prints what it is about to do and is safe to run twice. Nir
-   starts it himself, once on each PC, and types his Linux password
-   when the terminal asks. An agent never asks Nir to tell it a
-   password.
+   . It prints what it is about to do and is safe to run twice. It is
+   started once on each PC by the agent working there, on Nir's
+   explicit word, and the agent reports every line it printed (D78).
+   Nir does not start it and types no password for it. An agent never
+   asks Nir to tell it a password, and never writes one into any file.
 2. AFTER THE SETUP SCRIPT, NO PASSWORD IS NEEDED. An agent must be
    able to run Moodle's command-line tools, and to export and import
    Moodle's database, without administrator rights. The EXPERT
@@ -475,7 +476,8 @@ This Part defines three words. Other Parts add theirs.
 4. NIR -- THE OWNER ACTS of this Part. For each, the EXPERT writes a
    click-by-click checklist on the day, from what the screen shows
    that day.
-   O1. Starting owner-setup once on each PC and typing his password.
+   O1. Giving the word to start owner-setup once on each PC; the agent
+       runs it there and reports every line (D78).
    O2. Adding the address pre at Cloudflare.
    O3. On Switch Day, pointing www at the new port.
 

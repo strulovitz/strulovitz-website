@@ -375,7 +375,7 @@ def disk_lines() -> list[Line]:
         except OSError:
             continue
         state = OK if free >= 60 else FAIL
-        detail = f"{free:.0f} GB free"
+        detail = f"{free:.1f} GB free"
         if state is FAIL:
             detail += "; Part 01, section 1.5 and Part 09, section 9.8 ask for at least 60 GB; free space before building."
         out.append(Line("THE DISK", label, state, detail))

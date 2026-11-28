@@ -31,9 +31,11 @@ WHAT EXISTS
 - Disk: / has 60 GB free; the Ollama models are on /home (D77).
 
 WHAT WORKS
-- "uv run am doctor" runs and prints a true report. It ends with three
-  real failures: PHP, MariaDB and Syncthing are not installed yet, because
-  that is Nir's owner-setup act (card 0-15).
+- INSTALLED on this PC on 2026-11-28 by owner-setup, on Nir's word (D78):
+  PHP 8.3.6, MariaDB 11.8.10 (listens on 127.0.0.1:3306 only) and
+  Syncthing 2.1.7. Moodle was not installed, on purpose (Stage 2).
+- "uv run am doctor" runs and passes every pin. The whole output of the
+  install is in /home/nir/attract-mode-files/work/logs/ (Place 3, not Git).
 - Nothing else of Attract Mode is installed or running; Caddy and
   cloudflared are NOT running on this PC, so the block is validated but
   not loaded. The live site answered Cloudflare 1033 (no tunnel) when
@@ -41,8 +43,9 @@ WHAT WORKS
 - Crystal Balls and the live website were not touched and still work.
 
 WHAT COMES NEXT (the Bible's order)
-1. Nir runs owner-setup on the desktop (O1), then "am doctor" again.
-2. The laptop: its survey (0-03), the same folders (0-05), owner-setup.
+1. Consecrate the desktop: nothing left here but O2 and Syncthing's test.
+2. The laptop: its survey (0-03), the same folders (0-05), owner-setup
+   (the same script, same pins; PHP will be 8.4 there, which the pins allow).
 3. Syncthing's two-way test file, then O2: "pre" at Cloudflare, pointing
    at 127.0.0.1:8081 on the serving PC.
 4. The fold check of Part 00 by a different model, and the tag bible-v1
@@ -50,9 +53,11 @@ WHAT COMES NEXT (the Bible's order)
 5. Then Stage 0's done-means of Part 01, 1.13.
 
 WHAT IS WAITING FOR NIR
-- O1: run owner-setup on each PC, typing his own password (card 0-15).
+- O1 on the laptop: give the word to run owner-setup there (D78).
 - O2: add "pre" at Cloudflare and its tunnel entry (card 0-14).
 - The laptop, switched on in Linux, for its survey and folders.
 - Card 0-13: was the Part 00 fold check ever done, and by which model?
 - D64: the price of a Co-op hour.
 - Whether to start Caddy and the tunnel on this PC at all, and when.
+- A "fail" the doctor prints today is honest: / has 59.x GB free, and the
+  Bible asks for 60. Worth knowing before building anything large.

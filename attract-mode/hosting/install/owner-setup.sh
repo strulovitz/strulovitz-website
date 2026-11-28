@@ -29,6 +29,11 @@ HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 AM_ROOT="$(cd "$HERE/../.." && pwd)"
 PINS="$AM_ROOT/config/pins"
 
+# No package may ever stop to ask a question: the script runs without a person
+# at the keyboard (D78), and a question with nobody to answer it waits forever.
+# MariaDB asks about an anonymous feedback plugin exactly like that, and it hung
+# a real run on 2026-11-28. Every apt call below says noninteractive for this
+# reason.
 say()  { printf '%s\n' "$*"; }
 step() { printf '\n== %s ==\n' "$*"; }
 warn() { printf 'NOTE: %s\n' "$*"; }
@@ -37,14 +42,36 @@ have() { command -v "$1" >/dev/null 2>&1; }
 
 # The version of one piece, read from the pins file. Empty means OPEN.
 pin_of() {
-    awk -v n="$1" '
-        index($0, n) == 1 {
-            v = $2
-            if (v == "OPEN") v = ""
-            print v
-            exit
+    # A pins line is: name, TWO OR MORE spaces, value, two or more spaces and
+    # the reason. Splitting on $2 is wrong, because a name may hold a space
+    # ("PHP (desktop)"). So the gaps are collapsed into tabs first.
+    awk -v want="$1" '
+        /^[ \t]/ { next }
+        {
+            line = $0
+            gsub(/  +/, "\t", line)
+            split(line, f, "\t")
+            if (f[1] == want) {
+                v = f[2]
+                gsub(/^ +| +$/, "", v)
+                if (v == "OPEN") v = ""
+                print v
+                exit
+            }
         }
     ' "$PINS" 2>/dev/null || true
+}
+
+# sudo on this PC refuses to set DEBIAN_FRONTEND itself ("sorry, you are not
+# allowed to set the following environment variables"), so it is set inside the
+# shell that sudo runs. Without it a package may stop to ask a question forever
+# (D78: nobody is at the keyboard).
+apt_refresh() {
+    sudo sh -c 'DEBIAN_FRONTEND=noninteractive apt-get update'
+}
+
+apt_install() {
+    sudo sh -c 'DEBIAN_FRONTEND=noninteractive apt-get install -y "$@"' sh "$@"
 }
 
 # ---------------------------------------------------------------------------
@@ -66,8 +93,25 @@ case "${ID:-unknown}" in
 esac
 
 case "$FAMILY" in
-    ubuntu) PHP_WANT=8.3 ;;   # the pins allow 8.3 or 8.4; Ubuntu 24.04 ships 8.3
-    debian) PHP_WANT=8.4 ;;   # Debian 13 ships 8.4
+    ubuntu) PCLABEL=desktop ;;   # Linux Mint 22 is Ubuntu 24.04
+    debian) PCLABEL=laptop ;;    # Debian 13
+esac
+# The pins own the number (Part 01, 1.8). This is only the fallback used before
+# the pins are read, so that the first report lines are never empty.
+case "$PCLABEL" in
+    desktop) PHP_WANT=8.3 ;;
+    laptop)  PHP_WANT=8.4 ;;
+esac
+
+# MariaDB's own repository script detects the OS from /etc/os-release, and
+# Linux Mint calls itself "linuxmint", which that script does not know. Mint 22
+# is Ubuntu 24.04 underneath, so on Mint we tell the script the truth about its
+# base. Without this, the database cannot be installed on this PC at all.
+MARIADB_OS_FLAGS=""
+# That script wants the codename of the base system, not its number:
+# --os-version=noble, not 24.04. Mint 22 carries UBUNTU_CODENAME=noble.
+case "${UBUNTU_CODENAME:-}" in
+    noble|jammy) MARIADB_OS_FLAGS="--os-type=ubuntu --os-version=${UBUNTU_CODENAME}" ;;
 esac
 
 say "PC:            $(hostname)"
@@ -106,7 +150,8 @@ step "1. THE PINS"
 # ---------------------------------------------------------------------------
 
 MOODLE_PIN="$(pin_of 'Moodle')"
-PHP_PIN="$(pin_of 'PHP')"
+PHP_PIN="$(pin_of "PHP ($PCLABEL)")"
+[ -n "$PHP_PIN" ] && PHP_WANT="$PHP_PIN"
 MARIADB_PIN="$(pin_of 'MariaDB')"
 SYNCTHING_PIN="$(pin_of 'Syncthing')"
 
@@ -127,8 +172,8 @@ esac
 step "2. REFRESH THE PACKAGE LIST"
 # ---------------------------------------------------------------------------
 
-say "RUNNING: sudo apt-get update"
-sudo apt-get update
+say "RUNNING: refresh the package list"
+apt_refresh
 
 # ---------------------------------------------------------------------------
 step "3. PHP $PHP_WANT (the website's language)"
@@ -156,8 +201,8 @@ else
     say "PHP $PHP_WANT is not here yet."
 fi
 
-say "RUNNING: sudo apt-get install -y ${PHP_PKGS[*]}"
-sudo apt-get install -y "${PHP_PKGS[@]}"
+say "RUNNING: install ${PHP_PKGS[*]}"
+apt_install "${PHP_PKGS[@]}"
 
 if have "php$PHP_WANT"; then
     say "PHP now: $(php"$PHP_WANT" -r 'echo PHP_VERSION;')"
@@ -177,16 +222,16 @@ if [ "$FAMILY" = "ubuntu" ]; then
         say "MariaDB 11.8 is already here."
     else
         say "Ubuntu's own MariaDB is too old, so MariaDB's own repository is added first."
-        say "RUNNING: MariaDB's official repo setup, series 11.8"
+        say "RUNNING: MariaDB's official repo setup, series 11.8 ${MARIADB_OS_FLAGS}"
         curl -LsS https://r.mariadb.com/downloads/mariadb_repo_setup \
-            | sudo bash -s -- --mariadb-server-version=11.8
+            | sudo bash -s -- --mariadb-server-version=11.8 $MARIADB_OS_FLAGS
     fi
 else
     say "Debian 13 already ships the 11.8 series."
 fi
 
-say "RUNNING: sudo apt-get install -y mariadb-server"
-sudo apt-get install -y mariadb-server
+say "RUNNING: install mariadb-server"
+apt_install mariadb-server
 
 if have mariadb; then
     say "MariaDB now: $(mariadb --version)"
@@ -229,14 +274,14 @@ else
         say "RUNNING: add the Syncthing repository ($SYNC_CHANNEL)"
         printf 'deb [signed-by=/etc/apt/keyrings/syncthing-archive-keyring.gpg] https://apt.syncthing.net/ syncthing %s\n' "$SYNC_CHANNEL" \
             | sudo tee /etc/apt/sources.list.d/syncthing.list >/dev/null
-        say "RUNNING: sudo apt-get update (to see the new repository)"
-        sudo apt-get update
+        say "RUNNING: refresh the package list (to see the new repository)"
+        apt_refresh
     else
         say "The Syncthing repository is already here."
     fi
 
-    say "RUNNING: sudo apt-get install -y syncthing=$SYNCTHING_PIN"
-    sudo apt-get install -y "syncthing=$SYNCTHING_PIN"
+    say "RUNNING: install syncthing=$SYNCTHING_PIN"
+    apt_install "syncthing=$SYNCTHING_PIN"
 
     INSTALLED_SYNC="$(syncthing --version 2>/dev/null | awk '{print $2}' | sed 's/^v//' | head -1 || true)"
     SYNCTHING_RESULT="installed, version ${INSTALLED_SYNC:-unknown}"

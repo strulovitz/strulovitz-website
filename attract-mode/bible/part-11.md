@@ -112,8 +112,8 @@ B. WHAT NIR SEES when the agent runs "am today":
 STAGE 0 -- THE KITCHEN
 MAKES: everything in Part 01's "done" list. The laws on one
 page (11.8). Part 00 folded (11.10). The task cards of stage 1.
-NIR: starts owner-setup on each PC; adds the address pre at
-Cloudflare; confirms Syncthing.
+NIR: gives the word to start owner-setup on each PC (the agent runs
+it, D78); adds the address pre at Cloudflare; confirms Syncthing.
 DONE WHEN: pre.strulovitz.org shows the old site, and "am
 doctor" passes on both PCs.
 NOT YET: Moodle. The vault.
