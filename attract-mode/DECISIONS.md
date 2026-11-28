@@ -381,23 +381,19 @@ alone, never reuse port 80, and expect nothing of ours to be served by it.
 Decided by: Nir, 2026-11-28, after asking "whose is it? these are both my
 computers."
 
-2026-11-28 -- D81 -- How the Bible's own fold was checked, and where the different-model rule lives
-Nir's ruling, after reading the exact sentences. Two parts.
-1. THE FOLD (Part 11, 11.10, item 4) WAS CHECKED BY SCRIPT, not by a
-   third-party model: nineteen assertions on the real files (each change's new
-   sentence present, each retired word or path gone, no edit notice left),
-   plus a line-by-line trace of the 173 deleted lines. Result: the fold is
-   applied and consistent. The three apparent failures were faults in the
-   check itself, not in the text -- two phrases split across line breaks, one
-   written "the tunnel to the internet never starts by itself". The evidence
-   pack stays at handoffs/2026-11-28-fold-check-for-another-model.md as the
-   record. Folding is text editing, the evidence is in Git, and the agent who
-   folded it in November was a different agent, so no maker checked its own
-   work.
-2. THE DIFFERENT-MODEL RULE STANDS, where Nir places it: the fourteen audits
-   of Part 07, the trap test, and every piece of mathematics or code -- the
-   numbers files, the Manim films, the programs. There a second model checks
-   the first, and an auditor that fails the trap test is never used. Reason in
-   his words: he never checks maths or code himself (AM-LAW 8), so a second
-   set of eyes is the only check that exists for that work.
+2026-11-28 -- D81 -- Who checks what
+Nir's rule, in three plain parts.
+1. INSTALLING THINGS NEEDS NO SECOND MODEL. The proof is the machine itself:
+   the script's own output, "am doctor", and the live addresses. A second AI
+   adds nothing there.
+2. THE BIBLE'S OWN FOLD NEEDED NO SECOND MODEL EITHER. Folding is text
+   editing, and the evidence is in Git: nineteen script checks, plus a trace of
+   every deleted line, showed the fold is applied. The three apparent failures
+   were faults in my check, not in the text.
+3. WRITING SCIENCE OR CODE NEEDS A SECOND MODEL. Mathematics, physics, the
+   numbers files, the Manim films, the programs, and the fourteen audits of
+   Part 07: there a different model checks the first, and an auditor must pass
+   the trap test before it may be used.
+   Reason, in Nir's words: he never checks maths or code himself (AM-LAW 8), so
+   a second set of eyes is the only check that exists for that work.
 Decided by: Nir, 2026-11-28.

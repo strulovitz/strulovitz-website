@@ -419,10 +419,9 @@ HOW, one Part at a time:
    changed place it names the change that asked for it, or
    NONE. For each change in the list it answers FOUND or NOT
    FOUND. One NONE or one NOT FOUND sends the Part back.
-   For the Bible's own fold, Nir decided on 2026-11-28 (D81) that a
-   SCRIPT check with the same answer form is enough: folding is text
-   editing and the evidence is in Git. The different-model rule stays
-   for every audit that needs judgement (Part 07).
+   For the Bible's own fold, Nir decided on 2026-11-28 (D81): text
+   editing and installing need no second model; a second model checks
+   science and code (Part 07).
 5. Part 00 is folded in stage 0. Each other Part is folded
    before the stage that builds it.
 
