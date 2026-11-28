@@ -56,6 +56,16 @@ WHAT WORKS
 - No compile, no PPA and no third-party ffmpeg: by D79 each Linux keeps
   its own 6.1.1 / 7.1.5.
 
+WHAT WORKS, NEW ON 2026-11-28 EVENING
+- THE THREE WEBSITES ARE BACK, served by this desktop: www.strulovitz.org,
+  learnime.com and peaktogether.me all answer 200, and /hosted-by says
+  "Served by mint-desktop".
+- pre.strulovitz.org IS LIVE and shows the existing site (200, title
+  "Strulovitz - Home"). Nir added it at Cloudflare as a "Published
+  application" route on the home-sites tunnel, service URL
+  http://localhost:8081.
+- The Syncthing pairing holds; am doctor on the desktop reports no failures.
+
 WHAT COMES NEXT (the Bible's order)
 1. Syncthing's pairing and the two-way test file (card 0-10).
 2. O2: add "pre" at Cloudflare and check it (card 0-14).
@@ -67,7 +77,7 @@ WHAT COMES NEXT (the Bible's order)
 WHAT IS WAITING FOR NIR
 - Syncthing: the laptop side is done; the desktop must accept "deb-server"
   and share "attract-mode-files", then the test file must travel BOTH ways.
-- O2: add "pre" at Cloudflare and its tunnel entry.
+- (done) O2: "pre" was added on 2026-11-28 and checked from outside.
 - Card 0-13: was the Part 00 fold check ever done, and by which model?
 - D64: the price of a Co-op hour.
 - Whether and when to start Caddy and the tunnel on either PC.
