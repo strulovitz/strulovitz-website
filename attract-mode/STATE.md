@@ -14,8 +14,11 @@ WHAT EXISTS
   Waiting for Nir: 0-10 (Syncthing pairing), 0-14 (pre at Cloudflare).
   Open: 0-13 (Part 00 fold check and the tag bible-v1).
 - machines/desktop.md and machines/laptop.md -- both surveys, written
-  read-only. The laptop: Debian 13, 1.1 TB free, 8084 free, Apache active
-  and left alone.
+  read-only. The laptop: Debian 13, 1.1 TB free, 8084 free. Apache was
+  checked on 2026-11-28: it serves only the stock Debian default page from
+  /var/www/html, listens on 80, has no 808x rules, and is not ours; port
+  443 is Tailscale, not Apache. Nothing of Nir's would be missed if it
+  stopped, but it was not touched (handoffs/2026-11-28-laptop-to-desktop-2.md).
 - config/pins -- one file, never "latest". PHP, uv and ffmpeg are now
   per PC (D79): PHP 8.3/8.4, uv 0.12.0/0.12.1, ffmpeg 6.1.1/7.1.5.
   Moodle 5.3, MariaDB 11.8 series and the line's Python 3.13.14 are the
@@ -27,7 +30,8 @@ WHAT EXISTS
   D78 in its comments too. hosting/attract-mode.caddy + one import line
   in hosting/Caddyfile: our block, 8084 reserved, nothing public yet.
 - Place 1 on both PCs; Place 3 on the laptop at
-  /home/nir/attract-mode-files/ with its nine folders (voice/ is 700).
+  /home/nir/attract-mode-files/ with its nine folders (voice/ is 700) and
+  a .stignore of one line, work/, ready for Syncthing.
 - costs.md has the bill line; WORKFLOW-2026-11-28.md has the dated log.
 
 WHAT WORKS
