@@ -180,6 +180,8 @@ KNOWN FACTS, to be confirmed by the survey:
    Windows 11 on the internal disk. Debian 13 on its own external USB
    drive. Closing the lid suspends it unless the keep-awake service
    is on. Apache is installed there and is NOT ours: never touch it.
+   Checked on 2026-11-28: it serves the stock Debian page and nothing
+   of ours (D80).
 2. DESKTOP. Lenovo Legion, RTX 4070 Ti with 12 GB, 64 GB of memory.
    Windows 11 on the internal disk. Linux Mint 22 on its own external
    USB drive.
@@ -384,7 +386,10 @@ NOT USED, so that no agent adds them "to help":
 4. Neo4j or any second database. (AM-LAW 11.)
 5. SCORM 2004. Mathematica. (Our packages are SCORM 1.2, D13.)
 6. Any outside file server, font service or analytics service.
-7. Apache. It belongs to something else on the laptop.
+7. Apache. On the laptop it serves only the stock Debian page
+   (/var/www/html, one file) and nothing of ours; the desktop has
+   none. Leave it alone and never reuse port 80. Checked on
+   2026-11-28: no other virtual host, and no touch of 8081 to 8084.
 8. Extra Moodle plugins, unless Part 08 names them.
 9. LaTeX and TeX Live. (D36.)
 

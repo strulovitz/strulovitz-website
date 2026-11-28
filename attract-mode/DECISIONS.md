@@ -366,3 +366,17 @@ build for a tool the project only uses on its own files. This does not
 weaken Part 01, section 1.8's rule for Moodle (same version), MariaDB (same
 series) and the line's Python (same environment); those stay identical.
 Decided by: Nir, 2026-11-28.
+
+2026-11-28 -- D80 -- What Apache on the laptop actually is
+Checked, read-only, on the laptop: Apache serves only the stock Debian default
+page. Its document root /var/www/html holds that one index.html, owned by root,
+unchanged since the system install; there is no second virtual host, no
+phpMyAdmin, no WordPress, no control panel and no copy of any of Nir's
+projects. The package apache2 2.4.68-1~deb13u1 arrived by a normal system
+update on 2026-08-17. It does not touch ports 8081 to 8084 and has no proxy
+rules. The desktop has no Apache at all. Port 443 on both PCs is Tailscale, not
+Apache; the earlier survey line said otherwise and was imprecise.
+Therefore Part 01 now states the checked fact instead of a memory: leave Apache
+alone, never reuse port 80, and expect nothing of ours to be served by it.
+Decided by: Nir, 2026-11-28, after asking "whose is it? these are both my
+computers."
