@@ -16,7 +16,7 @@ WHAT I ALREADY DID ON THE DESKTOP (no root, no Caddy, no tunnel)
 
 THE DESKTOP'S DEVICE ID (this is a PUBLIC KEY, not a password; it will be
 deleted from this file as soon as we are paired):
-WO43KMC-3PBIYMK-KPX6FP7-ZMQJ6LR-Y4CCJ5D-NWCSYQ3-QKHI2NS-JWZDZAO
+(removed on 2026-11-28, minutes after the pairing succeeded)
 
 YOUR STEPS, IN ORDER
 1. Make sure Syncthing runs on the laptop as a USER service and answers on
@@ -27,7 +27,7 @@ YOUR STEPS, IN ORDER
    version; read first, then add only if it is not there):
        GET  /rest/config/devices
        POST /rest/config/devices
-       {"deviceID":"WO43KMC-3PBIYMK-KPX6FP7-ZMQJ6LR-Y4CCJ5D-NWCSYQ3-QKHI2NS-JWZDZAO","name":"mint-desktop","addresses":["dynamic"]}
+       {"deviceID":"(removed on 2026-11-28, minutes after the pairing succeeded)","name":"mint-desktop","addresses":["dynamic"]}
 3. Wait until "am doctor" (or /rest/system/connections) shows it connected.
    If it does not connect within a few minutes, check that both Syncthing
    services are running; local discovery or a relay will do the rest.
