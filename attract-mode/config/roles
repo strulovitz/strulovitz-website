@@ -1,0 +1,21 @@
+THE ROLES, AND WHICH MODEL SITS IN EACH
+Part 00, section 0.8, and Part 01, section 1.7, item 6 (config/).
+Model names live here and nowhere else (section 0.8).
+
+EXPERT          GPT 6.2 Sol
+                Writes each stage's cards, the plans, the escalations, and the
+                judgement calls (is this the same idea? does this chain work?).
+                Chosen by Nir on 2026-11-28 (D82).
+WORKHORSE       DeepSeek V4.1 Flash 1017
+                Executes the cards: builds files, runs the commands, brings
+                back the evidence. Also fills the SCRIPT role in practice.
+AUDITOR-TEXT    OPEN. Must pass the trap test before any audit (Part 07, 7.5).
+AUDITOR-EYES    OPEN. Must be a model that can see. Same trap test.
+LOCAL           OPEN. The PC's own models: the voice, the ear, pictures.
+SCRIPT          No AI. Ordinary code; preferred wherever possible.
+NIR             The owner. Never checks maths or code (AM-LAW 8).
+
+WHO CHECKS WHAT (D81)
+Installing and text editing: no second model; the machine's own evidence.
+Science, mathematics, code: a different model checks the maker, after passing
+the trap test.

@@ -397,3 +397,16 @@ Nir's rule, in three plain parts.
    Reason, in Nir's words: he never checks maths or code himself (AM-LAW 8), so
    a second set of eyes is the only check that exists for that work.
 Decided by: Nir, 2026-11-28.
+
+2026-11-28 -- D82 -- The EXPERT chair is filled: GPT 6.2 Sol writes the cards
+Nir's decision. The stronger model is the EXPERT: it writes each stage's cards,
+the plans, the escalations and the judgement calls. The cheaper model is the
+WORKHORSE: it executes the cards and brings back the evidence. They hand work
+to each other through dated hand-offs in attract-mode/handoffs/.
+Reason, in Nir's words: saving money on planning will ruin the project; the
+benchmarks put the expert at about twice the capability, and its cost per task
+is next to the worker's. So the plan is written by the stronger model and the
+grunt work is done by the cheaper one.
+The arrangement lives in config/roles, as Part 01, section 1.7, item 6 asks.
+This does not change any role in Part 00, section 0.8: it fills two chairs.
+Decided by: Nir, 2026-11-28.
