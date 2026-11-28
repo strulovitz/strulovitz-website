@@ -355,3 +355,14 @@ prints its plan, it is safe to run twice, and it touches no live site.
 Still true, and not weakened: an agent never writes a password into any file
 (AM-LAW 13), and a root change is reported in plain words.
 Decided by: Nir, 2026-11-28.
+
+2026-11-28 -- D79 -- uv and ffmpeg may differ between the PCs
+uv and ffmpeg stay as each Linux ships them: uv 0.12.0 on the desktop and
+0.12.1 on the laptop; ffmpeg 6.1.1 on the desktop (Mint 22 / Ubuntu 24.04)
+and 7.1.5 on the laptop (Debian 13). They are pinned per PC in config/pins,
+like PHP. Reason: after checking, there is no official ready-made 7.1.5
+package for Mint, and Nir decided not to compile one or trust a third-party
+build for a tool the project only uses on its own files. This does not
+weaken Part 01, section 1.8's rule for Moodle (same version), MariaDB (same
+series) and the line's Python (same environment); those stay identical.
+Decided by: Nir, 2026-11-28.

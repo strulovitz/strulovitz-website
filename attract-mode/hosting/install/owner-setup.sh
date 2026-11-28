@@ -4,8 +4,9 @@
 #
 # THE ONE SETUP SCRIPT -- Part 01, section 1.9.
 #
-# Nir runs this himself, once on each PC, and types his Linux password when
-# the terminal asks. An agent never runs it and never asks for the password.
+# The agent runs this once on each PC, on Nir's explicit word (D78), and
+# reports every line it printed. Nir does not start it and does not type a
+# password for it. An agent never writes a password into any file (AM-LAW 13).
 #
 # It is SAFE TO RUN TWICE: every piece is checked first and skipped if it is
 # already there.
@@ -79,7 +80,7 @@ step "BEFORE ANYTHING: WHO AND WHERE"
 # ---------------------------------------------------------------------------
 
 if [ "$(id -u)" -eq 0 ]; then
-    die "Run this as Nir, not as root. It asks for the password itself."
+    die "Run this as Nir, not as root. It is started by the agent on Nir's word (D78)."
 fi
 
 [ -r "$PINS" ] || die "Cannot read the pins file: $PINS"

@@ -3,64 +3,64 @@ ATTRACT MODE -- STATE
 Read this first, after Part 00. One page. Rewritten, not appended to, at
 the end of every session: what exists, what works, what comes next, and
 what is waiting for Nir.
-Last rewritten: 2026-11-28, desktop-linux.
+Last rewritten: 2026-11-28, laptop-linux (Debian 13).
 
 WHAT EXISTS
-- bible/ -- 12 files. Read IN FULL on 2026-11-28 (all 7,189 lines);
-  laws.md matches Part 11, section 11.8, word for word.
-- DECISIONS.md -- D1 to D77. Only D64 is open.
-- tasks/ -- the golden card (0-00) and the Stage 0 cards (0-01 to 0-15),
-  each with its role, what to read, its done-when and its true state.
-- handoffs/2026-11-28-desktop-to-laptop.md -- the letter to the agent on the
-  laptop (the same model, on Debian 13). It carries the laptop's five tasks
-  and the four mistakes of today. The laptop answers with its own hand-off.
-- costs.md -- the first line of the bill (Part 11, 11.7).
-- machines/desktop.md -- the desktop survey, plus the disk cleanup.
-- config/pins -- every version, one file, both PCs, never "latest".
-  PHP is two lines (8.3 desktop, 8.4 laptop, as Part 01, 1.8 allows);
-  Syncthing is 2.1.7 (Nir chose it); the line's Python is 3.13.14.
-- line/ -- the real Python project uv owns: "uv run am doctor" works.
-  It reports the versions against the pins, the ports, Moodle, Git,
-  Syncthing, the newest hand-over and free space; every failure is one
-  plain sentence with what to do. No outside library is used.
-- hosting/install/owner-setup.sh -- the one setup script. Written and
-  syntax-checked; an agent never runs it. PHP + MariaDB + Syncthing 2.1.7
-  from Syncthing's own repository; NOT Moodle; touches no live site.
-- hosting/attract-mode.caddy + one import line in hosting/Caddyfile --
-  our block. Ports are the Bible's (Part 01, 1.4): 8084 is Attract Mode's,
-  and "pre" is the tunnel pointing at 8081, with no door of its own.
-- The folders of Place 1, and /home/nir/attract-mode-files/ with its nine
-  folders (voice/ is 700). WORKFLOW-2026-11-28.md is the dated log.
-- Disk: / has 60 GB free; the Ollama models are on /home (D77).
+- bible/ -- 12 files, 7,191 lines. Read IN FULL on the laptop on
+  2026-11-28 as well as on the desktop; laws.md matches Part 11, 11.8.
+- DECISIONS.md -- D1 to D79. Only D64 (the Co-op price) is open.
+- tasks/ -- the golden card and the Stage 0 cards. Now done: 0-01, 0-02,
+  0-03, 0-04, 0-05, 0-06, 0-07, 0-08, 0-09, 0-11, 0-12, 0-15.
+  Waiting for Nir: 0-10 (Syncthing pairing), 0-14 (pre at Cloudflare).
+  Open: 0-13 (Part 00 fold check and the tag bible-v1).
+- machines/desktop.md and machines/laptop.md -- both surveys, written
+  read-only. The laptop: Debian 13, 1.1 TB free, 8084 free, Apache active
+  and left alone.
+- config/pins -- one file, never "latest". PHP, uv and ffmpeg are now
+  per PC (D79): PHP 8.3/8.4, uv 0.12.0/0.12.1, ffmpeg 6.1.1/7.1.5.
+  Moodle 5.3, MariaDB 11.8 series and the line's Python 3.13.14 are the
+  same on both.
+- line/ -- the real uv project. "uv run am doctor" works and prints the
+  versions, ports, Moodle, Git, Syncthing, the hand-over and free space.
+  17 self-checks pass, including the per-PC pin rule.
+- hosting/install/owner-setup.sh -- the one setup script, now following
+  D78 in its comments too. hosting/attract-mode.caddy + one import line
+  in hosting/Caddyfile: our block, 8084 reserved, nothing public yet.
+- Place 1 on both PCs; Place 3 on the laptop at
+  /home/nir/attract-mode-files/ with its nine folders (voice/ is 700).
+- costs.md has the bill line; WORKFLOW-2026-11-28.md has the dated log.
 
 WHAT WORKS
-- INSTALLED on this PC on 2026-11-28 by owner-setup, on Nir's word (D78):
-  PHP 8.3.6, MariaDB 11.8.10 (listens on 127.0.0.1:3306 only) and
-  Syncthing 2.1.7. Moodle was not installed, on purpose (Stage 2).
-- "uv run am doctor" runs and passes every pin. The whole output of the
-  install is in /home/nir/attract-mode-files/work/logs/ (Place 3, not Git).
-- Nothing else of Attract Mode is installed or running; Caddy and
-  cloudflared are NOT running on this PC, so the block is validated but
-  not loaded. The live site answered Cloudflare 1033 (no tunnel) when
-  checked; Nir said not to worry about it for a few hours.
-- Crystal Balls and the live website were not touched and still work.
+- DESKTOP: PHP 8.3.6, MariaDB 11.8.10, Syncthing 2.1.7. It reported no
+  failures before the pins were split per PC; after a pull its own lines
+  match, and the desktop agent is asked to confirm "am doctor" again.
+- LAPTOP (this PC), installed on 2026-11-28 by owner-setup on Nir's word
+  (D78): PHP 8.4.28, MariaDB 11.8.9 (listens on 127.0.0.1:3306 only),
+  Syncthing 2.1.7. "am doctor" passes every pin; the only failure before
+  the commit was the uncommitted files, which that commit ends.
+- Syncthing runs as a user service on the laptop and answers on
+  127.0.0.1:8384. It knows no other PC yet: the pairing is Nir's click.
+- Moodle is NOT installed anywhere, on purpose (desktop Stage 2, laptop
+  Stage 3). Caddy and cloudflared are not running here; the live site
+  answered Cloudflare 1033 when last checked. Apache was not touched.
+- No compile, no PPA and no third-party ffmpeg: by D79 each Linux keeps
+  its own 6.1.1 / 7.1.5.
 
 WHAT COMES NEXT (the Bible's order)
-1. Consecrate the desktop: nothing left here but O2 and Syncthing's test.
-2. The laptop: its survey (0-03), the same folders (0-05), owner-setup
-   (the same script, same pins; PHP will be 8.4 there, which the pins allow).
-3. Syncthing's two-way test file, then O2: "pre" at Cloudflare, pointing
-   at 127.0.0.1:8081 on the serving PC.
-4. The fold check of Part 00 by a different model, and the tag bible-v1
-   (0-13) -- no tag and no record of the check exist.
-5. Then Stage 0's done-means of Part 01, 1.13.
+1. Syncthing's pairing and the two-way test file (card 0-10).
+2. O2: add "pre" at Cloudflare and check it (card 0-14).
+3. The Part 00 fold check by a different model, then the tag bible-v1
+   (card 0-13).
+4. That completes Part 01, section 1.13 -- Stage 0 done.
+5. Then Stage 1, "something to show": the first Making Of (Part 11, 11.4).
 
 WHAT IS WAITING FOR NIR
-- O1 on the laptop: give the word to run owner-setup there (D78).
-- O2: add "pre" at Cloudflare and its tunnel entry (card 0-14).
-- The laptop, switched on in Linux, for its survey and folders.
+- Syncthing: two clicks, one on each PC, to accept the other, then the
+  test file must travel BOTH ways.
+- O2: add "pre" at Cloudflare and its tunnel entry.
 - Card 0-13: was the Part 00 fold check ever done, and by which model?
 - D64: the price of a Co-op hour.
-- Whether to start Caddy and the tunnel on this PC at all, and when.
-- A "fail" the doctor prints today is honest: / has 59.x GB free, and the
-  Bible asks for 60. Worth knowing before building anything large.
+- Whether and when to start Caddy and the tunnel on either PC.
+- A separate, pre-existing apt warning on the laptop: the GitHub CLI
+  repository (cli.github.com) fails signature verification because a key
+  is missing. It is not ours and blocks nothing; fix it only if Nir asks.

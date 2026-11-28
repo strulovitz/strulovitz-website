@@ -37,6 +37,16 @@ check("PHP is split by PC", "PHP (desktop)" in p and "PHP (laptop)" in p, repr(l
 check("Syncthing is 2.1.7", p.get("Syncthing") == "2.1.7", repr(p.get("Syncthing")))
 check("no pin says 'latest'", all("latest" not in v.lower() for v in p.values()))
 
+print("THE PER-PC PINS")
+check("the desktop's uv pin does not apply to the laptop",
+      not doctor.applies_to_this_pc("uv (desktop)", "laptop"))
+check("the laptop's own uv pin applies to the laptop",
+      doctor.applies_to_this_pc("uv (laptop)", "laptop"))
+check("the desktop's ffmpeg pin applies to the desktop",
+      doctor.applies_to_this_pc("ffmpeg (desktop)", "desktop"))
+check("a pin without a PC applies to both",
+      doctor.applies_to_this_pc("MariaDB", "laptop"))
+
 print("THE MATCH RULE")
 check("exact pin matches itself", doctor.matches("2.1.7", "2.1.7"))
 check("a series pin accepts a patch", doctor.matches("11.8", "11.8.2"))

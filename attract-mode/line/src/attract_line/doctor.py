@@ -177,15 +177,25 @@ def pc_family() -> str:
     return "unknown"
 
 
+def applies_to_this_pc(name: str, family: str) -> bool:
+    """A pin that names a PC applies only to that PC (Part 01, 1.8).
+
+    PHP differs because each Linux owns it. uv and ffmpeg are per-PC too, by
+    Nir's decision of 2026-11-28 (D79): each system keeps its own build. A pin
+    with no PC in its name applies to both.
+    """
+    if name.endswith(" (desktop)") or name.endswith(" (laptop)"):
+        return name.endswith("(" + family + ")")
+    return True
+
+
 def version_lines(versions: dict[str, str | None], pin_map: dict[str, str]) -> list[Line]:
     out: list[Line] = []
     family = pc_family()
     for name, pin in pin_map.items():
         if name in ("id", "kind", "state"):
             continue
-        # A pin that names a PC applies only to that PC: the two Linux systems
-        # bring different PHP, and Part 01, section 1.8 allows exactly that.
-        if name.startswith("PHP (") and not name.endswith("(" + family + ")"):
+        if not applies_to_this_pc(name, family):
             continue
         base = name.split(" (")[0]
         have = versions.get(name) or versions.get(base)

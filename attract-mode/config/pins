@@ -4,9 +4,10 @@ Only the EXPERT changes a pin, and writes the reason beside it.
 
 HOW TO READ A LINE: the name, then two or more spaces, then the value, then
 two or more spaces and the reason. A value of OPEN means nobody has pinned it
-yet. A name that says a PC applies to that PC only, because the two Linux
-systems bring different PHP. "am doctor" reads this shape, so the shapes must
-not be broken.
+yet. A name that says a PC applies to that PC only: the two Linux systems
+bring different PHP, and Nir decided on 2026-11-28 to keep each system's own
+uv and ffmpeg too (D79). "am doctor" reads this shape, so the shapes must not
+be broken.
 
 WEBSITE (both PCs)
 Moodle                    5.3        LTS of 5 October 2026. Exactly the same version on both PCs, always, updated on the same day.
@@ -16,10 +17,12 @@ MariaDB                   11.8       The same series on both PCs, so an export f
 Syncthing                 2.1.7      Chosen by Nir on 2026-11-28 from two real options (2.1.7 and 1.30.0). Installed from Syncthing's own apt repository, channel stable-v2, so both PCs get this exact number. Reason: it is the current stable, released 21 October 2026; the rough edges people report belong to the old 1.x to 2.x database conversion, and we start fresh, so there is no conversion here. The distributions ship two different old versions (Mint and Ubuntu 1.27.2, Debian 1.29.5), which the pins rule forbids.
 
 PRODUCING (both PCs)
-uv                        0.12.0     Already on the desktop.
+uv (desktop)              0.12.0     Nir's decision 2026-11-28 (D79): keep each system's own uv; do not replace it. The two PCs differ by one patch.
+uv (laptop)               0.12.1     Nir's decision 2026-11-28 (D79): keep each system's own uv; do not replace it. The two PCs differ by one patch.
 Python (the line)         3.13.14    The interpreter uv builds inside the project. line/.python-version asks for exactly this one, and both PCs build from the same lock file in Git, so both run the same version. Manim needs 3.11 or newer.
 Manim Community           0.22.1     Its own documentation recommends the tool uv.
-ffmpeg                    6.1.1      Already on the desktop.
+ffmpeg (desktop)           6.1.1      Nir's decision 2026-11-28 (D79): keep each Linux's own ffmpeg; do not compile or replace it. Mint 22 (Ubuntu 24.04) ships 6.1.1.
+ffmpeg (laptop)            7.1.5      Nir's decision 2026-11-28 (D79): keep each Linux's own ffmpeg; do not compile or replace it. Debian 13 ships 7.1.5.
 speech-to-text            faster-whisper    The ENGINE, not the model: it runs the Whisper models, so the engine is not a quality choice. The MODEL is not pinned yet -- the Bible marks that line "from memory, to be confirmed" (Part 06). OPEN: the engine version and the model, both to be pinned with a reason before the EAR is built.
 numbers to words          OPEN       The Bible asks for "a tested library that turns numbers into words" and names none yet. To be named and pinned by the EXPERT.
 Playwright                OPEN       With its own Chromium, for testing every toy at phone size and desktop size.
