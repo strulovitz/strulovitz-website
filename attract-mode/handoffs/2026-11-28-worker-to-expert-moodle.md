@@ -27,12 +27,11 @@ Part 11, 11.4 puts Stage 1 (a first Making Of) before Stage 2 (Moodle). Nir has
 overruled that: Moodle goes first. The art work is parked, not deleted: cards
 1-06 to 1-12 stay open, and 1-01 to 1-05 are already done or draft-ready.
 
-Part 11, 11.5 also says the switch of www waits because "from this day, a link
-to the home page opens Attract Mode, so the front page must have something to
-show on its first day". If Moodle opens before a film exists, that front page
-is thin. That is a decision for you, not for me: either the switch waits while
-Nir sees Moodle another way, or the front page is written to stand without a
-film. State which, and why, in one plain sentence.
+Part 11, 11.5 says the switch of www waits because "from this day, a link to
+the home page opens Attract Mode, so the front page must have something to show
+on its first day". Nir is not waiting: www becomes Moodle. So tell us, as an
+instruction and not as a choice, what that front page must say on day one while
+no film exists yet, so that it is honest and not empty of meaning.
 
 --------------------------------------------------------------------------------
 3. THE STATE OF THE MACHINES TODAY
@@ -58,37 +57,41 @@ equal worker. It hosts ACE-Step, Ruach, VoxCPM2, LatentSync, and Apache on
 port 80 (stock page, not ours, D80). Only one PC serves at a time.
 
 --------------------------------------------------------------------------------
-4. WHAT ONLY YOU CAN DECIDE
+4. WHAT WE NEED FROM YOU: HOW, IN STEPS -- NOT A MENU OF CHOICES
 --------------------------------------------------------------------------------
 
-1. HOW NIR SEES MOODLE BEFORE THE SWITCH. This is the heart of his request.
-   (a) Only on the desktop at http://localhost:8084 -- free and instant, but
-       he must sit at that PC.
-   (b) A temporary public name at Cloudflare pointing at 8084 -- he sees it
-       from anywhere, but Moodle's wwwroot must then be that name, and Part 08,
-       8.5, item 1 forbids installing under a temporary address.
-   (c) Switch www and accept a thin front page on day one.
-   Name the cost of each and choose one.
-2. THE INSTALLER AND THE ADMIN PASSWORD. Part 08, 8.5, item 7: Nir chooses the
-   password and types it himself. Say exactly how, so it never enters a shell
-   history, a log or a chat.
-3. THE PHP DESIGN: one FPM pool as user nir on
+Nir does not want options. He wants one path, told as instructions he can
+follow, with a proof after each step. Nothing below is a question of "which";
+each is a "tell us how".
+
+1. HOW TO OPEN MOODLE AT www. The path is fixed by the Bible, not chosen by us:
+   Moodle is installed with https://www.strulovitz.org from the first minute
+   (Part 08, 8.5, item 1); its pages are read through port 8084 from inside the
+   PC (Part 11, 11.5, item 1); then Nir points www at 8084 (Part 11, 11.5, item
+   3). Give us that as ordered steps: what is done first, how each step is
+   proved before the next, what Nir does himself, and the exact way back if the
+   day goes wrong (Part 11, 11.5, "the way back").
+2. HOW the admin password is typed by Nir himself, so it never enters a shell
+   history, a log or a chat (Part 08, 8.5, item 7).
+3. HOW PHP is to be set up here: one FPM pool running as user nir on
    /run/php/php8.3-fpm-attract.sock, uploads 20 MB, memory 256 MB, sessions in
-   the data folder. Confirm or replace.
-4. THE CADDY DESIGN for 8084: /am/ answered by Caddy itself; root
-   /var/www/moodle/public; php_fastcgi on the unix socket; anything matching
-   no file goes to /r.php. Confirm or replace, and say how it is validated.
-5. sslproxy AND reverseproxy both true, because the tunnel ends TLS at
-   Cloudflare (Part 08, 8.5, items 2 and 3)?
-6. WHAT "DONE" MEANS for the building half before the switch: which checks, in
-   which order, and which of them need Nir.
-7. WHAT THE FRONT PAGE SAYS on day one if no film exists yet.
-8. THE CARDS THEMSELVES. Write them, 2-01 onward, one practical piece and one
-   proof each. The shape Nir understands: the database and its user; Moodle's
-   files and the data folder outside the web root; PHP running as Nir; the
-   Caddy door; the PHP limits; the environment check; the installer at the
-   real address with Nir's password; the logs and the clock. He wants the
-   pieces in order, ending with him clicking inside Moodle.
+   the data folder. State it as the spec, with the steps to apply it.
+4. HOW the Caddy block for 8084 is written: /am/ answered by Caddy itself; root
+   /var/www/moodle/public; php_fastcgi on the unix socket; anything matching no
+   file goes to /r.php. Give the exact handler order and the command that
+   validates it before any reload.
+5. HOW config.php must be set for a tunnel that ends TLS at Cloudflare:
+   sslproxy and reverseproxy, and why each is needed (Part 08, 8.5, items 2
+   and 3).
+6. HOW we prove the building half is done before the switch: the checks, in
+   order, and which of them need Nir at the keyboard.
+7. WHAT the front page says on day one, before any film exists.
+8. THE CARDS THEMSELVES, 2-01 onward: one practical piece and one proof each.
+   The shape Nir understands: the database and its user; Moodle's files and the
+   data folder outside the web root; PHP running as Nir; the Caddy door; the
+   PHP limits; the environment check; the installer at the real address with
+   Nir's password; the logs and the clock. In order, ending with him clicking
+   inside Moodle.
 
 --------------------------------------------------------------------------------
 5. WHAT I WILL DO WHEN YOUR CARDS ARRIVE
