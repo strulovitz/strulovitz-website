@@ -76,14 +76,18 @@ class Line:
 
 
 def run(cmd: list[str], timeout: float = 8.0) -> str | None:
+    """Run a command. None means it could not be run; "" means it ran and said
+    nothing. That difference matters: a clean "git status" says nothing, and
+    reading that as a failure is exactly the bug this note prevents."""
     try:
         out = subprocess.run(
             cmd, capture_output=True, text=True, timeout=timeout, check=False
         )
     except (OSError, subprocess.SubprocessError):
         return None
-    text = (out.stdout or "") + (out.stderr or "")
-    return text.strip() or None
+    if out.returncode != 0:
+        return None
+    return (out.stdout or "") + (out.stderr or "")
 
 
 def first_version(text: str | None, patterns: list[str]) -> str | None:
