@@ -16,9 +16,17 @@ MariaDB           11.8 series on both
                               Desktop takes it from MariaDB's own repository
                               (Ubuntu 24.04 ships 10.11, too old for Moodle).
                               An export from one PC must load on the other.
-Syncthing         OPEN        Not installed on the desktop yet. A number
-                              must be pinned here before it is installed;
-                              never "latest".
+Syncthing         2.1.7       Chosen by Nir on 2026-11-28 from two real
+                              options (2.1.7 and 1.30.0). Installed from
+                              Syncthing's own apt repository, channel
+                              stable-v2, so BOTH PCs get this exact number.
+                              Reason: it is the current stable (21 October
+                              2026). The rough edges people report belong to
+                              the old 1.x to 2.x database conversion, and we
+                              start fresh, so there is no conversion here.
+                              The distributions ship two different old
+                              versions (Mint/Ubuntu 1.27.2, Debian 1.29.5),
+                              which the pins rule forbids.
 
 PRODUCING (both PCs)
 uv                0.12.0      Already on the desktop.

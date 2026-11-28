@@ -11,6 +11,8 @@ WHAT EXISTS
 - machines/desktop.md -- the desktop survey (Part 01, 1.5), including the
   disk cleanup Nir approved on 2026-11-28.
 - config/pins -- every version number, one file, both PCs, never "latest".
+  Syncthing is 2.1.7, chosen by Nir on 2026-11-28 (option A of two real
+  choices); the reason is written under the pin.
 - hosting/install/owner-setup.sh -- THE one setup script (Part 01, 1.9).
   Written and syntax-checked; an agent never runs it. It installs PHP and
   MariaDB, and Syncthing only when its pin is a real number. It does NOT
@@ -43,8 +45,6 @@ WHAT COMES NEXT (the Bible's order)
 5. The checks of Part 01, section 1.13.
 
 WHAT IS WAITING FOR NIR
-- The Syncthing pin is OPEN in config/pins, so the setup script skips
-  Syncthing. A real number must be chosen before it is installed.
 - The laptop survey (Part 01, 1.5): needs the laptop on and connected.
 - O1: run owner-setup on each PC, typing his own password.
 - O2: add "pre" at Cloudflare.

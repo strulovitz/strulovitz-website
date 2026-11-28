@@ -203,15 +203,47 @@ if [ -z "$SYNCTHING_PIN" ]; then
     warn "The Bible says: never 'latest'. A real number goes into config/pins first."
     SYNCTHING_RESULT="skipped (pin is OPEN)"
 else
-    say "RUNNING: sudo apt-get install -y syncthing"
-    sudo apt-get install -y syncthing
-    SYNCTHING_RESULT="installed, version $(syncthing --version 2>/dev/null | head -1 || echo '?')"
+    # The two distributions ship two different old versions (Mint/Ubuntu
+    # 1.27.2, Debian 1.29.5). The pins rule needs ONE number on both PCs,
+    # so Syncthing comes from its own repository. The channel follows the
+    # major version of the pin.
+    case "$SYNCTHING_PIN" in
+        1.*) SYNC_CHANNEL="stable" ;;
+        2.*) SYNC_CHANNEL="stable-v2" ;;
+        *) die "The Syncthing pin '$SYNCTHING_PIN' is neither 1.x nor 2.x. Nothing was changed." ;;
+    esac
+
+    say "Syncthing comes from Syncthing's own repository, channel $SYNC_CHANNEL, so both PCs match."
+
+    if [ ! -f /etc/apt/keyrings/syncthing-archive-keyring.gpg ]; then
+        say "RUNNING: download Syncthing's signing key"
+        sudo mkdir -p /etc/apt/keyrings
+        curl -L --max-time 60 -o /tmp/syncthing-archive-keyring.gpg https://syncthing.net/release-key.gpg
+        sudo mv /tmp/syncthing-archive-keyring.gpg /etc/apt/keyrings/syncthing-archive-keyring.gpg
+        sudo chmod 644 /etc/apt/keyrings/syncthing-archive-keyring.gpg
+    else
+        say "Syncthing's signing key is already here."
+    fi
+
+    if ! grep -qs "apt.syncthing.net" /etc/apt/sources.list.d/syncthing.list; then
+        say "RUNNING: add the Syncthing repository ($SYNC_CHANNEL)"
+        printf 'deb [signed-by=/etc/apt/keyrings/syncthing-archive-keyring.gpg] https://apt.syncthing.net/ syncthing %s\n' "$SYNC_CHANNEL" \
+            | sudo tee /etc/apt/sources.list.d/syncthing.list >/dev/null
+        say "RUNNING: sudo apt-get update (to see the new repository)"
+        sudo apt-get update
+    else
+        say "The Syncthing repository is already here."
+    fi
+
+    say "RUNNING: sudo apt-get install -y syncthing=$SYNCTHING_PIN"
+    sudo apt-get install -y "syncthing=$SYNCTHING_PIN"
+
     INSTALLED_SYNC="$(syncthing --version 2>/dev/null | awk '{print $2}' | sed 's/^v//' | head -1 || true)"
-    if [ -n "$INSTALLED_SYNC" ]; then
-        case "$INSTALLED_SYNC" in
-            "$SYNCTHING_PIN"*) say "Syncthing matches the pin: $INSTALLED_SYNC" ;;
-            *) warn "Installed Syncthing is $INSTALLED_SYNC but the pin says $SYNCTHING_PIN." ;;
-        esac
+    SYNCTHING_RESULT="installed, version ${INSTALLED_SYNC:-unknown}"
+    if [ "$INSTALLED_SYNC" = "$SYNCTHING_PIN" ]; then
+        say "Syncthing matches the pin exactly: $INSTALLED_SYNC"
+    else
+        warn "Installed Syncthing is '${INSTALLED_SYNC:-unknown}' but the pin says $SYNCTHING_PIN."
     fi
 fi
 
