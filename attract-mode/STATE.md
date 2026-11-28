@@ -32,8 +32,9 @@ WHAT EXISTS
 
 WHAT WORKS
 - DESKTOP: PHP 8.3.6, MariaDB 11.8.10, Syncthing 2.1.7. It reported no
-  failures before the pins were split per PC; after a pull its own lines
-  match, and the desktop agent is asked to confirm "am doctor" again.
+  failures before the pins were split per PC, and after the split it was
+  CONFIRMED by the desktop: "am doctor" exit 0, no failures, and the 17
+  self-checks pass there too.
 - LAPTOP (this PC), installed on 2026-11-28 by owner-setup on Nir's word
   (D78): PHP 8.4.28, MariaDB 11.8.9 (listens on 127.0.0.1:3306 only),
   Syncthing 2.1.7. "am doctor" passes every pin; the only failure before
