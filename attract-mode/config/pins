@@ -1,0 +1,55 @@
+ATTRACT MODE -- THE PINS
+Part 01, section 1.8. One file, both PCs. Never "latest".
+Only the EXPERT changes a pin, and writes the reason underneath.
+
+Checked against the desktop survey of 2026-11-28 (machines/desktop.md)
+and the facts the Bible checked on 11 November 2026.
+
+WEBSITE (both PCs)
+Moodle            5.3         LTS of 5 October 2026. Same version on both
+                              PCs, always, updated on the same day.
+PHP               8.3 desktop / 8.4 laptop
+                              Moodle 5.3 accepts 8.3 or 8.4; PHP 8.5 is not
+                              supported. Desktop: Ubuntu 24.04 ships 8.3.
+                              Laptop: Debian 13 ships 8.4.
+MariaDB           11.8 series on both
+                              Desktop takes it from MariaDB's own repository
+                              (Ubuntu 24.04 ships 10.11, too old for Moodle).
+                              An export from one PC must load on the other.
+Syncthing         OPEN        Not installed on the desktop yet. A number
+                              must be pinned here before it is installed;
+                              never "latest".
+
+PRODUCING (both PCs)
+uv                0.12.0      Already on the desktop.
+Python (the line) 3.12.3      Kept inside the project by uv. Manim needs
+                              3.11 or newer. Both PCs build it from the same
+                              lock file in Git, so both run the same version.
+Manim Community   0.22.1
+ffmpeg            6.1.1       Already on the desktop.
+speech-to-text    faster-whisper (engine)
+                              Engine only: it runs the Whisper models, so the
+                              engine is not a quality choice. The MODEL is
+                              not pinned yet -- the Bible marks that line
+                              "from memory, to be confirmed" (Part 06).
+                              OPEN: engine version and model, both to be
+                              pinned with a reason before the EAR is built.
+numbers to words  OPEN        The Bible asks for "a tested library that
+                              turns numbers into words" and names none yet.
+                              To be named and pinned by the EXPERT.
+Playwright        OPEN        With its own Chromium, for testing every toy
+                              at phone size and desktop size.
+
+LOOKING
+Obsidian          OPEN        A viewer only. If it vanished tomorrow,
+                              nothing would break.
+
+ALREADY THERE -- do not reinstall and do not upgrade for this project
+(Part 01, section 1.8): git, Caddy, cloudflared, the hosting scripts and
+icons, the coding agent, the art studios, the voice models.
+
+NOT USED -- no agent may add them "to help": Docker; Conda for our line;
+Node.js, npm and bundlers; Neo4j or any second database; SCORM 2004;
+Mathematica; any outside file server, font service or analytics service;
+Apache; extra Moodle plugins unless Part 08 names them; LaTeX and TeX Live
+(D36).
