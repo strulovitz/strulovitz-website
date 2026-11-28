@@ -8,3 +8,4 @@ than the one before it, the reason stands beside it. Plain lines only
 date | stage | task | model | cost
 2026-11-28 | 0 | disk cleanup, folders, pins, STATE.md, owner-setup script, Caddy block, Syncthing pin, task cards, this line | DeepSeek V4.1 Flash (opencode; free quota first, then paid API through OpenRouter) | not shown to the agent; Nir's OpenRouter bill holds it
 2026-11-28 | 0 | laptop: survey, folders, owner-setup, per-PC uv/ffmpeg pins (D79), doctor rule and self-checks, cards, STATE, workflow, hand-off | DeepSeek V4.1 Flash 1017 (opencode, through OpenRouter) | not shown to the agent; Nir's OpenRouter bill holds it
+2026-11-28 | 1 | planning: Stage 1 cards and return handoff | Expert (config/roles) | not shown to the agent

@@ -1,87 +1,28 @@
 ATTRACT MODE -- STATE
-
-Read this first, after Part 00. One page. Rewritten, not appended to, at
-the end of every session: what exists, what works, what comes next, and
-what is waiting for Nir.
-Last rewritten: 2026-11-28, laptop-linux (Debian 13).
+2026-11-28, desktop-linux
 
 WHAT EXISTS
-- bible/ -- 12 files, 7,191 lines. Read IN FULL on the laptop on
-  2026-11-28 as well as on the desktop; laws.md matches Part 11, 11.8.
-- DECISIONS.md -- D1 to D79. Only D64 (the Co-op price) is open.
-- tasks/ -- the golden card and the Stage 0 cards. Now done: 0-01, 0-02,
-  0-03, 0-04, 0-05, 0-06, 0-07, 0-08, 0-09, 0-11, 0-12, 0-15.
-  Waiting for Nir: 0-10 (Syncthing pairing), 0-14 (pre at Cloudflare).
-  Open: 0-13 (Part 00 fold check and the tag bible-v1).
-- machines/desktop.md and machines/laptop.md -- both surveys, written
-  read-only. The laptop: Debian 13, 1.1 TB free, 8084 free. Apache was
-  checked on 2026-11-28: it serves only the stock Debian default page from
-  /var/www/html, listens on 80, has no 808x rules, and is not ours; port
-  443 is Tailscale, not Apache. Nothing of Nir's would be missed if it
-  stopped, but it was not touched (handoffs/2026-11-28-laptop-to-desktop-2.md).
-- config/pins -- one file, never "latest". PHP, uv and ffmpeg are now
-  per PC (D79): PHP 8.3/8.4, uv 0.12.0/0.12.1, ffmpeg 6.1.1/7.1.5.
-  Moodle 5.3, MariaDB 11.8 series and the line's Python 3.13.14 are the
-  same on both.
-- line/ -- the real uv project. "uv run am doctor" works and prints the
-  versions, ports, Moodle, Git, Syncthing, the hand-over and free space.
-  17 self-checks pass, including the per-PC pin rule.
-- hosting/install/owner-setup.sh -- the one setup script, now following
-  D78 in its comments too. hosting/attract-mode.caddy + one import line
-  in hosting/Caddyfile: our block, 8084 reserved, nothing public yet.
-- Place 1 on both PCs; Place 3 on the laptop at
-  /home/nir/attract-mode-files/ with its nine folders (voice/ is 700) and
-  a .stignore of one line, work/, ready for Syncthing.
-- costs.md has the bill line; WORKFLOW-2026-11-28.md has the dated log.
+- The Bible and decisions through D82. D82 assigns planning to the Expert and
+  execution to the Worker; model names are in config/roles.
+- Both machine surveys, the pinned setup script, the Caddy import, the
+  big-files folders and the `am doctor` command.
+- Stage 1 cards 1-01 through 1-12 and the return handoff:
+  handoffs/2026-11-28-expert-to-worker.md.
 
 WHAT WORKS
-- DESKTOP: PHP 8.3.6, MariaDB 11.8.10, Syncthing 2.1.7. It reported no
-  failures before the pins were split per PC, and after the split it was
-  CONFIRMED by the desktop: "am doctor" exit 0, no failures, and the 17
-  self-checks pass there too.
-- LAPTOP (this PC), installed on 2026-11-28 by owner-setup on Nir's word
-  (D78): PHP 8.4.28, MariaDB 11.8.9 (listens on 127.0.0.1:3306 only),
-  Syncthing 2.1.7. "am doctor" passes every pin; the only failure before
-  the commit was the uncommitted files, which that commit ends.
-- Syncthing runs as a user service on the laptop and answers on
-  127.0.0.1:8384. Our side is fully configured through its API: the desktop
-  device "mint-desktop" is added, and the folder "attract-mode-files" is
-  created at /home/nir/attract-mode-files and shared with it. The desktop
-  has never connected yet; it must accept the laptop (Syncthing name
-  "deb-server") and share the same folder. The test file
-  handover/laptop-to-desktop-test.txt is waiting.
-- Moodle is NOT installed anywhere, on purpose (desktop Stage 2, laptop
-  Stage 3). Caddy and cloudflared are not running here; the live site
-  answered Cloudflare 1033 when last checked. Apache was not touched.
-- No compile, no PPA and no third-party ffmpeg: by D79 each Linux keeps
-  its own 6.1.1 / 7.1.5.
+- Stage 0 closed under D81. The pre-fold tag `bible-v1` is on GitHub.
+- Both PCs have PHP, MariaDB and Syncthing and passed the setup checks.
+  Syncthing carried a test file in each direction. Scratch work stays local.
+- At the last live check, the desktop served the three existing sites and
+  pre.strulovitz.org. Only one PC serves at a time. No Moodle yet.
 
-WHAT WORKS, NEW ON 2026-11-28 EVENING
-- THE THREE WEBSITES ARE BACK, served by this desktop: www.strulovitz.org,
-  learnime.com and peaktogether.me all answer 200, and /hosted-by says
-  "Served by mint-desktop".
-- pre.strulovitz.org IS LIVE and shows the existing site (200, title
-  "Strulovitz - Home"). Nir added it at Cloudflare as a "Published
-  application" route on the home-sites tunnel, service URL
-  http://localhost:8081.
-- The Syncthing pairing holds; am doctor on the desktop reports no failures.
+WHAT COMES NEXT
+- Switch to the Worker. First approved task: 1-01, the studio list. Then
+  draft the site source files. See the handoff for dependencies and proof.
+- Return to the Expert for 1-06, the Ear and recording plan, before downloads
+  or installs. Return later for code review under D81, with the tests run first.
 
-WHAT COMES NEXT (the Bible's order)
-1. Syncthing's pairing and the two-way test file (card 0-10).
-2. O2: add "pre" at Cloudflare and check it (card 0-14).
-3. The Part 00 fold check by a different model, then the tag bible-v1
-   (card 0-13).
-4. That completes Part 01, section 1.13 -- Stage 0 done.
-5. Then Stage 1, "something to show": the first Making Of (Part 11, 11.4).
-
-WHAT IS WAITING FOR NIR
-- Syncthing: the laptop side is done; the desktop must accept "deb-server"
-  and share "attract-mode-files", then the test file must travel BOTH ways.
-- (done) O2: "pre" was added on 2026-11-28 and checked from outside.
-- Stage 1's decisions: D64 (the price of a Co-op hour) and the contact
-  address for parents and customers. Both are his to answer.
-- D64: the price of a Co-op hour.
-- Whether and when to start Caddy and the tunnel on either PC.
-- A separate, pre-existing apt warning on the laptop: the GitHub CLI
-  repository (cli.github.com) fails signature verification because a key
-  is missing. It is not ours and blocks nothing; fix it only if Nir asks.
+WAITING FOR NIR
+- Co-op price and public contact address when the Co-op draft needs them.
+- Recording, upload and Co-op copy approval when ready. Mail-service and
+  PayPal accounts are owner work in Stage 1; Moodle setup belongs to Stage 2.
