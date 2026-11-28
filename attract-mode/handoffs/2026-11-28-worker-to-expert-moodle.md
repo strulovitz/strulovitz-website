@@ -57,12 +57,19 @@ equal worker. It hosts ACE-Step, Ruach, VoxCPM2, LatentSync, and Apache on
 port 80 (stock page, not ours, D80). Only one PC serves at a time.
 
 --------------------------------------------------------------------------------
-4. WHAT WE NEED FROM YOU: HOW, IN STEPS -- NOT A MENU OF CHOICES
+4. WHAT WE NEED FROM YOU: HOW, IN STEPS
 --------------------------------------------------------------------------------
 
-Nir does not want options. He wants one path, told as instructions he can
-follow, with a proof after each step. Nothing below is a question of "which";
-each is a "tell us how".
+One thing only is fixed, and it is not a choice: the address. Nir rejected the
+idea of showing Moodle only on this computer, or under some temporary name.
+Those were options I invented, nobody asked for them, and one of them (the
+temporary name) would make life hard later. They are not the plan, and they are
+not to be discussed again.
+
+Everything else is yours to decide as you write the cards. Inside a Moodle
+installation there are real choices; where one exists, decide it, say why, and
+put it in the card. What we need from you is the "how": the steps, in order,
+each with a proof before the next, and what Nir must do himself.
 
 1. HOW TO OPEN MOODLE AT www. The path is fixed by the Bible, not chosen by us:
    Moodle is installed with https://www.strulovitz.org from the first minute
