@@ -11,8 +11,13 @@ WHAT EXISTS
 - machines/desktop.md -- the desktop survey (Part 01, 1.5), including the
   disk cleanup Nir approved on 2026-11-28.
 - config/pins -- every version number, one file, both PCs, never "latest".
-- Seven empty folders for later steps: config/ (now holds the pins),
-  vault/, research/, levels/, line/, hosting/, public/.
+- hosting/install/owner-setup.sh -- THE one setup script (Part 01, 1.9).
+  Written and syntax-checked; an agent never runs it. It installs PHP and
+  MariaDB, and Syncthing only when its pin is a real number. It does NOT
+  install Moodle (Stage 2 on the desktop, Stage 3 on the laptop) and does
+  not touch Caddy, the live websites or Apache.
+- Seven empty folders for later steps: config/ (holds the pins), vault/,
+  research/, levels/, line/, hosting/, public/.
 - WORKFLOW-2026-11-28.md -- the dated running log.
 - handoffs/ -- notes between agents, dated. kits/ -- the kits.
 - /home/nir/attract-mode-files/ -- nine empty folders for the big files:
@@ -23,21 +28,25 @@ WHAT EXISTS
 
 WHAT WORKS
 - Nothing is installed or running for Attract Mode yet: no PHP, no
-  MariaDB, no Moodle, no Syncthing, no Obsidian, no Caddy change.
+  MariaDB, no Moodle, no Syncthing, no Obsidian, no Caddy change. The setup
+  script exists but has never been run.
 - The two PCs are not joined yet. The laptop has not been surveyed.
 - Untouched and still working: the live website, and Crystal Balls (its
   own check, python -m pipeline.common --ping, exit 0).
 
 WHAT COMES NEXT (the Bible's order)
-1. The tools: hosting/install/owner-setup.sh, the Caddy block with its one
-   import line, and the am command with am doctor.
-2. Nir runs owner-setup on each PC (O1).
-3. Nir adds the name "pre" at Cloudflare (O2).
-4. The checks of Part 01, section 1.13.
+1. hosting/attract-mode.caddy, plus the ONE import line in hosting/Caddyfile
+   (Part 01, 1.9, item 6). Validate, reload (never restart), sites-check.
+2. line/ -- the am command with am doctor (Part 01, 1.10).
+3. Nir runs owner-setup once on each PC (O1).
+4. Nir adds the name "pre" at Cloudflare (O2).
+5. The checks of Part 01, section 1.13.
 
 WHAT IS WAITING FOR NIR
+- The Syncthing pin is OPEN in config/pins, so the setup script skips
+  Syncthing. A real number must be chosen before it is installed.
 - The laptop survey (Part 01, 1.5): needs the laptop on and connected.
-- O1: run owner-setup on each PC.
+- O1: run owner-setup on each PC, typing his own password.
 - O2: add "pre" at Cloudflare.
 - D64: the price of a Co-op hour.
 - The fold check of Part 00 by a different model (11.10 and 11.12, item 5).
