@@ -13,6 +13,8 @@ WHAT WORKS
 - Stage 0 closed under D81. The pre-fold tag `bible-v1` is on GitHub.
 - Both PCs have PHP, MariaDB and Syncthing and passed the setup checks.
   Syncthing carried a test file in each direction. Scratch work stays local.
+  The laptop confirmed this on 2026-11-28: the desktop's file arrived, and
+  its "am doctor" shows the desktop connected.
 - At the last live check, the desktop served the three existing sites and
   pre.strulovitz.org. Only one PC serves at a time. No Moodle yet.
 
