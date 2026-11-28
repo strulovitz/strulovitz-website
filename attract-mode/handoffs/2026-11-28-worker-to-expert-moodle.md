@@ -1,4 +1,4 @@
-HAND-OFF: WORKHORSE -> EXPERT (Moodle, now)
+HAND-OFF: WORKHORSE -> EXPERT (Moodle at www; what we need from you)
 date: 2026-11-28
 from: the WORKHORSE on the DESKTOP, DeepSeek V4.1 Flash
 to:   the EXPERT, GPT 6.2 Sol
@@ -9,96 +9,86 @@ branch: master
 1. WHAT NIR WANTS
 --------------------------------------------------------------------------------
 
-Moodle. Now. In his words: "why are we not in Moodle, which is the meat and
+Moodle, at www.strulovitz.org, built now. In his words: "which is the meat and
 potatoes ... do the main thing already ... i want to see it within my life".
-He wants to click inside Moodle soon, not months from now.
+The art half (the first Making Of, the Ear, the recorder) is parked, not
+deleted: cards 1-06 to 1-12 stay open and keep their place.
 
-Two rules he set today, which outrank any plan:
-- Do only what he asks. No invented safety rules, no extra work.
-- If the Bible and his wish disagree, his wish wins, and the Bible is corrected
-  with a dated decision (AM-LAW 19). The Bible is meant to reflect what he
-  wants; it is not to be obeyed against him.
+So the Bible's order changes: Moodle first. The Bible's own path for Moodle is
+kept exactly as written (Part 08, 8.5 and Part 11, 11.5): it is installed with
+https://www.strulovitz.org as its address from the first minute; its pages are
+read through port 8084 from inside the PC; then www is pointed at 8084. The way
+back, if the day goes wrong, is to point www at 8081 again; that is in the same
+section of the Bible.
 
 --------------------------------------------------------------------------------
-2. WHAT THIS MEANS FOR THE ORDER
+2. HOW TO WORK WITH NIR ON DECISIONS
 --------------------------------------------------------------------------------
 
-Part 11, 11.4 puts Stage 1 (a first Making Of) before Stage 2 (Moodle). Nir has
-overruled that: Moodle goes first. The art work is parked, not deleted: cards
-1-06 to 1-12 stay open, and 1-01 to 1-05 are already done or draft-ready.
+He is the owner and he decides. Where a REAL decision exists inside the work,
+bring it to him like this:
+- one short line saying what has to be decided;
+- two or three real possibilities only, no invented ones;
+- for each, one or two sentences of pros and cons, in beginner words;
+- your recommendation, and what you would do if it were your project.
+He is not dumb: explained simply and briefly, he decides well. Everything that
+is not a real decision is yours to settle, and you say why in the card.
 
-Part 11, 11.5 says the switch of www waits because "from this day, a link to
-the home page opens Attract Mode, so the front page must have something to show
-on its first day". Nir is not waiting: www becomes Moodle. So tell us, as an
-instruction and not as a choice, what that front page must say on day one while
-no film exists yet, so that it is honest and not empty of meaning.
+He also asked: do not spend his money on planning twice, and keep your own
+letters to what helps the work.
 
 --------------------------------------------------------------------------------
 3. THE STATE OF THE MACHINES TODAY
 --------------------------------------------------------------------------------
 
-Nothing of Moodle is installed. The disk is clean; port 8084 answers our own
-placeholder ("Attract Mode is being built.").
+Nothing of Moodle is installed. The disk is clean, and port 8084 answers our
+own placeholder ("Attract Mode is being built.").
 
 DESKTOP (serves the world): Linux Mint 22.2. PHP 8.3.6 with the fpm package,
-MariaDB 11.8.10 on 127.0.0.1 only, Caddy 2.11.4, cloudflared, Syncthing
-2.1.7. Missing PHP extensions: soap and xmlrpc only. Moodle 5.x does not
-require xmlrpc; soap is optional and Moodle's own environment check decides.
+MariaDB 11.8.10 on 127.0.0.1 only, Caddy 2.11.4, cloudflared, Syncthing 2.1.7.
+PHP is missing only soap and xmlrpc; Moodle 5.x does not require xmlrpc, and
+soap is optional -- Moodle's own environment check is the judge.
 Ports: 8081 the old site and pre, 8082 learnime.com, 8083 peaktogether.me,
 8084 ours, 3306 MariaDB. www, learnime, peaktogether and pre all answer 200.
 The tunnel starts from Nir's icon and runs by token, so its routes live at
 Cloudflare: Networking, Tunnels, tunnel "home-sites", "Routes", "Published
-application", one "Service URL". The place Moodle goes is /var/www/moodle with
-its data folder outside the web root, which is Moodle's own default (D9).
-/var/www does not exist yet.
+application", one "Service URL". /var/www does not exist yet; Moodle's own
+default places are /var/www/moodle and a data folder outside the web root.
 
 LAPTOP: Debian 13, PHP 8.4.28, MariaDB 11.8.9, Syncthing 2.1.7, same repo,
-equal worker. It hosts ACE-Step, Ruach, VoxCPM2, LatentSync, and Apache on
-port 80 (stock page, not ours, D80). Only one PC serves at a time.
+equal worker, and it hosts ACE-Step, Ruach, VoxCPM2 and LatentSync. Apache on
+its port 80 is the stock page and not ours (D80). Only one PC serves at a time.
 
 --------------------------------------------------------------------------------
-4. WHAT WE NEED FROM YOU: HOW, IN STEPS
+4. WHAT WE NEED FROM YOU
 --------------------------------------------------------------------------------
 
-One thing only is fixed, and it is not a choice: the address. Nir rejected the
-idea of showing Moodle only on this computer, or under some temporary name.
-Those were options I invented, nobody asked for them, and one of them (the
-temporary name) would make life hard later. They are not the plan, and they are
-not to be discussed again.
-
-Everything else is yours to decide as you write the cards. Inside a Moodle
-installation there are real choices; where one exists, decide it, say why, and
-put it in the card. What we need from you is the "how": the steps, in order,
-each with a proof before the next, and what Nir must do himself.
-
-1. HOW TO OPEN MOODLE AT www. The path is fixed by the Bible, not chosen by us:
-   Moodle is installed with https://www.strulovitz.org from the first minute
-   (Part 08, 8.5, item 1); its pages are read through port 8084 from inside the
-   PC (Part 11, 11.5, item 1); then Nir points www at 8084 (Part 11, 11.5, item
-   3). Give us that as ordered steps: what is done first, how each step is
-   proved before the next, what Nir does himself, and the exact way back if the
-   day goes wrong (Part 11, 11.5, "the way back").
-2. HOW the admin password is typed by Nir himself, so it never enters a shell
+1. THE CARDS, 2-01 onward, one practical piece and one proof each, in the
+   order that ends with Nir clicking inside Moodle: the database and its own
+   user; Moodle's files and the data folder outside the web root; PHP running
+   as Nir; the Caddy door for 8084; the PHP limits; the environment check; the
+   installer at the real address; the logs and the clock.
+2. THE STEPS inside each card: what is done, in what order, and how each step
+   is proved before the next. Where Nir must act, say exactly what he does and
+   what he will see on screen.
+3. THE ADMIN PASSWORD: how Nir types it himself, without it entering a shell
    history, a log or a chat (Part 08, 8.5, item 7).
-3. HOW PHP is to be set up here: one FPM pool running as user nir on
-   /run/php/php8.3-fpm-attract.sock, uploads 20 MB, memory 256 MB, sessions in
-   the data folder. State it as the spec, with the steps to apply it.
-4. HOW the Caddy block for 8084 is written: /am/ answered by Caddy itself; root
+4. THE PHP SPEC: one FPM pool as user nir on /run/php/php8.3-fpm-attract.sock,
+   uploads 20 MB, memory 256 MB, sessions in the data folder -- or your own
+   design, with the reason.
+5. THE CADDY BLOCK for 8084: /am/ answered by Caddy itself; root
    /var/www/moodle/public; php_fastcgi on the unix socket; anything matching no
    file goes to /r.php. Give the exact handler order and the command that
    validates it before any reload.
-5. HOW config.php must be set for a tunnel that ends TLS at Cloudflare:
-   sslproxy and reverseproxy, and why each is needed (Part 08, 8.5, items 2
-   and 3).
-6. HOW we prove the building half is done before the switch: the checks, in
-   order, and which of them need Nir at the keyboard.
-7. WHAT the front page says on day one, before any film exists.
-8. THE CARDS THEMSELVES, 2-01 onward: one practical piece and one proof each.
-   The shape Nir understands: the database and its user; Moodle's files and the
-   data folder outside the web root; PHP running as Nir; the Caddy door; the
-   PHP limits; the environment check; the installer at the real address with
-   Nir's password; the logs and the clock. In order, ending with him clicking
-   inside Moodle.
+6. THE config.php LINES for a tunnel that ends TLS at Cloudflare (sslproxy,
+   reverseproxy), and why each is needed (Part 08, 8.5, items 2 and 3).
+7. WHAT "DONE" MEANS before the switch: the checks, in order, and which need
+   Nir at the keyboard.
+8. WHAT THE FRONT PAGE SAYS on day one. No film exists yet, and www becomes
+   Moodle, so tell us what that page must carry so it is honest and not empty
+   of meaning.
+9. WHICH REAL DECISIONS you want Nir to settle. List them for him in the short
+   pros-and-cons shape of section 2. Nothing invented.
 
 --------------------------------------------------------------------------------
 5. WHAT I WILL DO WHEN YOUR CARDS ARRIVE
@@ -106,11 +96,11 @@ each with a proof before the next, and what Nir must do himself.
 
 Pull, read your letter first, then execute one card at a time: run it, show the
 proof, update STATE.md and the dated log, commit only the named files, push. If
-a card cannot be executed as written, I stop and say why. I do not improvise
+a card cannot be executed as written, I stop and say why; I do not improvise
 and I do not add work nobody asked for. If a fact is needed from the laptop, I
 write him a handoff; he is equal to me, not a helper.
 
-Nir switches models by hand. Put the real content in the files, and give him
-one short sentence to act on.
+Nir switches models by hand, so give him one short sentence to act on and put
+the real content in the files.
 
 -- the WORKHORSE on the desktop
