@@ -1,32 +1,42 @@
-# ATTRACT MODE -- our own block (Part 01, section 1.9, item 6).
+# ATTRACT MODE -- port 8084: Moodle, plus our own plain files (Part 01, 1.4).
 #
-# Pulled into the live configuration by ONE line at the end of
-# hosting/Caddyfile:
-#     import ../attract-mode/hosting/attract-mode.caddy
-# Caddy reads import paths relative to the Caddyfile's own folder, so the
-# path starts with ".." on purpose.
+# One import line in hosting/Caddyfile pulls this in (Part 01, 1.9, item 6).
+# Caddy reads import paths relative to the Caddyfile's own folder, so the path
+# starts with "..".
 #
-# THE PORTS ARE THE BIBLE'S, NOT OURS (Part 01, 1.4 and Part 11, 11.5):
-#   8081  everything www.strulovitz.org serves today, and pre.strulovitz.org
-#   8082  learnime.com
-#   8083  peaktogether.me
-#   8084  Attract Mode: Moodle plus our plain files, from Switch Day
-#
-# SO "pre" NEEDS NOTHING HERE. pre.strulovitz.org is the tunnel's job: its
-# entry points at 127.0.0.1:8081, the old site's own port (Nir's owner act
-# O2). An earlier version of this file wrongly listened on 8084 and gave
-# that port to "pre"; 8084 belongs to Moodle. Corrected 2026-11-28.
-#
-# WHAT THIS FILE HOLDS NOW: the 8084 door, reserved and answering plainly,
-# so the port is declared in the configuration before Stage 2 needs it.
-# Nothing on the public internet points here yet.
-#
-# AT STAGE 2 this block is replaced by the real thing (Part 08, section
-# 8.5): Caddy answers /am/ itself, everything else goes to Moodle's public
-# folder with PHP running as Nir's own user, and anything that matches no
-# file goes to Moodle's router.
+# THE PORTS ARE THE BIBLE'S: 8081 the old site and pre; 8082 learnime.com;
+# 8083 peaktogether.me; 8084 Attract Mode. "pre" is the tunnel at 8081 and
+# needs no door here.
 
 :8084 {
 	bind 127.0.0.1
-	respond "Attract Mode is being built. Nothing is for sale yet." 200
+
+	handle /hosted-by {
+		header Cache-Control "no-store"
+		respond "Served by {system.hostname} (Attract Mode / Moodle)" 200
+	}
+
+	@hidden path_regexp hidden "(^|/)[.]"
+	respond @hidden 404
+	@rootDocs path_regexp rootDocs "^/[^/]+[.]md$"
+	respond @rootDocs 404
+
+	# Our own plain files, handed back by Caddy before Moodle sees the request
+	# (Part 01, 1.4). Written only by "am publish"; never edited by hand.
+	handle_path /am/* {
+		root * {$HOME}/strulovitz-website/attract-mode/public
+		file_server
+	}
+
+	# Everything else is Moodle: its public folder, PHP running as Nir, and
+	# anything matching no file goes to Moodle's front controller (Part 08,
+	# 8.5). MEASURED on 2026-11-28: r.php answers 404 for "/", while
+	# public/index.php answers 303 to the login page -- so index.php is the
+	# fallback, exactly as Moodle's own web-server examples do it.
+	root * /var/www/moodle/public
+	encode gzip
+	php_fastcgi unix//run/php/php8.3-fpm-attract.sock {
+		try_files {path} {path}/index.php /index.php
+	}
+	file_server
 }
