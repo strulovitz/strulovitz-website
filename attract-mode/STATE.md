@@ -78,7 +78,8 @@ WHAT IS WAITING FOR NIR
 - Syncthing: the laptop side is done; the desktop must accept "deb-server"
   and share "attract-mode-files", then the test file must travel BOTH ways.
 - (done) O2: "pre" was added on 2026-11-28 and checked from outside.
-- Card 0-13: was the Part 00 fold check ever done, and by which model?
+- Stage 1's decisions: D64 (the price of a Co-op hour) and the contact
+  address for parents and customers. Both are his to answer.
 - D64: the price of a Co-op hour.
 - Whether and when to start Caddy and the tunnel on either PC.
 - A separate, pre-existing apt warning on the laptop: the GitHub CLI
