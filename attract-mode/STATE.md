@@ -11,6 +11,9 @@ WHAT EXISTS
 - DECISIONS.md -- D1 to D77. Only D64 is open.
 - tasks/ -- the golden card (0-00) and the Stage 0 cards (0-01 to 0-15),
   each with its role, what to read, its done-when and its true state.
+- handoffs/2026-11-28-desktop-to-laptop.md -- the letter to the agent on the
+  laptop (the same model, on Debian 13). It carries the laptop's five tasks
+  and the four mistakes of today. The laptop answers with its own hand-off.
 - costs.md -- the first line of the bill (Part 11, 11.7).
 - machines/desktop.md -- the desktop survey, plus the disk cleanup.
 - config/pins -- every version, one file, both PCs, never "latest".
