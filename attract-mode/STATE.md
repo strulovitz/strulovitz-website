@@ -6,61 +6,53 @@ what is waiting for Nir.
 Last rewritten: 2026-11-28, desktop-linux.
 
 WHAT EXISTS
-- bible/ -- 12 files. Read in full; laws.md matches Part 11, section 11.8.
+- bible/ -- 12 files. Read IN FULL on 2026-11-28 (all 7,189 lines);
+  laws.md matches Part 11, section 11.8, word for word.
 - DECISIONS.md -- D1 to D77. Only D64 is open.
-- machines/desktop.md -- the desktop survey (Part 01, 1.5), including the
-  disk cleanup Nir approved on 2026-11-28.
-- config/pins -- every version number, one file, both PCs, never "latest".
-  Syncthing is 2.1.7, chosen by Nir on 2026-11-28 (option A of two real
-  choices); the reason is written under the pin.
-- hosting/install/owner-setup.sh -- THE one setup script (Part 01, 1.9).
-  Written and syntax-checked; an agent never runs it. It installs PHP and
-  MariaDB, and Syncthing 2.1.7 from Syncthing's own repository (channel
-  chosen from the pin's major version). It does NOT install Moodle (Stage 2
-  on the desktop, Stage 3 on the laptop) and does not touch Caddy, the live
-  websites or Apache.
-- hosting/attract-mode.caddy -- our block (Part 01, 1.9, item 6). The
-  ports are the Bible's (Part 01, 1.4): 8084 belongs to Attract Mode
-  (Moodle, from Switch Day), and "pre" is simply the tunnel pointing at
-  127.0.0.1:8081 -- it needs no door of its own. The block reserves
-  127.0.0.1:8084 and answers a plain sentence there until Moodle arrives.
-  An earlier version gave 8084 to "pre"; corrected the same day (step 5d).
-- hosting/Caddyfile -- one import line added at the end. Nothing else
-  changed. Validated with "caddy validate"; the adapted config shows the
-  three live blocks untouched.
-- Seven folders for later steps: config/ (holds the pins), vault/,
-  research/, levels/, line/, hosting/, public/.
-- WORKFLOW-2026-11-28.md -- the dated running log.
-- handoffs/ -- notes between agents, dated. kits/ -- the kits.
-- /home/nir/attract-mode-files/ -- nine empty folders for the big files:
-  books, footage, masters, sessions, handover, raw, packages, voice, work.
-  voice/ is mode 700. This folder never goes into Git.
-- Disk: / has 61 GB free. The Ollama models (19 GB) live on /home at
-  /home/ai-models/ollama/models (D77).
+- tasks/ -- the golden card (0-00) and the Stage 0 cards (0-01 to 0-15),
+  each with its role, what to read, its done-when and its true state.
+- costs.md -- the first line of the bill (Part 11, 11.7).
+- machines/desktop.md -- the desktop survey, plus the disk cleanup.
+- config/pins -- every version, one file, both PCs, never "latest".
+  PHP is two lines (8.3 desktop, 8.4 laptop, as Part 01, 1.8 allows);
+  Syncthing is 2.1.7 (Nir chose it); the line's Python is 3.13.14.
+- line/ -- the real Python project uv owns: "uv run am doctor" works.
+  It reports the versions against the pins, the ports, Moodle, Git,
+  Syncthing, the newest hand-over and free space; every failure is one
+  plain sentence with what to do. No outside library is used.
+- hosting/install/owner-setup.sh -- the one setup script. Written and
+  syntax-checked; an agent never runs it. PHP + MariaDB + Syncthing 2.1.7
+  from Syncthing's own repository; NOT Moodle; touches no live site.
+- hosting/attract-mode.caddy + one import line in hosting/Caddyfile --
+  our block. Ports are the Bible's (Part 01, 1.4): 8084 is Attract Mode's,
+  and "pre" is the tunnel pointing at 8081, with no door of its own.
+- The folders of Place 1, and /home/nir/attract-mode-files/ with its nine
+  folders (voice/ is 700). WORKFLOW-2026-11-28.md is the dated log.
+- Disk: / has 60 GB free; the Ollama models are on /home (D77).
 
 WHAT WORKS
-- Nothing is installed or running for Attract Mode yet: no PHP, no
-  MariaDB, no Moodle, no Syncthing, no Obsidian. The setup script exists
-  but has never been run.
-- Caddy and cloudflared are NOT running on this PC (verified 2026-11-28:
-  no process, nothing listening on 8081-8084). The live site answered
-  Cloudflare "error 1033" (tunnel not connected) at that check. Nobody
-  started or reloaded anything: that is Nir's decision.
-- The two PCs are not joined yet. The laptop has not been surveyed.
-- Crystal Balls is untouched and still passes its own check.
+- "uv run am doctor" runs and prints a true report. It ends with three
+  real failures: PHP, MariaDB and Syncthing are not installed yet, because
+  that is Nir's owner-setup act (card 0-15).
+- Nothing else of Attract Mode is installed or running; Caddy and
+  cloudflared are NOT running on this PC, so the block is validated but
+  not loaded. The live site answered Cloudflare 1033 (no tunnel) when
+  checked; Nir said not to worry about it for a few hours.
+- Crystal Balls and the live website were not touched and still work.
 
 WHAT COMES NEXT (the Bible's order)
-1. line/ -- the am command with am doctor (Part 01, 1.10).
-2. Nir runs owner-setup once on each PC (O1).
-3. Nir adds the name "pre" at Cloudflare, plus the tunnel entry that points
-   it at 127.0.0.1:8084 on the serving PC (O2).
-4. The checks of Part 01, section 1.13.
+1. Nir runs owner-setup on the desktop (O1), then "am doctor" again.
+2. The laptop: its survey (0-03), the same folders (0-05), owner-setup.
+3. Syncthing's two-way test file, then O2: "pre" at Cloudflare, pointing
+   at 127.0.0.1:8081 on the serving PC.
+4. The fold check of Part 00 by a different model, and the tag bible-v1
+   (0-13) -- no tag and no record of the check exist.
+5. Then Stage 0's done-means of Part 01, 1.13.
 
 WHAT IS WAITING FOR NIR
-- Whether to start Caddy and the tunnel on this PC at all, and when; the
-  live site is currently not answering (Cloudflare 1033).
-- The laptop survey (Part 01, 1.5): needs the laptop on and connected.
-- O1: run owner-setup on each PC, typing his own password.
-- O2: add "pre" at Cloudflare and its tunnel entry.
+- O1: run owner-setup on each PC, typing his own password (card 0-15).
+- O2: add "pre" at Cloudflare and its tunnel entry (card 0-14).
+- The laptop, switched on in Linux, for its survey and folders.
+- Card 0-13: was the Part 00 fold check ever done, and by which model?
 - D64: the price of a Co-op hour.
-- The fold check of Part 00 by a different model (11.10 and 11.12, item 5).
+- Whether to start Caddy and the tunnel on this PC at all, and when.
